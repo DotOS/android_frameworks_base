@@ -75,4 +75,8 @@
   <!-- Package Manager -->
   <java-symbol type="array" name="config_disabledComponents" /> 
   <java-symbol type="array" name="config_forceEnabledComponents" />
+
+  <!-- Device keyhandler -->
+  <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+  <java-symbol type="string" name="config_deviceKeyHandlerClass" />
 </resources>
