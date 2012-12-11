@@ -4997,6 +4997,12 @@ public final class Settings {
          */
         public static final String SWAP_VOLUME_KEYS_ON_ROTATION = "swap_volume_keys_on_rotation";
 
+        **
+         * boolean value. toggles using arrow key locations on nav bar
+         * as left and right dpad keys
+         */
+        public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+
         /**
          * Whether allowing pocket service to register sensors and dispatch informations.
          *   0 = disabled
@@ -5489,6 +5495,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLBTN_MUSIC_CONTROLS);
             PRIVATE_SETTINGS.add(VOLUME_ANSWER_CALL);
             PRIVATE_SETTINGS.add(SWAP_VOLUME_KEYS_ON_ROTATION);
+            PRIVATE_SETTINGS.add(NAVIGATION_BAR_MENU_ARROW_KEYS);
         }
 
         /**
