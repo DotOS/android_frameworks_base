@@ -899,6 +899,19 @@ public final class Settings {
 
     /**
      * @hide
+     * Activity Action: Show the "app ops" details screen.
+     * <p>
+     * Input: The Intent's data URI specifies the application package name
+     * to be shown, with the "package" scheme.  That is "package:com.my.app".
+     * <p>
+     * Output: Nothing.
+     */
+    @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
+    public static final String ACTION_APP_OPS_DETAILS_SETTINGS =
+            "android.settings.APP_OPS_DETAILS_SETTINGS";
+
+    /**
+     * @hide
      * Activity Action: Show the "app ops" settings screen.
      * <p>
      * Input: Nothing.
@@ -8922,6 +8935,16 @@ public final class Settings {
          */
         public static final String PACKAGES_TO_CLEAR_DATA_BEFORE_FULL_RESTORE =
                 "packages_to_clear_data_before_full_restore";
+
+        /**
+         * @hide
+         */
+        public static final String PRIVACY_GUARD_DEFAULT = "privacy_guard_default";
+         /**
+         * @hide
+         */
+        public static final String PRIVACY_GUARD_NOTIFICATION = "privacy_guard_notification";
+        
         /**
          * Display style of the status bar battery information
          * 0: Display the battery an icon in portrait mode
