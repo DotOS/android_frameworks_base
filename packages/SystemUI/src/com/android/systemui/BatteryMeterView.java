@@ -65,7 +65,7 @@ public class BatteryMeterView extends LinearLayout implements
 
     private BatteryMeterDrawableBase mDrawable;
     private final String mSlotBattery;
-    private final ImageView mBatteryIconView;
+    private ImageView mBatteryIconView;
     private final CurrentUserTracker mUserTracker;
     private TextView mBatteryPercentView;
 
@@ -272,11 +272,13 @@ public class BatteryMeterView extends LinearLayout implements
     }
 
     private void updateShowPercent() {
+        final boolean showingText = Settings.Secure.getIntForUser(
+                getContext().getContentResolver(), STATUS_BAR_BATTERY_STYLE, 0, mUser) == 2;
         final boolean showingInside = Settings.System.getIntForUser(
                 getContext().getContentResolver(), SHOW_BATTERY_PERCENT, 0, mUser) == 2;
         final boolean showingOutside = mBatteryPercentView != null;
         if (0 != Settings.System.getIntForUser(getContext().getContentResolver(),
-                SHOW_BATTERY_PERCENT, 0, mUser) || mForceShowPercent) {
+                SHOW_BATTERY_PERCENT, 0, mUser) || mForceShowPercent || showingText) {
             if (!showingOutside) {
                 mDrawable.setShowPercent(false);
                 mBatteryPercentView = loadPercentView();
@@ -287,7 +289,7 @@ public class BatteryMeterView extends LinearLayout implements
                                 LayoutParams.WRAP_CONTENT,
                                 LayoutParams.MATCH_PARENT));
             }
-            if (showingInside && !mForceShowPercent) {
+            if (showingInside && !showingText && !mForceShowPercent) {
                 mDrawable.setShowPercent(true);
                 removeView(mBatteryPercentView);
                 mBatteryPercentView = null;
@@ -324,7 +326,10 @@ public class BatteryMeterView extends LinearLayout implements
                 (int) (batteryWidth * iconScaleFactor), (int) (batteryHeight * iconScaleFactor));
         scaledLayoutParams.setMargins(0, 0, 0, marginBottom);
 
-        mBatteryIconView.setLayoutParams(scaledLayoutParams);
+        if (mBatteryIconView != null) {
+            mBatteryIconView.setLayoutParams(scaledLayoutParams);
+        }
+
         FontSizeUtils.updateFontSize(mBatteryPercentView, R.dimen.qs_time_expanded_size);
     }
 
@@ -379,6 +384,29 @@ public class BatteryMeterView extends LinearLayout implements
         final int style = styleStr == null ?
                 BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(styleStr);
 
-        mDrawable.setMeterStyle(style);
+        switch (style) {
+            case BatteryMeterDrawableBase.BATTERY_STYLE_TEXT:
+                if (mBatteryIconView != null) {
+                    removeView(mBatteryIconView);
+                    mBatteryIconView = null;
+                }
+                break;
+            default:
+                mDrawable.setMeterStyle(style);
+                if (mBatteryIconView == null) {
+                    mBatteryIconView = new ImageView(mContext);
+                    mBatteryIconView.setImageDrawable(mDrawable);
+                    final MarginLayoutParams mlp = new MarginLayoutParams(
+                            getResources().getDimensionPixelSize(
+                                    R.dimen.status_bar_battery_icon_width),
+                            getResources().getDimensionPixelSize(
+                                    R.dimen.status_bar_battery_icon_height));
+                    mlp.setMargins(0, 0, 0, getResources().getDimensionPixelOffset(
+                                    R.dimen.battery_margin_bottom));
+                    addView(mBatteryIconView, mlp);
+                }
+                break;
+        }
+        updateShowPercent();
     }
 }
