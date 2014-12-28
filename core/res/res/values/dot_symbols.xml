@@ -95,4 +95,7 @@
   <!-- Common boost params -->
   <java-symbol type="array" name="qboost_strong_param_value" />
   <java-symbol type="array" name="qboost_weak_param_value" />
+
+  <!-- Screenrecord -->
+  <java-symbol type="bool" name="config_enableScreenrecordChord" />
 </resources>

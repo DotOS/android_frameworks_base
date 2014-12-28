@@ -95,4 +95,7 @@
 
     <!-- Boost parameters which get passed to QPerformance -->
     <integer-array name="onbootboost_param_value"/>
+
+    <!-- If this is true, key chords can be used to take a screen record on the device. -->
+    <bool name="config_enableScreenrecordChord">true</bool>
 </resources>
