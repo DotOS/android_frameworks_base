@@ -25,4 +25,7 @@
     <dimen name="net_traffic_single_text_size">12dp</dimen>
     <dimen name="net_traffic_multi_text_size">8dp</dimen>
     <dimen name="net_traffic_txt_img_padding">2dp</dimen>
+
+    <!-- Membar spacing -->
+    <dimen name="recents_membar_spacing">12dp</dimen>
 </resources>
