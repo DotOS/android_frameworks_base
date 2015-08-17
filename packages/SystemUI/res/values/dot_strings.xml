@@ -129,4 +129,7 @@
     <string name="dlg_ok" translatable="false">@android:string/ok</string>
     <string name="dlg_cancel" translatable="false">@android:string/cancel</string>
     <string name="guts_force_close_app">Close App</string>
+
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Volume panel</string>
 </resources>
