@@ -4188,6 +4188,12 @@ public final class Settings {
                 "double_tap_sleep_lockscreen";
 
         /**
+         * Toast icon
+         * @hide
+         */
+        public static final String TOAST_ICON = "toast_icon";
+
+        /**
          * Whether to allow one finger quick settings expansion on the right side of the statusbar.
          * @hide
          */
@@ -4497,6 +4503,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_DISPLAY);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_STYLE);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
+            PRIVATE_SETTINGS.add(TOAST_ICON);
         }
 
         /**
