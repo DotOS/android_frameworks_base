@@ -368,6 +368,11 @@
 
         <service android:name=".screenrecord.RecordingService" />
 
+        <service
+            android:name=".dot.onthego.OnTheGoService"
+            android:process=":onthego"
+            android:exported="false" />
+
         <receiver android:name=".SysuiRestartReceiver"
             android:exported="false">
             <intent-filter>

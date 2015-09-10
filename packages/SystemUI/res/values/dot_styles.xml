@@ -4,4 +4,12 @@
     <style name="qs_theme" parent="Theme.SystemUI.QuickSettings">
         <item name="android:windowIsFloating">true</item>
     </style>
+
+    <style name="OnTheGoDialog" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:textColor">@color/notification_primary_text_color</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
 </resources>
