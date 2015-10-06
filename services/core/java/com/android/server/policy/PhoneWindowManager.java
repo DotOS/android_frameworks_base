@@ -235,7 +235,7 @@ import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.policy.IKeyguardDismissCallback;
-import com.android.internal.util.aospextended.AEXUtils;
+import com.android.internal.util.dotos.DOTUtils;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.policy.IKeyguardService;
@@ -8268,13 +8268,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     public void sendCustomAction(Intent intent) {
         String action = intent.getAction();
         if (action != null) {
-            if (AEXUtils.INTENT_SCREENSHOT.equals(action)) {
+            if (DOTUtils.INTENT_SCREENSHOT.equals(action)) {
                 mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
                         TAG + "sendCustomAction permission denied");
                 mHandler.removeCallbacks(mScreenshotRunnable);
                 mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
                 mHandler.post(mScreenshotRunnable);
-            } else if (AEXUtils.INTENT_REGION_SCREENSHOT.equals(action)) {
+            } else if (DOTUtils.INTENT_REGION_SCREENSHOT.equals(action)) {
                 mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
                         TAG + "sendCustomAction permission denied");
                 mHandler.removeCallbacks(mScreenshotRunnable);
