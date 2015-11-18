@@ -4138,6 +4138,14 @@ public final class Settings {
          */
         public static final String  RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
+         *
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
         /**
          * Whether to show network traffic indicator in statusbar
          * @hide
@@ -4566,6 +4574,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SWAP_VOLUME_BUTTONS);
             PRIVATE_SETTINGS.add(VOLUME_BUTTON_MUSIC_CONTROL);
             PRIVATE_SETTINGS.add(SYSTEM_THEME_STYLE);
+            PRIVATE_SETTINGS.add(VOLUME_LINK_NOTIFICATION);
         }
 
         /**
