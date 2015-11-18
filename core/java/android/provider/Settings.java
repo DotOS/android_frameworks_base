@@ -3994,6 +3994,14 @@ public final class Settings {
          */
         public static final String  RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
+         *
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -4160,10 +4168,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_TO_APP_ENABLED);
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
-			PRIVATE_SETTINGS.add(QS_ROWS_PORTRAIT);
-            PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
-            PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
-            PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
+			PRIVATE_SETTINGS.add(VOLUME_LINK_NOTIFICATION);
         }
 
         /**
