@@ -8085,7 +8085,7 @@ public class PackageManagerService extends IPackageManager.Stub
                                         | Installer.FLAG_CLEAR_APP_DATA_KEEP_ART_PROFILES);
                     }
                 }
-                ver.fingerprint = Build.FINGERPRINT;
+                ver.fingerprint = Build.DATE;
             }
 
             // Legacy existing (installed before Q) non-system apps to hide
@@ -25537,7 +25537,7 @@ public class PackageManagerService extends IPackageManager.Stub
                     Slog.w(TAG, "Failed to scan " + ps.getPath() + ": " + e.getMessage());
                 }
 
-                if (!Build.FINGERPRINT.equals(ver.fingerprint)) {
+                if (!Build.DATE.equals(ver.fingerprint)) {
                     clearAppDataLIF(ps.pkg, UserHandle.USER_ALL, FLAG_STORAGE_DE | FLAG_STORAGE_CE
                             | FLAG_STORAGE_EXTERNAL | Installer.FLAG_CLEAR_CODE_CACHE_ONLY
                             | Installer.FLAG_CLEAR_APP_DATA_KEEP_ART_PROFILES);
