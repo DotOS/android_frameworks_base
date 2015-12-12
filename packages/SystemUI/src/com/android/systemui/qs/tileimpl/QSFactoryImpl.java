@@ -25,6 +25,7 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AODTile;
+import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
@@ -131,6 +132,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new ExpandedDesktopTile(mHost);
             case "aod":
                 return new AODTile(mHost);
+            case "ambient_display":
+                return new AmbientDisplayTile(mHost);
         }
 
         // Intent tiles.
