@@ -77,4 +77,7 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
+
+    <!-- Screenrecord Tile -->
+    <string name="quick_settings_screenrecord">Screenrecord</string>
 </resources>
