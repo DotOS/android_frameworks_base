@@ -5543,6 +5543,18 @@ public final class Settings {
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
         /**
+         * Whether to enable or disable vibration on succesful fingerprint auth
+         * @hide
+         */
+        public static final String FP_SUCCESS_VIBRATE = "fingerprint_success_vib";
+
+        /**
+         * Whether to enable or disable vibration on failed fingerprint auth
+         * @hide
+         */
+        public static final String FP_ERROR_VIBRATE = "fingerprint_error_vib";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
