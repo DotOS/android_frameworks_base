@@ -4521,6 +4521,17 @@ public final class Settings {
           */
           public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
+
+        /**
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_GESTURE = "torch_long_press_power_gesture";
+
+        /**
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
+
          /**
          * volume answer
          * @hide
