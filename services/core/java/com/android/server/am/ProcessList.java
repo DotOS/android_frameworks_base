@@ -150,17 +150,6 @@ final class ProcessList {
     // process limit.
     static final int MAX_CACHED_APPS = SystemProperties.getInt("ro.sys.fw.bg_apps_limit",32);
 
-    static final boolean USE_TRIM_SETTINGS =
-            SystemProperties.getBoolean("ro.sys.fw.use_trim_settings",true);
-    static final int EMPTY_APP_PERCENT = SystemProperties.getInt("ro.sys.fw.empty_app_percent",50);
-    static final int TRIM_EMPTY_PERCENT =
-            SystemProperties.getInt("ro.sys.fw.trim_empty_percent",100);
-    static final int TRIM_CACHE_PERCENT =
-            SystemProperties.getInt("ro.sys.fw.trim_cache_percent",100);
-    static final long TRIM_ENABLE_MEMORY =
-            SystemProperties.getLong("ro.sys.fw.trim_enable_memory",1073741824);
-    public static boolean allowTrim() { return Process.getTotalMemory() < TRIM_ENABLE_MEMORY ; }
-
     // We allow empty processes to stick around for at most 30 minutes.
     static final long MAX_EMPTY_TIME = 30*60*1000;
 
