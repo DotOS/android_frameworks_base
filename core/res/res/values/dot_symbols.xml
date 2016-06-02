@@ -16,4 +16,7 @@
 -->
 <resources>
     <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
+    <!-- Usb drive persistent notification -->
+    <java-symbol type="bool" name="config_persistUsbDriveNotification" />
 </resources>
