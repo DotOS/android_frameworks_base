@@ -126,6 +126,7 @@ import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManagerInternal;
 
 import com.android.internal.R;
+import com.android.internal.app.ActivityTrigger;
 import com.android.internal.app.IAssistScreenshotReceiver;
 import com.android.internal.os.IResultReceiver;
 import com.android.internal.policy.IShortcutService;
@@ -265,7 +266,10 @@ public class WindowManagerService extends IWindowManager.Stub
 
     static final boolean PROFILE_ORIENTATION = false;
     static final boolean localLOGV = DEBUG;
-
+    static final boolean mEnableAnimCheck = SystemProperties.getBoolean("persist.animcheck.enable", false);
+    static ActivityTrigger mActivityTrigger = new ActivityTrigger();
+    static WindowState mFocusingWindow;
+    String mFocusingActivity;
     /** How much to multiply the policy's type layer, to reserve room
      * for multiple windows of the same type and Z-ordering adjustment
      * with TYPE_LAYER_OFFSET. */
@@ -1892,6 +1896,7 @@ public class WindowManagerService extends IWindowManager.Stub
         long origId;
         final int callingUid = Binder.getCallingUid();
         final int type = attrs.type;
+        mFocusingActivity = attrs.getTitle().toString();
 
         synchronized(mWindowMap) {
             if (!mDisplayReady) {
@@ -5756,12 +5761,38 @@ public class WindowManagerService extends IWindowManager.Stub
         ValueAnimator.setDurationScale(scale);
     }
 
+    private float animationScalesCheck (int which) {
+        float value = -1.0f;
+        if (!mAnimationsDisabled) {
+            if (mEnableAnimCheck) {
+                if (mFocusingActivity != null) {
+                    if (mActivityTrigger == null) {
+                        mActivityTrigger = new ActivityTrigger();
+                    }
+                    if (mActivityTrigger != null) {
+                        value = mActivityTrigger.animationScalesCheck(mFocusingActivity, which);
+                    }
+               }
+            }
+            if (value == -1.0f) {
+                switch (which) {
+                    case WINDOW_ANIMATION_SCALE: value = mWindowAnimationScaleSetting; break;
+                    case TRANSITION_ANIMATION_SCALE: value = mTransitionAnimationScaleSetting; break;
+                    case ANIMATION_DURATION_SCALE: value = mAnimatorDurationScaleSetting; break;
+                }
+            }
+        } else {
+            value = 0;
+        }
+        return value;
+    }
+
     public float getWindowAnimationScaleLocked() {
-        return mAnimationsDisabled ? 0 : mWindowAnimationScaleSetting;
+        return animationScalesCheck(WINDOW_ANIMATION_SCALE);
     }
 
     public float getTransitionAnimationScaleLocked() {
-        return mAnimationsDisabled ? 0 : mTransitionAnimationScaleSetting;
+        return animationScalesCheck(TRANSITION_ANIMATION_SCALE);
     }
 
     @Override
@@ -5783,7 +5814,7 @@ public class WindowManagerService extends IWindowManager.Stub
     @Override
     public float getCurrentAnimatorScale() {
         synchronized(mWindowMap) {
-            return mAnimationsDisabled ? 0 : mAnimatorDurationScaleSetting;
+            return animationScalesCheck(ANIMATION_DURATION_SCALE);
         }
     }
 
@@ -10099,6 +10130,12 @@ public class WindowManagerService extends IWindowManager.Stub
                             // No focus for you!!!
                             if (localLOGV || DEBUG_FOCUS_LIGHT) Slog.v(TAG_WM,
                                     "findFocusedWindow: Reached focused app=" + mFocusedApp);
+                            if (mFocusedApp.hasWindowsAlive()) {
+                                mFocusingWindow = mFocusedApp.findMainWindow();
+                                if (mFocusingWindow != null) {
+                                    mFocusingActivity = mFocusingWindow.mAttrs.getTitle().toString();
+                                }
+                            }
                             return null;
                         }
                     }
