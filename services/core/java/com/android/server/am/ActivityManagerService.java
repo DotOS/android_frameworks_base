@@ -153,6 +153,8 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.net.ProxyInfo;
 import android.net.Uri;
@@ -1609,6 +1611,9 @@ public final class ActivityManagerService extends ActivityManagerNative
     // Enable B-service aging propagation on memory pressure.
     boolean mEnableBServicePropagation =
             SystemProperties.getBoolean("ro.sys.fw.bservice_enable", false);
+
+    static final boolean mEnableNetOpts =
+            SystemProperties.getBoolean("persist.netopts.enable",false);
 
     /**
      * Flag whether the current user is a "monkey", i.e. whether
@@ -3192,6 +3197,25 @@ public final class ActivityManagerService extends ActivityManagerNative
         return mAppBindArgs;
     }
 
+    private final void networkOptsCheck(int flag, String packageName) {
+        ConnectivityManager connectivityManager =
+            (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
+            if (netInfo != null) {
+                /* netType: 0 for Mobile, 1 for WIFI*/
+                int netType = netInfo.getType();
+                if (mActivityTrigger != null) {
+                    mActivityTrigger.networkOptsCheck(flag, netType, packageName);
+                }
+            } else {
+                if (mActivityTrigger != null) {
+                    mActivityTrigger.networkOptsCheck(flag, ConnectivityManager.TYPE_NONE, packageName);
+                }
+            }
+        }
+    }
+
     boolean setFocusedActivityLocked(ActivityRecord r, String reason) {
         if (r == null || mFocusedActivity == r) {
             return false;
@@ -3211,6 +3235,10 @@ public final class ActivityManagerService extends ActivityManagerNative
 
         final ActivityRecord last = mFocusedActivity;
         mFocusedActivity = r;
+        if (mEnableNetOpts) {
+                networkOptsCheck(0, r.processName);
+        }
+
         if (r.task.isApplicationTask()) {
             if (mCurAppTimeTracker != r.appTimeTracker) {
                 // We are switching app tracking.  Complete the current one.
@@ -5514,6 +5542,9 @@ public final class ActivityManagerService extends ActivityManagerNative
                 Slog.i(TAG, "Process " + app.processName + " (pid " + pid
                         + ") has died");
                 mAllowLowerMemLevel = true;
+                if (mEnableNetOpts) {
+                    networkOptsCheck(1, app.processName);
+                }
             } else {
                 // Note that we always want to do oom adj to update our state with the
                 // new number of procs.
@@ -7131,6 +7162,27 @@ public final class ActivityManagerService extends ActivityManagerNative
                 }
             }
         }, dumpheapFilter);
+
+        if (mEnableNetOpts) {
+            IntentFilter netInfoFilter = new IntentFilter();
+            netInfoFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            netInfoFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+            mContext.registerReceiver(new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    ActivityStack stack = mStackSupervisor.getLastStack();
+                    if (stack != null) {
+                        ActivityRecord r = stack.topRunningActivityLocked();
+                        if (r != null) {
+                            PowerManager powerManager =
+                                (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
+                            if (powerManager != null && powerManager.isInteractive())
+                                    networkOptsCheck(0, r.processName);
+                        }
+                    }
+                }
+            }, netInfoFilter);
+        }
 
         // Let system services know.
         mSystemServiceManager.startBootPhase(SystemService.PHASE_BOOT_COMPLETED);
@@ -22411,6 +22463,15 @@ public final class ActivityManagerService extends ActivityManagerNative
             synchronized (ActivityManagerService.this) {
                 SleepTokenImpl token = new SleepTokenImpl(tag);
                 mSleepTokens.add(token);
+                if (mEnableNetOpts) {
+                    ActivityStack stack = mStackSupervisor.getLastStack();
+                    if (stack != null) {
+                        ActivityRecord r = stack.topRunningActivityLocked();
+                        if (r != null) {
+                            networkOptsCheck(1, r.processName);
+                        }
+                    }
+                }
                 updateSleepIfNeededLocked();
                 return token;
             }
@@ -22577,6 +22638,15 @@ public final class ActivityManagerService extends ActivityManagerNative
         public void release() {
             synchronized (ActivityManagerService.this) {
                 if (mSleepTokens.remove(this)) {
+                    if (mEnableNetOpts) {
+                        ActivityStack stack = mStackSupervisor.getLastStack();
+                        if (stack != null) {
+                            ActivityRecord r = stack.topRunningActivityLocked();
+                            if (r != null) {
+                                networkOptsCheck(0, r.processName);
+                            }
+                        }
+                    }
                     updateSleepIfNeededLocked();
                 }
             }
