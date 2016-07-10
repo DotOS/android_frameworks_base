@@ -18,17 +18,17 @@
      limitations under the License.
 -->
 <resources>
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_disabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
+  <java-symbol type="array" name="config_forceEnabledComponents" />
 
-    <!-- Usb drive persistent notification -->
-    <java-symbol type="bool" name="config_persistUsbDriveNotification" />
-	
-	<!-- PlatLogo -->
+  <!-- Usb drive persistent notification -->
+  <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+
+  <!-- PlatLogo -->
   <java-symbol type="drawable" name="platlogo_dot" />
 
-   <!-- Power Menu -->
+  <!-- Power Menu -->
   <java-symbol type="string" name="reboot_to_recovery_title" />
   <java-symbol type="string" name="reboot_to_recovery_message" />
   <java-symbol type="string" name="reboot_to_bootloader_title" />
@@ -68,15 +68,17 @@
   <java-symbol type="anim" name="du_app_out" />
 
   <!-- Screen Record -->
-    <java-symbol type="bool" name="config_enableScreenrecordChord" />
+  <java-symbol type="bool" name="config_enableScreenrecordChord" />
 
-    <!-- Hardware key binding -->
-    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+  <!-- Hardware key binding -->
+  <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
   <java-symbol type="bool" name="config_deviceHasButtonBacklight" />
 
   <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
-
+    
+  <!-- Whether device has dash charging support -->
+  <java-symbol type="bool" name="config_hasDashCharger" />
 </resources>
 
