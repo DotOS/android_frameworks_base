@@ -68,5 +68,7 @@
     <string-array name="config_vendorPlatformSignatures">
     </string-array>
 
+    <!-- Whether device has dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
 </resources>
 
