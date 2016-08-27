@@ -31,4 +31,6 @@
 	<color name="dot_violet">#6872ea</color>
 	<color name="dot_pink">#ed4fc4</color>
 	
+    <!-- Notification sender text color -->
+    <color name="sender_text_color">@android:color/black</color>
 </resources>
