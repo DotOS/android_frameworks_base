@@ -3884,6 +3884,17 @@ public final class Settings {
         public static final String  RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
         /**
+         * Immersive recents options
+         *
+         * 0 = Default AOSP look
+         * 1 = Statusbar only
+         * 2 = Navbar only
+         * 3 = Fullscreen
+         * @hide
+         */
+        public static final String IMMERSIVE_RECENTS = "immersive_recents";
+
+        /**
          * These are all public system settings
          *
          * @hide
