@@ -62,4 +62,7 @@
     <string name="action_save_success">Saved</string>
     <string name="action_save_fault">Saving was unsuccessful</string>
     <string name="action_edit">Edit</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
 </resources>
