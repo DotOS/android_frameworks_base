@@ -2257,5 +2257,8 @@ message MetricsEvent {
 
     // Location detail adapter
     QS_LOCATION_DETAIL = 504;
+
+    // Quick setting tiles
+    QUICK_SETTINGS = 999;
   }
 }
