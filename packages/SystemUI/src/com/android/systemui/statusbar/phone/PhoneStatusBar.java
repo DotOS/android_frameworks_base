@@ -326,6 +326,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             "cmsecure:" + CMSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
     private static final String SYSTEMUI_BURNIN_PROTECTION =
             "cmsecure:" + CMSettings.System.SYSTEMUI_BURNIN_PROTECTION;
+    private static final String QS_ROWS_PORTRAIT =
+            Settings.Secure.QS_ROWS_PORTRAIT;
+    private static final String QS_ROWS_LANDSCAPE =
+            Settings.Secure.QS_ROWS_LANDSCAPE;
+    private static final String QS_COLUMNS =
+            Settings.Secure.QS_COLUMNS;
 
     static {
         boolean onlyCoreApps;
@@ -827,7 +833,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 SCREEN_BRIGHTNESS_MODE,
                 NAVBAR_LEFT_IN_LANDSCAPE,
                 STATUS_BAR_BRIGHTNESS_CONTROL,
-                LOCKSCREEN_MEDIA_METADATA);
+                LOCKSCREEN_MEDIA_METADATA,
+                QS_ROWS_PORTRAIT,
+                QS_ROWS_LANDSCAPE,
+                QS_COLUMNS);
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -5602,6 +5611,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                         mBurnInProtectionController.stopShiftTimer(true);
                     }
                 }
+                break;
+            case QS_ROWS_PORTRAIT:
+            case QS_ROWS_LANDSCAPE:
+            case QS_COLUMNS:
+                updateResources();
                 break;
             default:
                 break;
