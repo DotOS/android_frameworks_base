@@ -16,4 +16,5 @@
 -->
 <resources>
     <dimen name="recents_task_view_header_lock_button_padding">48dp</dimen>
+
 </resources>
