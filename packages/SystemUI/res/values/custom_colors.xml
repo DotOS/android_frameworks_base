@@ -28,4 +28,5 @@
     <color name="icon_color_split_screen_dark">@android:color/black</color>
     <color name="icon_color_home_dark">@android:color/black</color>
     <color name="icon_color_overview_dark">@android:color/black</color>
+    <color name="powersave_warning_color">#ff8e0101</color><!-- rgb 142 1 1 -->
 </resources>
