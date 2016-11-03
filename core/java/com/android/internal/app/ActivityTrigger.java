@@ -55,7 +55,7 @@ public class ActivityTrigger
     }
 
     /** &hide */
-    public void activityStartTrigger(Intent intent, ActivityInfo acInfo, ApplicationInfo appInfo) {
+    public void activityStartTrigger(Intent intent, ActivityInfo acInfo, ApplicationInfo appInfo, boolean IsInFullScreen) {
         ComponentName cn = intent.getComponent();
         int overrideFlags = 0;
         String activity = null;
@@ -68,8 +68,15 @@ public class ActivityTrigger
         if((overrideFlags & FLAG_HARDWARE_ACCELERATED) != 0) {
             acInfo.flags |= ActivityInfo.FLAG_HARDWARE_ACCELERATED;
         }
-        if((overrideFlags & FLAG_OVERRIDE_RESOLUTION) != 0) {
-            appInfo.setOverrideRes(1);
+        //Overrride density only if Activity is triggered in fullscreen
+        if(IsInFullScreen) {
+            Log.d(TAG, "Activity is Triggerred in full screen ");
+            if((overrideFlags & FLAG_OVERRIDE_RESOLUTION) != 0) {
+                Log.e(TAG, activity + " appInfo.flags - " + Integer.toHexString(appInfo.flags));
+                appInfo.setAppOverrideDensity();
+            }
+        } else {
+            Log.d(TAG, "Activity is not Triggerred in full screen ");
         }
     }
 

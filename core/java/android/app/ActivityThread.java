@@ -5258,10 +5258,17 @@ public final class ActivityThread {
         /**
          * Switch this process to density compatibility mode if needed.
          */
-        if ((data.appInfo.flags&ApplicationInfo.FLAG_SUPPORTS_SCREEN_DENSITIES)
+        if ((data.appInfo.flags & ApplicationInfo.FLAG_SUPPORTS_SCREEN_DENSITIES)
                 == 0) {
             mDensityCompatMode = true;
             Bitmap.setDefaultDensity(DisplayMetrics.DENSITY_DEFAULT);
+        } else {
+            int overrideDensity = data.appInfo.getOverrideDensity();
+            if(overrideDensity != 0) {
+                Log.d(TAG, "override app density from " + DisplayMetrics.DENSITY_DEVICE + " to " + overrideDensity);
+                mDensityCompatMode = true;
+                Bitmap.setDefaultDensity(overrideDensity);
+            }
         }
         updateDefaultDensity();
 

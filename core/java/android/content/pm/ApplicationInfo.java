@@ -23,6 +23,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
+import android.os.SystemProperties;
+import android.util.DisplayMetrics;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.UserHandle;
@@ -549,6 +551,12 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     public int overrideRes = 0;
 
     /**
+     * In case, app needs different density than device density, set this value.
+     * {@hide}
+     */
+    public int overrideDensity = 0;
+
+    /**
      * The required smallest screen width the application can run on.  If 0,
      * nothing has been specified.  Comes from
      * {@link android.R.styleable#AndroidManifestSupportsScreens_requiresSmallestWidthDp
@@ -912,6 +920,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         flags = orig.flags;
         privateFlags = orig.privateFlags;
         overrideRes = orig.overrideRes;
+        overrideDensity = orig.overrideDensity;
         requiresSmallestWidthDp = orig.requiresSmallestWidthDp;
         compatibleWidthLimitDp = orig.compatibleWidthLimitDp;
         largestWidthLimitDp = orig.largestWidthLimitDp;
@@ -970,6 +979,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         dest.writeInt(flags);
         dest.writeInt(privateFlags);
         dest.writeInt(overrideRes);
+        dest.writeInt(overrideDensity);
         dest.writeInt(requiresSmallestWidthDp);
         dest.writeInt(compatibleWidthLimitDp);
         dest.writeInt(largestWidthLimitDp);
@@ -1028,6 +1038,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         flags = source.readInt();
         privateFlags = source.readInt();
         overrideRes = source.readInt();
+        overrideDensity = source.readInt();
         requiresSmallestWidthDp = source.readInt();
         compatibleWidthLimitDp = source.readInt();
         largestWidthLimitDp = source.readInt();
@@ -1226,6 +1237,28 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
      */
     @Override protected ApplicationInfo getApplicationInfo() {
         return this;
+    }
+
+    /** @hide */
+    public void setAppOverrideDensity() {
+        int density = 0;
+        String prop = SystemProperties.get("persist.debug.appdensity");
+        if(prop != null) {
+        density = Integer.parseInt(prop);
+            if((density < DisplayMetrics.DENSITY_LOW) ||(density > DisplayMetrics.DENSITY_XXHIGH))
+                density = 0;
+        }
+        setOverrideDensity(density);
+        }
+
+    /** @hide */
+    public void setOverrideDensity(int density) {
+        overrideDensity = density;
+    }
+
+    /** @hide */
+    public int getOverrideDensity() {
+        return overrideDensity;
     }
 
     /** {@hide} */ public void setCodePath(String codePath) { scanSourceDir = codePath; }
