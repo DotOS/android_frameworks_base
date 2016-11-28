@@ -4101,6 +4101,12 @@ public final class Settings {
        public static final String BATTERY_LIGHT_ALLOW_ON_DND = "battery_light_allow_on_dnd";
 
         /**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+
+        /**
         * Whether to show blinking light when battery is low
         * @hide
         */

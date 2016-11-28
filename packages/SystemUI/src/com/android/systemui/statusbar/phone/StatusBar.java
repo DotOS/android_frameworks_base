@@ -6604,6 +6604,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_TITLE_VISIBILITY),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6614,7 +6617,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_LANDSCAPE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_PORTRAIT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_LANDSCAPE))) {
-                setQsRowsColumns();
+                updateQsPanelResources();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.SYSTEM_THEME_STYLE)) || uri.equals(Settings.System.getUriFor(
                     Settings.System.SYSTEM_THEME_CURRENT_OVERLAY))) {
@@ -6627,7 +6630,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
-            setQsRowsColumns();
+            updateQsPanelResources();
 	    setLockscreenDoubleTapToSleep();
 	    setStatusDoubleTapToSleep();
             setBrightnessSlider();
@@ -6638,7 +6641,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 	
-	private void setQsRowsColumns() {
+	private void updateQsPanelResources() {
         if (mQSPanel != null) {
             mQSPanel.updateResources();
             updateBatterySettings();
