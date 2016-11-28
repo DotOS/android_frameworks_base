@@ -6199,6 +6199,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SCREEN_BRIGHTNESS_MODE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_TITLE_VISIBILITY),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6218,6 +6221,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             setQsRowsColumns();
 	    setLockscreenDoubleTapToSleep();
 	    setStatusDoubleTapToSleep();
+            updateQsPanelResources();
+            setBatterySaverWarning();
+            setHeadsUpStoplist();
+            setHeadsUpBlacklist();
             setBrightnessSlider();
         }
     }
@@ -6262,9 +6269,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setStatusDoubleTapToSleep() {
         if (mStatusBarWindow != null) {
             mStatusBarWindow.setStatusDoubleTapToSleep();
+
+    private void updateQsPanelResources() {
+        if (mQSPanel != null) {
+            mQSPanel.updateResources();
         }
     }
-
 
     private void setBrightnessSlider() {
         int mode = Settings.System.getIntForUser(mContext.getContentResolver(),
