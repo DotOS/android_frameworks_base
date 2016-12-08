@@ -156,4 +156,7 @@
 
    <!-- Proximity check on screen on default -->
    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
+
+   <!-- Whether doze feature is enabled by default in settings -->
+   <java-symbol type="bool" name="config_dozeDefaultEnabled" />
 </resources>

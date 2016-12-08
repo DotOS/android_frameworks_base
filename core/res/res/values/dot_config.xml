@@ -246,4 +246,6 @@
     <integer name="config_proximityCheckTimeout">250</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 
+    <!-- Whether doze feature is enabled by default in settings -->
+    <bool name="config_dozeDefaultEnabled">false</bool>
 </resources>
