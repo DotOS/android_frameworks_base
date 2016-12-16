@@ -243,14 +243,8 @@ public class RecentsView extends FrameLayout {
         // Update the top level view's visibilities
         if (stack.getTaskCount() > 0) {
             hideEmptyView();
-            if (mFloatingButton != null) {
-                mFloatingButton.setVisibility(View.VISIBLE);
-            }
         } else {
             showEmptyView(R.string.recents_empty_message);
-            if (mFloatingButton != null) {
-                mFloatingButton.setVisibility(View.GONE);
-            }
         }
     }
 
@@ -337,12 +331,17 @@ public class RecentsView extends FrameLayout {
         if (RecentsDebugFlags.Static.EnableStackActionButton) {
             mStackActionButton.bringToFront();
         }
+
         setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EventBus.getDefault().send(new ToggleRecentsEvent());
             }
         });
+
+        if (mFloatingButton != null) {
+            mFloatingButton.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -356,6 +355,10 @@ public class RecentsView extends FrameLayout {
             mStackActionButton.bringToFront();
         }
         setOnClickListener(null);
+
+        if (mFloatingButton != null) {
+            mFloatingButton.setVisibility(View.VISIBLE);
+        }
     }
 
     public void startFABanimation() {
@@ -386,7 +389,6 @@ public class RecentsView extends FrameLayout {
     protected void onAttachedToWindow() {
         EventBus.getDefault().register(this, RecentsActivity.EVENT_BUS_PRIORITY + 1);
         EventBus.getDefault().register(mTouchHandler, RecentsActivity.EVENT_BUS_PRIORITY + 2);
-        super.onAttachedToWindow();
         mMemText = (TextView) ((View)getParent()).findViewById(R.id.recents_memory_text);
         mMemBar = (ProgressBar) ((View)getParent()).findViewById(R.id.recents_memory_bar);
         mSettingsObserver.observe();
@@ -397,6 +399,7 @@ public class RecentsView extends FrameLayout {
                 updateMemoryStatus();
             }
         });
+        super.onAttachedToWindow();
     }
 
     @Override
