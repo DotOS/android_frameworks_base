@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2017 dotOS
+     Copyright (C) 2014-2017, ParanoidAndroid Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,5 +21,18 @@
     <color name="shutdown_background">#70212121</color>
     <color name="shutdown_primary_text">#efefef</color>
     <color name="shutdown_progress_tint">#efefef</color>
+
+    <!-- Color engine -->
+    <color name="dark_primary_color">@color/black</color>
+    <color name="grey_primary_color">#ff303030</color>
+    <color name="blue_accent_color">#4285F4</color>
+    <color name="red_accent_color">#f90028</color>
+    <color name="orange_accent_color">#ff3d00</color>
+    <color name="green_accent_color">#76c124</color>
+    <color name="yellow_accent_color">#ffc90f</color>
+    <color name="purple_accent_color">#6f24d6</color>
+    <color name="pink_accent_color">#ff1b70</color>
+    <color name="cyan_accent_color">#24b7d6</color>
+    <color name="grey_accent_color">#ff5d5d5d</color>
 
 </resources>
