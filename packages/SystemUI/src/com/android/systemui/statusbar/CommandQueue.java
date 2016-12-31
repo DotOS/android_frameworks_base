@@ -611,6 +611,13 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
+    public void restartUI() {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_RESTART_UI);
+            mHandler.obtainMessage(MSG_RESTART_UI).sendToTarget();
+        }
+    }
+
     private final class H extends Handler {
         private H(Looper l) {
             super(l);
