@@ -4490,6 +4490,12 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Whether to enable the pixel navbar animation
+         * @hide
+         */
+        public static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
+
+        /**
          * Toast icon
          * @hide
          */
