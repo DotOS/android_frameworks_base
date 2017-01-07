@@ -3116,5 +3116,8 @@
     
     <!-- Multicolor Led Support -->
     <bool name="config_multicolorled">true</bool>
-    
+
+    <!-- Whether to show emergency button in power menu -->
+    <bool name="config_showEmergencyButtonInPowerMenu">false</bool>
+
 </resources>
