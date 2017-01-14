@@ -104,6 +104,7 @@ import com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragmentL
 import com.android.systemui.statusbar.phone.ongoingcall.OngoingCallController;
 import com.android.systemui.statusbar.phone.panelstate.PanelExpansionStateManager;
 import com.android.systemui.statusbar.policy.BatteryController;
+import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.ExtensionController;
@@ -243,7 +244,8 @@ public interface StatusBarPhoneModule {
             Optional<StartingSurface> startingSurfaceOptional,
             TunerService tunerService,
             DumpManager dumpManager,
-            ActivityLaunchAnimator activityLaunchAnimator) {
+            ActivityLaunchAnimator activityLaunchAnimator,
+            BurnInProtectionController burnInProtectionController) {
         return new StatusBar(
                 context,
                 notificationsController,
@@ -345,7 +347,8 @@ public interface StatusBarPhoneModule {
                 startingSurfaceOptional,
                 tunerService,
                 dumpManager,
-                activityLaunchAnimator
+                activityLaunchAnimator,
+                burnInProtectionController
         );
     }
 }
