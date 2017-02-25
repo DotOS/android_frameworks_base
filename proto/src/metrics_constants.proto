@@ -4605,7 +4605,9 @@ message MetricsEvent {
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 	
-	// DotExtras Metrics
-	DOTEXTRAS = 1500;
+    // DotExtras Metrics
+    DOTEXTRAS = 1500;
+    OMNI_QS_WEATHER = 1151;
+    OMNI_QS_WEATHER_DETAILS = 1152;
   }
 }
