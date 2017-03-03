@@ -525,8 +525,6 @@
     <protected-broadcast
             android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
 
-    <protected-broadcast android:name="masquerade.substratum.STATUS_CHANGED" />
-
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
