@@ -2288,7 +2288,8 @@ final class ActivityStack {
 
         if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Resuming " + next);
 
-        mActivityTrigger.activityResumeTrigger(next.intent, next.info, next.appInfo);
+        mActivityTrigger.activityResumeTrigger(next.intent, next.info, next.appInfo,
+                next.task.mFullscreen);
 
         // If we are currently pausing an activity, then don't do anything
         // until that is done.

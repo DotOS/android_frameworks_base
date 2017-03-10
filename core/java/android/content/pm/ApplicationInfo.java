@@ -557,6 +557,12 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     public int overrideDensity = 0;
 
     /**
+     * In case, app is whitelisted for density-overriding, set this value to 1
+     * (@hide)
+     */
+    public int whiteListed = 0;
+
+    /**
      * The required smallest screen width the application can run on.  If 0,
      * nothing has been specified.  Comes from
      * {@link android.R.styleable#AndroidManifestSupportsScreens_requiresSmallestWidthDp
@@ -921,6 +927,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         privateFlags = orig.privateFlags;
         overrideRes = orig.overrideRes;
         overrideDensity = orig.overrideDensity;
+        whiteListed = orig.whiteListed;
         requiresSmallestWidthDp = orig.requiresSmallestWidthDp;
         compatibleWidthLimitDp = orig.compatibleWidthLimitDp;
         largestWidthLimitDp = orig.largestWidthLimitDp;
@@ -980,6 +987,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         dest.writeInt(privateFlags);
         dest.writeInt(overrideRes);
         dest.writeInt(overrideDensity);
+        dest.writeInt(whiteListed);
         dest.writeInt(requiresSmallestWidthDp);
         dest.writeInt(compatibleWidthLimitDp);
         dest.writeInt(largestWidthLimitDp);
@@ -1039,6 +1047,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         privateFlags = source.readInt();
         overrideRes = source.readInt();
         overrideDensity = source.readInt();
+        whiteListed = source.readInt();
         requiresSmallestWidthDp = source.readInt();
         compatibleWidthLimitDp = source.readInt();
         largestWidthLimitDp = source.readInt();
@@ -1259,6 +1268,16 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     /** @hide */
     public int getOverrideDensity() {
         return overrideDensity;
+    }
+
+    /** @hide */
+    public boolean isAppWhiteListed() {
+        return (whiteListed == 1);
+    }
+
+    /** @hide */
+    public void setAppWhiteListed(int val) {
+        whiteListed = val;
     }
 
     /** {@hide} */ public void setCodePath(String codePath) { scanSourceDir = codePath; }
