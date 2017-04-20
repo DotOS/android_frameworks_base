@@ -2842,7 +2842,7 @@
     <string name="android_preparing_apk">Preparing <xliff:g id="appname">%1$s</xliff:g>.</string>
 
     <!-- [CHAR LIMIT=NONE] Message to show in upgrading dialog when reached the point of starting apps. -->
-    <string name="android_upgrading_starting_apps">Starting apps.</string>
+    <string name="android_upgrading_starting_apps">Lining up dots...</string>
 
     <!-- [CHAR LIMIT=NONE] Message to show in upgrading dialog when the bulk of the upgrade work is done. -->
     <string name="android_upgrading_complete">Finishing boot.</string>
