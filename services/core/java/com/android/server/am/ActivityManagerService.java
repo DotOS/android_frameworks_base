@@ -576,11 +576,6 @@ public final class ActivityManagerService extends ActivityManagerNative
     private int lBoost_v2_TimeOut = 0;
     private int lBoost_v2_ParamVal[];
 
-    /*define misc. activty trigger function*/
-    static final int START_PROCESS = 1;
-    static final int NETWORK_OPTS = 2;
-    static final int ANIMATION_SCALE = 3;
-
     /** All system services */
     SystemServiceManager mSystemServiceManager;
 
@@ -3211,11 +3206,11 @@ public final class ActivityManagerService extends ActivityManagerNative
                 /* netType: 0 for Mobile, 1 for WIFI*/
                 int netType = netInfo.getType();
                 if (mActivityTrigger != null) {
-                    mActivityTrigger.activityMiscTrigger(NETWORK_OPTS, packageName, netType, flag);
+                    mActivityTrigger.networkOptsCheck(flag, netType, packageName);
                 }
             } else {
                 if (mActivityTrigger != null) {
-                    mActivityTrigger.activityMiscTrigger(NETWORK_OPTS, packageName, ConnectivityManager.TYPE_NONE, flag);
+                    mActivityTrigger.networkOptsCheck(flag, ConnectivityManager.TYPE_NONE, packageName);
                 }
             }
         }
@@ -4180,7 +4175,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             }
             checkTime(startTime, "startProcess: done updating pids map");
             if ("activity".equals(hostingType) || "service".equals(hostingType)) {
-                mActivityTrigger.activityMiscTrigger(START_PROCESS, app.processName, startResult.pid, 0);
+                mActivityTrigger.activityStartProcessTrigger(app.processName, startResult.pid);
             }
         } catch (RuntimeException e) {
             Slog.e(TAG, "Failure starting process " + app.processName, e);
