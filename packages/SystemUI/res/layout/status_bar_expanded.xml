@@ -58,8 +58,8 @@
         <ViewStub
             android:id="@+id/keyguard_user_switcher"
             android:layout="@layout/keyguard_user_switcher"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" />
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent" />
 
         <include
             layout="@layout/keyguard_status_bar"

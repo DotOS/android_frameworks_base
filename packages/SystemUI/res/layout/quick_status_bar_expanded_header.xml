@@ -30,6 +30,7 @@
     >
 
     <LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
@@ -40,18 +41,19 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="12dp">
 
-        <com.android.systemui.statusbar.phone.MultiUserSwitch android:id="@+id/multi_user_switch"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentEnd="true"
-            android:focusable="true"
+        <com.android.systemui.statusbar.phone.MultiUserSwitch android:id="@id/multi_user_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_centerVertical="true" 
+            android:layout_marginStart="20.0dip" 
+            android:layout_alignParentStart="true"
             android:background="@drawable/ripple_drawable" >
-            <ImageView android:id="@+id/multi_user_avatar"
+            <ImageView android:id="@id/multi_user_avatar"
                 android:layout_width="@dimen/multi_user_avatar_expanded_size"
                 android:layout_height="@dimen/multi_user_avatar_expanded_size"
                 android:layout_gravity="center"
-                android:scaleType="centerInside"/>
-        </com.android.systemui.statusbar.phone.MultiUserSwitch>
+                android:scaleType="centerInside" />
+		</com.android.systemui.statusbar.phone.MultiUserSwitch>
 
         <com.android.systemui.statusbar.AlphaOptimizedImageView
             android:id="@android:id/edit"
