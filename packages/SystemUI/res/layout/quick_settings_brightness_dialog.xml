@@ -15,9 +15,10 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:systemui="http://schemas.android.com/apk/res-auto"
-    android:layout_height="80.0dip"
-    android:paddingStart="22.0dip"
-    android:paddingEnd="22.0dip"
+    android:layout_height="48dp"
+    android:layout_width="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     style="@style/BrightnessDialogContainer">
 
     <ImageView
@@ -27,17 +28,15 @@
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_brightness_left"
         android:contentDescription="@null" />
-		
+	
     <com.android.systemui.settings.ToggleSlider
-        android:layout_gravity="center_vertical"
         android:id="@+id/brightness_slider"
-        android:layout_width="0.0dip"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1.0"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:contentDescription="@string/accessibility_brightness"
         android:importantForAccessibility="no"
-        android:layout_marginStart="10.0dip"
-        android:layout_marginEnd="10.0dip"
         systemui:text="@string/status_bar_settings_auto_brightness_label" />
 
     <ImageView
@@ -47,15 +46,14 @@
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_brightness_right"
         android:contentDescription="@null" />
-
-    <ImageButton
+	
+    <ImageView
         android:id="@+id/brightness_icon"
-        android:layout_width="21.0dip"
-        android:layout_height="21.0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/ripple_drawable"
         android:src="@drawable/ic_qs_brightness_auto_off"
         android:contentDescription="@null"
-        android:layout_marginStart="30.0dip" />
+        android:visibility="gone" />
 
 </LinearLayout>
