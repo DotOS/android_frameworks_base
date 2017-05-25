@@ -37,7 +37,7 @@
         <item name="textColor">@color/secondary_text_material_dark</item>
         <item name="textSize">@dimen/notification_subtext_size</item>
     </style>
-    
+
     <style name="TextAppearance.Material.Notification.Emphasis">
         <item name="textColor">#FFFFFF</item>
     </style>
@@ -58,11 +58,11 @@
         <item name="listPreferredItemPaddingEnd">?attr/dialogPreferredPadding</item>
     </style>
 
-	<!-- Dialog/Alert text colors -->
-	<style name="TextAppearance.Material.Large">
-		<item name="android:textColor">#FFFFFF</item>
-	</style>
-	<style name="TextAppearance.Material.Small">
-		<item name="android:textColor">#9A9A9A</item>
-	</style>
+  <!-- Dialog/Alert text colors -->
+  <style name="TextAppearance.Material.Large">
+    <item name="android:textColor">#FFFFFF</item>
+  </style>
+  <style name="TextAppearance.Material.Small">
+    <item name="android:textColor">#9A9A9A</item>
+  </style>
 </resources>

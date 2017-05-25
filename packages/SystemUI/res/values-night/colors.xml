@@ -12,18 +12,25 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Notification Header and Quick settings panel -->
-    <color name="system_primary_color">#000000</color>
-    <color name="system_secondary_color">#000000</color>
+
+   <!-- Notification Header and Quick settings panel -->
+        <!-- Quick Settings panel - Accent -->
+
     <color name="system_accent_color">#ff4285f4</color>
-    <color name="qs_detail_transition">#000000</color>
+    <color name="system_primary_color">#000000</color>
+    <color name="qs_detail_transition">#ff4285f4</color>
+    <color name="system_secondary_color">#000000</color>
 
     <!-- The "inside" of a notification, reached via longpress -->
     <color name="notification_guts_bg_color">@color/system_secondary_color</color>
     <color name="notification_guts_title_color">#FFFFFFFF</color>
     <color name="notification_guts_text_color">#b2FFFFFF</color>
-    <color name="notification_guts_btn_color">#4285f4</color>
+    <color name="notification_guts_btn_color">#FFFFFFFF</color>
+    <!-- Shade color of notification guts background -->
+    <color name="notification_shade_background_color">#000000</color>
+    <color name="notification_gear_color">#ff4285f4</color>
 
+   <!-- Backgrounds -->
     <!-- The color of the legacy notification background -->
     <color name="notification_legacy_background_color">#000000</color>
     <!-- The color of the material notification background -->
@@ -35,14 +42,24 @@
     <!-- The color of the material notification background for media notifications when no custom
          color is specified -->
     <color name="notification_material_background_media_default_color">#000000</color>
-    
-    <!-- Quick Settings - Advance tile background overlap -->
-    <color name="qs_detail_transition">#00000000</color>
- 	
-    <!-- Quick Settings panel - Accent -->
-    <color name="system_accent_color">#4285f4</color>
-    <color name="system_primary_color">#000000</color>
-    <color name="system_secondary_color">#000000</color>
+    <color name="notification_category_text_color">#FFFFFFFF</color>
+
+    <!-- Quick Settings tiles -->
+    <color name="qs_tile_divider">#1d1e1e</color>
+    <color name="switch_accent_color">#ff4285f4</color>
+
+    <!-- QS battery % text color -->
+    <color name="qs_battery_text_color">#ff4285f4</color>
+    <!-- QS battery graph text color -->
+    <color name="qs_battery_graph_text_color">#ff4285f4</color>
+    <!-- QS battery accent color -->
+    <color name="qs_battery_accent">#ff4285f4</color>
+    <!-- QS edit page background color -->
+    <color name="qs_edit_item_decoration_bg">#1d1e1e</color>
+    <!-- QS alarm status text color -->
+    <color name="qs_alarm_status_text_color">#ff4285f4</color>
+    <!-- External QS tile tint color -->
+    <color name="external_qs_tile_tint_color">#ff4285f4</color>
  	
     <!-- Quick Settings tiles -->
     <color name="qs_tile_text">#FFFFFFFF</color>
