@@ -24,6 +24,9 @@
   <!-- Full screen aspect ratio -->
   <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
   <java-symbol type="dimen" name="config_screenAspectRatio" />
+  
+  <!-- PlatLogo -->
+  <java-symbol type="drawable" name="platlogo_dot" />
 
   <!-- Usb drive persistent notification -->
   <java-symbol type="bool" name="config_persistUsbDriveNotification" />
