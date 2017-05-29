@@ -24,6 +24,9 @@
 
     <!-- Usb drive persistent notification -->
     <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+	
+	<!-- PlatLogo -->
+  <java-symbol type="drawable" name="platlogo_dot" />
 
    <!-- Power Menu -->
   <java-symbol type="string" name="reboot_to_recovery_title" />
