@@ -214,5 +214,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.DOUBLE_TAP_SLEEP_LOCKSCREEN, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.DOT_BUCKET_OVERLAY, value -> { return value != null && !value.isEmpty(); });
         VALIDATORS.put(System.LOCKSCREEN_MEDIA_METADATA, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BOOLEAN_VALIDATOR);
     }
 }
