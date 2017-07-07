@@ -16,7 +16,11 @@
 
 ifneq ($(MULTI_LANG_ENGINE),REVERIE)
 PRODUCT_COPY_FILES := \
-    frameworks/base/data/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml
+    frameworks/base/data/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml \
+    frameworks/base/data/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml \
+    frameworks/base/data/fonts/big-noodle.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/big-noodle.ttf \
+    frameworks/base/data/fonts/big-noodle.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/big-noodleItalic.ttf
+
 endif
 
 PRODUCT_PACKAGES := \
