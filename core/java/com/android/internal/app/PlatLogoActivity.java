@@ -86,8 +86,8 @@ public class PlatLogoActivity extends Activity {
 
         im.setBackground(new RippleDrawable(
                 ColorStateList.valueOf(0xFFFFFFFF),
-                getDrawable(getIntent().getBooleanExtra("is_lineage", false)
-                        ? com.android.internal.R.drawable.platlogo_lineage
+                getDrawable(getIntent().getBooleanExtra("is_dot", false)
+                        ? com.android.internal.R.drawable.platlogo_dot
                         : com.android.internal.R.drawable.platlogo),
                 null));
 //        im.setOutlineProvider(new ViewOutlineProvider() {
