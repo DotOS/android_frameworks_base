@@ -346,8 +346,6 @@ public final class ShutdownThread extends Thread {
         ShutdownDialog sd = null;
         int mAction = 2;
 
-        ProgressDialog pd = new ProgressDialog(context, com.android.internal.R.style.Theme_Material_DayNight_Dialog_Alert);
-
         // Path 1: Reboot to recovery for update
         //   Condition: mReason == REBOOT_RECOVERY_UPDATE
         //   mAction = 0
