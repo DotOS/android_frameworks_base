@@ -77,7 +77,8 @@ public class MobileSignalController extends SignalController<
     private Config mConfig;
 
     private boolean mRoamingIconAllowed;
-	private boolean mDataDisabledIcon;
+    private boolean mDataDisabledIcon;
+    private boolean mShow4gForLte;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -131,8 +132,13 @@ public class MobileSignalController extends SignalController<
             Uri uri = Settings.System.getUriFor(Settings.System.ROAMING_INDICATOR_ICON);
             resolver.registerContentObserver(uri, false,
                     this, UserHandle.USER_ALL);
+
 			resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON), false,
+                    this, UserHandle.USER_ALL);
+
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON), false,
                     this, UserHandle.USER_ALL);
             updateSettings();
         }
@@ -152,11 +158,16 @@ public class MobileSignalController extends SignalController<
         mRoamingIconAllowed = Settings.System.getIntForUser(resolver,
                 Settings.System.ROAMING_INDICATOR_ICON, 1,
                 UserHandle.USER_CURRENT) == 1;
-				
+
 		mDataDisabledIcon = Settings.System.getIntForUser(resolver,
                 Settings.System.DATA_DISABLED_ICON, 1,
                 UserHandle.USER_CURRENT) == 1;
 
+        mShow4gForLte = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_FOURG_ICON, 0,
+                UserHandle.USER_CURRENT) == 1;
+
+        mapIconSets();
         updateTelephony();
     }
 
@@ -267,7 +278,7 @@ public class MobileSignalController extends SignalController<
         }
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPAP, hGroup);
 
-        if (mConfig.show4gForLte) {
+        if (mShow4gForLte) {
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE, TelephonyIcons.FOUR_G);
             if (mConfig.hideLtePlus) {
                 mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE_CA,
