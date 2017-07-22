@@ -25,8 +25,8 @@
   <color name="secondary_text_default_material_dark">#FFFFFFFF</color>
 
   <!-- System - Accents -->
-  <color name="accent_material_light">#4285f4</color>
-  <color name="accent_material_dark">#4285f4</color>
+  <color name="accent_material_light">#85d101</color>
+  <color name="accent_material_dark">#85d101</color>
   <color name="app_permission_icon_tint">#ffffffff</color>
 
   <!-- StatusBar Expanded - User Icons -->
