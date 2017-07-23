@@ -9,5 +9,5 @@
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:scaleType="fitXY"
-        android:src="@drawable/dot_logo" />
+        android:src="@drawable/dot_dash_logo" />
 </LinearLayout>
