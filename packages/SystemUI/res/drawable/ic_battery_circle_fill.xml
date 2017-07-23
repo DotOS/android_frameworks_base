@@ -1,30 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright (C) 2016 The CyanogenMod Project
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-         http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
 
-    <!-- Path will be tinted based on battery level -->
     <path
         android:name="battery_level"
-        android:strokeColor="#000000"
-        android:strokeLineJoin="round"
-        android:strokeWidth="3"
-        android:pathData="@string/battery_circle_path" />
-</vector>
+        android:strokeColor="#fff"
+        android:strokeWidth="9.333"
+        android:pathData="M 12 7.156 C 14.6752673282 7.156 16.844 9.32473267182 16.844 12 C 16.844 14.6752673282 14.6752673282 16.844 12 16.844 C 9.32473267182 16.844 7.156 14.6752673282 7.156 12 C 7.156 9.32473267182 9.32473267182 7.156 12 7.156 Z" />
+    </vector>
