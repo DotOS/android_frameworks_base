@@ -272,6 +272,7 @@ int main(int argc, char* const argv[])
 #else
 
     bundle.setCompressionMethod(ZipEntry::kCompressStored);
+#endif
 
     if (argc < 2) {
         wantUsage = true;
