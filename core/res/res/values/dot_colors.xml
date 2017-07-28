@@ -17,11 +17,8 @@
 <resources>
 
     <!-- Shutdown/reboot dialog -->
-    <color name="shutdown_background">#ff231e1f</color>
-    <color name="shutdown_primary_text">#ffffffff</color>
-    <color name="shutdown_progress_tint">#ffffffff</color>
+    <color name="shutdown_background">#70212121</color>
+    <color name="shutdown_primary_text">#efefef</color>
+    <color name="shutdown_progress_tint">#efefef</color>
 
 </resources>
- 
- 
- 
