@@ -3102,6 +3102,10 @@
 
     <!-- Multicolor Led Support -->
     <bool name="config_multicolorled">true</bool>
+	
+	<!-- Stop listening to the fingerprint reader when NON-WAKEUP proximity sensor is covered & screen is off.
+         config_proximityCheckOnWake must be true. -->
+    <bool name="config_proximityCheckOnFingerprintWake">false</bool>
 
     <!-- The list of components which should be automatically disabled. -->
     <string-array name="config_disabledComponents" translatable="false">
