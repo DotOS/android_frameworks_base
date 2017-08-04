@@ -4356,6 +4356,11 @@ public final class Settings {
          */
         public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";
 
+	/**
+	 * @hide
+         */
+        public static final String SENSOR_BLOCK = "sensor_block";
+
         /**
          * Show or hide clock
          * 0 - hide
