@@ -1501,7 +1501,7 @@ public class GlobalActions implements DialogInterface.OnDismissListener, DialogI
         private boolean mCancelOnUp;
 
         public GlobalActionsDialog(Context context, AlertParams params) {
-            super(context, com.android.internal.R.style.Theme_Material_DayNight_Dialog_Alert);
+            super(context, getDialogTheme(context));
             mContext = getContext();
             mAlert = AlertController.create(mContext, this, getWindow());
             mAdapter = (MyAdapter) params.mAdapter;

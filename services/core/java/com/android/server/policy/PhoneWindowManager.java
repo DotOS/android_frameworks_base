@@ -8074,7 +8074,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     if (mContext.getPackageManager().hasSystemFeature(FEATURE_TELEVISION)) {
                         theme = com.android.internal.R.style.Theme_Leanback_Dialog_Alert;
                     } else {
-                        theme = 6;
+                        theme = 0;
                     }
 
                     mBootMsgDialog = new ProgressDialog(mContext, theme) {

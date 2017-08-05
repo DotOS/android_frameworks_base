@@ -97,6 +97,6 @@
         android:textAllCaps="true"
         android:text="@string/pip_onboarding_button"
         android:alpha="0"
-        android:background="#4285f4"
+        android:background="#009688"
         android:elevation="4dp" />
 </RelativeLayout>
