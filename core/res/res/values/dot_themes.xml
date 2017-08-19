@@ -45,7 +45,7 @@
     <!-- begin Grey mode -->
     <style name="Theme.DeviceDefault.Grey">
         <item name="alertDialogTheme">@style/Theme_Grey_Alert_Dialog</item>
-         
+
          <!-- Statusbar icon Colors -->
         <item name="android:windowLightStatusBar">false</item>
         <!-- Color palette -->
@@ -74,7 +74,7 @@
         <item name="alertDialogTheme">@style/Theme_White_Alert_Dialog</item>
 
         <!-- Statusbar icon Colors -->
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <!-- Color palette -->
         <item name="colorAccent">@color/accent_device_default_light</item>
         <item name="colorBackground">@color/background_material_light</item>
@@ -150,7 +150,7 @@
     <style name="Theme_White_Blue_Alert_Dialog" parent="Theme_White_Alert_Dialog">
         <item name="colorAccent">@color/blue_accent_color</item>
     </style>
- 
+
     <!-- End blue accent color -->
 
     <!-- Orange accent color -->
@@ -330,7 +330,7 @@
     <style name="Theme_White_Cyan_Alert_Dialog" parent="Theme_White_Alert_Dialog">
         <item name="colorAccent">@color/cyan_accent_color</item>
     </style>
- 
+
     <!-- End cyan accent color -->
 
     <!-- Grey accent color -->
@@ -360,7 +360,7 @@
     <style name="Theme_White_Grey_Alert_Dialog" parent="Theme_White_Alert_Dialog">
         <item name="colorAccent">@color/grey_accent_color</item>
     </style>
- 
+
     <!-- End grey accent color -->
 
 </resources>
