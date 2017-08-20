@@ -57,7 +57,6 @@
         <item name="colorPrimaryDark">@color/grey_primary_color</item>
         <item name="colorSecondary">@color/grey_primary_color</item>
         <item name="textColorPrimary">@color/white</item>
-        <item name="android:navigationBarColor">@color/grey_primary_color</item>
     </style>
 
     <!-- Need to use parent of original theme, otherwise attributes will be lost -->
