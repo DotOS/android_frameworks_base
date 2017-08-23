@@ -53,9 +53,9 @@
         <item name="colorBackground">@color/grey_primary_color</item>
         <item name="colorControlHighlight">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
-        <item name="colorPrimary">@color/grey_primary_color</item>
-        <item name="colorPrimaryDark">@color/grey_primary_color</item>
-        <item name="colorSecondary">@color/grey_primary_color</item>
+        <item name="colorPrimary">#2c2c2c</item>
+        <item name="colorPrimaryDark">#2c2c2c</item>
+        <item name="colorSecondary">#2c2c2c</item>
         <item name="textColorPrimary">@color/white</item>
     </style>
 
