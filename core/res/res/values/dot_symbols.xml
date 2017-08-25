@@ -55,4 +55,10 @@
 
     <!-- Cycle through ringer modes -->
     <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
+
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <java-symbol type="string" name="config_oemFastChargerStatusPath" />
+
+    <!-- Expected value from fast charging status file -->
+    <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 </resources>
