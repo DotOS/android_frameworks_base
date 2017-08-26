@@ -18,9 +18,9 @@
 <resources>
 
     <!-- Shutdown/reboot dialog -->
-    <color name="shutdown_background">#efefef</color>
+    <color name="shutdown_background">#ffffff</color>
     <color name="shutdown_primary_text">#212121</color>
-    <color name="shutdown_progress_tint">#212121</color>
+    <color name="shutdown_progress_tint">#d13719</color>
 
     <!-- Color engine -->
     <color name="dark_primary_color">@color/black</color>
