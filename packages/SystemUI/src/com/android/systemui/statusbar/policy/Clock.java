@@ -66,29 +66,6 @@ public class Clock extends TextView implements DemoMode {
     private boolean mShowSeconds;
     private Handler mSecondsHandler;
 
-    private int mClockFontSize = 14;
-
-    private SettingsObserver mSettingsObserver;
-
-    protected class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System
-                   .getUriFor(Settings.System.STATUSBAR_CLOCK_FONT_SIZE), false,
-                    this, UserHandle.USER_ALL);
-            updateSettings();
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            updateSettings();
-        }
-    }
-
     public Clock(Context context) {
         this(context, null);
     }
@@ -173,15 +150,6 @@ public class Clock extends TextView implements DemoMode {
 
     final void updateClock() {
         if (mDemoMode || mCalendar == null) return;
-
-        ContentResolver resolver = mContext.getContentResolver();
-
-        mClockFontSize = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14,
-                UserHandle.USER_CURRENT);
-
-        setTextSize(mClockFontSize);
-
         mCalendar.setTimeInMillis(System.currentTimeMillis());
         setText(getSmallTime());
         setContentDescription(mContentDescriptionFormat.format(mCalendar.getTime()));
@@ -282,8 +250,6 @@ public class Clock extends TextView implements DemoMode {
         }
 
         return result;
-
-        updateClock();
 
     }
 
