@@ -6039,6 +6039,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_METADATA),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6057,6 +6060,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             ContentResolver resolver = mContext.getContentResolver();
             setQsRowsColumns();
 	    setLockscreenDoubleTapToSleep();
+	    setStatusDoubleTapToSleep();
         }
     }
 	
@@ -6072,6 +6076,17 @@ public class StatusBar extends SystemUI implements DemoMode,
             mStatusBarWindow.setLockscreenDoubleTapToSleep();
         }
     }
+
+    private void setLockscreenMediaMetadata() {
+        mLockscreenMediaMetadata = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_METADATA, 0, UserHandle.USER_CURRENT) == 1;
+    }
+
+    private void setStatusDoubleTapToSleep() {
+        if (mStatusBarWindow != null) {
+            mStatusBarWindow.setStatusDoubleTapToSleep();
+        }
+    }    
  
     private ThemeSettingsObserver mThemeSettingsObserver = new ThemeSettingsObserver(mHandler);
     private class ThemeSettingsObserver extends ContentObserver {
@@ -6114,11 +6129,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         }
     };
-
-    private void setLockscreenMediaMetadata() {
-        mLockscreenMediaMetadata = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_METADATA, 0, UserHandle.USER_CURRENT) == 1;
-    }
 
     private RemoteViews.OnClickHandler mOnClickHandler = new RemoteViews.OnClickHandler() {
 
