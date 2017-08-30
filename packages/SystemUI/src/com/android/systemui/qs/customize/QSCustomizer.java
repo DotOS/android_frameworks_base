@@ -95,7 +95,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mToolbar.getMenu().add(Menu.NONE, MENU_RESET, 0,
                 mContext.getString(com.android.internal.R.string.reset));
         mToolbar.setTitle(R.string.qs_edit);
-        if (!ThemeManager.isOverlayEnabled()) {
+        if (!ThemeManager.shouldOverlayEnabled(context)) {
             final TypedArray ta = context.obtainStyledAttributes(new int[]{
                     android.R.attr.textColorPrimary});
             mToolbar.setTitleTextColor(ta.getColor(0, 0));

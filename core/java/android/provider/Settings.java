@@ -6595,6 +6595,14 @@ public final class Settings {
         public static final String THEME_SETTINGS_MODE = "theme_settings_mode";
 
         /**
+         * Whether accent colors or dark mode should forcibly be enabled
+         * nonetheless OMS state.
+         *
+         * @hide
+         */
+        public static final String THEME_FORCE_ENABLED = "theme_force_enabled";
+
+        /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
          *
          * @hide

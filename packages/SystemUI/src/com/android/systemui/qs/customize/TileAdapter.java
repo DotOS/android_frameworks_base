@@ -497,7 +497,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
                 final int top = child.getTop() + params.topMargin +
                         Math.round(ViewCompat.getTranslationY(child));
                 // Set drawable color
-                mDrawable.setColor(ThemeManager.isOverlayEnabled() ?
+                mDrawable.setColor(ThemeManager.shouldOverlayEnabled(mContext) ?
                         mContext.getResources().getColor(R.color.qs_edit_item_decoration_bg)
                         : mAdapterBackground);
                 // Draw full width, in case there aren't tiles all the way across.

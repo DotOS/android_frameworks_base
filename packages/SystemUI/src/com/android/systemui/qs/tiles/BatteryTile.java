@@ -266,7 +266,7 @@ public class BatteryTile extends QSTile<QSTile.State> implements BatteryControll
                     R.id.charge_and_estimation);
             final UsageView mBatteryUsage = (UsageView) mCurrentView.findViewById(
                     R.id.battery_usage);
-            if (!ThemeManager.isOverlayEnabled()) {
+            if (!ThemeManager.shouldOverlayEnabled(mContext)) {
                 final TypedArray ta = mContext.obtainStyledAttributes(new int[]{
                         android.R.attr.colorAccent});
                 mEstimatedCharge.setTextColor(ta.getColor(0, 0));

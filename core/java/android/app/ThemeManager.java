@@ -21,6 +21,7 @@ import android.content.om.OverlayInfo;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Log;
+import android.provider.Settings;
 
 import java.util.ArrayList;
 
@@ -99,6 +100,16 @@ public class ThemeManager {
     public ThemeManager(Context context, IThemeService service) {
         mContext = context;
         mService = service;
+    }
+
+    public static boolean shouldOverlayEnabled(Context context) {
+        if (Settings.Secure.getInt(context.getContentResolver(),
+                Settings.Secure.THEME_FORCE_ENABLED, 0) == 1)
+        {
+          return false;
+        }
+
+        return isOverlayEnabled();
     }
 
     public static boolean isOverlayEnabled() {
