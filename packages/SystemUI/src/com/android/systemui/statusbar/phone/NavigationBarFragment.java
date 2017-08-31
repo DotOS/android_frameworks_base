@@ -517,6 +517,8 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
             accessibilityButton.setOnClickListener(this::onAccessibilityClick);
             accessibilityButton.setOnLongClickListener(this::onAccessibilityLongClick);
             updateAccessibilityServicesState(mAccessibilityManager);
+
+            setDoubleTapToSleep();
         }
     }
 
@@ -939,6 +941,12 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
     public void setPulseColors(boolean colorizedMedia, int[] colors) {
         if (mNavigationBarView != null) {
             mNavigationBarView.setPulseColors(colorizedMedia, colors);
+        }
+    }
+
+    public void setDoubleTapToSleep() {
+        if (mNavigationBarView != null) {
+            mNavigationBarView.setDoubleTapToSleep();
         }
     }
 }
