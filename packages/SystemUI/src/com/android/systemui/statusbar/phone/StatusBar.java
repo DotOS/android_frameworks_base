@@ -55,6 +55,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks2;
 import android.content.ContentResolver;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -947,6 +948,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         mSettingsObserver.onChange(false); // set up
         mThemeSettingsObserver.observe();
         mThemeSettingsObserver.update();
+        mSbSettingsObserver.observe();
+        mSbSettingsObserver.update();
         mCommandQueue.disable(switches[0], switches[6], false /* animate */);
         setSystemUiVisibility(switches[1], switches[7], switches[8], 0xffffffff,
                 fullscreenStackBounds, dockedStackBounds);
@@ -5997,6 +6000,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.QS_COLUMNS_LANDSCAPE),
                     false, this, UserHandle.USER_ALL);
             update();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6014,12 +6020,19 @@ public class StatusBar extends SystemUI implements DemoMode,
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
             setQsRowsColumns();
+	    setLockscreenDoubleTapToSleep();
         }
     }
 	
 	private void setQsRowsColumns() {
         if (mQSPanel != null) {
             mQSPanel.updateResources();
+        }
+    }
+
+    private void setLockscreenDoubleTapToSleep() {
+        if (mStatusBarWindow != null) {
+            mStatusBarWindow.setLockscreenDoubleTapToSleep();
         }
     }
  
