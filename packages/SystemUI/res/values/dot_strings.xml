@@ -184,4 +184,7 @@
     <string name="navbar_editor_summary">Configure navigaton bar</string>
     <string name="menu_ime_always_show">Menu</string>
     <string name="search">Search</string>
+	
+	<string name="screenshot_abort_title">No screenshot taken</string>
+    <string name="screenshot_abort_text">Operation aborted.</string>
 </resources>
