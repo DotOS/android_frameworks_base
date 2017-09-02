@@ -4158,6 +4158,31 @@ public final class Settings {
         * @hide
         */
        public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
+<<<<<<< HEAD
+=======
+	   
+	   /**
+         * Enable blocking wakelock
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_ENABLED = "wakelock_blocking_enabled";
+         /**
+         * List of wakelock blocks selected
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_LIST = "wakelock_blocking_list";
+		
+		/**
+         * List of alarms blocks selected
+         * @hide
+         */
+        public static final String ALARM_BLOCKING_LIST = "alarm_blocking_list";
+         /**
+         * Enable blocking alarm
+         * @hide
+         */
+        public static final String ALARM_BLOCKING_ENABLED = "alarm_blocking_enabled";
+>>>>>>> 49ea75fb05a... AlarmsBlocker [1/2]
 
         /**
          * show clear all recents button
