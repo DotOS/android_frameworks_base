@@ -3,6 +3,7 @@
      Copyright (C) 2012-2015 The CyanogenMod Project
      Copyright (c) 2013, The Linux Foundation. All rights reserved.
      Copyright (c) 2017 AospExtended ROM
+     Copyright (c) 2018 Project dotOS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -55,6 +56,9 @@
   <!-- Notification volume -->
   <java-symbol type="drawable" name="ic_audio_notification_new" />
   <java-symbol type="drawable" name="ic_audio_notification_mute_new" />
+  <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+  <java-symbol type="bool" name="config_multiColorBatteryLed" />
+  <java-symbol type="bool" name="config_ledCanPulse" />
 
 </resources>
 
