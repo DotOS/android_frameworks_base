@@ -50,4 +50,8 @@
   <java-symbol type="string" name="config_fodAnimationPackage" />
   <!-- NightLight FOD -->
   <java-symbol type="bool" name="disable_fod_night_light"/>
+  <!-- Battery light customization -->
+  <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+  <java-symbol type="bool" name="config_multiColorBatteryLed" />
+  <java-symbol type="bool" name="config_ledCanPulse" />
 </resources>
