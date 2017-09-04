@@ -4527,6 +4527,48 @@ public final class Settings {
          */
         public static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
 
+        /**
+        * Whether to allow battery light
+        * @hide
+        */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /**
+        * Whether to show battery light when DND mode is active
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_ALLOW_ON_DND = "battery_light_allow_on_dnd";
+
+        /**
+        * Whether to show blinking light when battery is low
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_LOW_BLINKING = "battery_light_low_blinking";
+
+        /**
+        * Low battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_LOW_COLOR = "battery_light_low_color";
+
+        /**
+        * Medium battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_MEDIUM_COLOR = "battery_light_medium_color";
+
+        /**
+        * Full battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_FULL_COLOR = "battery_light_full_color";
+
+        /**
+        * Really full 100 battery charging color
+        * @hide
+        */
+       public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
+
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4731,6 +4773,13 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
             PRIVATE_SETTINGS.add(TOAST_ICON);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ALLOW_ON_DND);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_MEDIUM_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
         }
 
         /**
