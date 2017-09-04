@@ -46,5 +46,10 @@
   <!-- DUI -->
   <java-symbol type="anim" name="du_app_in" />
   <java-symbol type="anim" name="du_app_out" />
+
+  <!-- Battery light notifications -->
+  <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+  <java-symbol type="bool" name="config_multiColorBatteryLed" />
+  <java-symbol type="bool" name="config_ledCanPulse" />
 </resources>
 
