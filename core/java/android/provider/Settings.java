@@ -4146,6 +4146,7 @@ public final class Settings {
 
         /**
          * show clear all recents button
+
          * @hide
          */
         public static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
@@ -4175,6 +4176,25 @@ public final class Settings {
          * @hide
          */
         public static final String ENABLE_SUGGESTIONS = "enable_suggestions";
+
+        /**
+         * Whether the phone vibrates on call connect
+         * @hide
+         */
+        public static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
+
+        /**
+         * Whether the phone vibrates on call waiting
+         * @hide
+         */
+        public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
+
+        /**
+         * Whether the phone vibrates on disconnect
+         * @hide
+         */
+        public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
+
 
         /**
          * Disable dashboard conditions in settings
