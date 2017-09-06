@@ -5337,8 +5337,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.FORCE_AMBIENT_FOR_MEDIA),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                        Settings.System.QS_TILE_STYLE),
-                        false, this, UserHandle.USER_ALL);
+                    Settings.System.QS_TILE_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_FOOTER_WARNINGS),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5355,6 +5358,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                 Settings.System.FORCE_AMBIENT_FOR_MEDIA))) {
                 setForceAmbient();
+            } else if (uri.equals(Settings.System.getUriFor(
+                Settings.System.QS_FOOTER_WARNINGS))) {
+                setQsPanelOptions();
             } else if (uri.equals(Settings.System.getUriFor(
                 Settings.System.ACCENT_PICKER))) {
             // Unload the accents and update the accent only when the user asks.
@@ -5373,12 +5379,19 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateTheme();
             setPulseBlacklist();
             setForceAmbient();
+            setQsPanelOptions();
         }
     }
 
     private void setLockscreenDoubleTapToSleep() {
         if (mStatusBarWindow != null) {
             mStatusBarWindow.setLockscreenDoubleTapToSleep();
+        }
+    }
+
+    private void setQsPanelOptions() {
+        if (mQSPanel != null) {
+            mQSPanel.updateSettings();
         }
     }
 
