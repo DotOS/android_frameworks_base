@@ -52,6 +52,7 @@ import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.QSTileHost;
 
 public class QSFactoryImpl implements QSFactory {
@@ -75,6 +76,7 @@ public class QSFactoryImpl implements QSFactory {
         else if (tileSpec.equals("rotation")) return new RotationLockTile(mHost);
         else if (tileSpec.equals("flashlight")) return new FlashlightTile(mHost);
         else if (tileSpec.equals("location")) return new LocationTile(mHost);
+		else if (tileSpec.equals("caffeine")) return new CaffeineTile(mHost);
         else if (tileSpec.equals("cast")) return new CastTile(mHost);
         else if (tileSpec.equals("hotspot")) return new HotspotTile(mHost);
         else if (tileSpec.equals("user")) return new UserTile(mHost);
