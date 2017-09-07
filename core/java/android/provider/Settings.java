@@ -4164,6 +4164,12 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
 
         /**
+         * Disable dashboard conditions in settings
+         * @hide
+         */
+        public static final String ENABLE_CONDITIONS = "enable_conditions";
+
+        /**
          * What to show in network traffic indicator in statusbar
          * @hide
          */
