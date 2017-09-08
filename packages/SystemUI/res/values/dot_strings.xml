@@ -49,4 +49,7 @@
     <string name="dot_data_used"><![CDATA[<font size="12" color="%1$s">●&#32;</font>]]>‎‎ ‎%2$s data used</string>
     <string name="dot_data_unknown">Unknown</string>
 
+    <!-- statusbar icons -->
+    <string name="statusbar_items_title">Statusbar icons</string>
+
 </resources>
