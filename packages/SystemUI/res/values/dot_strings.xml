@@ -31,6 +31,7 @@
 
 	<!-- DUI -->
     <string name="systemui_tuner_navbar_title">Stock settings</string>
+    <string name="statusbar_items_title">Statusbar icon</string>
 
     <string name="summary_empty" translatable="false"></string>
 </resources>
