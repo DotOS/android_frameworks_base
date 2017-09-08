@@ -5,6 +5,11 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
+    <!-- Pure Tuner Theme-->
+    <style name="ExTunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
+    </style>
+
     <style name="OnTheGoDialog" parent="@android:style/Theme.DeviceDefault.DayNight">
         <item name="android:textColor">@color/notification_primary_text_color</item>
         <item name="android:windowActionBar">false</item>
