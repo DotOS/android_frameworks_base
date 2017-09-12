@@ -221,6 +221,12 @@
     <!-- Reboot -->
     <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER" />
     <uses-permission android:name="android.permission.SHUTDOWN" />
+	
+	<!-- Reboot -->
+    <uses-permission android:name="android.permission.REBOOT" />
+    <uses-permission android:name="android.permission.RECOVERY" />
+
+    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
 
     <application
         android:name=".SystemUIApplication"
