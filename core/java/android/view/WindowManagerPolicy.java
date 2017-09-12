@@ -68,6 +68,7 @@ import android.annotation.Nullable;
 import android.annotation.SystemApi;
 import android.app.ActivityManager.StackId;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
