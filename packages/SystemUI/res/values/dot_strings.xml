@@ -42,4 +42,13 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
 
+<<<<<<< HEAD:packages/SystemUI/res/values/dot_strings.xml
+=======
+    <string name="statusbar_items_title">Statusbar items</string>
+
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+
+>>>>>>> 20f028a531d... Add partial/full screenshot QS tile:packages/SystemUI/res/values/ex_strings.xml
 </resources>
