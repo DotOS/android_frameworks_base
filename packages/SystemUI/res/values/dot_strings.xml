@@ -57,4 +57,7 @@
     <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
 
     <string name="recents_free_ram">Free RAM: %1$d MB</string>
+
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VOLTE</string>
 </resources>
