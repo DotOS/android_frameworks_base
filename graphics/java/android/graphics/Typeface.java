@@ -136,6 +136,12 @@ public class Typeface {
 
     private int[] mSupportedAxes;
     private static final int[] EMPTY_AXES = {};
+    // Typefaces that we can garbage collect when changing fonts, and so we don't break public APIs
+    private static Typeface DEFAULT_INTERNAL;
+    private static Typeface DEFAULT_BOLD_INTERNAL;
+    private static Typeface SANS_SERIF_INTERNAL;
+    private static Typeface SERIF_INTERNAL;
+    private static Typeface MONOSPACE_INTERNAL;
 
     private static void setDefault(Typeface t) {
         sDefaultTypeface = t;
@@ -889,7 +895,7 @@ public class Typeface {
             Map<String, ByteBuffer> bufferForPath) {
         FontFamily fontFamily = new FontFamily(family.getLanguage(), family.getVariant());
         for (FontConfig.Font font : family.getFonts()) {
-            String fullPathName = "/system/fonts/" + font.getFontName();
+            String fullPathName = font.getFontName();
             ByteBuffer fontBuffer = bufferForPath.get(fullPathName);
             if (fontBuffer == null) {
                 try (FileInputStream file = new FileInputStream(fullPathName)) {
@@ -924,10 +930,30 @@ public class Typeface {
     private static void init() {
         // Load font config and initialize Minikin state
         File systemFontConfigLocation = getSystemFontConfigLocation();
-        File configFilename = new File(systemFontConfigLocation, FONTS_CONFIG);
+        File themeFontConfigLocation = getThemeFontConfigLocation();
+
+        File systemConfigFile = new File(systemFontConfigLocation, FONTS_CONFIG);
+        File themeConfigFile = new File(themeFontConfigLocation, FONTS_CONFIG);
+        File configFile = null;
+        File fontDir;
+
+        if (themeConfigFile.exists()) {
+            // /data/system/theme/fonts/ exits so use it and copy default fonts
+            configFile = themeConfigFile;
+            fontDir = getThemeFontDirLocation();
+        } else {
+            configFile = systemConfigFile;
+            fontDir = getSystemFontDirLocation();
+        }
+
         try {
-            FileInputStream fontsIn = new FileInputStream(configFilename);
-            FontConfig fontConfig = FontListParser.parse(fontsIn);
+            FontConfig fontConfig = FontListParser.parse(configFile,
+                    fontDir.getAbsolutePath());
+            FontConfig systemFontConfig = null;
+            if (configFile == themeConfigFile) {
+                systemFontConfig = FontListParser.parse(systemConfigFile,
+                        getSystemFontDirLocation().getAbsolutePath());
+            }
 
             Map<String, ByteBuffer> bufferForPath = new HashMap<String, ByteBuffer>();
 
@@ -982,22 +1008,40 @@ public class Typeface {
             Log.w(TAG, "Didn't create default family (most likely, non-Minikin build)", e);
             // TODO: normal in non-Minikin case, remove or make error when Minikin-only
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "Error opening " + configFilename, e);
+            Log.e(TAG, "Error opening " + configFile, e);
         } catch (IOException e) {
-            Log.e(TAG, "Error reading " + configFilename, e);
+            Log.e(TAG, "Error reading " + configFile, e);
         } catch (XmlPullParserException e) {
-            Log.e(TAG, "XML parse exception for " + configFilename, e);
+            Log.e(TAG, "XML parse exception for " + configFile, e);
         }
+    }
+
+    /**
+     * Clears caches in java and skia.
+     * Skia will then reparse font config
+     * @hide
+     */
+    public static void recreateDefaults() {
+        sDynamicTypefaceCache.evictAll();
+        sSystemFontMap.clear();
+        sTypefaceCache.clear();
+        init();
     }
 
     static {
         init();
         // Set up defaults and typefaces exposed in public API
-        DEFAULT         = create((String) null, 0);
-        DEFAULT_BOLD    = create((String) null, Typeface.BOLD);
-        SANS_SERIF      = create("sans-serif", 0);
-        SERIF           = create("serif", 0);
-        MONOSPACE       = create("monospace", 0);
+        DEFAULT_INTERNAL         = create((String) null, 0);
+        DEFAULT_BOLD_INTERNAL    = create((String) null, Typeface.BOLD);
+        SANS_SERIF_INTERNAL      = create("sans-serif", 0);
+        SERIF_INTERNAL           = create("serif", 0);
+        MONOSPACE_INTERNAL       = create("monospace", 0);
+
+        DEFAULT         = new Typeface(DEFAULT_INTERNAL.native_instance);
+        DEFAULT_BOLD    = new Typeface(DEFAULT_BOLD_INTERNAL.native_instance);
+        SANS_SERIF      = new Typeface(SANS_SERIF_INTERNAL.native_instance);
+        SERIF           = new Typeface(SERIF_INTERNAL.native_instance);
+        MONOSPACE       = new Typeface(MONOSPACE_INTERNAL.native_instance);
 
         sDefaults = new Typeface[] {
             DEFAULT,
@@ -1010,6 +1054,18 @@ public class Typeface {
 
     private static File getSystemFontConfigLocation() {
         return new File("/system/etc/");
+    }
+
+    private static File getSystemFontDirLocation() {
+        return new File("/system/fonts/");
+    }
+
+    private static File getThemeFontConfigLocation() {
+        return new File("/data/system/theme/fonts/");
+    }
+
+    private static File getThemeFontDirLocation() {
+        return new File("/data/system/theme/fonts/");
     }
 
     @Override
