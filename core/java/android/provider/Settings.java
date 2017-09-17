@@ -5384,6 +5384,7 @@ public final class Settings {
          * 2: long tap power for torch
          * @hide
          */
+        @Readable
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
         /**
@@ -5682,12 +5683,62 @@ public final class Settings {
          */
         public static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
-       /**
+        /**
          * Whether to wake the display when plugging or unplugging the charger
          *
          * @hide
          */
         public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+
+        /**
+         * Whether the battery light should be enabled (if hardware supports it)
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /**
+         * Whether to show battery light when DND mode is active
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_ALLOW_ON_DND = "battery_light_allow_on_dnd";
+
+        /**
+         * Whether to show blinking light when battery is low
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_LOW_BLINKING = "battery_light_low_blinking";
+
+        /**
+         * Low battery charging color
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_LOW_COLOR = "battery_light_low_color";
+
+        /**
+         * Medium battery charging color
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_MEDIUM_COLOR = "battery_light_medium_color";
+
+        /**
+         * Full battery charging color
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_FULL_COLOR = "battery_light_full_color";
+
+        /**
+         * Really full 100 battery charging color
+         * @hide
+         */
+        @Readable
+        public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -5815,6 +5866,13 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
             PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);
             PRIVATE_SETTINGS.add(VOLUME_KEY_CURSOR_CONTROL);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ALLOW_ON_DND);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_MEDIUM_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
         }
 
         /**
