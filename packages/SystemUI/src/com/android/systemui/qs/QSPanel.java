@@ -94,13 +94,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
 
         mBrightnessView = LayoutInflater.from(context).inflate(
                 R.layout.quick_settings_brightness_dialog, this, false);
-        addView(mBrightnessView);
 
         setupTileLayout();
 
         mFooter = new QSFooter(this, context);
         addView(mFooter.getView());
-
+        addView(mBrightnessView);
         updateResources();
 
         mBrightnessController = new BrightnessController(getContext(),
