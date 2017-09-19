@@ -5488,6 +5488,12 @@ public final class Settings {
         public static final String POWERMENU_EMERGENCY = "powermenu_emergency";
 
         /**
+         * Whether to display the torch option in the power menu
+         * @hide
+         */
+        public static final String POWERMENU_TORCH = "powermenu_torch";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
