@@ -47,6 +47,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArrayMap;
 import android.util.AtomicFile;
 import android.util.Slog;
@@ -466,7 +467,10 @@ public final class OverlayManagerService extends SystemService {
                 return false;
             }
 
-            ThemeService.returnToDefaultTheme(mContext);
+            if (Settings.Secure.getInt(mContext.getContentResolver(),
+                    Settings.Secure.THEME_FORCE_ENABLED, 0) != 1) {
+                ThemeService.returnToDefaultTheme(mContext);
+            }
 
             final long ident = Binder.clearCallingIdentity();
             try {
