@@ -551,13 +551,22 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         @Override
         public void onPress() {
-            AEXUtils.takeScreenshot(true);
+            /* wait for the dialog box to close */
+            try {
+                 Thread.sleep(1000); //1s
+            } catch (InterruptedException ie) {}
+            DOTUtils.takeScreenshot(true);
         }
 
 
         @Override
         public boolean onLongPress() {
-            AEXUtils.takeScreenshot(false);
+            mHandler.sendEmptyMessage(MESSAGE_DISMISS);
+            /* wait for the dialog box to close */
+            try {
+                 Thread.sleep(1000); //1s
+            } catch (InterruptedException ie) {}
+            DOTUtils.takeScreenshot(false);
             return true;
         }
 
