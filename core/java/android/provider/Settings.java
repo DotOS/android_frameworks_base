@@ -3183,6 +3183,12 @@ public final class Settings {
         public static final String VIBRATE_INPUT_DEVICES = "vibrate_input_devices";
 
         private static final Validator VIBRATE_INPUT_DEVICES_VALIDATOR = sBooleanValidator;
+		
+		/**
+         * Whether to vibrate on power connection or disconnection
+         * @hide
+         */
+        public static final String VIBRATION_ON_CHARGE_STATE_CHANGED = "vibration_on_charge_state_changed";
 
         /**
          * Ringer volume. This is used internally, changing this value will not
