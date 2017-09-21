@@ -52,4 +52,6 @@
 
     <!-- volte icon switch -->
     <string name="status_bar_volte">VOLTE</string>
+
+    <string name="systemui_tuner_navbar_title">Stock settings</string>
 </resources>
