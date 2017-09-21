@@ -79,6 +79,7 @@ import android.os.Looper;
 import android.os.RemoteException;
 import android.util.Slog;
 import android.view.animation.Animation;
+import android.content.Intent;
 
 import com.android.internal.policy.IKeyguardDismissCallback;
 import com.android.internal.policy.IShortcutService;
@@ -1583,6 +1584,11 @@ public interface WindowManagerPolicy {
      * Specifies whether there is an on-screen navigation bar separate from the status bar.
      */
     public boolean hasNavigationBar();
+
+    /**
+     * Send some ActionHandler commands to WindowManager.
+     */
+    public void sendCustomAction(Intent intent);
 
     /**
      * Lock the device now.
