@@ -292,6 +292,10 @@
 
     <!-- Permission for Smartspace. -->
     <uses-permission android:name="android.permission.MANAGE_SMARTSPACE" />
+    <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
 
     <uses-permission android:name="android.permission.READ_PEOPLE_DATA" />
 
@@ -309,6 +313,10 @@
     <!-- Reboot -->
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.RECOVERY" />
+
+    <!-- Custom permissions -->
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
