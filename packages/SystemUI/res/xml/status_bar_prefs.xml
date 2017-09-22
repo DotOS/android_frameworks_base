@@ -54,6 +54,12 @@
         android:key="zen"
         android:title="@string/quick_settings_dnd_label" />
 
+ <!-- VoLTE --> 
+ 
+    <com.android.systemui.tuner.StatusBarSwitch 
+        android:key="volte"
+        android:title="@string/status_bar_volte" />		
+		
     <!-- mute -->
 
     <com.android.systemui.tuner.StatusBarSwitch
