@@ -4783,6 +4783,13 @@ public final class Settings {
          */
         public static final String STATUSBAR_BATTERY_BAR_BLEND_COLORS_REVERSE =
                 "statusbar_battery_bar_blend_color_reverse";
+				
+		/**
+         * Indicates whether ANBI (Accidental navigation button interaction) is enabled.
+         *
+         * @hide
+         */
+        public static final String ANBI_ENABLED = "anbi_enabled";
 
         /**
          * Whether to display 4G icon instead LTE
