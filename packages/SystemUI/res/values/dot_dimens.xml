@@ -42,4 +42,7 @@
     <!-- Screenrecord -->
     <dimen name="screenrecord_hint_size">48dp</dimen>
 
+    <!-- Height of the status bar header bar -->
+    <dimen name="status_bar_header_height">130dp</dimen>
+
 </resources>
