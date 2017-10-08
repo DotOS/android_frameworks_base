@@ -37,7 +37,6 @@ import com.android.systemui.plugins.PluginPrefs;
 public class TunerFragment extends PreferenceFragment {
 
     private static final String TAG = "TunerFragment";
-
     private static final String KEY_BATTERY_PCT = "battery_pct";
     private static final String KEY_PLUGINS = "plugins";
     private static final CharSequence KEY_DOZE = "doze";
