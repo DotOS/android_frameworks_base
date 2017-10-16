@@ -4928,6 +4928,15 @@ public final class Settings {
         public static final String SCREENRECORD_QUALITY_MODE = "screenrecord_quality_mode";
 
         /**
+         * Status bar brightness control.
+         * @hide
+         */
+        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+
+        /** @hide */
+        public static final Validator STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5011,6 +5020,7 @@ public final class Settings {
             VIBRATE_ON_CONNECT,
             VIBRATE_ON_DISCONNECT,
             VIBRATE_ON_CALLWAITING,
+            STATUS_BAR_BRIGHTNESS_CONTROL,
         };
 
         /**
@@ -5163,6 +5173,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
             PRIVATE_SETTINGS.add(VIBRATE_ON_CALLWAITING);
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
+            PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
         }
 
         /**
@@ -5286,6 +5297,7 @@ public final class Settings {
             VALIDATORS.put(VIBRATE_ON_CONNECT, VIBRATE_ON_CONNECT_VALIDATOR);
             VALIDATORS.put(VIBRATE_ON_DISCONNECT, VIBRATE_ON_DISCONNECT_VALIDATOR);
             VALIDATORS.put(VIBRATE_ON_CALLWAITING, VIBRATE_ON_CALLWAITING_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BRIGHTNESS_CONTROL, STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR);
         }
 
         /**
