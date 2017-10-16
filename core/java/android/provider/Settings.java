@@ -4069,7 +4069,6 @@ public final class Settings {
          *
          * @hide
          */
-
         public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
 
         /**
@@ -4193,6 +4192,14 @@ public final class Settings {
          */
 
         public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+
+
+
+        /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
 
         /**
          * Toast icon
