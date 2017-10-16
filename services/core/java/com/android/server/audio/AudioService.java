@@ -288,10 +288,10 @@ public class AudioService extends IAudioService.Stub
         5,  // STREAM_VOICE_CALL
         7,  // STREAM_SYSTEM
         7,  // STREAM_RING
-        15, // STREAM_MUSIC
+        30, // STREAM_MUSIC
         7,  // STREAM_ALARM
         7,  // STREAM_NOTIFICATION
-        15, // STREAM_BLUETOOTH_SCO
+        30, // STREAM_BLUETOOTH_SCO
         7,  // STREAM_SYSTEM_ENFORCED
         15, // STREAM_DTMF
         15, // STREAM_TTS
@@ -727,6 +727,21 @@ public class AudioService extends IAudioService.Stub
                         MAX_STREAM_VOLUME[AudioSystem.STREAM_MUSIC] / 3;
             }
         }
+
+        int maxBtVolume = SystemProperties.getInt("ro.config.bt_sco_vol_steps", -1);
+        if (maxBtVolume != -1 &&
+                maxBtVolume <= MAX_STREAM_VOLUME[AudioSystem.STREAM_BLUETOOTH_SCO]) {
+            AudioSystem.DEFAULT_STREAM_VOLUME[AudioSystem.STREAM_BLUETOOTH_SCO] = maxBtVolume;
+        } else {
+            if (isPlatformTelevision()) {
+                AudioSystem.DEFAULT_STREAM_VOLUME[AudioSystem.STREAM_BLUETOOTH_SCO] =
+                        MAX_STREAM_VOLUME[AudioSystem.STREAM_BLUETOOTH_SCO] / 4;
+            } else {
+                AudioSystem.DEFAULT_STREAM_VOLUME[AudioSystem.STREAM_BLUETOOTH_SCO] =
+                        MAX_STREAM_VOLUME[AudioSystem.STREAM_BLUETOOTH_SCO] / 3;
+            }
+        }
+
 
         sSoundEffectVolumeDb = context.getResources().getInteger(
                 com.android.internal.R.integer.config_soundEffectVolumeDb);
