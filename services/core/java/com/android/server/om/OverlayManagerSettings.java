@@ -104,6 +104,15 @@ final class OverlayManagerSettings {
         return true;
     }
 
+    String getTargetPackageName(@NonNull final String packageName, final int userId)
+            throws BadKeyException {
+        final int idx = select(packageName, userId);
+        if (idx < 0) {
+            throw new BadKeyException(packageName, userId);
+        }
+        return mItems.get(idx).getTargetPackageName();
+    }
+
     OverlayInfo getOverlayInfo(@NonNull final String packageName, final int userId)
             throws BadKeyException {
         final int idx = select(packageName, userId);
@@ -165,6 +174,41 @@ final class OverlayManagerSettings {
         return mItems.get(idx).setState(state);
     }
 
+    boolean getUpgrading(@NonNull final String packageName, final int userId)
+            throws BadKeyException {
+        final int idx = select(packageName, userId);
+        if (idx < 0) {
+            throw new BadKeyException(packageName, userId);
+        }
+        return mItems.get(idx).isUpgrading();
+    }
+
+    /**
+     * Returns true if the settings were modified, false if they remain the same.
+     */
+    boolean setUpgrading(@NonNull final String packageName, final int userId, final boolean newValue)
+            throws BadKeyException {
+        final int idx = select(packageName, userId);
+        if (idx < 0) {
+            throw new BadKeyException(packageName, userId);
+        }
+
+        final SettingsItem item = mItems.get(idx);
+        if (newValue == item.isUpgrading()) {
+            return false;
+        }
+
+        if (newValue) {
+            boolean result = item.setUpgrading(true);
+            if (result) {
+                item.setState(OverlayInfo.STATE_UNKNOWN); // hmmm
+            }
+            return result;
+        } else {
+            return item.setUpgrading(false);
+        }
+    }
+
     List<OverlayInfo> getOverlaysForTarget(@NonNull final String targetPackageName,
             final int userId) {
         return selectWhereTarget(targetPackageName, userId)
@@ -223,6 +267,10 @@ final class OverlayManagerSettings {
 
         final SettingsItem itemToMove = mItems.get(moveIdx);
 
+        if (itemToMove.isUpgrading() || mItems.get(parentIdx).isUpgrading()) {
+            return false;
+        }
+
         // Make sure both packages are targeting the same package.
         if (!itemToMove.getTargetPackageName().equals(
                 mItems.get(parentIdx).getTargetPackageName())) {
@@ -246,6 +294,9 @@ final class OverlayManagerSettings {
         }
 
         final SettingsItem item = mItems.get(idx);
+        if (item.isUpgrading()) {
+            return false;
+        }
         mItems.remove(item);
         mItems.add(0, item);
         return true;
@@ -263,6 +314,9 @@ final class OverlayManagerSettings {
         }
 
         final SettingsItem item = mItems.get(idx);
+        if (item.isUpgrading()) {
+            return false;
+        }
         mItems.remove(idx);
         mItems.add(item);
         return true;
@@ -292,6 +346,7 @@ final class OverlayManagerSettings {
             pw.print("mIsEnabled.........: "); pw.println(item.isEnabled());
             pw.print("mIsStatic..........: "); pw.println(item.isStatic());
             pw.print("mIsAccent..........: "); pw.println(item.isAccent());
+            pw.print("isUpgrading........: "); pw.println(item.isUpgrading());
 
             pw.decreaseIndent();
             pw.println("}");
@@ -320,6 +375,7 @@ final class OverlayManagerSettings {
         private static final String ATTR_PRIORITY = "priority";
         private static final String ATTR_USER_ID = "userId";
         private static final String ATTR_VERSION = "version";
+        private static final String ATTR_IS_UPGRADING = "isUpgrading";
 
         private static final int CURRENT_VERSION = 3;
 
@@ -373,9 +429,10 @@ final class OverlayManagerSettings {
             final boolean isStatic = XmlUtils.readBooleanAttribute(parser, ATTR_IS_STATIC);
             final boolean isAccent = XmlUtils.readBooleanAttribute(parser, ATTR_IS_ACCENT);
             final int priority = XmlUtils.readIntAttribute(parser, ATTR_PRIORITY);
+            final boolean isUpgrading = XmlUtils.readBooleanAttribute(parser, ATTR_IS_UPGRADING);
 
             return new SettingsItem(packageName, userId, targetPackageName, baseCodePath, state,
-                    isEnabled, isStatic, isAccent, priority);
+                    isEnabled, isStatic, isAccent, priority, isUpgrading);
         }
 
         public static void persist(@NonNull final ArrayList<SettingsItem> table,
@@ -408,6 +465,7 @@ final class OverlayManagerSettings {
             XmlUtils.writeBooleanAttribute(xml, ATTR_IS_STATIC, item.mIsStatic);
             XmlUtils.writeBooleanAttribute(xml, ATTR_IS_ACCENT, item.mIsAccent);
             XmlUtils.writeIntAttribute(xml, ATTR_PRIORITY, item.mPriority);
+            XmlUtils.writeBooleanAttribute(xml, ATTR_IS_UPGRADING, item.mIsUpgrading);
             xml.endTag(null, TAG_ITEM);
         }
     }
@@ -423,11 +481,12 @@ final class OverlayManagerSettings {
         private boolean mIsStatic;
         private boolean mIsAccent;
         private int mPriority;
+        private boolean mIsUpgrading;
 
         SettingsItem(@NonNull final String packageName, final int userId,
                 @NonNull final String targetPackageName, @NonNull final String baseCodePath,
                 final int state, final boolean isEnabled, final boolean isStatic,
-                final boolean isAccent, final int priority) {
+                final boolean isAccent, final int priority, final boolean isUpgrading) {
             mPackageName = packageName;
             mUserId = userId;
             mTargetPackageName = targetPackageName;
@@ -438,13 +497,14 @@ final class OverlayManagerSettings {
             mIsStatic = isStatic;
             mIsAccent = isAccent;
             mPriority = priority;
+            mIsUpgrading = isUpgrading;
         }
 
         SettingsItem(@NonNull final String packageName, final int userId,
                 @NonNull final String targetPackageName, @NonNull final String baseCodePath,
                 final boolean isStatic, final boolean isAccent, final int priority) {
             this(packageName, userId, targetPackageName, baseCodePath, OverlayInfo.STATE_UNKNOWN,
-                    false, isStatic, isAccent, priority);
+                    false, isStatic, isAccent, priority, false);
         }
 
         private String getTargetPackageName() {
@@ -494,7 +554,24 @@ final class OverlayManagerSettings {
             return false;
         }
 
+        private boolean isUpgrading() {
+            return mIsUpgrading;
+        }
+
+        private boolean setUpgrading(final boolean upgrading) {
+            if (mIsUpgrading != upgrading) {
+                mIsUpgrading = upgrading;
+                invalidateCache();
+                return true;
+            }
+            return false;
+        }
+
         private OverlayInfo getOverlayInfo() {
+            if (mIsUpgrading) {
+                return null;
+            }
+
             if (mCache == null) {
                 mCache = new OverlayInfo(mPackageName, mTargetPackageName, mBaseCodePath, mState,
                         mUserId);
