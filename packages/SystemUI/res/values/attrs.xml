@@ -144,6 +144,6 @@
         <attr name="guideStrokeWeight" format="dimension"/>
         <attr name="cropEnabled" format="boolean"/>
         <attr name="initialFrameScale" format="float"/>
-    </declare-styleable>
+    </declare-styleable></attr>
 </resources>
 
