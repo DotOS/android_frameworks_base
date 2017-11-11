@@ -28,6 +28,10 @@
         <item>@*android:color/battery_saver_mode_color</item>
         <item>#FFFFFFFF</item>
     </array>
+	<array name="qs_batterymeter_color_values">
+        <item>@*android:color/battery_saver_mode_color</item>
+        <item>@color/qs_tile_tint_active</item>
+    </array>
     <array name="batterymeter_bolt_points">
         <item>73</item> <item>0</item>
         <item>392</item><item>0</item>

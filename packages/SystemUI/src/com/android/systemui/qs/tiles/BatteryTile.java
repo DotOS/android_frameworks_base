@@ -40,7 +40,7 @@ import android.widget.TextView;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settingslib.BatteryInfo;
 import com.android.settingslib.graph.UsageView;
-import com.android.systemui.BatteryMeterDrawable;
+import com.android.systemui.QS_BatteryMeterDrawable;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSIconView;
 import com.android.systemui.qs.QSTile;
@@ -67,7 +67,7 @@ public class BatteryTile extends QSTile<QSTile.State> implements BatteryControll
     @Override
     public QSIconView createTileView(Context context) {
         QSIconView view = new QSIconView(context);
-        // The BatteryMeterDrawable wants to use the clear xfermode,
+        // The QS_BatteryMeterDrawable wants to use the clear xfermode,
         // put it on its own layer to not make it clear the background with it.
         view.getIconView().setLayerType(View.LAYER_TYPE_HARDWARE, null);
         return view;
@@ -128,9 +128,9 @@ public class BatteryTile extends QSTile<QSTile.State> implements BatteryControll
         state.icon = new Icon() {
             @Override
             public Drawable getDrawable(Context context) {
-                BatteryMeterDrawable drawable =
-                        new BatteryMeterDrawable(context, new Handler(Looper.getMainLooper()),
-                        context.getColor(R.color.qs_batterymeter_frame_color));
+                QS_BatteryMeterDrawable drawable =
+                        new QS_BatteryMeterDrawable(context, new Handler(Looper.getMainLooper()),
+                        context.getColor(R.color.batterymeter_frame_color));
                 drawable.onBatteryLevelChanged(mLevel, mPluggedIn, mCharging);
                 drawable.onPowerSaveChanged(mPowerSave);
                 return drawable;
@@ -175,7 +175,7 @@ public class BatteryTile extends QSTile<QSTile.State> implements BatteryControll
 
     private final class BatteryDetail implements DetailAdapter, OnClickListener,
             OnAttachStateChangeListener {
-        private final BatteryMeterDrawable mDrawable = new BatteryMeterDrawable(mHost.getContext(),
+        private final QS_BatteryMeterDrawable mDrawable = new QS_BatteryMeterDrawable(mHost.getContext(),
                 new Handler(), mHost.getContext().getColor(R.color.batterymeter_frame_color));
         private View mCurrentView;
 
