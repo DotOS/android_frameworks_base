@@ -104,4 +104,7 @@
      <!-- Do the battery/notification LEDs support pulsing?
          Used to decide if we show pulse settings -->
     <bool name="config_ledCanPulse">true</bool>
+
+    <!-- Whether device supports an alt. ambient display -->
+    <bool name="config_alt_ambient_display">false</bool>
 </resources>
