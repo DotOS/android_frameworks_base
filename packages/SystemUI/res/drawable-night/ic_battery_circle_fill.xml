@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+
+    <path
+        android:name="battery_level"
+        android:strokeColor="#fff"
+        android:strokeWidth="9.333"
+        android:pathData="M 12 7.156 C 14.6752673282 7.156 16.844 9.32473267182 16.844 12 C 16.844 14.6752673282 14.6752673282 16.844 12 16.844 C 9.32473267182 16.844 7.156 14.6752673282 7.156 12 C 7.156 9.32473267182 9.32473267182 7.156 12 7.156 Z" />
+    </vector>

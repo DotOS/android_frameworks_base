@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.QS.DetailHeader" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#424242</item>
+    </style>
+    <style name="TextAppearance.StatusBar.Expanded" parent="@android:style/TextAppearance.StatusBar.EventContent" />
+    <style name="TextAppearance.StatusBar.Expanded.Clock" parent="@style/TextAppearance.StatusBar.Expanded">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:textColor">#424242</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.NotificationGuts" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:fontFamily">roboto-regular</item>
+    </style>
+    <style name="TextAppearance.NotificationGuts.Button" parent="@style/TextAppearance.NotificationGuts">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.Volume.Header" parent="@style/TextAppearance.Volume">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#424242</item>
+    </style>
+    <style name="TextAppearance.Volume" parent="@style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="TextAppearance" />
+    <style name="systemui_theme" parent="@android:style/Theme.Material.Light.LightStatusBar">
+        <item name="android:textColorPrimary">#bdbdbd</item>
+        <item name="android:textColorSecondary">#bdbdbd</item>
+    </style>
+    <style name="TextAppearance.Volume.ZenSummary" parent="@style/TextAppearance.Volume">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">#424242</item>
+    </style>
+    <style name="TextAppearance.Volume.ZenDetail" parent="@style/TextAppearance.Volume">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+</resources>

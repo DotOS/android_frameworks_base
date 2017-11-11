@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="data_usage_graph_track">#4d424242</color>
+    <color name="data_usage_graph_warning">@*android:color/accent_device_default_light</color>
+    <color name="data_usage_secondary">@*android:color/accent_device_default_light</color>
+    <color name="fab_color">@*android:color/accent_device_default_light</color>
+    <color name="material_blue_grey_800">#212121</color>
+    <color name="material_blue_grey_900">#212121</color>
+    <color name="navbar_tuner_text_color">#212121</color>
+    <color name="navigation_bar_icon_color">#212121</color>
+    <color name="notification_default_color">#212121</color>
+    <color name="notification_gear_color">#212121</color>
+    <color name="notification_guts_bg_color">#ffffff</color>
+    <color name="notification_guts_disabled_icon_tint">#212121</color>
+    <color name="notification_guts_icon_tint">@*android:color/accent_device_default_light</color>
+    <color name="notification_legacy_background_color">#424242</color>
+    <color name="notification_list_shadow_top">#21212100</color>
+    <color name="notification_material_background_color">#ffffff</color>
+    <color name="notification_material_background_dimmed_color">#ffffff</color>
+    <color name="notification_material_background_low_priority_color">#ffffff</color>
+    <color name="notification_material_background_media_default_color">#424242</color>
+    <color name="notification_ripple_color_low_priority">#424242</color>
+    <color name="notification_ripple_untinted_color">#f0f0f0</color>
+    <color name="notification_shade_background_color">#f0f0f0</color>
+
+    <color name="screen_pinning_nav_icon_highlight_outer">@*android:color/accent_device_default_light</color>
+    <color name="screen_pinning_request_bg">#212121</color>
+
+    <color name="switch_accent_color">@*android:color/accent_device_default_light</color>
+    <color name="switch_bar_background">#e0e0e0</color>
+    <color name="system_accent_color">@*android:color/accent_device_default_light</color>
+    <color name="system_primary_color">#ffffff</color>
+    <color name="system_secondary_color">#e0e0e0</color>
+
+    <color name="usage_graph_dots">@*android:color/accent_device_default_light</color>
+    <color name="volume_slider_inactive">#757575</color>
+    <color name="zen_introduction_message_background">#212121</color>
+
+    <color name="volume_panel_background_color">#ffffff</color>
+    <color name="volume_settings_icon_color">#424242</color>
+    <color name="volume_icon_color">#424242</color>
+
+    <color name="qs_alarm_status_text_color">#212121</color>
+    <color name="qs_edit_toolbar_text_color">#424242</color>
+    <color name="qs_edit_button_text_color">#212121</color>
+
+    <color name="accent_material_dark">@*android:color/accent_device_default_light</color>
+    <color name="accent_material_light">@*android:color/accent_device_default_light</color>
+    <color name="data_usage_primary">@*android:color/accent_device_default_light</color>
+    <color name="qs_battery_accent">@*android:color/accent_device_default_light</color>
+    <color name="qs_battery_graph_text_color">#212121</color>
+    <color name="qs_battery_text_color">@*android:color/accent_device_default_light</color>
+    <color name="qs_batterymeter_frame_color">#4d424242</color>
+
+    <color name="external_qs_tile_tint_color">#424242</color>
+    <color name="qs_tile_tint_unavailable">#4d424242</color>
+    <color name="qs_tile_tint_inactive">#4d424242</color>
+    <color name="qs_tile_tint_active">#424242</color>
+    <color name="qs_tile_divider">#4d212121</color>
+    <color name="qs_detail_button">#212121</color>
+    <color name="qs_detail_button_white">#212121</color>
+    <color name="qs_detail_empty">#424242</color>
+    <color name="qs_detail_progress_track">#f0f0f0</color>
+    <color name="qs_detail_transition">#f0f0f0</color>
+    <color name="qs_edit_item_decoration_bg">#ffffff</color>
+    <color name="qs_edit_overflow_bg">#212121</color>
+    <color name="qs_subhead">#212121</color>
+    <color name="qs_text">#212121</color>
+    <color name="qs_tile_text">#212121</color>
+    <color name="qs_user_detail_icon_muted">#4d424242</color>
+
+    <color name="segmented_button_selected">@*android:color/accent_device_default_light</color>
+    <color name="segmented_button_unselected">#4d212121</color>
+    <color name="segmented_buttons_background">#ffffff</color>
+
+    <color name="material_deep_teal_500">@*android:color/accent_device_default_light</color>
+
+    <color name="batterymeter_frame_color_tile">#4d424242</color> <!-- tile battery frame color -->
+    <color name="battery_normal_charge_level_tile">#424242</color> <!-- level color when >15 for the tile battery -->
+    <color name="batterymeter_tile_bolt_plus_color">#ffffff</color> <!-- bolt and plus color for tile on non circle battery styles - the qs panel background color -->
+    <color name="battery_charge_level_on_light_statusbar">#424242</color> <!-- level color on white statusbar -->
+    <color name="battery_charge_level_on_normal_statusbar">#ffffff</color> <!-- level color on normal statusbar -->
+    <color name="batterymeter_frame_color_darkintensity">#4d424242</color> <!-- statusbar battery frame color on white statusbar  -->
+    <!--<color name="batterymeter_frame_color">#4dffffff</color>--> <!-- statusbar battery frame color  -->
+    <color name="batterymeter_circle_tile_bolt_plus_color">#ffffff</color> <!-- bolt and plus color for tile on circle battery style-->
+    <color name="batterymeter_bolt_color">#ffffff</color> <!--  statusbar battery bolt and plus color on no circle styles -->
+	
+	<color name="material_grey_300">#ffffffff</color>
+
+
+    <color name="smartbar_editor_popup_background">#ffffff</color>
+    <color name="smartbar_editor_popup_text">#212121</color>
+    <color name="smartbar_editor_popup_horiz_separator">#e0e0e0</color>
+
+    <color name="omni_jaws_detailed_temperature_color">#ff212121</color>
+
+    <color name="status_bar_temperature_text_color">#ff212121</color>
+    <color name="status_bar_temperature_location_text_color">#ff212121</color>
+
+    <color name="dark_mode_icon_color_single_tone">#424242</color>
+    <color name="dark_mode_icon_color_dual_tone_background">#4d424242</color>
+    <color name="dark_mode_icon_color_dual_tone_fill">#424242</color>
+    <color name="light_mode_icon_color_single_tone">#ffffff</color>
+    <color name="light_mode_icon_color_dual_tone_background">#4dffffff</color>
+    <color name="light_mode_icon_color_dual_tone_fill">#ffffff</color>
+</resources>
