@@ -289,9 +289,9 @@ public class QSFooter implements OnClickListener, DialogInterface.OnClickListene
             if (mFooterTextId != 0) {
                 mFooterText.setText(mFooterTextId);
             }
-            mRootView.setVisibility(mIsVisible ? View.VISIBLE : View.GONE);
-            mFooterIcon.setVisibility(mIsIconVisible ? View.VISIBLE : View.INVISIBLE);
-            mFooterIcon2.setVisibility(mIsIcon2Visible ? View.VISIBLE : View.INVISIBLE);
+            mRootView.setVisibility(mIsVisible ? View.GONE : View.GONE);
+            mFooterIcon.setVisibility(mIsIconVisible ? View.GONE : View.GONE);
+            mFooterIcon2.setVisibility(mIsIcon2Visible ? View.GONE : View.GONE);
         }
     };
 
