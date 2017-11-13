@@ -37,6 +37,9 @@
     <string name="quick_settings_sound_dnd">Do not disturb</string>
 	
 	<string name="statusbar_items_title">Statusbar icon</string>
+	
+	<!-- Lockscreen icons -->
+    <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
 	<string name="lockscreen_default">Default</string>
     <string name="lockscreen_hidden">None</string>
 	
@@ -61,4 +64,6 @@
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
 	<string name="qs_menu_item_rows_landscape">Rows landscape</string>
+	
+	
 </resources>
