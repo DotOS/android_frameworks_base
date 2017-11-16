@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+  <color name="sem_text_color_subtitle_material_toolbar">?android:attr/colorAccent</color>
+  <color name="tab_text_color">?android:attr/colorAccent</color>
+  <color name="tw_text_color_title_material_toolbar">?android:attr/colorAccent</color>
+</resources>
