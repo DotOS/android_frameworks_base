@@ -326,6 +326,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 case MSG_POCKET_STATE_CHANGED:
                     updateFingerprintListeningState();
                     break;
+                case MSG_POCKET_STATE_CHANGED:
+                    updateFingerprintListeningState();
+                    break;
             }
         }
     };
