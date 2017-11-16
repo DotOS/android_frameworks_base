@@ -107,6 +107,8 @@ import android.os.UserManager;
 import android.os.Vibrator;
 import android.os.health.SystemHealthManager;
 import android.os.storage.StorageManager;
+import android.pocket.IPocketService;
+import android.pocket.PocketManager;
 import android.print.IPrintManager;
 import android.print.PrintManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -651,6 +653,15 @@ final class SystemServiceRegistry {
                         IBinder binder = ServiceManager.getService(Context.THEME_SERVICE);
                         IThemeService service = IThemeService.Stub.asInterface(binder);
                         return new ThemeManager(ctx.getOuterContext(), service);
+                    }});
+
+        registerService(Context.POCKET_SERVICE, PocketManager.class,
+                new CachedServiceFetcher<PocketManager>() {
+                    @Override
+                    public PocketManager createService(ContextImpl ctx) {
+                        IBinder binder = ServiceManager.getService(Context.POCKET_SERVICE);
+                        IPocketService service = IPocketService.Stub.asInterface(binder);
+                        return new PocketManager(ctx.getOuterContext(), service);
                     }});
 
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,

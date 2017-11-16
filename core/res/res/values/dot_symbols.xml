@@ -68,5 +68,14 @@
 
   <!-- Quick settings tiles columns and rows config -->
   <java-symbol type="integer" name="config_qs_num_rows_landscape_default"/>
+
+  <!-- Pocket Lock -->
+  <java-symbol type="layout" name="pocket_lock_view_layout" />
+  <java-symbol type="id" name="pocket_hint_container" />
+  <java-symbol type="id" name="pocket_hint_image" />
+  <java-symbol type="id" name="pocket_hint_message" />
+
+  <!-- Pocket bridge -->
+  <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
 	
 </resources>
