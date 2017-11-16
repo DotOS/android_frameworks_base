@@ -8217,9 +8217,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // CMHardwareService to be up and running
         mSettingsObserver.observe();
 
-        if (mDeviceHardwareKeys > 0) {
-            mANBIHandler = new ANBIHandler(mContext);
-        }
+        mANBIHandler = new ANBIHandler(mContext);
 
         readCameraLensCoverState();
         updateUiMode();
