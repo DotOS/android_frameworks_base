@@ -26,7 +26,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Toast;
 
+import com.android.systemui.R;
 import com.android.systemui.dagger.qualifiers.Background;
 
 import java.util.concurrent.Executor;
@@ -60,6 +62,10 @@ public class DeleteScreenshotReceiver extends BroadcastReceiver {
             ContentResolver resolver = context.getContentResolver();
             resolver.delete(uri, null, null);
         });
+
+        // Display a toast to the user
+        Toast.makeText(context, R.string.delete_screenshot_toast, Toast.LENGTH_SHORT).show();
+
         if (intent.getBooleanExtra(EXTRA_SMART_ACTIONS_ENABLED, false)) {
             mScreenshotSmartActions.notifyScreenshotAction(
                     context, intent.getStringExtra(EXTRA_ID), ACTION_TYPE_DELETE, false, null);
