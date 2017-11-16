@@ -5,14 +5,14 @@
         <group android:name="rectangle_2" android:rotation="-45.0">
             <group android:name="rectangle_2_pivot" android:translateY="4.0">
                 <group android:name="rectangle_path_2_position" android:translateY="-1.0">
-                    <path android:name="rectangle_path_2" android:fillColor="?attr/colorAccent" android:pathData="M -1.0,-4.0 l 2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l -2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,-8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 Z" />
+                    <path android:name="rectangle_path_2" android:fillColor="#ffffff" android:pathData="M -1.0,-4.0 l 2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l -2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,-8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 Z" />
                 </group>
             </group>
         </group>
         <group android:name="rectangle_1" android:rotation="45.0">
             <group android:name="rectangle_1_pivot" android:translateY="-4.0">
                 <group android:name="rectangle_path_1_position" android:translateY="1.0">
-                    <path android:name="rectangle_path_1" android:fillColor="?attr/colorAccent" android:pathData="M -1.0,-4.0 l 2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l -2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,-8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 Z" />
+                    <path android:name="rectangle_path_1" android:fillColor="#ffffff" android:pathData="M -1.0,-4.0 l 2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l -2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,-8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 Z" />
                 </group>
             </group>
         </group>

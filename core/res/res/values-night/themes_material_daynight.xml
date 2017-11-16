@@ -56,13 +56,7 @@ please see themes_device_defaults.xml.
          system decor. This theme sets {@link android.R.attr#windowTranslucentStatus} and
          {@link android.R.attr#windowTranslucentNavigation} to true. -->
     <style name="Theme.Material.DayNight.NoActionBar.TranslucentDecor" parent="Theme.Material.NoActionBar.TranslucentDecor" />
-
-    <!-- Default Material.DayNight theme for panel windows. This removes all extraneous
-         window decorations, so you basically have an empty rectangle in which
-         to place your content. It makes the window floating, with a transparent
-         background, and turns off dimming behind the window. -->
-    <style name="Theme.Material.DayNight.Panel" parent="Theme.Material.Panel" />
-
+	
     <style name="Theme.Material.DayNight.SearchBar" parent="Theme.Material.SearchBar" />
     <style name="Theme.Material.DayNight.CompactMenu" parent="Theme.Material.CompactMenu" />
 

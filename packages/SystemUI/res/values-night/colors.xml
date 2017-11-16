@@ -3,7 +3,7 @@
     <color name="data_usage_graph_track">#4d424242</color>
     <color name="data_usage_graph_warning">@*android:color/accent_device_default_light</color>
     <color name="data_usage_secondary">@*android:color/accent_device_default_light</color>
-    <color name="fab_color">@*android:color/accent_device_default_light</color>
+    <color name="fab_color">?android:attr/colorAccent</color>
     <color name="material_blue_grey_800">#212121</color>
     <color name="material_blue_grey_900">#212121</color>
     <color name="navbar_tuner_text_color">#212121</color>
@@ -36,9 +36,7 @@
     <color name="volume_slider_inactive">#757575</color>
     <color name="zen_introduction_message_background">#212121</color>
 
-    <color name="volume_panel_background_color">#ffffff</color>
-    <color name="volume_settings_icon_color">#424242</color>
-    <color name="volume_icon_color">#424242</color>
+    <color name="volume_icon_color">?android:attr/colorAccent</color>
 
     <color name="qs_alarm_status_text_color">#212121</color>
     <color name="qs_edit_toolbar_text_color">#424242</color>
