@@ -25,7 +25,7 @@
     <!-- Color engine -->
     <color name="dark_primary_color">@color/black</color>
     <color name="grey_primary_color">#ff303030</color>
-    <color name="blue_accent_color">#76c124</color>
+    <color name="blue_accent_color">#00ae5e</color>
     <color name="red_accent_color">#ff555d</color>
     <color name="orange_accent_color">#ff3d00</color>
     <color name="green_accent_color">#4285F4</color>

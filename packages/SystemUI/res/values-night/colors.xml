@@ -39,7 +39,7 @@
     <color name="volume_icon_color">?android:attr/colorAccent</color>
 
     <color name="qs_alarm_status_text_color">#212121</color>
-    <color name="qs_edit_toolbar_text_color">#424242</color>
+    <color name="qs_edit_toolbar_text_color">#4f4f4f</color>
     <color name="qs_edit_button_text_color">#212121</color>
 
     <color name="accent_material_dark">@*android:color/accent_device_default_light</color>
@@ -50,14 +50,14 @@
     <color name="qs_battery_text_color">@*android:color/accent_device_default_light</color>
     <color name="qs_batterymeter_frame_color">#4d424242</color>
 
-    <color name="external_qs_tile_tint_color">#424242</color>
-    <color name="qs_tile_tint_unavailable">#4d424242</color>
-    <color name="qs_tile_tint_inactive">#4d424242</color>
-    <color name="qs_tile_tint_active">#424242</color>
+    <color name="external_qs_tile_tint_color">#4f4f4f</color>
+    <color name="qs_tile_tint_unavailable">#4d4f4f4f</color>
+    <color name="qs_tile_tint_inactive">#4d4f4f4f</color>
+    <color name="qs_tile_tint_active">#4f4f4f</color>
     <color name="qs_tile_divider">#4d212121</color>
     <color name="qs_detail_button">#212121</color>
     <color name="qs_detail_button_white">#212121</color>
-    <color name="qs_detail_empty">#424242</color>
+    <color name="qs_detail_empty">#4f4f4f</color>
     <color name="qs_detail_progress_track">#f0f0f0</color>
     <color name="qs_detail_transition">#f0f0f0</color>
     <color name="qs_edit_item_decoration_bg">#ffffff</color>
