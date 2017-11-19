@@ -62,6 +62,7 @@
     <color name="qs_detail_transition">#f0f0f0</color>
     <color name="qs_edit_item_decoration_bg">#ffffff</color>
     <color name="qs_edit_overflow_bg">#212121</color>
+	<color name="qs_edit_toolbar_text_color">#212121</color>
     <color name="qs_subhead">#212121</color>
     <color name="qs_text">#212121</color>
     <color name="qs_tile_text">#212121</color>
