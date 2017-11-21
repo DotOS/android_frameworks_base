@@ -51,9 +51,9 @@
     <color name="qs_batterymeter_frame_color">#4d424242</color>
 
     <color name="external_qs_tile_tint_color">#4f4f4f</color>
-    <color name="qs_tile_tint_unavailable">#4d4f4f4f</color>
-    <color name="qs_tile_tint_inactive">#4d4f4f4f</color>
-    <color name="qs_tile_tint_active">#4f4f4f</color>
+    <color name="qs_tile_tint_unavailable">#404285F4</color>
+    <color name="qs_tile_tint_inactive">#4d4285F4</color>
+    <color name="qs_tile_tint_active">#ff4285F4</color>
     <color name="qs_tile_divider">#4d212121</color>
     <color name="qs_detail_button">#212121</color>
     <color name="qs_detail_button_white">#212121</color>
@@ -72,8 +72,10 @@
     <color name="segmented_button_unselected">#4d212121</color>
     <color name="segmented_buttons_background">#ffffff</color>
 
+	
     <color name="material_deep_teal_500">@*android:color/accent_device_default_light</color>
 
+	
     <color name="batterymeter_frame_color_tile">#4d424242</color> <!-- tile battery frame color -->
     <color name="battery_normal_charge_level_tile">#424242</color> <!-- level color when >15 for the tile battery -->
     <color name="batterymeter_tile_bolt_plus_color">#ffffff</color> <!-- bolt and plus color for tile on non circle battery styles - the qs panel background color -->
@@ -85,8 +87,7 @@
     <color name="batterymeter_bolt_color">#ffffff</color> <!--  statusbar battery bolt and plus color on no circle styles -->
 	
 	<color name="material_grey_300">#ffffffff</color>
-
-
+	
     <color name="smartbar_editor_popup_background">#ffffff</color>
     <color name="smartbar_editor_popup_text">#212121</color>
     <color name="smartbar_editor_popup_horiz_separator">#e0e0e0</color>
