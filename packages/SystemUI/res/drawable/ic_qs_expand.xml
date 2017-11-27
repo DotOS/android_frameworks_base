@@ -36,7 +36,7 @@
                     android:translateY="-1" >
                     <path
                         android:name="rectangle_path_3"
-                        android:fillColor="#FFFFFFFF"
+                        android:fillColor="@color/qs_tile_tint_active"
                         android:pathData="M -1.0,-4.0 l 2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l -2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,-8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 Z" />
                 </group>
             </group>
@@ -52,7 +52,7 @@
                     android:translateY="1" >
                     <path
                         android:name="rectangle_path_4"
-                        android:fillColor="#FFFFFFFF"
+                        android:fillColor="@color/qs_tile_tint_active"
                         android:pathData="M -1.0,-4.0 l 2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l -2.0,0.0 c 0.0,0.0 0.0,0.0 0.0,0.0 l 0.0,-8.0 c 0.0,0.0 0.0,0.0 0.0,0.0 Z" />
                 </group>
             </group>

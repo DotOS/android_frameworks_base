@@ -22,7 +22,7 @@ Copyright (C) 2014 The Android Open Source Project
     <group
             android:translateY="-988.583">
         <path
-                android:fillColor="#FFFFFFFF"
+                android:fillColor="@color/qs_tile_tint_active"
                 android:pathData="M15.0133
 1051.24c-1.3615-0.2479-2.37425-1.2789-2.57968-2.6262-0.06554-0.4298-0.06571-55.8484-0.00018-56.28
 0.09875-0.65024 0.367851-1.20544 0.812983-1.6773 0.402211-0.42637

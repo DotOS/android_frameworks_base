@@ -23,7 +23,7 @@
     android:viewportHeight="48">
 
     <path
-        android:fillColor="#FFFFFF"
+        android:fillColor="@color/qs_tile_tint_active"
         android:pathData="M25.9,3.3l7.8,19.1c0.4,1,0.4,2.2,0,3.3l-7.8,19.1c-0.7,1.7-3.1,1.7-3.8,0l-7.8-19.1c-0.4-1-0.4-2.2,0-3.3
 l7.8-19.1C22.8,1.6,25.2,1.6,25.9,3.3Z
 M24,20c-2.2,0-4,1.8-4,4s1.8,4,4,4s4-1.8,4-4S26.2,20,24,20z

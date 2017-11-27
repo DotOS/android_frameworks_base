@@ -20,7 +20,7 @@
     android:width="24.0dp" >
 
     <path
-        android:fillColor="#FFFFFFFF"
+        android:fillColor="@color/qs_tile_tint_active"
         android:pathData="M38.0,26.0L26.0,26.0l0.0,12.0l-4.0,0.0L22.0,26.0L10.0,26.0l0.0,-4.0l12.0,0.0L22.0,10.0l4.0,0.0l0.0,12.0l12.0,0.0l0.0,4.0z" />
 
 </vector>

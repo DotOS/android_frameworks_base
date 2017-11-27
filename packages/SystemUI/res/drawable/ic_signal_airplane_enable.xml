@@ -37,10 +37,10 @@
                 <path
                     android:name="cross_1"
                     android:pathData="M 7.54049682617,3.9430847168 c 0.0,0.0 31.5749816895,31.4499664307 31.5749816895,31.4499664307 "
-                    android:strokeColor="#FFFFFFFF"
+                    android:strokeColor="@color/qs_tile_tint_active"
                     android:strokeAlpha="1"
                     android:strokeWidth="3.5"
-                    android:fillColor="#00000000" />
+                    android:fillColor="@color/qs_tile_tint_inactive" />
             </group>
             <group
                 android:name="plane"
@@ -49,7 +49,7 @@
                 <path
                     android:name="plane_1"
                     android:pathData="M 18.9439849854,7.98849487305 c 0.0,0.0 0.0,-4.0 0.0,-4.0 c 0.0,0.0 -16.0,-10.0 -16.0,-10.0 c 0.0,0.0 0.0,-11.0 0.0,-11.0 c 0.0,-1.70001220703 -1.30000305176,-3.0 -3.0,-3.0 c -1.69999694824,0.0 -3.0,1.29998779297 -3.0,3.0 c 0.0,0.0 0.0,11.0 0.0,11.0 c 0.0,0.0 -16.0,10.0 -16.0,10.0 c 0.0,0.0 0.0,4.0 0.0,4.0 c 0.0,0.0 16.0,-5.0 16.0,-5.0 c 0.0,0.0 0.0,11.0 0.0,11.0 c 0.0,0.0 -4.0,3.0 -4.0,3.0 c 0.0,0.0 0.0,3.0 0.0,3.0 c 0.0,0.0 7.0,-2.0 7.0,-2.0 c 0.0,0.0 7.0,2.0 7.0,2.0 c 0.0,0.0 0.0,-3.0 0.0,-3.0 c 0.0,0.0 -4.0,-3.0 -4.0,-3.0 c 0.0,0.0 0.0,-11.0 0.0,-11.0 c 0.0,0.0 16.0,5.0 16.0,5.0 Z"
-                    android:fillColor="#FFFFFFFF"
+                    android:fillColor="@color/qs_tile_tint_active"
                     android:fillAlpha="1" />
             </group>
         </group>
