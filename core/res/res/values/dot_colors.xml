@@ -62,4 +62,6 @@
     <color name="notification_guts_bg_color">#eeeeee</color>
     <color name="notification_snooze_text">#dd000000</color>
 
+    <!-- Ambient Notification icon/text dynamic tint -->
+    <color name="notification_text_default_color">@android:color/notification_text_default_color</color>
 </resources>
