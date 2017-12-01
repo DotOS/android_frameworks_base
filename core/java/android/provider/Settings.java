@@ -5469,6 +5469,12 @@ public final class Settings {
         */
         public static final String INCALL_FEEDBACK_VIBRATE = "incall_feeedback_vibrate";
 
+       /**
+        * Check the proximity sensor during wakeup
+        * @hide
+        */
+       public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
+
         /**
          * Set edge gesture Y dead zone
          * 0 - disabled - stock behavior - default
@@ -5670,6 +5676,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
+            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
         }
 
         /**
