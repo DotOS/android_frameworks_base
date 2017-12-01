@@ -30,9 +30,10 @@
     </style>
 
     <style name="systemui_pixel_theme">
-        <item name="android:colorPrimary">@color/pixel_primary_color</item>
-        <item name="android:colorPrimaryDark">@color/pixel_primary_color</item>
-        <item name="android:colorSecondary">@color/pixel_primary_color</item>
+        <item name="android:colorPrimary">#ffffff</item>
+        <item name="android:colorPrimaryDark">#ffffff</item>
+        <item name="android:colorSecondary">#ffffff</item>
+		<item name="android:textColor">#3a3a3a</item> 
     </style>
 
     <!-- Screenshot Crop & Share -->

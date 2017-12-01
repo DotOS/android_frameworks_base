@@ -13,7 +13,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="?android:attr/textColor"
         android:autoMirrored="true"
         android:width="32.0dp"
         android:height="32.0dp"
