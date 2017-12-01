@@ -3205,7 +3205,7 @@
                  android:killAfterRestore="false"
                  android:icon="@drawable/ic_launcher_android"
                  android:supportsRtl="true"
-                 android:theme="@style/Theme.Material.DayNight.DarkActionBar"
+                 android:theme="@style/Theme.DeviceDefault.Light.DarkActionBar"
                  android:defaultToDeviceProtectedStorage="true"
                  android:directBootAware="true">
         <activity android:name="com.android.internal.app.ChooserActivity"

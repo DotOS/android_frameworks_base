@@ -17,8 +17,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_activated="false"
-        android:color="@color/item_text" />
+        android:color="@*android:color/secondary_text_material_light" />
     <item
         android:state_activated="true"
-        android:color="?android:colorAccent" />
+        android:color="@color/root_activated_color" />
 </selector>

@@ -38,8 +38,4 @@
     <color name="item_doc_background_disabled">#fff4f4f4</color>
     <color name="item_doc_background_selected">@*android:color/accent_device_default_50</color>
 
-    <color name="secondary_text_docs">#80000000</color>
-    <color name="item_text">#323232</color>
-    <color name="item_text_primary">#000000</color>
-
 </resources>
