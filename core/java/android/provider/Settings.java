@@ -3297,12 +3297,12 @@ public final class Settings {
          */
         public static final String BUTTON_BRIGHTNESS = "button_brightness";
 
-        /**
-         * The time in ms to keep the button backlight on after pressing a button.
-         * A value of 0 will keep the buttons on for as long as the screen is on.
-         * @hide
-         */
-        public static final String BUTTON_BACKLIGHT_TIMEOUT = "button_backlight_timeout";
+        // /**
+        //  * The time in ms to keep the button backlight on after pressing a button.
+        //  * A value of 0 will keep the buttons on for as long as the screen is on.
+        //  * @hide
+        //  */
+        // public static final String BUTTON_BACKLIGHT_TIMEOUT = "button_backlight_timeout";
 
         /**
          * Control whether the process CPU usage meter should be shown.
@@ -4569,6 +4569,57 @@ public final class Settings {
         */
        public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
 
+       /**
+         * Custom button brightness value for manual mode
+         *
+         * @hide
+         */
+        public static final String CUSTOM_BUTTON_BRIGHTNESS = "custom_button_brightness";
+
+        /** @hide */
+        private static final Validator CUSTOM_BUTTON_BRIGHTNESS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * use same value for buttons as for screen (manual and auto mode)
+         *
+         * @hide
+         */
+        public static final String CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS = "custom_button_use_screen_brightness";
+
+        /** @hide */
+        private static final Validator CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * disable all button brightness (manual and auto mode)
+         *
+         * @hide
+         */
+        public static final String BUTTON_BACKLIGHT_ENABLE = "button_backlight_enable";
+
+        /** @hide */
+        private static final Validator BUTTON_BACKLIGHT_ENABLE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Timeout value for button lights. 0 = disabled
+         * @hide
+         */
+        public static final String BUTTON_BACKLIGHT_TIMEOUT = "button_backlight_timeout";
+
+        /** @hide */
+        private static final Validator BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String BUTTON_BACKLIGHT_ON_TOUCH_ONLY = "button_backlight_on_touch_only";
+
+        /** @hide */
+        private static final Validator BUTTON_BACKLIGHT_ON_TOUCH_ONLY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4642,6 +4693,11 @@ public final class Settings {
             OMNI_QS_LAYOUT_ROWS,
             OMNI_QS_LAYOUT_ROWS_LANDSCAPE,
             OMNI_QS_QUICKBAR_COLUMNS,
+            CUSTOM_BUTTON_BRIGHTNESS,
+            CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
+            BUTTON_BACKLIGHT_ENABLE,
+            BUTTON_BACKLIGHT_TIMEOUT,
+            BUTTON_BACKLIGHT_ON_TOUCH_ONLY,
         };
 
         /**
@@ -4780,6 +4836,11 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
+            PRIVATE_SETTINGS.add(CUSTOM_BUTTON_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ENABLE);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ON_TOUCH_ONLY);
         }
 
         /**
@@ -4881,6 +4942,17 @@ public final class Settings {
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS, OMNI_QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS_LANDSCAPE, OMNI_QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(OMNI_QS_QUICKBAR_COLUMNS, OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR);
+            VALIDATORS.put(CUSTOM_BUTTON_BRIGHTNESS,
+                    CUSTOM_BUTTON_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
+                    CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_ENABLE,
+                    BUTTON_BACKLIGHT_ENABLE_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT,
+                    BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_ON_TOUCH_ONLY,
+                    BUTTON_BACKLIGHT_ON_TOUCH_ONLY_VALIDATOR);
+
         }
 
         /**
