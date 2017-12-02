@@ -26,9 +26,9 @@
         <item name="colorBackground">@color/dark_primary_color</item>
         <item name="colorControlHighlight">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
-        <item name="colorPrimary">@color/dark_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_primary_color</item>
-        <item name="colorSecondary">@color/dark_primary_color</item>
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorSecondary">#000000</item>
         <item name="textColorPrimary">@color/white</item>
     </style>
 
