@@ -38,6 +38,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
+import android.support.annotation.ColorInt;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
@@ -122,7 +123,7 @@ public class QS_BatteryMeterDrawable extends Drawable implements
         mContext = context;
         mHandler = handler;
         final Resources res = context.getResources();
-		mIconTint = res.getColor(R.color.qs_tile_tint_active);
+		mIconTint = Color.parseColor(convertToHex(mContext, android.R.attr.colorAccent));
         TypedArray levels = res.obtainTypedArray(R.array.batterymeter_color_levels);
         TypedArray colors = res.obtainTypedArray(R.array.qs_batterymeter_color_values);
 
@@ -181,6 +182,19 @@ public class QS_BatteryMeterDrawable extends Drawable implements
         mIntrinsicHeight = context.getResources().getDimensionPixelSize(R.dimen.battery_height);
     }
 
+	public String convertToHex(Context context, int attr) {
+        String number = Integer.toHexString(getColorAttr(context, attr));
+        return String.format("#%s", number);
+    }
+	
+	@ColorInt
+    public static int getColorAttr(Context context, int attr) {
+        TypedArray ta = context.obtainStyledAttributes(new int[]{attr});
+        @ColorInt int colorAccent = ta.getColor(0, 0);
+        ta.recycle();
+        return colorAccent;
+    }
+	
     @Override
     public int getIntrinsicHeight() {
         return mIntrinsicHeight;

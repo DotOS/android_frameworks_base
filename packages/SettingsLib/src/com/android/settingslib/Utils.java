@@ -157,6 +157,12 @@ public class Utils {
         return statusString;
     }
 
+	// It use getColorAccent and convert it to usable color string
+	public String convertToHex(Context context) {
+        String number = Integer.toHexString(getColorAccent(context));
+        return String.format("#%s", number);
+    }
+	
     @ColorInt
     public static int getColorAccent(Context context) {
         TypedArray ta = context.obtainStyledAttributes(new int[]{android.R.attr.colorAccent});

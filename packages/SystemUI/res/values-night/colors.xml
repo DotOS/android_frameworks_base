@@ -36,7 +36,7 @@
     <color name="volume_slider_inactive">#757575</color>
     <color name="zen_introduction_message_background">#212121</color>
 
-    <color name="volume_icon_color">?android:attr/colorAccent</color>
+    <color name="volume_icon_color">#ffffff</color>
 
     <color name="qs_alarm_status_text_color">#212121</color>
     <color name="qs_edit_toolbar_text_color">#4f4f4f</color>
@@ -51,9 +51,9 @@
     <color name="qs_batterymeter_frame_color">#4d424242</color>
 
     <color name="external_qs_tile_tint_color">#4f4f4f</color>
-    <color name="qs_tile_tint_unavailable">#404285F4</color>
-    <color name="qs_tile_tint_inactive">#4d4285F4</color>
-    <color name="qs_tile_tint_active">#ff4285F4</color>
+    <color name="qs_tile_tint_unavailable">#40242424</color>
+    <color name="qs_tile_tint_inactive">#4d242424</color>
+    <color name="qs_tile_tint_active">#ff242424</color>
     <color name="qs_tile_divider">#4d212121</color>
     <color name="qs_detail_button">#212121</color>
     <color name="qs_detail_button_white">#212121</color>

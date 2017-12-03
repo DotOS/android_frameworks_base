@@ -148,9 +148,9 @@
 
     <color name="remote_input_accent">#eeeeee</color>
 
-    <color name="qs_tile_tint_unavailable">#404285F4</color>
-    <color name="qs_tile_tint_inactive">#4d4285F4</color>
-    <color name="qs_tile_tint_active">#ff4285F4</color>
+    <color name="qs_tile_tint_unavailable">#40ffffff</color>
+    <color name="qs_tile_tint_inactive">#4dffffff</color>
+    <color name="qs_tile_tint_active">#ffffffff</color>
 
     <!-- Keyboard shortcuts colors -->
     <color name="ksh_application_group_color">#fff44336</color>

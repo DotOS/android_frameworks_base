@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector android:height="48.0dip" android:width="48.0dip" android:viewportWidth="48.0" android:viewportHeight="48.0"
-  xmlns:android="http://schemas.android.com/apk/res/android"  >
+  xmlns:android="http://schemas.android.com/apk/res/android" android:tint="?android:attr/colorAccent"  >
     <group android:name="icon" android:translateX="24.0" android:translateY="24.0">
         <group android:name="icon_pivot" android:translateX="-24.15" android:translateY="-24.25">
             <group android:name="arrows" android:scaleX="0.9" android:scaleY="0.9" android:rotation="-221.0" android:translateX="24.1" android:translateY="24.1">
