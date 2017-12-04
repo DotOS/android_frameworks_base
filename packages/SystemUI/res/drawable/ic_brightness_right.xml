@@ -27,7 +27,7 @@ Copyright (C) 2014 The Android Open Source Project
                 android:strokeAlpha="0.4"
                 android:fillAlpha="0.4" />
             <path
-                android:fillColor="?android:attr/textColor"
+                android:fillColor="@*com.android.systemui:color/qs_text"
                 android:pathData="M32,47 L32,47 C40.2842712,47 47,40.2842712 47,32 C47,23.7157288 40.2842712,17 32,17 C23.7157288,17 17,23.7157288 17,32 C17,40.2842712 23.7157288,47 32,47 L32,47 L32,47 L32,47 L32,47 L32,47 L32,47 Z M32,53 C20.4020203,53 11,43.5979797 11,32 C11,20.4020203 20.4020203,11 32,11 C43.5979797,11 53,20.4020203 53,32 C53,43.5979797 43.5979797,53 32,53 L32,53 Z M32,41 C36.9705627,41 41,36.9705627 41,32 C41,27.0294373 36.9705627,23 32,23 C27.0294373,23 23,27.0294373 23,32 C23,36.9705627 27.0294373,41 32,41 L32,41 Z"
                 android:strokeWidth="1.0" />
         </group>

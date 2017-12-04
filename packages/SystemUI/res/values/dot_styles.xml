@@ -23,7 +23,6 @@
 <!-- Color engine -->
     <style name="systemui_light_theme">
         <item name="android:colorControlNormal">?android:attr/textColorSecondary</item>
-		<item name="android:textColor">#ffffff</item> 
         <item name="android:textColorPrimary">@*android:color/primary_text_material_dark</item>
         <item name="android:colorPrimary">@color/pixel_primary_color</item>
         <item name="android:colorPrimaryDark">@color/pixel_primary_color</item>
