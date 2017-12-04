@@ -13,7 +13,7 @@ Copyright (C) 2015 The Android Open Source Project
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="?android:attr/textColor"
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:height="64dp"
     android:viewportHeight="24.0"
     android:viewportWidth="24.0"

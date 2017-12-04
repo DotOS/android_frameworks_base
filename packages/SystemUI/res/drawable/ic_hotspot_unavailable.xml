@@ -14,12 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="?android:attr/textColor"
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:name="root"
     android:height="48dp"
     android:width="48dp"
     android:viewportHeight="48"
-    android:viewportWidth="48" >
+    android:viewportWidth="48"
+    android:tint="@color/qs_tile_tint_unavailable" >
     <group
         android:name="ic_hotspot"
         android:translateX="23.97354"
