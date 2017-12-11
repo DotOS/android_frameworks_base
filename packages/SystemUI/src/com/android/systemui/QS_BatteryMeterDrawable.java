@@ -123,7 +123,7 @@ public class QS_BatteryMeterDrawable extends Drawable implements
         mContext = context;
         mHandler = handler;
         final Resources res = context.getResources();
-		mIconTint = Color.parseColor(convertToHex(mContext, android.R.attr.colorAccent));
+		mIconTint = Color.parseColor(convertToHex(mContext, android.R.attr.textColor));
         TypedArray levels = res.obtainTypedArray(R.array.batterymeter_color_levels);
         TypedArray colors = res.obtainTypedArray(R.array.qs_batterymeter_color_values);
 
@@ -190,9 +190,9 @@ public class QS_BatteryMeterDrawable extends Drawable implements
 	@ColorInt
     public static int getColorAttr(Context context, int attr) {
         TypedArray ta = context.obtainStyledAttributes(new int[]{attr});
-        @ColorInt int colorAccent = ta.getColor(0, 0);
+        @ColorInt int textColor = ta.getColor(0, 0);
         ta.recycle();
-        return colorAccent;
+        return textColor;
     }
 	
     @Override

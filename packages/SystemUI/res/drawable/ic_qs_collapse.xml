@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="?android:attr/colorAccent"
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="?android:attr/textColor"
     android:name="ic_qs_collapse"
     android:height="24dp"
     android:viewportHeight="24"
