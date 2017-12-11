@@ -18,4 +18,16 @@
 
     <!-- Quick settings tiles columns and rows config -->
     <integer name="config_qs_num_rows_landscape_default">2</integer>
+
+    <!-- Any package that has one of the package names defined below will be prevented
+         from using specific sensors in order to stop battery drain -->
+    <string-array name="config_blockPackagesSensorDrain">
+         <item>com.whatsapp</item>
+         <item>com.gbwhatsapp</item>
+         <item>com.yowhatsapp</item>
+         <item>com.whatsapp.plus</item>
+         <item>org.telegram.messenger</item>
+         <item>org.telegram.messenger.plus</item>
+         <item>com.snapchat.android</item>
+    </string-array>
 </resources>
