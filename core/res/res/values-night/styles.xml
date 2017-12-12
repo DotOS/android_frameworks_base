@@ -34,10 +34,6 @@
     <item name="android:textColorHintInverse">#BD000000</item>
     <item name="android:colorPrimaryDark">#f0f0f0</item>
     <item name="android:windowBackground">@*android:drawable/background_holo_dark</item>
-    <item name="android:listDivider">@*android:drawable/list_divider_holo_dark</item>
-    <item name="android:dividerHorizontal">@*android:drawable/list_divider_holo_dark</item>
-    <item name="android:dividerVertical">@*android:drawable/list_divider_holo_dark</item>
-    <item name="android:listDividerAlertDialog">@*android:drawable/list_divider_holo_dark</item>
     <item name="android:buttonStyle">@*android:style/Widget.DeviceDefault.Button</item>
     <item name="android:textAppearanceButton">@*android:style/TextAppearance.DeviceDefault.Widget.Button</item>
     <item name="android:actionOverflowButtonStyle">@*android:style/Widget.DeviceDefault.ActionButton.Overflow</item>
@@ -66,10 +62,6 @@
     <item name="android:textColorHintInverse">#BD000000</item>
     <item name="android:colorPrimaryDark">#f0f0f0</item>
     <item name="android:windowBackground">@*android:drawable/background_holo_dark</item>
-    <item name="android:listDivider">@*android:drawable/list_divider_holo_dark</item>
-    <item name="android:dividerHorizontal">@*android:drawable/list_divider_holo_dark</item>
-    <item name="android:dividerVertical">@*android:drawable/list_divider_holo_dark</item>
-    <item name="android:listDividerAlertDialog">@*android:drawable/list_divider_holo_dark</item>
     <item name="android:buttonStyle">@*android:style/Widget.DeviceDefault.Button</item>
     <item name="android:textAppearanceButton">@*android:style/TextAppearance.DeviceDefault.Widget.Button</item>
     <item name="android:actionBarSize">@*android:dimen/action_bar_default_height_material</item>
