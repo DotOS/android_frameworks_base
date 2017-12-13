@@ -30,6 +30,7 @@
         <item name="colorPrimaryDark">@color/dark_primary_color</item>
         <item name="colorSecondary">@color/dark_primary_color</item>
         <item name="textColorPrimary">@color/white</item>
+		<item name="android:tilesColor">@color/white</item>
     </style>
 
     <!-- Need to use parent of original theme, otherwise attributes will be lost -->
@@ -58,6 +59,7 @@
         <item name="colorSecondary">#2c2c2c</item>
         <item name="textColorPrimary">@color/white</item>
         <item name="android:navigationBarColor">#2c2c2c</item>
+		<item name="android:tilesColor">@color/white</item>
     </style>
 
     <!-- Need to use parent of original theme, otherwise attributes will be lost -->
@@ -85,6 +87,7 @@
         <item name="colorPrimaryDark">#fafafa</item>
         <item name="colorSecondary">#fafafa</item>
         <item name="textColorPrimary">@color/primary_text_material_light</item>
+		<item name="android:tilesColor">@color/white</item>
     </style>
 
     <style name="Theme_White_Alert_Dialog" parent="Theme.DeviceDefault.Light.Dialog.Alert">

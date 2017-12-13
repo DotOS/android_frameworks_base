@@ -8317,4 +8317,7 @@ i
     <declare-styleable name="ShortcutCategories">
         <attr name="name" />
     </declare-styleable>
+	
+	<!-- dotOS Addons-->
+	<attr name="tilesColor" format="color"/>
 </resources>

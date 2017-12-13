@@ -2748,4 +2748,7 @@
     <public type="style" name="Theme.Material.DayNight.NoActionBar.TranslucentDecor" />
     <public type="style" name="Theme.Material.DayNight.Panel" />
 
+	<!-- dotOS Addons-->
+	<public type="attr" name="tilesColor" id="0x01110530"/>
+	
 </resources>
