@@ -3806,7 +3806,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
         final int scanCode = event.getScanCode();
 	final boolean isCustomSource = source == InputDevice.SOURCE_KEYBOARD;
-        final int keyCode = event.getKeyCode();
+      //  final int keyCode = event.getKeyCode();
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
