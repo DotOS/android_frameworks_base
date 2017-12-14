@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+       <!-- dot qs tints -->
+    <color name="dot_tint_color">#4b4d4f</color>
+</resources>
