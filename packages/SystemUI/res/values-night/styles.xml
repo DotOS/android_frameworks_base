@@ -39,7 +39,7 @@
         <item name="android:colorPrimaryDark">@color/pixel_primary_color</item>
         <item name="android:colorSecondary">@color/pixel_primary_color</item>
 		<item name="android:textColor">#212121</item> 
-		<item name="android:tilesColor">?android:attr/colorAccent</item>
+		<item name="android:tilesColor">#212121</item>
     </style>
 
     <style name="systemui_pixel_theme">
