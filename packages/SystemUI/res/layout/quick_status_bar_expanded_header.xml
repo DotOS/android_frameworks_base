@@ -54,18 +54,6 @@
                 android:scaleType="centerInside"/>
         </com.android.systemui.statusbar.phone.MultiUserSwitch>
 
-        <com.android.systemui.statusbar.AlphaOptimizedImageView
-            android:id="@android:id/edit"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:clipToPadding="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/ic_mode_edit"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/accessibility_quick_settings_edit"
-            android:padding="14dp" />
-
         <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
             android:id="@+id/settings_button_container"
             android:layout_width="48dp"
@@ -90,6 +78,18 @@
                 android:src="@drawable/tuner" />
 
         </com.android.systemui.statusbar.AlphaOptimizedFrameLayout>
+		
+		<com.android.systemui.statusbar.AlphaOptimizedImageView
+            android:id="@android:id/edit"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clipToPadding="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_mode_edit"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/accessibility_quick_settings_edit"
+            android:padding="14dp" />
 
         <com.android.systemui.statusbar.phone.ExpandableIndicator
             android:id="@+id/expand_indicator"
