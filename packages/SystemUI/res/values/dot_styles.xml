@@ -22,7 +22,7 @@
     </style>
 
     <!-- Status bar notification ticker -->
-    <style name="TextAppearance.StatusBar.PhoneTicker" parent="@*android:style/TextAppearance.StatusBar.Ticker">
+    <style name="TextAppearance.StatusBar.PhoneTicker" parent="@*android:style/TextAppearance.StatusBar">
         <item name="android:textSize">14dp</item>
     </style>
 
