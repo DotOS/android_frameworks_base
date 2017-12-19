@@ -221,7 +221,6 @@ public class DOTUtils {
         FireActions.toggleCameraFlash();
     }
 
-
     public static ActivityInfo getRunningActivityInfo(Context context) {
         final ActivityManager am = (ActivityManager) context
                 .getSystemService(Context.ACTIVITY_SERVICE);
