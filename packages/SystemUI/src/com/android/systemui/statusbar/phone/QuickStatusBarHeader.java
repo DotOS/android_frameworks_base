@@ -31,6 +31,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
+import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -79,7 +80,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private TextView mAlarmStatus;
     private View mAlarmStatusCollapsed;
-
+    private TelephonyManager telephonyManager;
+	
     private QSPanel mQsPanel;
 
     private boolean mExpanded;
@@ -91,6 +93,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     private ViewGroup mDateTimeGroup;
     private ViewGroup mDateTimeAlarmGroup;
     private TextView mEmergencyOnly;
+	private TextView mCarrierText;
 
     protected ExpandableIndicator mExpandIndicator;
 
@@ -139,7 +142,11 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mDateTimeGroup.setPivotY(0);
         mDateTimeTranslation = getResources().getDimension(R.dimen.qs_date_time_translation);
         mShowFullAlarm = getResources().getBoolean(R.bool.quick_settings_show_full_alarm);
-
+		telephonyManager = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE));
+        String operatorName = telephonyManager.getNetworkOperatorName();
+		mCarrierText = findViewById(R.id.carrier_name_header);
+		mCarrierText.setText(operatorName);
+		
         mClock = (View) findViewById(R.id.clock);
         mClock.setOnClickListener(this);
         mDate = (View) findViewById(R.id.date);
@@ -200,8 +207,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     protected void updateSettingsAnimator() {
         mSettingsAlpha = new TouchAnimator.Builder()
                 .addFloat(mEdit, "alpha", 0, 1)
-				 .addFloat(mSettingsButton, "alpha", 0, 1)
+				.addFloat(mSettingsButton, "alpha", 0, 1)
                 .addFloat(mMultiUserSwitch, "alpha", 0, 1)
+				.addFloat(mCarrierText, "alpha", 0, 1)
                 .build();
 
         final boolean isRtl = isLayoutRtl();
@@ -312,8 +320,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         hasEdit = !isEditDisabled();
         mEdit.setVisibility(hasEdit && !isDemo && mExpanded ? View.VISIBLE : View.GONE);
         hasSettingsIcon = !isSettingsIconDisabled();
-        mSettingsButton.setVisibility(hasSettingsIcon ? View.VISIBLE : View.GONE);
+        mSettingsButton.setVisibility(mExpanded && hasSettingsIcon ? View.VISIBLE : View.GONE);
         hasExpandIndicator = !isExpandIndicatorDisabled();
+		mCarrierText,setVisibility(mExpanded ? View.VISIBLE : View.GONE);
         mExpandIndicator.setVisibility(hasExpandIndicator ? View.VISIBLE : View.GONE);
     }
 
