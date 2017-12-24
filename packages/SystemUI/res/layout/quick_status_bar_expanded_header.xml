@@ -105,9 +105,9 @@
             android:padding="12dp" />
 
     </LinearLayout>
-		
+	
     <TextView
-        android:id="@+id/header_emergency_calls_only"
+        android:id="@+id/carrier_name_header"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_alignParentStart="true"
@@ -115,7 +115,6 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingTop="6dp"
-        android:visibility="gone"
         android:textAppearance="@style/TextAppearance.StatusBar.Expanded.EmergencyCallsOnly"
         android:text="@*android:string/emergency_calls_only"
         android:singleLine="true"

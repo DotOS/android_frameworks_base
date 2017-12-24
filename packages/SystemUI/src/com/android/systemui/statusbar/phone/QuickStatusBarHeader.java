@@ -92,7 +92,6 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private ViewGroup mDateTimeGroup;
     private ViewGroup mDateTimeAlarmGroup;
-    private TextView mEmergencyOnly;
 	private TextView mCarrierText;
 
     protected ExpandableIndicator mExpandIndicator;
@@ -129,8 +128,6 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        mEmergencyOnly = (TextView) findViewById(R.id.header_emergency_calls_only);
-
         mEdit = findViewById(android.R.id.edit);
         findViewById(android.R.id.edit).setOnClickListener(view ->
                 mHost.startRunnableDismissingKeyguard(() -> mQsPanel.showEdit(view)));
@@ -142,9 +139,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mDateTimeGroup.setPivotY(0);
         mDateTimeTranslation = getResources().getDimension(R.dimen.qs_date_time_translation);
         mShowFullAlarm = getResources().getBoolean(R.bool.quick_settings_show_full_alarm);
-		telephonyManager = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE));
+		telephonyManager = ((TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE));
         String operatorName = telephonyManager.getNetworkOperatorName();
-		mCarrierText = findViewById(R.id.carrier_name_header);
+		mCarrierText = (TextView) findViewById(R.id.carrier_name_header);
 		mCarrierText.setText(operatorName);
 		
         mClock = (View) findViewById(R.id.clock);
@@ -191,11 +188,11 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private void updateResources() {
         FontSizeUtils.updateFontSize(mAlarmStatus, R.dimen.qs_date_collapsed_size);
-        FontSizeUtils.updateFontSize(mEmergencyOnly, R.dimen.qs_emergency_calls_only_text_size);
+        FontSizeUtils.updateFontSize(mCarrierText, R.dimen.qs_emergency_calls_only_text_size);
 
         Builder builder = new Builder()
                 .addFloat(mShowFullAlarm ? mAlarmStatus : findViewById(R.id.date), "alpha", 0, 1)
-                .addFloat(mEmergencyOnly, "alpha", 0, 1);
+                .addFloat(mCarrierText, "alpha", 0, 1);
         if (mShowFullAlarm) {
             builder.addFloat(mAlarmStatusCollapsed, "alpha", 1, 0);
         }
@@ -209,7 +206,6 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
                 .addFloat(mEdit, "alpha", 0, 1)
 				.addFloat(mSettingsButton, "alpha", 0, 1)
                 .addFloat(mMultiUserSwitch, "alpha", 0, 1)
-				.addFloat(mCarrierText, "alpha", 0, 1)
                 .build();
 
         final boolean isRtl = isLayoutRtl();
@@ -309,8 +305,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     protected void updateVisibilities() {
         updateAlarmVisibilities();
         updateDateTimePosition();
-        mEmergencyOnly.setVisibility(mExpanded && (mShowEmergencyCallsOnly || mIsRoaming)
-                ? View.VISIBLE : View.INVISIBLE);
+        mCarrierText.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
         mSettingsContainer.findViewById(R.id.tuner_icon).setVisibility(View.INVISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         hasMultiUserSwitch = !isMultiUserSwitchDisabled();
@@ -322,13 +317,12 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         hasSettingsIcon = !isSettingsIconDisabled();
         mSettingsButton.setVisibility(mExpanded && hasSettingsIcon ? View.VISIBLE : View.GONE);
         hasExpandIndicator = !isExpandIndicatorDisabled();
-		mCarrierText,setVisibility(mExpanded ? View.VISIBLE : View.GONE);
+		mCarrierText.setVisibility(mExpanded ? View.VISIBLE : View.GONE);
         mExpandIndicator.setVisibility(hasExpandIndicator ? View.VISIBLE : View.GONE);
     }
 
     private void updateDateTimePosition() {
-        mDateTimeAlarmGroup.setTranslationY(mShowEmergencyCallsOnly || mIsRoaming
-                ? mExpansionAmount * mDateTimeTranslation : 0);
+        mDateTimeAlarmGroup.setTranslationY(mExpanded ? mExpansionAmount * mDateTimeTranslation : 0);
     }
 
     private void updateListeners() {
@@ -483,10 +477,12 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
             int qsType, boolean activityIn, boolean activityOut, String typeContentDescription,
             String description, boolean isWide, int subId, boolean roaming, boolean IsMobileIms) {
         mRoamingsBySubId.put(subId, roaming);
+		telephonyManager = ((TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE));
+        String operatorName = telephonyManager.getNetworkOperatorName();
         boolean isRoaming = calculateRoaming();
         if (mIsRoaming != isRoaming) {
             mIsRoaming = isRoaming;
-            mEmergencyOnly.setText(mIsRoaming ? R.string.accessibility_data_connection_roaming
+            mCarrierText.setText(mIsRoaming ? R.string.accessibility_data_connection_roaming
                     : com.android.internal.R.string.emergency_calls_only);
             if (mExpanded) {
                 updateEverything();
