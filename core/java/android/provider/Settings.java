@@ -4972,6 +4972,12 @@ public final class Settings {
                 "high_touch_sensitivity_enable";
 
         /**
+         * Whether to wake the screen with the volume key, the value is boolean.
+         * 0 = 0ff, 1 = on
+         */
+        public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
+
+        /**
          * Whether allowing pocket service to register sensors and dispatch informations.
          *   0 = disabled
          *   1 = enabled
@@ -5459,6 +5465,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(ACCELEROMETER_ROTATION_ANGLES);
             PRIVATE_SETTINGS.add(VOLUME_KEY_CURSOR_CONTROL);
+            PRIVATE_SETTINGS.add(VOLUME_WAKE_SCREEN);
         }
 
         /**
