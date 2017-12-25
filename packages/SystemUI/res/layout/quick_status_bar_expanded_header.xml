@@ -41,20 +41,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="12dp">
-
-		<com.android.systemui.statusbar.phone.MultiUserSwitch android:id="@+id/multi_user_switch"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:focusable="true"
-			android:gravity="center_vertical"
-            android:background="@drawable/ripple_drawable" >
-            <ImageView android:id="@+id/multi_user_avatar"
-                android:layout_width="@dimen/multi_user_avatar_expanded_size"
-                android:layout_height="@dimen/multi_user_avatar_expanded_size"
-                android:layout_gravity="center"
-                android:scaleType="centerInside"/>
-        </com.android.systemui.statusbar.phone.MultiUserSwitch>
 		
         <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
             android:id="@+id/settings_button_container"
@@ -106,6 +92,25 @@
 
     </LinearLayout>
 	
+	<com.android.systemui.statusbar.phone.MultiUserSwitch android:id="@+id/multi_user_switch"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+			android:layout_marginTop="4dp"
+			android:layout_marginStart="12dp"
+            android:focusable="true"
+			android:gravity="center_vertical"
+            android:background="@drawable/ripple_drawable" >
+            <ImageView android:id="@+id/multi_user_avatar"
+                android:layout_width="@dimen/multi_user_avatar_expanded_size"
+                android:layout_height="@dimen/multi_user_avatar_expanded_size"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"/>
+        </com.android.systemui.statusbar.phone.MultiUserSwitch>
+	
     <TextView
         android:id="@+id/carrier_name_header"
         android:layout_height="wrap_content"
@@ -114,13 +119,13 @@
         android:layout_alignParentTop="true"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:paddingTop="6dp"
+        android:paddingTop="12dp"
         android:textAppearance="@style/TextAppearance.StatusBar.Expanded.EmergencyCallsOnly"
         android:text="@*android:string/emergency_calls_only"
         android:singleLine="true"
         android:gravity="center_vertical"
         android:focusable="true" />
-
+		
     <include
         android:id="@+id/date_time_alarm_group"
         layout="@layout/status_bar_alarm_group"

@@ -322,7 +322,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     }
 
     private void updateDateTimePosition() {
-        mDateTimeAlarmGroup.setTranslationY(mExpanded ? mExpansionAmount * mDateTimeTranslation : 0);
+		mCarrierText.setTranslationX(mExpanded && hasMultiUserSwitch ? 120 : 0);
+		mDateTimeAlarmGroup.setTranslationX(mExpanded && hasMultiUserSwitch ? 120 : 0);
+        mDateTimeAlarmGroup.setTranslationY(mExpanded ? mExpansionAmount * mDateTimeTranslation + 10 : 0);
     }
 
     private void updateListeners() {
