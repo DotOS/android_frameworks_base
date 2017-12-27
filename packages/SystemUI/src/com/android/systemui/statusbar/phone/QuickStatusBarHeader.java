@@ -143,7 +143,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         String operatorName = telephonyManager.getNetworkOperatorName();
 		mCarrierText = (TextView) findViewById(R.id.carrier_name_header);
 		mCarrierText.setText(operatorName);
-		
+		if (mExpanded) {
+			mCarrierText.setText(operatorName);
+		} 
         mClock = (View) findViewById(R.id.clock);
         mClock.setOnClickListener(this);
         mDate = (View) findViewById(R.id.date);
