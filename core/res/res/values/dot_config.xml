@@ -20,6 +20,7 @@
         <item>power</item>
         <item>restart</item>
         <item>advanced</item>
+        <item>screenshot</item>
     </string-array>
 
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
