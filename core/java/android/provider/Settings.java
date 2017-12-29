@@ -7493,7 +7493,15 @@ public final class Settings {
          */
         public static final String MANAGED_PROFILE_CONTACT_REMOTE_SEARCH =
                 "managed_profile_contact_remote_search";
-
+	
+		/**
+         * 0 - wallpaper based
+         * 1 - force light
+         * 2 - force dark
+         * @hide
+         */
+        public static final String DEVICE_THEME = "device_theme";	
+				
         /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
          *
