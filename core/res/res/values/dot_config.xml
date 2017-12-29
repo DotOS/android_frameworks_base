@@ -60,6 +60,7 @@
         <item>power</item>
         <item>restart</item>
         <item>advanced</item>
+		<item>screenshot</item>
     </string-array>
 
 </resources>
