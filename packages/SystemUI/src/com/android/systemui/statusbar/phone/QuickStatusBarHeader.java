@@ -46,6 +46,7 @@ import android.widget.Toast;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto;
 import com.android.keyguard.KeyguardStatusView;
+import com.android.keyguard.CarrierText;
 import com.android.systemui.FontSizeUtils;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSPanel;
@@ -92,7 +93,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private ViewGroup mDateTimeGroup;
     private ViewGroup mDateTimeAlarmGroup;
-	private TextView mCarrierText;
+	private CarrierText mCarrierText;
 
     protected ExpandableIndicator mExpandIndicator;
 
@@ -141,12 +142,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mShowFullAlarm = getResources().getBoolean(R.bool.quick_settings_show_full_alarm);
 		telephonyManager = ((TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE));
         String operatorName = telephonyManager.getNetworkOperatorName();
-		mCarrierText = (TextView) findViewById(R.id.carrier_name_header);
-		mCarrierText.setText(operatorName);
-		if (mCarrierText.getVisibility() == View.INVISIBLE || mCarrierText.getVisibility() == View.GONE) {
-			mCarrierText.setVisibility(View.VISIBLE);
-			mCarrierText.setText(operatorName);
-		} 
+		mCarrierText = (CarrierText) findViewById(R.id.carrier_name_header);
         mClock = (View) findViewById(R.id.clock);
         mClock.setOnClickListener(this);
         mDate = (View) findViewById(R.id.date);
@@ -308,7 +304,6 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     protected void updateVisibilities() {
         updateAlarmVisibilities();
         updateDateTimePosition();
-        mCarrierText.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
         mSettingsContainer.findViewById(R.id.tuner_icon).setVisibility(View.INVISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         hasMultiUserSwitch = !isMultiUserSwitchDisabled();

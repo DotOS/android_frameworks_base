@@ -110,8 +110,8 @@
                 android:layout_gravity="center"
                 android:scaleType="centerInside"/>
         </com.android.systemui.statusbar.phone.MultiUserSwitch>
-	
-    <TextView
+		
+	<com.android.keyguard.CarrierText
         android:id="@+id/carrier_name_header"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -120,11 +120,10 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingTop="12dp"
-        android:textAppearance="@style/TextAppearance.StatusBar.Expanded.EmergencyCallsOnly"
-        android:text="@*android:string/emergency_calls_only"
-        android:singleLine="true"
         android:gravity="center_vertical"
-        android:focusable="true" />
+        android:textAppearance="@style/TextAppearance.StatusBar.Expanded.EmergencyCallsOnly"
+        android:singleLine="true"
+		android:focusable="true" />
 		
     <include
         android:id="@+id/date_time_alarm_group"
