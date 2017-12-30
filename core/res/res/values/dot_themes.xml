@@ -85,7 +85,9 @@
         <item name="colorPrimaryDark">#fafafa</item>
         <item name="colorSecondary">#fafafa</item>
         <item name="textColorPrimary">@color/primary_text_material_light</item>
-		<item name="tilesColor">?attr/colorAccent</item>
+	<item name="tilesColor">?attr/colorAccent</item>
+	<item name="android:navigationBarColor">?attr/colorAccent</item>
+	    
     </style>
 
     <style name="Theme_White_Alert_Dialog" parent="Theme.DeviceDefault.Light.Dialog.Alert">
