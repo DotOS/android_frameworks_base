@@ -4110,6 +4110,40 @@ public final class Settings {
          */
 
         /**
+         * Whether to show the battery info on the lockscreen while charging
+         * @hide
+         */
+        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
+
+        /**
+         * Whether to display the reboot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_REBOOT = "powermenu_reboot";
+
+        /**
+         * Whether to display the advanced reboot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_ADVANCED_REBOOT = "powermenu_advanced_reboot";
+
+        /**
+         * Whether to display the screenshot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
+
+        /**
+         * Whether to display the airplane option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
