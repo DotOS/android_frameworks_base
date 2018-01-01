@@ -108,6 +108,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private TouchAnimator mAnimator;
     protected TouchAnimator mSettingsAlpha;
+	protected TouchAnimator mDateTimeAlarmGroupAnimation;
     private float mExpansionAmount;
     private QSTileHost mHost;
     private View mEdit;
@@ -191,6 +192,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
         Builder builder = new Builder()
                 .addFloat(mShowFullAlarm ? mAlarmStatus : findViewById(R.id.date), "alpha", 0, 1)
+				.addFloat(mDateTimeAlarmGroup, "translationX", 0, 120)
                 .addFloat(mCarrierText, "alpha", 0, 1);
         if (mShowFullAlarm) {
             builder.addFloat(mAlarmStatusCollapsed, "alpha", 1, 0);
@@ -203,10 +205,10 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     protected void updateSettingsAnimator() {
         mSettingsAlpha = new TouchAnimator.Builder()
                 .addFloat(mEdit, "alpha", 0, 1)
+				.addFloat(mMultiUserSwitch, "alpha", 0, 1)
 				.addFloat(mSettingsButton, "alpha", 0, 1)
-                .addFloat(mMultiUserSwitch, "alpha", 0, 1)
                 .build();
-
+		
         final boolean isRtl = isLayoutRtl();
         if (isRtl && mDateTimeGroup.getWidth() == 0) {
             mDateTimeGroup.addOnLayoutChangeListener(new OnLayoutChangeListener() {
@@ -321,7 +323,11 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private void updateDateTimePosition() {
 		mCarrierText.setTranslationX(mExpanded && hasMultiUserSwitch ? 120 : 0);
-		mDateTimeAlarmGroup.setTranslationX(mExpanded && hasMultiUserSwitch ? 120 : 0);
+		if (mExpanded && hasMultiUserSwitch) {
+		mDateTimeAlarmGroupAnimation = new TouchAnimator.Builder()
+                .addFloat(mDateTimeAlarmGroup, "translationX", 0, 120)
+                .build();
+		}
         mDateTimeAlarmGroup.setTranslationY(mExpanded ? mExpansionAmount * mDateTimeTranslation + 10 : 0);
     }
 
