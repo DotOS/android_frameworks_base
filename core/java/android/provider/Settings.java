@@ -7826,6 +7826,7 @@ public final class Settings {
          * 0 - wallpaper based
          * 1 - force light
          * 2 - force dark
+	 * 3 - force black
          * @hide
          */
         public static final String DEVICE_THEME = "device_theme";	
