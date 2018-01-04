@@ -26,6 +26,8 @@ import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.telephony.ServiceState;
 import android.telephony.SubscriptionInfo;
 import android.text.TextUtils;
@@ -37,6 +39,7 @@ import android.widget.TextView;
 
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.IccCardConstants.State;
+import com.android.internal.telephony.ITelephony;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.settingslib.WirelessUtils;
 
@@ -118,6 +121,16 @@ public class CarrierText extends TextView {
                 Log.d(TAG, "Handling (subId=" + subId + "): " + simState + " " + carrierName);
             }
             if (carrierTextForSimState != null) {
+                boolean isImsRegistered = false;
+                try {
+                    isImsRegistered = ITelephony.Stub.asInterface(ServiceManager
+                            .checkService("phone")).isImsRegisteredForSubscriber(subId);
+                } catch (RemoteException e) {
+                    isImsRegistered = false;
+                }
+                if (isImsRegistered) {
+                    carrierTextForSimState = carrierTextForSimState + " - VoLTE";
+                }
                 allSimsMissing = false;
                 displayText = concatenate(displayText, carrierTextForSimState);
             }
