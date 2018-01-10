@@ -4499,7 +4499,26 @@ public final class Settings {
          public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
-         * Whether to wake the screen with the volume keys, the value is boolean.
+         * Hide lockscreen date
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_DATE = "hide_lockscreen_date";
+
+        /**
+         * Hide lockscreen clock
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_CLOCK = "hide_lockscreen_clock";
+
+        /**
+         * Hide lockscreen alarm
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_ALARM = "hide_lockscreen_alarm";
+
+        /**
+	 * Whether to wake the screen with the volume keys, the value is boolean.
+         *
          * @hide
          */
         public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
@@ -4790,6 +4809,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ON_TOUCH_ONLY);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_DATE);
+            PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_CLOCK);
+            PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_ALARM);
         }
 
         /**
@@ -6504,6 +6526,11 @@ public final class Settings {
          */
         public static final String LOCK_SCREEN_ALLOW_REMOTE_INPUT =
                 "lock_screen_allow_remote_input";
+
+        /**
+         * @hide
+         */
+        public static final String LOCK_HIDE_STATUS_BAR = "lockscreen_hide_status_bar";
 
         /**
          * Set by the system to track if the user needs to see the call to action for
