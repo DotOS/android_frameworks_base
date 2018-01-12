@@ -114,7 +114,10 @@
     <string name="notification_channel_screenrecord">Screenrecords</string>
 
     <!-- Screenrecord Tile -->
-    <string name="quick_settings_screenrecord">Screenrecord</string>
+    <string name="quick_settings_screenrecord_label">Screenrecord</string>
+    <string name="quick_settings_screenrecord_lq_label">Screenrecord LQ</string>
+    <string name="quick_settings_screenrecord_mq_label">Screenrecord MQ</string>
+    <string name="quick_settings_screenrecord_hq_label">Screenrecord HQ</string>
 
      <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">Sync</string>
