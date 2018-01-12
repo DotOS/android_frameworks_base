@@ -87,7 +87,10 @@
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
 
     <!-- Screenrecord Tile -->
-    <string name="quick_settings_screenrecord">Screenrecord</string>
+	<string name="quick_settings_screenrecord_label">Screenrecord</string>
+    <string name="quick_settings_screenrecord_lq_label">Screenrecord LQ</string>
+    <string name="quick_settings_screenrecord_mq_label">Screenrecord MQ</string>
+    <string name="quick_settings_screenrecord_hq_label">Screenrecord HQ</string>
 
     <!-- Screenrecord Notification Ticker -->
     <string name="screenrecord_notif_ticker">Screen is being recorded</string>

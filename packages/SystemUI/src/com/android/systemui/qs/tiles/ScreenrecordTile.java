@@ -1,8 +1,5 @@
 /*
- * Copyright (C) 2014 The Android Open Source Project
- * Copyright (C) 2012-2015 The CyanogenMod Project
- * Copyright (C) 2014-2015 The Euphoria-OS Project
- *
+ * Copyright (C) 2017 ABC rom
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,19 +15,14 @@
 
 package com.android.systemui.qs.tiles;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.service.quicksettings.Tile;
-import android.view.View;
+import android.view.WindowManager;
 
+import com.android.internal.util.dotos.DOTUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -40,15 +32,19 @@ import com.android.systemui.R;
 /** Quick settings tile: Screenrecord **/
 public class ScreenrecordTile extends QSTileImpl<BooleanState> {
 
-    private static final Intent APP_RECORD = new Intent().setComponent(new ComponentName(
-            "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
+    private static final int SCREEN_RECORD_LOW_QUALITY = WindowManager.SCREEN_RECORD_LOW_QUALITY;
+    private static final int SCREEN_RECORD_MID_QUALITY = WindowManager.SCREEN_RECORD_MID_QUALITY;
+    private static final int SCREEN_RECORD_HIGH_QUALITY = WindowManager.SCREEN_RECORD_HIGH_QUALITY;
 
-    private boolean mListening;
-    private final Object mScreenrecordLock = new Object();
-    private ServiceConnection mScreenrecordConnection = null;
+    private int mMode = SCREEN_RECORD_LOW_QUALITY;
 
     public ScreenrecordTile(QSHost host) {
         super(host);
+    }
+
+    @Override
+    public int getMetricsCategory() {
+        return MetricsEvent.DOTEXTRAS;
     }
 
     @Override
@@ -57,102 +53,59 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    public void handleSetListening(boolean listening) {
-        if (mListening == listening) return;
-        mListening = listening;
-    }
+
+    public void handleSetListening(boolean listening) {}
 
     @Override
     public void handleClick() {
-        mHost.collapsePanels();
-        /* wait for the panel to close */
-        try {
-             Thread.sleep(2000);
-        } catch (InterruptedException ie) {
-             // Do nothing
+        switchMode();
+        refreshState();
+    }
+
+
+    private void switchMode() {
+        if (mMode == SCREEN_RECORD_LOW_QUALITY) {
+            mMode = SCREEN_RECORD_MID_QUALITY;
+        } else if (mMode == SCREEN_RECORD_MID_QUALITY) {
+            mMode = SCREEN_RECORD_HIGH_QUALITY;
+        } else if (mMode == SCREEN_RECORD_HIGH_QUALITY) {
+            mMode = SCREEN_RECORD_LOW_QUALITY;
         }
-        takeScreenrecord();
+    }
+
+    @Override
+    public void handleLongClick() {
+        mHost.collapsePanels();
+        //finish collapsing the panel
+        try {
+             Thread.sleep(1000); //1s
+        } catch (InterruptedException ie) {}
+        DOTUtils.takeScreenrecord(mMode);
     }
 
     @Override
     public Intent getLongClickIntent() {
-        return APP_RECORD;
+        return null;
     }
 
     @Override
     public CharSequence getTileLabel() {
-        return mContext.getString(R.string.quick_settings_screenrecord);
+        return mContext.getString(R.string.quick_settings_screenrecord_label);
     }
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord);
-        state.label = mContext.getString(R.string.quick_settings_screenrecord);
-        state.state = Tile.STATE_ACTIVE;
-    }
-
-    final Runnable mScreenrecordTimeout = new Runnable() {
-        @Override
-        public void run() {
-            synchronized (mScreenrecordLock) {
-                if (mScreenrecordConnection != null) {
-                    mContext.unbindService(mScreenrecordConnection);
-                    mScreenrecordConnection = null;
-                }
-            }
+        state.contentDescription =  mContext.getString(
+                R.string.quick_settings_screenrecord_label);
+        if (mMode == SCREEN_RECORD_LOW_QUALITY) {
+            state.label = mContext.getString(R.string.quick_settings_screenrecord_lq_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_lq);
+        } else if (mMode == SCREEN_RECORD_MID_QUALITY) {
+            state.label = mContext.getString(R.string.quick_settings_screenrecord_mq_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_mq);
+        } else if (mMode == SCREEN_RECORD_HIGH_QUALITY) {
+            state.label = mContext.getString(R.string.quick_settings_screenrecord_hq_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_hq);
         }
-    };
-
-    private void takeScreenrecord() {
-       synchronized (mScreenrecordLock) {
-            if (mScreenrecordConnection != null) {
-                return;
-            }
-            ComponentName cn = new ComponentName("com.android.systemui",
-                    "com.android.systemui.omni.screenrecord.TakeScreenrecordService");
-            Intent intent = new Intent();
-            intent.setComponent(cn);
-            ServiceConnection conn = new ServiceConnection() {
-                @Override
-                public void onServiceConnected(ComponentName name, IBinder service) {
-                    synchronized (mScreenrecordLock) {
-                        Messenger messenger = new Messenger(service);
-                        Message msg = Message.obtain(null, 1);
-                        final ServiceConnection myConn = this;
-                        Handler h = new Handler(mHandler.getLooper()) {
-                            @Override
-                            public void handleMessage(Message msg) {
-                                synchronized (mScreenrecordLock) {
-                                    if (mScreenrecordConnection == myConn) {
-                                        mContext.unbindService(mScreenrecordConnection);
-                                        mScreenrecordConnection = null;
-                                        mHandler.removeCallbacks(mScreenrecordTimeout);
-                                    }
-                                }
-                            }
-                        };
-                        msg.replyTo = new Messenger(h);
-                        msg.arg1 = msg.arg2 = 0;
-                        try {
-                            messenger.send(msg);
-                        } catch (RemoteException e) {
-                        }
-                    }
-                }
-                @Override
-                public void onServiceDisconnected(ComponentName name) {}
-            };
-
-            if (mContext.bindServiceAsUser(
-                    intent, conn, Context.BIND_AUTO_CREATE, UserHandle.CURRENT)) {
-                mScreenrecordConnection = conn;
-                mHandler.postDelayed(mScreenrecordTimeout, 31 * 60 * 1000);
-            }
-        }
-    }
-
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.DOTEXTRAS;
     }
 }
