@@ -39,4 +39,7 @@
     <dimen name="opa_line_x_trans_ry">15.0dip</dimen>
     <dimen name="opa_line_y_translation">16.0dip</dimen>
 
+    <!-- Screenrecord -->
+    <dimen name="screenrecord_hint_size">48dp</dimen>
+
 </resources>
