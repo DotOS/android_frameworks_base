@@ -4630,8 +4630,14 @@ public final class Settings {
         /**
          * Which applications to disable heads up notifications for
          *
+         * 0 - wallpaper based
+         * 1 - force light
+         * 2 - force dark
+         * 3 - force black
+         * 4 - force dotneo
          * @hide
          */
+
         public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
 
         /**
