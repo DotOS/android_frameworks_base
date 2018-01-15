@@ -4373,6 +4373,7 @@ public final class Settings {
          * 1 - force light
          * 2 - force dark
          * 3 - force black
+         * 4 - force dotneo
          * @hide
          */
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
