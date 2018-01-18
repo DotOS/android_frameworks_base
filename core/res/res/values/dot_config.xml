@@ -81,5 +81,8 @@
     <string-array name="config_vendorPlatformSignatures">
     </string-array>
 
+    <!-- Ambient music -->
+    <bool name="config_canForceDozeNotifications">true</bool>
+
 </resources>
 
