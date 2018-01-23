@@ -4630,6 +4630,13 @@ public final class Settings {
                 "status_bar_ticker_animation_mode";
 
         /**
+         * Lockscreen Visualizer
+         *
+         * @hide
+         */
+        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4692,7 +4699,8 @@ public final class Settings {
             STATUSBAR_CLOCK_AM_PM_STYLE,
             STATUSBAR_CLOCK_DATE_DISPLAY,
             STATUSBAR_CLOCK_DATE_STYLE,
-            STATUSBAR_CLOCK_DATE_FORMAT
+            STATUSBAR_CLOCK_DATE_FORMAT,
+            LOCKSCREEN_VISUALIZER_ENABLED
         };
 
         /**
@@ -4845,6 +4853,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_STATUS_BAR);
             PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_INDICATOR_DISPLAY);
             PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_ICON);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_VISUALIZER_ENABLED);
         }
 
         /**
