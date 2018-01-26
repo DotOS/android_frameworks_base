@@ -29,7 +29,13 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
+import android.provider.Settings;
+import android.service.dreams.DreamService;
+import android.service.dreams.IDreamManager;
 import android.support.v4.graphics.ColorUtils;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
@@ -428,13 +434,25 @@ public class KeyguardStatusView extends GridLayout implements
                 Settings.System.HIDE_LOCKSCREEN_DATE, 0, UserHandle.USER_CURRENT) == 0;
 
         mClockView = (TextClock) findViewById(R.id.clock_view);
-        mClockView.setVisibility(showClock ? View.VISIBLE : View.GONE);
-
-        mDateView.setVisibility(showDate ? View.VISIBLE : View.GONE);
         mDateView = (DateView) findViewById(R.id.date_view);
-
         mAlarmStatusView = (TextView) findViewById(R.id.alarm_status);
-        mAlarmStatusView.setVisibility(showAlarm && nextAlarm != null ? View.VISIBLE : View.GONE);
+
+        if (!isDozeMode()) {
+            mClockView.setVisibility(showClock ? View.VISIBLE : View.GONE);
+        } else {
+            mClockView.setVisibility(View.VISIBLE);
+        }
+
+        if (!isDozeMode()) {
+            mDateView.setVisibility(showDate ? View.VISIBLE : View.GONE);
+        } else {
+            mDateView.setVisibility(View.VISIBLE);
+        }
+
+        if (!isDozeMode()) {
+            mAlarmStatusView.setVisibility(showAlarm && nextAlarm != null ? View.VISIBLE : View.GONE);
+        }
+        updateDozeVisibleViews();
     }
 
     // DateFormat.getBestDateTimePattern is extremely expensive, and refresh is called often.
@@ -499,6 +517,7 @@ public class KeyguardStatusView extends GridLayout implements
         int blendedAlarmColor = ColorUtils.blendARGB(mAlarmTextColor, Color.WHITE, darkAmount);
         mAlarmStatusView.setTextColor(blendedAlarmColor);
         mAlarmStatusView.setCompoundDrawableTintList(ColorStateList.valueOf(blendedAlarmColor));
+        refresh();
     }
 
     public void setPulsing(boolean pulsing) {
@@ -509,6 +528,7 @@ public class KeyguardStatusView extends GridLayout implements
         mForcedMediaDoze =
                 reason == DozeLog.PULSE_REASON_FORCED_MEDIA_NOTIFICATION;
         updateDozeVisibleViews();
+        refresh();
     }
 
     private void updateDozeVisibleViews() {
@@ -576,5 +596,23 @@ public class KeyguardStatusView extends GridLayout implements
 
            updateSettings(false);
          }
+
+    private boolean isDozeMode() {
+        IDreamManager dreamManager = getDreamManager();
+        PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+        try {
+            //noinspection deprecation
+            if (dreamManager != null && dreamManager.isDozing() && pm != null && !pm.isScreenOn()) {
+                return true;
+            }
+        } catch (RemoteException e) {
+            return false;
+        }
+        return false;
+    }
+
+    static IDreamManager getDreamManager() {
+        return IDreamManager.Stub.asInterface(
+                ServiceManager.checkService(DreamService.DREAM_SERVICE));
     }
 }
