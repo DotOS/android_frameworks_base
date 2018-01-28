@@ -7009,7 +7009,14 @@ public final class Settings {
          * @hide
          */
         public static final String DEVICE_THEME = "device_theme";	
-				
+		
+		/**
+         * 0 - Use normal Tint
+         * 1 - Force colorAccent Tint
+         * @hide
+         */
+		public static final String TINT_MODE = "tint_mode";
+		
         /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
          *
