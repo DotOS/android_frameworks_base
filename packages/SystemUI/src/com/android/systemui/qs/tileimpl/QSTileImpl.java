@@ -376,10 +376,20 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
                 Settings.Secure.TINT_MODE, 0, mCurrentUserId);
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
-                return Utils.getDisabled(context,
+			    if (tintMode == 1) {
+                    return Utils.getUnavailable(context,
+				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+                } else {
+                    return Utils.getDisabled(context,
                         Utils.getColorAttr(context, android.R.attr.colorForeground));
+                }
             case Tile.STATE_INACTIVE:
-                return Utils.getColorAttr(context, android.R.attr.textColorHint);
+			    if (tintMode == 1) {
+                    return Utils.getDisabled(context,
+				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+                } else {
+                    return Utils.getColorAttr(context, android.R.attr.textColorHint);
+                }
             case Tile.STATE_ACTIVE:
                 if (tintMode == 1) {
                     return Utils.getColorAttr(context, android.R.attr.colorAccent);
