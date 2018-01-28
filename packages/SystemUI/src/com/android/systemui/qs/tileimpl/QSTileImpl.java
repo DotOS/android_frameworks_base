@@ -31,6 +31,7 @@ import android.metrics.LogMaker;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.text.format.DateUtils;
 import android.util.ArraySet;
@@ -370,6 +371,9 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
     public abstract CharSequence getTileLabel();
 
     public static int getColorForState(Context context, int state) {
+		int mCurrentUserId = ActivityManager.getCurrentUser();
+	    int tintMode = Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.TINT_MODE, 0, mCurrentUserId);
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
                 return Utils.getDisabled(context,
@@ -377,7 +381,11 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
             case Tile.STATE_INACTIVE:
                 return Utils.getColorAttr(context, android.R.attr.textColorHint);
             case Tile.STATE_ACTIVE:
-                return Utils.getColorAttr(context, android.R.attr.colorAccent);
+                if (tintMode == 1) {
+                    return Utils.getColorAttr(context, android.R.attr.colorAccent);
+                } else {
+                    return Utils.getColorAttr(context, android.R.attr.textColorPrimary);
+                }
             default:
                 Log.e("QSTile", "Invalid state " + state);
                 return 0;
