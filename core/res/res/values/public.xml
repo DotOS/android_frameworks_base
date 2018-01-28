@@ -77,6 +77,7 @@
   <public type="attr" name="colorBackground" id="0x01010031" />
   <public type="attr" name="backgroundDimAmount" id="0x01010032" />
   <public type="attr" name="disabledAlpha" id="0x01010033" />
+  <public type="attr" name="unavailableAlpha" id="0x01011273" />
   <public type="attr" name="textAppearance" id="0x01010034" />
   <public type="attr" name="textAppearanceInverse" id="0x01010035" />
   <public type="attr" name="textColorPrimary" id="0x01010036" />
