@@ -181,6 +181,11 @@ public class Utils {
     public static int getDisabled(Context context, int inputColor) {
         return applyAlphaAttr(context, android.R.attr.disabledAlpha, inputColor);
     }
+	
+	@ColorInt
+    public static int getUnavailable(Context context, int inputColor) {
+        return applyAlphaAttr(context, android.R.attr.unavailableAlpha, inputColor);
+    }
 
     @ColorInt
     public static int applyAlphaAttr(Context context, int attr, int inputColor) {
