@@ -74,6 +74,7 @@
 
         <!-- Default disabled alpha for widgets that set enabled/disabled alpha programmatically. -->
         <attr name="disabledAlpha" format="float" />
+        <attr name="unavailableAlpha" format="float" />
         <!-- The alpha applied to the foreground color to create the primary text color. -->
         <attr name="primaryContentAlpha" format="float" />
         <!-- The alpha applied to the foreground color to create the secondary text color. -->

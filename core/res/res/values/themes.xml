@@ -66,6 +66,7 @@ please see themes_device_defaults.xml.
         <item name="colorError">@color/red</item>
 
         <item name="disabledAlpha">0.5</item>
+		<item name="unavailableAlpha">0.3</item>
         <item name="backgroundDimAmount">0.6</item>
 
         <!-- Text styles -->
