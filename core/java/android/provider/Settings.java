@@ -3261,6 +3261,31 @@ public final class Settings {
          */
         public static final String MASTER_MONO = "master_mono";
 
+		 /**
+         * How many rows to show in the qs panel when in portrait
+         * @hide
+         */
+        public static final String QS_ROWS_PORTRAIT = "qs_rows_portrait";
+
+        /**
+         * How many rows to show in the qs panel when in landscape
+         * @hide
+         */
+        public static final String QS_ROWS_LANDSCAPE = "qs_rows_landscape";
+
+        /**
+         * How many columns to show in the qs panel when in portrait
+         * @hide
+         */
+        public static final String QS_COLUMNS_PORTRAIT = "qs_columns_portrait";
+
+        /**
+         * How many columns to show in the qs panel when in landscape
+         * @hide
+         */
+        public static final String QS_COLUMNS_LANDSCAPE = "qs_columns_landscape";
+		
+		
         private static final Validator MASTER_MONO_VALIDATOR = sBooleanValidator;
 
         /**
@@ -4306,6 +4331,10 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_TYPE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
             PRIVATE_SETTINGS.add(TOAST_ICON);
+            PRIVATE_SETTINGS.add(QS_ROWS_PORTRAIT);
+            PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
+            PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
         }
 
         /**
@@ -7493,15 +7522,22 @@ public final class Settings {
          */
         public static final String MANAGED_PROFILE_CONTACT_REMOTE_SEARCH =
                 "managed_profile_contact_remote_search";
-	
-		/**
+
+         /**
          * 0 - wallpaper based
          * 1 - force light
          * 2 - force dark
          * @hide
          */
         public static final String DEVICE_THEME = "device_theme";	
-				
+
+         /**
+         * 0 - Use normal Tint
+         * 1 - Force colorAccent Tint
+         * @hide
+         */
+        public static final String TINT_MODE = "tint_mode";
+
         /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
          *
