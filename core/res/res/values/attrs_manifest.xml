@@ -2507,6 +2507,9 @@
         <!-- Whether the given RRO is static or not. -->
         <attr name="isStatic" format="boolean" />
 
+        <!-- Whether the given RRO is an accent or not. -->
+        <attr name="isAccent" format="boolean" />
+
         <!-- Required property name/value pair used to enable this overlay.
              e.g. name=ro.oem.sku value=MKT210.
              Overlay will be ignored unless system property exists and is

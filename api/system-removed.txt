@@ -181,6 +181,7 @@ package android.content.pm {
     method public boolean isBuiltin();
     method public boolean isDynamic();
     method public boolean isStatic();
+    method public boolean isAccent();
   }
 
 }
