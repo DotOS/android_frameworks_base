@@ -678,7 +678,6 @@ public class PackageParser {
         pi.requiredAccountType = p.mRequiredAccountType;
         pi.overlayTarget = p.mOverlayTarget;
         pi.overlayPriority = p.mOverlayPriority;
-
         if (p.mIsStaticOverlay) {
             pi.overlayFlags |= PackageInfo.FLAG_OVERLAY_STATIC;
         }
@@ -686,7 +685,7 @@ public class PackageParser {
         if (p.mTrustedOverlay) {
             pi.overlayFlags |= PackageInfo.FLAG_OVERLAY_TRUSTED;
         }
-
+        pi.isAccentOverlay = p.mIsAccentOverlay;
         pi.firstInstallTime = firstInstallTime;
         pi.lastUpdateTime = lastUpdateTime;
         if ((flags&PackageManager.GET_GIDS) != 0) {
@@ -2203,6 +2202,9 @@ public class PackageParser {
                         0);
                 pkg.mIsStaticOverlay = sa.getBoolean(
                         com.android.internal.R.styleable.AndroidManifestResourceOverlay_isStatic,
+                        false);
+                pkg.mIsAccentOverlay = sa.getBoolean(
+                        com.android.internal.R.styleable.AndroidManifestResourceOverlay_isAccent,
                         false);
                 final String propName = sa.getString(
                         com.android.internal.R.styleable
@@ -5958,6 +5960,7 @@ public class PackageParser {
         public int mOverlayPriority;
         public boolean mIsStaticOverlay;
         public boolean mTrustedOverlay;
+        public boolean mIsAccentOverlay;
 
         /**
          * Data used to feed the KeySetManagerService
@@ -6450,6 +6453,7 @@ public class PackageParser {
             mOverlayPriority = dest.readInt();
             mIsStaticOverlay = (dest.readInt() == 1);
             mTrustedOverlay = (dest.readInt() == 1);
+            mIsAccentOverlay = (dest.readInt() == 1);
             mSigningKeys = (ArraySet<PublicKey>) dest.readArraySet(boot);
             mUpgradeKeySets = (ArraySet<String>) dest.readArraySet(boot);
 
@@ -6573,6 +6577,7 @@ public class PackageParser {
             dest.writeInt(mOverlayPriority);
             dest.writeInt(mIsStaticOverlay ? 1 : 0);
             dest.writeInt(mTrustedOverlay ? 1 : 0);
+            dest.writeInt(mIsAccentOverlay ? 1 : 0);
             dest.writeArraySet(mSigningKeys);
             dest.writeArraySet(mUpgradeKeySets);
             writeKeySetMapping(dest, mKeySetMapping);
