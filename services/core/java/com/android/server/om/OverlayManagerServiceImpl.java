@@ -107,7 +107,8 @@ final class OverlayManagerServiceImpl {
                 mSettings.init(overlayPackage.packageName, newUserId,
                         overlayPackage.overlayTarget,
                         overlayPackage.applicationInfo.getBaseCodePath(),
-                        isPackageStaticOverlay(overlayPackage), overlayPackage.overlayPriority);
+                        isPackageStaticOverlay(overlayPackage), overlayPackage.isAccentOverlay, 
+                        overlayPackage.overlayPriority);
 
                 if (oi == null) {
                     // This overlay does not exist in our settings.
@@ -261,7 +262,7 @@ final class OverlayManagerServiceImpl {
 
         mSettings.init(packageName, userId, overlayPackage.overlayTarget,
                 overlayPackage.applicationInfo.getBaseCodePath(),
-                isPackageStaticOverlay(overlayPackage), overlayPackage.overlayPriority);
+                isPackageStaticOverlay(overlayPackage), overlayPackage.isAccentOverlay, overlayPackage.overlayPriority);
         try {
             if (updateState(targetPackage, overlayPackage, userId)) {
                 mListener.onOverlaysChanged(overlayPackage.overlayTarget, userId);
