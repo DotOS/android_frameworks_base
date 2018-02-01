@@ -67,11 +67,11 @@ final class OverlayManagerSettings {
 
     void init(@NonNull final String packageName, final int userId,
             @NonNull final String targetPackageName, @NonNull final String baseCodePath,
-            boolean isStatic, int priority) {
+            boolean isStatic, boolean isAccent, int priority) {
         remove(packageName, userId);
         final SettingsItem item =
                 new SettingsItem(packageName, userId, targetPackageName, baseCodePath,
-                        isStatic, priority);
+                        isStatic, isAccent, priority);
         if (isStatic) {
             int i;
             for (i = mItems.size() - 1; i >= 0; i--) {
@@ -291,6 +291,7 @@ final class OverlayManagerSettings {
             pw.print("mState.............: "); pw.println(OverlayInfo.stateToString(item.getState()));
             pw.print("mIsEnabled.........: "); pw.println(item.isEnabled());
             pw.print("mIsStatic..........: "); pw.println(item.isStatic());
+            pw.print("mIsAccent..........: "); pw.println(item.isAccent());
 
             pw.decreaseIndent();
             pw.println("}");
@@ -315,6 +316,7 @@ final class OverlayManagerSettings {
         private static final String ATTR_STATE = "state";
         private static final String ATTR_TARGET_PACKAGE_NAME = "targetPackageName";
         private static final String ATTR_IS_STATIC = "isStatic";
+        private static final String ATTR_IS_ACCENT = "isAccent";
         private static final String ATTR_PRIORITY = "priority";
         private static final String ATTR_USER_ID = "userId";
         private static final String ATTR_VERSION = "version";
@@ -369,10 +371,11 @@ final class OverlayManagerSettings {
             final int state = XmlUtils.readIntAttribute(parser, ATTR_STATE);
             final boolean isEnabled = XmlUtils.readBooleanAttribute(parser, ATTR_IS_ENABLED);
             final boolean isStatic = XmlUtils.readBooleanAttribute(parser, ATTR_IS_STATIC);
+            final boolean isAccent = XmlUtils.readBooleanAttribute(parser, ATTR_IS_ACCENT);
             final int priority = XmlUtils.readIntAttribute(parser, ATTR_PRIORITY);
 
             return new SettingsItem(packageName, userId, targetPackageName, baseCodePath, state,
-                    isEnabled, isStatic, priority);
+                    isEnabled, isStatic, isAccent, priority);
         }
 
         public static void persist(@NonNull final ArrayList<SettingsItem> table,
@@ -403,6 +406,7 @@ final class OverlayManagerSettings {
             XmlUtils.writeIntAttribute(xml, ATTR_STATE, item.mState);
             XmlUtils.writeBooleanAttribute(xml, ATTR_IS_ENABLED, item.mIsEnabled);
             XmlUtils.writeBooleanAttribute(xml, ATTR_IS_STATIC, item.mIsStatic);
+            XmlUtils.writeBooleanAttribute(xml, ATTR_IS_ACCENT, item.mIsAccent);
             XmlUtils.writeIntAttribute(xml, ATTR_PRIORITY, item.mPriority);
             xml.endTag(null, TAG_ITEM);
         }
@@ -417,12 +421,13 @@ final class OverlayManagerSettings {
         private boolean mIsEnabled;
         private OverlayInfo mCache;
         private boolean mIsStatic;
+        private boolean mIsAccent;
         private int mPriority;
 
         SettingsItem(@NonNull final String packageName, final int userId,
                 @NonNull final String targetPackageName, @NonNull final String baseCodePath,
                 final int state, final boolean isEnabled, final boolean isStatic,
-                final int priority) {
+                final boolean isAccent, final int priority) {
             mPackageName = packageName;
             mUserId = userId;
             mTargetPackageName = targetPackageName;
@@ -431,14 +436,15 @@ final class OverlayManagerSettings {
             mIsEnabled = isEnabled;
             mCache = null;
             mIsStatic = isStatic;
+            mIsAccent = isAccent;
             mPriority = priority;
         }
 
         SettingsItem(@NonNull final String packageName, final int userId,
                 @NonNull final String targetPackageName, @NonNull final String baseCodePath,
-                final boolean isStatic, final int priority) {
+                final boolean isStatic, final boolean isAccent, final int priority) {
             this(packageName, userId, targetPackageName, baseCodePath, OverlayInfo.STATE_UNKNOWN,
-                    false, isStatic, priority);
+                    false, isStatic, isAccent, priority);
         }
 
         private String getTargetPackageName() {
@@ -502,6 +508,10 @@ final class OverlayManagerSettings {
 
         private boolean isStatic() {
             return mIsStatic;
+        }
+
+        private boolean isAccent() {
+            return mIsAccent;
         }
 
         private int getPriority() {
