@@ -377,16 +377,16 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
 			    if (tintMode == 1) {
-                    return Utils.getUnavailable(context,
-				            Utils.getColorAttr(context, android.R.attr.colorAccent));
-                } else {
                     return Utils.getDisabled(context,
+				        Utils.getColorAttr(context, android.R.attr.colorAccent));
+                } else {
+                    return Utils.getUnavailable(context,
                         Utils.getColorAttr(context, android.R.attr.colorForeground));
                 }
             case Tile.STATE_INACTIVE:
 			    if (tintMode == 1) {
                     return Utils.getDisabled(context,
-				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+				        Utils.getColorAttr(context, android.R.attr.colorAccent));
                 } else {
                     return Utils.getColorAttr(context, android.R.attr.textColorHint);
                 }
@@ -493,21 +493,14 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
 
     public static class DrawableIcon extends Icon {
         protected final Drawable mDrawable;
-        protected final Drawable mInvisibleDrawable;
 
         public DrawableIcon(Drawable drawable) {
             mDrawable = drawable;
-            mInvisibleDrawable = drawable.getConstantState().newDrawable();
         }
 
         @Override
         public Drawable getDrawable(Context context) {
             return mDrawable;
-        }
-
-        @Override
-        public Drawable getInvisibleDrawable(Context context) {
-            return mInvisibleDrawable;
         }
     }
 
