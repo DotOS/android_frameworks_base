@@ -7052,9 +7052,10 @@ public final class Settings {
                 "managed_profile_contact_remote_search";
 	
 		/**
-         * 0 - wallpaper based
-         * 1 - force light
-         * 2 - force dark
+         * 0 - Wallpaper Based
+         * 1 - Light
+         * 2 - Dark
+		 * 3 - Black
          * @hide
          */
         public static final String DEVICE_THEME = "device_theme";	
