@@ -17,15 +17,38 @@ package com.android.systemui.tuner;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.content.ContentResolver;
+import android.provider.Settings;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v7.preference.PreferenceScreen;
 import com.android.systemui.R;
+
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class StatusbarItems extends PreferenceFragment {
 
     private static final String NFC_KEY = "nfc";
 
     private StatusBarSwitch mNfcSwitch;
+    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+
+    private SwitchPreference mShowDOTLogo;
+
+     @Override
+     public void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+ 
+         PreferenceScreen prefSet = getPreferenceScreen();
+ 
+         final ContentResolver resolver = getActivity().getContentResolver();
+
+        mShowDOTLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
+        mShowDOTLogo.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_LOGO, 0) == 1));
+     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -40,4 +63,15 @@ public class StatusbarItems extends PreferenceFragment {
             prefScreen.removePreference(mNfcSwitch);
         }
     }
+
+     @Override
+     public boolean onPreferenceTreeClick(Preference preference) {
+        if  (preference == mShowDOTLogo) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO, checked ? 1:0);
+            return true;
+         }
+         return super.onPreferenceTreeClick(preference);
+     }
 }
