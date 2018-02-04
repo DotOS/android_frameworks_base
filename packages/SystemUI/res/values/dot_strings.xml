@@ -134,4 +134,8 @@
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Sound search</string>
     <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+
+    <!-- DOT logo -->
+    <string name="dot_logo_title">DOT logo</string>
+    <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
 </resources>
