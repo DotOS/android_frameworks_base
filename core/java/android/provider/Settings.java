@@ -3994,6 +3994,14 @@ public final class Settings {
          */
         public static final String  RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
+         *
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -4160,10 +4168,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_TO_APP_ENABLED);
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
-			PRIVATE_SETTINGS.add(QS_ROWS_PORTRAIT);
-            PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
-            PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
-            PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
+			PRIVATE_SETTINGS.add(VOLUME_LINK_NOTIFICATION);
         }
 
         /**
@@ -7192,6 +7197,16 @@ public final class Settings {
         public static final String QS_AUTO_ADDED_TILES = "qs_auto_tiles";
 
         /**
+         * Whether to set a lower brightness level when enabling night mode
+         * 0: Disabled
+         * 1: Set the brightness to a very low value
+         * 2: Set the brightness to a low value
+         * 3: Set the brightness to a medium value
+         * @hide
+         */
+        public static final String NIGHT_BRIGHTNESS_VALUE = "night_brightness_value";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -10022,11 +10037,25 @@ public final class Settings {
         /**
          * Defines global runtime overrides to window policy.
          *
-         * See {@link com.android.server.policy.PolicyControl} for value format.
+         * See {@link android.view.WindowManagerPolicyControl} for value format.
          *
          * @hide
          */
         public static final String POLICY_CONTROL = "policy_control";
+
+        /**
+         * @hide
+         */
+        public static final String POLICY_CONTROL_SELECTED = "policy_control_selected";
+
+        /**
+         * Defines global runtime overrides to window policy style.
+         *
+         * See {@link android.view.WindowManagerPolicyControl} for value definitions.
+         *
+         * @hide
+         */
+        public static final String POLICY_CONTROL_STYLE = "policy_control_style";
 
         /**
          * Defines global zen mode.  ZEN_MODE_OFF, ZEN_MODE_IMPORTANT_INTERRUPTIONS,
