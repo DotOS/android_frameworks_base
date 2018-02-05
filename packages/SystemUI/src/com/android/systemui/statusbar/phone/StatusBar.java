@@ -5045,6 +5045,15 @@ public class StatusBar extends SystemUI implements DemoMode,
             mStatusBarWindowManager.setKeyguardDark(useDarkText);
         }
     }
+    
+    private void updateThemeAndReinflate(){
+        updateTheme();
+        mHandler.postDelayed(() -> {
+            if (mStatusBarView != null) {
+                reinflateViews();
+            }
+        }, 1000);
+    }
 
     private void updateDozingState() {
         Trace.traceCounter(Trace.TRACE_TAG_APP, "dozing", mDozing ? 1 : 0);
@@ -6220,6 +6229,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILE_TITLE_VISIBILITY),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_CURRENT_OVERLAY),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6231,7 +6243,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_PORTRAIT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_LANDSCAPE))) {
                 setQsRowsColumns();
-              }
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_STYLE)) || uri.equals(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_CURRENT_OVERLAY))) {
+                updateThemeAndReinflate();
+	    }
         }
 
         public void update() {
