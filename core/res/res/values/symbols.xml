@@ -3074,4 +3074,7 @@
 
   <java-symbol type="integer" name="config_stableDeviceDisplayWidth" />
   <java-symbol type="integer" name="config_stableDeviceDisplayHeight" />
+
+  <!-- Multicolor Led -->
+  <java-symbol type="bool" name="config_multicolorled" />
 </resources>
