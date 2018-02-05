@@ -206,7 +206,7 @@ easier.
 
     </style>
 
-    <style name="Theme.DeviceDefault" parent="Theme.DeviceDefaultBase" />
+    <style name="Theme.DeviceDefault" parent="@android:style/Theme.Material.Light" />
 
     <!-- Variant of {@link #Theme_DeviceDefault} with no action bar -->
     <style name="Theme.DeviceDefault.NoActionBar" parent="Theme.Material.NoActionBar">
@@ -754,7 +754,7 @@ easier.
 
     <!-- @hide DeviceDefault theme for a window that should use Settings theme colors
          but has a full dark palette. ONLY USED FOR QUICK SETTINGS THEME -->
-    <style name="Theme.DeviceDefault.QuickSettings" parent="Theme.Material">
+    <style name="Theme.DeviceDefault.QuickSettings" parent="@android:style/Theme.Material">
         <!-- Color palette -->
         <item name="colorPrimary">@color/material_grey_900</item>
         <item name="colorPrimaryDark">@color/material_grey_900</item>
