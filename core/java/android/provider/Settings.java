@@ -7822,7 +7822,13 @@ public final class Settings {
 	 * 3 - force black
          * @hide
          */
-        public static final String DEVICE_THEME = "device_theme";	
+        public static final String DEVICE_THEME = "device_theme";
+
+	        /**
+         * Current theme overlay
+         * @hide
+         */
+        public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";	
 		
 		/**
          * 0 - Use normal Tint
