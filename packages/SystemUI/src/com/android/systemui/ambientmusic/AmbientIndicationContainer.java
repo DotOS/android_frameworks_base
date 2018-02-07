@@ -2,7 +2,9 @@ package com.android.systemui.ambientmusic;
 
 import android.content.Context;
 import android.media.MediaMetadata;
+import android.os.Handler;
 import android.text.TextUtils;
+import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -28,6 +30,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     private Context mContext;
     private MediaMetadata mMediaMetaData;
     private boolean mForcedMediaDoze;
+    private Handler mHandler;
+    private boolean mScrollingInfo;
 
     public AmbientIndicationContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -38,9 +42,10 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         setIndication(null);
     }
 
-    public void initializeView(StatusBar statusBar) {
+    public void initializeView(StatusBar statusBar, Handler handler) {
         mStatusBar = statusBar;
         addInflateListener(new AmbientIndicationInflateListener(this));
+        mHandler = handler;
     }
 
     public void updateAmbientIndicationView(View view) {
@@ -55,6 +60,25 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mDozing = dozing;
         setVisibility(dozing ? View.VISIBLE : View.INVISIBLE);
         updatePosition();
+    }
+
+    public void setTickerMarquee(boolean enable) {
+        if (enable) {
+            setTickerMarquee(false);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mText.setEllipsize(TruncateAt.MARQUEE);
+                    mText.setMarqueeRepeatLimit(2);
+                    mText.setSelected(true);
+                    mScrollingInfo = true;
+                }
+            }, 1600);
+        } else {
+            mText.setEllipsize(null);
+            mText.setSelected(false);
+            mScrollingInfo = false;
+        }
     }
 
     public void setCleanLayout(int reason) {
@@ -80,6 +104,11 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
                     too many infos, so let's skip album name to keep a smaller text */
                 charSequence = artist.toString() /*+ " - " + album.toString()*/ + " - " + title.toString();
             }
+        }
+        if (mScrollingInfo) {
+            // if we are already showing an Ambient Notification with track info,
+            // stop the current scrolling and start it delayed again for the next song
+            setTickerMarquee(true);
         }
         mText.setText(charSequence);
         mMediaMetaData = mediaMetaData;
