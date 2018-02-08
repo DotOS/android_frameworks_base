@@ -388,6 +388,10 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 return showlocked;
             }
 
+            public boolean onLongPress() {
+                return false;
+            }
+
             public boolean showBeforeProvisioning() {
                 return false;
             }
@@ -555,7 +559,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         OnItemLongClickListener onItemLongClickListener = (parent, view, position, id) -> {
             final Action action = mAdapter.getItem(position);
             if (action instanceof LongPressAction) {
-                mDialog.dismiss();
+                //mDialog.dismiss();
                 return ((LongPressAction) action).onLongPress();
             }
             return false;
@@ -624,6 +628,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         public boolean onLongPress() {
             UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
             if (!um.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
+                mDialog.dismiss();
                 mWindowManagerFuncs.reboot(true);
                 return true;
             }
@@ -648,7 +653,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     }
 
-    private class ScreenshotAction extends SinglePressAction {
+    private class ScreenshotAction extends SinglePressAction implements LongPressAction {
         public ScreenshotAction() {
             super(R.drawable.ic_screenshot, R.string.global_action_screenshot);
         }
@@ -670,6 +675,11 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
 
         @Override
+        public boolean onLongPress() {
+            return false;
+        }
+
+        @Override
         public boolean showDuringKeyguard() {
             boolean showlocked = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.POWERMENU_LS_SCREENSHOT, 0) == 1;
@@ -678,7 +688,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean showBeforeProvisioning() {
-            return false;
+            return true;
         }
     }
 
@@ -1391,7 +1401,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
-            return true;
+            return false;
         }
 
         public boolean isEnabled() {
