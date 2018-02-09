@@ -1045,7 +1045,7 @@ public class NotificationManagerService extends SystemService {
             ContentResolver resolver = getContext().getContentResolver();
             if (uri == null || NOTIFICATION_LIGHT_PULSE_URI.equals(uri)) {
                 boolean pulseEnabled = Settings.System.getIntForUser(resolver,
-                            Settings.System.NOTIFICATION_LIGHT_PULSE, 0, UserHandle.USER_CURRENT) != 0;
+                            Settings.System.NOTIFICATION_LIGHT_PULSE, 1, UserHandle.USER_CURRENT) != 0;
                 if (mNotificationPulseEnabled != pulseEnabled) {
                     mNotificationPulseEnabled = pulseEnabled;
                     updateNotificationPulse();
@@ -4095,7 +4095,8 @@ public class NotificationManagerService extends SystemService {
         boolean wasShowLights = mLights.remove(key);
         if (record.getLight() != null && aboveThreshold
                 && ((record.getSuppressedVisualEffects()
-                & NotificationListenerService.SUPPRESSED_EFFECT_SCREEN_OFF) == 0)) {
+                & NotificationListenerService.SUPPRESSED_EFFECT_SCREEN_OFF) == 0)
+                && (!record.isIntercepted() || (record.isIntercepted() && record.shouldLightOnZen()))) {
             mLights.add(key);
             updateLightsLocked();
             if (mUseAttentionLight) {
