@@ -130,4 +130,7 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
     <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Sound search</string>
 </resources>
