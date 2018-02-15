@@ -183,6 +183,8 @@ public class SignalClusterView extends LinearLayout implements NetworkController
             // Re-register to get new callbacks.
             mNetworkController.removeCallback(this);
             mNetworkController.addCallback(this);
+            }
+
         } else if (STATUS_BAR_BATTERY_STYLE.equals(key)) {
             final int style = newValue == null ?
                 BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(newValue);
