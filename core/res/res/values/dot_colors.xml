@@ -31,4 +31,7 @@
 	<color name="dot_violet">#6872ea</color>
 	<color name="dot_pink">#ed4fc4</color>
 	
+	<!-- Resolver -->
+    <color name="resolver_list_bg">@android:color/white</color>
+	
 </resources>
