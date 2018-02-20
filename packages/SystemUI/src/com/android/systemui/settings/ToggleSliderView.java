@@ -16,9 +16,12 @@
 
 package com.android.systemui.settings;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,6 +32,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import com.android.settingslib.Utils;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 
@@ -70,10 +74,27 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
         mLabel.setText(a.getString(R.styleable.ToggleSliderView_text));
 
         mSlider.setAccessibilityLabel(getContentDescription().toString());
-
+		updateColor(context);
         a.recycle();
     }
 
+	public void updateColor(Context context) {
+	    mSlider = findViewById(R.id.slider);
+        int mCurrentUserId = ActivityManager.getCurrentUser();
+	    int brightness_mode = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS_MODE, 0, mCurrentUserId);
+		if (brightness_mode == 0) {
+            if (mSlider.getProgress() > 230) {
+                mSlider.getProgressDrawable().setColorFilter(getResources().getColor(R.color.warning_max_brightness), PorterDuff.Mode.SRC_OVER);
+                mSlider.getThumb().setColorFilter(getResources().getColor(R.color.warning_max_brightness), PorterDuff.Mode.MULTIPLY);
+            } else {
+                mSlider.getProgressDrawable().setColorFilter(Utils.getColorAccent(getContext()), PorterDuff.Mode.SRC_OVER);
+                mSlider.getThumb().setColorFilter(Utils.getColorAccent(getContext()), PorterDuff.Mode.MULTIPLY);
+            }
+        }
+	}
+	
+	
     public void setMirror(ToggleSliderView toggleSlider) {
         mMirror = toggleSlider;
         if (mMirror != null) {
@@ -158,6 +179,7 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
                 mListener.onChanged(
                         ToggleSliderView.this, mTracking, mToggle.isChecked(), progress, false);
             }
+			updateColor(getContext());
         }
 
         @Override
@@ -175,6 +197,7 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
                 mMirrorController.showMirror();
                 mMirrorController.setLocation((View) getParent());
             }
+			updateColor(getContext());
         }
 
         @Override
@@ -189,7 +212,7 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
             if (mMirrorController != null) {
                 mMirrorController.hideMirror();
             }
+			updateColor(getContext());
         }
     };
 }
-
