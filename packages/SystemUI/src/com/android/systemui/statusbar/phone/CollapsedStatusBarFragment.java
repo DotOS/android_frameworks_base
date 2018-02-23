@@ -81,8 +81,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private LinearLayout mCenterClockLayout;
     private View mCenterClock;
     private SettingsObserver mSettingsObserver;
-
-    private ContentResolver mContentResolver;
     private int mTickerEnabled;
     private TickerObserver mTickerObserver;
     private ContentResolver mContentResolver;
@@ -176,6 +174,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                     false, this, UserHandle.USER_ALL);
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -184,7 +183,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             ((Clock)mLeftClock).updateSettings();
             ((Clock)mCenterClock).updateSettings();
             mStatusBarComponent.updateQsbhClock();
-
             mStatusBarComponent.updateBatterySettings();
 
         }
