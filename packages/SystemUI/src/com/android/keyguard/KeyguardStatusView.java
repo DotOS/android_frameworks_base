@@ -27,6 +27,7 @@ import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -42,6 +43,7 @@ import android.widget.TextView;
 
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.systemui.dot.LockscreenClockController;
 import com.android.systemui.ChargingView;
 import com.android.systemui.statusbar.policy.DateView;
 
@@ -57,7 +59,9 @@ public class KeyguardStatusView extends GridLayout {
 
     private TextView mAlarmStatusView;
     private DateView mDateView;
-    private TextClock mClockView;
+    private TextClock mStockClockView;
+	private TextClock mDotClockViewHH;
+	private TextClock mDotClockViewMM;
     private TextView mOwnerInfo;
     private ViewGroup mClockContainer;
     private ChargingView mBatteryDoze;
@@ -76,6 +80,8 @@ public class KeyguardStatusView extends GridLayout {
     private int mTextColor;
     private int mDateTextColor;
     private int mAlarmTextColor;
+	private int clockType = 0;
+	private int mCurrentUserId;
 
     private KeyguardUpdateMonitorCallback mInfoCallback = new KeyguardUpdateMonitorCallback() {
 
@@ -158,19 +164,45 @@ public class KeyguardStatusView extends GridLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+		mCurrentUserId = ActivityManager.getCurrentUser();
+	    clockType = Settings.Secure.getIntForUser(getContext().getContentResolver(),Settings.Secure.DOT_CLOCK_TYPE, 0, mCurrentUserId);
         mClockContainer = findViewById(R.id.keyguard_clock_container);
         mAlarmStatusView = findViewById(R.id.alarm_status);
         mDateView = findViewById(R.id.date_view);
-        mClockView = findViewById(R.id.clock_view);
-        mClockView.setShowCurrentUserTime(true);
-        if (KeyguardClockAccessibilityDelegate.isNeeded(mContext)) {
-            mClockView.setAccessibilityDelegate(new KeyguardClockAccessibilityDelegate(mContext));
-        }
+		if (clockType == 1) {
+			mStockClockView = findViewById(R.id.c_stock);
+            mStockClockView.setShowCurrentUserTime(true);
+            if (KeyguardClockAccessibilityDelegate.isNeeded(mContext)) {
+                mStockClockView.setAccessibilityDelegate(new KeyguardClockAccessibilityDelegate(mContext));
+            }
+			// Disable elegant text height because our fancy colon makes the ymin value huge for no
+            // reason.
+            mStockClockView.setElegantTextHeight(false);
+			
+			mVisibleInDoze = new View[]{mBatteryDoze, mStockClockView, mKeyguardStatusArea};
+            mTextColor = mStockClockView.getCurrentTextColor();
+		}
+		if (clockType == 0) {
+			mDotClockViewHH = findViewById(R.id.c_dot_hh);
+			mDotClockViewMM = findViewById(R.id.c_dot_mm);
+            mDotClockViewHH.setShowCurrentUserTime(true);
+			mDotClockViewMM.setShowCurrentUserTime(true);
+            if (KeyguardClockAccessibilityDelegate.isNeeded(mContext)) {
+                mDotClockViewHH.setAccessibilityDelegate(new KeyguardClockAccessibilityDelegate(mContext));
+				mDotClockViewMM.setAccessibilityDelegate(new KeyguardClockAccessibilityDelegate(mContext));
+            }
+			// Disable elegant text height because our fancy colon makes the ymin value huge for no
+            // reason.
+            mDotClockViewHH.setElegantTextHeight(false);
+			mDotClockViewMM.setElegantTextHeight(false);
+			
+			mVisibleInDoze = new View[]{mBatteryDoze, mDotClockViewHH, mDotClockViewMM, mKeyguardStatusArea};
+            mTextColor = mDotClockViewHH.getCurrentTextColor();
+		}
         mOwnerInfo = findViewById(R.id.owner_info);
         mBatteryDoze = findViewById(R.id.battery_doze);
         mKeyguardStatusArea = findViewById(R.id.keyguard_status_area);
-        mVisibleInDoze = new View[]{mBatteryDoze, mClockView, mKeyguardStatusArea};
-        mTextColor = mClockView.getCurrentTextColor();
+        
         mDateTextColor = mDateView.getCurrentTextColor();
         mAlarmTextColor = mAlarmStatusView.getCurrentTextColor();
 
@@ -179,21 +211,29 @@ public class KeyguardStatusView extends GridLayout {
         refresh();
         updateOwnerInfo();
 
-        // Disable elegant text height because our fancy colon makes the ymin value huge for no
-        // reason.
-        mClockView.setElegantTextHeight(false);
+        
     }
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
-        // Some layouts like burmese have a different margin for the clock
-        MarginLayoutParams layoutParams = (MarginLayoutParams) mClockView.getLayoutParams();
-        layoutParams.bottomMargin = getResources().getDimensionPixelSize(
-                R.dimen.bottom_text_spacing_digital);
-        mClockView.setLayoutParams(layoutParams);
+		if (clockType == 1) {
+			mStockClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+         	       getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+        	// Some layouts like burmese have a different margin for the clock
+        	MarginLayoutParams layoutParams = (MarginLayoutParams) mStockClockView.getLayoutParams();
+			layoutParams.bottomMargin = getResources().getDimensionPixelSize(
+                   R.dimen.bottom_text_spacing_digital);
+			mStockClockView.setLayoutParams(layoutParams);
+		}
+		if (clockType == 0) {
+        	// Some layouts like burmese have a different margin for the clock
+        	MarginLayoutParams layoutParams = (MarginLayoutParams) mStockClockView.getLayoutParams();
+			layoutParams.bottomMargin = getResources().getDimensionPixelSize(
+                   R.dimen.bottom_text_spacing_digital);
+			mDotClockViewMM.setLayoutParams(layoutParams);
+			mDotClockViewHH.setLayoutParams(layoutParams);
+		}
         mDateView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_label_font_size));
         if (mOwnerInfo != null) {
@@ -204,9 +244,16 @@ public class KeyguardStatusView extends GridLayout {
 
     public void refreshTime() {
         mDateView.setDatePattern(Patterns.dateViewSkel);
-
-        mClockView.setFormat12Hour(Patterns.clockView12);
-        mClockView.setFormat24Hour(Patterns.clockView24);
+        if (clockType == 1) {
+			mStockClockView.setFormat12Hour(Patterns.clockView12);
+            mStockClockView.setFormat24Hour(Patterns.clockView24);
+		}
+		if (clockType == 0) {
+			mDotClockViewHH.setFormat12Hour("hh");
+			mDotClockViewHH.setFormat24Hour("hh");
+			mDotClockViewMM.setFormat12Hour("mm");
+			mDotClockViewMM.setFormat24Hour("mm");
+		}
     }
 
     private void refresh() {
@@ -235,7 +282,15 @@ public class KeyguardStatusView extends GridLayout {
     }
 
     public float getClockTextSize() {
-        return mClockView.getTextSize();
+		if (clockType == 1) {
+			return mStockClockView.getTextSize();
+		}
+		if (clockType == 0) {
+			return mDotClockViewHH.getTextSize();
+		}
+        else {
+		    return 0;
+		}
     }
 
     public static String formatNextAlarm(Context context, AlarmManager.AlarmClockInfo info) {
@@ -351,7 +406,13 @@ public class KeyguardStatusView extends GridLayout {
 
         updateDozeVisibleViews();
         mBatteryDoze.setDark(dark);
-        mClockView.setTextColor(ColorUtils.blendARGB(mTextColor, Color.WHITE, darkAmount));
+		if (clockType == 1) {
+			mStockClockView.setTextColor(ColorUtils.blendARGB(mTextColor, Color.WHITE, darkAmount));
+		}
+		if (clockType == 0) {
+			mDotClockViewHH.setTextColor(ColorUtils.blendARGB(mTextColor, Color.WHITE, darkAmount));
+			mDotClockViewMM.setTextColor(ColorUtils.blendARGB(mTextColor, Color.WHITE, darkAmount));
+		}
         mDateView.setTextColor(ColorUtils.blendARGB(mDateTextColor, Color.WHITE, darkAmount));
         int blendedAlarmColor = ColorUtils.blendARGB(mAlarmTextColor, Color.WHITE, darkAmount);
         mAlarmStatusView.setTextColor(blendedAlarmColor);
