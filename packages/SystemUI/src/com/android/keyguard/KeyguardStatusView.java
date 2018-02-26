@@ -42,6 +42,7 @@ import android.widget.TextView;
 
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.systemui.dot.LockscreenClockController;
 import com.android.systemui.ChargingView;
 import com.android.systemui.statusbar.policy.DateView;
 
@@ -57,7 +58,7 @@ public class KeyguardStatusView extends GridLayout {
 
     private TextView mAlarmStatusView;
     private DateView mDateView;
-    private TextClock mClockView;
+    private LockscreenClockController mClockView;
     private TextView mOwnerInfo;
     private ViewGroup mClockContainer;
     private ChargingView mBatteryDoze;
