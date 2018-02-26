@@ -7562,6 +7562,14 @@ public final class Settings {
          */
 		public static final String TINT_MODE = "tint_mode";
 		
+		/**
+		 * 0 - DotOS Clock
+		 * 1 - Android Stock Clock
+		 * @hide
+		 */
+		public static final String DOT_CLOCK_TYPE = "dot_clock_type";
+		
+		
         /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
          *
