@@ -19,6 +19,9 @@
 -->
 <resources>
 
+    <!-- Updater snackbar text color -->
+    <color name="updater_snackbar_text_color">@android:color/white</color>
+
     <!-- Custom colours for dot -->
     <color name="dot_blue">#3C85ED</color>
     <color name="dot_green">#2CA851</color>
