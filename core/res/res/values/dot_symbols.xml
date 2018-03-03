@@ -78,5 +78,9 @@
   <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
+  <!-- The list of vendor package signatures that should also be considered
+  platform signatures, specifically for use on devices with a vendor partition. -->
+  <java-symbol type="array" name="config_vendorPlatformSignatures" />
+
 </resources>
 
