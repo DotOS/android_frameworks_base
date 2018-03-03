@@ -7805,20 +7805,27 @@ public final class Settings {
 	 * 3 - force black
          * @hide
          */
-        public static final String DEVICE_THEME = "device_theme";	
+        public static final String DEVICE_THEME = "device_theme";
 
          /**
          * 0-9 - Handle Accent Packages
          * @hide
          */
-		public static final String ACCENT_THEME = "accent_theme";
-		
+	public static final String ACCENT_THEME = "accent_theme";
+
          /**
          * 0 - Use normal Tint
          * 1 - Force colorAccent Tint
          * @hide
          */
         public static final String TINT_MODE = "tint_mode";
+
+	/**
+         * 0 - Enable Warning Color on 90%+ brightness
+         * 1 - Disable Warning Color
+         * @hide
+         */
+	public static final String BRIGHTNESS_WARN_MODE = "brightness_warn_mode";
 
         /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
