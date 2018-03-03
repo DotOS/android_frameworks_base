@@ -83,7 +83,9 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
         int mCurrentUserId = ActivityManager.getCurrentUser();
 	    int brightness_mode = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS_MODE, 0, mCurrentUserId);
-		if (brightness_mode == 0) {
+		int warn_mode = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.Secure.BRIGHTNESS_WARN_MODE, 0, mCurrentUserId);
+		if (brightness_mode == 0 && warn_mode == 0) {
             if (mSlider.getProgress() > 230) {
                 mSlider.getProgressDrawable().setColorFilter(getResources().getColor(R.color.warning_max_brightness), PorterDuff.Mode.SRC_OVER);
                 mSlider.getThumb().setColorFilter(getResources().getColor(R.color.warning_max_brightness), PorterDuff.Mode.MULTIPLY);
