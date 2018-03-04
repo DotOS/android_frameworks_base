@@ -35,6 +35,7 @@ import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.SignalClusterView;
+import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.phone.StatusBarIconController.DarkIconManager;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher;
 import com.android.systemui.statusbar.policy.EncryptionHelper;
@@ -62,6 +63,13 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private SignalClusterView mSignalClusterView;
 
     private View mLeftClock;
+    private Clock mClockCentered;
+    private View mCenterClockLayout;
+
+    public static final int STYLE_CLOCK_CENTER = 2;
+
+    int mClockPosition = Settings.System.getInt(mContentResolver,
+			    Settings.System.STATUSBAR_CLOCK_STYLE, 0);
 
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
@@ -96,6 +104,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
         mSignalClusterView = mStatusBar.findViewById(R.id.signal_cluster);
         mLeftClock = mStatusBar.findViewById(R.id.left_clock);
+        mClockCentered = (Clock) mStatusBar.findViewById(R.id.center_clock);
+        mCenterClockLayout = mStatusBar.findViewById(R.id.center_clock_layout);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mSignalClusterView);
         // Default to showing until we know otherwise.
         showSystemIconArea(false);
@@ -196,10 +206,16 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideSystemIconArea(boolean animate) {
         animateHide(mSystemIconArea, animate);
+	if (mClockPosition == STYLE_CLOCK_CENTER) {
+            animateHide(mCenterClockLayout, animate ,false);
+        }
     }
 
     public void showSystemIconArea(boolean animate) {
         animateShow(mSystemIconArea, animate);
+	if (mClockPosition == STYLE_CLOCK_CENTER) {
+            animateShow(mCenterClockLayout, animate);
+        }
     }
 
     public void hideNotificationIconArea(boolean animate) {
