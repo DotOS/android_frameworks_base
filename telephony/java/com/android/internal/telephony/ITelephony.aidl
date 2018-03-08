@@ -609,11 +609,6 @@ interface ITelephony {
     int getLteOnCdmaModeForSubscriber(int subId, String callingPackage);
 
     /**
-     * Return if the current radio is LTE on GSM
-     */
-    int getLteOnGsmMode();
-
-    /**
      * Returns the all observed cell information of the device.
      */
     List<CellInfo> getAllCellInfo(String callingPkg);
