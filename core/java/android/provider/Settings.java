@@ -4293,6 +4293,12 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+		
+		/**
+         * Whether to display cross sign for a data disabled connection
+         * @hide
+         */
+        public static final String DATA_DISABLED_ICON = "data_disabled_icon";
 
         /**
          * Quick Settings Smart Pulldown
