@@ -4201,6 +4201,21 @@ public final class Settings {
         public static final String IMMERSIVE_RECENTS = "immersive_recents";
 
         /**
+         * 0 - wallpaper based
+         * 1 - force light
+         * 2 - force dark
+         * 3 - force black
+         * @hide
+         */
+        public static final String SYSTEM_THEME_STYLE = "system_theme_style";
+
+        /**
+         * Current theme overlay
+         * @hide
+         */
+        public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";
+
+        /**
          * Show or hide clock
          * 0 - hide
          * 1 - show (default)
@@ -4550,6 +4565,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_KEYS_CONTROL_MEDIA_STREAM);
             PRIVATE_SETTINGS.add(SWAP_VOLUME_BUTTONS);
             PRIVATE_SETTINGS.add(VOLUME_BUTTON_MUSIC_CONTROL);
+            PRIVATE_SETTINGS.add(SYSTEM_THEME_STYLE);
         }
 
         /**
@@ -7758,12 +7774,6 @@ public final class Settings {
          */
         public static final String DEVICE_THEME = "device_theme";	
 
-         /**
-         * Current theme overlay
-         * @hide
-         */
-        public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";	
-		
          /**
          * 0 - Use normal Tint
          * 1 - Force colorAccent Tint
