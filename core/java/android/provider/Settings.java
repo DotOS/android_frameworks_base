@@ -4249,6 +4249,20 @@ public final class Settings {
          * @hide
          */
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
+        /**
+         * 0 - wallpaper based
+         * 1 - force light
+         * 2 - force dark
+         * 3 - force black
+         * 4 - force extendedUI
+         * @hide
+         */
+        public static final String SYSTEM_THEME_STYLE = "system_theme_style";
+        /**
+         * Current theme overlay
+         * @hide
+         */
+        public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";
 
         /**
          * Show or hide clock
@@ -4608,6 +4622,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_STATE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_TYPE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
+            PRIVATE_SETTINGS.add(SYSTEM_THEME_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
@@ -7830,12 +7845,6 @@ public final class Settings {
          */
         public static final String DEVICE_THEME = "device_theme";
 
-	        /**
-         * Current theme overlay
-         * @hide
-         */
-        public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";	
-		
 		/**
          * 0 - Use normal Tint
          * 1 - Force colorAccent Tint
