@@ -4976,8 +4976,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null;
 
-        int userThemeSetting = Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                Settings.Secure.DEVICE_THEME, 0, mCurrentUserId);
+        int userThemeSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SYSTEM_THEME_STYLE, 0, mCurrentUserId);
 
         boolean useBlackTheme = false;
         boolean useDarkTheme = false;
@@ -6336,7 +6336,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.DEVICE_THEME),
+                    Settings.System.SYSTEM_THEME_STYLE),
                     false, this, UserHandle.USER_ALL);
         }
 
