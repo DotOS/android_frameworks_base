@@ -7775,6 +7775,12 @@ public final class Settings {
         public static final String DEVICE_THEME = "device_theme";	
 
          /**
+         * 0-9 - Handle Accent Packages
+         * @hide
+         */
+		public static final String ACCENT_THEME = "accent_theme";
+		
+         /**
          * 0 - Use normal Tint
          * 1 - Force colorAccent Tint
          * @hide
