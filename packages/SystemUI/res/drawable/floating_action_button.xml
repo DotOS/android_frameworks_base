@@ -19,6 +19,6 @@
     android:color="@android:color/white">
     <shape
             android:shape="oval"
-            android:tint="@color/fab_color">
+            android:tint="@color/floating_action_button_icon_color">
     </shape>
 </ripple>
