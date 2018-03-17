@@ -42,8 +42,12 @@ import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.PictureInPictureTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenrecordTile;
+import com.android.systemui.qs.tiles.SoundSearchTIle;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SoundTile;
+import com.android.systemui.qs.tiles.NavigationBarTile;
+import com.android.systemui.qs.tiles.SyncTile;
+import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
@@ -82,7 +86,11 @@ public class QSFactoryImpl implements QSFactory {
         else if (tileSpec.equals("screenrecord")) return new ScreenrecordTile(mHost);
         else if (tileSpec.equals("compass")) return new CompassTile(mHost);
         else if (tileSpec.equals("sound")) return new SoundTile(mHost);
+        else if (tileSpec.equals("navigation")) return new NavigationBarTile(mHost);
+        else if (tileSpec.equals("sync")) return new SyncTile(mHost);
         else if (tileSpec.equals("heads_up")) return new HeadsUpTile(mHost);
+        else if (tileSpec.equals("usb_tether")) return new UsbTetherTile(mHost);
+        else if (tileSpec.equals("soundsearch")) return new SoundSearchTIle(mHost);
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(mHost, tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(mHost, tileSpec);
