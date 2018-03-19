@@ -76,7 +76,8 @@ public class QuickStatusBarHeader extends RelativeLayout {
 
         applyDarkness(R.id.battery, tintArea, intensity, colorForeground);
         applyDarkness(R.id.clock, tintArea, intensity, colorForeground);
-
+		applyDarkness(R.id.left_clock, tintArea, intensity, colorForeground);
+		
         mBatteryView = findViewById(R.id.battery);
         mBatteryView.setIsQuickSbHeaderOrKeyguard(true);
 
