@@ -3,4 +3,24 @@
     <color name="condition_card_background">@*android:color/background_material_dark</color>
     <color name="suggestion_condition_background">@*android:color/primary_device_default_dark</color>
     <color name="suggestion_tile_background">@*android:color/background_material_dark</color>
+        <color name="icon_color_wireless">@*android:color/background_material_dark</color>
+	<color name="icon_color_battery">@*android:color/background_material_dark</color>
+	<color name="icon_color_other">@*android:color/background_material_dark</color>
+	<color name="icon_color_about">@*android:color/background_material_dark</color>
+	<color name="icon_color_accessibility">@*android:color/background_material_darkc</color>
+	<color name="icon_color_accounts">@*android:color/background_material_dark</color>
+	<color name="icon_color_display">@*android:color/background_material_dark</color>
+	<color name="icon_color_security">@*android:color/background_material_dark</color>
+	<color name="icon_color_sound">@*android:color/background_material_dark</color>
+	<color name="icon_color_storage">@*android:color/background_material_dark</color>
+	<color name="icon_color_apps">@*android:color/background_material_dark</color>
+	<color name="icon_color_system">@*android:color/background_material_dark</color>
+	<color name="icon_base_color">?android:attr/colorControlNormal</color>
+        <color name="icon_color_dotextras">@*android:color/background_material_dark</color>
+        <color name="icon_color_substratum">#@*android:color/background_material_dark</color>
+        <color name="icon_color_magisk">@*android:color/background_material_dark</color>
+        <color name="icon_color_supersu">@*android:color/background_material_dark</color>
+        <color name="icon_color_google">@*android:color/background_material_dark</color>	
+        <color name="icon_color_dotui">@*android:color/background_material_dark</color>	
+        <color name="icon_color_memory">@*android:color/background_material_dark</color>
 </resources>
