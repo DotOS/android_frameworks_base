@@ -528,7 +528,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+                <category android:name="com.android.internal.category.PLATLOGO" />
+             </intent-filter>
         </activity>
 
         <!-- a gallery of delicious treats -->
