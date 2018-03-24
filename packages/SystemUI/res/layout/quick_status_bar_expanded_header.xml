@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="31dp"
         android:layout_alignParentTop="true"
         android:accessibilityTraversalAfter="@+id/date_time_group"
         android:accessibilityTraversalBefore="@id/expand_indicator"

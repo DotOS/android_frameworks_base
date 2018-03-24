@@ -70,8 +70,8 @@ public class QuickStatusBarHeader extends RelativeLayout {
         updateResources();
 
         // Set the light/dark theming on the header status UI to match the current theme.
-        int colorForeground = Utils.getColorAttr(getContext(), android.R.attr.textColorPrimary);
-        float intensity = colorForeground == Color.WHITE ? 1 : 0;
+        int colorForeground = Utils.getColorAttr(getContext(), android.R.attr.colorForeground);
+        float intensity = colorForeground == Color.WHITE ? 0 : 1;
         Rect tintArea = new Rect(0, 0, 0, 0);
 
         applyDarkness(R.id.battery, tintArea, intensity, colorForeground);

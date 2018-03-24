@@ -24,12 +24,11 @@
     android:clipChildren="false">
 
     <com.android.systemui.qs.QSPanel
-        android:background="@drawable/qs_panel_corners"
         android:id="@+id/quick_settings_panel"
         android:layout_marginTop="28dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp" />
+        android:layout_marginBottom="48dp" />
 
     <include layout="@layout/quick_status_bar_expanded_header" />
 
