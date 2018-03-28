@@ -79,7 +79,7 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
         try {
              Thread.sleep(1000); //1s
         } catch (InterruptedException ie) {}
-        AEXUtils.takeScreenrecord(mMode);
+        DOTUtils.takeScreenrecord(mMode);
     }
 
     @Override
@@ -106,5 +106,5 @@ public class ScreenrecordTile extends QSTileImpl<BooleanState> {
             state.label = mContext.getString(R.string.quick_settings_screenrecord_hq_label);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_screenrecord_hq);
         }
-
+    }
 }
