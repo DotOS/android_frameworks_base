@@ -77,5 +77,8 @@
   <!-- SystemUI Restart -->
   <java-symbol type="string" name="systemui_restart_title" />
   <java-symbol type="string" name="systemui_restart_message" />
+  
+  <!-- Multi colored notifications Led -->
+  <java-symbol type="bool" name="config_multiColorNotificationLed" />
 
 </resources>
