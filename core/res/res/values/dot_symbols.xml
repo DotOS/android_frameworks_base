@@ -106,6 +106,10 @@
 
   <!-- Hardware key binding -->
   <java-symbol type="integer" name="config_deviceHardwareKeys" />
+  
+  <!-- Tooltip text colors -->
+  <java-symbol type="color" name="tooltip_text_light" />
+  <java-symbol type="color" name="tooltip_text_dark" />
 
   <!-- Button brightness -->
   <java-symbol type="bool" name="config_button_brightness_support" />
