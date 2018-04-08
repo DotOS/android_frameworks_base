@@ -49,6 +49,7 @@ import com.android.systemui.qs.tiles.ScreenrecordTile;
 import com.android.systemui.qs.tiles.SoundSearchTIle;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SoundTile;
+import com.android.systemui.qs.tiles.SmartPixelsTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UserTile;
@@ -99,6 +100,7 @@ public class QSFactoryImpl implements QSFactory {
 		else if (tileSpec.equals("caffeine")) return new CaffeineTile(mHost);
 		else if (tileSpec.equals("ambient_display")) return new AmbientDisplayTile(mHost);
 		else if (tileSpec.equals("always_on_display")) return new AlwaysOnDisplayTile(mHost);
+		else if (tileSpec.equals("smartpixels")) return new SmartPixelsTile(mHost);
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(mHost, tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(mHost, tileSpec);
