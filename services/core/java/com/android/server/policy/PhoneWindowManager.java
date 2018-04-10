@@ -885,7 +885,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mTopWindowIsKeyguard;
 
     private HardkeyActionHandler mKeyHandler;
-    private boolean mHasPermanentMenuKey;
 
     private class PolicyHandler extends Handler {
         @Override
