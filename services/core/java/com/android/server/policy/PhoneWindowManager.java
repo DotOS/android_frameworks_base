@@ -901,8 +901,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_RELEASE_ROTATION_LOCK = 101;
     private HardkeyActionHandler mKeyHandler;
 
-    private boolean mHasPermanentMenuKey;
-
     private class PolicyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
