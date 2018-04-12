@@ -13,6 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-    <solid android:color="?android:attr/colorBackgroundFloating" />
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+     <solid android:color="?android:attr/colorBackgroundFloating" />
+     <corners android:radius="@*com.android.systemui:dimen/recents_task_view_rounded_corners_radius" />
+
 </shape>

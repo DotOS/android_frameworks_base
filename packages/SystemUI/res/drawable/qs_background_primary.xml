@@ -14,7 +14,8 @@
      limitations under the License.
 -->
 <inset xmlns:android="http://schemas.android.com/apk/res/android">
-    <shape>
+    <shape android:shape="rectangle">
         <solid android:color="@color/qs_background_dark"/>
+        <corners android:radius="@*com.android.systemui:dimen/recents_task_view_rounded_corners_radius" />
     </shape>
 </inset>

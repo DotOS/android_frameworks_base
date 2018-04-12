@@ -20,6 +20,7 @@
     <item>
         <shape>
             <solid android:color="@color/notification_material_background_color" />
+	    <corners android:radius="@*com.android.systemui:dimen/recents_task_view_rounded_corners_radius" />
         </shape>
     </item>
 </ripple>

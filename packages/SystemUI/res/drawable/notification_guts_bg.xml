@@ -17,6 +17,6 @@
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/notification_guts_bg_color" />
-    <!--The radius is 1dp smaller than the notification one, to avoid aliasing bugs on the corners -->
-    <corners android:radius="1dp" />
+    <!--Androip P-ify-->
+    <corners android:radius="@*com.android.systemui:dimen/recents_task_view_rounded_corners_radius" />
 </shape>

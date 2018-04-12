@@ -52,7 +52,7 @@
     <dimen name="status_bar_clock_starting_padding">3dp</dimen>
 
     <!-- The end padding for the clock in the status bar. -->
-    <dimen name="status_bar_clock_end_padding">0dp</dimen>
+    <dimen name="status_bar_clock_end_padding">7.0dip</dimen>
 
     <!-- Spacing after the wifi signals that is present if there are any icons following it. -->
     <dimen name="status_bar_wifi_signal_spacer_width">4dp</dimen>
@@ -154,7 +154,7 @@
     <dimen name="status_bar_icon_padding">0dp</dimen>
 
     <!-- the padding on the start of the statusbar -->
-    <dimen name="status_bar_padding_start">6dp</dimen>
+    <dimen name="status_bar_padding_start">18.0dip</dimen>
 
     <!-- the radius of the overflow dot in the status bar -->
     <dimen name="overflow_dot_radius">1dp</dimen>
@@ -355,13 +355,13 @@
     <dimen name="min_stack_height">104dp</dimen>
 
     <!-- Z distance between notifications if they are in the stack -->
-    <dimen name="z_distance_between_notifications">0.5dp</dimen>
+    <dimen name="z_distance_between_notifications">1.0dip</dimen>
 
     <!-- The height of the divider between the individual notifications. -->
-    <dimen name="notification_divider_height">0.5dp</dimen>
+    <dimen name="notification_divider_height">3.5dip</dimen>
 
     <!-- The corner radius of the shadow behind the notification. -->
-    <dimen name="notification_shadow_radius">0dp</dimen>
+    <dimen name="notification_shadow_radius">15.0dip</dimen>
 
     <!-- The alpha of the dividing line between child notifications of a notification group. -->
     <item name="notification_divider_alpha" format="float" type="dimen">0.5</item>
@@ -766,6 +766,7 @@
          to create a softer corner effect. -->
     <dimen name="recents_task_view_rounded_corners_radius">8.0dip</dimen>
     <dimen name="recents_task_view_shadow_rounded_corners_radius">8.0dip</dimen>
+    <dimen name="tooltip_corner_radius">8.0dip</dimen>
 
     <!-- The amount of highlight to make on each task view. -->
     <dimen name="recents_task_view_highlight">1dp</dimen>
@@ -852,7 +853,7 @@
     <dimen name="bottom_padding">48dp</dimen>
     <dimen name="edge_margin">16dp</dimen>
 
-    <dimen name="rounded_corner_radius">0dp</dimen>
+    <dimen name="rounded_corner_radius">10.0dip</dimen>
     <dimen name="rounded_corner_content_padding">0dp</dimen>
     <dimen name="rounded_corner_content_padding_alt">0dp</dimen>
     <dimen name="nav_content_padding">0dp</dimen>
