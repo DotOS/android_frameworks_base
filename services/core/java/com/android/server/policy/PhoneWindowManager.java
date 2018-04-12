@@ -888,10 +888,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_SYSTEM_KEY_PRESS = 25;
     private static final int MSG_HANDLE_ALL_APPS = 26;
 
+    private static final int MSG_DISPATCH_VOLKEY_SKIP_TRACK = 27;
+    private static final int MSG_TOGGLE_TORCH = 28;
+
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
-    private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 27;
-    private static final int MSG_TOGGLE_TORCH = 28;
+
+    private boolean mHasPermanentMenuKey;
 
     private boolean mClearedBecauseOfForceShow;
     private boolean mTopWindowIsKeyguard;
@@ -992,12 +995,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 case MSG_HANDLE_ALL_APPS:
                     launchAllAppsAction();
                     break;
-
-                case MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK: {
-                    KeyEvent event = (KeyEvent) msg.obj;
-                    dispatchMediaKeyWithWakeLockToAudioService(event);
-                    dispatchMediaKeyWithWakeLockToAudioService(
-                            KeyEvent.changeAction(event, KeyEvent.ACTION_UP));
+                case MSG_DISPATCH_VOLKEY_SKIP_TRACK: {
+                    sendSkipTrackEventToStatusBar(msg.arg1);
                     mVolumeMusicControlActive = true;
                     break;
                 }
@@ -6690,18 +6689,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // {@link interceptKeyBeforeDispatching()}.
                     result |= ACTION_PASS_TO_USER;
                 } else if ((result & ACTION_PASS_TO_USER) == 0) {
-                    if (!interactive && mVolumeMusicControl && isMusicActive()) {
+                    if (!interactive && mVolumeMusicControl) {
                         boolean notHandledMusicControl = false;
                         if (down) {
                             if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-                                scheduleLongPressKeyEvent(event, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                                scheduleLongPressKeyEvent(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
                                 break;
                             } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-                                scheduleLongPressKeyEvent(event, KeyEvent.KEYCODE_MEDIA_NEXT);
+                                scheduleLongPressKeyEvent(KeyEvent.KEYCODE_MEDIA_NEXT);
                                 break;
                             }
                         } else {
-                            mHandler.removeMessages(MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK);
+                            mHandler.removeMessages(MSG_DISPATCH_VOLKEY_SKIP_TRACK);
                             notHandledMusicControl = true;
                         }
 
@@ -6953,6 +6952,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         Message message = mHandler.obtainMessage(MSG_SYSTEM_KEY_PRESS, keyCode, 0);
         message.setAsynchronous(true);
         mHandler.sendMessage(message);
+    }
+
+    private void sendSkipTrackEventToStatusBar(int keyCode) {
+        sendSystemKeyToStatusBar(keyCode);
     }
 
     /**
@@ -9254,10 +9257,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return am.isMusicActive();
     }
 
-    private void scheduleLongPressKeyEvent(KeyEvent origEvent, int keyCode) {
-        KeyEvent event = new KeyEvent(origEvent.getDownTime(), origEvent.getEventTime(),
-                origEvent.getAction(), keyCode, 0);
-        Message msg = mHandler.obtainMessage(MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK, event);
+    private void scheduleLongPressKeyEvent(int keyCode) {
+        Message msg = mHandler.obtainMessage(MSG_DISPATCH_VOLKEY_SKIP_TRACK, keyCode, 0);
         msg.setAsynchronous(true);
         mHandler.sendMessageDelayed(msg, ViewConfiguration.getLongPressTimeout());
     }
