@@ -124,6 +124,9 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleSetListening(boolean listening) {
+        if (mObserver == null) {
+            return;
+        }
         if (listening) {
             mContext.getContentResolver().registerContentObserver(
                     Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
@@ -133,7 +136,6 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
                     false, mObserver);
         } else {
             mContext.getContentResolver().unregisterContentObserver(mObserver);
+            }
         }
     }
-
-}
