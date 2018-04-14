@@ -187,4 +187,7 @@
 	
 	<string name="screenshot_abort_title">No screenshot taken</string>
     <string name="screenshot_abort_text">Operation aborted.</string>
+	
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Invert layout</string>
 </resources>
