@@ -187,4 +187,7 @@
 	
 	<string name="screenshot_abort_title">No screenshot taken</string>
     <string name="screenshot_abort_text">Operation aborted.</string>
+	
+	<!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
 </resources>
