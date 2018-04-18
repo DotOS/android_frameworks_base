@@ -191,6 +191,9 @@
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Invert layout</string>
 
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Compass</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
