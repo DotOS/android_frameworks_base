@@ -19,45 +19,45 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="global_action_restart_system">Reboot</string>
-  <string name="global_action_restart_advanced">Advanced reboot</string>
-  <string name="global_action_restart_recovery">Recovery</string>
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Hot</string>
-  <string name="global_action_screenshot">Screenshot</string>
+  <string name="global_action_restart_system">重新啟動</string>
+  <string name="global_action_restart_advanced">進階重新啟動選單</string>
+  <string name="global_action_restart_recovery">Recovery 模式</string>
+  <string name="global_action_restart_bootloader">Bootloader 模式</string>
+  <string name="global_action_restart_ui">系統使用者介面</string>
+  <string name="global_action_restart_hot">熱門</string>
+  <string name="global_action_screenshot">螢幕擷取</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- DUI -->
   <string name="systemui_tuner_navbar_title">Stock settings</string>
-  <string name="statusbar_items_title">Statusbar icon</string>
+  <string name="statusbar_items_title">狀態欄項目</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+  <string name="quick_settings_screenshot_label">螢幕擷取</string>
+  <string name="quick_settings_region_screenshot_label">擷取部分螢幕畫面</string>
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">App does not support PiP</string>
-  <string name="omnijaws_service_error">Error</string>
-  <string name="omnijaws_service_unkown">No weather data</string>
-  <string name="omnijaws_service_error_long">Error loading weather data</string>
-  <string name="omnijaws_service_disabled">Service is disabled</string>
-  <string name="omnijaws_detail_header">Weather</string>
-  <string name="omnijaws_label_default">Weather</string>
-  <string name="omnijaws_current_text">Now</string>
-  <string name="omnijaws_package_not_available">OmniJaws not available</string>
-  <string name="omnijaws_service_last_update">Last update:</string>
+  <string name="quick_settings_pip_tile_app_na">應用程式不支援 PiP</string>
+  <string name="omnijaws_service_error">錯誤</string>
+  <string name="omnijaws_service_unkown">無天氣資料</string>
+  <string name="omnijaws_service_error_long">載入天氣資料錯誤</string>
+  <string name="omnijaws_service_disabled">服務已停用</string>
+  <string name="omnijaws_detail_header">天氣</string>
+  <string name="omnijaws_label_default">天氣</string>
+  <string name="omnijaws_current_text">最新</string>
+  <string name="omnijaws_package_not_available">OmniJaws 不可用</string>
+  <string name="omnijaws_service_last_update">最近更新</string>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
   <string name="recents_free_ram">Free RAM: %1$d MB</string>
   <!-- volte icon switch -->
-  <string name="status_bar_volte">VOLTE</string>
+  <string name="status_bar_volte">VoLTE</string>
   <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Sound</string>
-  <string name="quick_settings_sound_ring">Ring</string>
-  <string name="quick_settings_sound_vibrate">Vibrate</string>
-  <string name="quick_settings_sound_dnd">Do not disturb</string>
+  <string name="quick_settings_sound_label">聲音</string>
+  <string name="quick_settings_sound_ring">鈴聲</string>
+  <string name="quick_settings_sound_vibrate">震動</string>
+  <string name="quick_settings_sound_dnd">勿擾模式</string>
   <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
+  <string name="quick_settings_adb_network">ADB 網路</string>
   <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
   <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
   <!-- Text to use when the number in a notification info is too large
@@ -65,19 +65,19 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Screenrecord</string>
+  <string name="quick_settings_screenrecord">螢幕錄製</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">Screen is being recorded</string>
   <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Recording screen</string>
+  <string name="screenrecord_notif_title">正在錄製螢幕</string>
   <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_stop">停止</string>
   <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
+  <string name="screenrecord_notif_pointer_on">顯示觸控指標</string>
+  <string name="screenrecord_notif_pointer_off">隱藏觸控指標</string>
   <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Unable to record screen</string>
-  <string name="notification_channel_screenrecord">Screenrecords</string>
+  <string name="screenrecord_notif_error">無法錄製螢幕</string>
+  <string name="notification_channel_screenrecord">螢幕錄製</string>
   <!-- USB Tethering tile -->
   <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
