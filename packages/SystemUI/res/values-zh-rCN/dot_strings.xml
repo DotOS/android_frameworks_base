@@ -28,9 +28,11 @@
   <string name="global_action_screenshot">屏幕截图</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- DUI -->
+  <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_navbar_title">原生导航栏设置</string>
   <string name="statusbar_items_title">状态栏图标</string>
+  <string name="lockscreen_default">Default</string>
+  <string name="lockscreen_hidden">None</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">屏幕截图</string>
   <string name="quick_settings_region_screenshot_label">局部截图</string>
