@@ -28,9 +28,11 @@
   <string name="global_action_screenshot">സ്ക്രീൻഷോട്ട്</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">എച് എസ് പി എ പ്ലസ്</string>
-  <!-- DUI -->
+  <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_navbar_title">സാധാരണ ക്രമീകരണങ്ങൾ</string>
   <string name="statusbar_items_title">സ്റ്റാറ്റസ് ബാർ ഐക്കണുകൾ</string>
+  <string name="lockscreen_default">Default</string>
+  <string name="lockscreen_hidden">None</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">സ്ക്രീൻഷോട്ട്</string>
   <string name="quick_settings_region_screenshot_label">ഭാഗികമായ സ്ക്രീൻഷോട്ട്‌</string>

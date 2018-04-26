@@ -28,9 +28,11 @@
   <string name="global_action_screenshot">Snímek obrazovky</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- DUI -->
+  <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_navbar_title">Nastavení Stock</string>
   <string name="statusbar_items_title">Ikona ve stavové liště</string>
+  <string name="lockscreen_default">Výchozí</string>
+  <string name="lockscreen_hidden">Nic</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Snímek obrazovky</string>
   <string name="quick_settings_region_screenshot_label">Částečný snímek obrazovky</string>
