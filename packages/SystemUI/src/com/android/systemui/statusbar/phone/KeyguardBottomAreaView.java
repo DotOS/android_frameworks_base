@@ -47,6 +47,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.service.media.CameraPrewarmService;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
@@ -168,6 +169,9 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     private String mLeftButtonStr;
     private LockscreenGestureLogger mLockscreenGestureLogger = new LockscreenGestureLogger();
     private boolean mDozing;
+
+    // omni additions
+    private boolean mShowIndicator = true;
 
     public KeyguardBottomAreaView(Context context) {
         this(context, null);
@@ -803,8 +807,11 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     public void onKeyguardShowingChanged() {
+        mShowIndicator = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HIDE_LOCKSCREEN_INDICATOR_DISPLAY, 0, UserHandle.USER_CURRENT) == 0;
         updateLeftAffordance();
         inflateCameraPreview();
+        mIndicationController.setVisibleOverwrite(mShowIndicator);
     }
 
     private void setRightButton(IntentButton button) {
