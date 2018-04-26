@@ -209,6 +209,18 @@ public class Utils {
         ta.recycle();
         return colorAccent;
     }
+	
+	@ColorInt
+	public static int getColorAtrtrV2(Context context, int themeAttributeId, int fallbackColorId) {
+        TypedValue outValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        boolean wasResolved = theme.resolveAttribute(themeAttributeId, outValue, true);
+        if (wasResolved) {
+            return ContextCompat.getColor(context, outValue.resourceId);
+        } else {
+            return fallbackColorId;
+        }
+    }
 
     public static int getThemeAttr(Context context, int attr) {
         TypedArray ta = context.obtainStyledAttributes(new int[]{attr});
