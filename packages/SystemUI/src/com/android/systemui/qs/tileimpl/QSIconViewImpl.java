@@ -130,9 +130,9 @@ public class QSIconViewImpl extends QSIconView {
         updateIcon(iv, state);
         if (state.disabledByPolicy) {
             iv.setColorFilter(getContext().getColor(R.color.qs_tile_disabled_color));
-        } else {
+        } /*else {
             iv.clearColorFilter();
-        }
+        }*/
         if (state.state != mState) {
             int color = getColor(state.state);
             mState = state.state;
