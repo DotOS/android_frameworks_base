@@ -37,7 +37,7 @@ import android.text.format.DateUtils;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.SparseArray;
-
+import android.graphics.Color;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.MetricsLogger;
 import com.android.settingslib.RestrictedLockUtils;
@@ -376,23 +376,23 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
                 Settings.Secure.TINT_MODE, 0, mCurrentUserId);
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
-			    if (tintMode == 1) {
+		 if (tintMode == 1) {
                     return Utils.getUnavailable(context,
-				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+		            getTintColor(context, mCurrentUserId));
                 } else {
                     return Utils.getDisabled(context,
                         Utils.getColorAttr(context, android.R.attr.colorForeground));
                 }
             case Tile.STATE_INACTIVE:
-			    if (tintMode == 1) {
+	         if (tintMode == 1) {
                     return Utils.getDisabled(context,
-				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+		            getTintColor(context, mCurrentUserId));
                 } else {
                     return Utils.getColorAttr(context, android.R.attr.textColorHint);
                 }
             case Tile.STATE_ACTIVE:
                 if (tintMode == 1) {
-                    return Utils.getColorAttr(context, android.R.attr.colorAccent);
+                    return getTintColor(context, mCurrentUserId);
                 } else {
                     return Utils.getColorAttr(context, android.R.attr.textColorPrimary);
                 }
@@ -401,6 +401,15 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
                 return 0;
         }
     }
+	
+	public static int getTintColor(Context context, int mCurrentUser) {
+                String tcolor = Settings.Secure.getStringForUser(context.getContentResolver(), Settings.Secure.TINT_COLOR, mCurrentUser);
+                if (tcolor != null)
+		return Color.parseColor(tcolor);
+                else {
+                return Color.parseColor("#212121");
+                }
+	}
 
     protected final class H extends Handler {
         private static final int ADD_CALLBACK = 1;

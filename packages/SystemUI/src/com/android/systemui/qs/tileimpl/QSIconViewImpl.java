@@ -16,6 +16,7 @@ package com.android.systemui.qs.tileimpl;
 
 import static com.android.systemui.qs.tileimpl.QSTileImpl.getColorForState;
 
+import android.app.ActivityManager;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -183,7 +184,7 @@ public class QSIconViewImpl extends QSIconView {
     }
 
     public static void setTint(ImageView iv, int color) {
-        iv.setImageTintList(ColorStateList.valueOf(color));
+        iv.setColorFilter(color,android.graphics.PorterDuff.Mode.SRC_IN);
     }
 
 
@@ -195,6 +196,7 @@ public class QSIconViewImpl extends QSIconView {
         final ImageView icon = new SlashImageView(mContext);
         icon.setId(android.R.id.icon);
         icon.setScaleType(ScaleType.FIT_CENTER);
+        setTint(icon, QSTileImpl.getTintColor(mContext, ActivityManager.getCurrentUser()));
         return icon;
     }
 
