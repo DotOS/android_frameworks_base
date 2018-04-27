@@ -183,7 +183,7 @@ public class QSIconViewImpl extends QSIconView {
     }
 
     public static void setTint(ImageView iv, int color) {
-        iv.setImageTintList(ColorStateList.valueOf(color));
+        android.support.v4.graphics.drawable.DrawableCompat.setTint(iv.getDrawable(), color);
     }
 
 

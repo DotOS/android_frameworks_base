@@ -7996,6 +7996,14 @@ public final class Settings {
          * @hide
          */
         public static final String TINT_MODE = "tint_mode";
+		
+		
+		/**
+         * Get Color to Apply to QS Tint
+         * @hide
+         */
+		public static final String TINT_COLOR = "tint_color";
+		
 
 	/**
          * 0 - Enable Warning Color on 90%+ brightness
