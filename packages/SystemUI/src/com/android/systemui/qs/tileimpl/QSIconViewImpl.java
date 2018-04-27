@@ -183,7 +183,7 @@ public class QSIconViewImpl extends QSIconView {
     }
 
     public static void setTint(ImageView iv, int color) {
-        iv.setImageTintList(ColorStateList.valueOf(color));
+        iv.setColorFilter(color,android.graphics.PorterDuff.Mode.SRC_IN);
     }
 
 
