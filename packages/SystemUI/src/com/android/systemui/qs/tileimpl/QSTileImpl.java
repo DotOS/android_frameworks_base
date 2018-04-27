@@ -378,7 +378,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
             case Tile.STATE_UNAVAILABLE:
 			    if (tintMode == 1) {
                     return Utils.getUnavailable(context,
-				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+				            getTintColor(context, mCurrentUserId));
                 } else {
                     return Utils.getDisabled(context,
                         Utils.getColorAttr(context, android.R.attr.colorForeground));
@@ -386,13 +386,13 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
             case Tile.STATE_INACTIVE:
 			    if (tintMode == 1) {
                     return Utils.getDisabled(context,
-				            Utils.getColorAttr(context, android.R.attr.colorAccent));
+					        getTintColor(context, mCurrentUserId));
                 } else {
                     return Utils.getColorAttr(context, android.R.attr.textColorHint);
                 }
             case Tile.STATE_ACTIVE:
                 if (tintMode == 1) {
-                    return Utils.getColorAttr(context, android.R.attr.colorAccent);
+                    return getTintColor(context, mCurrentUserId);
                 } else {
                     return Utils.getColorAttr(context, android.R.attr.textColorPrimary);
                 }
@@ -401,6 +401,10 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
                 return 0;
         }
     }
+	
+	private int getTintColor(Context context, int mCurrentUser) {
+		return Color.parseColor(Settings.Secure.getStringForUser(context.getContentResolver(), Settings.Secure.TINT_COLOR, mCurrentUser));
+	}
 
     protected final class H extends Handler {
         private static final int ADD_CALLBACK = 1;
