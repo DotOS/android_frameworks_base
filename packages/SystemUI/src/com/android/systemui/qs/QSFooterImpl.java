@@ -156,6 +156,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         int defSpace = mContext.getResources().getDimensionPixelOffset(R.dimen.default_gear_space);
 
         mAnimator = new Builder()
+                .addFloat(mSettingsContainer, "translationX", -(remaining - defSpace), 0)
                 .addFloat(mSettingsButton, "rotation", -120, 0)
                 .build();
         if (mAlarmShowing) {

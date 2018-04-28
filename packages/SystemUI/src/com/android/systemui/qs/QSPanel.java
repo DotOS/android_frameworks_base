@@ -97,6 +97,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mBrightnessView = LayoutInflater.from(context).inflate(
                 R.layout.quick_settings_brightness_dialog, this, false);
+        addView(mBrightnessView);
 
         setupTileLayout();
 
@@ -107,8 +108,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             ((PagedTileLayout) mTileLayout).setPageIndicator((PageIndicator) mPageIndicator);
         }
 
-		addView(mBrightnessView);
-		
         addDivider();
 
         mFooter = new QSSecurityFooter(this, context);
