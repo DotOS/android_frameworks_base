@@ -1121,8 +1121,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         mSubscriptionManager = SubscriptionManager.from(context);
         mDeviceProvisioned = isDeviceProvisionedInSettingsDb();
         mStrongAuthTracker = new StrongAuthTracker(context);
-        mFingerprintWakeAndUnlock = mContext.getResources().getBoolean(
-                com.android.keyguard.R.bool.config_fingerprintWakeAndUnlock);
+	mFingerprintWakeAndUnlock = mContext.getResources().getBoolean(
+		com.android.keyguard.R.bool.config_fingerprintWakeAndUnlock);
 
         // Since device can't be un-provisioned, we only need to register a content observer
         // to update mDeviceProvisioned when we are...
@@ -1224,7 +1224,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
     private boolean shouldListenForFingerprint() {
         if (!mFingerprintWakeAndUnlock) {
-            return (mKeyguardIsVisible || mBouncer || shouldListenForFingerprintAssistant() ||
+	    return (mKeyguardIsVisible || mBouncer || shouldListenForFingerprintAssistant() ||
                     (mKeyguardOccluded && mIsDreaming)) && mDeviceInteractive && !mGoingToSleep
                     && !mSwitchingUser && !isFingerprintDisabled(getCurrentUser())
                     && !mKeyguardGoingAway;
@@ -1236,6 +1236,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                     && !mKeyguardGoingAway;
         }
     }
+
 
     private void startListeningForFingerprint() {
         if (mFingerprintRunningState == FINGERPRINT_STATE_CANCELLING) {
