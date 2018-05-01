@@ -85,7 +85,7 @@
   <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
-  <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+  <string name="quick_settings_usb_tether_label">USB paylaşımı</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
   <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%d</xliff:g> dakika erteleniyor.</string>
