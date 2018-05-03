@@ -387,14 +387,14 @@
             android:process=":screenshot"
             android:exported="false" />
 
-        <!-- Callback for dismissing screenshot notification after a share target is picked -->
-        <receiver android:name=".screenshot.GlobalScreenshot$TargetChosenReceiver"
-            android:process=":screenshot"
+        <!-- Callback for dismissing screenrecord notification after a share target is picked -->
+        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$TargetChosenReceiver"
+            android:process=":screenrecord"
             android:exported="false" />
 
-        <!-- Callback for deleting screenshot notification -->
-        <receiver android:name=".screenshot.GlobalScreenshot$DeleteScreenshotReceiver"
-            android:process=":screenshot"
+        <!-- Callback for deleting screenrecord notification -->
+        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$DeleteScreenrecordReceiver"
+            android:process=":screenrecord"
             android:exported="false" />
 
         <!-- started from UsbDeviceSettingsManager -->
