@@ -209,6 +209,9 @@
          ActivityManager based on screen size. -->
     <integer name="config_extraFreeKbytesAdjust">0</integer>
 
+    <!-- Set/override Default ssid name -->
+    <string name="wifi_tether_configure_ssid_default" translatable="false">Droid On Time</string>
+
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
          app standby.  These are not enabled by default because they require a standard
          cloud-to-device messaging service for apps to interact correctly with the modes
