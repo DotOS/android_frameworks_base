@@ -2987,6 +2987,12 @@ public final class Settings {
         @Deprecated
         public static final String LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED =
             "lock_pattern_tactile_feedback_enabled";
+       /**
+        * Whether to use the custom quick unlock screen control
+        @hide
+        */
+         public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL =
+              "lockscreen_quick_unlock_control";
 
         /**
          * A formatted string of the next alarm that is set, or the empty string
