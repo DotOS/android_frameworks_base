@@ -34,69 +34,78 @@
   <string name="lockscreen_default">الافتراضي</string>
   <string name="lockscreen_hidden">لا شيء</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+  <string name="quick_settings_screenshot_label">لقطة الشاشة</string>
+  <string name="quick_settings_region_screenshot_label">لقطة الشاشة الجزئية</string>
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">App does not support PiP</string>
-  <string name="omnijaws_service_error">Error</string>
-  <string name="omnijaws_service_unkown">No weather data</string>
-  <string name="omnijaws_service_error_long">Error loading weather data</string>
-  <string name="omnijaws_service_disabled">Service is disabled</string>
-  <string name="omnijaws_detail_header">Weather</string>
-  <string name="omnijaws_label_default">Weather</string>
-  <string name="omnijaws_current_text">Now</string>
-  <string name="omnijaws_package_not_available">OmniJaws not available</string>
-  <string name="omnijaws_service_last_update">Last update:</string>
+  <string name="quick_settings_pip_tile_app_na">التطبيق لا يدعم PiP</string>
+  <string name="omnijaws_service_error">خطأ</string>
+  <string name="omnijaws_service_unkown">لا يوجد بيانات الطقس</string>
+  <string name="omnijaws_service_error_long">خطأ في تحميل بيانات الطقس</string>
+  <string name="omnijaws_service_disabled">الخدمة معطّلة</string>
+  <string name="omnijaws_detail_header">الطقس</string>
+  <string name="omnijaws_label_default">الطقس</string>
+  <string name="omnijaws_current_text">الآن</string>
+  <string name="omnijaws_package_not_available">OmniJaws غير متاح</string>
+  <string name="omnijaws_service_last_update">آخر تحديث:</string>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">Free RAM: %1$d MB</string>
+  <string name="recents_free_ram">الذاكرة الخالية: %1$d ميجابايت</string>
   <!-- volte icon switch -->
   <string name="status_bar_volte">VOLTE</string>
   <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Sound</string>
-  <string name="quick_settings_sound_ring">Ring</string>
-  <string name="quick_settings_sound_vibrate">Vibrate</string>
-  <string name="quick_settings_sound_dnd">Do not disturb</string>
+  <string name="quick_settings_sound_label">الصوت</string>
+  <string name="quick_settings_sound_ring">رنين</string>
+  <string name="quick_settings_sound_vibrate">إهتزاز</string>
+  <string name="quick_settings_sound_dnd">عدم الإزعاج</string>
   <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
-  <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
-  <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
+  <string name="quick_settings_adb_network">شبكة ADB</string>
+  <string name="quick_settings_network_adb_enabled_label">Adb عبر الشبكة</string>
+  <string name="quick_settings_network_adb_disabled_label">Adb عبر الشبكة</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Screenrecord</string>
+  <string name="quick_settings_screenrecord">تسجيل الشاشة</string>
   <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
+  <string name="screenrecord_notif_ticker">يتم تسجيل الشاشة</string>
   <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Recording screen</string>
+  <string name="screenrecord_notif_title">جارٍ تسجيل الشاشة</string>
   <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_stop">إيقاف</string>
   <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
+  <string name="screenrecord_notif_pointer_on">إظهار المؤشر</string>
+  <string name="screenrecord_notif_pointer_off">إخفاء المؤشر</string>
   <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Unable to record screen</string>
-  <string name="notification_channel_screenrecord">Screenrecords</string>
+  <string name="screenrecord_notif_error">غير قادر على تسجيل الشاشة</string>
+  <string name="notification_channel_screenrecord">تسجيل الشاشة</string>
   <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="accessibility_quick_settings_usb_tether_off">‏تقييد USB متوقف</string>
+  <string name="accessibility_quick_settings_usb_tether_on">‏تقييد USB يعمل</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">تم إيقاف تقييد USB</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">تم تشغيل تقييد USB</string>
+  <string name="quick_settings_usb_tether_label">‏تقييد USB</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • التنبيهات الخاطفة غافية لدقيقة واحدة.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> • التنبيهات الخاطفة غافية ل <xliff:g id="number">%d</xliff:g> دقائق.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">override power key</string>
+  <string name="permlab_preventpower">تجاوز زر التشغيل</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Allows an app to override the power key.</string>
+  <string name="permdesc_preventpower">السماح لتطبيق ما بأن يقوم بتجاوز زر التشغيل.</string>
   <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+  <string name="quick_settings_heads_up_label">الإشعارات العلوية</string>
+  <string name="accessibility_quick_settings_heads_up_off">الإشعارات العلوية متوقفة.</string>
+  <string name="accessibility_quick_settings_heads_up_on">الإشعارات العلوية تعمل.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف الإشعارات العلوية.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الاشعارات العلوية.</string>
+  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+  <string name="nav_bar_layout_inverse">Invert button layout</string>
+  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
 </resources>
