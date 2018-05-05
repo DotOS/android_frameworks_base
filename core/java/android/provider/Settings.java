@@ -2987,6 +2987,12 @@ public final class Settings {
         @Deprecated
         public static final String LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED =
             "lock_pattern_tactile_feedback_enabled";
+       /**
+        * Whether to use the custom quick unlock screen control
+        @hide
+        */
+         public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL =
+              "lockscreen_quick_unlock_control";
 
         /**
          * A formatted string of the next alarm that is set, or the empty string
@@ -4554,6 +4560,12 @@ public final class Settings {
          * @hide
          */
         public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
+
+        /**
+         * Whether to use icon pack for Recents
+         * @hide
+         */
+        public static final String RECENTS_ICON_PACK = "recents_icon_pack";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
