@@ -94,18 +94,18 @@
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_preventpower">Zezwól aplikacji zastąpić przycisk zasilania.</string>
   <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+  <string name="quick_settings_heads_up_label">Heads Up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads Up wyłączone.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads Up włączone.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up zostały wyłączone.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up zostały włączone.</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Invert button layout</string>
+  <string name="nav_bar_layout_inverse">Odwróć układ przycisków</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do końca)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">TurboPower podłączony (<xliff:g id="charging_time_left">%s</xliff:g> do pełnego naładowania)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower podłączone</string>
+  <string name="keyguard_plugged_in_turbo_charging">Ładowanie Turbo</string>
 </resources>
