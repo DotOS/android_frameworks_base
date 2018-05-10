@@ -41,7 +41,7 @@
   <string name="quick_settings_pip_tile_app_na">L\'application ne prend pas en charge le PiP</string>
   <string name="omnijaws_service_error">Erreur</string>
   <string name="omnijaws_service_unkown">Pas de données météo</string>
-  <string name="omnijaws_service_error_long">Error loading weather data</string>
+  <string name="omnijaws_service_error_long">Erreur lors du chargement des données météo</string>
   <string name="omnijaws_service_disabled">Service désactivé</string>
   <string name="omnijaws_detail_header">Météo</string>
   <string name="omnijaws_label_default">Météo</string>
@@ -69,7 +69,7 @@
   <!-- Screenrecord Tile -->
   <string name="quick_settings_screenrecord">Enregistrement de l\'écran</string>
   <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
+  <string name="screenrecord_notif_ticker">L\'écran est en cours d\'enregistrement</string>
   <!-- Screenrecord notification title -->
   <string name="screenrecord_notif_title">Enregistrement de l\'écran</string>
   <!-- Screenrecord notification action: Stop -->
@@ -87,25 +87,25 @@
   <string name="accessibility_quick_settings_usb_tether_changed_on">Le partage de connexion via USB a été activé</string>
   <string name="quick_settings_usb_tether_label">Partage de connexion par USB</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notification furtive sont en attente pendant 1 minute.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> -Notification furtive sont en attente pendant <xliff:g id="number">%d</xliff:g> minutes.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">override power key</string>
+  <string name="permlab_preventpower">remplacer le bouton d\'alimentation</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Allows an app to override the power key.</string>
+  <string name="permdesc_preventpower">Autoriser une application à remplacer le bouton d\'alimentation.</string>
   <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+  <string name="quick_settings_heads_up_label">Notifications flottantes</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes ont été désactivées.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes ont été activés.</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Invert button layout</string>
+  <string name="nav_bar_layout_inverse">Inverser la disposition des boutons</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">Recharge Rapide (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> restant jusqu\'à charge complète)</string>
+  <string name="keyguard_plugged_in_dash_charging">Charge rapide</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">TurboPower connecté (<xliff:g id="charging_time_left">%s</xliff:g> avant charge complète)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
+  <string name="keyguard_plugged_in_turbo_charging">Recharge Turbo</string>
 </resources>
