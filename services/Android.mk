@@ -8,7 +8,6 @@ LOCAL_MODULE := services
 LOCAL_DEX_PREOPT_APP_IMAGE := true
 LOCAL_DEX_PREOPT_GENERATE_PROFILE := true
 LOCAL_DEX_PREOPT_PROFILE_CLASS_LISTING := $(LOCAL_PATH)/art-profile
-LOCAL_REQUIRED_MODULES := projekt.substratum.theme.xml
 
 LOCAL_SRC_FILES := $(call all-java-files-under,java)
 
