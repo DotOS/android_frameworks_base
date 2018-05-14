@@ -108,4 +108,18 @@
   <string name="keyguard_indication_turbo_power_time">Turbo şarj bağlandı (tam dolmasına <xliff:g id="charging_time_left">%s</xliff:g> kaldı)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Turbo şarj bağlandı</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbo Şarj oluyor</string>
+  <!-- Sound Search tile -->
+  <string name="quick_settings_sound_search">Sound search</string>
+  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <!-- DOT logo -->
+  <string name="dot_logo_title">DOT logo</string>
+  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <!-- Sync QS Tile -->
+  <string name="quick_settings_sync_label">Sync</string>
+  <string name="accessibility_quick_settings_sync_off">Sync off</string>
+  <string name="accessibility_quick_settings_sync_on">Sync on</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
 </resources>
