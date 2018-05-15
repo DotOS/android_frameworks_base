@@ -18,60 +18,202 @@
     android:id="@+id/volume_dialog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/volume_dialog_margin_bottom"
-    android:background="@drawable/volume_dialog_background"
-    android:paddingTop="@dimen/volume_dialog_padding_top"
-    android:theme="@style/qs_theme"
-    android:translationZ="4dp" >
+    android:background="@drawable/volume_dialog_background">
 
-    <LinearLayout
-        android:id="@+id/volume_dialog_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:id="@+id/volume_dialog_rows"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="@dimen/volume_button_size"
-            android:orientation="vertical" >
-            <!-- volume rows added and removed here! :-) -->
-        </LinearLayout>
-
-        <include layout="@layout/volume_zen_footer" />
-
-        <!-- Only shown from Tuner setting -->
-        <include layout="@layout/tuner_zen_mode_panel" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/volume_dialog_content"
+	
+	 <LinearLayout
+        android:id="@+id/volume_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="@dimen/volume_expander_margin_end" >
-        <TextView
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="10dp">
+
+            <ImageButton
+                android:id="@+id/sound_state"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="20dp"
+                android:scaleType="fitCenter"
+                android:tint="?android:attr/colorAccent"
+                app:srcCompat="@drawable/ic_vibrate" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.Volume.Header" />
-        <com.android.keyguard.AlphaOptimizedImageButton
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/volume_expand_button"
-            style="@style/VolumeButtons"
-            android:layout_width="@dimen/volume_button_size"
-            android:layout_height="@dimen/volume_button_size"
-            android:clickable="true"
-            android:soundEffectsEnabled="false"
-            android:src="@drawable/ic_volume_collapse_animation"
-            android:background="@drawable/ripple_drawable"
-            tools:ignore="RtlHardcoded"
-            />
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/alarm_panel"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.dot.settings.VerticalSeekBar
+                            android:id="@+id/sound_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:progressBackgroundTint="?android:attr/colorAccent"
+                            android:thumbTint="?android:attr/colorAccent" />
+
+                        <View
+                            android:id="@+id/divider"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="4dp"
+                            android:background="?android:attr/listDivider" />
+
+                        <ImageButton
+                            android:id="@+id/sound_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginTop="6dp"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:tint="?android:attr/colorAccent"
+                            app:srcCompat="@drawable/ic_alarm" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/notification_panel"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/alarm_panel"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.dot.settings.VerticalSeekBar
+                            android:id="@+id/sound_slider2"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:progressBackgroundTint="?android:attr/colorAccent"
+                            android:thumbTint="?android:attr/colorAccent" />
+
+                        <View
+                            android:id="@+id/divider2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="4dp"
+                            android:background="?android:attr/listDivider" />
+
+                        <ImageButton
+                            android:id="@+id/sound_type2"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginTop="6dp"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:tint="?android:attr/colorAccent"
+                            app:srcCompat="@drawable/ic_ring" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/media_panel"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/notification_panel"
+                        android:orientation="vertical">
+
+                        <com.dot.settings.VerticalSeekBar
+                            android:id="@+id/sound_slider3"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:progressBackgroundTint="?android:attr/colorAccent"
+                            android:thumbTint="?android:attr/colorAccent" />
+
+                        <View
+                            android:id="@+id/divider3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="4dp"
+                            android:background="?android:attr/listDivider" />
+
+                        <ImageButton
+                            android:id="@+id/sound_type3"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginTop="6dp"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:tint="?android:attr/colorAccent"
+                            app:srcCompat="@drawable/ic_music_note" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="10dp">
+
+            <ImageButton
+                android:id="@+id/expand_panel"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="15dp"
+                android:scaleType="fitCenter"
+                android:tint="?android:attr/colorAccent"
+                app:srcCompat="@drawable/ic_keyboard_arrow_left" />
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
+	
 </RelativeLayout>
