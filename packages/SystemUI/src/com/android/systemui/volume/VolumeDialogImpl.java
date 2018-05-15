@@ -69,7 +69,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
+import com.android.systemui.volume.VerticalSeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
@@ -233,10 +233,10 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             }
         });
 
-        mDialogContentView = mDialog.findViewById(R.id.volume_dialog_content);
+        mDialogContentView = mDialog.findViewById(R.id.volume_panel);
         mDialogRowsView = mDialogContentView.findViewById(R.id.volume_dialog_rows);
         mExpanded = false;
-        mExpandButton = (ImageButton) mDialogView.findViewById(R.id.volume_expand_button);
+        mExpandButton = (ImageButton) mDialogView.findViewById(R.id.expand_panel);
         mExpandButton.setOnClickListener(mClickExpand);
 
         mExpandButton.setVisibility(
@@ -415,9 +415,7 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
         row.view = mDialog.getLayoutInflater().inflate(R.layout.volume_dialog_row, null);
         row.view.setId(row.stream);
         row.view.setTag(row);
-        row.header = (TextView) row.view.findViewById(R.id.volume_row_header);
-        row.header.setId(20 * row.stream);
-        row.slider = (SeekBar) row.view.findViewById(R.id.volume_row_slider);
+        row.slider = (VerticalSeekBar) row.view.findViewById(R.id.volume_row_slider);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
         row.anim = null;
 
@@ -674,7 +672,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             final boolean isActive = row == activeRow;
             final boolean shouldBeVisible = shouldBeVisibleH(row, activeRow);
             Util.setVisOrGone(row.view, shouldBeVisible);
-            Util.setVisOrGone(row.header, shouldBeVisible);
             if (row.view.isShown()) {
                 updateVolumeRowSliderTintH(row, isActive);
             }
@@ -794,10 +791,7 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             row.slider.setMax(max);
         }
 
-        // update header text
-        Util.setText(row.header, getStreamLabelH(ss));
-        row.slider.setContentDescription(row.header.getText());
-        mConfigurableTexts.add(row.header, ss.name);
+        row.slider.setContentDescription(getStreamLabelH(ss));
 
         // update icon
         final boolean iconEnabled = (mAutomute || ss.muteSupported) && !zenMuted;
@@ -1233,7 +1227,7 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
         }
 
         @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        public void onProgressChanged(VerticalSeekBar seekBar, int progress, boolean fromUser) {
             if (mRow.ss == null) return;
             if (D.BUG) Log.d(TAG, AudioSystem.streamToString(mRow.stream)
                     + " onProgressChanged " + progress + " fromUser=" + fromUser);
@@ -1258,14 +1252,14 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
         }
 
         @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
+        public void onStartTrackingTouch(VerticalSeekBar seekBar) {
             if (D.BUG) Log.d(TAG, "onStartTrackingTouch"+ " " + mRow.stream);
             mController.setActiveStream(mRow.stream);
             mRow.tracking = true;
         }
 
         @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
+        public void onStopTrackingTouch(VerticalSeekBar seekBar) {
             if (D.BUG) Log.d(TAG, "onStopTrackingTouch"+ " " + mRow.stream);
             mRow.tracking = false;
             mRow.userAttempt = SystemClock.uptimeMillis();
@@ -1334,7 +1328,7 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
         private View view;
         private TextView header;
         private ImageButton icon;
-        private SeekBar slider;
+        private VerticalSeekBar slider;
         private int stream;
         private StreamState ss;
         private long userAttempt;  // last user-driven slider change
