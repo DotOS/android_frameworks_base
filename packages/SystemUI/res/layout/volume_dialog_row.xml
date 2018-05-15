@@ -15,42 +15,45 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/volume_row_height"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/volume_row_padding_bottom" >
-
-    <TextView
-        android:id="@+id/volume_row_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textAppearance="@style/TextAppearance.Volume.Header"
-        android:paddingStart="@dimen/volume_row_header_padding_start" />
+    android:orientation="vertical" >
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/volume_row_slider_height"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/volume_row_padding_start" >
-        <com.android.keyguard.AlphaOptimizedImageButton
-                android:id="@+id/volume_row_icon"
-                style="@style/VolumeButtons"
-                android:layout_width="@dimen/volume_button_size"
-                android:layout_height="@dimen/volume_button_size"
-                android:soundEffectsEnabled="false" />
+        android:layout_width="72dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <SeekBar
-                android:id="@+id/volume_row_slider"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignWithParentIfMissing="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:paddingStart="@dimen/volume_row_slider_padding_start"/>
+        <com.dot.settings.VerticalSeekBar
+            android:id="@+id/volume_row_slider"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:progressBackgroundTint="?android:attr/colorAccent"
+            android:thumbTint="?android:attr/colorAccent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:background="?android:attr/listDivider" />
+
+        <ImageButton
+            android:id="@+id/volume_row_icon"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:tint="?android:attr/colorAccent"
+            app:srcCompat="@drawable/ic_alarm" />
     </LinearLayout>
 
 </LinearLayout>
