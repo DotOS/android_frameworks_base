@@ -122,7 +122,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
     private final AudioManager mAudioManager;
     private final AccessibilityManager mAccessibilityMgr;
     private int mExpandButtonAnimationDuration;
-    private ZenFooter mZenFooter;
     private final Object mSafetyWarningLock = new Object();
     private final Accessibility mAccessibility = new Accessibility();
     private final ColorStateList mActiveSliderTint;
@@ -150,7 +149,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
     private int mDensity;
 
     private boolean mShowFullZen;
-    private TunerZenModePanel mZenPanel;
 
     public VolumeDialogImpl(Context context) {
         mContext = new ContextThemeWrapper(context, com.android.systemui.R.style.qs_theme);
@@ -184,9 +182,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
     public void destroy() {
         mAccessibility.destroy();
         mController.removeCallback(mControllerCallbackH);
-        if (mZenFooter != null) {
-            mZenFooter.cleanup();
-        }
         Dependency.get(TunerService.class).removeTunable(this);
         mHandler.removeCallbacksAndMessages(null);
     }
@@ -233,10 +228,10 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             }
         });
 
-        mDialogContentView = mDialog.findViewById(R.id.volume_dialog_content);
+        mDialogContentView = mDialog.findViewById(R.id.volume_panel);
         mDialogRowsView = mDialogContentView.findViewById(R.id.volume_dialog_rows);
         mExpanded = false;
-        mExpandButton = (ImageButton) mDialogView.findViewById(R.id.volume_expand_button);
+        mExpandButton = (ImageButton) mDialogView.findViewById(R.id.expand_panel);
         mExpandButton.setOnClickListener(mClickExpand);
 
         mExpandButton.setVisibility(
@@ -283,11 +278,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             addExistingRows();
         }
         mExpandButtonAnimationDuration = res.getInteger(R.integer.volume_expand_animation_duration);
-        mZenFooter = (ZenFooter) mDialog.findViewById(R.id.volume_zen_footer);
-        mZenFooter.init(mZenModeController);
-        mZenPanel = (TunerZenModePanel) mDialog.findViewById(R.id.tuner_zen_mode_panel);
-        mZenPanel.init(mZenModeController);
-        mZenPanel.setCallback(mZenPanelCallback);
     }
 
     @Override
@@ -415,9 +405,7 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
         row.view = mDialog.getLayoutInflater().inflate(R.layout.volume_dialog_row, null);
         row.view.setId(row.stream);
         row.view.setTag(row);
-        row.header = (TextView) row.view.findViewById(R.id.volume_row_header);
-        row.header.setId(20 * row.stream);
-        row.slider = (SeekBar) row.view.findViewById(R.id.volume_row_slider);
+        row.slider = (VerticalSeekBar) row.view.findViewById(R.id.volume_row_slider);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
         row.anim = null;
 
@@ -524,9 +512,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
         if (mSafetyWarning != null) return 5000;
         if (mExpanded || mExpandButtonAnimationRunning) return 5000;
         if (mActiveStream == AudioManager.STREAM_MUSIC) return 1500;
-        if (mZenFooter.shouldShowIntroduction()) {
-            return 6000;
-        }
         return 3000;
     }
 
@@ -674,7 +659,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             final boolean isActive = row == activeRow;
             final boolean shouldBeVisible = shouldBeVisibleH(row, activeRow);
             Util.setVisOrGone(row.view, shouldBeVisible);
-            Util.setVisOrGone(row.header, shouldBeVisible);
             if (row.view.isShown()) {
                 updateVolumeRowSliderTintH(row, isActive);
             }
@@ -728,33 +712,15 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
 
     private void updateFooterH() {
         if (D.BUG) Log.d(TAG, "updateFooterH");
-        final boolean wasVisible = mZenFooter.getVisibility() == View.VISIBLE;
         final boolean visible = mState.zenMode != Global.ZEN_MODE_OFF
-                && (mAudioManager.isStreamAffectedByRingerMode(mActiveStream) || mExpanded)
-                && !mZenPanel.isEditing();
+                && (mAudioManager.isStreamAffectedByRingerMode(mActiveStream) || mExpanded);
 
         TransitionManager.endTransitions(mDialogView);
         TransitionManager.beginDelayedTransition(mDialogView, getTransition());
-        if (wasVisible != visible && !visible) {
+        if (!visible) {
             prepareForCollapse();
         }
-        Util.setVisOrGone(mZenFooter, visible);
-        mZenFooter.update();
-
-        final boolean fullWasVisible = mZenPanel.getVisibility() == View.VISIBLE;
-        final boolean fullVisible = mShowFullZen && !visible;
-        if (fullWasVisible != fullVisible) {
-            Util.setVisOrGone(mZenPanel, fullVisible);
-            if (fullVisible) {
-                mZenPanel.setZenState(mState.zenMode);
-                mZenPanel.setDoneListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mHandler.sendEmptyMessage(H.UPDATE_FOOTER);
-                    }
-                });
-            }
-        }
+		
     }
 
     private void updateVolumeRowH(VolumeRow row) {
@@ -794,10 +760,7 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             row.slider.setMax(max);
         }
 
-        // update header text
-        Util.setText(row.header, getStreamLabelH(ss));
-        row.slider.setContentDescription(row.header.getText());
-        mConfigurableTexts.add(row.header, ss.name);
+        row.slider.setContentDescription(getStreamLabelH(ss));
 
         // update icon
         final boolean iconEnabled = (mAutomute || ss.muteSupported) && !zenMuted;
@@ -1069,13 +1032,11 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
             final int density = newConfig.densityDpi;
             if (density != mDensity) {
                 mDialog.dismiss();
-                mZenFooter.cleanup();
                 initDialog();
                 mDensity = density;
             }
             updateWindowWidthH();
             mConfigurableTexts.update();
-            mZenFooter.onConfigurationChanged();
         }
 
         @Override
@@ -1108,23 +1069,6 @@ public class VolumeDialogImpl implements VolumeDialog, TunerService.Tunable {
                 updateRowsH(activeRow);
             }
 
-        }
-    };
-
-    private final ZenModePanel.Callback mZenPanelCallback = new ZenModePanel.Callback() {
-        @Override
-        public void onPrioritySettings() {
-            mCallback.onZenPrioritySettingsClicked();
-        }
-
-        @Override
-        public void onInteraction() {
-            mHandler.sendEmptyMessage(H.RESCHEDULE_TIMEOUT);
-        }
-
-        @Override
-        public void onExpanded(boolean expanded) {
-            // noop.
         }
     };
 
