@@ -8879,7 +8879,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     public boolean hasNavigationBar() {
         return mNavbarVisible;
     }
-  
+
     @Override
     public boolean hasPermanentMenuKey() {
         return !hasNavigationBar() && mHasPermanentMenuKey;
@@ -8889,7 +8889,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     public void sendCustomAction(Intent intent) {
         String action = intent.getAction();
         if (action != null) {
-            if (DOTUtils.INTENT_SCREENSHOT.equals(action)) {
+            if (ActionHandler.INTENT_SHOW_POWER_MENU.equals(action)) {
+                showGlobalActions();
+            } else if (ActionHandler.INTENT_SCREENSHOT.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER, TAG + "sendCustomAction permission denied");
+                mHandler.removeCallbacks(mScreenshotRunnable);
+                mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+                mHandler.post(mScreenshotRunnable);
+            } else if (ActionHandler.INTENT_REGION_SCREENSHOT.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER, TAG + "sendCustomAction permission denied");
+                mHandler.removeCallbacks(mScreenshotRunnable);
+                mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
+                mHandler.post(mScreenshotRunnable);
+            } else if (ActionHandler.INTENT_TOGGLE_SCREENRECORD.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER, TAG + "sendCustomAction permission denied");
+                mHandler.removeCallbacks(mScreenrecordRunnable);
+                mHandler.post(mScreenrecordRunnable);
+            } else if (DOTUtils.INTENT_SCREENSHOT.equals(action)) {
                 mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
                         TAG + "sendCustomAction permission denied");
                 mHandler.removeCallbacks(mScreenshotRunnable);
