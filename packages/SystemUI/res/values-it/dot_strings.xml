@@ -109,17 +109,17 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower collegato</string>
   <string name="keyguard_plugged_in_turbo_charging">Ricarica Turbo</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Ricerca suono</string>
+  <string name="quick_settings_sound_search_no_app">Spiacenti, ma questo non funziona se non hai un\'app di ricerca audio.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">Logo DOT</string>
+  <string name="dot_logo_summary">Fai sapere a tutti che stai usando DotOS quando guardano il tuo telefono (riavvia SystemUI)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Sincronizazione</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronizzazione spenta</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronizzazione accesa</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Ricarica completa</string>
 </resources>

@@ -109,17 +109,17 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je připojen</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbo nabíjení</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Zvukové vyhledávání</string>
+  <string name="quick_settings_sound_search_no_app">Je nám to líto, ale nefunguje to, pokud nemáte aplikaci Sound search.</string>
   <!-- DOT logo -->
   <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_summary">Ať všichni vědí, že používáte DotOS, když vidí váš telefon (projeví se po restartu SystemUI)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Synch.</string>
+  <string name="accessibility_quick_settings_sync_off">Synch. vyp</string>
+  <string name="accessibility_quick_settings_sync_on">Synch. zap</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronizace byla vypnuta</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronizace byla zapnuta</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Plně nabito</string>
 </resources>

@@ -109,17 +109,17 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower csatlakoztatva</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbótöltés</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Hangalapú keresés</string>
+  <string name="quick_settings_sound_search_no_app">Sajnáljuk, de ez nem működhet, ha nincs alkalmazás telepítve a hangalapú kereséshez.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">DOT logó</string>
+  <string name="dot_logo_summary">Tudassa mindenkivel, aki ránéz a telefonjára, hogy Ön dotOS-t használ (a rendszerfelület újraindítása szükséges)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Szinkronizálás</string>
+  <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki</string>
+  <string name="accessibility_quick_settings_sync_on">Szinkronizálás be</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Teljesen feltöltve</string>
 </resources>

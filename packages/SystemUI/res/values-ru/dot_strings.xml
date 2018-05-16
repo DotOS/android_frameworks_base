@@ -109,17 +109,17 @@
   <string name="keyguard_plugged_in_turbo_power_charging">Турбо зарядка подключена</string>
   <string name="keyguard_plugged_in_turbo_charging">Турбо зарядка</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Поиск музыки</string>
+  <string name="quick_settings_sound_search_no_app">Извините, но это не работает без приложения для поиска музыки.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">DOT логотип</string>
+  <string name="dot_logo_summary">Показывать, что вы используете DotOS (перезагрузите SystemUI, чтобы изменения вступили в силу)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Синхронизация</string>
+  <string name="accessibility_quick_settings_sync_off">Синхронизация выкл.</string>
+  <string name="accessibility_quick_settings_sync_on">Синхронизация вкл.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Синхронизация отключена</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Полностью заряжена</string>
 </resources>
