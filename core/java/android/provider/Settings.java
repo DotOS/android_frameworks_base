@@ -4052,8 +4052,19 @@ public final class Settings {
         public static final String POWERMENU_ADVANCED_REBOOT = "powermenu_advanced_reboot";
 
         /**
-         * Whether to display the screenshot option on the power menu
-         *
+         * Select which lockscreen date style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        /**
+         * Select which lockscreen clock style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+
+        /**
+	 * Whether to display the screenshot option on the power menu
          * @hide
          */
         public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
