@@ -77,26 +77,6 @@
     <bool name="config_useDarkBgNotificationTinting_override">false</bool>
     <bool name="config_notificationTinting_override">false</bool>
 
-
-    <!-- Whether Keypress Boost is enabled -->
-    <bool name="config_enableKeypressBoost">false</bool>
- 
-    <!-- Extended Boosts for QPerformance -->
- 
-    <!-- Duration of the boost in seconds -->
-    <integer name="onbootboost_duration">30</integer>
-   
-    <!-- Boost parameters which get passed to QPerformance -->
-    <integer-array name="qboost_strong_param_value"/>
-    <integer-array name="qboost_weak_param_value"/>
-
-    <!-- Boost parameters which get passed to QPerformance -->
-    <integer-array name="keypressboost_strong_param_value"/>
-    <integer-array name="keypressboost_weak_param_value"/>
-
-    <!-- Boost parameters which get passed to QPerformance -->
-    <integer-array name="onbootboost_param_value"/>
-
     <!-- If this is true, key chords can be used to take a screen record on the device. -->
     <bool name="config_enableScreenrecordChord">true</bool>
 
