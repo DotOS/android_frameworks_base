@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2017 The Dirty Unicorns Project
-
+<!-- Copyright (C) 2017 The dotOS Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24.000000dp"
-    android:height="24.000000dp"
-    android:viewportWidth="512.000000"
-    android:viewportHeight="512.000000"
-    android:tint="?android:attr/colorControlNormal">
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+	android:tint="?android:attr/colorAccent">
 
-    <group
-            android:translateY="512.000000"
-            android:scaleX="0.100000"
-            android:scaleY="-0.100000">
-        <path
-            android:fillColor="#000000"
-            android:strokeWidth="1"
-            android:pathData="M913 4214 c-24 -14 -54 -44 -68 -68 l-25 -43 0 -1648 0 -1648 25 -43 c15 -26 43
--54 69 -69 l43 -25 1648 0 1648 0 43 25 c26 15 54 43 69 69 l25 43 0 1648 0 1648
--25 43 c-15 26 -43 54 -69 69 l-43 25 -1649 0 -1649 0 -42 -26z m2672 -2359 c255
--330 462 -601 462 -601 -1 -1 -641 -7 -1422 -13 -781 -6 -1435 -14 -1452 -16 -18
--2 -33 0 -33 6 0 12 760 939 770 939 5 0 115 -126 245 -280 130 -154 240 -280 245
--280 5 0 165 191 356 425 191 234 351 424 356 423 5 -2 218 -273 473 -603z" />
-    </group>
+    <path
+        android:fillColor="#2985c6"
+        android:fillAlpha="0.86"
+        android:strokeAlpha="0.86"
+        android:strokeWidth="1"
+        android:pathData="M 15.7 14.1 L 13.7 17 L 9.7 11.7 L 5.7 17.1 L 5.7 18 L 13 18 L 14.5 18 L 18.3 18 L 18.3 17.8 Z" />
+    <path
+        android:fillColor="#2985c6"
+        android:pathData="M18.3,22.8v-3.2H3.8V6h-3V4.4h3V1.2h1.9v3.2h14.4V18h3v1.6h-3v3.2H18.3z M5.7,18h12.5V6H5.7V18z" />
+    <path
+        android:fillColor="#2985c6"
+        android:fillAlpha="0.7"
+        android:strokeAlpha="0.86"
+        android:strokeWidth="1"
+        android:pathData="M 13.8 8.5 C 14.4627416998 8.5 15 9.0372583002 15 9.7 C 15 10.3627416998 14.4627416998 10.9 13.8 10.9 C 13.1372583002 10.9 12.6 10.3627416998 12.6 9.7 C 12.6 9.0372583002 13.1372583002 8.5 13.8 8.5 Z" />
 </vector>
