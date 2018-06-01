@@ -57,15 +57,12 @@ public class QuickQSPanel extends QSPanel {
             }
             removeView((View) mTileLayout);
         }
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(8, 24, 8, 24);
         mTileLayout = new HeaderTileLayout(context);
         mTileLayout.setListening(mListening);
+		mTileLayout.setLayoutParams(params);
         addView((View) mTileLayout, 0 /* Between brightness and footer */);
-        super.setPadding(0, 0, 0, 0);
-    }
-
-    @Override
-    public void setPadding(int left, int top, int right, int bottom) {
-        // Always have no padding.
     }
 
     @Override
