@@ -26,4 +26,9 @@
     
     <!-- Brightness Seekbar Colors -->
     <color name="warning_max_brightness">#d84315</color>
+	
+	<color name="qs_tiles_inactive_color">#212121</color>
+	<color name="qs_tiles_unavailable_color">#4c4b4b</color>
+	
+	<color name="qs_tiles_circle_inactive">#dbdbdb</color>
 </resources>
