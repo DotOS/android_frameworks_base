@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="config_drawNotificationBackground">false</bool>
+    <bool name="config_showGroupNotificationBgWhenExpanded">true</bool>
+    <bool name="config_showNotificationShelf">true</bool>
+    <bool name="config_showNotificationExpandButtonAtEnd">true</bool>
+    <bool name="config_enableShadowOnChildNotifications">false</bool>
+</resources>
