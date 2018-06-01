@@ -104,6 +104,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private View mDateTimeGroup;
     private boolean mKeyguardShowing;
     private TouchAnimator mAlarmAnimator;
+	private TouchAnimator mDateTimeAnimator;
 
     public QSFooterImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -156,7 +157,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         int defSpace = mContext.getResources().getDimensionPixelOffset(R.dimen.default_gear_space);
 
         mAnimator = new Builder()
-                .addFloat(mSettingsContainer, "translationX", -(remaining - defSpace), 0)
+                //.addFloat(mSettingsContainer, "translationX", -(remaining - defSpace), 0)
+				.addFloat(mSettingsContainer, "alpha", 0, 1)
                 .addFloat(mSettingsButton, "rotation", -120, 0)
                 .build();
         if (mAlarmShowing) {
@@ -198,7 +200,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private void updateResources() {
         FontSizeUtils.updateFontSize(mAlarmStatus, R.dimen.qs_date_collapsed_size);
-
         updateSettingsAnimator();
     }
 
