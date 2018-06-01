@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2012, The Android Open Source Project
+** Copyright 2018, The dotOS Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -16,11 +16,9 @@
 ** limitations under the License.
 */
 -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true">
-	<color android:color="#212121" />
-    </item>
-    <item>
-        <color android:color="#161616" />
-    </item>
-</selector>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/qs_tiles_circle_inactive" />
+	<size android:width="48dp" android:height="48dp" />
+    <corners android:radius="24dp"/>
+</shape>
