@@ -14,12 +14,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="@color/notification_ripple_untinted_color">
-    <item>
+<ripple android:color="#ffffffff"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="3.0dip">
         <shape>
             <solid android:color="@color/notification_material_background_color" />
+            <corners android:radius="10.0dip" />
         </shape>
     </item>
 </ripple>
