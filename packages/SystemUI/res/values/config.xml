@@ -345,7 +345,7 @@
     <bool name="config_showNotificationGear">true</bool>
 
     <!-- Whether or not a background should be drawn behind a notification. -->
-    <bool name="config_drawNotificationBackground">true</bool>
+    <bool name="config_drawNotificationBackground">false</bool>
 
     <!-- Whether or the notifications can be shown and dismissed with a drag. -->
     <bool name="config_enableNotificationShadeDrag">true</bool>
@@ -372,7 +372,7 @@
     <bool name="config_fadeDependingOnAmountSwiped">false</bool>
 
     <!-- Whether or not to show the expand button at the end of the notification header. -->
-    <bool name="config_showNotificationExpandButtonAtEnd">false</bool>
+    <bool name="config_showNotificationExpandButtonAtEnd">true</bool>
 
     <!-- Whether or the notifications should be clipped to be reduced in height if it has been
          scrolled to the top of the screen. -->
@@ -403,11 +403,11 @@
     <bool name="config_hideDividersDuringExpand">false</bool>
 
     <!-- Whether or not child notifications that are part of a group will have shadows. -->
-    <bool name="config_enableShadowOnChildNotifications">true</bool>
+    <bool name="config_enableShadowOnChildNotifications">false</bool>
 
     <!-- Whether or not a view containing child notifications will have a custom background when
          it has been expanded to reveal its children. -->
-    <bool name="config_showGroupNotificationBgWhenExpanded">false</bool>
+    <bool name="config_showGroupNotificationBgWhenExpanded">true</bool>
 
     <!-- Whether to artificially interpret all signal strengths as
          one bar higher than they actually are -->

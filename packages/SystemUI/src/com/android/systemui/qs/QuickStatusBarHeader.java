@@ -25,8 +25,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextClock;
 
+import com.android.keyguard.CarrierText;
 import com.android.settingslib.Utils;
-import com.android.systemui.BatteryMeterView;
+import com.android.systemui.qs.BatteryMeterView;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.R.id;
@@ -52,6 +53,7 @@ public class QuickStatusBarHeader extends RelativeLayout {
     private BatteryMeterView mBatteryView;
     private Clock mClock;
     private Clock mLeftClock;
+	private CarrierText mCarrierText;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -70,13 +72,15 @@ public class QuickStatusBarHeader extends RelativeLayout {
         updateResources();
 
         // Set the light/dark theming on the header status UI to match the current theme.
-        int colorForeground = Utils.getColorAttr(getContext(), android.R.attr.colorForeground);
+        int colorForeground = Color.parseColor("#ffffff");
         float intensity = colorForeground == Color.WHITE ? 0 : 1;
         Rect tintArea = new Rect(0, 0, 0, 0);
 
         applyDarkness(R.id.battery, tintArea, intensity, colorForeground);
         applyDarkness(R.id.clock, tintArea, intensity, colorForeground);
 		applyDarkness(R.id.left_clock, tintArea, intensity, colorForeground);
+		
+		mCarrierText = findViewById(R.id.qs_carrier_text);
 		
         mBatteryView = findViewById(R.id.battery);
         mBatteryView.setIsQuickSbHeaderOrKeyguard(true);

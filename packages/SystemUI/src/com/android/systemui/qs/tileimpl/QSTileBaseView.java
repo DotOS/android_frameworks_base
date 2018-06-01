@@ -161,6 +161,17 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
                 mTileState = newState;
             }
         }
+		switch (state.state) {
+			case Tile.STATE_ACTIVE:
+			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_active));
+			    break;
+			case Tile.STATE_INACTIVE:
+			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
+			    break;
+			default:
+			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
+			    break;
+		}
     }
 
     @Override
