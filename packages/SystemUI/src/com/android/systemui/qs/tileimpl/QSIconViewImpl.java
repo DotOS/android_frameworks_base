@@ -101,12 +101,13 @@ public class QSIconViewImpl extends QSIconView {
                 d.setLayoutDirection(getLayoutDirection());
             }
 
-            if (iv instanceof SlashImageView) {
+            /*if (iv instanceof SlashImageView) {
                 ((SlashImageView) iv).setAnimationEnabled(shouldAnimate);
                 ((SlashImageView) iv).setState(state.slash, d);
             } else {
-                iv.setImageDrawable(d);
-            }
+                
+            }*/
+			iv.setImageDrawable(d);
 
             iv.setTag(R.id.qs_icon_tag, icon);
             iv.setTag(R.id.qs_slash_tag, state.slash);
@@ -140,12 +141,13 @@ public class QSIconViewImpl extends QSIconView {
                 animateGrayScale(mTint, color, iv);
                 mTint = color;
             } else {
-                if (iv instanceof AlphaControlledSlashImageView) {
+                /*if (iv instanceof AlphaControlledSlashImageView) {
                     ((AlphaControlledSlashImageView)iv)
                             .setFinalImageTintList(ColorStateList.valueOf(color));
                 } else {
-                    setTint(iv, color);
-                }
+                    
+                }*/
+				setTint(iv, color);
                 mTint = color;
             }
         }
@@ -156,10 +158,10 @@ public class QSIconViewImpl extends QSIconView {
     }
 
     public static void animateGrayScale(int fromColor, int toColor, ImageView iv) {
-        if (iv instanceof AlphaControlledSlashImageView) {
+        /*if (iv instanceof AlphaControlledSlashImageView) {
             ((AlphaControlledSlashImageView)iv)
                     .setFinalImageTintList(ColorStateList.valueOf(toColor));
-        }
+        }*/
         if (ValueAnimator.areAnimatorsEnabled()) {
             final float fromAlpha = Color.alpha(fromColor);
             final float toAlpha = Color.alpha(toColor);
@@ -192,7 +194,7 @@ public class QSIconViewImpl extends QSIconView {
     }
 
     protected View createIcon() {
-        final ImageView icon = new SlashImageView(mContext);
+        final ImageView icon = new ImageView(mContext);
         icon.setId(android.R.id.icon);
         icon.setScaleType(ScaleType.FIT_CENTER);
         return icon;
