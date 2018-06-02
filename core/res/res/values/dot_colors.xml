@@ -30,6 +30,11 @@
 	<color name="dot_teal">#0F856D</color>
 	<color name="dot_violet">#6872ea</color>
 	<color name="dot_pink">#ed4fc4</color>
+	<color name="dot_primary_color">#eeeeee</color>
+	<color name="dot_secondary_color">#fafafa</color>
+	<color name="dot_background_color">#FFFFFF</color>
+	<color name="dot_inverse_primary_color">#1c1c1c</color>
+	<color name="dot_inverse_secondary_color">#6C000000</color>
 	
     <!-- Notification sender text color -->
     <color name="sender_text_color">@android:color/black</color>
