@@ -37,5 +37,12 @@
         <attr name="deadpool_hand_hour" format="reference"/>
         <attr name="deadpool_hand_minute" format="reference"/>
     </declare-styleable>
+	
+	<!-- DotOS Analog clock -->
+    <declare-styleable name="DotAnalogClock">
+        <attr name="dot_dial" format="reference"/>
+        <attr name="dot_hand_hour" format="reference"/>
+        <attr name="dot_hand_minute" format="reference"/>
+    </declare-styleable>
 
 </resources>
