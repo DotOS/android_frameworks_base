@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 Copyright (C) 2017 dotOS Project
 
@@ -13,7 +14,6 @@ Copyright (C) 2017 dotOS Project
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="28.0dp"
     android:height="28.0dp"
