@@ -136,4 +136,7 @@
    <java-symbol type="drawable" name="deadpool_clock_hand_hour" />
    <java-symbol type="drawable" name="deadpool_clock_hand_minute" />
 
+    <!-- Whether the device requires overlays to be in /system/overlay -->
+    <java-symbol type="bool" name="config_hasSystemOverlayPath" />
+
 </resources>
