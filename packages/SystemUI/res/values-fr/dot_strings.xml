@@ -112,7 +112,7 @@
   <string name="quick_settings_sound_search">Sound search</string>
   <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
+  <string name="dot_logo_title">Logo DOT</string>
   <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
   <!-- Sync QS Tile -->
   <string name="quick_settings_sync_label">Sync</string>
@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">Stock</string>
+  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
+  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
+  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
 </resources>

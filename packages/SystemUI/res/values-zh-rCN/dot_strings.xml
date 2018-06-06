@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">同步已开启</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">已充满</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">导航栏</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">原生</string>
+  <string name="quick_settings_navigation_disabled">禁用</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">实体按键已启用</string>
+  <string name="accessibility_quick_settings_hwkeys_off">实体按键已禁用</string>
+  <string name="quick_settings_hwkeys_label">实体按键</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">拖动或点击以添加瓷贴</string>
 </resources>
