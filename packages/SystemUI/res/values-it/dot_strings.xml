@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Ricarica completa</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Barra di navigazione</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">Predefinito</string>
+  <string name="quick_settings_navigation_disabled">Disabilitato</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">Tasti fisici attivati</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Tasti fisici disattivati</string>
+  <string name="quick_settings_hwkeys_label">Tasti fisici</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Trascina o tocca per aggiungere i tile</string>
 </resources>

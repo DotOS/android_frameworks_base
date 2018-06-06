@@ -28,7 +28,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_fakePackageSignature">Engedélyt ad egy alkalmazásnak, hogy más alkalmazásnak adja ki magát. Lehetséges, hogy a rosszindulatú alkalmazások ezt kihasználhatják a privát alkalmazásadatok elérésére. Óvatosan adja meg ezt az engedélyt!</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB hálózaton keresztül engedélyezve</string>
+  <string name="adb_net_active_notification_title">Az ADB hálózaton keresztül engedélyezve</string>
   <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">ADB USB-n és hálózaton keresztül engedélyezve</string>
   <!-- ADB notification message-->

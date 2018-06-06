@@ -109,17 +109,29 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower podłączone</string>
   <string name="keyguard_plugged_in_turbo_charging">Ładowanie Turbo</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Wybieranie głosowe</string>
+  <string name="quick_settings_sound_search_no_app">Przepraszamy, ale to nie zadziała, jeśli nie masz aplikacji do wyszukiwania głosem.</string>
   <!-- DOT logo -->
   <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_summary">Niech każdy wie, że używasz DotOS, gdy zobaczą Twój telefon (uruchom ponownie SystemUI by zastosować zmiany)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Synchronizacja</string>
+  <string name="accessibility_quick_settings_sync_off">Synchronizacja wył.</string>
+  <string name="accessibility_quick_settings_sync_on">Synchronizacja wł.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronizacja została wyłączona</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronizaja została włączona</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Bateria w pełni naładowana</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Pasek nawigacji</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_fling">Gesty</string>
+  <string name="quick_settings_navigation_default">Standardowe</string>
+  <string name="quick_settings_navigation_disabled">Wyłączony</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">Przyciski fizyczne włączone</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Przyciski fizyczne wyłączone</string>
+  <string name="quick_settings_hwkeys_label">Przyciski fizyczne</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Przeciągnij lub dotknij żeby dodać kafelki</string>
 </resources>

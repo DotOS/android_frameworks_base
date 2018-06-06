@@ -30,7 +30,7 @@
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_navbar_title">Gyári beállítások</string>
-  <string name="statusbar_items_title">Állapotsor ikon</string>
+  <string name="statusbar_items_title">Állapotsorikon</string>
   <string name="lockscreen_default">Alapértelmezett</string>
   <string name="lockscreen_hidden">Nincs</string>
   <!-- Screenshot QS tile -->
@@ -40,7 +40,7 @@
   <string name="quick_settings_pip_label">Kép-a-képben</string>
   <string name="quick_settings_pip_tile_app_na">Az alkalmazás nem támogatja a kép-a-képben módot</string>
   <string name="omnijaws_service_error">Hiba</string>
-  <string name="omnijaws_service_unkown">Nincs időjárási adat</string>
+  <string name="omnijaws_service_unkown">Nincs időjárásadat</string>
   <string name="omnijaws_service_error_long">Hiba az időjárásadat betöltésekor</string>
   <string name="omnijaws_service_disabled">A szolgáltatás nincs engedélyezve</string>
   <string name="omnijaws_detail_header">Időjárás</string>
@@ -87,8 +87,8 @@
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB-megosztás bekapcsolva</string>
   <string name="quick_settings_usb_tether_label">USB-megosztás</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - lebegő értesítései 1 percig szundiznak.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - lebegő értesítései <xliff:g id="number">%d</xliff:g> percig szundiznak.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - lebegő értesítései 1 percig elhalasztásra kerülnek.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - lebegő értesítései <xliff:g id="number">%d</xliff:g> percig elhalasztásra kerülnek.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_preventpower">felülírhatja a kikapcsológombot</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Teljesen feltöltve</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Navigációs sáv</string>
+  <string name="quick_settings_smartbar">Okossáv</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">Gyári</string>
+  <string name="quick_settings_navigation_disabled">Letiltva</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">Hardvergombok be</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Hardvergombok ki</string>
+  <string name="quick_settings_hwkeys_label">Hardvergombok</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempehozzáadáshoz</string>
 </resources>

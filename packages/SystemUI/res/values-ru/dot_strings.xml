@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Полностью заряжена</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Наэкранные кнопки</string>
+  <string name="quick_settings_smartbar">Умная панель</string>
+  <string name="quick_settings_fling">Жесты</string>
+  <string name="quick_settings_navigation_default">по умолчанию</string>
+  <string name="quick_settings_navigation_disabled">Отключено</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выключены</string>
+  <string name="quick_settings_hwkeys_label">Аппаратные кнопки</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Перетащите или нажмите для добавления плиток</string>
 </resources>

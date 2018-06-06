@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Pil tam dolu</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Gezinme çubuğu</string>
+  <string name="quick_settings_smartbar">Akıllı çubuk</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">Varsayılan</string>
+  <string name="quick_settings_navigation_disabled">Devre dışı</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
+  <string name="quick_settings_hwkeys_label">Donanım tuşları</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Kare eklemek için sürükleyin veya dokunun</string>
 </resources>

@@ -122,4 +122,16 @@
   <string name="accessibility_quick_settings_sync_changed_on">Synchronizace byla zapnuta</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Plně nabito</string>
+  <!-- Navigation bar Tile -->
+  <string name="quick_settings_navigation_bar">Navigační panel</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">Stock</string>
+  <string name="quick_settings_navigation_disabled">Zakázáno</string>
+  <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">Hardvarová tlačítka zapnuta</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Hardvarová tlačítka vypnuta</string>
+  <string name="quick_settings_hwkeys_label">Hardvarová tlačítka</string>
+  <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Tažením nebo klepnutím přidat dlaždice</string>
 </resources>
