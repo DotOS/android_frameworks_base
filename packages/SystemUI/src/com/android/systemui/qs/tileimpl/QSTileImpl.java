@@ -373,18 +373,30 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
 
     public static int getColorForState(Context context, int state) {
 		int mCurrentUserId = ActivityManager.getCurrentUser();
-	    int tintMode = Settings.Secure.getIntForUser(context.getContentResolver(),
-                Settings.Secure.TINT_MODE, 0, mCurrentUserId);
+	    int circleMode = Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.CIRCLE_MODE, 0, mCurrentUserId);
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
-                return Utils.getUnavailable(context,
-                    context.getColor(R.color.qs_tiles_unavailable_color));
-					
+                if (circleMode == 1) {
+				    return Utils.getUnavailable(context,
+                        context.getColor(android.R.color.white));
+				} else {
+                    return Utils.getDisabled(context,
+                        Utils.getColorAttr(context, android.R.attr.colorForeground));
+                }	
             case Tile.STATE_INACTIVE:
-			    return context.getColor(R.color.qs_tiles_inactive_color);
-				
+			    if (circleMode == 1) {
+			        return Utils.getDisabled(context,
+                        context.getColor(android.R.color.white));
+				} else {
+                    return Utils.getColorAttr(context, android.R.attr.textColorHint);
+                }
             case Tile.STATE_ACTIVE:
-                return context.getColor(android.R.color.white);
+			    if (circleMode == 1) {
+                    return context.getColor(android.R.color.white);
+				} else {
+                    return Utils.getColorAttr(context, android.R.attr.textColorPrimary);
+                }
 				
             default:
                 Log.e("QSTile", "Invalid state " + state);
