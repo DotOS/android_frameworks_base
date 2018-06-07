@@ -13,6 +13,7 @@
  */
 package com.android.systemui.qs.tileimpl;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -20,6 +21,7 @@ import android.graphics.drawable.RippleDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -161,16 +163,21 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
                 mTileState = newState;
             }
         }
-		switch (state.state) {
-			case Tile.STATE_ACTIVE:
-			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_active));
-			    break;
-			case Tile.STATE_INACTIVE:
-			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
-			    break;
-			default:
-			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
-			    break;
+		int mCurrentUserId = ActivityManager.getCurrentUser();
+	    int circleMode = Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.CIRCLE_MODE, 1, mCurrentUserId);
+		if (circleMode == 1) {
+			switch (state.state) {
+				case Tile.STATE_ACTIVE:
+				    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_active));
+				    break;
+				case Tile.STATE_INACTIVE:
+			  	    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
+			  	    break;
+				default:
+			  	    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
+			  	    break;
+		    }
 		}
     }
 
