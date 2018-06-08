@@ -60,6 +60,7 @@ public class QuickQSPanel extends QSPanel {
         mTileLayout = new HeaderTileLayout(context);
         mTileLayout.setListening(mListening);
         addView((View) mTileLayout, 0 /* Between brightness and footer */);
+		setGravity(Gravity.CENTER_VERTICAL);
     }
 
     @Override
@@ -155,9 +156,7 @@ public class QuickQSPanel extends QSPanel {
             setClipChildren(false);
             setClipToPadding(false);
             setGravity(Gravity.CENTER_VERTICAL);
-			LayoutParams p = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-			p.setMargins(72, 72, 72, 72);
-            setLayoutParams(p);
+            setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         }
 
         @Override
