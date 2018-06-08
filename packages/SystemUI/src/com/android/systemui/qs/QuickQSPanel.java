@@ -156,7 +156,7 @@ public class QuickQSPanel extends QSPanel {
             setClipToPadding(false);
             setGravity(Gravity.CENTER_VERTICAL);
 			LayoutParams p = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-			p.setMargins(72, 72, 72, 72);
+			p.setMargins(24, 72, 24, 72);
             setLayoutParams(p);
         }
 
