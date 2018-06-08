@@ -128,7 +128,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 		addView(mQSFooter);
 
 		LinearLayout mSpacer = new LinearLayout(context);
-		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 8);
+		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 16);
 		mSpacer.setLayoutParams(lp);
 		addView(mSpacer);
 		

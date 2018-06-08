@@ -161,22 +161,10 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 				.addFloat(mSettingsContainer, "alpha", 0, 1)
                 .addFloat(mSettingsButton, "rotation", -120, 0)
                 .build();
-        if (mAlarmShowing) {
-            int translate = isLayoutRtl() ? mDate.getWidth() : -mDate.getWidth();            
-            mAlarmAnimator = new Builder().addFloat(mDate, "alpha", 1, 0)
-                    .addFloat(mDateTimeGroup, "translationX", 0, translate)
-                    .addFloat(mAlarmStatus, "alpha", 0, 1)
-                    .setListener(new ListenerAdapter() {
-                        @Override
-                        public void onAnimationAtStart() {
-                            mAlarmStatus.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        public void onAnimationStarted() {
-                            mAlarmStatus.setVisibility(View.VISIBLE);
-                        }
-                    }).build();
+        if (mAlarmShowing) {      
+            mAlarmAnimator = new Builder()
+			        .addFloat(mAlarmStatus, "alpha", 0, 1)
+                    .build();
         } else {
             mAlarmAnimator = null;
             mAlarmStatus.setVisibility(View.GONE);
