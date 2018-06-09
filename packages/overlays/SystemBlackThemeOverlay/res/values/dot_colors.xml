@@ -35,5 +35,11 @@
 	<color name="dot_background_color">#000000</color>
 	<color name="dot_inverse_primary_color">#ffffff</color>
 	<color name="dot_inverse_secondary_color">#f4f4f4</color>
+	<color name="dot_qs_active">#ffffff</color>
+	<color name="dot_qs_inactive">#bebebe</color>
+	<color name="dot_qs_unavailable">#706f6f</color>
+	<color name="dot_qs_circle_active">?android:attr/colorAccent</color>
+	<color name="dot_qs_circle_inactive">#212121</color>
+</resources>
 
 </resources>
