@@ -38,6 +38,11 @@
 	<color name="dot_background_color">#FFFFFF</color>
 	<color name="dot_inverse_primary_color">#1c1c1c</color>
 	<color name="dot_inverse_secondary_color">#6C000000</color>
+	<color name="dot_qs_active">#ffffff</color>
+	<color name="dot_qs_inactive">#595959</color>
+	<color name="dot_qs_unavailable">#706f6f</color>
+	<color name="dot_qs_circle_active">?android:attr/colorAccent</color>
+	<color name="dot_qs_circle_inactive">#dbdbdb</color>
 	
     <!-- Notification sender text color -->
     <color name="sender_text_color">@android:color/black</color>

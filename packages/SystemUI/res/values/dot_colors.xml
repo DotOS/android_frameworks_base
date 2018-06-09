@@ -28,8 +28,9 @@
     <color name="warning_max_brightness">#d84315</color>
 	
 	<!-- QSPanel Tiles Colors -->
-	<color name="qs_tiles_inactive_color">#595959</color>
-	<color name="qs_tiles_unavailable_color">#706f6f</color>
-	
-	<color name="qs_tiles_circle_inactive">#dbdbdb</color>
+	<color name="qs_tiles_active_color">@*android:color/dot_qs_active</color>
+	<color name="qs_tiles_inactive_color">@*android:color/dot_qs_inactive</color>
+	<color name="qs_tiles_unavailable_color">@*android:color/dot_qs_unavailable</color>        	
+	<color name="qs_tiles_circle_active">@*android:color/dot_qs_circle_active</color>	
+	<color name="qs_tiles_circle_inactive">@*android:color/dot_qs_circle_inactive</color>
 </resources>
