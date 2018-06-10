@@ -30,14 +30,14 @@
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_navbar_title">Cài đặt gốc</string>
-  <string name="statusbar_items_title">Thanh trạng thái biểu tượng</string>
+  <string name="statusbar_items_title">Biểu tượng thanh trạng thái</string>
   <string name="lockscreen_default">Mặc định</string>
   <string name="lockscreen_hidden">Không</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Chụp màn hình</string>
   <string name="quick_settings_region_screenshot_label">Ảnh chụp màn hình một phần</string>
   <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">PiP (Ảnh trong Ảnh)</string>
+  <string name="quick_settings_pip_label">PiP (Chế độ thu nhỏ cửa sổ)</string>
   <string name="quick_settings_pip_tile_app_na">Ứng dụng không hỗ trợ PiP</string>
   <string name="omnijaws_service_error">Lỗi</string>
   <string name="omnijaws_service_unkown">Không có dữ liệu thời tiết</string>
@@ -113,25 +113,25 @@
   <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
   <!-- DOT logo -->
   <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_summary">Khoe với mọi người rằng bạn đang sử dụng DoTOS khi họ nhìn vào điện thoại của bạn(restart SystemUI để có hiệu lực)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Đồng bộ</string>
+  <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ</string>
+  <string name="accessibility_quick_settings_sync_on">Bật đồng bộ</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Đồng bộ đã tắt</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Đồng bộ đã bật</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Đã sạc đầy</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_navigation_bar">Thanh điều hướng</string>
+  <string name="quick_settings_smartbar">Thanh thông minh</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_default">Gốc</string>
+  <string name="quick_settings_navigation_disabled">Tắt</string>
   <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <string name="accessibility_quick_settings_hwkeys_on">Bật phím cứng</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Tắt phím cứng</string>
+  <string name="quick_settings_hwkeys_label">Phím cứng</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Kéo hoặc chạm để thêm ô</string>
 </resources>

@@ -109,29 +109,29 @@
   <string name="keyguard_plugged_in_turbo_power_charging">متصل بشاحن سريع</string>
   <string name="keyguard_plugged_in_turbo_charging">الشحن السريع</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">البحث الصوتي</string>
+  <string name="quick_settings_sound_search_no_app">عذراً, لكن هذا لن يعمل إذا لم تكن تمتلك تطبيق بحث صوتي.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">شعار دوت</string>
+  <string name="dot_logo_summary">دع الجميع يعلمون بأنك تستخدم DotOS عندما يرون هاتفك( قم باعاد تشغيل واجهة النظام ليطبق التأثير)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">المزامنة</string>
+  <string name="accessibility_quick_settings_sync_off">المزامنة متوقفة</string>
+  <string name="accessibility_quick_settings_sync_on">المزامنة تعمل</string>
+  <string name="accessibility_quick_settings_sync_changed_off">تم إيقاف المزامنة</string>
+  <string name="accessibility_quick_settings_sync_changed_on">تم تفعيل المزامنة</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">البطارية ممتلئة</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_bar">شريط التنقل</string>
+  <string name="quick_settings_smartbar">الشريط الذكي</string>
+  <string name="quick_settings_fling">السحب</string>
+  <string name="quick_settings_navigation_default">رسمي</string>
+  <string name="quick_settings_navigation_disabled">معطل</string>
   <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <string name="accessibility_quick_settings_hwkeys_on">أزرار الجهاز تعمل</string>
+  <string name="accessibility_quick_settings_hwkeys_off">أزرار الجهاز</string>
+  <string name="quick_settings_hwkeys_label">أزرار الجهاز</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">اسحب أو أنقر لإضافة مربعات</string>
 </resources>
