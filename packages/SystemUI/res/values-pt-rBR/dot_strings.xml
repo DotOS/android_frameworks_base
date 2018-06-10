@@ -109,29 +109,29 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower conectado</string>
   <string name="keyguard_plugged_in_turbo_charging">Carregamento Rápido</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Pesquisa de som</string>
+  <string name="quick_settings_sound_search_no_app">Desculpe, mas isso não funciona se você não tiver um aplicativo de pesquisa de som.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">Logotipo DOT</string>
+  <string name="dot_logo_summary">Permita que todos saibam que você está usando DotOS quando eles verem o seu telefone (reinicie a Interface do Usuário para fazer efeito)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Sincronização</string>
+  <string name="accessibility_quick_settings_sync_off">Sinc. desl</string>
+  <string name="accessibility_quick_settings_sync_on">Sinc. lig</string>
+  <string name="accessibility_quick_settings_sync_changed_off">A sincronização foi desativada</string>
+  <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Totalmente carregado</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Barra de navegação</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_default">Padrão</string>
+  <string name="quick_settings_navigation_disabled">Desativado</string>
   <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas ativadas</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas desativadas</string>
+  <string name="quick_settings_hwkeys_label">Teclas físicas</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Arraste ou toque para adicionar atalhos</string>
 </resources>
