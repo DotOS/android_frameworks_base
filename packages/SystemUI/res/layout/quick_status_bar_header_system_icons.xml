@@ -38,17 +38,16 @@
         android:visibility="gone"
         systemui:showDark="false"/>
 
-    <com.android.keyguard.CarrierText
-        android:id="@+id/qs_carrier_text"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical|start"
-        android:ellipsize="marquee"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/white"
-        android:textDirection="locale"
-        android:singleLine="true" />
+	<com.android.systemui.statusbar.policy.DateView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:singleLine="true"
+        android:textSize="@dimen/qs_time_collapsed_size"
+        android:gravity="center_vertical"
+		android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Date"
+		android:textColor="@android:color/white"
+        systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
 
     <com.android.systemui.qs.BatteryMeterView android:id="@+id/battery"
         android:layout_height="match_parent"
