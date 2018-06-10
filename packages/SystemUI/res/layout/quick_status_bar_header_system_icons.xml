@@ -38,17 +38,11 @@
         android:visibility="gone"
         systemui:showDark="false"/>
 
-    <com.android.keyguard.CarrierText
-        android:id="@+id/qs_carrier_text"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical|start"
-        android:ellipsize="marquee"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/white"
-        android:textDirection="locale"
-        android:singleLine="true" />
+	<include
+        android:id="@+id/date_time_alarm_group"
+        layout="@layout/status_bar_alarm_group"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />	
 
     <com.android.systemui.qs.BatteryMeterView android:id="@+id/battery"
         android:layout_height="match_parent"

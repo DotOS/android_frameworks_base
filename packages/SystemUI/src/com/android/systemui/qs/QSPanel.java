@@ -17,13 +17,18 @@
 package com.android.systemui.qs;
 
 import static com.android.systemui.qs.tileimpl.QSTileImpl.getColorForState;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.ACTION_QS_DATE;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
+import android.provider.AlarmClock;
 import android.metrics.LogMaker;
 import android.os.Handler;
 import android.os.Message;
@@ -35,11 +40,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.android.keyguard.KeyguardStatusView;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
+import com.android.systemui.FontSizeUtils;
 import com.android.systemui.R;
 import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSTile;
@@ -47,10 +55,16 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSHost.Callback;
 import com.android.systemui.qs.customize.QSCustomizer;
 import com.android.systemui.qs.external.CustomTile;
+import com.android.systemui.qs.TouchAnimator.Builder;
+import com.android.systemui.qs.TouchAnimator.Listener;
+import com.android.systemui.qs.TouchAnimator.ListenerAdapter;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.settings.BrightnessController;
 import com.android.systemui.settings.ToggleSliderView;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController.BrightnessMirrorListener;
+import com.android.systemui.statusbar.policy.NextAlarmController;
+import com.android.systemui.statusbar.policy.NextAlarmController.NextAlarmChangeCallback;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
@@ -58,11 +72,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /** View that represents the quick settings tile panel. **/
-public class QSPanel extends LinearLayout implements Tunable, Callback, BrightnessMirrorListener {
+public class QSPanel extends LinearLayout implements Tunable, Callback, BrightnessMirrorListener, NextAlarmChangeCallback {
 
     public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
 
     protected final Context mContext;
+	private ActivityStarter mActivityStarter;
     protected final ArrayList<TileRecord> mRecords = new ArrayList<TileRecord>();
     protected final View mBrightnessView;
     protected final ImageView mBrightnessIcon;
@@ -93,6 +108,15 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 	private Drawable mQsPanelBackGround;
 	private int mQsBackGroundAlpha;
 	private View mQSFooter;
+	private View mQSHeader;
+	
+	private LinearLayout mAlarmLayout;
+	private TouchAnimator mAlarmAnimator;
+	private TextView mAlarmStatus;
+    private View mAlarmStatusCollapsed;
+	private NextAlarmController mNextAlarmController;
+    private AlarmManager.AlarmClockInfo mNextAlarm;
+	private boolean mAlarmShowing;
 
     public QSPanel(Context context) {
         this(context, null);
@@ -107,6 +131,13 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         setOrientation(VERTICAL);
 
+		mQSHeader = LayoutInflater.from(context).inflate(
+                R.layout.qs_panel_header_layout, this, false);
+		mAlarmLayout = mQSHeader.findViewById(R.id.qs_panel_header);
+		setupAlarmLayout();
+		
+		addView(mQSHeader);
+		
         mBrightnessView = LayoutInflater.from(context).inflate(
                 R.layout.quick_settings_brightness_dialog, this, false);
         setupTileLayout();
@@ -140,6 +171,58 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 				
 		mQsPanelBackGround = context.getDrawable(R.drawable.qs_background_primary);
 		setBackground(mQsPanelBackGround);
+    }
+	
+	private void setupAlarmLayout() {
+		mAlarmStatusCollapsed = mQSHeader.findViewById(R.id.alarm_status_collapsed);
+        mAlarmStatus = mQSHeader.findViewById(R.id.alarm_status);
+		mAlarmLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+			    Dependency.get(MetricsLogger.class).action(ACTION_QS_DATE,
+                    mNextAlarm != null);
+                if (mNextAlarm != null) {
+                    PendingIntent showIntent = mNextAlarm.getShowIntent();
+                    mActivityStarter.startPendingIntentDismissingKeyguard(showIntent);
+                }
+			}
+        });
+		mNextAlarmController = Dependency.get(NextAlarmController.class);
+		mNextAlarmController.addCallback(this);
+		FontSizeUtils.updateFontSize(mAlarmStatus, R.dimen.qs_date_collapsed_size);
+	}
+	
+	public void updateAlarmVisibilities() {
+        post(() -> {
+            updateVisibilities();
+            setClickable(false);
+        });
+    }
+	
+	@Override
+    public void onNextAlarmChanged(AlarmManager.AlarmClockInfo nextAlarm) {
+        mNextAlarm = nextAlarm;
+        if (nextAlarm != null) {
+            String alarmString = KeyguardStatusView.formatNextAlarm(getContext(), nextAlarm);
+            mAlarmStatus.setText(alarmString);
+            mAlarmStatus.setContentDescription(mContext.getString(
+                    R.string.accessibility_quick_settings_alarm, alarmString));
+            mAlarmStatusCollapsed.setContentDescription(mContext.getString(
+                    R.string.accessibility_quick_settings_alarm, alarmString));
+        }
+        if (mAlarmShowing != (nextAlarm != null)) {
+            mAlarmShowing = nextAlarm != null;
+            updateAlarmVisibilities();
+        }
+    }
+	
+	private void updateVisibilities() {
+		if (mAlarmShowing) {
+			mQSHeader.setVisibility(View.VISIBLE);
+		} else {
+			mQSHeader.setVisibility(View.GONE);
+		}
+        mAlarmStatusCollapsed.setVisibility(mAlarmShowing ? View.VISIBLE : View.GONE);
     }
 	
 	private class SettingsObserver extends ContentObserver {
