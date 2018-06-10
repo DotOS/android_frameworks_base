@@ -98,6 +98,8 @@
   <java-symbol type="string" name="adb_net_active_notification_title" />
   <java-symbol type="string" name="adb_both_active_notification_title" />
   <java-symbol type="string" name="adb_active_generic_notification_message" />
+  <!-- Whether notify fingerprint client of successful cancelled authentication -->
+  <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 
   <!-- Screenrecord -->
   <java-symbol type="bool" name="config_enableScreenrecordChord" />
@@ -133,5 +135,8 @@
    <java-symbol type="drawable" name="deadpool_clock_dial_ambient" />
    <java-symbol type="drawable" name="deadpool_clock_hand_hour" />
    <java-symbol type="drawable" name="deadpool_clock_hand_minute" />
+
+    <!-- Whether the device requires overlays to be in /system/overlay -->
+    <java-symbol type="bool" name="config_hasSystemOverlayPath" />
 
 </resources>
