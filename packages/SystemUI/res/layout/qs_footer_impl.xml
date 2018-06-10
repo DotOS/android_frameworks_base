@@ -29,13 +29,18 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <include
-        android:id="@+id/date_time_alarm_group"
-        layout="@layout/status_bar_alarm_group"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
+    <com.android.keyguard.CarrierText
+        android:id="@+id/qs_carrier_text"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|start"
+        android:ellipsize="marquee"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textDirection="locale"
+        android:singleLine="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
