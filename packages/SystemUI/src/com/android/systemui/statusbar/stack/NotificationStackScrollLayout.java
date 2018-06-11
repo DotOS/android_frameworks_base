@@ -402,6 +402,7 @@ public class NotificationStackScrollLayout extends ViewGroup
         Resources res = getResources();
 
         mAmbientState = new AmbientState(context);
+		setBackgroundResource(R.drawable.qs_background_primary);
         mBgColor = context.getColor(R.color.notification_shade_background_color);
         int minHeight = res.getDimensionPixelSize(R.dimen.notification_min_height);
         int maxHeight = res.getDimensionPixelSize(R.dimen.notification_max_height);
