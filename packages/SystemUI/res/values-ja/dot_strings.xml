@@ -81,9 +81,9 @@
   <string name="screenrecord_notif_error">画面を録画することができません</string>
   <string name="notification_channel_screenrecord">画面録画</string>
   <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USBテザリングOFF</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USBテザリング オフ</string>
   <string name="accessibility_quick_settings_usb_tether_on">USBテザリングON</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USBテザリングをOFFにしました</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">USBテザリングをオフにしました</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USBテザリングをONにしました</string>
   <string name="quick_settings_usb_tether_label">USBテザリング</string>
   <!-- Heads up snooze toast -->
@@ -95,7 +95,7 @@
   <string name="permdesc_preventpower">アプリが電源ボタンの機能を置き換えることを許可する</string>
   <!-- Heads Up QS Tile -->
   <string name="quick_settings_heads_up_label">Heads Up通知</string>
-  <string name="accessibility_quick_settings_heads_up_off">Head Upオフ</string>
+  <string name="accessibility_quick_settings_heads_up_off">Head up オフ</string>
   <string name="accessibility_quick_settings_heads_up_on">Heads Upオン</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads Upをオフにしました</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads Upをオンにしました</string>
@@ -113,12 +113,12 @@
   <string name="quick_settings_sound_search_no_app">申し訳ありませんが、音声検索アプリをお持ちでない場合は動作しません。</string>
   <!-- DOT logo -->
   <string name="dot_logo_title">DOTロゴ</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_summary">あなたがdotOSを使用していることをあなたの端末を見ている皆に知らせる（システムUIを再起動してください）</string>
   <!-- Sync QS Tile -->
   <string name="quick_settings_sync_label">同期</string>
-  <string name="accessibility_quick_settings_sync_off">同期OFF</string>
+  <string name="accessibility_quick_settings_sync_off">同期 オフ</string>
   <string name="accessibility_quick_settings_sync_on">同期ON</string>
-  <string name="accessibility_quick_settings_sync_changed_off">同期をOFFにしました</string>
+  <string name="accessibility_quick_settings_sync_changed_off">同期をオフにしました</string>
   <string name="accessibility_quick_settings_sync_changed_on">同期をONにしました</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">充電完了</string>
@@ -130,7 +130,7 @@
   <string name="quick_settings_navigation_disabled">無効</string>
   <!-- HW Keys Tile -->
   <string name="accessibility_quick_settings_hwkeys_on">HWキーON</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HWキーOFF</string>
+  <string name="accessibility_quick_settings_hwkeys_off">HWキー オフ</string>
   <string name="quick_settings_hwkeys_label">HWキー</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">タイルを追加するにはドラックかタップしてください</string>

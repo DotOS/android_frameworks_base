@@ -17,20 +17,20 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="reboot_title">Reboot</string>
-  <string name="reboot_message">Rebooting system</string>
+  <string name="reboot_title">ફરી ચાલુ કરો</string>
+  <string name="reboot_message">સિસ્ટમ રીબુટ થઈ રહ્યું છે</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+  <string name="permlab_toggleNavigationEditor">નેવિગેશન એડિટર ને કન્ટ્રોલ કરો</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+  <string name="permdesc_toggleNavigationEditor">એપ્લિકેશનને નેવિગેશન બાર એડિટરને નિયંત્રિત કરવાની મંજૂરી આપો.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_fakePackageSignature">Spoof package signature</string>
+  <string name="permlab_fakePackageSignature">પેકેજ સિગ્નેચર ને સ્પૂફ કરો</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+  <string name="permdesc_fakePackageSignature">એપ્લિકેશન ને એક અલગ એપ્લિકેશન હોવાની મંજૂરી આપો. મેલીસીયસ એપ કદાચ તમારો પર્સનલ ડેટા જોઈ શકે છે. પોતાના જોખમે જ મંજૂરી આપો.</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">ADB ઓવર નેટવર્ક સક્ષમ કરવામાં આવ્યું</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">ADB ઓવર USB&amp; સક્ષમ કરવામાં આવ્યું</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">ડીબગિંગ અક્ષમ કરવા માટે ટચ કરો.</string>
 </resources>

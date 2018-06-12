@@ -19,76 +19,76 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="global_action_restart_system">ફરી ચાલુ કરો</string>
-  <string name="global_action_restart_advanced">એડવાન્સ રિબૂટ</string>
-  <string name="global_action_restart_recovery">રિકવરી</string>
-  <string name="global_action_restart_bootloader">બુટલોડર</string>
-  <string name="global_action_restart_ui">સિસ્ટમUI</string>
-  <string name="global_action_restart_hot">હૉટ</string>
-  <string name="global_action_screenshot">સ્ક્રિનશોટ</string>
+  <string name="global_action_restart_system">Reboot</string>
+  <string name="global_action_restart_advanced">Advanced reboot</string>
+  <string name="global_action_restart_recovery">Recovery</string>
+  <string name="global_action_restart_bootloader">Bootloader</string>
+  <string name="global_action_restart_ui">SystemUI</string>
+  <string name="global_action_restart_hot">Hot</string>
+  <string name="global_action_screenshot">Screenshot</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">સૂચવેલ સેટિંગ</string>
-  <string name="statusbar_items_title">સ્ટેટ્સબાર ચિહ્નન</string>
-  <string name="lockscreen_default">જેમ હતું એમ જ</string>
-  <string name="lockscreen_hidden">કંઈ જ નઈ</string>
+  <string name="systemui_tuner_navbar_title">Stock settings</string>
+  <string name="statusbar_items_title">Statusbar icon</string>
+  <string name="lockscreen_default">Default</string>
+  <string name="lockscreen_hidden">None</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">સ્ક્રિનશોટ</string>
-  <string name="quick_settings_region_screenshot_label">અડધો સ્ક્રીનશોટ</string>
+  <string name="quick_settings_screenshot_label">Screenshot</string>
+  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">ઍપ pip સપોર્ટ નથી કરતી</string>
-  <string name="omnijaws_service_error">ક્ષતિ</string>
-  <string name="omnijaws_service_unkown">વાતાવરણ નો કોઈ ડેટા નથી</string>
-  <string name="omnijaws_service_error_long">વાતાવરણ નો ડેટા લોડ કરવામાં સમસ્યા</string>
-  <string name="omnijaws_service_disabled">સેવા અક્ષમ કરેલ છે</string>
-  <string name="omnijaws_detail_header">વાતાવરણ</string>
-  <string name="omnijaws_label_default">વાતાવરણ</string>
-  <string name="omnijaws_current_text">અત્યારે</string>
-  <string name="omnijaws_package_not_available">Omnijaws ઉપલબ્ધ નથી</string>
-  <string name="omnijaws_service_last_update">છેલ્લી અપડેટ:</string>
+  <string name="quick_settings_pip_tile_app_na">App does not support PiP</string>
+  <string name="omnijaws_service_error">Error</string>
+  <string name="omnijaws_service_unkown">No weather data</string>
+  <string name="omnijaws_service_error_long">Error loading weather data</string>
+  <string name="omnijaws_service_disabled">Service is disabled</string>
+  <string name="omnijaws_detail_header">Weather</string>
+  <string name="omnijaws_label_default">Weather</string>
+  <string name="omnijaws_current_text">Now</string>
+  <string name="omnijaws_package_not_available">OmniJaws not available</string>
+  <string name="omnijaws_service_last_update">Last update:</string>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">બાકી રેમ:%1$d</string>
+  <string name="recents_free_ram">Free RAM: %1$d MB</string>
   <!-- volte icon switch -->
-  <string name="status_bar_volte">વોલ્ટી</string>
+  <string name="status_bar_volte">VOLTE</string>
   <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">અવાજ</string>
-  <string name="quick_settings_sound_ring">રીંગ</string>
-  <string name="quick_settings_sound_vibrate">વાઇબ્રેટ</string>
-  <string name="quick_settings_sound_dnd">પરેશાન ના કરો</string>
+  <string name="quick_settings_sound_label">Sound</string>
+  <string name="quick_settings_sound_ring">Ring</string>
+  <string name="quick_settings_sound_vibrate">Vibrate</string>
+  <string name="quick_settings_sound_dnd">Do not disturb</string>
   <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB નેટવર્ક</string>
-  <string name="quick_settings_network_adb_enabled_label">Adb ઓવર નેટ</string>
-  <string name="quick_settings_network_adb_disabled_label">Adb ઓવર નેટ</string>
+  <string name="quick_settings_adb_network">ADB network</string>
+  <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
+  <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">સ્ક્રીન રેકોર્ડર</string>
+  <string name="quick_settings_screenrecord">Screenrecord</string>
   <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">સ્ક્રીન રેકોર્ડ થઈ રહી છે</string>
+  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
   <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">રેકોર્ડિંગ સ્ક્રીન</string>
+  <string name="screenrecord_notif_title">Recording screen</string>
   <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">બંધ</string>
+  <string name="screenrecord_notif_stop">Stop</string>
   <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">શૉ પોઇન્ટર</string>
-  <string name="screenrecord_notif_pointer_off">પોઇન્ટર છુપાવો</string>
+  <string name="screenrecord_notif_pointer_on">Show pointer</string>
+  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
   <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">સ્ક્રીન રેકોર્ડ કરવામાં અસક્ષમ</string>
-  <string name="notification_channel_screenrecord">સ્ક્રિનરેકોર્ડસ</string>
+  <string name="screenrecord_notif_error">Unable to record screen</string>
+  <string name="notification_channel_screenrecord">Screenrecords</string>
   <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB થિયરીંગ બંધ</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB થિયરીંગ ચાલુ</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB થિયરીંગ બંધ થઈ ગયું</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB થિયરીંગ ચાલુ થઈ ગયું</string>
-  <string name="quick_settings_usb_tether_label">USB થિયરીંગ</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
+  <string name="quick_settings_usb_tether_label">USB tethering</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g>-પીકિંગ નોટિફિકેશન ને 1 મિનિટ માટે બંધ કરવામાં આવી છે.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g>-પીકિંગ નોટિફિકેશન ને <xliff:g id="number">%d</xliff:g>મિનિટ માટે બંધ કરવામાં આવી છે.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_preventpower">override power key</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
