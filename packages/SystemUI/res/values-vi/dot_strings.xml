@@ -109,10 +109,10 @@
   <string name="keyguard_plugged_in_turbo_power_charging">Đã kết nối sạc nhanh</string>
   <string name="keyguard_plugged_in_turbo_charging">Sạc nhanh</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Tìm kiếm âm thanh</string>
+  <string name="quick_settings_sound_search_no_app">Xin lỗi, nhưng điều này không hoạt động nếu bạn không có một ứng dụng âm thanh tìm kiếm.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
+  <string name="dot_logo_title">Biểu tượng dấu chấm</string>
   <string name="dot_logo_summary">Khoe với mọi người rằng bạn đang sử dụng DoTOS khi họ nhìn vào điện thoại của bạn(restart SystemUI để có hiệu lực)</string>
   <!-- Sync QS Tile -->
   <string name="quick_settings_sync_label">Đồng bộ</string>

@@ -37,8 +37,8 @@
   <string name="quick_settings_screenshot_label">Capture d\'écran</string>
   <string name="quick_settings_region_screenshot_label">Capture d’écran partielle</string>
   <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">L\'application ne prend pas en charge le PiP</string>
+  <string name="quick_settings_pip_label">Incrustation d\'image</string>
+  <string name="quick_settings_pip_tile_app_na">L\'application est incompatible avec l\'incrustation d\'image</string>
   <string name="omnijaws_service_error">Erreur</string>
   <string name="omnijaws_service_unkown">Pas de données météo</string>
   <string name="omnijaws_service_error_long">Erreur lors du chargement des données météo</string>
@@ -109,29 +109,29 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
   <string name="keyguard_plugged_in_turbo_charging">Recharge Turbo</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Recherche audio</string>
+  <string name="quick_settings_sound_search_no_app">Désolé, mais cela ne fonctionne que si vous avez une application de recherche audio.</string>
   <!-- DOT logo -->
   <string name="dot_logo_title">Logo DOT</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_summary">Laisser savoir aux autres que vous utilisez DotOS quand ils voient votre téléphone (redémarrage de SystemUI nécessaire pour appliquer)</string>
   <!-- Sync QS Tile -->
   <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée</string>
+  <string name="accessibility_quick_settings_sync_on">Synchronisation activée</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronisation désactivée</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronisation activée</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Charge terminée</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Barre de navigation</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_disabled">Désactivée</string>
   <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <string name="accessibility_quick_settings_hwkeys_on">Boutons physiques activés</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Boutons physiques désactivés</string>
+  <string name="quick_settings_hwkeys_label">Boutons physiques</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
 </resources>
