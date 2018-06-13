@@ -21,4 +21,5 @@
     <size
         android:width="16dp"
         android:height="16dp"/>
+	<corners android:radius="5.0dip" />
 </shape>
