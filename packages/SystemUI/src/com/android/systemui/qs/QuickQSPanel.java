@@ -30,6 +30,7 @@ import com.android.systemui.plugins.qs.QSTile.SignalState;
 import com.android.systemui.plugins.qs.QSTile.State;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.customize.QSCustomizer;
+import com.android.systemui.qs.TouchAnimator.Builder;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
@@ -45,6 +46,8 @@ public class QuickQSPanel extends QSPanel {
 
     private int mMaxTiles;
     protected QSPanel mFullPanel;
+	 protected TouchAnimator mShapeAnimator;
+	private View mQS_Shape;
 
     public QuickQSPanel(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -60,6 +63,19 @@ public class QuickQSPanel extends QSPanel {
         mTileLayout = new HeaderTileLayout(context);
         mTileLayout.setListening(mListening);
         addView((View) mTileLayout, 0 /* Between brightness and footer */);
+		
+		mQS_Shape = LayoutInflater.from(context).inflate(
+                R.layout.qs_bottom_shape, this, false);
+		addView(mQS_Shape);
+    }
+	
+	@Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        mShapeAnimator = new Builder()
+                .addFloat(mQS_Shape, "alpha", 1, 0)
+                .build();
+		mQS_Shape.setVisibility(mExpanded ? View.INVISIBLE : View.VISIBLE);
     }
 
     @Override
