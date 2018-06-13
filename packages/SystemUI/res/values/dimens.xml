@@ -78,7 +78,7 @@
     <dimen name="status_bar_connected_device_bt_indicator_size">17dp</dimen>
 
     <!-- Height of a small notification in the status bar-->
-    <dimen name="notification_min_height">92dp</dimen>
+    <dimen name="notification_min_height">128dp</dimen>
 
     <!-- Increased height of a small notification in the status bar -->
     <dimen name="notification_min_height_increased">132dp</dimen>
@@ -87,10 +87,10 @@
     <dimen name="notification_min_height_legacy">64dp</dimen>
 
     <!-- Height of a large notification in the status bar -->
-    <dimen name="notification_max_height">284dp</dimen>
+    <dimen name="notification_max_height">312dp</dimen>
 
     <!-- Height of an ambient notification on ambient display -->
-    <dimen name="notification_ambient_height">400dp</dimen>
+    <dimen name="notification_ambient_height">364dp</dimen>
 
     <!-- Height of a heads up notification in the status bar for legacy custom views -->
     <dimen name="notification_max_heads_up_height_legacy">128dp</dimen>
@@ -199,7 +199,7 @@
     <dimen name="status_bar_header_height">150dp</dimen>
 
     <!-- Height of the status bar header bar in the car setting. -->
-    <dimen name="car_status_bar_header_height">128dp</dimen>
+    <dimen name="car_status_bar_header_height">132dp</dimen>
 
     <!-- The bottom padding of the status bar header. -->
     <dimen name="status_bar_header_padding_bottom">48dp</dimen>
@@ -232,7 +232,7 @@
     <dimen name="standard_notification_panel_width">394dp</dimen>
 
     <!-- The top margin of the panel that holds the list of notifications. -->
-    <dimen name="notification_panel_margin_top">8dp</dimen>
+    <dimen name="notification_panel_margin_top">12dp</dimen>
 
     <!-- The bottom margin of the panel that holds the list of notifications. -->
     <dimen name="notification_panel_margin_bottom">0dp</dimen>
@@ -361,7 +361,7 @@
     <dimen name="notification_divider_height">0.5dp</dimen>
 
     <!-- The corner radius of the shadow behind the notification. -->
-    <dimen name="notification_shadow_radius">0dp</dimen>
+    <dimen name="notification_shadow_radius">20dp</dimen>
 
     <!-- The alpha of the dividing line between child notifications of a notification group. -->
     <item name="notification_divider_alpha" format="float" type="dimen">0.5</item>
