@@ -383,7 +383,7 @@ public class NotificationStackScrollLayout extends ViewGroup
     private int mCachedBackgroundColor;
     private boolean mHeadsUpGoingAwayAnimationsAllowed = true;
     private Runnable mAnimateScroll = this::animateScroll;
-
+	
     public NotificationStackScrollLayout(Context context) {
         this(context, null);
     }
@@ -426,6 +426,7 @@ public class NotificationStackScrollLayout extends ViewGroup
             mDebugPaint.setStrokeWidth(2);
             mDebugPaint.setStyle(Paint.Style.STROKE);
         }
+		setBackgroundResource(R.drawable.qs_background_primary);
     }
 
     public NotificationSwipeActionHelper getSwipeActionHelper() {
@@ -492,11 +493,11 @@ public class NotificationStackScrollLayout extends ViewGroup
         // We need to manually blend in the background color
         int scrimColor = mScrimController.getBackgroundColor();
         int color = ColorUtils.blendARGB(scrimColor, mBgColor, alpha);
-        if (mCachedBackgroundColor != color) {
+        /*if (mCachedBackgroundColor != color) {
             mCachedBackgroundColor = color;
             mBackgroundPaint.setColor(color);
             invalidate();
-        }
+        }*/
     }
 
     private void initView(Context context) {
@@ -1299,6 +1300,7 @@ public class NotificationStackScrollLayout extends ViewGroup
                 getContext().getResources().getBoolean(R.bool.config_fadeNotificationsOnDismiss);
         initView(getContext());
         updateWillNotDraw();
+		setBackgroundResource(R.drawable.qs_background_primary);
         updateBackgroundDimming();
     }
 
