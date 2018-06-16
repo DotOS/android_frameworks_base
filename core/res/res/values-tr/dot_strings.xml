@@ -30,7 +30,7 @@
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">Ağ üzerinden ADB etkin</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">USB ağı &amp; ADB üzerinden etkin</string>
+  <string name="adb_both_active_notification_title">USB ve ağı ADB üzerinden etkin</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Hata ayıklamayı devre dışı bırakmak için dokunun.</string>
 </resources>

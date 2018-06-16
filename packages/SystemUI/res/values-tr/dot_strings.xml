@@ -85,7 +85,7 @@
   <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
-  <string name="quick_settings_usb_tether_label">USB paylaşımı</string>
+  <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
   <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%d</xliff:g> dakika erteleniyor.</string>
@@ -102,15 +102,15 @@
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
   <string name="nav_bar_layout_inverse">Tuş düzenini ters çevir</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Hızlı Şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
-  <string name="keyguard_plugged_in_dash_charging">Hızlı Şarj oluyor</string>
+  <string name="keyguard_indication_dash_charging_time">Hızlı şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
+  <string name="keyguard_plugged_in_dash_charging">Hızlı şarj oluyor</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">Turbo şarj bağlandı (tam dolmasına <xliff:g id="charging_time_left">%s</xliff:g> kaldı)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Turbo şarj bağlandı</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Şarj oluyor</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo şarj oluyor</string>
   <!-- Sound Search tile -->
   <string name="quick_settings_sound_search">Sesli arama</string>
-  <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
+  <string name="quick_settings_sound_search_no_app">Üzgünüz eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
   <!-- DOT logo -->
   <string name="dot_logo_title">DOT logo</string>
   <string name="dot_logo_summary">Durum çubuğunda DotOS logosunu göster (aktif olmazsa sistem arayüzünü yeniden başlatın)</string>
