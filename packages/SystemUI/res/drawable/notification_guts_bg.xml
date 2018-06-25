@@ -16,7 +16,7 @@
   -->
 <ripple android:color="#00000000"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+    <item android:top="3.0dip">
         <inset android:insetRight="10.0dip">
             <shape>
                 <solid android:color="@color/notification_guts_bg_color" />

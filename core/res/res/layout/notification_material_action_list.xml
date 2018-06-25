@@ -18,7 +18,10 @@
         android:id="@+id/actions_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+		android:layout_marginBottom="3dp"
+		android:paddingStart="12dp">
+		
     <com.android.internal.widget.NotificationActionListLayout
             android:id="@+id/actions"
             android:layout_width="match_parent"
@@ -27,7 +30,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:visibility="gone"
-            android:background="@color/notification_action_list"
+            android:background="#00FFFFFF"
             >
         <!-- actions will be added here -->
     </com.android.internal.widget.NotificationActionListLayout>

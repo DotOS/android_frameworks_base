@@ -27,5 +27,5 @@
     android:paddingEnd="8dp"
     android:layout_marginEnd="2dp"
     android:gravity="center"
-    android:background="@drawable/notification_material_media_action_background"
+    android:background="#00000000"
     />
