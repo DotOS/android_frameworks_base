@@ -63,6 +63,7 @@
                 android:id="@+id/notification_material_reply_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+				android:background="#00000000"
                 />
     </LinearLayout>
     <include layout="@layout/notification_material_action_list" />

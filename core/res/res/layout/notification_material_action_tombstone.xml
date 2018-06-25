@@ -28,5 +28,5 @@
     android:ellipsize="end"
     android:alpha="0.5"
     android:enabled="false"
-    android:background="@drawable/notification_material_action_background"
+    android:background="#00000000"
     />

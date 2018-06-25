@@ -193,7 +193,7 @@
     <dimen name="notification_header_background_height">45.5dp</dimen>
 
     <!-- The top padding for the notification header -->
-    <dimen name="notification_header_padding_top">10dp</dimen>
+    <dimen name="notification_header_padding_top">7dp</dimen>
 
     <!-- The bottom padding for the notification header -->
     <dimen name="notification_header_padding_bottom">11dp</dimen>
@@ -250,7 +250,7 @@
     <dimen name="media_notification_expanded_image_margin_bottom">20dp</dimen>
 
     <!-- The absolute height for the header in a media notification. -->
-    <dimen name="media_notification_header_height">53dp</dimen>
+    <dimen name="media_notification_header_height">45dp</dimen>
 
     <!-- The margin of the content to an image-->
     <dimen name="notification_content_image_margin_end">8dp</dimen>
