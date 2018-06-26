@@ -13,7 +13,7 @@
 -->
 <ripple android:color="#ffffffff"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:top="3.0dip">
+    <item>
         <shape>
             <solid android:color="@color/notification_material_background_dimmed_color" />
             <corners android:radius="5.0dip" />

@@ -27,15 +27,23 @@
     android:clipChildren="false"
     android:clipToPadding="false"
     android:paddingTop="0dp">
+	
+	<View
+        android:id="@+id/qs_top_background"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/qs_background_top"
+		android:elevation="0dp"/>
 
     <include layout="@layout/quick_status_bar_header_system_icons" />
-
-    <com.android.systemui.qs.QuickQSPanel
+	
+	<com.android.systemui.qs.QuickQSPanel
         android:id="@+id/quick_qs_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="2dp"
         android:layout_below="@+id/qs_header_system_icons"
 		android:minHeight="48dp"
         android:accessibilityTraversalAfter="@+id/date_time_group"
@@ -45,6 +53,15 @@
         android:padding="16dp"
         android:focusable="true"
         android:importantForAccessibility="yes" />
+		
+	<ImageView
+        android:id="@+id/quick_shape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_qs_shape"
+		android:layout_below="@+id/quick_qs_panel"
+		android:visibility="gone"/>
 
     <com.android.systemui.statusbar.AlphaOptimizedImageView
         android:id="@+id/qs_detail_header_progress"

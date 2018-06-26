@@ -4373,6 +4373,12 @@ public final class Settings {
          * @hide
          */
         public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";
+		
+		/**
+         * QS Panel Header ARGB HEX Color
+         * @hide
+         */
+        public static final String QS_HEADER_COLOR = "qs_header_color";
 
 	/**
 	 * @hide
