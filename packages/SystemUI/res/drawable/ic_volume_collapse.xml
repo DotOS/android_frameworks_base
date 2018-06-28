@@ -26,8 +26,8 @@
         <group
             android:name="right"
             android:translateX="11.287"
-            android:translateY="8.701"
-            android:rotation="45" >
+            android:translateY="13.587"
+            android:rotation="135" >
             <group
                 android:name="right_pivot"
                 android:translateX="4.242" >
@@ -40,11 +40,12 @@
         <group
             android:name="left"
             android:translateX="12.699"
-            android:translateY="8.701"
-            android:rotation="-45" >
+            android:translateY="13.587"
+            android:rotation="-135" >
             <group
                 android:name="left_pivot"
-                android:translateX="-4.242" >
+                android:translateX="4"
+                android:translateY="-2">
                 <path
                     android:name="rectangle_path_2"
                     android:fillColor="#FFFFFFFF"
