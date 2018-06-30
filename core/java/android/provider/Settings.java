@@ -4337,6 +4337,13 @@ public final class Settings {
                 "double_tap_sleep_lockscreen";
 
         /**
+         * whether to enable or disable vibration on succesful fingerprint auth
+         *
+         * @hide
+         */
+        public static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
+
+        /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
          */
