@@ -21,7 +21,8 @@
     android:layout_alignParentEnd="true"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+	android:background="@drawable/qs_background_top">
 
     <com.android.systemui.statusbar.policy.ClockLeft
         android:id="@+id/left_clock"

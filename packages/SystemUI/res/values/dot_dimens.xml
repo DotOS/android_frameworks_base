@@ -56,4 +56,8 @@
 	<dimen name="qs_panel_top_margin">42dp</dimen>
 	
 	<dimen name="screenrecord_hint_size">48dp</dimen>
+
+	<!-- QS Left/Right Margin -->
+	<dimen name="qs_container_margin">4dp</dimen>
+	
 </resources>

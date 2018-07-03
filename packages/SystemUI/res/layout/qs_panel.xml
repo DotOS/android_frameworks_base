@@ -21,12 +21,28 @@
     android:elevation="4dp"
     android:clipToPadding="false"
     android:clipChildren="false">
+	
+	<View
+        android:id="@+id/qs_top_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/status_bar_header_height"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/qs_background_top"
+		android:elevation="0dp"/>
+	
+	<View
+        android:id="@+id/quick_settings_background"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+		android:layout_marginStart="@dimen/qs_container_margin"
+		android:layout_marginEnd="@dimen/qs_container_margin"
+        android:background="@drawable/qs_background_primary" />
 
     <com.android.systemui.qs.QSPanel
         android:id="@+id/quick_settings_panel"
         android:layout_marginTop="@dimen/qs_panel_top_margin"
-		android:layout_marginStart="8dp"
-		android:layout_marginEnd="8dp"
+		android:layout_marginStart="@dimen/qs_container_margin"
+		android:layout_marginEnd="@dimen/qs_container_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

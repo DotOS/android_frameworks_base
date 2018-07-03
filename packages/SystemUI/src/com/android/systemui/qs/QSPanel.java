@@ -90,15 +90,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private BrightnessMirrorController mBrightnessMirrorController;
     private View mDivider;
 	
-	private Drawable mQsPanelBackGround;
-	private int mQsBackGroundAlpha;
 	private View mQSFooter;
 
     public QSPanel(Context context) {
         this(context, null);
-		Handler mHandler = new Handler();
-        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
-        settingsObserver.observe();
     }
 
     public QSPanel(Context context, AttributeSet attrs) {
@@ -137,33 +132,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         mBrightnessController = new BrightnessController(getContext(),
                 mBrightnessIcon,
                 findViewById(R.id.brightness_slider));
-				
-		mQsPanelBackGround = context.getDrawable(R.drawable.qs_background_primary);
-		setBackground(mQsPanelBackGround);
-    }
-	
-	private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            getContext().getContentResolver().registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.QS_PANEL_BG_ALPHA), false,
-                    this, UserHandle.USER_ALL);
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            updateAlpha();
-        }
-    }
-
-    private void updateAlpha() {
-        mQsBackGroundAlpha = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QS_PANEL_BG_ALPHA, 255,
-                UserHandle.USER_CURRENT);
-		mQsPanelBackGround.setAlpha(mQsBackGroundAlpha);
+		setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
     }
 
     protected void addDivider() {
