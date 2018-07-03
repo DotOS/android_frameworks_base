@@ -18,6 +18,7 @@ package com.android.systemui.qs;
 
 import android.content.Context;
 import android.database.ContentObserver;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.Point;
 import android.net.Uri;
@@ -42,16 +43,23 @@ public class QSContainerImpl extends FrameLayout {
     protected View mQSPanel;
     private View mQSDetail;
     protected View mHeader;
-	protected View mHeadIcons;
     protected float mQsExpansion;
     private QSCustomizer mQSCustomizer;
     
     private float mFullElevation;
-    private Drawable mQsTopBackGround;
-    private int mQsBackGroundAlpha;
+	private View mBackground;
+	private View mQSFooter;
+	private View mHeaderView;
+	private String mHeaderColor = "#00FFFFFF";
+	private int mQsBackGroundAlpha;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
+		Handler mHandler = new Handler();
+		ColorObserver colorobserver = new ColorObserver(mHandler);
+        colorobserver.observe();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
     }
 
     @Override
@@ -60,18 +68,64 @@ public class QSContainerImpl extends FrameLayout {
         mQSPanel = findViewById(R.id.quick_settings_panel);
         mQSDetail = findViewById(R.id.qs_detail);
         mHeader = findViewById(R.id.header);
-		mHeadIcons = findViewById(R.id.qs_header_system_icons);
         mQSCustomizer = findViewById(R.id.qs_customize);
-        
+		mBackground = findViewById(R.id.quick_settings_background);
+		mQSFooter = findViewById(R.id.qs_footer);
+		mHeaderView = findViewById(R.id.qs_top_background);
+		updateColor();
+
         mFullElevation = mQSPanel.getElevation();
-		mQsTopBackGround = getContext().getDrawable(R.drawable.qs_background_top);
 
         setClickable(true);
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
-		
-		if (mQsTopBackGround != null) {
-			mHeadIcons.setBackground(mQsTopBackGround);
+    }
+	
+	private class ColorObserver extends ContentObserver {
+        ColorObserver(Handler handler) {
+            super(handler);
         }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QS_HEADER_COLOR), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateColor();
+        }
+    }
+	
+	private void updateColor() {
+        mHeaderColor = Settings.System.getStringForUser(getContext().getContentResolver(),
+                Settings.System.QS_HEADER_COLOR,
+                UserHandle.USER_CURRENT);
+		mHeaderView.setBackgroundColor(Color.parseColor(mHeaderColor));
+    }
+	
+	private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QS_PANEL_BG_ALPHA), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateAlpha();
+        }
+    }
+
+    private void updateAlpha() {
+        mQsBackGroundAlpha = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255,
+                UserHandle.USER_CURRENT);
+		mBackground.setAlpha(mQsBackGroundAlpha);
     }
 
     @Override
@@ -123,8 +177,10 @@ public class QSContainerImpl extends FrameLayout {
         int height = calculateContainerHeight();
         setBottom(getTop() + height);
         mQSDetail.setBottom(getTop() + height);
+		mBackground.setTop(mQSPanel.getTop());
+        mBackground.setBottom(height);
         // Pin QS Footer to the bottom of the panel.
-        // mQSFooter.setTranslationY(height - mQSFooter.getHeight());
+        //mQSFooter.setTranslationY(height - mQSFooter.getHeight());
     }
 
     protected int calculateContainerHeight() {

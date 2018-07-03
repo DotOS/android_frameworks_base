@@ -105,7 +105,7 @@
     <dimen name="scroll_fast_threshold">1500dp</dimen>
 
     <!-- Height of a the shelf with the notification icons -->
-    <dimen name="notification_shelf_height">32dp</dimen>
+    <dimen name="notification_shelf_height">38dp</dimen>
 
     <!-- Minimum height of a notification to be interactable -->
     <dimen name="notification_min_interaction_height">40dp</dimen>
@@ -232,7 +232,7 @@
     <dimen name="standard_notification_panel_width">394dp</dimen>
 
     <!-- The top margin of the panel that holds the list of notifications. -->
-    <dimen name="notification_panel_margin_top">12dp</dimen>
+    <dimen name="notification_panel_margin_top">4dp</dimen>
 
     <!-- The bottom margin of the panel that holds the list of notifications. -->
     <dimen name="notification_panel_margin_bottom">0dp</dimen>
