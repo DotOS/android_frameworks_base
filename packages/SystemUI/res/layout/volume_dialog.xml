@@ -75,7 +75,7 @@
                 android:gravity="center"
                 android:paddingBottom="8dp"
                 android:soundEffectsEnabled="false"
-                android:src="@drawable/ic_volume_collapse_animation"
+                android:src="@drawable/ic_volume_expand"
                 tools:ignore="RtlHardcoded" />
 
         </LinearLayout>

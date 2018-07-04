@@ -17,40 +17,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:name="ic_caret_down"
     android:width="24dp"
-    android:viewportWidth="24"
+    android:viewportWidth="48"
     android:height="24dp"
-    android:viewportHeight="24"
+    android:viewportHeight="48"
     android:tint="?android:attr/colorControlNormal" >
-    <group
-        android:name="caret___4" >
-        <group
-            android:name="right"
-            android:translateX="11.287"
-            android:translateY="13.587"
-            android:rotation="135" >
-            <group
-                android:name="right_pivot"
-                android:translateX="4.242" >
-                <path
-                    android:name="rectangle_path_1"
-                    android:fillColor="#FFFFFFFF"
-                    android:pathData="M -3.242,-1.0 l 6.484,0.0 c 0.5522847498,0.0 1.0,0.4477152502 1.0,1.0 l 0.0,0.0 c 0.0,0.5522847498 -0.4477152502,1.0 -1.0,1.0 l -6.484,0.0 c -0.5522847498,0.0 -1.0,-0.4477152502 -1.0,-1.0 l 0.0,0.0 c 0.0,-0.5522847498 0.4477152502,-1.0 1.0,-1.0 Z" />
-            </group>
-        </group>
-        <group
-            android:name="left"
-            android:translateX="12.699"
-            android:translateY="13.587"
-            android:rotation="-135" >
-            <group
-                android:name="left_pivot"
-                android:translateX="4"
-                android:translateY="-2">
-                <path
-                    android:name="rectangle_path_2"
-                    android:fillColor="#FFFFFFFF"
-                    android:pathData="M -3.242,-1.0 l 6.484,0.0 c 0.5522847498,0.0 1.0,0.4477152502 1.0,1.0 l 0.0,0.0 c 0.0,0.5522847498 -0.4477152502,1.0 -1.0,1.0 l -6.484,0.0 c -0.5522847498,0.0 -1.0,-0.4477152502 -1.0,-1.0 l 0.0,0.0 c 0.0,-0.5522847498 0.4477152502,-1.0 1.0,-1.0 Z" />
-            </group>
+	<group
+        android:name="caret_5" >
+        <group android:name="collapse">
+            <path
+                android:pathData="M17.17 32.92l9.17 -9.17 -9.17 -9.17 2.83 -2.83 12 12 -12 12z"
+                android:fillColor="#FFFFFFFF" />
         </group>
     </group>
 </vector>
