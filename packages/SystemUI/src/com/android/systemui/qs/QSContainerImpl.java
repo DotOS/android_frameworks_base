@@ -98,9 +98,15 @@ public class QSContainerImpl extends FrameLayout {
     }
 	
 	private void updateColor() {
-        mHeaderColor = Settings.System.getStringForUser(getContext().getContentResolver(),
+		String color = Settings.System.getStringForUser(getContext().getContentResolver(),
                 Settings.System.QS_HEADER_COLOR,
                 UserHandle.USER_CURRENT);
+		if (color != null) {
+			mHeaderColor = color;
+		} else {
+			mHeaderColor = "#00FFFFFF";
+			Settings.System.putString(getContext().getContentResolver(), Settings.System.QS_HEADER_COLOR, "#00FFFFFF");
+		}
 		mHeaderView.setBackgroundColor(Color.parseColor(mHeaderColor));
     }
 	
@@ -125,7 +131,8 @@ public class QSContainerImpl extends FrameLayout {
         mQsBackGroundAlpha = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
-		mBackground.setAlpha(mQsBackGroundAlpha);
+		Drawable bg = mBackground.getBackground();
+		bg.setAlpha(mQsBackGroundAlpha);
     }
 
     @Override
