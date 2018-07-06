@@ -15,11 +15,14 @@ package com.android.systemui.qs.tileimpl;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -46,6 +49,8 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     private boolean mTileState;
     private boolean mCollapsedView;
     private boolean mClicked;
+	private Drawable qs_active = getContext().getDrawable(R.drawable.qs_tile_background_active);
+	private Drawable qs_inactive = getContext().getDrawable(R.drawable.qs_tile_background_inactive);
 
     public QSTileBaseView(Context context, QSIconView icon) {
         this(context, icon, false);
@@ -78,6 +83,8 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setClipToPadding(false);
         mCollapsedView = collapsedView;
         setFocusable(true);
+		SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
     }
 
     protected Drawable newTileBackground() {
@@ -161,17 +168,46 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
                 mTileState = newState;
             }
         }
-		switch (state.state) {
-			case Tile.STATE_ACTIVE:
-			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_active));
-			    break;
-			case Tile.STATE_INACTIVE:
-			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
-			    break;
-			default:
-			    mIconFrame.setBackground(getContext().getDrawable(R.drawable.qs_tile_background_inactive));
-			    break;
+		int showCircle = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.QS_TILE_CIRCLE, 1);
+		if (showCircle == 1) {
+			switch (state.state) {
+				case Tile.STATE_ACTIVE:
+					mIconFrame.setBackground(qs_active);
+					break;
+				case Tile.STATE_INACTIVE:
+					mIconFrame.setBackground(qs_inactive);
+					break;
+				default:
+					mIconFrame.setBackground(qs_inactive);
+					break;
+			}
 		}
+    }
+	
+	private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QS_TILE_ALPHA), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateAlpha();
+        }
+    }
+
+    private void updateAlpha() {
+        int alpha = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_TILE_ALPHA, 255,
+                UserHandle.USER_CURRENT);
+		qs_active.setAlpha(alpha);
+		qs_inactive.setAlpha(alpha);
     }
 
     @Override

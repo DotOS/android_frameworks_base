@@ -425,6 +425,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     private static final String ACCENT_TEAL = "com.android.dot.stock";
     private static final String ACCENT_YELLOW = "com.android.dot.yellow";
 	private static final String ACCENT_GREY = "com.android.dot.grey";
+	private static final String ACCENT_OXYGEN = "com.android.dot.oxygen";
+    private static final String ACCENT_LEMON = "com.android.dot.lemon";
+	private static final String ACCENT_ORANGE = "com.android.dot.orange";
 			
     static {
         boolean onlyCoreApps;
@@ -5429,6 +5432,15 @@ public class StatusBar extends SystemUI implements DemoMode,
                 break;
             case 8:
                 setAccent(ACCENT_PINK);
+                break;
+			case 9:
+                setAccent(ACCENT_OXYGEN);
+                break;
+            case 10:
+                setAccent(ACCENT_LEMON);
+                break;
+            case 11:
+                setAccent(ACCENT_ORANGE);
                 break;
         }
     }
