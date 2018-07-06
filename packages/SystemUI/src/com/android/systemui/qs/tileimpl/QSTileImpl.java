@@ -372,20 +372,19 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
     public abstract CharSequence getTileLabel();
 
     public static int getColorForState(Context context, int state) {
-		int mCurrentUserId = ActivityManager.getCurrentUser();
-	    int tintMode = Settings.Secure.getIntForUser(context.getContentResolver(),
-                Settings.Secure.TINT_MODE, 0, mCurrentUserId);
+		int showCircle = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.QS_TILE_CIRCLE, 1);
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
                 return Utils.getUnavailable(context,
                     context.getColor(R.color.qs_tiles_unavailable_color));
-					
             case Tile.STATE_INACTIVE:
 			    return context.getColor(R.color.qs_tiles_inactive_color);
-				
             case Tile.STATE_ACTIVE:
-                return context.getColor(R.color.qs_tiles_active_color);
-				
+			    if (showCircle == 1)
+					return context.getColor(R.color.qs_tiles_active_color);
+				else 
+					return Utils.getColorAttr(context, android.R.attr.textColorPrimary);
             default:
                 Log.e("QSTile", "Invalid state " + state);
                 return 0;

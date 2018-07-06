@@ -4358,6 +4358,22 @@ public final class Settings {
          * 3 = Fullscreen
          */
         public static final String IMMERSIVE_RECENTS = "immersive_recents";
+		
+		/**
+         * QS Panel Header ARGB HEX Color
+         * @hide
+         */
+        public static final String QS_HEADER_COLOR = "qs_header_color";
+		
+		/**
+         * QS Tiles Circle Drawable
+		 * 0 - Disabled
+		 * 1 - Enabled [Default]
+         * @hide
+         */
+        public static final String QS_TILE_CIRCLE = "qs_tile_circle";
+
+		public static final String QS_TILE_ALPHA = "qs_tile_alpha";
 
         /**
          * 0 - wallpaper based
@@ -4373,16 +4389,10 @@ public final class Settings {
          * @hide
          */
         public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";
-		
-		/**
-         * QS Panel Header ARGB HEX Color
-         * @hide
-         */
-        public static final String QS_HEADER_COLOR = "qs_header_color";
 
-	/**
-	 * @hide
-         */
+		/**
+		* @hide
+        */
         public static final String SENSOR_BLOCK = "sensor_block";
 
         /**
@@ -8078,34 +8088,11 @@ public final class Settings {
         public static final String MANAGED_PROFILE_CONTACT_REMOTE_SEARCH =
                 "managed_profile_contact_remote_search";
 
-         /**
-         * 0 - wallpaper based
-         * 1 - force light
-         * 2 - force dark
-	 * 3 - force black
+		/**
+         * 0-12 - Handle Accent Packages
          * @hide
          */
-        public static final String DEVICE_THEME = "device_theme";
-
-         /**
-         * 0-9 - Handle Accent Packages
-         * @hide
-         */
-	public static final String ACCENT_THEME = "accent_theme";
-
-         /**
-         * 0 - Use normal Tint
-         * 1 - Force colorAccent Tint
-         * @hide
-         */
-        public static final String TINT_MODE = "tint_mode";
-
-	/**
-         * 0 - Enable Warning Color on 90%+ brightness
-         * 1 - Disable Warning Color
-         * @hide
-         */
-	public static final String BRIGHTNESS_WARN_MODE = "brightness_warn_mode";
+		public static final String ACCENT_THEME = "accent_theme";
 
         /**
          * Whether or not the automatic storage manager is enabled and should run on the device.
