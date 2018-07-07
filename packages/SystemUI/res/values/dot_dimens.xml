@@ -55,4 +55,11 @@
 	<!-- QS Left/Right Margin -->
 	<dimen name="qs_container_margin">4dp</dimen>
 	
+	<!-- Interface Corners -->
+	<dimen name="interface_corners">8dp</dimen>
+	
+    <dimen name="quick_qs_total_height">176dp</dimen>
+	
+	<dimen name="qs_quick_tile_space_width">0dp</dimen>
+	
 </resources>

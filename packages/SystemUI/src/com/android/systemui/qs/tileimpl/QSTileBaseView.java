@@ -85,6 +85,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setFocusable(true);
 		SettingsObserver settingsObserver = new SettingsObserver(mHandler);
         settingsObserver.observe();
+		updateAlpha();
     }
 
     protected Drawable newTileBackground() {
@@ -206,8 +207,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         int alpha = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.QS_TILE_ALPHA, 255,
                 UserHandle.USER_CURRENT);
-		qs_active.setAlpha(alpha);
-		qs_inactive.setAlpha(alpha);
+		setAlpha(alpha);
     }
 
     @Override

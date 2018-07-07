@@ -22,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingStart="@dimen/notification_content_margin_start"
-		android:background="#00000000">
+        android:paddingStart="@dimen/notification_content_margin_start">
 
     <ImageView
             android:layout_width="match_parent"

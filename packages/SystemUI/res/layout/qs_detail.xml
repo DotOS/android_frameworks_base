@@ -23,6 +23,8 @@
     android:clickable="true"
     android:orientation="vertical"
     android:paddingBottom="8dp"
+	android:layout_marginStart="@dimen/qs_container_margin"
+	android:layout_marginEnd="@dimen/qs_container_margin"
     android:visibility="invisible">
 
     <include

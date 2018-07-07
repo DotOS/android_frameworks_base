@@ -381,7 +381,7 @@
     <!-- Whether or not the notification contents should be clipped to any background that is
          set on the notification container. For example, if this value is true and the background
          has rounded corners, then the contents will be clipped to those corners. -->
-    <bool name="config_clipNotificationsToOutline">false</bool>
+    <bool name="config_clipNotificationsToOutline">true</bool>
 
     <!-- Whether or not notifications that can be expanded will always be in their expanded state.
          This value only affects notifications that are not a group of notifications from the same

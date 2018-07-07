@@ -20,7 +20,7 @@
         <inset android:insetRight="10.0dip">
             <shape>
                 <solid android:color="@color/notification_guts_bg_color" />
-                <corners android:radius="5.0dip" />
+                <corners android:radius="@dimen/interface_corners" />
             </shape>
         </inset>
     </item>

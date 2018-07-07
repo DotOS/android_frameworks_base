@@ -17,9 +17,11 @@
 package com.android.systemui.qs;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Handler;
@@ -31,6 +33,8 @@ import android.widget.FrameLayout;
 
 import com.android.systemui.R;
 import com.android.systemui.qs.customize.QSCustomizer;
+
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 /**
  * Wrapper view with background which contains {@link QSPanel} and {@link BaseStatusBarHeader}
@@ -50,8 +54,10 @@ public class QSContainerImpl extends FrameLayout {
 	private View mBackground;
 	private View mQSFooter;
 	private View mHeaderView;
+	private View mQuickHeader;
 	private String mHeaderColor = "#00FFFFFF";
 	private int mQsBackGroundAlpha;
+	private GradientDrawable mBackgroundGradient;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -72,12 +78,18 @@ public class QSContainerImpl extends FrameLayout {
 		mBackground = findViewById(R.id.quick_settings_background);
 		mQSFooter = findViewById(R.id.qs_footer);
 		mHeaderView = findViewById(R.id.qs_top_background);
+		mQuickHeader = findViewById(R.id.quick_header);
+		mBackgroundGradient = new GradientDrawable();
+		mBackgroundGradient.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+		mBackgroundGradient.setShape(GradientDrawable.RECTANGLE);
+		
 		updateColor();
 
         mFullElevation = mQSPanel.getElevation();
 
         setClickable(true);
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
+		updateAlpha();
     }
 	
 	private class ColorObserver extends ContentObserver {
@@ -107,7 +119,11 @@ public class QSContainerImpl extends FrameLayout {
 			mHeaderColor = "#00FFFFFF";
 			Settings.System.putString(getContext().getContentResolver(), Settings.System.QS_HEADER_COLOR, "#00FFFFFF");
 		}
-		mHeaderView.setBackgroundColor(Color.parseColor(mHeaderColor));
+		mBackgroundGradient.setColors(new int[]{
+				Color.parseColor(mHeaderColor),
+				Color.TRANSPARENT,
+		});
+		mHeaderView.setBackground(mBackgroundGradient);
     }
 	
 	private class SettingsObserver extends ContentObserver {
@@ -133,6 +149,23 @@ public class QSContainerImpl extends FrameLayout {
                 UserHandle.USER_CURRENT);
 		Drawable bg = mBackground.getBackground();
 		bg.setAlpha(mQsBackGroundAlpha);
+    }
+	
+	@Override
+	protected void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        if (configuration.orientation == ORIENTATION_PORTRAIT) {
+            mHeaderView.setVisibility(View.VISIBLE);
+        } else {
+            mHeaderView.setVisibility(View.INVISIBLE);
+        }
+        mSizePoint.set(0, 0);
+		Resources res = mContext.getResources();
+		if (configuration.orientation == ORIENTATION_PORTRAIT) {
+			mQSPanel.setPadding(0, res.getDimensionPixelSize(R.dimen.qs_brightness_padding_top), 0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_bottom));
+		} else {
+			mQSPanel.setPadding(0, res.getDimensionPixelSize(R.dimen.qs_brightness_padding_top) + 12, 0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_bottom));
+		}
     }
 
     @Override
@@ -183,11 +216,15 @@ public class QSContainerImpl extends FrameLayout {
     public void updateExpansion() {
         int height = calculateContainerHeight();
         setBottom(getTop() + height);
-        mQSDetail.setBottom(getTop() + height);
+		mQSDetail.setTop(mQSPanel.getTop());
+        mQSDetail.setBottom(height);
 		mBackground.setTop(mQSPanel.getTop());
         mBackground.setBottom(height);
+		mBackgroundGradient.setSize(mBackground.getWidth(), 4 * mQSPanel.getTop());
+		mHeaderView.setBottom(4 * mQSPanel.getTop());
+		mQuickHeader.setTop(mQSPanel.getTop() + 8);
         // Pin QS Footer to the bottom of the panel.
-        //mQSFooter.setTranslationY(height - mQSFooter.getHeight());
+        mQSFooter.setTranslationY(height - mQSFooter.getHeight());
     }
 
     protected int calculateContainerHeight() {

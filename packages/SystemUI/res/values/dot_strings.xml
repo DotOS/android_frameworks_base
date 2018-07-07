@@ -163,4 +163,8 @@
 
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+	
+	<string name="add_memento">Add a Quick Memento</string>
+    <string name="set_memento">Set Quick Memento</string>
+    <string name="memento_size">Max Size : 18 characters</string>
 </resources>
