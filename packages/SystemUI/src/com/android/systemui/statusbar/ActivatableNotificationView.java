@@ -184,7 +184,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         super(context, attrs);
         mSlowOutFastInInterpolator = new PathInterpolator(0.8f, 0.0f, 0.6f, 1.0f);
         mSlowOutLinearInInterpolator = new PathInterpolator(0.8f, 0.0f, 1.0f, 1.0f);
-        setClipChildren(false);
+        setClipChildren(true);
         setClipToPadding(false);
         mNormalColor = context.getColor(R.color.notification_material_background_color);
         mLowPriorityColor = context.getColor(

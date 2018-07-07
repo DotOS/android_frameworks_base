@@ -193,7 +193,7 @@
     <dimen name="notification_header_background_height">45.5dp</dimen>
 
     <!-- The top padding for the notification header -->
-    <dimen name="notification_header_padding_top">7dp</dimen>
+    <dimen name="notification_header_padding_top">10dp</dimen>
 
     <!-- The bottom padding for the notification header -->
     <dimen name="notification_header_padding_bottom">11dp</dimen>

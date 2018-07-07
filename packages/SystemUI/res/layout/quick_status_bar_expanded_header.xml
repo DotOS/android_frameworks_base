@@ -30,20 +30,18 @@
     android:paddingTop="0dp">
 
     <include layout="@layout/quick_status_bar_header_system_icons" />
+	
+	<include layout="@layout/quick_settings_header" />
 
 	<com.android.systemui.qs.QuickQSPanel
         android:id="@+id/quick_qs_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
-        android:layout_below="@+id/qs_header_system_icons"
-		android:minHeight="48dp"
+        android:layout_below="@+id/quick_header"
         android:accessibilityTraversalAfter="@+id/date_time_group"
         android:accessibilityTraversalBefore="@id/expand_indicator"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:padding="16dp"
         android:focusable="true"
         android:importantForAccessibility="yes" />
 

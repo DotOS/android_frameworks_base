@@ -17,13 +17,19 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<View
+		android:background="@android:color/transparent"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/qs_panel_top_margin"/>
+
     <Toolbar
         android:id="@*android:id/action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:navigationContentDescription="@*android:string/action_bar_up_description"
-        style="?android:attr/toolbarStyle" />
+        style="?android:attr/toolbarStyle"
+		android:layout_marginStart="@dimen/qs_container_margin"
+		android:layout_marginEnd="@dimen/qs_container_margin" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@android:id/list"
@@ -32,7 +38,9 @@
         android:layout_weight="1"
         android:scrollIndicators="top"
         android:scrollbars="vertical"
-        android:importantForAccessibility="no" />
+        android:importantForAccessibility="no"
+		android:layout_marginStart="@dimen/qs_container_margin"
+		android:layout_marginEnd="@dimen/qs_container_margin" />
 
     <View
         android:id="@+id/nav_bar_background"
@@ -40,4 +48,5 @@
         android:layout_height="@dimen/navigation_bar_size"
         android:layout_gravity="bottom"
         android:background="#ff000000" />
+		
 </merge>

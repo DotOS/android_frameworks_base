@@ -31,6 +31,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -74,6 +75,8 @@ public class QSDetail extends LinearLayout {
     private boolean mAnimatingOpen;
     private boolean mSwitchState;
     private View mFooter;
+	private RelativeLayout mQuickHeader;
+	private QuickQSPanel mQuickQS;
 
     public QSDetail(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -115,6 +118,8 @@ public class QSDetail extends LinearLayout {
             }
         };
         mDetailDoneButton.setOnClickListener(doneListener);
+		
+		setClipChildren(true);
     }
 
     public void setQsPanel(QSPanel panel, QuickStatusBarHeader header, View footer) {
@@ -123,6 +128,8 @@ public class QSDetail extends LinearLayout {
         mFooter = footer;
         mHeader.setCallback(mQsPanelCallback);
         mQsPanel.setCallback(mQsPanelCallback);
+		mQuickHeader = mHeader.findViewById(R.id.quick_header);
+		mQuickQS = mHeader.findViewById(R.id.quick_qs_panel);
     }
 
     public void setHost(QSTileHost host) {
@@ -215,7 +222,11 @@ public class QSDetail extends LinearLayout {
             mClosingDetail = true;
             mDetailAdapter = null;
             listener = mTeardownDetailWhenDone;
-            mHeader.setVisibility(View.VISIBLE);
+			if (mQuickHeader != null) {
+				mQuickHeader.setVisibility(View.VISIBLE);
+				mQuickQS.setVisibility(View.VISIBLE);
+				mQuickQS.setGridContentVisibility(true);
+			}
             mFooter.setVisibility(View.VISIBLE);
             mQsPanel.setGridContentVisibility(true);
             mQsPanelCallback.onScanStateChanged(false);
@@ -353,7 +364,11 @@ public class QSDetail extends LinearLayout {
             // Only hide content if still in detail state.
             if (mDetailAdapter != null) {
                 mQsPanel.setGridContentVisibility(false);
-                mHeader.setVisibility(View.INVISIBLE);
+				if (mQuickHeader != null) {
+					mQuickHeader.setVisibility(View.INVISIBLE);
+					mQuickQS.setVisibility(View.INVISIBLE);
+					mQuickQS.setGridContentVisibility(false);
+				}
                 mFooter.setVisibility(View.INVISIBLE);
             }
             mAnimatingOpen = false;

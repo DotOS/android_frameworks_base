@@ -16,27 +16,29 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="52dp"
+    android:gravity="center"
+    android:paddingStart="8dp"
     android:paddingEnd="8dp"
-    android:gravity="end">
+	android:layout_marginBottom="16dp">
 
     <TextView
         android:id="@android:id/button2"
         style="@style/QSBorderlessButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:minWidth="132dp"
-        android:textAppearance="@style/TextAppearance.QS.DetailButton"
-        android:focusable="true" />
+        android:layout_weight="1"
+        android:focusable="true"
+        android:textAppearance="@style/TextAppearance.QS.DetailButton" />
 
     <TextView
         android:id="@android:id/button1"
         style="@style/QSBorderlessButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="88dp"
-        android:textAppearance="@style/TextAppearance.QS.DetailButton"
-        android:focusable="true"/>
+        android:layout_weight="1"
+        android:focusable="true"
+        android:textAppearance="@style/TextAppearance.QS.DetailButton" />
 
 </LinearLayout>
