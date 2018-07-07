@@ -52,6 +52,7 @@ import android.view.ViewGroup;
 import android.widget.CustomAnalogClock;
 import android.widget.DeadPoolAnalogClock;
 import android.widget.DotAnalogClock;
+import android.widget.SpectrumAnalogClock;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -82,6 +83,7 @@ public class KeyguardStatusView extends GridLayout implements
     private CustomAnalogClock mAnalogClockView;
     private DeadPoolAnalogClock mDeadPoolClockView;	
     private DotAnalogClock mDotClockView;	
+    private SpectrumAnalogClock mSpectrumClockView;	
     private TextClock mClockView;
     private TextView mOwnerInfo;
     private ViewGroup mClockContainer;
@@ -217,6 +219,7 @@ public class KeyguardStatusView extends GridLayout implements
         mAnalogClockView = findViewById(R.id.analog_clock_view);
         mDeadPoolClockView = findViewById(R.id.deadpool_clock_view);
         mDotClockView = findViewById(R.id.dot_clock_view);
+        mSpectrumClockView = findViewById(R.id.spectrum_clock_view);
         mClockView = findViewById(R.id.clock_view);
         mClockView.setShowCurrentUserTime(true);
         mOwnerInfo = findViewById(R.id.owner_info);
@@ -274,6 +277,12 @@ public class KeyguardStatusView extends GridLayout implements
         dotlayoutParams.bottomMargin = getResources().getDimensionPixelSize(
                 R.dimen.bottom_text_spacing_digital);
         mDotClockView.setLayoutParams(dotlayoutParams);
+		
+		// Spectrum analog clock
+        MarginLayoutParams spectrumlayoutParams = (MarginLayoutParams) mSpectrumClockView.getLayoutParams();
+        spectrumlayoutParams.bottomMargin = getResources().getDimensionPixelSize(
+                R.dimen.bottom_text_spacing_digital);
+        mSpectrumClockView.setLayoutParams(spectrumlayoutParams);
 
         // DateView
         mDateView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(
@@ -457,25 +466,29 @@ public class KeyguardStatusView extends GridLayout implements
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
 				mDotClockView.setVisibility(View.GONE);
+				mSpectrumClockView.setVisibility(View.GONE);
                 break;
             case 1: // digital (bold)
 	    case 6: // digital (small)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
-				mDotClockView.setVisibility(View.GONE);										  
+				mDotClockView.setVisibility(View.GONE);				
+				mSpectrumClockView.setVisibility(View.GONE);				
                 break;
             case 2: // analog
                 mAnalogClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
 				mDotClockView.setVisibility(View.GONE);
+				mSpectrumClockView.setVisibility(View.GONE);
                 break;
             case 3: // analog (deadpool)
                 mDeadPoolClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mAnalogClockView.setVisibility(View.GONE);
                 mClockView.setVisibility(View.GONE);
 				mDotClockView.setVisibility(View.GONE);
+				mSpectrumClockView.setVisibility(View.GONE);
                 break;
             case 4: // sammy
 	        case 5: // sammy (bold)
@@ -483,13 +496,23 @@ public class KeyguardStatusView extends GridLayout implements
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
 				mDotClockView.setVisibility(View.GONE);
+				mSpectrumClockView.setVisibility(View.GONE);
                 break;
 			case 7: // analog (DotOS)
                 mDotClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mAnalogClockView.setVisibility(View.GONE);
                 mClockView.setVisibility(View.GONE);
 				mDeadPoolClockView.setVisibility(View.GONE);
+				mSpectrumClockView.setVisibility(View.GONE);
                 break;
+			case 8: // Spectrum Analog
+			    mSpectrumClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mAnalogClockView.setVisibility(View.GONE);
+                mClockView.setVisibility(View.GONE);
+				mDeadPoolClockView.setVisibility(View.GONE);
+				mDotClockView.setVisibility(View.GONE);
+                break;
+			
         }
 
         mDateView.setVisibility(mDarkAmount != 1 ? (mShowDate ? View.VISIBLE : View.GONE) : View.VISIBLE);
@@ -552,6 +575,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mAnalogClockView.unregisterReceiver();
                 mDeadPoolClockView.unregisterReceiver();
 				mDotClockView.unregisterReceiver();
+				mSpectrumClockView.unregisterReceiver();
                 break;
             case 1: // digital (bold)
 	    case 6: // digital (smal)
@@ -560,18 +584,21 @@ public class KeyguardStatusView extends GridLayout implements
                 mAnalogClockView.unregisterReceiver();
                 mDeadPoolClockView.unregisterReceiver();
 				mDotClockView.unregisterReceiver();
+				mSpectrumClockView.unregisterReceiver();
                 break;
             case 2: // analog
                 params.addRule(RelativeLayout.BELOW, R.id.analog_clock_view);
                 mAnalogClockView.registerReceiver();
                 mDeadPoolClockView.unregisterReceiver();
 				mDotClockView.unregisterReceiver();
+				mSpectrumClockView.unregisterReceiver();
                 break;
             case 3: // analog (deadpool)
                 params.addRule(RelativeLayout.BELOW, R.id.deadpool_clock_view);
                 mAnalogClockView.unregisterReceiver();
                 mDeadPoolClockView.registerReceiver();
 				mDotClockView.unregisterReceiver();
+				mSpectrumClockView.unregisterReceiver();
                 break;
             case 4: // sammy
 	    case 5: // sammy (bold)
@@ -580,11 +607,20 @@ public class KeyguardStatusView extends GridLayout implements
                 mAnalogClockView.unregisterReceiver();
                 mDeadPoolClockView.unregisterReceiver();
 				mDotClockView.unregisterReceiver();
+				mSpectrumClockView.unregisterReceiver();
                 break;
 			case 7: // analog (dotos)
                 params.addRule(RelativeLayout.BELOW, R.id.dot_clock_view);
                 mAnalogClockView.unregisterReceiver();
                 mDotClockView.registerReceiver();
+				mDeadPoolClockView.unregisterReceiver();
+				mSpectrumClockView.unregisterReceiver();
+                break;
+			case 8: // analog (spectrum)
+                params.addRule(RelativeLayout.BELOW, R.id.spectrum_clock_view);
+                mAnalogClockView.unregisterReceiver();
+				mSpectrumClockView.registerReceiver();
+                mDotClockView.unregisterReceiver();
 				mDeadPoolClockView.unregisterReceiver();
                 break;
         }
@@ -724,6 +760,7 @@ public class KeyguardStatusView extends GridLayout implements
         mAnalogClockView.setDark(dark);
         mDeadPoolClockView.setDark(dark);
         mDotClockView.setDark(dark);
+        mSpectrumClockView.setDark(dark);
         updateVisibilities(); // with updated mDarkAmount value
     }
 
