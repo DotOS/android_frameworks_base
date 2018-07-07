@@ -51,5 +51,12 @@
         <attr name="spectrum_hand_hour" format="reference"/>
         <attr name="spectrum_hand_minute" format="reference"/>
     </declare-styleable>
+	
+	<!-- Sneeky Analog clock -->
+    <declare-styleable name="SneekyAnalogClock">
+        <attr name="sneeky_dial" format="reference"/>
+        <attr name="sneeky_hand_hour" format="reference"/>
+        <attr name="sneeky_hand_minute" format="reference"/>
+    </declare-styleable>
 
 </resources>
