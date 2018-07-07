@@ -96,6 +96,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private boolean mKeyguardShowing;
 	
 	private CarrierText mCarrierText;
+	private View mShape;
+	private PageIndicator mPageIndicator;
 
     public QSFooterImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -120,6 +122,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mMultiUserAvatar = mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
 		
 		mCarrierText = findViewById(R.id.qs_carrier_text);
+		mShape = findViewById(R.id.qs_drag_handle_view);
+		mPageIndicator = findViewById(R.id.footer_page_indicator);
 
         // RenderThread is doing more harm than good when touching the header (to expand quick
         // settings), so disable it for this view
@@ -142,9 +146,10 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         int defSpace = mContext.getResources().getDimensionPixelOffset(R.dimen.default_gear_space);
 
         mAnimator = new Builder()
-                //.addFloat(mSettingsContainer, "translationX", -(remaining - defSpace), 0)
+                .addFloat(mSettingsContainer, "translationX", -(remaining - defSpace), 0)
 				.addFloat(mSettingsContainer, "alpha", 0, 1)
                 .addFloat(mSettingsButton, "rotation", -120, 0)
+				.setStartDelay(0.15f)
                 .build();
         setExpansion(mExpansionAmount);
     }
@@ -169,8 +174,11 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private TouchAnimator createSettingsAlphaAnimator() {
         return new TouchAnimator.Builder()
 		        .addFloat(mCarrierText, "alpha", 0, 1)
+				.addFloat(mShape, "alpha", 1, 0)
                 .addFloat(mEdit, "alpha", 0, 1)
                 .addFloat(mMultiUserSwitch, "alpha", 0, 1)
+				.addFloat(mPageIndicator, "alpha", 0, 1)
+				.setStartDelay(0.15f)
                 .build();
     }
 
@@ -236,6 +244,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
         mEdit.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
 		
+		mSettingsContainer.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
+		
 		mCarrierText.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
     }
 
@@ -258,6 +268,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mQsPanel = qsPanel;
         if (mQsPanel != null) {
             mMultiUserSwitch.setQsPanel(qsPanel);
+			mQsPanel.setFooterPageIndicator(mPageIndicator);
         }
     }
 

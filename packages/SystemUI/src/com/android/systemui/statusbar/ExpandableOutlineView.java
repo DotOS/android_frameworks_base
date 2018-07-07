@@ -48,14 +48,14 @@ public abstract class ExpandableOutlineView extends ExpandableView {
             int translation = mShouldTranslateContents ? (int) getTranslation() : 0;
             if (!mCustomOutline) {
                 outline.setRoundRect(translation,
-                        mClipTopAmount,
+                        mClipTopAmount - 4,
                         getWidth() + translation,
                         Math.max(getActualHeight() - mClipBottomAmount, mClipTopAmount),
                         mOutlineRadius);
             } else {
                 outline.setRoundRect(mOutlineRect, mOutlineRadius);
             }
-            outline.setAlpha(mOutlineAlpha);
+            outline.setAlpha(0);
         }
     };
 
@@ -98,7 +98,7 @@ public abstract class ExpandableOutlineView extends ExpandableView {
 
     protected void setOutlineAlpha(float alpha) {
         if (alpha != mOutlineAlpha) {
-            mOutlineAlpha = alpha;
+            mOutlineAlpha = 0;
             invalidateOutline();
         }
     }

@@ -27,7 +27,9 @@
     android:clipToPadding="false"
     android:paddingTop="0dp"
     android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+	android:background="@android:color/transparent"
+    android:elevation="4.0dip">
 
     <com.android.keyguard.CarrierText
         android:id="@+id/qs_carrier_text"
@@ -119,5 +121,22 @@
             android:padding="14dp"
             android:visibility="gone"/>
     </LinearLayout>
+	
+	<View
+        android:id="@+id/qs_drag_handle_view"
+        android:layout_width="24dp"
+        android:layout_height="4dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/qs_footer_drag_handle" />
+		
+	<com.android.systemui.qs.PageIndicator
+		android:id="@+id/footer_page_indicator"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_gravity="center"
+		android:gravity="center"
+		android:visibility="gone"/>
+		
 
 </com.android.systemui.qs.QSFooterImpl>

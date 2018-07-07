@@ -14,7 +14,9 @@
 
 package com.android.systemui.qs;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -28,9 +30,12 @@ import android.provider.Settings;
 import android.support.annotation.VisibleForTesting;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.keyguard.CarrierText;
 import com.android.settingslib.Utils;
@@ -49,6 +54,7 @@ import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
 
 public class QuickStatusBarHeader extends RelativeLayout {
 
+	private Context mContext;
     private ActivityStarter mActivityStarter;
 
     private QSPanel mQsPanel;
@@ -64,9 +70,12 @@ public class QuickStatusBarHeader extends RelativeLayout {
     private Clock mLeftClock;
 	
 	private View mDate;
+	private View mQuickMemento;
+	private View mQuickHeader;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
+		mContext = context;
     }
 
     @Override
@@ -94,6 +103,15 @@ public class QuickStatusBarHeader extends RelativeLayout {
         ((Clock)mLeftClock).setIsQshb(true);
 		
         mDate = findViewById(R.id.date);
+		mQuickMemento = findViewById(R.id.quick_memento);
+		mQuickHeader = findViewById(R.id.quick_header);
+		
+		mQuickMemento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+				//setMemento();
+			}
+        });
 		
         mActivityStarter = Dependency.get(ActivityStarter.class);
 		
@@ -107,7 +125,6 @@ public class QuickStatusBarHeader extends RelativeLayout {
 	    applyDarkness(R.id.battery, tintArea, intensity, colorForeground);
         applyDarkness(R.id.clock, tintArea, intensity, colorForeground);
 		applyDarkness(R.id.left_clock, tintArea, intensity, colorForeground);
-		applyDarkness(R.id.date, tintArea, intensity, colorForeground);
     }
 
     public void updateBatterySettings() {

@@ -30,10 +30,12 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
 import android.service.notification.StatusBarNotification;
@@ -59,6 +61,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
+import android.widget.FrameLayout;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -109,7 +112,7 @@ public class NotificationStackScrollLayout extends ViewGroup
         implements SwipeHelper.Callback, ExpandHelper.Callback, ScrollAdapter,
         ExpandableView.OnHeightChangedListener, NotificationGroupManager.OnGroupChangeListener,
         NotificationMenuRowPlugin.OnMenuEventListener, ScrollContainer,
-        VisibilityLocationProvider {
+        VisibilityLocationProvider{
 
     public static final float BACKGROUND_ALPHA_DIMMED = 0.7f;
     private static final String TAG = "StackScroller";
@@ -383,6 +386,7 @@ public class NotificationStackScrollLayout extends ViewGroup
     private int mCachedBackgroundColor;
     private boolean mHeadsUpGoingAwayAnimationsAllowed = true;
     private Runnable mAnimateScroll = this::animateScroll;
+	private float cornerRadius = 5.0f;
 
     public NotificationStackScrollLayout(Context context) {
         this(context, null);
@@ -400,7 +404,6 @@ public class NotificationStackScrollLayout extends ViewGroup
             int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         Resources res = getResources();
-
         mAmbientState = new AmbientState(context);
         mBgColor = context.getColor(R.color.notification_shade_background_color);
         int minHeight = res.getDimensionPixelSize(R.dimen.notification_min_height);
@@ -418,7 +421,7 @@ public class NotificationStackScrollLayout extends ViewGroup
                 res.getBoolean(R.bool.config_drawNotificationBackground);
         mFadeNotificationsOnDismiss =
                 res.getBoolean(R.bool.config_fadeNotificationsOnDismiss);
-
+				
         updateWillNotDraw();
         if (DEBUG) {
             mDebugPaint = new Paint();
@@ -465,12 +468,16 @@ public class NotificationStackScrollLayout extends ViewGroup
     }
 
     protected void onDraw(Canvas canvas) {
-        if (mShouldDrawNotificationBackground && !mAmbientState.isDark()
-                && mCurrentBounds.top < mCurrentBounds.bottom) {
-            canvas.drawRect(0, mCurrentBounds.top, getWidth(), mCurrentBounds.bottom,
-                    mBackgroundPaint);
+        if (!mShouldDrawNotificationBackground && !mAmbientState.isDark() 
+				&& mCurrentBounds.top < mCurrentBounds.bottom) {
+			RectF rect = new RectF();
+			rect.set(0, mCurrentBounds.top, getWidth(), mCurrentBounds.bottom);
+			Path clipPath = new Path();
+			clipPath.addRoundRect(rect, cornerRadius, cornerRadius, Path.Direction.CW);
+			canvas.clipPath(clipPath);
+			canvas.drawRoundRect(rect, cornerRadius, cornerRadius, mBackgroundPaint);
         }
-
+		
         if (DEBUG) {
             int y = mTopPadding;
             canvas.drawLine(0, y, getWidth(), y, mDebugPaint);
@@ -483,7 +490,7 @@ public class NotificationStackScrollLayout extends ViewGroup
 
     private void updateBackgroundDimming() {
         // No need to update the background color if it's not being drawn.
-        if (!mShouldDrawNotificationBackground) {
+        if (mShouldDrawNotificationBackground) {
             return;
         }
 
@@ -693,6 +700,7 @@ public class NotificationStackScrollLayout extends ViewGroup
                 setOwnScrollY(targetScroll);
             }
         }
+
     }
 
     private void requestChildrenUpdate() {
@@ -701,6 +709,7 @@ public class NotificationStackScrollLayout extends ViewGroup
             mChildrenUpdateRequested = true;
             invalidate();
         }
+
     }
 
     private boolean isCurrentlyAnimating() {
@@ -795,6 +804,7 @@ public class NotificationStackScrollLayout extends ViewGroup
         } else {
             setClipBounds(null);
         }
+
     }
 
     /**
@@ -1300,6 +1310,7 @@ public class NotificationStackScrollLayout extends ViewGroup
         initView(getContext());
         updateWillNotDraw();
         updateBackgroundDimming();
+
     }
 
     @Override
@@ -2076,6 +2087,7 @@ public class NotificationStackScrollLayout extends ViewGroup
     }
 
     private void updateBackground() {
+
         // No need to update the background color if it's not being drawn.
         if (!mShouldDrawNotificationBackground || mAmbientState.isDark()) {
             return;
@@ -3492,6 +3504,7 @@ public class NotificationStackScrollLayout extends ViewGroup
             requestAnimationOnViewResize(row);
         }
         requestChildrenUpdate();
+
     }
 
     @Override

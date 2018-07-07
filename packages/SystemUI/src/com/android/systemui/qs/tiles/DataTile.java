@@ -181,7 +181,7 @@ public class DataTile extends QSTileImpl<BooleanState> {
         state.value = mDataController.isMobileDataSupported()
                 && mDataController.isMobileDataEnabled();
 
-        if (cb.airplaneModeEnabled | cb.noSim) {
+        if (cb.noSim) {
             state.state = Tile.STATE_UNAVAILABLE;
         }
 		
@@ -202,6 +202,12 @@ public class DataTile extends QSTileImpl<BooleanState> {
 			    state.icon = ResourceIcon.get(R.drawable.ic_qs_data_on);
 			    break;
 		}
+		
+		if (cb.airplaneModeEnabled) {
+			state.state = Tile.STATE_UNAVAILABLE;
+			state.icon = ResourceIcon.get(R.drawable.ic_qs_data_on);
+		}
+		
     }
 	
 	private static final class CallbackInfo {

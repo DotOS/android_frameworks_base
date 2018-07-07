@@ -57,6 +57,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
     private TouchAnimator mTranslationXAnimator;
     private TouchAnimator mTranslationYAnimator;
     private TouchAnimator mNonfirstPageAnimator;
+	private TouchAnimator mNonfirstPageDelayedAnimator;
     private TouchAnimator mBrightnessAnimator;
 
     private boolean mOnKeyguard;
@@ -270,6 +271,10 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                 .setListener(mNonFirstPageListener)
                 .setEndDelay(.5f)
                 .build();
+		mNonfirstPageDelayedAnimator = new Builder()
+				.setStartDelay(0.14f)
+				.addFloat(tileLayout, "alpha", 0, 1)
+				.build();
     }
 
     private boolean isIconInAnimatedRow(int count) {
@@ -314,6 +319,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
             }
         } else {
             mNonfirstPageAnimator.setPosition(position);
+			mNonfirstPageDelayedAnimator.setPosition(position);
         }
     }
 

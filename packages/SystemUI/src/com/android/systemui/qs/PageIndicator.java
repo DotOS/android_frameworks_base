@@ -53,7 +53,7 @@ public class PageIndicator extends ViewGroup {
             removeViewAt(getChildCount() - 1);
         }
         TypedArray array = getContext().obtainStyledAttributes(
-                new int[]{android.R.attr.colorForeground});
+                new int[]{android.R.attr.colorAccent});
         int color = array.getColor(0, 0);
         array.recycle();
         while (numPages > getChildCount()) {

@@ -73,6 +73,7 @@
     <com.android.systemui.statusbar.notification.FakeShadowView
         android:id="@+id/fake_shadow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+		android:layout_marginTop="4dp"/>
 
 </com.android.systemui.statusbar.ExpandableNotificationRow>
