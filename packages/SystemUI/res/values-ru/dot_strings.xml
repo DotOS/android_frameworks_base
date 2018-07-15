@@ -29,15 +29,15 @@
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">Настройки по-умолчанию</string>
+  <string name="systemui_tuner_navbar_title">Настройки по умолчанию</string>
   <string name="statusbar_items_title">Значки строки состояния</string>
   <string name="lockscreen_default">По умолчанию</string>
-  <string name="lockscreen_hidden">None</string>
+  <string name="lockscreen_hidden">Ничего</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Снимок экрана</string>
-  <string name="quick_settings_region_screenshot_label">Частичный скриншот</string>
+  <string name="quick_settings_screenshot_label">Скриншот</string>
+  <string name="quick_settings_region_screenshot_label">Скриншот выбранной области экрана</string>
   <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">PiP</string>
+  <string name="quick_settings_pip_label">Картинка в картинке (PiP)</string>
   <string name="quick_settings_pip_tile_app_na">Приложение не поддерживает PiP</string>
   <string name="omnijaws_service_error">Ошибка</string>
   <string name="omnijaws_service_unkown">Нет данных о погоде</string>
@@ -112,8 +112,8 @@
   <string name="quick_settings_sound_search">Поиск музыки</string>
   <string name="quick_settings_sound_search_no_app">Извините, но это не работает без приложения для поиска музыки.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT логотип</string>
-  <string name="dot_logo_summary">Показывать, что вы используете DotOS (перезагрузите SystemUI, чтобы изменения вступили в силу)</string>
+  <string name="dot_logo_title">Логотип DOT</string>
+  <string name="dot_logo_summary">Пусть все знают, что вы используете DotOS, когда они видят ваш телефон (перезагрузите системный интерфейс чтобы настройки вступили в силу)</string>
   <!-- Sync QS Tile -->
   <string name="quick_settings_sync_label">Синхронизация</string>
   <string name="accessibility_quick_settings_sync_off">Синхронизация выкл.</string>
@@ -123,10 +123,10 @@
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Полностью заряжена</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Наэкранные кнопки</string>
-  <string name="quick_settings_smartbar">Умная панель</string>
-  <string name="quick_settings_fling">Жесты</string>
-  <string name="quick_settings_navigation_default">по умолчанию</string>
+  <string name="quick_settings_navigation_bar">Панель навигации</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_navigation_default">Панель навигации по умолчанию</string>
   <string name="quick_settings_navigation_disabled">Отключено</string>
   <!-- HW Keys Tile -->
   <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
