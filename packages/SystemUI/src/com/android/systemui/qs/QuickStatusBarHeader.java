@@ -51,11 +51,13 @@ import com.android.systemui.battery.BatteryMeterView;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.qs.QSDetail.Callback;
 import com.android.systemui.statusbar.phone.StatusBarContentInsetsProvider;
+import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.VariableDateView;
 import com.android.systemui.statusbar.policy.NetworkTraffic;
+import com.android.systemui.tuner.TunerService;
 
 import java.util.List;
 
@@ -63,7 +65,7 @@ import java.util.List;
  * View that contains the top-most bits of the QS panel (primarily the status bar with date, time,
  * battery, carrier info and privacy icons) and also contains the {@link QuickQSPanel}.
  */
-public class QuickStatusBarHeader extends FrameLayout implements
+public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tunable,
         View.OnClickListener, View.OnLongClickListener {
 
     private boolean mExpanded;
@@ -181,6 +183,9 @@ public class QuickStatusBarHeader extends FrameLayout implements
                 .addFloat(mIconContainer, "alpha", 0, 1)
                 .addFloat(mBatteryRemainingIcon, "alpha", 0, 1)
                 .build();
+
+        Dependency.get(TunerService.class).addTunable(this,
+                StatusBarIconController.ICON_HIDE_LIST);
     }
 
     void onAttach(TintedIconManager iconManager,
@@ -632,5 +637,11 @@ public class QuickStatusBarHeader extends FrameLayout implements
     private void setBatteryClickable(boolean clickable) {
         mBatteryRemainingIcon.setOnClickListener(clickable ? this : null);
         mBatteryRemainingIcon.setClickable(clickable);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mClockView.setClockVisibleByUser(!StatusBarIconController.getIconHideList(
+                mContext, newValue).contains("clock"));
     }
 }
