@@ -136,18 +136,12 @@ public class VolumeDialogMotion {
                     if (mChevronPositionAnimator != null) {
                         final float v = (Float) mChevronPositionAnimator.getAnimatedValue();
                         if (mChevronPositionAnimator == null) return;
-                        // reposition chevron
-                        final int posY = chevronPosY();
-                        mChevron.setTranslationY(posY + v + -mDialogView.getTranslationY());
                     }
                 })
                 .withEndAction(new Runnable() {
                     @Override
                     public void run() {
                         if (mChevronPositionAnimator == null) return;
-                        // reposition chevron
-                        final int posY = chevronPosY();
-                        mChevron.setTranslationY(posY + -mDialogView.getTranslationY());
                     }
                 })
                 .start();
@@ -185,19 +179,6 @@ public class VolumeDialogMotion {
                 .setDuration(scaledDuration(150))
                 .setInterpolator(new PathInterpolator(0f, 0f, .2f, 1f))
                 .start();
-
-        mChevronPositionAnimator = ValueAnimator.ofFloat(-chevronDistance(), 0)
-                .setDuration(scaledDuration(250));
-        mChevronPositionAnimator.setInterpolator(new PathInterpolator(.4f, 0f, .2f, 1f));
-        mChevronPositionAnimator.start();
-
-        mChevron.setAlpha(0);
-        mChevron.animate()
-                .alpha(1)
-                .setStartDelay(scaledDuration(50))
-                .setDuration(scaledDuration(150))
-                .setInterpolator(new PathInterpolator(.4f, 0f, 1f, 1f))
-                .start();
     }
 
     public void startDismiss(final Runnable onComplete) {
@@ -213,7 +194,6 @@ public class VolumeDialogMotion {
             if (mChevronPositionAnimator != null) {
                 mChevronPositionAnimator.cancel();
             }
-            mChevron.animate().cancel();
             setShowing(false);
         }
         mDialogView.animate()
@@ -225,7 +205,7 @@ public class VolumeDialogMotion {
                     public void onAnimationUpdate(ValueAnimator animation) {
                         //mContents.setTranslationY(-mDialogView.getTranslationY());
                         final int posY = chevronPosY();
-                        mChevron.setTranslationY(posY + -mDialogView.getTranslationY());
+                        //mChevron.setTranslationY(posY + -mDialogView.getTranslationY());
                     }
                 })
                 .setListener(new AnimatorListenerAdapter() {

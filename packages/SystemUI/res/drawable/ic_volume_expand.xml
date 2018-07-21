@@ -17,16 +17,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:name="ic_caret_up"
     android:width="24dp"
-    android:viewportWidth="48"
+    android:viewportWidth="24"
     android:height="24dp"
-    android:viewportHeight="48"
-    android:tint="?android:attr/colorControlNormal" >
+    android:viewportHeight="24" >
 	<group
         android:name="caret_4" >
 		<group android:name="expand">
             <path
-				android:pathData="M30.83 32.67L21.66 23.5 30.83 14.33 28 11.5l-12 12 12 12z"
-				android:fillColor="#FFFFFFFF" />
+				android:fillColor="#6c6c6c"
+				android:pathData="M 12 0.94 C 17.9039239757 0.94 22.69 5.72607602431 22.69 11.63 C 22.69 17.5339239757 17.9039239757 22.32 12 22.32 C 6.09607602431 22.32 1.31 17.5339239757 1.31 11.63 C 1.31 5.72607602431 6.09607602431 0.94 12 0.94 Z" />
+			<path
+				android:fillColor="#ffffff"
+				android:pathData="M15,16.22l-4.58-4.59L15,7l-1.41-1.4-6,6,6,6Z" />
         </group>
     </group>
 </vector>
