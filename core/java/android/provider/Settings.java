@@ -4109,11 +4109,6 @@ public final class Settings {
          * the setting value. See an example above.
          */
         // DOTEXTRAS
-        /**
-         * Whether to show the battery info on the lockscreen while charging
-         * @hide
-         */
-        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
         /**
          * Whether to display the reboot option in the power menu
@@ -4189,6 +4184,12 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 		
 		/**
+         * Whether to show the battery info on the lockscreen while charging
+         * @hide
+         */
+        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
