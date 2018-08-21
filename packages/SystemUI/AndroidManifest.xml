@@ -387,9 +387,9 @@
             android:process=":screenshot"
             android:exported="false" />
 
-        <!-- Callback for dismissing screenrecord notification after a share target is picked -->
-        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$TargetChosenReceiver"
-            android:process=":screenrecord"
+        <!-- Callback for dismissing screenshot notification after a share target is picked -->
+        <receiver android:name=".screenshot.GlobalScreenshot$TargetChosenReceiver"
+            android:process=":screenshot"
             android:exported="false" />
 			
 		<!-- Callback for editing screenshot notification -->
@@ -397,23 +397,23 @@
                   android:process=":screenshot"
                   android:exported="false" />
 
-        <!-- Callback for deleting screenrecord notification -->
-        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$DeleteScreenrecordReceiver"
-            android:process=":screenrecord"
+        <!-- Callback for deleting screenshot notification -->
+        <receiver android:name=".screenshot.GlobalScreenshot$DeleteScreenshotReceiver"
+            android:process=":screenshot"
             android:exported="false" />
 
         <!-- Springboard for launching the share activity -->
-        <receiver android:name=".screenrecord.GlobalScreenrecord$ShareReceiver"
+        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$ShareReceiver"
             android:process=":screenrecord"
             android:exported="false" />
 
         <!-- Callback for dismissing screenrecord notification after a share target is picked -->
-        <receiver android:name=".screenrecord.GlobalScreenrecord$TargetChosenReceiver"
+        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$TargetChosenReceiver"
             android:process=":screenrecord"
             android:exported="false" />
 
         <!-- Callback for deleting screenrecord notification -->
-        <receiver android:name=".screenrecord.GlobalScreenrecord$DeleteScreenrecordReceiver"
+        <receiver android:name=".omni.screenrecord.GlobalScreenrecord$DeleteScreenrecordReceiver"
             android:process=":screenrecord"
             android:exported="false" />
 
