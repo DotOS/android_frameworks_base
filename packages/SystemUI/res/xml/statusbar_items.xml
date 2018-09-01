@@ -47,20 +47,12 @@
         android:title="@string/status_bar_work" />
 
     <com.android.systemui.tuner.StatusBarSwitch
-        android:key="mobile"
-        android:title="@string/quick_settings_cellular_detail_title" />
-
-    <com.android.systemui.tuner.StatusBarSwitch
         android:key="rotate"
         android:title="@string/status_bar_settings_auto_rotation" />
 
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="volume"
         android:title="@*android:string/volume_unknown" />
-
-    <com.android.systemui.tuner.StatusBarSwitch
-        android:key="wifi"
-        android:title="@string/quick_settings_wifi_label" />
 
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="zen"
