@@ -19,119 +19,119 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="global_action_restart_system">Reboot</string>
-  <string name="global_action_restart_advanced">Advanced reboot</string>
+  <string name="global_action_restart_system">הפעל מחדש</string>
+  <string name="global_action_restart_advanced">אתחול מתקדם</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Hot</string>
-  <string name="global_action_screenshot">Screenshot</string>
+  <string name="global_action_restart_ui">ממשק מערכת</string>
+  <string name="global_action_restart_hot">אתחול ללא כיבוי</string>
+  <string name="global_action_screenshot">צילום מסך</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">Stock settings</string>
-  <string name="statusbar_items_title">Statusbar icon</string>
-  <string name="lockscreen_default">Default</string>
-  <string name="lockscreen_hidden">None</string>
+  <string name="systemui_tuner_navbar_title">הגדרות ברירת מחדל</string>
+  <string name="statusbar_items_title">סמלון שורת המצב</string>
+  <string name="lockscreen_default">ברירת מחדל</string>
+  <string name="lockscreen_hidden">ללא</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+  <string name="quick_settings_screenshot_label">צילום מסך</string>
+  <string name="quick_settings_region_screenshot_label">צילום מסך חלקי</string>
   <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">App does not support PiP</string>
-  <string name="omnijaws_service_error">Error</string>
-  <string name="omnijaws_service_unkown">No weather data</string>
-  <string name="omnijaws_service_error_long">Error loading weather data</string>
-  <string name="omnijaws_service_disabled">Service is disabled</string>
-  <string name="omnijaws_detail_header">Weather</string>
-  <string name="omnijaws_label_default">Weather</string>
-  <string name="omnijaws_current_text">Now</string>
-  <string name="omnijaws_package_not_available">OmniJaws not available</string>
-  <string name="omnijaws_service_last_update">Last update:</string>
+  <string name="quick_settings_pip_label">תמונה בתוך תמונה</string>
+  <string name="quick_settings_pip_tile_app_na">היישום אינו תומך בתמונה בתוך תמונה</string>
+  <string name="omnijaws_service_error">שגיאה</string>
+  <string name="omnijaws_service_unkown">אין נתוני מזג אוויר</string>
+  <string name="omnijaws_service_error_long">שגיאה בטעינת נתוני מזג האוויר</string>
+  <string name="omnijaws_service_disabled">השירות מושבת</string>
+  <string name="omnijaws_detail_header">מזג אוויר</string>
+  <string name="omnijaws_label_default">מזג אוויר</string>
+  <string name="omnijaws_current_text">עכשיו</string>
+  <string name="omnijaws_package_not_available">OmniJaws אינו זמין</string>
+  <string name="omnijaws_service_last_update">עדכון אחרון:</string>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">Free RAM: %1$d MB</string>
+  <string name="recents_free_ram">זכרון חופשי: %1$d MB</string>
   <!-- volte icon switch -->
-  <string name="status_bar_volte">VOLTE</string>
+  <string name="status_bar_volte">VoLTE</string>
   <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Sound</string>
-  <string name="quick_settings_sound_ring">Ring</string>
-  <string name="quick_settings_sound_vibrate">Vibrate</string>
-  <string name="quick_settings_sound_dnd">Do not disturb</string>
+  <string name="quick_settings_sound_label">קול</string>
+  <string name="quick_settings_sound_ring">צלצול</string>
+  <string name="quick_settings_sound_vibrate">רטט</string>
+  <string name="quick_settings_sound_dnd">נא לא להפריע</string>
   <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
-  <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
-  <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
+  <string name="quick_settings_adb_network">ADB ברשת</string>
+  <string name="quick_settings_network_adb_enabled_label">ADB דרך הרשת</string>
+  <string name="quick_settings_network_adb_disabled_label">ADB דרך הרשת</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Screenrecord</string>
+  <string name="quick_settings_screenrecord">הקלטת מסך</string>
   <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
+  <string name="screenrecord_notif_ticker">המסך מוקלט</string>
   <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Recording screen</string>
+  <string name="screenrecord_notif_title">מקליט מסך</string>
   <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_stop">עצור</string>
   <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
+  <string name="screenrecord_notif_pointer_on">הצג מצביע</string>
+  <string name="screenrecord_notif_pointer_off">הסתר מצביע</string>
   <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Unable to record screen</string>
-  <string name="notification_channel_screenrecord">Screenrecords</string>
+  <string name="screenrecord_notif_error">לא ניתן להקליט מסך</string>
+  <string name="notification_channel_screenrecord">הקלטות מסך</string>
   <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="accessibility_quick_settings_usb_tether_off">שיתוף אינטרנט דרך USB כבוי</string>
+  <string name="accessibility_quick_settings_usb_tether_on">שיתוף אינטרנט דרך USB מופעל</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">שיתוף אינטרנט דרך USB כובה</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">שיתוף אינטרנט דרך USB הופעל</string>
+  <string name="quick_settings_usb_tether_label">שיתוף אינטרנט דרך USB</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - התראה מציצה אינה פעילה לדקה.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - התראה מציצה אינה פעילה למשך <xliff:g id="number">%d</xliff:g> דקות.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">override power key</string>
+  <string name="permlab_preventpower">שלוט על כפתור הכיבוי</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Allows an app to override the power key.</string>
+  <string name="permdesc_preventpower">נותן ליישום לעקוף את כפתור הכיבוי.</string>
   <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+  <string name="quick_settings_heads_up_label">התראות קופצות</string>
+  <string name="accessibility_quick_settings_heads_up_off">התראות קופצות כבויות.</string>
+  <string name="accessibility_quick_settings_heads_up_on">התראות קופצות פעילות.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">התראות קופצות כובו.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">התראות קופצות הופעלו.</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Invert button layout</string>
+  <string name="nav_bar_layout_inverse">הפוך פריסת מקשים</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">טעינה מהירה (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> עד 100%)</string>
+  <string name="keyguard_plugged_in_dash_charging">טעינה מהירה</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">כח טורבו מחובר (<xliff:g id="charging_time_left">%s</xliff:g> עד 100%)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">כח טורבו מחובר</string>
+  <string name="keyguard_plugged_in_turbo_charging">טעינת טורבו</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">חיפוש קולי</string>
+  <string name="quick_settings_sound_search_no_app">לא ניתן להפעיל אפשרות זו ללא יישום חיפוש קולי.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">לוגו dot</string>
+  <string name="dot_logo_summary">ליידע את כולם שאת/ה משתמש/ת ב-dotOS כאשר הם רואים את המכשיר שלך (הפעל מחדש את הממשק בכדי להפעיל)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">סינכרון</string>
+  <string name="accessibility_quick_settings_sync_off">הסינכרון כבוי</string>
+  <string name="accessibility_quick_settings_sync_on">הסינכרון פעיל</string>
+  <string name="accessibility_quick_settings_sync_changed_off">הסינכרון כובה</string>
+  <string name="accessibility_quick_settings_sync_changed_on">הסינכרון הופעל</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">הסוללה טעונה במלואה</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_bar">שורת הניווט</string>
+  <string name="quick_settings_smartbar">שורה חכמה</string>
+  <string name="quick_settings_fling">החלקה חכמה</string>
+  <string name="quick_settings_navigation_default">ברירת מחדל</string>
+  <string name="quick_settings_navigation_disabled">כבוי</string>
   <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <string name="accessibility_quick_settings_hwkeys_on">מקשי חומרה פעילים</string>
+  <string name="accessibility_quick_settings_hwkeys_off">מקשי חומרה כבויים</string>
+  <string name="quick_settings_hwkeys_label">מקשי חומרה</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">גרור או הקש כדי להוסיף מקשים</string>
 </resources>
