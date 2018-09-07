@@ -19,7 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="global_action_restart_system">Перезагрузка</string>
+  <string name="global_action_restart_system">Перезагрузка системного интерфейса</string>
   <string name="global_action_restart_advanced">Расширенная перезагрузка</string>
   <string name="global_action_restart_recovery">Режим восстановления</string>
   <string name="global_action_restart_bootloader">Загрузчик</string>

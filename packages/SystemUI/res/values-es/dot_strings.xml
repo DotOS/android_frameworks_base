@@ -27,7 +27,7 @@
   <string name="global_action_restart_hot">Caliente</string>
   <string name="global_action_screenshot">Captura de pantalla</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA +</string>
+  <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_navbar_title">Ajustes predeterminados</string>
   <string name="statusbar_items_title">Icono de barra de estado</string>
@@ -42,7 +42,7 @@
   <string name="omnijaws_service_error">Error</string>
   <string name="omnijaws_service_unkown">No hay datos del clima</string>
   <string name="omnijaws_service_error_long">Error cargando datos del clima</string>
-  <string name="omnijaws_service_disabled">El Servicio esta deshabilitado</string>
+  <string name="omnijaws_service_disabled">El servicio esta deshabilitado</string>
   <string name="omnijaws_detail_header">Clima</string>
   <string name="omnijaws_label_default">Clima</string>
   <string name="omnijaws_current_text">Ahora</string>
@@ -87,51 +87,51 @@
   <string name="accessibility_quick_settings_usb_tether_changed_on">El anclaje USB ha sido habilitado</string>
   <string name="quick_settings_usb_tether_label">Anclaje USB</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notificationes emergentes silenciadas por 1 minuto.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Las notificaciones emergentes están silenciadas durante <xliff:g id="number">%d</xliff:g> minutos.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">override power key</string>
+  <string name="permlab_preventpower">desactivar botón de encendido</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Allows an app to override the power key.</string>
+  <string name="permdesc_preventpower">Permitir que una aplicación reajuste el botón de encendido.</string>
   <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+  <string name="quick_settings_heads_up_label">Notificaciones emergentes</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notificaciones emergentes apagadas.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notificaciones emergentes activadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes apagadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes encendidas.</string>
   <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Invert button layout</string>
+  <string name="nav_bar_layout_inverse">Invertir el orden de los botones</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">Carga rápida (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> para terminar)</string>
+  <string name="keyguard_plugged_in_dash_charging">Carga rápida</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">TurboCarga Conectada (<xliff:g id="charging_time_left">%s</xliff:g> para terminar)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboCarga Conectada</string>
+  <string name="keyguard_plugged_in_turbo_charging">Carga Rápida</string>
   <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sound search</string>
-  <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
+  <string name="quick_settings_sound_search">Búsqueda de sonido</string>
+  <string name="quick_settings_sound_search_no_app">Lo sentimos, pero esto no funcionará si no tienes una aplicación de búsqueda de sonido.</string>
   <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Let everyone know that you\'re using DotOS when they see your phone(restart SystemUI to take effect)</string>
+  <string name="dot_logo_title">Logo de DOT</string>
+  <string name="dot_logo_summary">Deja que todos sepan que usas DotOS cuando miren tu pantalla(reinicia la Interfaz de usuario para aplicar)</string>
   <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Sincronizar</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronización apagada</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronización encendida</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronización apagada</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sincronización encendida</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Carga completada</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_bar">Barra de navegación</string>
+  <string name="quick_settings_smartbar">Barra Inteligente</string>
+  <string name="quick_settings_fling">Deslizar</string>
+  <string name="quick_settings_navigation_default">Por defecto</string>
+  <string name="quick_settings_navigation_disabled">Desactivado</string>
   <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-  <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-  <string name="quick_settings_hwkeys_label">HW keys</string>
+  <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas encendidas</string>
+  <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas apagadas</string>
+  <string name="quick_settings_hwkeys_label">Teclas físicas</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Arrastra o toca para agregar</string>
 </resources>
