@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">ABD přes USB &amp; síť povoleno</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Dotykem zakázat ladění.</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Pro interakci stiskněte dlouze tlačítko napájení</string>
 </resources>

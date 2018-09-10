@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">ADB melalui USB &amp; jaringan diaktifkan</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Sentuh untuk menonaktifkan debug.</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Tekan lama tombol power untuk menggunakan</string>
 </resources>

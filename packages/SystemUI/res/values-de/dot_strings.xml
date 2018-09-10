@@ -39,6 +39,11 @@
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">PiP</string>
   <string name="quick_settings_pip_tile_app_na">App unterstützt kein PiP</string>
+  <!-- Caffeine QS Tile -->
+  <string name="quick_settings_caffeine_label">Koffein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Koffein aus</string>
+  <string name="accessibility_quick_settings_caffeine_on">Koffein ein</string>
+  <!-- OmniJaws -->
   <string name="omnijaws_service_error">Fehler</string>
   <string name="omnijaws_service_unkown">Keine Wetterdaten</string>
   <string name="omnijaws_service_error_long">Fehler beim Laden der Wetterdaten</string>
@@ -67,19 +72,26 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Bildschirmaufnahme</string>
+  <string name="quick_settings_screenrecord_label">Bildschirmaufnahme</string>
+  <string name="quick_settings_screenrecord_lq_label">Bildschirmaufnahme LQ</string>
+  <string name="quick_settings_screenrecord_mq_label">Bildschirmaufnahme MQ</string>
+  <string name="quick_settings_screenrecord_hq_label">Bildschirmaufnahme HQ</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">Bildschirm wird aufgezeichnet</string>
+  <string name="screenrecord_notif_final_ticker">Bildschirmaufnahme ist erfolgreich</string>
   <!-- Screenrecord notification title -->
   <string name="screenrecord_notif_title">Bildschirm wird aufgezeichnet</string>
   <!-- Screenrecord notification action: Stop -->
   <string name="screenrecord_notif_stop">Stopp</string>
+  <string name="screenrecord_notif_completed">Bildschirmaufnahme beendet</string>
   <!-- Screenrecord notification action: show/hide pointer -->
   <string name="screenrecord_notif_pointer_on">Zeiger anzeigen</string>
   <string name="screenrecord_notif_pointer_off">Zeiger verbergen</string>
   <!-- Screen record notification error title -->
   <string name="screenrecord_notif_error">Bildschirm kann nicht aufgezeichnet werden</string>
   <string name="notification_channel_screenrecord">Bildschirmaufnahmen</string>
+  <string name="screenrecord_hide_hint">Tipps Verstecken</string>
+  <string name="screenrecord_show_hint">Tipps anzeigen</string>
   <!-- USB Tethering tile -->
   <string name="accessibility_quick_settings_usb_tether_off">USB-Tethering aus</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB-Tethering an</string>
@@ -134,4 +146,29 @@
   <string name="quick_settings_hwkeys_label">HW-Tasten</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Ziehe oder tippe, um Kacheln hinzuzufügen</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Always On Disply</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Always on Display aus.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Always on Display An.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsdisplay wurde ausgeschaltet.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsdisplay wurde eingeschaltet.</string>
+  <!-- Always on Display Tile -->
+  <string name="quick_settings_always_on_display_label">Display immer an</string>
+  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_off">Immer auf Display ausgeschaltet.</string>
+  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
+  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
+  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Force stop?</string>
+  <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
+  <string name="dlg_ok">@android:string/ok</string>
+  <string name="dlg_cancel">@android:string/cancel</string>
+  <string name="kill">Kill App</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

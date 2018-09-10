@@ -39,6 +39,11 @@
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">Imagem na imagem</string>
   <string name="quick_settings_pip_tile_app_na">O aplicativo não tem suporte ao modo picture-in-picture</string>
+  <!-- Caffeine QS Tile -->
+  <string name="quick_settings_caffeine_label">Cafeína</string>
+  <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
+  <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
+  <!-- OmniJaws -->
   <string name="omnijaws_service_error">Erro</string>
   <string name="omnijaws_service_unkown">Sem informações meteorológicas</string>
   <string name="omnijaws_service_error_long">Erro ao carregar os dados meteorológicos</string>
@@ -67,19 +72,26 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Gravação de tela</string>
+  <string name="quick_settings_screenrecord_label">Gravação de Tela</string>
+  <string name="quick_settings_screenrecord_lq_label">Gravação de tela em qualidade baixa</string>
+  <string name="quick_settings_screenrecord_mq_label">Gravação de tela em qualidade média</string>
+  <string name="quick_settings_screenrecord_hq_label">Gravação de tela em qualidade alta</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">A tela está sendo gravada</string>
+  <string name="screenrecord_notif_final_ticker">Tela gravada com sucesso</string>
   <!-- Screenrecord notification title -->
   <string name="screenrecord_notif_title">Gravando tela</string>
   <!-- Screenrecord notification action: Stop -->
   <string name="screenrecord_notif_stop">Parar</string>
+  <string name="screenrecord_notif_completed">Tela gravada com sucesso</string>
   <!-- Screenrecord notification action: show/hide pointer -->
   <string name="screenrecord_notif_pointer_on">Mostrar ponteiro</string>
   <string name="screenrecord_notif_pointer_off">Ocultar ponteiro</string>
   <!-- Screen record notification error title -->
   <string name="screenrecord_notif_error">Não foi possível gravar a tela</string>
   <string name="notification_channel_screenrecord">Gravações de tela</string>
+  <string name="screenrecord_hide_hint">Esconder dicas</string>
+  <string name="screenrecord_show_hint">Mostrar dica</string>
   <!-- USB Tethering tile -->
   <string name="accessibility_quick_settings_usb_tether_off">Roteamento USB desligado</string>
   <string name="accessibility_quick_settings_usb_tether_on">Roteamento USB ligado</string>
@@ -134,4 +146,29 @@
   <string name="quick_settings_hwkeys_label">Teclas físicas</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Arraste ou toque para adicionar atalhos</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Exibição de ambiente</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativada.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Visualização de ambiente ativada.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desligada.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ativada.</string>
+  <!-- Always on Display Tile -->
+  <string name="quick_settings_always_on_display_label">Tela sempre ativa</string>
+  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_off">Tela sempre ativa desligada.</string>
+  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_on">Tela sempre ativa ligada.</string>
+  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_off">Exibição ambiente desligada.</string>
+  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_on">Exibição ambiente foi ligada.</string>
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Forçar parada?</string>
+  <string name="force_stop_dlg_text">Se você forçar a parada de um app, ele pode apresentar mau funcionamento.</string>
+  <string name="dlg_ok">@android:string/ok</string>
+  <string name="dlg_cancel">@android:string/cancel</string>
+  <string name="kill">Fechar aplicativo</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Píxeis Inteligentes</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-ativação dos Píxeis Inteligentes</string>
 </resources>

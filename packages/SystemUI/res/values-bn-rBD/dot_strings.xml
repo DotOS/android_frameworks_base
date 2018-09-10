@@ -39,27 +39,32 @@
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">PiP</string>
   <string name="quick_settings_pip_tile_app_na">App does not support PiP</string>
+  <!-- Caffeine QS Tile -->
+  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+  <!-- OmniJaws -->
   <string name="omnijaws_service_error">Error</string>
   <string name="omnijaws_service_unkown">No weather data</string>
   <string name="omnijaws_service_error_long">Error loading weather data</string>
   <string name="omnijaws_service_disabled">Service is disabled</string>
-  <string name="omnijaws_detail_header">Weather</string>
-  <string name="omnijaws_label_default">Weather</string>
-  <string name="omnijaws_current_text">Now</string>
-  <string name="omnijaws_package_not_available">OmniJaws not available</string>
+  <string name="omnijaws_detail_header">আবহাওয়া</string>
+  <string name="omnijaws_label_default">আবহাওয়া</string>
+  <string name="omnijaws_current_text">এখন</string>
+  <string name="omnijaws_package_not_available">OmniJaws উপলব্ধ না</string>
   <string name="omnijaws_service_last_update">Last update:</string>
   <!-- Weather string format in expanded statusbar header -->
   <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
   <string name="recents_free_ram">Free RAM: %1$d MB</string>
   <!-- volte icon switch -->
-  <string name="status_bar_volte">VOLTE</string>
+  <string name="status_bar_volte">VoLTE</string>
   <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Sound</string>
-  <string name="quick_settings_sound_ring">Ring</string>
-  <string name="quick_settings_sound_vibrate">Vibrate</string>
-  <string name="quick_settings_sound_dnd">Do not disturb</string>
+  <string name="quick_settings_sound_label">শব্দ</string>
+  <string name="quick_settings_sound_ring">রিং</string>
+  <string name="quick_settings_sound_vibrate">ভাইব্রেট</string>
+  <string name="quick_settings_sound_dnd">অবিরক্তিকর মোড</string>
   <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
+  <string name="quick_settings_adb_network">এডিবি নেটওয়ার্ক</string>
   <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
   <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
   <!-- Text to use when the number in a notification info is too large
@@ -67,27 +72,35 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Screenrecord</string>
+  <string name="quick_settings_screenrecord_label">স্ক্রিনরেকর্ড</string>
+  <string name="quick_settings_screenrecord_lq_label">স্ক্রিনরেকর্ড LQ</string>
+  <string name="quick_settings_screenrecord_mq_label">স্ক্রিনরেকর্ড MQ</string>
+  <string name="quick_settings_screenrecord_hq_label">স্ক্রিনরেকর্ড HQ</string>
   <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
+  <string name="screenrecord_notif_ticker">স্ক্রিন রেকর্ড করা হচ্ছে</string>
+  <string name="screenrecord_notif_final_ticker">Screen recorded successfully</string>
   <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Recording screen</string>
+  <string name="screenrecord_notif_title">রেকর্ডিং পর্দা</string>
   <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_stop">থামুন</string>
+  <string name="screenrecord_notif_completed">Screen recorded successfully</string>
   <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
+  <string name="screenrecord_notif_pointer_on">পয়েন্টার দেখান</string>
+  <string name="screenrecord_notif_pointer_off">পয়েন্টার বন্ধ করুন</string>
   <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Unable to record screen</string>
-  <string name="notification_channel_screenrecord">Screenrecords</string>
+  <string name="screenrecord_notif_error">স্ক্রিন রেকর্ড করতে অসমর্থ</string>
+  <string name="notification_channel_screenrecord">স্ক্রিনরেকর্ড</string>
+  <string name="screenrecord_hide_hint">গোপন সঙ্কেত</string>
+  <string name="screenrecord_show_hint">ইঙ্গিত দেখান</string>
   <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="accessibility_quick_settings_usb_tether_off">ইউএসবি টিথারিং বন্ধ</string>
+  <string name="accessibility_quick_settings_usb_tether_on">ইউএসবি টিথারিং চালু</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">ইউএসবি টিথারিং বন্ধ করা হয়েছে</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">ইউএসবি টিথারিং চালু করা হয়েছে</string>
+  <string name="quick_settings_usb_tether_label">ইউএসবি টিথারিং</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g>- পিকিং বিজ্ঞপ্তি ১ মিনিটের জন্য স্নুজ আছে। 
+<xliff:g id="number">%d</xliff:g> মিনিট.</string>
   <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_preventpower">override power key</string>
@@ -134,4 +147,29 @@
   <string name="quick_settings_hwkeys_label">HW keys</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Ambient display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+  <!-- Always on Display Tile -->
+  <string name="quick_settings_always_on_display_label">Always on display</string>
+  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
+  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
+  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
+  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Force stop?</string>
+  <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
+  <string name="dlg_ok">@android:string/ok</string>
+  <string name="dlg_cancel">@android:string/cancel</string>
+  <string name="kill">Kill App</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

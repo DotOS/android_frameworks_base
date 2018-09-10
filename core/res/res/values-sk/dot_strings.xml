@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">ADB ladenie cez USB a sieť je povolené</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Dotykom zakážate ladenie.</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Pre interakciu dlho stlačte tlačidlo Napájanie</string>
 </resources>

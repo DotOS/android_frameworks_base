@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">USB &amp; 網路 ADB 已啟用</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">輕觸即可停止偵錯。</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
 </resources>
