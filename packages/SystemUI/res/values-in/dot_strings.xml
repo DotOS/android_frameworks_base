@@ -39,6 +39,11 @@
   <!-- PiP Tile -->
   <string name="quick_settings_pip_label">PiP</string>
   <string name="quick_settings_pip_tile_app_na">Aplikasi tidak mendukung PiP</string>
+  <!-- Caffeine QS Tile -->
+  <string name="quick_settings_caffeine_label">Kafein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kafein mati</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
+  <!-- OmniJaws -->
   <string name="omnijaws_service_error">Kesalahan</string>
   <string name="omnijaws_service_unkown">Tidak ada data cuaca</string>
   <string name="omnijaws_service_error_long">Kesalahan saat memuat data cuaca</string>
@@ -67,19 +72,26 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord">Rekam Layar</string>
+  <string name="quick_settings_screenrecord_label">Rekam layar</string>
+  <string name="quick_settings_screenrecord_lq_label">Rekam layar kualitas rendah</string>
+  <string name="quick_settings_screenrecord_mq_label">Rekam layar kualitas sedang</string>
+  <string name="quick_settings_screenrecord_hq_label">Rekam layar kualitas tinggi</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">Layar sedang direkam</string>
+  <string name="screenrecord_notif_final_ticker">Berhasil merekam layar</string>
   <!-- Screenrecord notification title -->
   <string name="screenrecord_notif_title">Merekam layar</string>
   <!-- Screenrecord notification action: Stop -->
   <string name="screenrecord_notif_stop">Berhenti</string>
+  <string name="screenrecord_notif_completed">Berhasil merekam layar</string>
   <!-- Screenrecord notification action: show/hide pointer -->
   <string name="screenrecord_notif_pointer_on">Tampilkan pointer</string>
   <string name="screenrecord_notif_pointer_off">Sembunyikan pointer</string>
   <!-- Screen record notification error title -->
   <string name="screenrecord_notif_error">Tidak dapat merekam layar</string>
   <string name="notification_channel_screenrecord">Rekam layar</string>
+  <string name="screenrecord_hide_hint">Sembunykan petunjuk</string>
+  <string name="screenrecord_show_hint">Tunjukkan penanda</string>
   <!-- USB Tethering tile -->
   <string name="accessibility_quick_settings_usb_tether_off">Penambatan USB mati</string>
   <string name="accessibility_quick_settings_usb_tether_on">Penambatan USB aktif</string>
@@ -134,4 +146,29 @@
   <string name="quick_settings_hwkeys_label">Tombol fisik</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Seret atau ketuk untuk menambahkan ubin</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Layar kedip</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Layar kedip mati.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Layar kedip hidup.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Layar kedip dimatikan.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Layar kedip dihidupkan.</string>
+  <!-- Always on Display Tile -->
+  <string name="quick_settings_always_on_display_label">Layar selalu hidup</string>
+  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_off">Layar selalu hidup mati.</string>
+  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_on">Layar selalu hidup hidup.</string>
+  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_off">Layar selalu hidup dimatikan.</string>
+  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_always_on_display_changed_on">Layar selalu hidup dihidupkan.</string>
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Paksa berhenti?</string>
+  <string name="force_stop_dlg_text">Jika anda menghentikan paksa aplikasi ini, kemungkinan akan terjadi gagal fungsi.</string>
+  <string name="dlg_ok">@android:string/ok</string>
+  <string name="dlg_cancel">@android:string/cancel</string>
+  <string name="kill">Paksa tutup aplikasi</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Piksel cerdas</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Otomatis hidupkan piksel cerdas</string>
 </resources>

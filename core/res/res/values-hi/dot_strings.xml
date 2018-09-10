@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">यूएसबी और amp नेटवर्क पर एडीबी सक्षम</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">डिबगिंग अक्षम करने के लिए स्पर्श करें।</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
 </resources>

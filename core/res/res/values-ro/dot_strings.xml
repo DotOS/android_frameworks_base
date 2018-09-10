@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">Depanare prin USB și rețea pornită</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Atingeți pentru a dezactiva depanarea.</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
 </resources>

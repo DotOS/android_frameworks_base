@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">ADB por usb &amp; ativo</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Toque para desativar a depuração.</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
 </resources>

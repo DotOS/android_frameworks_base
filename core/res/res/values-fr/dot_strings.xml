@@ -33,4 +33,6 @@
   <string name="adb_both_active_notification_title">ADB sur USB et réseau activé</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Toucher pour désactiver le déboguage.</string>
+  <!-- Pocket Lock -->
+  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
 </resources>
