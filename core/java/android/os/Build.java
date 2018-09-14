@@ -1029,6 +1029,16 @@ public class Build {
     public static final String FINGERPRINT = deriveFingerprint();
 
     /**
+     * DOT fingerprint
+     * @hide
+     */
+    public static final String PROP_DOT_FINGERPRINT = "com.dot.fingerprint";
+
+    /** @hide */
+    public static final String DOT_FINGERPRINT = SystemProperties.get(PROP_DOT_FINGERPRINT,
+            deriveFingerprint());
+
+    /**
      * Some devices split the fingerprint components between multiple
      * partitions, so we might derive the fingerprint at runtime.
      */
