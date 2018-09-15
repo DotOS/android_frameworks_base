@@ -4443,6 +4443,12 @@ public final class Settings {
          */
         public static final String ROAMING_INDICATOR_ICON = "roaming_indicator_icon";
 
+        /**
+         * Whether to enable gaming mode or not
+         *
+         * @hide
+         */
+        public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
 
         /**
          * Whether the phone vibrates on call connect
