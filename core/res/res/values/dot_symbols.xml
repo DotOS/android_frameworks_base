@@ -85,4 +85,7 @@
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="bool" name="config_ledCanPulse" />
 
+  <java-symbol type="anim" name="inv_app_in" />
+  <java-symbol type="anim" name="inv_app_out" />
+
 </resources>
