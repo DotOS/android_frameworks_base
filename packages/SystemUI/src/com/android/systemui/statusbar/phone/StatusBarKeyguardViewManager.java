@@ -583,7 +583,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     private Runnable mMakeNavigationBarVisibleRunnable = new Runnable() {
         @Override
         public void run() {
-            mStatusBar.getNavigationBarView().getRootView().setVisibility(View.VISIBLE);
+            mStatusBar.getNavigationBarView().getBaseView().setVisibility(View.VISIBLE);
         }
     };
 
@@ -647,7 +647,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
                 }
             } else {
                 mContainer.removeCallbacks(mMakeNavigationBarVisibleRunnable);
-                mStatusBar.getNavigationBarView().getRootView().setVisibility(View.GONE);
+                mStatusBar.getNavigationBarView().getBaseView().setVisibility(View.GONE);
             }
         }
     }
