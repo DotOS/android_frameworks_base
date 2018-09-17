@@ -114,10 +114,12 @@ import android.app.ActivityManager;
 import android.app.ActivityThread;
 import android.app.LoadedApk;
 import android.app.ResourcesManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Insets;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
@@ -132,6 +134,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.PrintWriterPrinter;
 import android.util.Slog;
@@ -256,6 +259,7 @@ public class DisplayPolicy {
 
     private volatile boolean mHasStatusBar;
     private volatile boolean mHasNavigationBar;
+    private volatile int mForceNavbar = -1;
     // Can the navigation bar ever move to the side?
     private volatile boolean mNavigationBarCanMove;
     private volatile boolean mNavigationBarLetsThroughTaps;
@@ -395,6 +399,8 @@ public class DisplayPolicy {
 
     private RefreshRatePolicy mRefreshRatePolicy;
 
+    private SettingsObserver mSettingsObserver;
+
     /**
      * If true, attach the navigation bar to the current transition app.
      * The value is read from config_attachNavBarToAppDuringTransition and could be overlaid by RRO
@@ -443,6 +449,24 @@ public class DisplayPolicy {
                     disablePointerLocation();
                     break;
             }
+        }
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        public SettingsObserver(Handler handler) {
+            super(handler);
+
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FORCE_SHOW_NAVBAR), false, this,
+                    UserHandle.USER_ALL);
+
+            updateSettings();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
         }
     }
 
@@ -676,6 +700,9 @@ public class DisplayPolicy {
             } else if ("0".equals(navBarOverride)) {
                 mHasNavigationBar = true;
             }
+
+            // Register content observer only for main display
+            mSettingsObserver = new SettingsObserver(mHandler);
         } else {
             mHasStatusBar = false;
             mHasNavigationBar = mDisplayContent.supportsSystemDecorations();
@@ -738,6 +765,14 @@ public class DisplayPolicy {
         }
     }
 
+    public void updateSettings() {
+        ContentResolver resolver = mContext.getContentResolver();
+
+        mForceNavbar = Settings.System.getIntForUser(resolver,
+                Settings.System.FORCE_SHOW_NAVBAR, 0,
+                UserHandle.USER_CURRENT);
+    }
+
     private int getDisplayId() {
         return mDisplayContent.getDisplayId();
     }
@@ -786,7 +821,7 @@ public class DisplayPolicy {
     }
 
     public boolean hasNavigationBar() {
-        return mHasNavigationBar;
+        return mHasNavigationBar || mForceNavbar == 1;
     }
 
     public boolean hasStatusBar() {

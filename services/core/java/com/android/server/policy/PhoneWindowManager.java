@@ -194,6 +194,7 @@ import android.view.autofill.AutofillManagerInternal;
 import com.android.internal.R;
 import com.android.internal.accessibility.AccessibilityShortcutController;
 import com.android.internal.app.AssistUtils;
+import com.android.internal.dot.hardware.LineageHardwareManager;
 import com.android.internal.inputmethod.SoftInputShowHideReason;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
@@ -209,11 +210,11 @@ import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.ScreenshotHelper;
 import com.android.internal.util.dot.DotUtils;
-import com.android.server.ExtconStateObserver;
-import com.android.server.ExtconUEventObserver;
 import com.android.internal.util.hwkeys.ActionHandler;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.ScreenshotHelper;
+import com.android.server.ExtconStateObserver;
+import com.android.server.ExtconUEventObserver;
 import com.android.server.GestureLauncherService;
 import com.android.server.LocalServices;
 import com.android.server.SystemServiceManager;
@@ -544,6 +545,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mPendingMetaAction;
     boolean mPendingCapsLockToggle;
 
+    private int mForceNavbar = -1;
+
     // support for activating the lock screen while the screen is on
     private HashSet<Integer> mAllowLockscreenWhenOnDisplays = new HashSet<>();
     int mLockScreenTimeout;
@@ -664,6 +667,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 25;
 
     private SwipeToScreenshotListener mSwipeToScreenshot;
+
+    private LineageHardwareManager mLineageHardware;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -808,6 +813,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.THREE_FINGER_GESTURE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FORCE_SHOW_NAVBAR), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.VOLBTN_MUSIC_CONTROLS), false, this,
@@ -1810,7 +1818,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mKeyHandler = new HardkeyActionHandler(mContext, mHandler);
         }
         mSettingsObserver = new SettingsObserver(mHandler);
-        mSettingsObserver.observe();
+
         mModifierShortcutManager = new ModifierShortcutManager(context);
         mUiMode = context.getResources().getInteger(
                 com.android.internal.R.integer.config_defaultUiModeType);
@@ -2196,12 +2204,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mTorchActionMode == 2 && longpress) {
             performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
                     "Power - Long Press - Torch");
-            EvolutionUtils.toggleCameraFlash();
+            DotUtils.toggleCameraFlash();
             return true;
         } else if (mTorchActionMode == 1 && !longpress) {
             performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
                       "Power - Double Press - Torch");
-            EvolutionUtils.toggleCameraFlash();
+            DotUtils.toggleCameraFlash();
             return true;
         }
         return false;
@@ -2354,6 +2362,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (mWakeGestureEnabledSetting != wakeGestureEnabledSetting) {
                 mWakeGestureEnabledSetting = wakeGestureEnabledSetting;
                 updateWakeGestureListenerLp();
+            }
+
+            int forceNavbar = Settings.System.getIntForUser(resolver,
+                    Settings.System.FORCE_SHOW_NAVBAR, 0,
+                    UserHandle.USER_CURRENT);
+            if (forceNavbar != mForceNavbar) {
+                mForceNavbar = forceNavbar;
+                if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+                    mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE,
+                            mForceNavbar == 1);
+                }
             }
 
             // use screen off timeout setting as the timeout for the lockscreen
@@ -5126,6 +5145,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mVrManagerInternal != null) {
             mVrManagerInternal.addPersistentVrModeStateListener(mPersistentVrModeListener);
         }
+
+        mLineageHardware = LineageHardwareManager.getInstance(mContext);
+        // Ensure observe happens in systemReady() since we need
+        // LineageHardwareService to be up and running
+        mSettingsObserver.observe();
 
         readCameraLensCoverState();
         updateUiMode();
