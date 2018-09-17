@@ -16,6 +16,7 @@
 
 package android.provider.settings.validators;
 
+import static android.provider.settings.validators.SettingsValidators.ANY_STRING_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.COMPONENT_NAME_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.DATE_FORMAT_VALIDATOR;
@@ -215,5 +216,7 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.DOT_BUCKET_OVERLAY, value -> { return value != null && !value.isEmpty(); });
         VALIDATORS.put(System.LOCKSCREEN_MEDIA_METADATA, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.NAVIGATION_BAR_SHOW, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.NAVIGATION_BAR_MODE_OVERLAY, ANY_STRING_VALIDATOR);
     }
 }

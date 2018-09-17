@@ -4819,6 +4819,18 @@ public final class Settings {
         public static final String BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED = "button_backlight_only_when_pressed";
 
         /**
+         * Force show navigation bar setting.
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_SHOW = "navigation_bar_show";
+
+        /**
+         * Force show navigation bar setting.
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_MODE_OVERLAY = "navigation_bar_mode_overlay";
+
+        /**
          * @hide
          */
         public static final String GLOBAL_ACTIONS_LIST = "global_actions_list";
@@ -5284,6 +5296,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
+            PRIVATE_SETTINGS.add(NAVIGATION_BAR_SHOW);
+            PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
         }
 
         /**
