@@ -364,7 +364,11 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     @Override
     public void onDarkChanged(Rect area, float darkIntensity, int tint) {
         mNonAdaptedColor = DarkIconDispatcher.getTint(area, this, tint);
+        if (mClockColor == 0xFFFFFFFF) {
+            setTextColor(mNonAdaptedColor);
+        } else {
             setTextColor(mClockColor);
+        }	
     }
 
     @Override
@@ -634,8 +638,12 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         mClockColor = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_CLOCK_COLOR, DEFAULT_CLOCK_COLOR,
                 UserHandle.USER_CURRENT);
-            setTextColor(mClockColor);
-            updateClock();
+                if (mClockColor == 0xFFFFFFFF) {
+                    setTextColor(mNonAdaptedColor);
+                } else {
+                    setTextColor(mClockColor);
+                }
+   	        updateClock();
     }
 
     private void updateClockFontStyle() {
