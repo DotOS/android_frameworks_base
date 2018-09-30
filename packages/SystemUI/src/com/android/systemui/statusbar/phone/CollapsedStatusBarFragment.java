@@ -45,6 +45,15 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 
+import android.widget.ImageView;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
+
+
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
  * and keyguard state. Also manages lifecycle to make sure the views it contains are being
@@ -71,6 +80,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private View mOperatorNameFrame;
     private LinearLayout mCenterClockLayout;
     private final Handler mHandler = new Handler();
+
+    private int mTintColor = Color.WHITE;
 
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
