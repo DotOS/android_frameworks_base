@@ -126,5 +126,8 @@
   
   <!-- Whether device has turbo power charging support -->
   <java-symbol type="bool" name="config_hasTurboPowerCharger" />
+  
+  <!-- Oreo's recents component activity -->
+  <java-symbol type="string" name="config_recentsComponentNameOreo" />
 
 </resources>
