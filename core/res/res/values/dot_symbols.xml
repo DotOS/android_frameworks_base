@@ -73,5 +73,9 @@
   <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
   <java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
   <java-symbol type="bool" name="config_notificationTinting_override" />
+  
+  <!-- SystemUI Restart -->
+  <java-symbol type="string" name="systemui_restart_title" />
+  <java-symbol type="string" name="systemui_restart_message" />
 
 </resources>
