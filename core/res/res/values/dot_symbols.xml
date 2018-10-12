@@ -78,4 +78,7 @@
   <java-symbol type="string" name="systemui_restart_title" />
   <java-symbol type="string" name="systemui_restart_message" />
 
+  <!-- Fastscroller -->
+  <java-symbol type="color" name="fastscroller_text_color" />
+
 </resources>
