@@ -7747,6 +7747,26 @@ public final class Settings {
          * @hide.
          */
         public static final int VR_DISPLAY_MODE_OFF = 1;
+		
+		/**
+		 * Interface Guide variables
+		 */
+		 
+		public static final String SYSTEM_STYLE_OVERLAY = "system_style_overlay";
+		 
+		public static final String SYSTEM_STYLE_ACCENT = "system_style_accent";
+		 
+		public static final String QSPANEL_BG_ALPHA = "qspanel_bg_alpha";
+		 
+		public static final String QSPANEL_HEADER_COLOR = "qspanel_header_color";
+		 
+		public static final String QSPANEL_TILES_DRAWABLE = "qspanel_tiles_drawable";
+		 
+		public static final String QSPANEL_BG_ROUNDNESS = "qspanel_bg_roundness";
+		
+		public static final String GAUGE_ENABLE_ANIMATION = "gauge_enable_animation";
+		
+		public static final String GAUGE_ANIMATION_SPEED = "gauge_animation_speed";
 
         /**
          * Whether CarrierAppUtils#disableCarrierAppsUntilPrivileged has been executed at least

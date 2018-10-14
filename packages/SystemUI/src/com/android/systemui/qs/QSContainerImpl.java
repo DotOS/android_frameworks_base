@@ -20,7 +20,14 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.Point;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -48,12 +55,19 @@ public class QSContainerImpl extends FrameLayout {
     private View mBackground;
     private View mBackgroundGradient;
     private View mStatusBarBackground;
+	private String mHeaderColor = "#FF000000";
+	private int mQsBackGroundAlpha;
 
     private int mSideMargins;
     private boolean mQsDisabled;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
+		Handler mHandler = new Handler();
+		ColorObserver colorobserver = new ColorObserver(mHandler);
+        colorobserver.observe();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
     }
 
     @Override
@@ -68,7 +82,8 @@ public class QSContainerImpl extends FrameLayout {
         mStatusBarBackground = findViewById(R.id.quick_settings_status_bar_background);
         mBackgroundGradient = findViewById(R.id.quick_settings_gradient_view);
         mSideMargins = getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);
-
+		updateColor();
+		
         setClickable(true);
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
         setMargins();
@@ -89,6 +104,62 @@ public class QSContainerImpl extends FrameLayout {
 
         updateResources();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
+    }
+	
+	private class ColorObserver extends ContentObserver {
+        ColorObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QSPANEL_HEADER_COLOR), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateColor();
+        }
+    }
+	
+	private void updateColor() {
+		String color = Settings.System.getStringForUser(getContext().getContentResolver(),
+                Settings.System.QSPANEL_HEADER_COLOR,
+                UserHandle.USER_CURRENT);
+		if (color != null) {
+			mHeaderColor = color;
+		} else {
+			mHeaderColor = "#FF000000";
+			Settings.System.putString(getContext().getContentResolver(), Settings.System.QSPANEL_HEADER_COLOR, mHeaderColor);
+		}
+		mBackgroundGradient.setBackgroundColor(Color.parseColor(mHeaderColor));
+		mStatusBarBackground.setBackgroundColor(Color.parseColor(mHeaderColor));
+    }
+	
+	private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QSPANEL_BG_ALPHA), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateAlpha();
+        }
+    }
+
+    private void updateAlpha() {
+        mQsBackGroundAlpha = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QSPANEL_BG_ALPHA, 255,
+                UserHandle.USER_CURRENT);
+		Drawable bg = mBackground.getBackground();
+		bg.setAlpha(mQsBackGroundAlpha);
     }
 
     @Override

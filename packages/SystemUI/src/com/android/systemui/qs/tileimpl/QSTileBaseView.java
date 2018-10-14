@@ -24,6 +24,8 @@ import android.graphics.drawable.RippleDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.text.TextUtils;
 import android.util.Log;
@@ -77,8 +79,26 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         addView(mIconFrame, new LayoutParams(size, size));
         mBg = new ImageView(getContext());
         mBg.setScaleType(ScaleType.FIT_CENTER);
-        mBg.setImageResource(R.drawable.ic_qs_circle);
-        mIconFrame.addView(mBg);
+		int enabled = Settings.System.getIntForUser(context.getContentResolver(),
+					Settings.System.QSPANEL_TILES_DRAWABLE, 1,
+					UserHandle.USER_CURRENT);
+		int tile_type = Settings.System.getIntForUser(context.getContentResolver(),
+					Settings.System.QSPANEL_TILES_DRAWABLE_STYLE, 0,
+					UserHandle.USER_CURRENT);
+		if (enabled == 1) {
+			switch (tile_type) {
+				case 0:
+					mBg.setImageResource(R.drawable.ic_qs_circle);
+					break;
+				case 1:
+					mBg.setImageResource(R.drawable.ic_qs_square);
+					break;
+				case 2:
+					mBg.setImageResource(R.drawable.ic_qs_rounded_square);
+					break;
+			}
+			mIconFrame.addView(mBg);
+		}
         mIcon = icon;
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
