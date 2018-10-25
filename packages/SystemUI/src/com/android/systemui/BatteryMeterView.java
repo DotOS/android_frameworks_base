@@ -422,11 +422,6 @@ public class BatteryMeterView extends LinearLayout implements
                 break;
         }
 
-        if (style == BatteryMeterDrawableBase.BATTERY_STYLE_TEXT) {
-            mForceShowPercent = true;
-        } else {
-            mForceShowPercent = false;
-        }
         updateShowPercent();
         onDensityOrFontScaleChanged();
     }
