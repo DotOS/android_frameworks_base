@@ -2207,6 +2207,9 @@ public class ActivityManagerService extends IActivityManager.Stub
                     }
                 }
                 callbacks.finishBroadcast();
+                // We have to clean up the RemoteCallbackList here, because otherwise it will
+                // needlessly hold the enclosed callbacks until the remote process dies.
+                callbacks.kill();
             } break;
             case UPDATE_TIME_ZONE: {
                 synchronized (ActivityManagerService.this) {
@@ -23039,6 +23042,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                 // The process is being computed, so there is a cycle. We cannot
                 // rely on this process's state.
                 app.containsCycle = true;
+
                 return false;
             }
         }
@@ -23063,6 +23067,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         final int logUid = mCurOomAdjUid;
 
         int prevAppAdj = app.curAdj;
+        int prevProcState = app.curProcState;
 
         if (app.maxAdj <= ProcessList.FOREGROUND_APP_ADJ) {
             // The max adjustment doesn't allow this app to be anything
@@ -23541,11 +23546,16 @@ public class ActivityManagerService extends IActivityManager.Stub
                         ProcessRecord client = cr.binding.client;
                         computeOomAdjLocked(client, cachedAdj, TOP_APP, doingAll, now);
                         if (client.containsCycle) {
-                            // We've detected a cycle. We should ignore this connection and allow
-                            // this process to retry computeOomAdjLocked later in case a later-checked
-                            // connection from a client  would raise its priority legitimately.
+                            // We've detected a cycle. We should retry computeOomAdjLocked later in
+                            // case a later-checked connection from a client  would raise its
+                            // priority legitimately.
                             app.containsCycle = true;
-                            continue;
+                            // If the client has not been completely evaluated, skip using its
+                            // priority. Else use the conservative value for now and look for a
+                            // better state in the next iteration.
+                            if (client.completedAdjSeq < mAdjSeq) {
+                                continue;
+                            }
                         }
                         int clientAdj = client.curRawAdj;
                         int clientProcState = client.curProcState;
@@ -23768,11 +23778,16 @@ public class ActivityManagerService extends IActivityManager.Stub
                 }
                 computeOomAdjLocked(client, cachedAdj, TOP_APP, doingAll, now);
                 if (client.containsCycle) {
-                    // We've detected a cycle. We should ignore this connection and allow
-                    // this process to retry computeOomAdjLocked later in case a later-checked
-                    // connection from a client  would raise its priority legitimately.
+                    // We've detected a cycle. We should retry computeOomAdjLocked later in
+                    // case a later-checked connection from a client  would raise its
+                    // priority legitimately.
                     app.containsCycle = true;
-                    continue;
+                    // If the client has not been completely evaluated, skip using its
+                    // priority. Else use the conservative value for now and look for a
+                    // better state in the next iteration.
+                    if (client.completedAdjSeq < mAdjSeq) {
+                        continue;
+                    }
                 }
                 int clientAdj = client.curRawAdj;
                 int clientProcState = client.curProcState;
@@ -24004,8 +24019,8 @@ public class ActivityManagerService extends IActivityManager.Stub
         app.foregroundActivities = foregroundActivities;
         app.completedAdjSeq = mAdjSeq;
 
-        // if curAdj is less than prevAppAdj, then this process was promoted
-        return app.curAdj < prevAppAdj;
+        // if curAdj or curProcState improved, then this process was promoted
+        return app.curAdj < prevAppAdj || app.curProcState < prevProcState;
     }
 
     /**
@@ -25058,7 +25073,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         // - Continue retrying until no process was promoted.
         // - Iterate from least important to most important.
         int cycleCount = 0;
-        while (retryCycles) {
+        while (retryCycles && cycleCount < 10) {
             cycleCount++;
             retryCycles = false;
 
@@ -25073,12 +25088,14 @@ public class ActivityManagerService extends IActivityManager.Stub
             for (int i=0; i<N; i++) {
                 ProcessRecord app = mLruProcesses.get(i);
                 if (!app.killedByAm && app.thread != null && app.containsCycle == true) {
+
                     if (computeOomAdjLocked(app, ProcessList.UNKNOWN_ADJ, TOP_APP, true, now)) {
                         retryCycles = true;
                     }
                 }
             }
         }
+
         for (int i=N-1; i>=0; i--) {
             ProcessRecord app = mLruProcesses.get(i);
             if (!app.killedByAm && app.thread != null) {
@@ -26824,6 +26841,25 @@ public class ActivityManagerService extends IActivityManager.Stub
         @Override
         public void enforceCallerIsRecentsOrHasPermission(String permission, String func) {
             ActivityManagerService.this.enforceCallerIsRecentsOrHasPermission(permission, func);
+        }
+
+        @Override
+        public Intent getHomeIntent() {
+            synchronized (ActivityManagerService.this) {
+                return ActivityManagerService.this.getHomeIntent();
+            }
+        }
+
+        @Override
+        public void notifyDefaultDisplaySizeChanged() {
+            synchronized (this) {
+                if (mSystemServiceManager.isBootCompleted() && mHomeProcess != null) {
+
+                    // TODO: Ugly hack to unblock the release
+                    Slog.i(TAG, "Killing home process because of display size change");
+                    removeProcessLocked(mHomeProcess, false, true, "kill home screen size");
+                }
+            }
         }
     }
 
