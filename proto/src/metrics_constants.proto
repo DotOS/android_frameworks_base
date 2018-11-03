@@ -6135,6 +6135,6 @@ message MetricsEvent {
     // END OF AOSP CONSTANTS
 	
 	// DotExtras Metrics
-	DOTEXTRAS = 1500;
+	DOTEXTRAS = 1600;
   }
 }
