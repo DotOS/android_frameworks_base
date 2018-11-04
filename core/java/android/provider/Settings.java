@@ -4488,6 +4488,12 @@ public final class Settings {
          * @hide
          */
         public static final String TOAST_ICON = "toast_icon";
+
+        /**
+         * Apps to skip for Pulse
+         * @hide
+         */
+        public static final String PULSE_APPS_BLACKLIST = "pulse_apps_blacklist";
          
         /** 
          * Volume rocker wake
