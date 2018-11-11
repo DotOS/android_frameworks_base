@@ -243,9 +243,6 @@
     <string name="screenrecord_show_hint">Show hint</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenrecord_label">Screenrecord</string>
-    <string name="quick_settings_screenrecord_lq_label">Screenrecord 480p</string>
-    <string name="quick_settings_screenrecord_mq_label">Screenrecord 720p</string>
-    <string name="quick_settings_screenrecord_hq_label">Screenrecord 720p+</string>
 	
     <!-- CustomText clock -->
     <string name="high_noon_first_row">High</string>
