@@ -53,6 +53,8 @@ public class BatteryMeterDrawableBase extends Drawable {
     public static final int BATTERY_STYLE_TEXT = 3;
     public static final int BATTERY_STYLE_HIDDEN = 4;
     public static final int BATTERY_STYLE_Q = 5;
+    public static final int BATTERY_STYLE_BIG_CIRCLE = 6;
+    public static final int BATTERY_STYLE_BIG_DOTTED_CIRCLE = 7;
 
     protected final Context mContext;
     protected final Paint mFramePaint;
@@ -338,6 +340,8 @@ public class BatteryMeterDrawableBase extends Drawable {
                 break;
             case BATTERY_STYLE_CIRCLE:
             case BATTERY_STYLE_DOTTED_CIRCLE:
+            case BATTERY_STYLE_BIG_CIRCLE:
+            case BATTERY_STYLE_BIG_DOTTED_CIRCLE:
                 drawCircle(c);
                 break;
             default:
@@ -539,7 +543,8 @@ public class BatteryMeterDrawableBase extends Drawable {
         mBatteryPaint.setStrokeWidth(strokeWidth);
         mBatteryPaint.setStyle(Paint.Style.STROKE);
 
-        if (mMeterStyle == BATTERY_STYLE_DOTTED_CIRCLE) {
+        if (mMeterStyle == BATTERY_STYLE_DOTTED_CIRCLE
+                || mMeterStyle == BATTERY_STYLE_BIG_DOTTED_CIRCLE) {
             mBatteryPaint.setPathEffect(mPathEffect);
         } else {
             mBatteryPaint.setPathEffect(null);
