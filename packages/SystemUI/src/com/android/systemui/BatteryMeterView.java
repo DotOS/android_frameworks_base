@@ -134,10 +134,14 @@ public class BatteryMeterView extends LinearLayout implements
         mBatteryIconView = new ImageView(context);
         mBatteryIconView.setImageDrawable(mDrawable);
         final MarginLayoutParams mlp = new MarginLayoutParams(
-                getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_width),
-                getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
-        mlp.setMargins(0, 0, 0,
-                getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
+            isBigCircleBattery()
+            ? getResources().getDimensionPixelSize(R.dimen.status_bar_battery_bigcircle_icon_width)
+            : getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_width),
+            isBigCircleBattery()
+            ? getResources().getDimensionPixelSize(R.dimen.status_bar_battery_bigcircle_icon_height)
+            : getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
+    mlp.setMargins(0, 0, 0,
+            getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
         addView(mBatteryIconView, mlp);
 
         updateShowPercent();
@@ -340,8 +344,10 @@ public class BatteryMeterView extends LinearLayout implements
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         float iconScaleFactor = typedValue.getFloat();
 
-        int batteryHeight = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
-        int batteryWidth = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width);
+        int batteryHeight = res.getDimensionPixelSize(
+                isBigCircleBattery() ? R.dimen.status_bar_battery_bigcircle_icon_height : R.dimen.status_bar_battery_icon_height);
+        int batteryWidth = res.getDimensionPixelSize(
+                isBigCircleBattery() ? R.dimen.status_bar_battery_bigcircle_icon_width : R.dimen.status_bar_battery_icon_width);
         int marginBottom = res.getDimensionPixelSize(R.dimen.battery_margin_bottom);
 
         LinearLayout.LayoutParams scaledLayoutParams = new LinearLayout.LayoutParams(
@@ -402,6 +408,11 @@ public class BatteryMeterView extends LinearLayout implements
             super.onChange(selfChange, uri);
             updateShowPercent();
         }
+    }
+
+    private boolean isBigCircleBattery() {
+        return mDrawable.getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_BIG_CIRCLE
+                || mDrawable.getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_BIG_DOTTED_CIRCLE;
     }
 
     private void updateBatteryStyle(String styleStr) {
