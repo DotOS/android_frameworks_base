@@ -140,7 +140,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mRightClock = mStatusBar.findViewById(R.id.right_clock);
         updateSettings(false);
         showSystemIconArea(false);
+	    updateSettings(false);
         initEmergencyCryptkeeperText();
+	    animateHide(mClockView, false, false);
         initOperatorName();
         mSettingsObserver.observe();
         updateSettings(true);
