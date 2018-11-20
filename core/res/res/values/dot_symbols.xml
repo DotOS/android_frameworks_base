@@ -55,87 +55,91 @@
 	
 	<!-- System-wide recents task view roundness to apply to all the recents view.
        this value will apply on Launcher3 quickstep view and also the normal recents -->
-  <java-symbol type="dimen" name="recents_task_view_rounded_corners_radius" />
+	<java-symbol type="dimen" name="recents_task_view_rounded_corners_radius" />
 
-  <!-- Notification info -->
-  <java-symbol type="color" name="notification_info_button_text" />
+	<!-- Notification info -->
+	<java-symbol type="color" name="notification_info_button_text" />
 
-  <!-- Toast text and bg colors -->
-  <java-symbol type="color" name="toast_bg_color" />
-  <java-symbol type="color" name="toast_text_color" />
+	<!-- Toast text and bg colors -->
+	<java-symbol type="color" name="toast_bg_color" />
+	<java-symbol type="color" name="toast_text_color" />
 
-  <!-- Auto fill -->
-  <java-symbol type="color" name="autofill_save_title_color" />
-  <java-symbol type="color" name="autofill_autofill_save_custom_subtitle_color" />
+	<!-- Auto fill -->
+	<java-symbol type="color" name="autofill_save_title_color" />
+	<java-symbol type="color" name="autofill_autofill_save_custom_subtitle_color" />
 
-  <!-- Forcefully tint notification icon text -->
-  <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
-  <java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
-  <java-symbol type="bool" name="config_notificationTinting_override" />
-  
-  <!-- SystemUI Restart -->
-  <java-symbol type="string" name="systemui_restart_title" />
-  <java-symbol type="string" name="systemui_restart_message" />
+	<!-- Forcefully tint notification icon text -->
+	<java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+	<java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
+	<java-symbol type="bool" name="config_notificationTinting_override" />
+	
+	<!-- SystemUI Restart -->
+	<java-symbol type="string" name="systemui_restart_title" />
+	<java-symbol type="string" name="systemui_restart_message" />
 
-  <!-- Fastscroller -->
-  <java-symbol type="color" name="fastscroller_text_color" />
+	<!-- Fastscroller -->
+	<java-symbol type="color" name="fastscroller_text_color" />
 
-  <java-symbol type="bool" name="config_intrusiveBatteryLed" />
-  <java-symbol type="bool" name="config_multiColorBatteryLed" />
-  <java-symbol type="bool" name="config_ledCanPulse" />
+	<java-symbol type="bool" name="config_intrusiveBatteryLed" />
+	<java-symbol type="bool" name="config_multiColorBatteryLed" />
+	<java-symbol type="bool" name="config_ledCanPulse" />
 
-  <java-symbol type="anim" name="inv_app_in" />
-  <java-symbol type="anim" name="inv_app_out" />
-  
-   <!-- Hardware key binding -->
-  <java-symbol type="integer" name="config_deviceHardwareKeys" />
-  
-  <!-- Button brightness -->
-  <java-symbol type="bool" name="config_button_brightness_support" />
-  <java-symbol type="integer" name="config_button_brightness_default" />
-  
-  <!-- Ambient display music ticker -->
-  <java-symbol type="bool" name="config_canForceDozeNotifications" />
+	<java-symbol type="anim" name="inv_app_in" />
+	<java-symbol type="anim" name="inv_app_out" />
+	
+	<!-- Hardware key binding -->
+	<java-symbol type="integer" name="config_deviceHardwareKeys" />
+	
+	<!-- Button brightness -->
+	<java-symbol type="bool" name="config_button_brightness_support" />
+	<java-symbol type="integer" name="config_button_brightness_default" />
+	
+	<!-- Ambient display music ticker -->
+	<java-symbol type="bool" name="config_canForceDozeNotifications" />
 
-  <!-- Weather icons -->
-  <java-symbol type="drawable" name="weather_clear_night" />
-  <java-symbol type="drawable" name="weather_cloudy" />
-  <java-symbol type="drawable" name="weather_foggy" />
-  <java-symbol type="drawable" name="weather_isolated_scattered_thunderstorms_night" />
-  <java-symbol type="drawable" name="weather_isolated_scattered_thunderstorms" />
-  <java-symbol type="drawable" name="weather_mostly_clear_night" />
-  <java-symbol type="drawable" name="weather_mostly_cloudy_night" />
-  <java-symbol type="drawable" name="weather_mostly_cloudy" />
-  <java-symbol type="drawable" name="weather_mostly_sunny" />
-  <java-symbol type="drawable" name="weather_partly_cloudy_night" />
-  <java-symbol type="drawable" name="weather_partly_cloudy" />
-  <java-symbol type="drawable" name="weather_rain" />
-  <java-symbol type="drawable" name="weather_scattered_showers_night" />
-  <java-symbol type="drawable" name="weather_scattered_showers" />
-  <java-symbol type="drawable" name="weather_snow" />
-  <java-symbol type="drawable" name="weather_sunny" />
-  <java-symbol type="drawable" name="weather_thunderstorms" />
-  <java-symbol type="drawable" name="weather_windy" />
-  
-  <!-- Whether device has dash charging support -->
-  <java-symbol type="bool" name="config_hasDashCharger" />
-  
-  <!-- Whether device has turbo power charging support -->
-  <java-symbol type="bool" name="config_hasTurboPowerCharger" />
-  
-  <!-- Oreo's recents component activity -->
-  <java-symbol type="string" name="config_recentsComponentNameOreo" />
-  
-  <!-- display for radio tech -->
-  <java-symbol type="bool" name="config_display_rat" />
+	<!-- Weather icons -->
+	<java-symbol type="drawable" name="weather_clear_night" />
+	<java-symbol type="drawable" name="weather_cloudy" />
+	<java-symbol type="drawable" name="weather_foggy" />
+	<java-symbol type="drawable" name="weather_isolated_scattered_thunderstorms_night" />
+	<java-symbol type="drawable" name="weather_isolated_scattered_thunderstorms" />
+	<java-symbol type="drawable" name="weather_mostly_clear_night" />
+	<java-symbol type="drawable" name="weather_mostly_cloudy_night" />
+	<java-symbol type="drawable" name="weather_mostly_cloudy" />
+	<java-symbol type="drawable" name="weather_mostly_sunny" />
+	<java-symbol type="drawable" name="weather_partly_cloudy_night" />
+	<java-symbol type="drawable" name="weather_partly_cloudy" />
+	<java-symbol type="drawable" name="weather_rain" />
+	<java-symbol type="drawable" name="weather_scattered_showers_night" />
+	<java-symbol type="drawable" name="weather_scattered_showers" />
+	<java-symbol type="drawable" name="weather_snow" />
+	<java-symbol type="drawable" name="weather_sunny" />
+	<java-symbol type="drawable" name="weather_thunderstorms" />
+	<java-symbol type="drawable" name="weather_windy" />
+	
+	<!-- Whether device has dash charging support -->
+	<java-symbol type="bool" name="config_hasDashCharger" />
+	
+	<!-- Whether device has turbo power charging support -->
+	<java-symbol type="bool" name="config_hasTurboPowerCharger" />
+	
+	<!-- Oreo's recents component activity -->
+	<java-symbol type="string" name="config_recentsComponentNameOreo" />
+	
+	<!-- display for radio tech -->
+	<java-symbol type="bool" name="config_display_rat" />
 
-   <!-- config 2G/3G/4G RAT strings for carriers -->
-  <java-symbol type="string" name="config_rat_unknown" />
-  <java-symbol type="string" name="config_rat_2g" />
-  <java-symbol type="string" name="config_rat_3g" />
-  <java-symbol type="string" name="config_rat_4g" />
-  
-  <!-- Alternative keyhandler -->
-  <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
-  <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
+	 <!-- config 2G/3G/4G RAT strings for carriers -->
+	<java-symbol type="string" name="config_rat_unknown" />
+	<java-symbol type="string" name="config_rat_2g" />
+	<java-symbol type="string" name="config_rat_3g" />
+	<java-symbol type="string" name="config_rat_4g" />
+	
+	<!-- Alternative keyhandler -->
+	<java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
+	<java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
+	
+	 <!-- System fonts -->
+   <java-symbol type="array" name="config_fontPackages" />
+
 </resources>
