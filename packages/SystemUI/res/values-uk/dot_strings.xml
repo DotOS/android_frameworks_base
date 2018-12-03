@@ -18,157 +18,157 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="global_action_restart_system">Перезавантаження</string>
-  <string name="global_action_restart_advanced">Розширені можливості перезавантаження</string>
-  <string name="global_action_restart_recovery">Recovery</string>
-  <string name="global_action_restart_bootloader">Завантажувач</string>
-  <string name="global_action_restart_ui">Перезапустити SystemUI</string>
-  <string name="global_action_restart_hot">Популярні</string>
-  <string name="global_action_screenshot">Знімок екрану</string>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">Налаштування за замовчуванням</string>
-  <string name="statusbar_items_title">Елементи рядку стану</string>
-  <string name="lockscreen_default">За замовчуванням</string>
-  <string name="lockscreen_hidden">Жоден</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Знімок екрану</string>
-  <string name="quick_settings_region_screenshot_label">Частковий знімок екрану</string>
-  <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">Картинка в картинці (PiP)</string>
-  <string name="quick_settings_pip_tile_app_na">Застосунок не підтримує режим \"Картинка в картинці\"</string>
-  <!-- Caffeine QS Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <!-- OmniJaws -->
-  <string name="omnijaws_service_error">Помилка</string>
-  <string name="omnijaws_service_unkown">Немає даних про погоду</string>
-  <string name="omnijaws_service_error_long">Помилка завантаження даних про погоду</string>
-  <string name="omnijaws_service_disabled">Службу вимкнено</string>
-  <string name="omnijaws_detail_header">Погода</string>
-  <string name="omnijaws_label_default">Погода</string>
-  <string name="omnijaws_current_text">Зараз</string>
-  <string name="omnijaws_package_not_available">OmniJaws недоступний</string>
-  <string name="omnijaws_service_last_update">Останнє оновлення:</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">Вільно ОЗП: %1$d Мб</string>
-  <!-- volte icon switch -->
-  <string name="status_bar_volte">VoLTE</string>
-  <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Звук</string>
-  <string name="quick_settings_sound_ring">Дзвінок</string>
-  <string name="quick_settings_sound_vibrate">Вібрація</string>
-  <string name="quick_settings_sound_dnd">Не турбувати</string>
-  <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB через мережу</string>
-  <string name="quick_settings_network_adb_enabled_label">ADB по мережі</string>
-  <string name="quick_settings_network_adb_disabled_label">ADB по мережі</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Power menu -->
+    <string name="global_action_restart_system">Перезавантаження</string>
+    <string name="global_action_restart_advanced">Розширені можливості перезавантаження</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Завантажувач</string>
+    <string name="global_action_restart_ui">Перезапустити SystemUI</string>
+    <string name="global_action_restart_hot">Популярні</string>
+    <string name="global_action_screenshot">Знімок екрану</string>
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_navbar_title">Налаштування за замовчуванням</string>
+    <string name="statusbar_items_title">Елементи рядку стану</string>
+    <string name="lockscreen_default">За замовчуванням</string>
+    <string name="lockscreen_hidden">Жоден</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Знімок екрану</string>
+    <string name="quick_settings_region_screenshot_label">Частковий знімок екрану</string>
+    <!-- PiP Tile -->
+    <string name="quick_settings_pip_label">Картинка в картинці (PiP)</string>
+    <string name="quick_settings_pip_tile_app_na">Застосунок не підтримує режим \"Картинка в картинці\"</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Заборона сну</string>
+    <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимк</string>
+    <string name="accessibility_quick_settings_caffeine_on">Заборона сну увімк</string>
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Помилка</string>
+    <string name="omnijaws_service_unkown">Немає даних про погоду</string>
+    <string name="omnijaws_service_error_long">Помилка завантаження даних про погоду</string>
+    <string name="omnijaws_service_disabled">Службу вимкнено</string>
+    <string name="omnijaws_detail_header">Погода</string>
+    <string name="omnijaws_label_default">Погода</string>
+    <string name="omnijaws_current_text">Зараз</string>
+    <string name="omnijaws_package_not_available">OmniJaws недоступний</string>
+    <string name="omnijaws_service_last_update">Останнє оновлення:</string>
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
+    <string name="recents_free_ram">Вільно ОЗП: %1$d Мб</string>
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Звук</string>
+    <string name="quick_settings_sound_ring">Дзвінок</string>
+    <string name="quick_settings_sound_vibrate">Вібрація</string>
+    <string name="quick_settings_sound_dnd">Не турбувати</string>
+    <!-- ADB network tile -->
+    <string name="quick_settings_adb_network">ADB через мережу</string>
+    <string name="quick_settings_network_adb_enabled_label">ADB по мережі</string>
+    <string name="quick_settings_network_adb_disabled_label">ADB по мережі</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord_label">Screenrecord</string>
-  <string name="quick_settings_screenrecord_lq_label">Screenrecord LQ</string>
-  <string name="quick_settings_screenrecord_mq_label">Screenrecord MQ</string>
-  <string name="quick_settings_screenrecord_hq_label">Screenrecord HQ</string>
-  <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Екран записується</string>
-  <string name="screenrecord_notif_final_ticker">Screen recorded successfully</string>
-  <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Запис екрану</string>
-  <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Стоп</string>
-  <string name="screenrecord_notif_completed">Screen recorded successfully</string>
-  <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Показувати вказівник</string>
-  <string name="screenrecord_notif_pointer_off">Приховувати вказівник</string>
-  <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Неможливо записати екран</string>
-  <string name="notification_channel_screenrecord">Записи з екрану</string>
-  <string name="screenrecord_hide_hint">Hide hint</string>
-  <string name="screenrecord_show_hint">Show hint</string>
-  <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB-модем вимкнути</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB-модем увімкнути</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем вимкнено</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем увімкнуто</string>
-  <string name="quick_settings_usb_tether_label">USB-модем</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> Спливаючі сповіщення вимкнені на одну хвилину.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Спливаючі сповіщення вимкнені на <xliff:g id="number">%d</xliff:g> хвилин.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">змінити функцію клавіши живлення</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Дозволити програмі змінити функцію кнопки живлення.</string>
-  <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
-  <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимк.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімк.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Інвертувати розташування кнопок</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Швидке заряджання (<xliff:g id="charging_time_left" example="4 год. 2 хв.">%s</xliff:g> до повної зарядки)</string>
-  <string name="keyguard_plugged_in_dash_charging">Швидке заряджання</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">Швидка зарядка під\'єднана (<xliff:g id="charging_time_left">%s</xliff:g> до повного)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">Швидка зарядка під\'єднана</string>
-  <string name="keyguard_plugged_in_turbo_charging">Швидка зарядка</string>
-  <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Голосовий пошук</string>
-  <string name="quick_settings_sound_search_no_app">Вибачте, але ця функція недоступна, якщо немає програми для голосового пошуку.</string>
-  <!-- DOT logo -->
-  <string name="dot_logo_title">Логотип DotOS</string>
-  <string name="dot_logo_summary">Нехай всі знають, що ви використовуєте DotOS, коли вони бачать ваш телефон (перезавантажте SystemUI)</string>
-  <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Синхронізація</string>
-  <string name="accessibility_quick_settings_sync_off">Синхронізація вимк.</string>
-  <string name="accessibility_quick_settings_sync_on">Синхронізація увімкнена</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Синхронізацію увімкнено</string>
-  <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Повністю заряджений</string>
-  <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Панель навігації</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Стандартний</string>
-  <string name="quick_settings_navigation_disabled">Відключено</string>
-  <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">Апаратні клавіші увімкнено</string>
-  <string name="accessibility_quick_settings_hwkeys_off">Апаратні клавіші вимкнено</string>
-  <string name="quick_settings_hwkeys_label">Апаратні клавіші</string>
-  <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Перетягніть або торкніться, щоб додати плитки</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ambient display</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
-  <!-- Always on Display Tile -->
-  <string name="quick_settings_always_on_display_label">Always on display</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
-  <!-- Kill button in notification guts -->
-  <string name="force_stop_dlg_title">Force stop?</string>
-  <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
-  <string name="dlg_ok">@android:string/ok</string>
-  <string name="dlg_cancel">@android:string/cancel</string>
-  <string name="kill">Kill App</string>
-  <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+    <!-- Screenrecord Tile -->
+    <string name="quick_settings_screenrecord_label">Запис екрану</string>
+    <string name="quick_settings_screenrecord_lq_label">Запис екрану, низька якість</string>
+    <string name="quick_settings_screenrecord_mq_label">Запис екрану, середня якість</string>
+    <string name="quick_settings_screenrecord_hq_label">Запис екрану, висока якість</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Екран записується</string>
+    <string name="screenrecord_notif_final_ticker">Запис екрану проведено успішно</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Запис екрану</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Стоп</string>
+    <string name="screenrecord_notif_completed">Запис екрану проведено успішно</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Показувати вказівник</string>
+    <string name="screenrecord_notif_pointer_off">Приховувати вказівник</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Неможливо записати екран</string>
+    <string name="notification_channel_screenrecord">Записи з екрану</string>
+    <string name="screenrecord_hide_hint">Приховати підказки</string>
+    <string name="screenrecord_show_hint">Показати підказку</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">USB-модем вимкнути</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB-модем увімкнути</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем вимкнено</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем увімкнуто</string>
+    <string name="quick_settings_usb_tether_label">USB-модем</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> Спливаючі сповіщення вимкнені на одну хвилину.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Спливаючі сповіщення вимкнені на <xliff:g id="number">%d</xliff:g> хвилин.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_preventpower">змінити функцію клавіши живлення</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_preventpower">Дозволити програмі змінити функцію кнопки живлення.</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
+    <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимк.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімк.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Інвертувати розташування кнопок</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Швидке заряджання (<xliff:g id="charging_time_left" example="4 год. 2 хв.">%s</xliff:g> до повної зарядки)</string>
+    <string name="keyguard_plugged_in_dash_charging">Швидке заряджання</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">Швидка зарядка під\'єднана (<xliff:g id="charging_time_left">%s</xliff:g> до повного)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">Швидка зарядка під\'єднана</string>
+    <string name="keyguard_plugged_in_turbo_charging">Швидка зарядка</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Голосовий пошук</string>
+    <string name="quick_settings_sound_search_no_app">Вибачте, але ця функція недоступна, якщо немає програми для голосового пошуку.</string>
+    <!-- DOT logo -->
+    <string name="dot_logo_title">Логотип DotOS</string>
+    <string name="dot_logo_summary">Нехай всі знають, що ви використовуєте DotOS, коли вони бачать ваш телефон (перезавантажте SystemUI)</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Синхронізація</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронізація вимк.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронізація увімкнена</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронізацію увімкнено</string>
+    <!-- Battery saver tile -->
+    <string name="battery_saver_qs_tile_fully_charged">Повністю заряджений</string>
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Панель навігації</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_navigation_default">Стандартний</string>
+    <string name="quick_settings_navigation_disabled">Відключено</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Апаратні клавіші увімкнено</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Апаратні клавіші вимкнено</string>
+    <string name="quick_settings_hwkeys_label">Апаратні клавіші</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Перетягніть або торкніться, щоб додати плитки</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient дисплей</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient дисплей вимкнений.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient дисплей увімкнений.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient дисплей вимкнено.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient дисплей увімкнено.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Постійно активний дисплей</string>
+    <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_off">Постійно активний дисплей вимк.</string>
+    <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_on">Постійно активний дисплей увімк.</string>
+    <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Постійно активний дисплей вимкнено.</string>
+    <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Постійно активний дисплей увімкнено.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Примусово зупинити?</string>
+    <string name="force_stop_dlg_text">Примусове вимкнення додатка може призвести до збою в його роботі.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="kill">Завершити додаток</string>
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Розумні пікселі</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення smart пікселів</string>
 </resources>

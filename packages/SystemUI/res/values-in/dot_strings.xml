@@ -18,157 +18,157 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="global_action_restart_system">Mulai ulang</string>
-  <string name="global_action_restart_advanced">Mulai ulang lanjutan</string>
-  <string name="global_action_restart_recovery">Pemulihan</string>
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Hotboot</string>
-  <string name="global_action_screenshot">Tangkapan layar</string>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">Pengaturan bawaan</string>
-  <string name="statusbar_items_title">Ikon statusbar</string>
-  <string name="lockscreen_default">Bawaan</string>
-  <string name="lockscreen_hidden">Tidak Ada</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Tangkapan layar</string>
-  <string name="quick_settings_region_screenshot_label">Tangkapan layar sebagian</string>
-  <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">Aplikasi tidak mendukung PiP</string>
-  <!-- Caffeine QS Tile -->
-  <string name="quick_settings_caffeine_label">Kafein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kafein mati</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
-  <!-- OmniJaws -->
-  <string name="omnijaws_service_error">Kesalahan</string>
-  <string name="omnijaws_service_unkown">Tidak ada data cuaca</string>
-  <string name="omnijaws_service_error_long">Kesalahan saat memuat data cuaca</string>
-  <string name="omnijaws_service_disabled">Layanan dinonaktifkan</string>
-  <string name="omnijaws_detail_header">Cuaca</string>
-  <string name="omnijaws_label_default">Cuaca</string>
-  <string name="omnijaws_current_text">Sekarang</string>
-  <string name="omnijaws_package_not_available">OmniJaws tidak tersedia</string>
-  <string name="omnijaws_service_last_update">Pembaruan terakhir:</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">RAM TERSEDIA: %1$d MB</string>
-  <!-- volte icon switch -->
-  <string name="status_bar_volte">VoLTE</string>
-  <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Suara</string>
-  <string name="quick_settings_sound_ring">Nada dering</string>
-  <string name="quick_settings_sound_vibrate">Getar</string>
-  <string name="quick_settings_sound_dnd">Jangan mengganggu</string>
-  <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">Jaringan ADB</string>
-  <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
-  <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Power menu -->
+    <string name="global_action_restart_system">Mulai ulang</string>
+    <string name="global_action_restart_advanced">Mulai ulang lanjutan</string>
+    <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_hot">Hotboot</string>
+    <string name="global_action_screenshot">Tangkapan layar</string>
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_navbar_title">Pengaturan bawaan</string>
+    <string name="statusbar_items_title">Ikon statusbar</string>
+    <string name="lockscreen_default">Bawaan</string>
+    <string name="lockscreen_hidden">Tidak Ada</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Tangkapan layar</string>
+    <string name="quick_settings_region_screenshot_label">Tangkapan layar sebagian</string>
+    <!-- PiP Tile -->
+    <string name="quick_settings_pip_label">PiP</string>
+    <string name="quick_settings_pip_tile_app_na">Aplikasi tidak mendukung PiP</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein mati</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Kesalahan</string>
+    <string name="omnijaws_service_unkown">Tidak ada data cuaca</string>
+    <string name="omnijaws_service_error_long">Kesalahan saat memuat data cuaca</string>
+    <string name="omnijaws_service_disabled">Layanan dinonaktifkan</string>
+    <string name="omnijaws_detail_header">Cuaca</string>
+    <string name="omnijaws_label_default">Cuaca</string>
+    <string name="omnijaws_current_text">Sekarang</string>
+    <string name="omnijaws_package_not_available">OmniJaws tidak tersedia</string>
+    <string name="omnijaws_service_last_update">Pembaruan terakhir:</string>
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
+    <string name="recents_free_ram">RAM TERSEDIA: %1$d MB</string>
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Suara</string>
+    <string name="quick_settings_sound_ring">Nada dering</string>
+    <string name="quick_settings_sound_vibrate">Getar</string>
+    <string name="quick_settings_sound_dnd">Jangan mengganggu</string>
+    <!-- ADB network tile -->
+    <string name="quick_settings_adb_network">Jaringan ADB</string>
+    <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
+    <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord_label">Rekam layar</string>
-  <string name="quick_settings_screenrecord_lq_label">Rekam layar kualitas rendah</string>
-  <string name="quick_settings_screenrecord_mq_label">Rekam layar kualitas sedang</string>
-  <string name="quick_settings_screenrecord_hq_label">Rekam layar kualitas tinggi</string>
-  <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Layar sedang direkam</string>
-  <string name="screenrecord_notif_final_ticker">Berhasil merekam layar</string>
-  <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Merekam layar</string>
-  <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Berhenti</string>
-  <string name="screenrecord_notif_completed">Berhasil merekam layar</string>
-  <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Tampilkan pointer</string>
-  <string name="screenrecord_notif_pointer_off">Sembunyikan pointer</string>
-  <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Tidak dapat merekam layar</string>
-  <string name="notification_channel_screenrecord">Rekam layar</string>
-  <string name="screenrecord_hide_hint">Sembunykan petunjuk</string>
-  <string name="screenrecord_show_hint">Tunjukkan penanda</string>
-  <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">Penambatan USB mati</string>
-  <string name="accessibility_quick_settings_usb_tether_on">Penambatan USB aktif</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">Penambatan USB dimatikan</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">Penambatan USB dihidupkan</string>
-  <string name="quick_settings_usb_tether_label">Penambatan USB</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Intip pemberitahuan tertidur selama 1 menit.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Intip pemberitahuan tertunda untuk <xliff:g id="number">%d</xliff:g> menit.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">menimpa tombol power</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Memungkinkan aplikasi untuk menimpa tombol daya.</string>
-  <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Balikkan layout tombol</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Pengisian cepat (<xliff:g id="charging_time_left" example="4 jam dan 2 menit">%s</xliff:g> sampai penuh)</string>
-  <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower terhubung (<xliff:g id="charging_time_left">%s</xliff:g> sampai penuh)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower terhubung</string>
-  <string name="keyguard_plugged_in_turbo_charging">Pengisian Turbo</string>
-  <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Pencarian Suara</string>
-  <string name="quick_settings_sound_search_no_app">Maaf, tapi ini tidak akan berfungsi jika tidak ada aplikasi pencarian suara.</string>
-  <!-- DOT logo -->
-  <string name="dot_logo_title">Logo DOT</string>
-  <string name="dot_logo_summary">Biarkan semua orang tahu bahwa Anda menggunakan DotOS ketika mereka melihat telepon anda (restart SystemUI untuk mengambil efek)</string>
-  <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Siknronisasi</string>
-  <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati</string>
-  <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan</string>
-  <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Terisi penuh</string>
-  <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Bilah navigasi</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Bawaan</string>
-  <string name="quick_settings_navigation_disabled">Dinonaktifkan</string>
-  <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">Tombol fisik aktif</string>
-  <string name="accessibility_quick_settings_hwkeys_off">Tombol fisik mati</string>
-  <string name="quick_settings_hwkeys_label">Tombol fisik</string>
-  <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Seret atau ketuk untuk menambahkan ubin</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Layar kedip</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Layar kedip mati.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Layar kedip hidup.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Layar kedip dimatikan.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Layar kedip dihidupkan.</string>
-  <!-- Always on Display Tile -->
-  <string name="quick_settings_always_on_display_label">Layar selalu hidup</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_off">Layar selalu hidup mati.</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_on">Layar selalu hidup hidup.</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_off">Layar selalu hidup dimatikan.</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_on">Layar selalu hidup dihidupkan.</string>
-  <!-- Kill button in notification guts -->
-  <string name="force_stop_dlg_title">Paksa berhenti?</string>
-  <string name="force_stop_dlg_text">Jika anda menghentikan paksa aplikasi ini, kemungkinan akan terjadi gagal fungsi.</string>
-  <string name="dlg_ok">@android:string/ok</string>
-  <string name="dlg_cancel">@android:string/cancel</string>
-  <string name="kill">Paksa tutup aplikasi</string>
-  <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Piksel cerdas</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Otomatis hidupkan piksel cerdas</string>
+    <!-- Screenrecord Tile -->
+    <string name="quick_settings_screenrecord_label">Rekam layar</string>
+    <string name="quick_settings_screenrecord_lq_label">Rekam layar kualitas rendah</string>
+    <string name="quick_settings_screenrecord_mq_label">Rekam layar kualitas sedang</string>
+    <string name="quick_settings_screenrecord_hq_label">Rekam layar kualitas tinggi</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Layar sedang direkam</string>
+    <string name="screenrecord_notif_final_ticker">Berhasil merekam layar</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Merekam layar</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Berhenti</string>
+    <string name="screenrecord_notif_completed">Berhasil merekam layar</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Tampilkan pointer</string>
+    <string name="screenrecord_notif_pointer_off">Sembunyikan pointer</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Tidak dapat merekam layar</string>
+    <string name="notification_channel_screenrecord">Rekam layar</string>
+    <string name="screenrecord_hide_hint">Sembunykan petunjuk</string>
+    <string name="screenrecord_show_hint">Tunjukkan penanda</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">Penambatan USB mati</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Penambatan USB aktif</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Penambatan USB dimatikan</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Penambatan USB dihidupkan</string>
+    <string name="quick_settings_usb_tether_label">Penambatan USB</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Intip pemberitahuan tertidur selama 1 menit.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Intip pemberitahuan tertunda untuk <xliff:g id="number">%d</xliff:g> menit.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_preventpower">menimpa tombol power</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_preventpower">Memungkinkan aplikasi untuk menimpa tombol daya.</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Balikkan layout tombol</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Pengisian cepat (<xliff:g id="charging_time_left" example="4 jam dan 2 menit">%s</xliff:g> sampai penuh)</string>
+    <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower terhubung (<xliff:g id="charging_time_left">%s</xliff:g> sampai penuh)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower terhubung</string>
+    <string name="keyguard_plugged_in_turbo_charging">Pengisian Turbo</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Pencarian Suara</string>
+    <string name="quick_settings_sound_search_no_app">Maaf, tapi ini tidak akan berfungsi jika tidak ada aplikasi pencarian suara.</string>
+    <!-- DOT logo -->
+    <string name="dot_logo_title">Logo DOT</string>
+    <string name="dot_logo_summary">Biarkan semua orang tahu bahwa Anda menggunakan DotOS ketika mereka melihat telepon anda (restart SystemUI untuk mengambil efek)</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Siknronisasi</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan</string>
+    <!-- Battery saver tile -->
+    <string name="battery_saver_qs_tile_fully_charged">Terisi penuh</string>
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Bilah navigasi</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_navigation_default">Bawaan</string>
+    <string name="quick_settings_navigation_disabled">Dinonaktifkan</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Tombol fisik aktif</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Tombol fisik mati</string>
+    <string name="quick_settings_hwkeys_label">Tombol fisik</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Seret atau ketuk untuk menambahkan ubin</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Layar kedip</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Layar kedip mati.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Layar kedip hidup.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Layar kedip dimatikan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Layar kedip dihidupkan.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Layar selalu hidup</string>
+    <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_off">Layar selalu hidup mati.</string>
+    <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_on">Layar selalu hidup hidup.</string>
+    <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Layar selalu hidup dimatikan.</string>
+    <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Layar selalu hidup dihidupkan.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Paksa berhenti?</string>
+    <string name="force_stop_dlg_text">Jika anda menghentikan paksa aplikasi ini, kemungkinan akan terjadi gagal fungsi.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="kill">Paksa tutup aplikasi</string>
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Piksel cerdas</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Otomatis hidupkan piksel cerdas</string>
 </resources>

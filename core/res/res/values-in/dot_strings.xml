@@ -16,23 +16,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="reboot_title">Mulai ulang</string>
-  <string name="reboot_message">Memulai ulang sistem</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">editor kendali navigasi</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Mengizinkan aplikasi mengendalikan editor bilah navigasi.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_fakePackageSignature">Spoof paket tanda tangan</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_fakePackageSignature">Membolehkan aplikasi untuk berpura-pura sebagai aplikasi lain. Aplikasi jahat mungkin dapat menggunakan ini untuk mengakses data aplikasi. Bolehkan perizinan ini dengan hati-hati!</string>
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB melalui jaringan diaktifkan</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB melalui USB &amp; jaringan diaktifkan</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Sentuh untuk menonaktifkan debug.</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Tekan lama tombol power untuk menggunakan</string>
+    <!-- Power menu -->
+    <string name="reboot_title">Mulai ulang</string>
+    <string name="reboot_message">Memulai ulang sistem</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_toggleNavigationEditor">editor kendali navigasi</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Mengizinkan aplikasi mengendalikan editor bilah navigasi.</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Spoof paket tanda tangan</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Membolehkan aplikasi untuk berpura-pura sebagai aplikasi lain. Aplikasi jahat mungkin dapat menggunakan ini untuk mengakses data aplikasi. Bolehkan perizinan ini dengan hati-hati!</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB melalui jaringan diaktifkan</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB melalui USB &amp; jaringan diaktifkan</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Sentuh untuk menonaktifkan debug.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tekan lama tombol power untuk menggunakan</string>
 </resources>

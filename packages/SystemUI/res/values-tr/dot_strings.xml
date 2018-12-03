@@ -18,157 +18,157 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="global_action_restart_system">Yeniden başlat</string>
-  <string name="global_action_restart_advanced">Gelişmiş yeniden başlatma</string>
-  <string name="global_action_restart_recovery">Kurtarma</string>
-  <string name="global_action_restart_bootloader">Ön yükleyici</string>
-  <string name="global_action_restart_ui">Arayüz</string>
-  <string name="global_action_restart_hot">Hızlı</string>
-  <string name="global_action_screenshot">Ekran görüntüsü</string>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">Varsayılan ayarlar</string>
-  <string name="statusbar_items_title">Durum çubuğu simgeleri</string>
-  <string name="lockscreen_default">Varsayılan</string>
-  <string name="lockscreen_hidden">Yok</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Ekran görüntüsü</string>
-  <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
-  <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">PiP</string>
-  <string name="quick_settings_pip_tile_app_na">Uygulama PiP\'i desteklemiyor</string>
-  <!-- Caffeine QS Tile -->
-  <string name="quick_settings_caffeine_label">Kafein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
-  <!-- OmniJaws -->
-  <string name="omnijaws_service_error">Hata</string>
-  <string name="omnijaws_service_unkown">Hava durumu verileri yok</string>
-  <string name="omnijaws_service_error_long">Hava durumu verileri yüklenemedi</string>
-  <string name="omnijaws_service_disabled">Servis devre dışı</string>
-  <string name="omnijaws_detail_header">Hava durumu</string>
-  <string name="omnijaws_label_default">Hava durumu</string>
-  <string name="omnijaws_current_text">Şimdi</string>
-  <string name="omnijaws_package_not_available">OmniJaws mevcut değil</string>
-  <string name="omnijaws_service_last_update">Son güncelleme:</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">Boş RAM: %1$d MB</string>
-  <!-- volte icon switch -->
-  <string name="status_bar_volte">VOLTE</string>
-  <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Ses</string>
-  <string name="quick_settings_sound_ring">Zil sesi</string>
-  <string name="quick_settings_sound_vibrate">Titreşim</string>
-  <string name="quick_settings_sound_dnd">Rahatsız etmeyin</string>
-  <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB ağı</string>
-  <string name="quick_settings_network_adb_enabled_label">Net üzerinde Adb etkin</string>
-  <string name="quick_settings_network_adb_disabled_label">Net üzerinde Adb deve dışı</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Power menu -->
+    <string name="global_action_restart_system">Yeniden başlat</string>
+    <string name="global_action_restart_advanced">Gelişmiş yeniden başlatma</string>
+    <string name="global_action_restart_recovery">Kurtarma</string>
+    <string name="global_action_restart_bootloader">Ön yükleyici</string>
+    <string name="global_action_restart_ui">Arayüz</string>
+    <string name="global_action_restart_hot">Hızlı</string>
+    <string name="global_action_screenshot">Ekran görüntüsü</string>
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_navbar_title">Varsayılan ayarlar</string>
+    <string name="statusbar_items_title">Durum çubuğu simgeleri</string>
+    <string name="lockscreen_default">Varsayılan</string>
+    <string name="lockscreen_hidden">Yok</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Ekran görüntüsü</string>
+    <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
+    <!-- PiP Tile -->
+    <string name="quick_settings_pip_label">PiP</string>
+    <string name="quick_settings_pip_tile_app_na">Uygulama PiP\'i desteklemiyor</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Hata</string>
+    <string name="omnijaws_service_unkown">Hava durumu verileri yok</string>
+    <string name="omnijaws_service_error_long">Hava durumu verileri yüklenemedi</string>
+    <string name="omnijaws_service_disabled">Servis devre dışı</string>
+    <string name="omnijaws_detail_header">Hava durumu</string>
+    <string name="omnijaws_label_default">Hava durumu</string>
+    <string name="omnijaws_current_text">Şimdi</string>
+    <string name="omnijaws_package_not_available">OmniJaws mevcut değil</string>
+    <string name="omnijaws_service_last_update">Son güncelleme:</string>
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
+    <string name="recents_free_ram">Boş RAM: %1$d MB</string>
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VOLTE</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Ses</string>
+    <string name="quick_settings_sound_ring">Zil sesi</string>
+    <string name="quick_settings_sound_vibrate">Titreşim</string>
+    <string name="quick_settings_sound_dnd">Rahatsız etmeyin</string>
+    <!-- ADB network tile -->
+    <string name="quick_settings_adb_network">ADB ağı</string>
+    <string name="quick_settings_network_adb_enabled_label">Net üzerinde Adb etkin</string>
+    <string name="quick_settings_network_adb_disabled_label">Net üzerinde Adb deve dışı</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord_label">Ekran kaydı</string>
-  <string name="quick_settings_screenrecord_lq_label">Ekran kaydı 480p</string>
-  <string name="quick_settings_screenrecord_mq_label">Ekran kaydı 720p</string>
-  <string name="quick_settings_screenrecord_hq_label">Ekran kaydı 720p+</string>
-  <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Ekran kaydediliyor</string>
-  <string name="screenrecord_notif_final_ticker">Ekran başarıyla kaydedildi</string>
-  <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Ekran kaydediliyor</string>
-  <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Durdur</string>
-  <string name="screenrecord_notif_completed">Ekran başarıyla kaydedildi</string>
-  <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">İşaretçiyi göster</string>
-  <string name="screenrecord_notif_pointer_off">İşaretçiyi gizle</string>
-  <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Ekran kaydı yapılamıyor</string>
-  <string name="notification_channel_screenrecord">Ekran kayıtları</string>
-  <string name="screenrecord_hide_hint">İpuçlarını gizle</string>
-  <string name="screenrecord_show_hint">İpuçlarını göster</string>
-  <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB internet paylaşımı kapalı</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
-  <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%d</xliff:g> dakika erteleniyor.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">güç tuşunu geçersiz kıl</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Uygulamaya güç tuşunu geçersiz kılma izni verir.</string>
-  <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
-  <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Tuş düzenini ters çevir</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Hızlı şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
-  <string name="keyguard_plugged_in_dash_charging">Hızlı şarj oluyor</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">Turbo şarj bağlandı (tam dolmasına <xliff:g id="charging_time_left">%s</xliff:g> kaldı)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">Turbo şarj bağlandı</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo şarj oluyor</string>
-  <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Sesli arama</string>
-  <string name="quick_settings_sound_search_no_app">Üzgünüz eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
-  <!-- DOT logo -->
-  <string name="dot_logo_title">DOT logo</string>
-  <string name="dot_logo_summary">Durum çubuğunda DotOS logosunu göster (aktif olmazsa sistem arayüzünü yeniden başlatın)</string>
-  <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Eşitleme</string>
-  <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı</string>
-  <string name="accessibility_quick_settings_sync_on">Eşitleme açık</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı</string>
-  <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Pil tam dolu</string>
-  <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Gezinme çubuğu</string>
-  <string name="quick_settings_smartbar">Akıllı çubuk</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Varsayılan</string>
-  <string name="quick_settings_navigation_disabled">Devre dışı</string>
-  <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
-  <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
-  <string name="quick_settings_hwkeys_label">Donanım tuşları</string>
-  <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Kare eklemek için sürükleyin veya dokunun</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ortam ekranı</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ortam ekranı kapalı.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ortam ekranı açık.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ortam ekranı kapatıldı.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açıldı.</string>
-  <!-- Always on Display Tile -->
-  <string name="quick_settings_always_on_display_label">Always on ekran</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_off">Always on ekranı kapalı.</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_on">Always on ekranı açık.</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_off">Always on ekranı kapatıldı.</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_on">Always on ekranı açıldı.</string>
-  <!-- Kill button in notification guts -->
-  <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
-  <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
-  <string name="dlg_ok">@android:string/ok</string>
-  <string name="dlg_cancel">@android:string/cancel</string>
-  <string name="kill">Uygulamayı sonlandır</string>
-  <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Akıllı pikseller</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
+    <!-- Screenrecord Tile -->
+    <string name="quick_settings_screenrecord_label">Ekran kaydı</string>
+    <string name="quick_settings_screenrecord_lq_label">Ekran kaydı 480p</string>
+    <string name="quick_settings_screenrecord_mq_label">Ekran kaydı 720p</string>
+    <string name="quick_settings_screenrecord_hq_label">Ekran kaydı 720p+</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Ekran kaydediliyor</string>
+    <string name="screenrecord_notif_final_ticker">Ekran başarıyla kaydedildi</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Ekran kaydediliyor</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Durdur</string>
+    <string name="screenrecord_notif_completed">Ekran başarıyla kaydedildi</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">İşaretçiyi göster</string>
+    <string name="screenrecord_notif_pointer_off">İşaretçiyi gizle</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Ekran kaydı yapılamıyor</string>
+    <string name="notification_channel_screenrecord">Ekran kayıtları</string>
+    <string name="screenrecord_hide_hint">İpuçlarını gizle</string>
+    <string name="screenrecord_show_hint">İpuçlarını göster</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">USB internet paylaşımı kapalı</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%d</xliff:g> dakika erteleniyor.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_preventpower">güç tuşunu geçersiz kıl</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_preventpower">Uygulamaya güç tuşunu geçersiz kılma izni verir.</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Tuş düzenini ters çevir</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Hızlı şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_dash_charging">Hızlı şarj oluyor</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">Turbo şarj bağlandı (tam dolmasına <xliff:g id="charging_time_left">%s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">Turbo şarj bağlandı</string>
+    <string name="keyguard_plugged_in_turbo_charging">Turbo şarj oluyor</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Sesli arama</string>
+    <string name="quick_settings_sound_search_no_app">Üzgünüz eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
+    <!-- DOT logo -->
+    <string name="dot_logo_title">DOT logo</string>
+    <string name="dot_logo_summary">Durum çubuğunda DotOS logosunu göster (aktif olmazsa sistem arayüzünü yeniden başlatın)</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Eşitleme</string>
+    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı</string>
+    <string name="accessibility_quick_settings_sync_on">Eşitleme açık</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı</string>
+    <!-- Battery saver tile -->
+    <string name="battery_saver_qs_tile_fully_charged">Pil tam dolu</string>
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Gezinme çubuğu</string>
+    <string name="quick_settings_smartbar">Akıllı çubuk</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_navigation_default">Varsayılan</string>
+    <string name="quick_settings_navigation_disabled">Devre dışı</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
+    <string name="quick_settings_hwkeys_label">Donanım tuşları</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Kare eklemek için sürükleyin veya dokunun</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ortam ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ortam ekranı kapalı.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ortam ekranı açık.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ortam ekranı kapatıldı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açıldı.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always on ekran</string>
+    <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_off">Always on ekranı kapalı.</string>
+    <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_on">Always on ekranı açık.</string>
+    <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on ekranı kapatıldı.</string>
+    <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on ekranı açıldı.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
+    <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="kill">Uygulamayı sonlandır</string>
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Akıllı pikseller</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
 </resources>

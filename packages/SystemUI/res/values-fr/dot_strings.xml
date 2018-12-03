@@ -18,157 +18,157 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="global_action_restart_system">Redémarrage</string>
-  <string name="global_action_restart_advanced">Redémarrage avancé</string>
-  <string name="global_action_restart_recovery">Recovery</string>
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">Interface utilisateur</string>
-  <string name="global_action_restart_hot">Redémarrage rapide</string>
-  <string name="global_action_screenshot">Capture d\'écran</string>
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_navbar_title">Paramètres d\'origine</string>
-  <string name="statusbar_items_title">Icône de la barre d\'état</string>
-  <string name="lockscreen_default">Par défaut</string>
-  <string name="lockscreen_hidden">Aucun</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Capture d\'écran</string>
-  <string name="quick_settings_region_screenshot_label">Capture d’écran partielle</string>
-  <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">Incrustation d\'image</string>
-  <string name="quick_settings_pip_tile_app_na">L\'application est incompatible avec l\'incrustation d\'image</string>
-  <!-- Caffeine QS Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <!-- OmniJaws -->
-  <string name="omnijaws_service_error">Erreur</string>
-  <string name="omnijaws_service_unkown">Pas de données météo</string>
-  <string name="omnijaws_service_error_long">Erreur lors du chargement des données météo</string>
-  <string name="omnijaws_service_disabled">Service désactivé</string>
-  <string name="omnijaws_detail_header">Météo</string>
-  <string name="omnijaws_label_default">Météo</string>
-  <string name="omnijaws_current_text">Maintenant</string>
-  <string name="omnijaws_package_not_available">OmniJaws non disponible pas</string>
-  <string name="omnijaws_service_last_update">Dernière mise à jour :</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-  <string name="recents_free_ram">RAM disponible: %1$d MB</string>
-  <!-- volte icon switch -->
-  <string name="status_bar_volte">VoLTE</string>
-  <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Son</string>
-  <string name="quick_settings_sound_ring">Sonnerie</string>
-  <string name="quick_settings_sound_vibrate">Vibreur</string>
-  <string name="quick_settings_sound_dnd">Ne pas déranger</string>
-  <!-- ADB network tile -->
-  <string name="quick_settings_adb_network">ADB par réseau</string>
-  <string name="quick_settings_network_adb_enabled_label">Adb par le réseau</string>
-  <string name="quick_settings_network_adb_disabled_label">Adb par le réseau</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Power menu -->
+    <string name="global_action_restart_system">Redémarrage</string>
+    <string name="global_action_restart_advanced">Redémarrage avancé</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Interface utilisateur</string>
+    <string name="global_action_restart_hot">Redémarrage rapide</string>
+    <string name="global_action_screenshot">Capture d\'écran</string>
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_navbar_title">Paramètres d\'origine</string>
+    <string name="statusbar_items_title">Icône de la barre d\'état</string>
+    <string name="lockscreen_default">Par défaut</string>
+    <string name="lockscreen_hidden">Aucun</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Capture d\'écran</string>
+    <string name="quick_settings_region_screenshot_label">Capture d’écran partielle</string>
+    <!-- PiP Tile -->
+    <string name="quick_settings_pip_label">Incrustation d\'image</string>
+    <string name="quick_settings_pip_tile_app_na">L\'application est incompatible avec l\'incrustation d\'image</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caféine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caféine désactivée</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféine activée</string>
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Erreur</string>
+    <string name="omnijaws_service_unkown">Pas de données météo</string>
+    <string name="omnijaws_service_error_long">Erreur lors du chargement des données météo</string>
+    <string name="omnijaws_service_disabled">Service désactivé</string>
+    <string name="omnijaws_detail_header">Météo</string>
+    <string name="omnijaws_label_default">Météo</string>
+    <string name="omnijaws_current_text">Maintenant</string>
+    <string name="omnijaws_package_not_available">OmniJaws non disponible pas</string>
+    <string name="omnijaws_service_last_update">Dernière mise à jour :</string>
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
+    <string name="recents_free_ram">RAM disponible: %1$d MB</string>
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Son</string>
+    <string name="quick_settings_sound_ring">Sonnerie</string>
+    <string name="quick_settings_sound_vibrate">Vibreur</string>
+    <string name="quick_settings_sound_dnd">Ne pas déranger</string>
+    <!-- ADB network tile -->
+    <string name="quick_settings_adb_network">ADB par réseau</string>
+    <string name="quick_settings_network_adb_enabled_label">Adb par le réseau</string>
+    <string name="quick_settings_network_adb_disabled_label">Adb par le réseau</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Screenrecord Tile -->
-  <string name="quick_settings_screenrecord_label">Screenrecord</string>
-  <string name="quick_settings_screenrecord_lq_label">Screenrecord LQ</string>
-  <string name="quick_settings_screenrecord_mq_label">Screenrecord MQ</string>
-  <string name="quick_settings_screenrecord_hq_label">Screenrecord HQ</string>
-  <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">L\'écran est en cours d\'enregistrement</string>
-  <string name="screenrecord_notif_final_ticker">Screen recorded successfully</string>
-  <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Enregistrement de l\'écran</string>
-  <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Arrêter</string>
-  <string name="screenrecord_notif_completed">Screen recorded successfully</string>
-  <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Afficher le pointeur</string>
-  <string name="screenrecord_notif_pointer_off">Masquer le pointeur</string>
-  <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Impossible d\'enregistrer l\'écran</string>
-  <string name="notification_channel_screenrecord">Enregistrements de l\'écran</string>
-  <string name="screenrecord_hide_hint">Hide hint</string>
-  <string name="screenrecord_show_hint">Show hint</string>
-  <!-- USB Tethering tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">Partage USB désactivé</string>
-  <string name="accessibility_quick_settings_usb_tether_on">Partage USB activé</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">Partage de connexion USB a été désactivé</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">Le partage de connexion via USB a été activé</string>
-  <string name="quick_settings_usb_tether_label">Partage de connexion par USB</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notification furtive sont en attente pendant 1 minute.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> -Notification furtive sont en attente pendant <xliff:g id="number">%d</xliff:g> minutes.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">remplacer le bouton d\'alimentation</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Autoriser une application à remplacer le bouton d\'alimentation.</string>
-  <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Notifications flottantes</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes ont été désactivées.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes ont été activés.</string>
-  <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
-  <string name="nav_bar_layout_inverse">Inverser la disposition des boutons</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Recharge Rapide (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> restant jusqu\'à charge complète)</string>
-  <string name="keyguard_plugged_in_dash_charging">Charge rapide</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connecté (<xliff:g id="charging_time_left">%s</xliff:g> avant charge complète)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
-  <string name="keyguard_plugged_in_turbo_charging">Recharge Turbo</string>
-  <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Recherche audio</string>
-  <string name="quick_settings_sound_search_no_app">Désolé, mais cela ne fonctionne que si vous avez une application de recherche audio.</string>
-  <!-- DOT logo -->
-  <string name="dot_logo_title">Logo DOT</string>
-  <string name="dot_logo_summary">Laisser savoir aux autres que vous utilisez DotOS quand ils voient votre téléphone (redémarrage de SystemUI nécessaire pour appliquer)</string>
-  <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée</string>
-  <string name="accessibility_quick_settings_sync_on">Synchronisation activée</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Synchronisation désactivée</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Synchronisation activée</string>
-  <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Charge terminée</string>
-  <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Barre de navigation</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Désactivée</string>
-  <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">Boutons physiques activés</string>
-  <string name="accessibility_quick_settings_hwkeys_off">Boutons physiques désactivés</string>
-  <string name="quick_settings_hwkeys_label">Boutons physiques</string>
-  <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
-  <!-- Ambient display QS tile -->
-  <string name="quick_settings_ambient_display_label">Ambient display</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
-  <!-- Always on Display Tile -->
-  <string name="quick_settings_always_on_display_label">Always on display</string>
-  <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
-  <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
-  <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
-  <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
-  <!-- Kill button in notification guts -->
-  <string name="force_stop_dlg_title">Force stop?</string>
-  <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
-  <string name="dlg_ok">@android:string/ok</string>
-  <string name="dlg_cancel">@android:string/cancel</string>
-  <string name="kill">Kill App</string>
-  <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+    <!-- Screenrecord Tile -->
+    <string name="quick_settings_screenrecord_label">Enregistrement de l\'écran</string>
+    <string name="quick_settings_screenrecord_lq_label">Enregistrement de l\'écran en basse résolution</string>
+    <string name="quick_settings_screenrecord_mq_label">Enregistrement de l\'écran en moyenne résolution</string>
+    <string name="quick_settings_screenrecord_hq_label">Enregistrement de l\'écran en haute résolution</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">L\'écran est en cours d\'enregistrement</string>
+    <string name="screenrecord_notif_final_ticker">Enregistrement d\'écran réussi</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Enregistrement de l\'écran</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Arrêter</string>
+    <string name="screenrecord_notif_completed">Enregistrement d\'écran réussi</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Afficher le pointeur</string>
+    <string name="screenrecord_notif_pointer_off">Masquer le pointeur</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Impossible d\'enregistrer l\'écran</string>
+    <string name="notification_channel_screenrecord">Enregistrements de l\'écran</string>
+    <string name="screenrecord_hide_hint">Cacher les indications</string>
+    <string name="screenrecord_show_hint">Montrer les indications</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">Partage USB désactivé</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Partage USB activé</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Partage de connexion USB a été désactivé</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Le partage de connexion via USB a été activé</string>
+    <string name="quick_settings_usb_tether_label">Partage de connexion par USB</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notification furtive sont en attente pendant 1 minute.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> -Notification furtive sont en attente pendant <xliff:g id="number">%d</xliff:g> minutes.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_preventpower">remplacer le bouton d\'alimentation</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_preventpower">Autoriser une application à remplacer le bouton d\'alimentation.</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notifications flottantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes ont été désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes ont été activés.</string>
+    <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
+    <string name="nav_bar_layout_inverse">Inverser la disposition des boutons</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Recharge Rapide (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="keyguard_plugged_in_dash_charging">Charge rapide</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower connecté (<xliff:g id="charging_time_left">%s</xliff:g> avant charge complète)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
+    <string name="keyguard_plugged_in_turbo_charging">Recharge Turbo</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Recherche audio</string>
+    <string name="quick_settings_sound_search_no_app">Désolé, mais cela ne fonctionne que si vous avez une application de recherche audio.</string>
+    <!-- DOT logo -->
+    <string name="dot_logo_title">Logo DOT</string>
+    <string name="dot_logo_summary">Laisser savoir aux autres que vous utilisez DotOS quand ils voient votre téléphone (redémarrage de SystemUI nécessaire pour appliquer)</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Sync</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisation activée</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisation activée</string>
+    <!-- Battery saver tile -->
+    <string name="battery_saver_qs_tile_fully_charged">Charge terminée</string>
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Barre de navigation</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_navigation_default">Stock</string>
+    <string name="quick_settings_navigation_disabled">Désactivée</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Boutons physiques activés</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Boutons physiques désactivés</string>
+    <string name="quick_settings_hwkeys_label">Boutons physiques</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambiant Display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambiant Display désactivé.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambiant Display activé.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambiant Display a été désactivé.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambiant Display a été activé.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always On Display</string>
+    <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_off">Always On Display désactivé.</string>
+    <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_on">Always On Display activé.</string>
+    <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Always On Display a été désactivé.</string>
+    <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Always On Display a été activé.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forcer l\'arrêt ?</string>
+    <string name="force_stop_dlg_text">Forcer l\'arrêt d\'une application peut provoquer un dysfonctionnement.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="kill">Arrêt forcé de l’application</string>
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Smart pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Activation automatique de Smart pixels</string>
 </resources>

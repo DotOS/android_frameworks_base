@@ -16,23 +16,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="reboot_title">Újraindítás</string>
-  <string name="reboot_message">A Rendszer újraindítása</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">navigációssáv-szerkesztő kezelése</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Lehetővé teszi egy alkalmazás számára, hogy kezelje a navigációssáv-szerkesztőt.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_fakePackageSignature">Hamis csomagaláírás</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_fakePackageSignature">Engedélyt ad egy alkalmazásnak, hogy más alkalmazásnak adja ki magát. Lehetséges, hogy a rosszindulatú alkalmazások ezt kihasználhatják a privát alkalmazásadatok elérésére. Óvatosan adja meg ezt az engedélyt!</string>
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">Az ADB hálózaton keresztül engedélyezve</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB USB-n és hálózaton keresztül engedélyezve</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Érintse meg a hibakeresés letiltásához.</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
+    <!-- Power menu -->
+    <string name="reboot_title">Újraindítás</string>
+    <string name="reboot_message">A Rendszer újraindítása</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_toggleNavigationEditor">navigációssáv-szerkesztő kezelése</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Lehetővé teszi egy alkalmazás számára, hogy kezelje a navigációssáv-szerkesztőt.</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Hamis csomagaláírás</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Engedélyt ad egy alkalmazásnak, hogy más alkalmazásnak adja ki magát. Lehetséges, hogy a rosszindulatú alkalmazások ezt kihasználhatják a privát alkalmazásadatok elérésére. Óvatosan adja meg ezt az engedélyt!</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">Az ADB hálózaton keresztül engedélyezve</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB USB-n és hálózaton keresztül engedélyezve</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Érintse meg a hibakeresés letiltásához.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">A hatás eléréséhez nyomja hosszan a bekapcsoló gombot</string>
 </resources>

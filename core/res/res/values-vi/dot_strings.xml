@@ -16,23 +16,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Power menu -->
-  <string name="reboot_title">Khởi động lại</string>
-  <string name="reboot_message">Đang khởi động lại hệ thống</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">trình tùy biến thanh điều hướng</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Cho phép ứng dụng kiểm soát chỉnh sửa thanh điều hướng.</string>
-  <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_fakePackageSignature">Giả mạo chữ ký trọn gói</string>
-  <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_fakePackageSignature">Cho phép ứng dụng giả mạo là một ứng dụng khác. Ứng dụng độc hại có thể sử dụng để truy cập vào dữ liệu riêng của ứng dụng khác. Hãy cấp quyền truy cập một cách thận trọng!</string>
-  <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">Đã kích hoạt ADB qua mạng</string>
-  <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">Đã kích hoạt ADB qua USB &amp; mạng</string>
-  <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Chạm để vô hiện hóa gỡ lỗi.</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
+    <!-- Power menu -->
+    <string name="reboot_title">Khởi động lại</string>
+    <string name="reboot_message">Đang khởi động lại hệ thống</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_toggleNavigationEditor">trình tùy biến thanh điều hướng</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Cho phép ứng dụng kiểm soát chỉnh sửa thanh điều hướng.</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Giả mạo chữ ký trọn gói</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Cho phép ứng dụng giả mạo là một ứng dụng khác. Ứng dụng độc hại có thể sử dụng để truy cập vào dữ liệu riêng của ứng dụng khác. Hãy cấp quyền truy cập một cách thận trọng!</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">Đã kích hoạt ADB qua mạng</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">Đã kích hoạt ADB qua USB &amp; mạng</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Chạm để vô hiện hóa gỡ lỗi.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Nhấn giữ nút nguồn để tương tác</string>
 </resources>
