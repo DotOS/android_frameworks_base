@@ -33,6 +33,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.android.systemui.Dependency;
@@ -86,6 +88,11 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private int mTintColor = Color.WHITE;
     private View mBatteryBar;
 
+    // DOT Logo
+    private ImageView mDOTLogo;
+    private boolean mShowLogo;
+    private Handler mHandler;
+
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
            super(handler);
@@ -94,6 +101,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
        void observe() {
          mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUSBAR_CLOCK_STYLE),
+                    false, this, UserHandle.USER_ALL);
+         getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO),
                     false, this, UserHandle.USER_ALL);
        }
 
@@ -119,6 +129,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mNetworkController = Dependency.get(NetworkController.class);
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
+        mHandler = new Handler();
+        mSettingsObserver = new SettingsObserver(mHandler);
+        mSettingsObserver.observe();
     }
 
     @Override
@@ -140,6 +153,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         Dependency.get(StatusBarIconController.class).addIconGroup(mDarkIconManager);
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
         mClockView = mStatusBar.findViewById(R.id.clock);
+        mDOTLogo = (ImageView)mStatusBar.findViewById(R.id.status_bar_logo);
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mDOTLogo);
+        updateSettings(false);
         mBatteryBar = mStatusBar.findViewById(R.id.battery_bar);
         mCenterClockLayout = (LinearLayout) mStatusBar.findViewById(R.id.center_clock_layout);
         mRightClock = mStatusBar.findViewById(R.id.right_clock);
@@ -180,6 +196,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mNetworkController.hasEmergencyCryptKeeperText()) {
             mNetworkController.removeCallback(mSignalCallback);
         }
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mDOTLogo);
     }
 
     public void initNotificationIconArea(NotificationIconAreaController
@@ -280,11 +297,17 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void hideNotificationIconArea(boolean animate) {
         animateHide(mNotificationIconAreaInner, animate, true);
         animateHide(mCenterClockLayout, animate, true);
+        if (mShowLogo) {
+            animateHide(mDOTLogo, animate);
+        }
     }
 
     public void showNotificationIconArea(boolean animate) {
         animateShow(mNotificationIconAreaInner, animate);
         animateShow(mCenterClockLayout, animate);
+        if (mShowLogo) {
+            animateShow(mDOTLogo, animate);
+        }
     }
 
     public void hideOperatorName(boolean animate) {
@@ -373,6 +396,18 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mClockStyle = Settings.System.getIntForUser(mContentResolver,
                 Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
         updateClockStyle(animate);
+        mShowLogo = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                UserHandle.USER_CURRENT) == 1;
+        if (mNotificationIconAreaInner != null) {
+            if (mShowLogo) {
+                if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
+                    animateShow(mDOTLogo, animate);
+                }
+            } else {
+                animateHiddenState(mDOTLogo, View.GONE, animate);
+            }
+      }
     }
 
     private void updateClockStyle(boolean animate) {
