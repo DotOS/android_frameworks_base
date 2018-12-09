@@ -165,8 +165,8 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">¿Desea forzar la detención?</string>
     <string name="force_stop_dlg_text">Si detiene la aplicación, podría fallar indefinidamente.</string>
-    <string name="dlg_ok">@android:string/simon</string>
-    <string name="dlg_cancel">@android:string/cancelar</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="kill">Forzar cierre</string>
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">Smart pixel</string>

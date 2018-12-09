@@ -166,7 +166,7 @@
     <string name="force_stop_dlg_title">Forçar paragem?</string>
     <string name="force_stop_dlg_text">Se forçar a paragem de uma aplicação, esta poderá apresentar um comportamento anormal.</string>
     <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancelar</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="kill">Terminar Aplicação</string>
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">Smart pixels</string>
