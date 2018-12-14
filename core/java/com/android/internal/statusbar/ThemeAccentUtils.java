@@ -83,6 +83,9 @@ public class ThemeAccentUtils {
         "com.android.systemui.qstile.roundedsquare", // 2
         "com.android.systemui.qstile.squircle", // 3
         "com.android.systemui.qstile.teardrop", // 4
+        "com.android.systemui.qstile.circlegradient", //5
+        "com.android.systemui.qstile.circleoutline", //6
+        "com.android.systemui.qstile.justicons", //7
     };
 
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
