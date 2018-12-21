@@ -4685,9 +4685,9 @@ public final class Settings {
          * @hide
          */
         public static final String OMNI_QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
-         /** @hide */
-        private static final Validator OMNI_QS_PANEL_BG_ALPHA_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
+        /** @hide */
+        private static final Validator OMNI_QS_PANEL_BG_ALPHA_VALIDATOR = new
+                SettingsValidators.InclusiveIntegerRangeValidator(100, 255);
 
         /**
         * Whether to show Qs panel footer warnings like for active VPN
