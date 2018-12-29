@@ -86,8 +86,8 @@ public class Clock extends TextView implements
             "system:" + Settings.System.STATUS_BAR_CLOCK_SECONDS;
     private static final String STATUS_BAR_AM_PM =
             "system:" + Settings.System.STATUS_BAR_AM_PM;
-    private static final String STATUS_BAR_CLOCK_AUTO_HIDE =
-            "system:" + Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE;
+    private static final String STATUS_BAR_CLOCK_AUTO_HIDE_LAUNCHER =
+            "system:" + Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_LAUNCHER;
     public static final String STATUS_BAR_CLOCK_DATE_DISPLAY =
             "system:" + Settings.System.STATUS_BAR_CLOCK_DATE_DISPLAY;
     public static final String STATUS_BAR_CLOCK_DATE_STYLE =
@@ -109,7 +109,7 @@ public class Clock extends TextView implements
 
     private boolean mClockVisibleByPolicy = true;
     private boolean mClockVisibleByUser = getVisibility() == View.VISIBLE;
-    private boolean mClockAutoHide = false;
+    private boolean mClockAutoHideLauncher = false;
     private TaskStackListenerImpl mTaskStackListener = null;
 
     private boolean mAttached;
@@ -245,7 +245,7 @@ public class Clock extends TextView implements
             Dependency.get(TunerService.class).addTunable(this,
                     STATUS_BAR_CLOCK_SECONDS,
                     STATUS_BAR_AM_PM,
-                    STATUS_BAR_CLOCK_AUTO_HIDE,
+                    STATUS_BAR_CLOCK_AUTO_HIDE_LAUNCHER,
                     STATUS_BAR_CLOCK_DATE_DISPLAY,
                     STATUS_BAR_CLOCK_DATE_STYLE,
                     STATUS_BAR_CLOCK_DATE_POSITION,
@@ -372,7 +372,7 @@ public class Clock extends TextView implements
     }
 
     public boolean shouldBeVisible() {
-        return !mClockAutoHide && mClockVisibleByPolicy && mClockVisibleByUser;
+        return !mClockAutoHideLauncher && mClockVisibleByPolicy && mClockVisibleByUser;
     }
 
     private void updateClockVisibility() {
@@ -413,7 +413,7 @@ public class Clock extends TextView implements
                 mAmPmStyle =
                         TunerService.parseInteger(newValue, AM_PM_STYLE_GONE);
                 break;
-            case STATUS_BAR_CLOCK_AUTO_HIDE:
+            case STATUS_BAR_CLOCK_AUTO_HIDE_LAUNCHER:
                 handleTaskStackListener(TunerService.parseIntegerSwitch(newValue, false));
                 break;
             case STATUS_BAR_CLOCK_DATE_DISPLAY:
@@ -518,8 +518,8 @@ public class Clock extends TextView implements
                 ? runningTask.configuration.windowConfiguration.getActivityType()
                 : WindowConfiguration.ACTIVITY_TYPE_UNDEFINED;
         final boolean clockAutoHide = activityType == WindowConfiguration.ACTIVITY_TYPE_HOME;
-        if (mClockAutoHide != clockAutoHide) {
-            mClockAutoHide = clockAutoHide;
+        if (mClockAutoHideLauncher != clockAutoHide) {
+            mClockAutoHideLauncher = clockAutoHide;
             updateClockVisibility();
         }
     }

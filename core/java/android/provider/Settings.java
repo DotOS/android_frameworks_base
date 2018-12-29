@@ -5871,7 +5871,7 @@ public final class Settings {
          * default: false
          * @hide
          */
-        public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
+        public static final String STATUS_BAR_CLOCK_AUTO_HIDE_LAUNCHER = "status_bar_clock_auto_hide_launcher";
 
         /**
          * boolean value. toggles using arrow key locations on nav bar
