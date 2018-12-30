@@ -5410,6 +5410,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_FOOTER_WARNINGS),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_CLOCK),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_INFO),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5439,6 +5445,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.QS_TILE_STYLE))) {
                 unlockQsTileStyles();
                 updateTileStyle();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_CLOCK)) ||
+                   uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_INFO))) {
+                updateKeyguardStatusSettings();
             }
         }
 
@@ -5448,7 +5457,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             setPulseBlacklist();
             setForceAmbient();
             setQsPanelOptions();
+            updateKeyguardStatusSettings();
         }
+    }
+
+    private void updateKeyguardStatusSettings() {
+        mNotificationPanel.updateKeyguardStatusSettings();
     }
 
     private void setLockscreenDoubleTapToSleep() {
