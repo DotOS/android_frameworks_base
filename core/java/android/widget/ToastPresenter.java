@@ -128,7 +128,7 @@ public class ToastPresenter {
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.width = WindowManager.LayoutParams.WRAP_CONTENT;
         params.format = PixelFormat.TRANSLUCENT;
-        params.windowAnimations = R.style.Animation_Toast;
+        params.windowAnimations = R.style.Animation_Toast_Material;
         params.type = WindowManager.LayoutParams.TYPE_TOAST;
         params.setFitInsetsIgnoringVisibility(true);
         params.setTitle(WINDOW_TITLE);

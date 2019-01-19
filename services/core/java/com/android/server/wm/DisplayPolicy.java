@@ -928,7 +928,7 @@ public class DisplayPolicy {
                 attrs.hideTimeoutMilliseconds = mAccessibilityManager.getRecommendedTimeoutMillis(
                         (int) attrs.hideTimeoutMilliseconds,
                         AccessibilityManager.FLAG_CONTENT_TEXT);
-                attrs.windowAnimations = com.android.internal.R.style.Animation_Toast;
+                attrs.windowAnimations = com.android.internal.R.style.Animation_Toast_Material;
                 // Toast can show with below conditions when the screen is locked.
                 if (canToastShowWhenLocked(callingPid)) {
                     attrs.flags |= WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
