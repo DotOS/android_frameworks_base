@@ -222,6 +222,9 @@
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+	
+	<!-- DayNight mode -->
+    <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
 
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
