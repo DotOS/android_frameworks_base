@@ -223,8 +223,26 @@ public class WeatherClient {
         isRunning = false;
     }
 
-    public void addObserver(final WeatherObserver observer) {
+    public void addObserver(final WeatherObserver observer, boolean withQuery) {
         mObserver.add(observer);
+        if (withQuery) {
+            if (isRunning) {
+                return;
+            }
+            isRunning = true;
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    updateWeatherData();
+                    try {
+                        observer.onWeatherUpdated(mWeatherInfo);
+                    } catch (Exception ignored) {
+                    }
+                }
+            });
+            thread.setPriority(Process.THREAD_PRIORITY_BACKGROUND);
+            thread.start();
+        }
     }
 
     public void removeObserver(WeatherObserver observer) {
