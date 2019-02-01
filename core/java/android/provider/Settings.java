@@ -4761,6 +4761,20 @@ public final class Settings {
         public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
 
         /**
+         * Whether to enable DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+        private static final Validator DOZE_ON_CHARGE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * hidden stting of the current state of DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4841,6 +4855,7 @@ public final class Settings {
             BUTTON_BACKLIGHT_ON_TOUCH_ONLY,
             RECENTS_COMPONENT,
             NOTIFICATION_LIGHT_PULSE,
+            DOZE_ON_CHARGE,
         };
 
         /**
@@ -4989,6 +5004,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(WEATHER_LOCKSCREEN_UNIT);
             PRIVATE_SETTINGS.add(RECENTS_COMPONENT);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
         }
 
         /**
@@ -5105,6 +5121,7 @@ public final class Settings {
             VALIDATORS.put(WEATHER_LOCKSCREEN_UNIT, WEATHER_LOCKSCREEN_UNIT_VALIDATOR);
             VALIDATORS.put(RECENTS_COMPONENT,RECENTS_COMPONENT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
         }
 
         /**
