@@ -257,7 +257,7 @@ public class NotificationMediaManager implements Dumpable {
 
     public void clearCurrentMediaNotification() {
         mMediaNotificationKey = null;
-        mPresenter.setAmbientMusicInfo(null, null, false);
+        setMediaNotificationText(null, false);
         clearCurrentMediaNotificationSession();
     }
 
@@ -367,7 +367,7 @@ public class NotificationMediaManager implements Dumpable {
                 // no notification for this mediacontroller thus no artwork or track info,
                 // clean up Ambient Music and Pulse albumart color
                 mEntryManager.setEntryToRefresh(null, true);
-                mPresenter.setAmbientMusicInfo(null, null, false);
+                setMediaNotificationText(null, false);
             }
 
             if (!dontPulse && mListener != null) {
@@ -375,7 +375,7 @@ public class NotificationMediaManager implements Dumpable {
             }
         } else {
             mEntryManager.setEntryToRefresh(null, true);
-            mPresenter.setAmbientMusicInfo(null, null, false);
+            setMediaNotificationText(null, false);
             if (mListener != null) {
                 mListener.onMediaUpdated(false);
             }
@@ -383,7 +383,7 @@ public class NotificationMediaManager implements Dumpable {
     }
 
     public void setMediaNotificationText(String notificationText, boolean nowPlaying) {
-        mPresenter.setAmbientMusicInfo(mMediaMetadata, notificationText, nowPlaying);
+        mPresenter.setAmbientMusicInfo(notificationText, nowPlaying);
     }
 
     public void setPulseColors(boolean isColorizedMEdia, int[] colors) {
