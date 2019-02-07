@@ -2569,7 +2569,8 @@ public class NotificationPanelView extends PanelView implements
     }
 
     private void updateStatusBarIcons() {
-        boolean showIconsWhenExpanded = isFullWidth() && getExpandedHeight() < getOpeningHeight();
+        boolean showIconsWhenExpanded = (isPanelVisibleBecauseOfHeadsUp() || isFullWidth())
+                && getExpandedHeight() < getOpeningHeight();
         if (showIconsWhenExpanded && mNoVisibleNotifications && isOnKeyguard()) {
             showIconsWhenExpanded = false;
         }

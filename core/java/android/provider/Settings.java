@@ -4787,6 +4787,7 @@ public final class Settings {
             BUTTON_BACKLIGHT_TIMEOUT,
             BUTTON_BACKLIGHT_ON_TOUCH_ONLY,
             RECENTS_COMPONENT,
+            NOTIFICATION_LIGHT_PULSE,
         };
 
         /**
@@ -5049,7 +5050,7 @@ public final class Settings {
                     BUTTON_BACKLIGHT_ON_TOUCH_ONLY_VALIDATOR);
             VALIDATORS.put(WEATHER_LOCKSCREEN_UNIT, WEATHER_LOCKSCREEN_UNIT_VALIDATOR);
             VALIDATORS.put(RECENTS_COMPONENT,RECENTS_COMPONENT_VALIDATOR);
-
+            VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -9221,6 +9222,8 @@ public final class Settings {
             VALIDATORS.put(HUSH_GESTURE_USED, HUSH_GESTURE_USED_VALIDATOR);
             VALIDATORS.put(MANUAL_RINGER_TOGGLE_COUNT, MANUAL_RINGER_TOGGLE_COUNT_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_SHOW_NOTIFICATIONS, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -13837,6 +13840,7 @@ public final class Settings {
          * Supported keys:
          * compatibility_wal_supported      (boolean)
          * wal_syncmode       (String)
+         * truncate_size      (int)
          *
          * @hide
          */
