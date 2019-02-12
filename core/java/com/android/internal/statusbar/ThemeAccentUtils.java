@@ -77,6 +77,8 @@ public class ThemeAccentUtils {
         "com.android.system.theme.neo", // 0
         "com.android.settings.theme.neo", // 1
         "com.android.systemui.theme.neo", // 2
+        "com.google.android.apps.wellbeing.theme.neo", // 3
+        "com.du.settings.doze.theme.neo", // 4
     };
 
     private static final String[] QS_TILE_THEMES = {
