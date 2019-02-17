@@ -2053,57 +2053,38 @@ public final class PowerManagerService extends SystemService
                 final long nextProfileTimeout = getNextProfileTimeoutLocked(now);
 
                 mUserActivitySummary = 0;
-                if (mLastUserActivityTime >= mLastWakeTime) {
+                if (mWakefulness == WAKEFULNESS_AWAKE && mLastUserActivityTime >= mLastWakeTime) {
                     nextTimeout = mLastUserActivityTime
                             + screenOffTimeout - screenDimDuration;
                     if (now < nextTimeout) {
-                        if (mButtonTimeoutEnabled && (userActivityValue || settingsValue)){
-                            final boolean buttonPressed = mEvent == PowerManager.USER_ACTIVITY_EVENT_BUTTON;
-                            if (mButtonBacklightOnTouchOnly) {
-                                if (buttonPressed) {
-                                    triggerButtonTimeoutEvent(now);
-                                }
-                            } else {
-                                triggerButtonTimeoutEvent(now);
-                            }
+                        int buttonBrightness;
+                        if (mButtonBrightnessOverrideFromWindowManager >= 0) {
+                            buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
+                        } else {
+                            buttonBrightness = mButtonBrightness;
+                        }
+                        if (mButtonTimeout != 0 && now > mLastUserActivityTime + mButtonTimeout) {
+                             mButtonsLight.setBrightness(0);
+                          } else {
+                            mButtonsLight.setBrightness(buttonBrightness);
+                            if (buttonBrightness != 0 && mButtonTimeout != 0) {
+                                nextTimeout = now + mButtonTimeout;
                         }
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
-                        if (mWakefulness == WAKEFULNESS_AWAKE) {
-                            int buttonBrightness;
-                            if (mButtonBrightnessOverrideFromWindowManager >= 0) {
-                                buttonBrightness = mButtonBrightnessOverrideFromWindowManager;
-                            } else {
-                                buttonBrightness = mButtonBrightness;
-                            }
-
-                            if (mButtonTimeout != 0
-                                    && now > mLastUserActivityTime + mButtonTimeout) {
-                                mButtonsLight.setBrightness(0);
-                            } else {
-                                if (!mProximityPositive) {
-                                    mButtonsLight.setBrightness(buttonBrightness);
-                                    if (buttonBrightness != 0 && mButtonTimeout != 0) {
-                                        nextTimeout = now + mButtonTimeout;
-                                    }
-                                }
-                            }
-                        }
                     } else {
                         nextTimeout = mLastUserActivityTime + screenOffTimeout;
                         if (now < nextTimeout) {
+                            mButtonsLight.setBrightness(0);
                             mUserActivitySummary = USER_ACTIVITY_SCREEN_DIM;
-                            if (mWakefulness == WAKEFULNESS_AWAKE) {
-                                mButtonsLight.setBrightness(0);
-                            }
                         }
                     }
                 }
-
                 if (mUserActivitySummary == 0
                         && mLastUserActivityTimeNoChangeLights >= mLastWakeTime) {
                     nextTimeout = mLastUserActivityTimeNoChangeLights + screenOffTimeout;
                     if (now < nextTimeout) {
-                        if (mDisplayPowerRequest.policy == DisplayPowerRequest.POLICY_BRIGHT) {
+                        if (mDisplayPowerRequest.policy == DisplayPowerRequest.POLICY_BRIGHT
+                                || mDisplayPowerRequest.policy == DisplayPowerRequest.POLICY_VR) {
                             mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
                         } else if (mDisplayPowerRequest.policy == DisplayPowerRequest.POLICY_DIM) {
                             mUserActivitySummary = USER_ACTIVITY_SCREEN_DIM;
