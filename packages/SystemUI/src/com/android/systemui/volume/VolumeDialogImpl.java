@@ -677,8 +677,6 @@ public class VolumeDialogImpl implements VolumeDialog {
     protected void dismissH(int reason) {
         // Avoid multiple animation calls on touch spams.
         if (!mShowing) {
-            // Close all the extra streams on touch spams.
-            cleanExpandRows();
             return;
         }
 
