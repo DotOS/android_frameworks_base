@@ -24,6 +24,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -224,9 +225,10 @@ public class CustomAnalogClock extends View {
             hourHand.setBounds(x - (w / 2), y - (h / 2), x + (w / 2), y + (h / 2));
         }
         if (mIsAmbientDisplay) {
-            hourHand.setTint(Color.GRAY);
+            hourHand.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP);
         } else {
-            hourHand.setTintList(null);
+            hourHand.setColorFilter(getResources().getColor(
+                    R.color.analog_clock_hand_hour_color), PorterDuff.Mode.SRC_ATOP);
         }
         hourHand.draw(canvas);
         canvas.restore();
@@ -241,9 +243,10 @@ public class CustomAnalogClock extends View {
             minuteHand.setBounds(x - (w / 2), y - (h / 2), x + (w / 2), y + (h / 2));
         }
         if (mIsAmbientDisplay) {
-            minuteHand.setTint(Color.WHITE);
+            minuteHand.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         } else {
-            minuteHand.setTintList(null);
+            minuteHand.setColorFilter(getResources().getColor(
+                    R.color.analog_clock_hand_minute_color), PorterDuff.Mode.SRC_ATOP);
         }
         minuteHand.draw(canvas);
         canvas.restore();
