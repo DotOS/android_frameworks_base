@@ -20,7 +20,7 @@
     android:viewportHeight="512.000000">
 
     <path
-        android:fillColor="#d3d3d3"
+        android:fillColor="@color/analog_clock_hand_hour_color"
         android:strokeWidth="1"
         android:pathData="m 249.74023,106.32032 h 12.51954 v 149.67967 h -12.51954 z" />
 </vector>
