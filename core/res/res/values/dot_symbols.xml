@@ -141,6 +141,9 @@
 	
 	 <!-- System fonts -->
    <java-symbol type="array" name="config_fontPackages" />
+   
+    <!-- Vendor mismatch message -->
+    <java-symbol type="bool" name="config_show_vendor_mismatch_message" />
 
    <!-- Pocket Lock -->
     <java-symbol type="layout" name="pocket_lock_view_layout" />
