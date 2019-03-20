@@ -153,15 +153,15 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ekran dostosowany do otoczenia wyłączony</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ekran dostosowany do otoczenia włączony.</string>
     <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
+    <string name="quick_settings_always_on_display_label">Aktywny wyświetlacz</string>
     <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_off">Always on display off.</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Aktywny wyświetlacz wyłączony.</string>
     <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_on">Always on display on.</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Aktywny wyświetlacz włączony.</string>
     <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always on display turned off.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Aktywny wyświetlacz wyłączony.</string>
     <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always on display turned on.</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Aktywny wyświetlacz włączony.</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
     <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>

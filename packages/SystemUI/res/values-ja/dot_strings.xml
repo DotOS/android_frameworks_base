@@ -23,7 +23,7 @@
     <string name="global_action_restart_advanced">高度な再起動</string>
     <string name="global_action_restart_recovery">リカバリー</string>
     <string name="global_action_restart_bootloader">ブートローダー</string>
-    <string name="global_action_restart_ui">システムUI</string>
+    <string name="global_action_restart_ui">システム UI</string>
     <string name="global_action_restart_hot">ソフトリブート</string>
     <string name="global_action_screenshot">スクリーンショット</string>
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -41,8 +41,8 @@
     <string name="quick_settings_pip_tile_app_na">このアプリはピクチャーインピクチャーに対応していません</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">カフェイン</string>
-    <string name="accessibility_quick_settings_caffeine_off">カフェイン オフ</string>
-    <string name="accessibility_quick_settings_caffeine_on">カフェイン オン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェイン OFF</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェイン ON</string>
     <!-- OmniJaws -->
     <string name="omnijaws_service_error">エラー</string>
     <string name="omnijaws_service_unkown">気象情報がありません</string>
@@ -52,21 +52,21 @@
     <string name="omnijaws_label_default">天気</string>
     <string name="omnijaws_current_text">今</string>
     <string name="omnijaws_package_not_available">OmniJawsは使用できません</string>
-    <string name="omnijaws_service_last_update">最終更新日：</string>
+    <string name="omnijaws_service_last_update">最終更新日:</string>
     <!-- Weather string format in expanded statusbar header -->
     <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
-    <string name="recents_free_ram">空きメモリ：%1$d MB</string>
+    <string name="recents_free_ram">空きメモリ: %1$d MB</string>
     <!-- volte icon switch -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">サウンド</string>
-    <string name="quick_settings_sound_ring">着信</string>
+    <string name="quick_settings_sound_ring">鳴動</string>
     <string name="quick_settings_sound_vibrate">振動</string>
     <string name="quick_settings_sound_dnd">マナーモード</string>
     <!-- ADB network tile -->
-    <string name="quick_settings_adb_network">ADBネットワーク</string>
-    <string name="quick_settings_network_adb_enabled_label">ネット経由のADB</string>
-    <string name="quick_settings_network_adb_disabled_label">ネット経由のADB</string>
+    <string name="quick_settings_adb_network">ADB ネットワーク</string>
+    <string name="quick_settings_network_adb_enabled_label">ネット経由の ADB</string>
+    <string name="quick_settings_network_adb_disabled_label">ネット経由の ADB</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -93,31 +93,31 @@
     <string name="screenrecord_hide_hint">ヒントを隠す</string>
     <string name="screenrecord_show_hint">ヒントを表示</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USBテザリング オフ</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USBテザリング オン</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USBテザリングをオフにしました</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USBテザリングをオンにしました</string>
-    <string name="quick_settings_usb_tether_label">USBテザリング</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB テザリング  OFF</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB テザリング ON</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB テザリングを OFF にしました</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB テザリングを ON にしました</string>
+    <string name="quick_settings_usb_tether_label">USB テザリング</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - 通知の表示は<xliff:g id="number">%d</xliff:g>分間停止します</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - 通知の表示は <xliff:g id="number">%d</xliff:g> 分間停止します</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_preventpower">電源ボタンの置き換え</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_preventpower">アプリが電源ボタンの機能を置き換えることを許可する</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Heads Up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads Up オフ</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads Up オン</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Upをオフにしました</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Upをオンにしました</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads Up OFF</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads Up ON</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up を OFF にしました</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up を ON にしました</string>
     <!-- SysUI Tuner: Button that controls inversion of layout of navigation bar [CHAR LIMIT=60] -->
     <string name="nav_bar_layout_inverse">ボタンのレイアウトを反転</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">急速充電中（充電完了まで<xliff:g id="Charging_TIME_LEFT">%s</xliff:g>）</string>
+    <string name="keyguard_indication_dash_charging_time">急速充電中 (充電完了まで <xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">急速充電中</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">急速充電中（充電完了まで<xliff:g id="charging_time_left">%s</xliff:g>）</string>
+    <string name="keyguard_indication_turbo_power_time">急速充電中 (充電完了まで <xliff:g id="charging_time_left">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">急速充電中</string>
     <string name="keyguard_plugged_in_turbo_charging">急速充電中</string>
     <!-- Sound Search tile -->
@@ -125,45 +125,45 @@
     <string name="quick_settings_sound_search_no_app">申し訳ありませんが、音声検索アプリをお持ちでない場合は動作しません。</string>
     <!-- DOT logo -->
     <string name="dot_logo_title">DOTロゴ</string>
-    <string name="dot_logo_summary">あなたが dotOS を使用していることをあなたの端末を見ている皆に知らせる（システムUIを再起動してください）</string>
+    <string name="dot_logo_summary">あなたが dotOS を使用していることをあなたの端末を見ている皆に知らせる (システム UI を再起動して下さい)</string>
     <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">同期</string>
-    <string name="accessibility_quick_settings_sync_off">同期 オフ</string>
-    <string name="accessibility_quick_settings_sync_on">同期 オン</string>
-    <string name="accessibility_quick_settings_sync_changed_off">同期をオフにしました</string>
+    <string name="accessibility_quick_settings_sync_off">同期 OFF</string>
+    <string name="accessibility_quick_settings_sync_on">同期 ON</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期を OFF にしました</string>
     <string name="accessibility_quick_settings_sync_changed_on">同期をONにしました</string>
     <!-- Battery saver tile -->
     <string name="battery_saver_qs_tile_fully_charged">充電完了</string>
     <!-- Navigation bar Tile -->
     <string name="quick_settings_navigation_bar">ナビゲーションバー</string>
     <string name="quick_settings_smartbar">スマートバー</string>
-    <string name="quick_settings_fling">Flingジェスチャー</string>
+    <string name="quick_settings_fling">Fling ジェスチャー</string>
     <string name="quick_settings_navigation_default">標準</string>
     <string name="quick_settings_navigation_disabled">無効</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー オン</string>
-    <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー オフ</string>
+    <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
+    <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
     <string name="quick_settings_hwkeys_label">ハードウェアキー</string>
     <!-- QS customizer -->
-    <string name="drag_or_tap_to_add_tiles">タイルを追加するにはドラックかタップしてください</string>
+    <string name="drag_or_tap_to_add_tiles">タイルを追加するにはドラッグかタップして下さい</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">アンビエント表示</string>
-    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示 オフ</string>
-    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示 オン</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示をオフにしました</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示をオンにしました</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示 OFF</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示 ON</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示を OFF にしました</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
     <!-- Always on Display Tile -->
     <string name="quick_settings_always_on_display_label">Always On Display</string>
     <!-- Content description of the ambient display tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_off">Always On Display オフ</string>
+    <string name="accessibility_quick_settings_always_on_display_off">Always On Display OFF</string>
     <!-- Content description of the ambient display tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_on">Always On Display オン</string>
+    <string name="accessibility_quick_settings_always_on_display_on">Always On Display ON</string>
     <!-- Announcement made when ambient display changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_changed_off">Always On Displayをオフにしました</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_off">Always On Display を OFF にしました</string>
     <!-- Announcement made when ambient display changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_always_on_display_changed_on">Always On Displayをオンにしました</string>
+    <string name="accessibility_quick_settings_always_on_display_changed_on">Always On Display を ON にしました</string>
     <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">強制停止しますか？</string>
+    <string name="force_stop_dlg_title">強制停止しますか?</string>
     <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
     <string name="dlg_ok">@android:string/ok</string>
     <string name="dlg_cancel">@android:string/cancel</string>
