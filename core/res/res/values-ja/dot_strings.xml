@@ -26,13 +26,13 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">パッケージ署名を偽装</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">アプリが別のアプリになりすます事を許可します。 悪意のあるアプリケーションがこれを利用してアプリケーションの個人情報にアクセスする可能性があります。 慎重にこの許可を与えてください！</string>
+    <string name="permdesc_fakePackageSignature">アプリが別のアプリになりすます事を許可します。 悪意のあるアプリケーションがこれを利用してアプリケーションの個人情報にアクセスする可能性があります。 慎重にこの許可を与えて下さい!</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">ネットワーク経由のADBが有効です</string>
+    <string name="adb_net_active_notification_title">ネットワーク経由の ADB が有効です</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">USBとネットワーク経由のADBが有効です</string>
+    <string name="adb_both_active_notification_title">USB とネットワーク経由の ADB が有効です</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">タップしてUSBデバッグを無効化</string>
+    <string name="adb_active_generic_notification_message">タップして USB デバッグを無効化</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">電源ボタンを長押しで操作</string>
 </resources>
