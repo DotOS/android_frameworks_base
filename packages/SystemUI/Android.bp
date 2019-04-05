@@ -72,7 +72,8 @@ android_library {
         "dagger2-2.19",
         "jsr330",
         "faceunlock_framework",
-        "tensorflowlite_java"
+        "tensorflowlite_java",
+        "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
 
@@ -147,7 +148,8 @@ android_library {
         "testables",
         "truth-prebuilt",
         "dagger2-2.19",
-        "jsr330"
+        "jsr330",
+        "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
     ],
     libs: [
         "android.test.runner",

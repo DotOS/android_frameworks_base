@@ -71,4 +71,7 @@
     <dimen name="dotroundCorners">300dp</dimen>
     <dimen name="dotNotificationsRadius">24dp</dimen>
     <dimen name="qs_media_top_margin">8dp</dimen>
+
+    <!-- The minimum bottom margin of the keyguard security container -->
+    <dimen name="kg_security_container_min_bottom_margin">0dp</dimen>
 </resources>

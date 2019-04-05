@@ -32,4 +32,8 @@
     <color name="dismiss_all_background_color">@android:color/white</color>
     <color name="dismiss_all_background_color_ripple">#a8a8a8</color>
     <color name="dismiss_all_icon_color">#8a000000</color>
+
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
+    <color name="config_fodColorBackground">#20000000</color>
 </resources>
