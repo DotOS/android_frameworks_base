@@ -69,5 +69,8 @@
     <!-- Floating action button -->
     <color name="fab_color">@*android:color/accent_device_default_light</color>
     <color name="floating_action_button_icon_color">@android:color/white</color>
+
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
 </resources>
 

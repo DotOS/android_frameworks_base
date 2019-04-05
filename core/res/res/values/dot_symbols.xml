@@ -182,4 +182,7 @@
   <java-symbol type="layout" name="permission_confirmation_dialog" />
   <java-symbol type="array" name="app_ops_labels" />
 
+  <!-- Whether to show a custom view for FOD -->
+  <java-symbol type="bool" name="config_needCustomFODView" />
+
 </resources>
