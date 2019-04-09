@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2019 The DotOS Project
+<!-- Copyright (C) 2019 Descendant
+	 Copyright (C) 2019 The Superior OS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,16 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <resources>
-    <!-- Weather condition icon  -->
-    <dimen name="weather_icon_size">17dp</dimen>
 
-    <!-- Our custom clock values -->
-    <dimen name="widget_sammy_accent_font_size">62dp</dimen>
-
-    <!-- Custom text clock -->
-    <dimen name="customtextclock_fontsize">32dp</dimen>
-    <dimen name="custom_clock_left_padding">55dp</dimen>
-    <dimen name="custom_clock_top_margin">72dp</dimen>
+    <!-- CustomText clock -->
+    <string name="custom_text_clock_top_text_default">Sono le</string>
+    <string name="high_noon_first_row">Dodici</string>
+    <string name="high_noon_second_row">In Punto</string>
+    <string name="twelve_am">Dodici</string>
 
 </resources>
