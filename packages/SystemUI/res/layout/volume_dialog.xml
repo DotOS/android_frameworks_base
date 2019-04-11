@@ -32,7 +32,8 @@
         android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
         android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding"
         android:orientation="vertical"
-        android:clipToPadding="false" >
+        android:clipToPadding="false"
+        android:animateLayoutChanges="true" >
 
         <FrameLayout
             android:id="@+id/ringer"
@@ -68,6 +69,7 @@
             android:orientation="vertical"
             android:translationZ="@dimen/volume_dialog_elevation"
             android:clipToPadding="false"
+            android:animateLayoutChanges="true"
             android:background="@drawable/rounded_bg_full" >
             <LinearLayout
                 android:id="@+id/volume_dialog_rows"
@@ -77,6 +79,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingRight="@dimen/volume_dialog_stream_padding"
+                android:animateLayoutChanges="true"
                 android:paddingLeft="@dimen/volume_dialog_stream_padding">
                     <!-- volume rows added and removed here! :-) -->
             </LinearLayout>
@@ -97,6 +100,5 @@
                     android:soundEffectsEnabled="false" />
             </FrameLayout>
         </LinearLayout>
-
     </LinearLayout>
 </FrameLayout>
