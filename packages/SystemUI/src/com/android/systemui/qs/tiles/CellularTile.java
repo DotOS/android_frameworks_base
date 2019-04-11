@@ -173,6 +173,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
         state.label = r.getString(R.string.mobile_data);
         boolean mobileDataEnabled = mDataController.isMobileDataSupported()
                 && mDataController.isMobileDataEnabled();
+        state.secundarylabel = r.getString(R.string.cell_data_off);
         state.value = mobileDataEnabled;
         state.expandedAccessibilityClassName = Switch.class.getName();
         if (cb.noSim) {
