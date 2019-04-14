@@ -992,6 +992,9 @@ public class KeyguardStatusView extends GridLayout implements
             case 14: // sneeky analog
                 params.addRule(RelativeLayout.BELOW, R.id.sneeky_clock_view);
                 break;
+            case 15: // custom text clock
+                params.addRule(RelativeLayout.BELOW, R.id.custom_textclock_view);
+                break;
         }
         updateVisibilities();
         updateDozeVisibleViews();
