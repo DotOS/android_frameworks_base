@@ -200,4 +200,8 @@
 	
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Invert layout</string>
+	
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">High</string>
+    <string name="high_noon_second_row">Noon</string>
 </resources>
