@@ -279,7 +279,7 @@ public class CustomTextClock extends TextView {
                              NumString = TensString[tens] + UnitsString[units].toLowerCase();
                     }
                 } else {
-                    NumString = TensString[tens]+" "+UnitsString[units];
+                    NumString = TensString[tens]+" "+UnitsString[units].substring(2, UnitsString[units].length());
                 }
             }
         } else if (num < 20 ) {
@@ -327,7 +327,7 @@ public class CustomTextClock extends TextView {
                              NumString = TensString[tens] + UnitsString[units].toLowerCase();
                     }
                 } else {
-                    NumString = TensString[tens]+" "+UnitsString[units];
+                    NumString = TensString[tens]+" "+UnitsString[units].substring(2, UnitsString[units].length());
                 }
             }
         } else if (num < 10 ) {
