@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2019 Descendant
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://สามสิบwww.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item></item>
+        <item>ยี่สิบ</item>
+        <item>สามสิบ</item>
+        <item>สี่สิบ</item>
+        <item>ห้าสิบ</item>
+        <item>หกสิบ</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+        <item>ศูยน์</item>          
+        <item>หนึ่ง</item>          
+        <item>สอง</item>    
+        <item>สาม</item>    
+        <item>สี่</item>     
+        <item>ห้า</item>     
+        <item>หก</item>
+        <item>เจ็ด</item>
+        <item>แปด</item>
+        <item>เก้า</item>
+        <item>สิบ</item>
+        <item>สิบเอ็ด</item>
+        <item>สิบสอง</item>
+        <item>สิบสาม</item>
+        <item>สิบสี่</item>
+        <item>สิบห้า</item>
+        <item>สิบหก</item>
+        <item>สิบเจ็ด</item>
+        <item>สิบแปด</item>
+        <item>สิบเก้า</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+        <item>ยี่สิบ</item>
+        <item>สามสิบ</item>
+        <item>สี่สิบ</item>
+        <item>ห้าสิบ</item>
+        <item>หกสิบ</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>สิบสอง</item>
+        <item>หนึ่ง</item>          
+        <item>สอง</item>    
+        <item>สาม</item>    
+        <item>สี่</item>     
+        <item>ห้า</item>     
+        <item>หก</item>
+        <item>เจ็ด</item>
+        <item>แปด</item>
+        <item>เก้า</item>
+        <item>สิบ</item>
+        <item>สิบเอ็ด</item>
+        <item>สิบสอง</item>
+        <item>สิบสาม</item>
+        <item>สิบสี่</item>
+        <item>สิบห้า</item>
+        <item>สิบหก</item>
+        <item>สิบเจ็ด</item>
+        <item>สิบแปด</item>
+        <item>สิบเก้า</item>
+    </string-array>
+
+</resources>

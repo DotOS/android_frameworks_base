@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item></item>
+        <item>Yirmi</item>
+        <item>Otuz</item>
+        <item>Kırk</item>
+        <item>Elli</item>
+        <item>Altmış</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+        <item>Saat</item>          
+        <item>Bir</item>          
+        <item>İki</item>    
+        <item>Üç</item>    
+        <item>Dört</item>     
+        <item>Beş</item>     
+        <item>Altı</item>
+        <item>Yedi</item>
+        <item>Sekiz</item>
+        <item>Dokuz</item>
+        <item>On</item>
+        <item>On Bir</item>
+        <item>On İki</item>
+        <item>On Üç</item>
+        <item>On Dört</item>
+        <item>On Beş</item>
+        <item>On Altı</item>
+        <item>On Yedi</item>
+        <item>On Sekiz</item>
+        <item>On Dokuz</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+        <item>Yirmi</item>
+        <item>Otuz</item>
+        <item>Kırk</item>
+        <item>Elli</item>
+        <item>Altmış</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>On İki</item>
+        <item>Bir</item>          
+        <item>İki</item>    
+        <item>Üç</item>    
+        <item>Dört</item>     
+        <item>Beş</item>     
+        <item>Altı</item>
+        <item>Yedi</item>
+        <item>Sekiz</item>
+        <item>Dokuz</item>
+        <item>On</item>
+        <item>On Bir</item>
+        <item>On İki</item>
+        <item>On Üç</item>
+        <item>On Dört</item>
+        <item>On Beş</item>
+        <item>On Altı</item>
+        <item>On Yedi</item>
+        <item>On Sekiz</item>
+        <item>On Dokuz</item>
+    </string-array>
+
+</resources>

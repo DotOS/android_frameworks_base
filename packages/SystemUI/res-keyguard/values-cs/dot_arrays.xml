@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2019 Descendant
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://สามสิบwww.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item></item>
+        <item>Dvacet</item>
+        <item>Třicet</item>
+        <item>Čtyřicet</item>
+        <item>Padesáti</item>
+        <item>Šedesát</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+        <item>Nula</item>
+        <item>Jeden</item>
+        <item>Dva</item>
+        <item>Tři</item>
+        <item>Čtyři</item>
+        <item>Pět</item>
+        <item>Šest</item>
+        <item>Sedm</item>
+        <item>Osm</item>
+        <item>Devět</item>
+        <item>Deset</item>
+        <item>Jedenáct</item>
+        <item>Dvanáct</item>
+        <item>Třináct</item>
+        <item>Čtrnáct</item>
+        <item>Patnáct</item>
+        <item>Šestnáct</item>
+        <item>Sedmnáct</item>
+        <item>Osmnáct</item>
+        <item>Devatenáct</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+        <item>Dvacet</item>
+        <item>Třicet</item>
+        <item>Čtyřicet</item>
+        <item>Padesáti</item>
+        <item>Šedesát</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>Dvanáct</item>
+        <item>Jeden</item>
+        <item>Dva</item>
+        <item>Tři</item>
+        <item>Čtyři</item>
+        <item>Pět</item>
+        <item>Šest</item>
+        <item>Sedm</item>
+        <item>Osm</item>
+        <item>Devět</item>
+        <item>Deset</item>
+        <item>Jedenáct</item>
+        <item>Dvanáct</item>
+        <item>Třináct</item>
+        <item>Čtrnáct</item>
+        <item>Patnáct</item>
+        <item>Šestnáct</item>
+        <item>Sedmnáct</item>
+        <item>Osmnáct</item>
+        <item>Devatenáct</item>
+    </string-array>
+
+</resources>

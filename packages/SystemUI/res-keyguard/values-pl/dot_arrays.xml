@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item>Dziesięć</item>
+        <item>Dwadzieścia</item>
+        <item>Trzydzieści</item>
+        <item>Czterdzieści</item>
+        <item>Pięćdziesiąt</item>
+        <item>Sześcdziesiąt</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+        <item>"Równo"</item>          
+        <item>"Jeden"</item>          
+        <item>"Dwa"</item>    
+        <item>"Trzy"</item>    
+        <item>"Cztery"</item>     
+        <item>"Pięć"</item>     
+        <item>"Sześć"</item>
+        <item>"Siedem"</item>
+        <item>"Osiem"</item>
+        <item>"Dziewięć"</item>
+        <item>Dziesięć</item>
+        <item>Jedenaście</item>
+        <item>Dwanaście</item>
+        <item>Trzynaście</item>
+        <item>Czternaście</item>
+        <item>Piętnaście</item>
+        <item>Szesnaście</item>
+        <item>Siedemnaście</item>
+        <item>Osiemnaście</item>
+        <item>Dziewiętnaście</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+        <item>Dwadzieścia</item>
+        <item>Trzydzieści</item>
+        <item>Czterdzieści</item>
+        <item>Pięćdziesiąt</item>
+        <item>Sześćdziesiąt</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>Dwunasta</item>
+        <item>Pierwsza</item>
+        <item>Druga</item>
+        <item>Trzecia</item>
+        <item>Czwarta</item>
+        <item>Piąta</item>
+        <item>Szósta</item>
+        <item>Siódma</item>
+        <item>Ósma</item>
+        <item>Dziewiąta</item>
+        <item>Dziesiąta</item>
+        <item>Jedenasta</item>
+        <item>Dwunasta</item>
+        <item>Trzynasta</item>
+        <item>Czternasta</item>
+        <item>Piętnasta</item>
+        <item>Szesnasta</item>
+        <item>Siedemnasta</item>
+        <item>Osiemnasta</item>
+        <item>Dziewiętnasta</item>
+    </string-array>
+
+</resources>
