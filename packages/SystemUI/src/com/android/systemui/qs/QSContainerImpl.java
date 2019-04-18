@@ -92,14 +92,17 @@ public class QSContainerImpl extends FrameLayout {
 
         // Hide the backgrounds when in landscape mode.
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mBackgroundGradient.setVisibility(View.INVISIBLE);
+            mBackgroundGradient.setVisibility(View.GONE);
             mStatusBarBackground.setVisibility(View.INVISIBLE);
         } else {
             mBackgroundGradient.setVisibility(View.VISIBLE);
             mStatusBarBackground.setVisibility(View.VISIBLE);
         }
 
-        updateResources();
+        LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
+        layoutParams.topMargin = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?       mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height) * 2 : mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height);
+
+        mQSPanel.setLayoutParams(layoutParams);
         updateSettings();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
     }
@@ -126,14 +129,15 @@ public class QSContainerImpl extends FrameLayout {
                 Settings.System.OMNI_QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
 
+        // Feature to be reverted
         if (mQsBackGroundAlpha < 255 ) {
             mBackground.setVisibility(View.INVISIBLE);
             mBackgroundGradient.setVisibility(View.INVISIBLE);
             mQsBackGround.setAlpha(mQsBackGroundAlpha);
             setBackground(mQsBackGround);
         } else {
-            mBackground.setVisibility(View.VISIBLE);
-            mBackgroundGradient.setVisibility(View.VISIBLE);
+            //mBackground.setVisibility(View.VISIBLE);
+            //mBackgroundGradient.setVisibility(View.VISIBLE);
         }
     }
 
@@ -176,14 +180,6 @@ public class QSContainerImpl extends FrameLayout {
         mQsDisabled = disabled;
         mBackgroundGradient.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
-    }
-
-    private void updateResources() {
-        LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
-        layoutParams.topMargin = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
-
-        mQSPanel.setLayoutParams(layoutParams);
     }
 
     /**
