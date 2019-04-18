@@ -256,7 +256,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateResources();
-
+        Resources resources = mContext.getResources();
+        mSystemIconsView.getLayoutParams().height = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height) * 2 :
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height);
+        mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
         // Update color schemes in landscape to use wallpaperTextColor
         boolean shouldUseWallpaperTextColor =
                 newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
@@ -291,11 +295,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerView.getLayoutParams().height =
                 resources.getDimensionPixelSize(R.dimen.qs_header_tooltip_height);
         mHeaderTextContainerView.setLayoutParams(mHeaderTextContainerView.getLayoutParams());
-
-        mSystemIconsView.getLayoutParams().height = resources.getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
-        mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
-
+        
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
         if (mQsDisabled) {
             lp.height = resources.getDimensionPixelSize(
