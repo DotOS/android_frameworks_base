@@ -256,7 +256,25 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateResources();
+        Resources resources = mContext.getResources();
+        int relativeHeight = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height)*2 :
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height);
+        int relativeTotalHeight = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_total_height) + resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height) :
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_total_height);
+        
+        mSystemIconsView.getLayoutParams().height = relativeHeight;
+        mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
+        
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
+        if (mQsDisabled) {
+            lp.height = relativeHeight;
+        } else {
+            lp.height = Math.max(getMinimumHeight(), relativeTotalHeight);
+        }
 
+        setLayoutParams(lp);
         // Update color schemes in landscape to use wallpaperTextColor
         boolean shouldUseWallpaperTextColor =
                 newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
@@ -291,22 +309,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerView.getLayoutParams().height =
                 resources.getDimensionPixelSize(R.dimen.qs_header_tooltip_height);
         mHeaderTextContainerView.setLayoutParams(mHeaderTextContainerView.getLayoutParams());
-
-        mSystemIconsView.getLayoutParams().height = resources.getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
-        mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
-
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
-        if (mQsDisabled) {
-            lp.height = resources.getDimensionPixelSize(
-                    com.android.internal.R.dimen.quick_qs_offset_height);
-        } else {
-            lp.height = Math.max(getMinimumHeight(),
-                    resources.getDimensionPixelSize(
-                            com.android.internal.R.dimen.quick_qs_total_height));
-        }
-
-        setLayoutParams(lp);
 
         updateStatusIconAlphaAnimator();
         updateHeaderTextContainerAlphaAnimator();
