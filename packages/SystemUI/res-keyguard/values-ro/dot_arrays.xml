@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2019 Descendant
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://สามสิบwww.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item></item>
+		<item>Douăzeci</item>
+		<item>Treizeci</item>
+		<item>Patruzeci</item>
+		<item>Cincizeci</item>
+		<item>Şaizeci</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+		<item>Zero</item>
+		<item>Unu</item>
+		<item>Două</item>
+		<item>Trei</item>
+		<item>Patru</item>
+		<item>Cinci</item>
+		<item>Şase</item>
+		<item>Șapte</item>
+		<item>Opt</item>
+		<item>Nouă</item>
+		<item>Zece</item>
+		<item>Unsprezece</item>
+		<item>Doisprezece</item>
+		<item>Treisprezece</item>
+		<item>Paisprezece</item>
+		<item>Cincisprezece</item>
+		<item>Şaisprezece</item>
+		<item>Şaptesprezece</item>
+		<item>Optsprezece</item>
+		<item>Nouăsprezece</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+		<item>Douăzeci</item>
+		<item>Treizeci</item>
+		<item>Patruzeci</item>
+		<item>Cincizeci</item>
+		<item>Şaizeci</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>Doisprezece</item>
+		<item>Unu</item>
+		<item>Două</item>
+		<item>Trei</item>
+		<item>Patru</item>
+		<item>Cinci</item>
+		<item>Şase</item>
+		<item>Șapte</item>
+		<item>Opt</item>
+		<item>Nouă</item>
+		<item>Zece</item>
+		<item>Unsprezece</item>
+		<item>Doisprezece</item>
+		<item>Treisprezece</item>
+		<item>Paisprezece</item>
+		<item>Cincisprezece</item>
+		<item>Şaisprezece</item>
+		<item>Şaptesprezece</item>
+		<item>Optsprezece</item>
+		<item>Nouăsprezece</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item></item>
+        <item>Двадцать</item>
+        <item>Тридцать</item>
+        <item>Сорок</item>
+        <item>Пятьдесят</item>
+        <item>Шестьдесят</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+	<item>Ноль</item>
+	<item>Один</item>
+	<item>Два</item>
+	<item>Три</item>
+	<item>Четыре</item>
+	<item>Пять</item>
+	<item>Шесть</item>
+	<item>Семь</item>
+	<item>Восемь</item>
+	<item>Девять</item>
+	<item>Десять</item>
+	<item>Одиннадцать</item>
+	<item>Двенадцать</item>
+	<item>Тринадцать</item>
+	<item>Четырнадцать</item>
+	<item>Пятнадцать</item>
+	<item>Шестнадцать</item>
+	<item>Семнадцать</item>
+	<item>Восемнадцать</item>
+	<item>Девятнадцать</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+        <item>Двадцать</item>
+        <item>Тридцать</item>
+        <item>Сорок</item>
+        <item>Пятьдесят</item>
+        <item>Шестьдесят</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>Двенадцать</item>
+	<item>Один</item>
+	<item>Два</item>
+	<item>Три</item>
+	<item>Четыре</item>
+	<item>Пять</item>
+	<item>Шесть</item>
+	<item>Семь</item>
+	<item>Восемь</item>
+	<item>Девять</item>
+	<item>Десять</item>
+	<item>Одиннадцать</item>
+	<item>Двенадцать</item>
+	<item>Тринадцать</item>
+	<item>Четырнадцать</item>
+	<item>Пятнадцать</item>
+	<item>Шестнадцать</item>
+	<item>Семнадцать</item>
+	<item>Восемнадцать</item>
+	<item>Девятнадцать</item>
+    </string-array>
+</resources>

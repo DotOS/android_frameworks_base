@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- CustomText clock -->
+    <string name="custom_text_clock_top_text_default">Сейчас</string>
+    <string name="high_noon_first_row">Полдень</string>
+    <string name="high_noon_second_row"></string>
+    <string name="twelve_am">Двенадцать</string>
+
+</resources>

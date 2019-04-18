@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array translatable="true" name="TensString">
+        <item></item>
+        <item></item>
+        <item>Vingt</item>
+        <item>Trente</item>
+        <item>Quarante</item>
+        <item>Cinquante</item>
+        <item>Soixante</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsString">
+        <item>Pile</item>
+        <item>Un</item>
+        <item>Deux</item>
+        <item>Trois</item>
+        <item>Quatre</item>
+        <item>Cinq</item>
+        <item>Six</item>
+        <item>Sept</item>
+        <item>Huit</item>
+        <item>Neuf</item>
+        <item>Dix</item>
+        <item>Onze</item>
+        <item>Douze</item>
+        <item>Treize</item>
+        <item>Quatorze</item>
+        <item>Quinze</item>
+        <item>Seize</item>
+        <item>Dix-sept</item>
+        <item>Dix-huit</item>
+        <item>Dix-neuf</item>
+    </string-array>
+
+    <string-array translatable="true" name="TensStringH">
+        <item></item>
+        <item></item>
+        <item>Vingt</item>
+        <item>Trente</item>
+        <item>Quarante</item>
+        <item>Cinquante</item>
+        <item>Soixante</item>
+    </string-array>
+
+    <string-array translatable="true" name="UnitsStringH">
+        <item>Douze heures</item>
+        <item>Une heures</item>
+        <item>Deux heures</item>
+        <item>Trois heures</item>
+        <item>Quatre heures</item>
+        <item>Cinq heures</item>
+        <item>Six heures</item>
+        <item>Sept heures</item>
+        <item>Huit heures</item>
+        <item>Neuf heures</item>
+        <item>Dix heures</item>
+        <item>Onze heures</item>
+        <item>Douze heures</item>
+        <item>Treize heures</item>
+        <item>Quatorze heures</item>
+        <item>Quinze heures</item>
+        <item>Seize heures</item>
+        <item>Dix-sept heures</item>
+        <item>Dix-huit heures</item>
+        <item>Dix-neuf heures</item>
+    </string-array>
+
+</resources>
