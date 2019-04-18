@@ -99,7 +99,10 @@ public class QSContainerImpl extends FrameLayout {
             mStatusBarBackground.setVisibility(View.VISIBLE);
         }
 
-        updateResources();
+        LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
+        layoutParams.topMargin = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?       mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height) * 2 : mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height);
+
+        mQSPanel.setLayoutParams(layoutParams);
         updateSettings();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
     }
@@ -176,14 +179,6 @@ public class QSContainerImpl extends FrameLayout {
         mQsDisabled = disabled;
         mBackgroundGradient.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
         mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
-    }
-
-    private void updateResources() {
-        LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
-        layoutParams.topMargin = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
-
-        mQSPanel.setLayoutParams(layoutParams);
     }
 
     /**
