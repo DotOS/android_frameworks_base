@@ -93,7 +93,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private TouchAnimator mSettingsCogAnimator;
 
     private View mActionsContainer;
-    private View mDragHandle;
     private View mMobileGroup;
     private ImageView mMobileSignal;
     private ImageView mMobileRoaming;
@@ -130,7 +129,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mMultiUserSwitch = findViewById(R.id.multi_user_switch);
         mMultiUserAvatar = mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
 
-        mDragHandle = findViewById(R.id.qs_drag_handle_view);
         mActionsContainer = findViewById(R.id.qs_footer_actions_container);
 
         // RenderThread is doing more harm than good when touching the header (to expand quick
@@ -197,7 +195,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 .addFloat(mCarrierText, "alpha", 0, 0, 1)
                 .addFloat(mMobileGroup, "alpha", 0, 1)
                 .addFloat(mActionsContainer, "alpha", 0, 1)
-                .addFloat(mDragHandle, "alpha", 1, 0, 0)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .setStartDelay(0.15f)
                 .build();
