@@ -101,13 +101,14 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mBrightnessView = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_dialog, this, false);
-        addView(mBrightnessView);
 
         mTileLayout = (QSTileLayout) LayoutInflater.from(mContext).inflate(
                 R.layout.qs_paged_tile_layout, this, false);
         mTileLayout.setListening(mListening);
         addView((View) mTileLayout);
         updateSettings();
+
+        addView(mBrightnessView);
 
         mPanelPageIndicator = (PageIndicator) LayoutInflater.from(context).inflate(
                 R.layout.qs_page_indicator, this, false);
@@ -136,7 +137,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 getColorForState(mContext, Tile.STATE_ACTIVE)));
         addView(mDivider);
     }
-
+    
     public View getDivider() {
         return mDivider;
     }
@@ -320,7 +321,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mFooter.onConfigurationChanged();
-
+        
         updateBrightnessMirror();
     }
 
