@@ -280,7 +280,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         }
         holder.mTileView.handleStateChanged(info.state);
         holder.mTileView.setShowAppLabel(position > mEditIndex && !info.isSystem);
-        holder.mTileView.setHideLabel(mHideLabel);
+        //holder.mTileView.setHideLabel(mHideLabel);
 
         final boolean selectable = mAccessibilityAction == ACTION_NONE || position < mEditIndex;
         if (!(mAccessibilityManager.isTouchExplorationEnabled() && selectable)) {
