@@ -196,17 +196,18 @@ public class QSContainerImpl extends FrameLayout {
     public void updateExpansion() {
         int height = calculateContainerHeight();
         setBottom(getTop() + height);
-        mQSDetail.setBottom(getTop() + height);
         // Pin QS Footer to the bottom of the panel.
-        mQSFooter.setTranslationY(height - mQSFooter.getHeight());
+        mQSFooter.setTranslationY(height);
         mBackground.setTop(mQSPanel.getTop());
         mBackground.setBottom(height);
+        mQSDetail.setTop(mQSPanel.getTop());
+        mQSDetail.setBottom(height);
     }
 
     protected int calculateContainerHeight() {
         int heightOverride = mHeightOverride != -1 ? mHeightOverride : getMeasuredHeight();
         return mQSCustomizer.isCustomizing() ? mQSCustomizer.getHeight()
-                : Math.round(mQsExpansion * (heightOverride - mHeader.getHeight()))
+                : Math.round(mQsExpansion * heightOverride)
                 + mHeader.getHeight();
     }
 
