@@ -91,6 +91,12 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private Menu mRowsSubMenu;
     private Menu mRowsLandscapeSubMenu;
     private Menu mQsColumnsSubMenu;
+    
+    private int paddingStart;
+    private int paddingTop;
+    private int paddingEnd;
+    private int paddingBottom;
+    private int paddingTopLandscape;
 
     public QSCustomizer(Context context, AttributeSet attrs) {
         super(new ContextThemeWrapper(context, R.style.edit_theme), attrs);
@@ -145,6 +151,12 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         int defaultColumns = Math.max(1,
                     mContext.getResources().getInteger(R.integer.quick_settings_num_columns));
         mRecyclerView = (RecyclerView) findViewById(android.R.id.list);
+        paddingStart = mContext.getResources().getDimensionPixelSize(R.dimen.qs_tile_layout_margin_side);
+        paddingTop = mContext.getResources().getDimensionPixelSize(R.dimen.qs_customizer_paddingTop);
+        paddingTopLandscape = mContext.getResources().getDimensionPixelSize(R.dimen.qs_customizer_paddingTopLandscape);
+        paddingBottom = mContext.getResources().getDimensionPixelSize(R.dimen.qs_customizer_paddingBottom);
+        paddingEnd = mContext.getResources().getDimensionPixelSize(R.dimen.qs_tile_layout_margin_side);
+        mRecyclerView.setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom);
         mTileAdapter = new TileAdapter(getContext());
         mTileQueryHelper = new TileQueryHelper(context, mTileAdapter);
         mRecyclerView.setAdapter(mTileAdapter);
@@ -166,6 +178,10 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateNavBackDrop(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+            mRecyclerView.setPadding(paddingStart, paddingTopLandscape, paddingEnd, paddingBottom);
+        else
+            mRecyclerView.setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom);
     }
 
     private void updateNavBackDrop(Configuration newConfig) {
