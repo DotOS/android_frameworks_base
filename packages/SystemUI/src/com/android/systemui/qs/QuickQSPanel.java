@@ -214,7 +214,10 @@ public class QuickQSPanel extends QSPanel {
                     R.dimen.qs_quick_tile_size);
 
             setGravity(Gravity.CENTER);
-            setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+            LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+            params.topMargin = 24;
+            params.bottomMargin = 24;
+            setLayoutParams(params);
         }
 
         @Override
