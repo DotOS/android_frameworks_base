@@ -20,6 +20,7 @@
     android:layout_gravity="center_vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
+    android:layout_marginBottom="8dp"
     style="@style/BrightnessDialogContainer">
 
     <ImageView
