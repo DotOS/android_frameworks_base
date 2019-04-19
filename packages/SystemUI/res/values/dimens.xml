@@ -253,7 +253,7 @@
     <dimen name="qs_header_system_icons_area_height">48dp</dimen>
 
     <!-- How far the quick-quick settings panel extends below the status bar -->
-    <dimen name="qs_quick_header_panel_height">128dp</dimen>
+    <dimen name="qs_quick_header_panel_height">152dp</dimen>
 
     <!-- The height of the container that holds the system icons in the quick settings header in the
          car setting. -->
@@ -267,7 +267,7 @@
     <dimen name="qs_notification_padding">@dimen/notification_side_paddings</dimen>
 
     <!-- Height of the status bar header bar when expanded -->
-    <dimen name="status_bar_header_height_expanded">124dp</dimen>
+    <dimen name="status_bar_header_height_expanded">152dp</dimen>
 
     <!-- Height of the status bar header bar when on Keyguard -->
     <dimen name="status_bar_header_height_keyguard">40dp</dimen>
@@ -348,13 +348,13 @@
     <dimen name="qs_tile_height">106dp</dimen>
     <dimen name="qs_tile_layout_margin_side">6dp</dimen>
     <dimen name="qs_tile_margin_horizontal">18dp</dimen>
-    <dimen name="qs_tile_margin_vertical">24dp</dimen>
+    <dimen name="qs_tile_margin_vertical">28dp</dimen>
     <dimen name="qs_tile_margin_top_bottom">12dp</dimen>
     <dimen name="qs_tile_margin_top">18dp</dimen>
-    <dimen name="qs_quick_tile_size">48dp</dimen>
+    <dimen name="qs_quick_tile_size">56dp</dimen>
     <!-- Width for the spacer, used between QS tiles. -->
     <dimen name="qs_quick_tile_space_width">0dp</dimen>
-    <dimen name="qs_quick_tile_padding">12dp</dimen>
+    <dimen name="qs_quick_tile_padding">16dp</dimen>
     <dimen name="qs_header_gear_translation">16dp</dimen>
     <dimen name="qs_header_tile_margin_horizontal">0dp</dimen>
     <dimen name="qs_page_indicator_width">16dp</dimen>
@@ -366,7 +366,7 @@
     <dimen name="qs_dual_tile_height">112dp</dimen>
     <dimen name="qs_dual_tile_padding_vertical">8dp</dimen>
     <dimen name="qs_dual_tile_padding_horizontal">6dp</dimen>
-    <dimen name="qs_tile_padding_top">14dp</dimen>
+    <dimen name="qs_tile_padding_top">24dp</dimen>
     <dimen name="qs_tile_padding_top_large_text">4dp</dimen>
     <dimen name="qs_tile_padding_below_icon">12dp</dimen>
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
@@ -402,7 +402,7 @@
     <dimen name="qs_footer_padding_start">16dp</dimen>
     <dimen name="qs_footer_padding_end">16dp</dimen>
     <dimen name="qs_footer_icon_size">16dp</dimen>
-    <dimen name="qs_paged_tile_layout_padding_bottom">24dp</dimen>
+    <dimen name="qs_paged_tile_layout_padding_bottom">8dp</dimen>
 
     <dimen name="qs_notif_collapsed_space">64dp</dimen>
 
