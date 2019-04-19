@@ -280,6 +280,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
         mBatteryMeterView.useWallpaperTextColor(shouldUseWallpaperTextColor);
         mClockView.useWallpaperTextColor(shouldUseWallpaperTextColor);
+        
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mHeaderTextContainerView.getLayoutParams();
+        int topMg = resources.getDimensionPixelSize(R.dimen.qs_header_info_marginTop);
+        int topMgLand = resources.getDimensionPixelSize(R.dimen.qs_header_info_marginTopLandscape);
+        params.topMargin = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? topMgLand : topMg;
+        mHeaderTextContainerView.setLayoutParams(params);
     }
 
     @Override
@@ -298,7 +304,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         int qqsHeight = mContext.getResources().getDimensionPixelSize(
                 R.dimen.qs_quick_header_panel_height);
 
-        setMinimumHeight(sbHeight + qqsHeight);
+        setMinimumHeight(sbHeight + qqsHeight + 26 /* Fit bigger qs tiles */);
     }
 
     private void updateResources() {
