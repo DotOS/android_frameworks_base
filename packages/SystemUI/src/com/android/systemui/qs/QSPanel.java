@@ -101,24 +101,22 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mBrightnessView = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_dialog, this, false);
-        addView(mBrightnessView);
-
+        addSpace();
         mTileLayout = (QSTileLayout) LayoutInflater.from(mContext).inflate(
                 R.layout.qs_paged_tile_layout, this, false);
         mTileLayout.setListening(mListening);
         addView((View) mTileLayout);
         updateSettings();
-
         mPanelPageIndicator = (PageIndicator) LayoutInflater.from(context).inflate(
                 R.layout.qs_page_indicator, this, false);
         addView(mPanelPageIndicator);
+        addView(mBrightnessView);
+        addSpace();
 
         ((PagedTileLayout) mTileLayout).setPageIndicator(mPanelPageIndicator);
         mQsTileRevealController = new QSTileRevealController(mContext, this,
                 (PagedTileLayout) mTileLayout);
-
         addDivider();
-
         mFooter = new QSSecurityFooter(this, context);
         addView(mFooter.getView());
         mFooter.updateSettings();
@@ -136,7 +134,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 getColorForState(mContext, Tile.STATE_ACTIVE)));
         addView(mDivider);
     }
-
+    
+    protected void addSpace() {
+        View space = (View) LayoutInflater.from(mContext).inflate(R.layout.qs_panel_gap, this, false);
+        addView(space);
+    }
+    
     public View getDivider() {
         return mDivider;
     }
@@ -194,11 +197,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         }
         if (QS_BRIGHTNESS_POSITION_BOTTOM.equals(key)) {
             if (newValue == null || Integer.parseInt(newValue) == 0) {
-                removeView(mBrightnessView);
-                addView(mBrightnessView, 0);
+               // removeView(mBrightnessView);
+               // addView(mBrightnessView, 0);
             } else {
-                removeView(mBrightnessView);
-                addView(mBrightnessView, getBrightnessViewPositionBottom());
+               // removeView(mBrightnessView);
+               // addView(mBrightnessView, getBrightnessViewPositionBottom());
             }
         }
     }
@@ -320,7 +323,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mFooter.onConfigurationChanged();
-
+        
         updateBrightnessMirror();
     }
 
