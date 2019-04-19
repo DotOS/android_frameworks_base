@@ -252,7 +252,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
                 R.dimen.notification_side_paddings);
         setPadding(0, 0, 0,
                 getContext().getResources().getDimensionPixelSize(
-                        R.dimen.qs_paged_tile_layout_padding_bottom));
+                        R.dimen.qs_paged_tile_layout_padding_bottom) / 2);
 
         boolean changed = false;
         for (int i = 0; i < mPages.size(); i++) {

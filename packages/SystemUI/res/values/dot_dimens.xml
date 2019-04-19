@@ -25,9 +25,16 @@
     <dimen name="net_traffic_txt_img_padding">2dp</dimen>
 	
 	<!-- QS detail view scrolling -->
-   <dimen name="qs_detail_item_height_twoline">72dp</dimen>
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
    
-   <dimen name="qs_tile_height_wo_label">48dp</dimen>
+    <dimen name="qs_tile_height_wo_label">48dp</dimen>
+    
+    <dimen name="qs_customizer_paddingTop">48dp</dimen> <!-- 36dp + qs_below_brightness_gap -->
+    <dimen name="qs_customizer_paddingBottom">28dp</dimen>
+    <dimen name="qs_customizer_paddingTopLandscape">33dp</dimen> <!-- 21dp + qs_below_brightness_gap -->
+    
+    <dimen name="qs_header_info_marginTop">12dp</dimen>
+    <dimen name="qs_header_info_marginTopLandscape">2dp</dimen>
 
    <!-- OPA -->
     <dimen name="halo_diameter">18.0dip</dimen>
@@ -56,5 +63,7 @@
     <dimen name="status_bar_battery_bigcircle_icon_height">20.5dp</dimen>
      <!-- Width of the big battery circle icon in the status bar. -->
     <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
+    
+    <dimen name="qs_below_brightness_gap">12dp</dimen>
 
 </resources>
