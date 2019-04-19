@@ -279,7 +279,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
                     R.string.accessibility_qs_edit_tile_label, position + 1, info.state.label);
         }
         holder.mTileView.handleStateChanged(info.state);
-        holder.mTileView.setShowAppLabel(position > mEditIndex && !info.isSystem);
+        holder.mTileView.setShowAppLabel(true);
         holder.mTileView.setHideLabel(mHideLabel);
 
         final boolean selectable = mAccessibilityAction == ACTION_NONE || position < mEditIndex;
