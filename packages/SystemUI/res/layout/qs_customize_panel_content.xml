@@ -15,11 +15,62 @@
      limitations under the License.
 -->
 
-<merge xmlns:android="http://schemas.android.com/apk/res/android">->
-    <View
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">->
+    
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@*android:dimen/quick_qs_offset_height"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="vertical">
+        
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/qs_customizer_heads_bg">
+
+            <ImageButton
+                android:id="@+id/qs_cust_back"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignTop="@id/qs_cust_title"
+                android:layout_alignBottom="@id/qs_cust_title"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:tint="?android:attr/colorAccent"
+                android:src="@drawable/ic_chevron_left" />
+
+            <TextView
+                android:id="@+id/qs_cust_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/qs_cust_back"
+                android:paddingStart="14dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="3dp"
+                android:text="@string/qs_edit"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="?android:attr/colorAccent"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/qs_cust_options"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignTop="@id/qs_cust_title"
+                android:layout_alignBottom="@id/qs_cust_title"
+                android:layout_marginEnd="4dp"
+                android:layout_toEndOf="@id/qs_cust_title"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:tint="?android:attr/colorAccent"
+                android:src="@drawable/ic_settings" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <com.android.keyguard.AlphaOptimizedLinearLayout
         android:id="@+id/customize_container"
@@ -33,17 +84,17 @@
         <Toolbar
             android:id="@*android:id/action_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@drawable/qs_customizer_toolbar"
             android:navigationContentDescription="@*android:string/action_bar_up_description"
-            style="?android:attr/toolbarStyle" />
+            style="?android:attr/toolbarStyle"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingTop="28dp"
+            android:paddingTop="32dp"
             android:paddingLeft="@dimen/qs_tile_layout_margin_side"
             android:paddingRight="@dimen/qs_tile_layout_margin_side"
             android:paddingBottom="28dp"

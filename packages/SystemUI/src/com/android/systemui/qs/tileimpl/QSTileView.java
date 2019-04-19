@@ -123,7 +123,7 @@ public class QSTileView extends QSTileBaseView {
         }
         if (!Objects.equals(mSecondLine.getText(), state.secondaryLabel)) {
             mSecondLine.setText(state.secondaryLabel);
-            mSecondLine.setVisibility(TextUtils.isEmpty(state.secondaryLabel) ? View.GONE
+            mSecondLine.setVisibility(TextUtils.isEmpty(state.secondaryLabel) ? View.INVISIBLE
                     : View.VISIBLE);
         }
         boolean dualTarget = DUAL_TARGET_ALLOWED && state.dualTarget;

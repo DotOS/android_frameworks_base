@@ -48,7 +48,6 @@
         android:clipChildren="false"
         android:background="@drawable/qs_bg_gradient" />
 
-
     <com.android.systemui.qs.QSPanel
         android:id="@+id/quick_settings_panel"
         android:layout_marginTop="@*android:dimen/quick_qs_offset_height"
