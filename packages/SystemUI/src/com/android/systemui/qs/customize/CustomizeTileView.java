@@ -31,14 +31,14 @@ public class CustomizeTileView extends QSTileView {
 
     public void setShowAppLabel(boolean showAppLabel) {
         mShowAppLabel = showAppLabel;
-        mSecondLine.setVisibility(showAppLabel ? View.VISIBLE : View.GONE);
+        //mSecondLine.setVisibility(showAppLabel ? View.VISIBLE : View.GONE);
         mLabel.setSingleLine(showAppLabel);
     }
 
     @Override
     protected void handleStateChanged(QSTile.State state) {
         super.handleStateChanged(state);
-        mSecondLine.setVisibility(mShowAppLabel ? View.VISIBLE : View.GONE);
+        //mSecondLine.setVisibility(mShowAppLabel ? View.VISIBLE : View.GONE);
     }
 
     public TextView getAppLabel() {
