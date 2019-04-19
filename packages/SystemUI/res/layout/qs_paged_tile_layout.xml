@@ -20,8 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="true"
-    android:clipToPadding="false"
-    android:paddingBottom="@dimen/qs_paged_tile_layout_padding_bottom">
+    android:clipToPadding="false">
 
     <FrameLayout
         android:id="@+id/page_decor"
