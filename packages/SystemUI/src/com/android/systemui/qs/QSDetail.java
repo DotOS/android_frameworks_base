@@ -23,6 +23,7 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.drawable.Animatable;
 import android.util.AttributeSet;
 import android.util.SparseArray;
@@ -84,7 +85,11 @@ public class QSDetail extends LinearLayout {
         super.onConfigurationChanged(newConfig);
         FontSizeUtils.updateFontSize(mDetailDoneButton, R.dimen.qs_detail_button_text_size);
         FontSizeUtils.updateFontSize(mDetailSettingsButton, R.dimen.qs_detail_button_text_size);
-
+        Resources resources = getContext().getResources();
+        int relativeHeight = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height)*2 :
+        resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height);
+        setPadding(0, relativeHeight, 0, 0);
         for (int i = 0; i < mDetailViews.size(); i++) {
             mDetailViews.valueAt(i).dispatchConfigurationChanged(newConfig);
         }
