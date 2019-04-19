@@ -42,6 +42,7 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTileView;
+import com.android.systemui.qs.TouchAnimator.Builder;
 import com.android.systemui.qs.QSHost.Callback;
 import com.android.systemui.qs.customize.QSCustomizer;
 import com.android.systemui.qs.external.CustomTile;
@@ -88,6 +89,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     private BrightnessMirrorController mBrightnessMirrorController;
     private View mDivider;
+    private View mDragHandle;
 
     public QSPanel(Context context) {
         this(context, null);
@@ -101,7 +103,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mBrightnessView = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_dialog, this, false);
-        addView(mBrightnessView);
 
         mTileLayout = (QSTileLayout) LayoutInflater.from(mContext).inflate(
                 R.layout.qs_paged_tile_layout, this, false);
@@ -113,16 +114,22 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 R.layout.qs_page_indicator, this, false);
         addView(mPanelPageIndicator);
 
+        addView(mBrightnessView);
+        addSpace();
+
         ((PagedTileLayout) mTileLayout).setPageIndicator(mPanelPageIndicator);
         mQsTileRevealController = new QSTileRevealController(mContext, this,
                 (PagedTileLayout) mTileLayout);
 
-        addDivider();
+        //addDivider();
 
         mFooter = new QSSecurityFooter(this, context);
         addView(mFooter.getView());
         mFooter.updateSettings();
-
+        
+        mDragHandle = (View) LayoutInflater.from(context).inflate(
+                R.layout.qs_footer_handle, this, false);
+        addView(mDragHandle);
         updateResources();
 
         mBrightnessController = new BrightnessController(getContext(),
@@ -135,6 +142,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         mDivider.setBackgroundColor(Utils.applyAlpha(mDivider.getAlpha(),
                 getColorForState(mContext, Tile.STATE_ACTIVE)));
         addView(mDivider);
+    }
+    
+    protected void addSpace() {
+        View space = (View) LayoutInflater.from(mContext).inflate(R.layout.qs_panel_gap, this, false);
+        addView(space);
     }
 
     public View getDivider() {
@@ -193,12 +205,13 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             updateViewVisibilityForTuningValue(mBrightnessView, newValue);
         }
         if (QS_BRIGHTNESS_POSITION_BOTTOM.equals(key)) {
+            //Force QSBrightness bar to bottom for UI Changes
             if (newValue == null || Integer.parseInt(newValue) == 0) {
-                removeView(mBrightnessView);
-                addView(mBrightnessView, 0);
+                //removeView(mBrightnessView);
+                //addView(mBrightnessView, 0);
             } else {
-                removeView(mBrightnessView);
-                addView(mBrightnessView, getBrightnessViewPositionBottom());
+               // removeView(mBrightnessView);
+                //addView(mBrightnessView, getBrightnessViewPositionBottom());
             }
         }
     }
@@ -305,7 +318,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     public void updateResources() {
         final Resources res = mContext.getResources();
         setPadding(0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_top), 0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_bottom));
-
+        createDragHandleAnimation();
         updatePageIndicator();
 
         if (mListening) {
@@ -320,8 +333,21 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mFooter.onConfigurationChanged();
-
+        createDragHandleAnimation();
         updateBrightnessMirror();
+    }
+    
+    @Override
+    public void onRtlPropertiesChanged(int layoutDirection) {
+        super.onRtlPropertiesChanged(layoutDirection);
+        updateBrightnessMirror();
+    }
+
+    private TouchAnimator createDragHandleAnimation() {
+        return new TouchAnimator.Builder()
+                .addFloat(mDragHandle, "alpha", 1, 0, 0)
+                .setStartDelay(0.15f)
+                .build();
     }
 
     public void updateBrightnessMirror() {
