@@ -25,8 +25,15 @@
     <dimen name="net_traffic_txt_img_padding">2dp</dimen>
 	
 	<!-- QS detail view scrolling -->
-   <dimen name="qs_detail_item_height_twoline">72dp</dimen>
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
    
-   <dimen name="qs_tile_height_wo_label">48dp</dimen>
+    <dimen name="qs_tile_height_wo_label">48dp</dimen>
+    
+    <dimen name="qs_customizer_paddingTop">32dp</dimen>
+    <dimen name="qs_customizer_paddingBottom">28dp</dimen>
+    <dimen name="qs_customizer_paddingTopLandscape">24dp</dimen>
+    
+    <dimen name="qs_header_info_marginTop">12dp</dimen>
+    <dimen name="qs_header_info_marginTopLandscape">2dp</dimen>
 
 </resources>
