@@ -4710,15 +4710,6 @@ public final class Settings {
         public static final String FORCE_ALLOW_SYSTEM_THEMES = "force_allow_system_themes";
 
         /**
-         * Whether to change the transparency of the qs panel
-         * @hide
-         */
-        public static final String OMNI_QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
-        /** @hide */
-        private static final Validator OMNI_QS_PANEL_BG_ALPHA_VALIDATOR = new
-                SettingsValidators.InclusiveIntegerRangeValidator(100, 255);
-
-        /**
         * Whether to show Qs panel footer warnings like for active VPN
         * @hide
         */
@@ -4905,7 +4896,6 @@ public final class Settings {
             OMNI_QS_LAYOUT_ROWS,
             OMNI_QS_LAYOUT_ROWS_LANDSCAPE,
             OMNI_QS_QUICKBAR_COLUMNS,
-            OMNI_QS_PANEL_BG_ALPHA,
             CUSTOM_BUTTON_BRIGHTNESS,
             CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
             BUTTON_BACKLIGHT_ENABLE,
@@ -5045,7 +5035,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS);
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
-            PRIVATE_SETTINGS.add(OMNI_QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(TOAST_ICON);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_ALLOW_ON_DND);
@@ -5165,7 +5154,6 @@ public final class Settings {
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS, OMNI_QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS_LANDSCAPE, OMNI_QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(OMNI_QS_QUICKBAR_COLUMNS, OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR);
-            VALIDATORS.put(OMNI_QS_PANEL_BG_ALPHA, OMNI_QS_PANEL_BG_ALPHA_VALIDATOR);
             VALIDATORS.put(CUSTOM_BUTTON_BRIGHTNESS,
                     CUSTOM_BUTTON_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
