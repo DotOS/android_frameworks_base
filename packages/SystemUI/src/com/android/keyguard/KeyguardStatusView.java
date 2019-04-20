@@ -226,7 +226,6 @@ public class KeyguardStatusView extends GridLayout implements
         int height = mClockView.getHeight();
         layoutParams.bottomMargin = (int) -(height - (clockScale * height));
         mClockView.setLayoutParams(layoutParams);
-		mClockView.setTypeface(tf);
         layoutParams = (RelativeLayout.LayoutParams) mClockSeparator.getLayoutParams();
         layoutParams.topMargin = smallClock ? (int) mWidgetPadding : 0;
         layoutParams.bottomMargin = layoutParams.topMargin;
