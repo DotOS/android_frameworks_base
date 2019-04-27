@@ -20,12 +20,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.om.IOverlayManager;
 import android.content.om.OverlayManager;
 import android.content.pm.UserInfo;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -111,6 +114,31 @@ public class ThemeOverlayController extends SystemUI {
                     }
                 },
                 UserHandle.USER_ALL);
+
+	ContentObserver observer = new ContentObserver(mBgHandler) {
+             @Override
+             public void onChange(boolean selfChange, Uri uri) {
+                 if (uri.equals(Settings.Secure.getUriFor("accent_dark")) ||
+                         uri.equals(Settings.Secure.getUriFor("accent_light"))) {
+                     reloadAssets("android");
+                     reloadAssets("com.android.systemui");
+                 }
+             }
+             private void reloadAssets(String packageName) {
+                 try {
+                     IOverlayManager.Stub.asInterface(ServiceManager.getService("overlay"))
+                             .reloadAssets(packageName, UserHandle.USER_CURRENT);
+                 } catch (RemoteException e) {
+                     Log.i(TAG, "Unable to reload resources for " + packageName);
+                 }
+             }
+        };
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor("accent_dark"),
+                false, observer, UserHandle.USER_ALL);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor("accent_light"),
+                false, observer, UserHandle.USER_ALL);
     }
 
     private void updateThemeOverlays() {
