@@ -7648,6 +7648,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      */
     private void handleDevicePocketStateChanged() {
         final boolean interactive = mPowerManager.isInteractive();
+        mImmersiveModeConfirmation.onDevicePocketStateChanged(mIsDeviceInPocket);
         if (mIsDeviceInPocket) {
             showPocketLock(interactive);
         } else {
