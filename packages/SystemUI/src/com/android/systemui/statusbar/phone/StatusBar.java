@@ -5239,7 +5239,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         @Override
         public void onDoubleTap(float screenX, float screenY) {
-            if (isDoubleTapOnMusicTicker(screenX, screenY)) {
+            if (isDoubleTapOnMusicTicker(screenX, screenY) 
+                    || isDoubleTapOnMediaSlice(screenX, screenY)) {
                 handleSystemKey(KeyEvent.KEYCODE_MEDIA_NEXT);
             } else {
                 for (Callback callback : mCallbacks) {
@@ -5299,6 +5300,21 @@ public class StatusBar extends SystemUI implements DemoMode,
         float viewY = eventY - mTmpInt2[1];
         if (0 <= viewX && viewX <= indication.getWidth()
                 && 0 <= viewY && viewY <= indication.getHeight()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isDoubleTapOnMediaSlice(float eventX, float eventY) {
+        View mediaButton = mNotificationPanel.getKeyguardStatusView().getSliceView().getMediaButton();
+        if (eventX <= 0 || eventY <= 0 || mediaButton == null) {
+            return false;
+        }
+        mediaButton.getLocationOnScreen(mTmpInt2);
+        float viewX = eventX - mTmpInt2[0];
+        float viewY = eventY - mTmpInt2[1];
+        if (0 <= viewX && viewX <= mediaButton.getWidth()
+                && 0 <= viewY && viewY <= mediaButton.getHeight()) {
             return true;
         }
         return false;

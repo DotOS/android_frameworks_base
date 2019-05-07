@@ -100,6 +100,8 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     private Slice mSlice;
     private boolean mPulsing;
 
+    private KeyguardSliceButton mMediaButton;
+
     public KeyguardSliceView(Context context) {
         this(context, null, 0);
     }
@@ -202,6 +204,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mRow.setVisibility(subItemsCount > 0 ? ((mShowInfo || mDarkAmount == 1) ? VISIBLE : GONE)
                 : GONE);
         mRowAvailable = subItemsCount > 0;
+        mMediaButton = null;
         for (int i = startIndex; i < subItemsCount; i++) {
             SliceItem item = subItems.get(i);
             RowContent rc = new RowContent(getContext(), item, true /* showStartItem */);
@@ -218,6 +221,10 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
                 mRow.addView(button, viewIndex);
             }else{
                 button.setShouldTintDrawable(!isWeatherSlice);
+            }
+
+            if (KeyguardSliceProvider.KEYGUARD_MEDIA_URI.equals(itemTag.toString())) {
+                mMediaButton = button;
             }
 
             PendingIntent pendingIntent = null;
@@ -418,6 +425,10 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     public void refresh() {
         Slice slice = SliceViewManager.getInstance(getContext()).bindSlice(mKeyguardSliceUri);
         onChanged(slice);
+    }
+
+    public KeyguardSliceButton getMediaButton() {
+        return mMediaButton;
     }
 
     public static class Row extends LinearLayout {
