@@ -280,21 +280,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     private void updatePageIndicator() {
         if (mTileLayout instanceof PagedTileLayout) {
-            // If we're in landscape, and we have the footer page indicator (which we should if the
-            // footer has been initialized & linked), then we'll show the footer page indicator to
-            // save space in the main QS tile area. Otherwise, we'll use the default one under the
-            // tiles/above the footer.
-            boolean shouldUseFooterPageIndicator =
-                    getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE
-                            && mFooterPageIndicator != null;
-
             mPanelPageIndicator.setVisibility(View.GONE);
             if (mFooterPageIndicator != null) {
                 mFooterPageIndicator.setVisibility(View.GONE);
+                ((PagedTileLayout) mTileLayout).setPageIndicator(mFooterPageIndicator);
             }
-
-            ((PagedTileLayout) mTileLayout).setPageIndicator(
-                    shouldUseFooterPageIndicator ? mFooterPageIndicator : mPanelPageIndicator);
         }
     }
 

@@ -372,10 +372,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     /** Returns the latest stored tooltip shown count from SharedPreferences. */
     private int getStoredShownCount() {
-        return Prefs.getInt(
-                mContext,
-                Prefs.Key.QS_LONG_PRESS_TOOLTIP_SHOWN_COUNT,
-                TOOLTIP_NOT_YET_SHOWN_COUNT);
+        return 0;
+        // return Prefs.getInt(
+        //         mContext,
+        //         Prefs.Key.QS_LONG_PRESS_TOOLTIP_SHOWN_COUNT,
+        //         TOOLTIP_NOT_YET_SHOWN_COUNT);
     }
 
     public void disable(int state1, int state2, boolean animate) {
