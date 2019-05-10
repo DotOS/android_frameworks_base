@@ -25,62 +25,101 @@
         android:id="@+id/long_press_tooltip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="start|bottom|center"
         android:alpha="0"
         android:text="@string/quick_settings_header_onboarding_text"
         android:textAppearance="@style/TextAppearance.QS.TileLabel"
         android:textColor="?android:attr/textColorSecondary"
         android:visibility="invisible" />
 
-    <LinearLayout
-        android:id="@+id/status_container"
+    <LinearLayout 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:gravity="center_vertical"
-        android:visibility="invisible">
+        android:layout_gravity="start|bottom|center"
+        android:gravity="center_vertical">
 
-        <ImageView
-            android:id="@+id/next_alarm_icon"
-            android:layout_width="@dimen/qs_header_alarm_icon_size"
-            android:layout_height="@dimen/qs_header_alarm_icon_size"
-            android:src="@drawable/stat_sys_alarm"
-            android:tint="?android:attr/textColorPrimary"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/next_alarm_text"
+        <LinearLayout
+            android:id="@+id/status_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
-            android:textAppearance="@style/TextAppearance.QS.TileLabel"
-            android:visibility="gone"/>
+            android:layout_weight="1"
+            android:layout_gravity="start|center"
+            android:gravity="center_vertical"
+            android:visibility="invisible">
 
-        <View
-            android:id="@+id/status_separator"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@android:color/white"
-            android:backgroundTint="?android:attr/textColorPrimary"
-            android:visibility="gone"/>
+            <ImageView
+                android:id="@+id/next_alarm_icon"
+                android:layout_width="@dimen/qs_header_alarm_icon_size"
+                android:layout_height="@dimen/qs_header_alarm_icon_size"
+                android:src="@drawable/stat_sys_alarm"
+                android:tint="?android:attr/textColorPrimary"
+                android:visibility="gone"/>
 
-        <ImageView
-            android:id="@+id/ringer_mode_icon"
-            android:layout_width="@dimen/qs_header_alarm_icon_size"
-            android:layout_height="@dimen/qs_header_alarm_icon_size"
-            android:tint="?android:attr/textColorPrimary"
-            android:visibility="gone"/>
+            <TextView
+                android:id="@+id/next_alarm_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
+                android:textAppearance="@style/TextAppearance.QS.TileLabel"
+                android:visibility="gone"/>
 
-        <TextView
-            android:id="@+id/ringer_mode_text"
+            <View
+                android:id="@+id/status_separator"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@android:color/white"
+                android:backgroundTint="?android:attr/textColorPrimary"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/ringer_mode_icon"
+                android:layout_width="@dimen/qs_header_alarm_icon_size"
+                android:layout_height="@dimen/qs_header_alarm_icon_size"
+                android:tint="?android:attr/textColorPrimary"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/ringer_mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
+                android:textAppearance="@style/TextAppearance.QS.TileLabel"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <View 
+            android:layout_width="0dp" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1"
+            android:minWidth="32dp" />
+
+        <com.android.systemui.qs.QSMobileGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
-            android:textAppearance="@style/TextAppearance.QS.TileLabel"
-            android:visibility="gone"/>
+            android_layout_gravity="center_vertical|end"
+            android:gravity="center_vertical">
 
+            <include
+                layout="@layout/mobile_signal_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:visibility="gone" />
+
+            <com.android.keyguard.CarrierText
+                android:id="@+id/qs_carrier_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:textAppearance="@style/TextAppearance.QS.TileLabel"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textDirection="locale"
+                android:singleLine="true" />
+
+        </com.android.systemui.qs.QSMobileGroup>
     </LinearLayout>
-
 </FrameLayout>
