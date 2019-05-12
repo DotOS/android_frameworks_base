@@ -28,7 +28,7 @@
         android:layout_gravity="start|bottom|center"
         android:alpha="0"
         android:text="@string/quick_settings_header_onboarding_text"
-        android:textAppearance="@style/TextAppearance.QS.TileLabel"
+        android:textAppearance="@style/TextAppearance.QS.Status"
         android:textColor="?android:attr/textColorSecondary"
         android:visibility="invisible" />
 
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
-                android:textAppearance="@style/TextAppearance.QS.TileLabel"
+                android:textAppearance="@style/TextAppearance.QS.Status"
                 android:visibility="gone"/>
 
             <View
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
-                android:textAppearance="@style/TextAppearance.QS.TileLabel"
+                android:textAppearance="@style/TextAppearance.QS.Status"
                 android:visibility="gone"/>
 
         </LinearLayout>
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ellipsize="marquee"
-                android:textAppearance="@style/TextAppearance.QS.TileLabel"
+                android:textAppearance="@style/TextAppearance.QS.Status"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textDirection="locale"
                 android:singleLine="true" />
