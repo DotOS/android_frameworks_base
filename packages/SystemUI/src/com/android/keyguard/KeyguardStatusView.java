@@ -938,6 +938,7 @@ public class KeyguardStatusView extends GridLayout implements
         mSneekyClockView.setDark(dark);
         if (mClockSelection == 15) {
             mTextClock.setTextColor(blendedTextColor);
+            mTextClock.setDarkAmount(mDarkAmount);
         }
         updateVisibilities();
     }
