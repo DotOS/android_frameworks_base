@@ -41,6 +41,7 @@ public interface DozeHost {
     void setAnimateScreenOff(boolean animateScreenOff);
 
     void onDoubleTap(float x, float y);
+    default void onMediaChanged() {}
 
     default void setAodDimmingScrim(float scrimOpacity) {}
     void setDozeScreenBrightness(int value);

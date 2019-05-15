@@ -2811,7 +2811,6 @@ public class NotificationPanelView extends PanelView implements
     }
 
     public void setCleanLayout(int reason) {
-        mKeyguardStatusView.setCleanLayout(reason);
         mNotificationStackScroller.setCleanLayout(reason);
     }
 

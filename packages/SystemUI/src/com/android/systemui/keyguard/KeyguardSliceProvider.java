@@ -46,7 +46,9 @@ import android.util.MathUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.R;
+import com.android.systemui.doze.DozeHost;
 import com.android.systemui.statusbar.NotificationMediaManager;
+import com.android.systemui.statusbar.phone.DozeParameters;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.NextAlarmControllerImpl;
 import com.android.systemui.statusbar.policy.ZenModeController;
@@ -111,9 +113,12 @@ public class KeyguardSliceProvider extends SliceProvider implements
     protected ContentResolver mContentResolver;
     private AlarmManager.AlarmClockInfo mNextAlarmInfo;
 
+    private DozeHost mDozeHost;
     private NotificationMediaManager mMediaManager;
     private MediaMetadata mMediaMetaData;
+    private String mLastTrack;
     private boolean mDozing;
+    private boolean mPulsing;
     private boolean mAllowMedia;
 
     private static KeyguardSliceProvider sInstance;
@@ -160,9 +165,10 @@ public class KeyguardSliceProvider extends SliceProvider implements
         mMediaUri = Uri.parse(KEYGUARD_MEDIA_URI);
     }
 
-    public void setMediaManager(NotificationMediaManager mediaManager) {
+    public void initialize(NotificationMediaManager mediaManager, DozeHost dozeHost) {
         mMediaManager = mediaManager;
         mMediaManager.addCallback(this);
+        mDozeHost = dozeHost;
     }
 
     @Override
@@ -175,6 +181,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
             addWeather(builder);
             addNextAlarm(builder);
             addZenMode(builder);
+            reloadLastTrack();
         }
         addPrimaryAction(builder);
         return builder.build();
@@ -259,23 +266,18 @@ public class KeyguardSliceProvider extends SliceProvider implements
         mContentResolver.notifyChange(mSliceUri, null /* observer */);
     }
 
+    private boolean isAod() {
+        return mDozing && DozeParameters.getInstance(getContext()).getAlwaysOn();
+    }
+
     protected boolean needsMedia() {
-        return mMediaMetaData != null && mDozing && mAllowMedia;
+        return mAllowMedia && mMediaMetaData != null && (mPulsing || isAod());
     }
 
     protected void addMedia(ListBuilder builder) {
-        if (mMediaMetaData != null) {
-            SpannableStringBuilder stringBuilder = new SpannableStringBuilder();
-            CharSequence title = mMediaMetaData.getText("android.media.metadata.TITLE");
-            if (TextUtils.isEmpty(title)) {
-                title = getContext().getResources().getString(R.string.music_controls_no_title);
-            }
-            stringBuilder.append(title);
-            stringBuilder.setSpan(BOLD_STYLE, 0, title.length(), Spanned.SPAN_MARK_MARK);
-            CharSequence artist = mMediaMetaData.getText("android.media.metadata.ARTIST");
-            if (!TextUtils.isEmpty(artist)) {
-                stringBuilder.append("  ").append(artist);
-            }
+        SpannableStringBuilder stringBuilder = buildMediaString();
+        updateLastTrack(stringBuilder);
+        if (stringBuilder != null) {
             RowBuilder rowBuilder = new RowBuilder(builder, mMediaUri);
             rowBuilder.setTitle(stringBuilder);
             Icon mediaIcon = mMediaManager != null ? mMediaManager.getMediaIcon() : null;
@@ -283,7 +285,43 @@ public class KeyguardSliceProvider extends SliceProvider implements
                 rowBuilder.addEndItem(mediaIcon);
             }
             builder.addRow(rowBuilder);
+        } else {
+            mLastTrack = null;
         }
+    }
+
+    private SpannableStringBuilder buildMediaString() {
+        if (mMediaMetaData == null) return null;
+        SpannableStringBuilder stringBuilder = new SpannableStringBuilder();
+        CharSequence title = mMediaMetaData.getText("android.media.metadata.TITLE");
+        if (TextUtils.isEmpty(title)) {
+            title = getContext().getResources().getString(R.string.music_controls_no_title);
+        }
+        stringBuilder.append(title);
+        stringBuilder.setSpan(BOLD_STYLE, 0, title.length(), Spanned.SPAN_MARK_MARK);
+        CharSequence artist = mMediaMetaData.getText("android.media.metadata.ARTIST");
+        if (!TextUtils.isEmpty(artist)) {
+            stringBuilder.append("  ").append(artist);
+        }
+        return stringBuilder;
+    }
+
+    private void updateLastTrack(SpannableStringBuilder stringBuilder) {
+        if (stringBuilder == null) {
+            mLastTrack = null;
+            return;
+        }
+        String currentTrack = stringBuilder.toString();
+        if (!currentTrack.equals(mLastTrack)) {
+            mLastTrack = currentTrack;
+            if (mDozing && mAllowMedia && !isAod()) {
+                mHandler.post(mDozeHost::onMediaChanged);
+            }
+        }
+    }
+
+    private void reloadLastTrack() {
+        updateLastTrack(buildMediaString());
     }
 
     @Override
@@ -438,6 +476,14 @@ public class KeyguardSliceProvider extends SliceProvider implements
     public void setDozing(boolean dozing) {
         boolean needsMedia = needsMedia();
         mDozing = dozing;
+        if (needsMedia != needsMedia()) {
+            mContentResolver.notifyChange(mSliceUri, null /* observer */);
+        }
+    }
+
+    public void setPulsing(boolean pulsing) {
+        boolean needsMedia = needsMedia();
+        mPulsing = pulsing;
         if (needsMedia != needsMedia()) {
             mContentResolver.notifyChange(mSliceUri, null /* observer */);
         }

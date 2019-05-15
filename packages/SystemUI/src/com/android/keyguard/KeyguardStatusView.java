@@ -97,7 +97,6 @@ public class KeyguardStatusView extends GridLayout implements
     private float mWidgetPadding;
     private int mLastLayoutHeight;
 
-    private boolean mForcedMediaDoze;
     private boolean mShowClock;
     private int mClockSelection;
 
@@ -1048,19 +1047,9 @@ public class KeyguardStatusView extends GridLayout implements
         updateDozeVisibleViews();
     }
 
-    public void setCleanLayout(int reason) {
-        mForcedMediaDoze =
-                reason == DozeLog.PULSE_REASON_FORCED_MEDIA_NOTIFICATION;
-        updateDozeVisibleViews();
-    }
-
     private void updateDozeVisibleViews() {
         for (View child : mVisibleInDoze) {
-            if (!mForcedMediaDoze) {
-                child.setAlpha(mDarkAmount == 1 && mPulsing ? 0.8f : 1);
-            } else {
-                child.setAlpha(mDarkAmount == 1 ? 0 : 1);
-            }
+            child.setAlpha(mDarkAmount == 1 && mPulsing ? 0.8f : 1);
         }
     }
 
