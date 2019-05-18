@@ -142,6 +142,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mAlarmController = Dependency.get(NextAlarmController.class);
         mZenController = Dependency.get(ZenModeController.class);
         mShownCount = getStoredShownCount();
+	updateMinimumHeight();
     }
 
     @Override
@@ -304,7 +305,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         int qqsHeight = mContext.getResources().getDimensionPixelSize(
                 R.dimen.qs_quick_header_panel_height);
 
-        setMinimumHeight(sbHeight + qqsHeight + 26 /* Fit bigger qs tiles */);
+       setMinimumHeight(sbHeight + qqsHeight + 64 /* Fit bigger qs tiles */);
     }
 
     private void updateResources() {
