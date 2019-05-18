@@ -39,7 +39,7 @@ public class QSContainerImpl extends FrameLayout {
 
     private int mHeightOverride = -1;
     private QSPanel mQSPanel;
-    private View mQSDetail;
+    private QSDetail mQSDetail;
     private QuickStatusBarHeader mHeader;
     private float mQsExpansion;
     private QSCustomizer mQSCustomizer;
@@ -155,6 +155,7 @@ public class QSContainerImpl extends FrameLayout {
         mBackground.setBottom(height);
         mQSDetail.setTop(mQSPanel.getTop());
         mQSDetail.setBottom(mQSPanel.getBottom());
+        mQSDetail.setHeight(mQSPanel.getBottom());
     }
 
     protected int calculateContainerHeight() {
