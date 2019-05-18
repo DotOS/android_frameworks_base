@@ -155,6 +155,7 @@ public class QSContainerImpl extends FrameLayout {
         mBackground.setBottom(height);
         mQSDetail.setTop(mQSPanel.getTop());
         mQSDetail.setBottom(mQSPanel.getBottom());
+	mQSDetail.setMinimumHeight(mQSPanel.getHeight());
     }
 
     protected int calculateContainerHeight() {
