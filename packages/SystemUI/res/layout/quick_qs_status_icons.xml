@@ -35,6 +35,7 @@
         android:layout_gravity="start"
         android:gravity="center_vertical"
         android:singleLine="true"
+        android:textSize="12.4sp"
         android:textAppearance="@style/TextAppearance.QS.Status"
         systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
 
