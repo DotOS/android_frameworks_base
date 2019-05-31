@@ -31,10 +31,11 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.doze.AlwaysOnDisplayPolicy;
 import com.android.systemui.doze.DozeScreenState;
+import com.android.systemui.tuner.TunerService;
 
 import java.io.PrintWriter;
 
-public class DozeParameters {
+public class DozeParameters implements TunerService.Tunable {
     private static final int MAX_DURATION = 60 * 1000;
     public static final String DOZE_SENSORS_WAKE_UP_FULLY = "doze_sensors_wake_up_fully";
     public static final boolean FORCE_NO_BLANKING =
@@ -49,6 +50,7 @@ public class DozeParameters {
 
     private final AlwaysOnDisplayPolicy mAlwaysOnPolicy;
 
+    private boolean mDozeAlwaysOn;
     private boolean mControlScreenOffAnimation;
 
     public static DozeParameters getInstance(Context context) {
@@ -67,6 +69,9 @@ public class DozeParameters {
         mControlScreenOffAnimation = !getDisplayNeedsBlanking();
         mPowerManager = mContext.getSystemService(PowerManager.class);
         mPowerManager.setDozeAfterScreenOff(!mControlScreenOffAnimation);
+
+        Dependency.get(TunerService.class).addTunable(this, Settings.Secure.DOZE_ALWAYS_ON,
+                Settings.Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED);
     }
 
     public void dump(PrintWriter pw) {
@@ -168,7 +173,7 @@ public class DozeParameters {
      * @return {@code true} if enabled and available.
      */
     public boolean getAlwaysOn() {
-        return mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
+        return mDozeAlwaysOn;
     }
 
     /**
@@ -235,6 +240,11 @@ public class DozeParameters {
 
     public boolean doubleTapReportsTouchCoordinates() {
         return mContext.getResources().getBoolean(R.bool.doze_double_tap_reports_touch_coordinates);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mDozeAlwaysOn = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
     }
 
     public AlwaysOnDisplayPolicy getPolicy() {
