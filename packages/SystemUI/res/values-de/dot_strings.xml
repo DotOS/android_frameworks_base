@@ -22,7 +22,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced powermenu -->
-    <string name="global_action_restart_system">Neustart</string>
+    <string name="global_action_restart_system">Neu starten</string>
     <string name="global_action_restart_advanced">Erweiterter Neustart</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
@@ -31,16 +31,16 @@
     <string name="global_action_screenshot">Screenshot</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Ton</string>
-    <string name="quick_settings_sound_ring">Klingelton</string>
-    <string name="quick_settings_sound_vibrate">Vibration</string>
+    <string name="quick_settings_sound_ring">Ton</string>
+    <string name="quick_settings_sound_vibrate">Vibrieren</string>
     <string name="quick_settings_sound_dnd">Nicht stören</string>
     <string name="statusbar_items_title">Statusleisten-Symbol</string>
     <!-- Lockscreen icons -->
-    <string name="lockscreen_tuner_title">Sperrbildschirm Verknüpfungen</string>
+    <string name="lockscreen_tuner_title">Sperrbildschirm-Verknüpfungen</string>
     <string name="lockscreen_default">Standard</string>
-    <string name="lockscreen_hidden">KEINE AUSWAHL</string>
+    <string name="lockscreen_hidden">Keine</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Zum Starten vom Symbol wischen</string>
+    <string name="custom_hint">Zum Öffnen vom Symbol weg wischen</string>
     <!-- Theme tile -->
     <string name="systemui_theme_style_title">Stil der Benutzeroberfläche</string>
     <string name="systemui_theme_style_auto">Automatisch</string>
@@ -132,7 +132,7 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower verbunden (<xliff:g id="charging_time_left">%s</xliff:g> bis der Akku voll aufgeladen ist)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower verbunden</string>
     <string name="theme_info_title">Was ist das?</string>
-    <string name="theme_info_message">Die Themen-Kachel ist eine einzigartige aber einfach zu bedienende Kachel, die dem Benutzer erlaubt, den Akzent oder Stil der Benutzeroberfläche zu ändern.\n\nUm zwischen den Akzenten und Stilen umzuschalten, die Kachel länger festhalten und dann erneut antippen.</string>
+    <string name="theme_info_message">Die Themes-Kachel ist eine einzigartige, aber einfach zu bedienende Kachel, die dem Nutzer erlaubt, den Akzent oder Stil der Benutzeroberfläche zu ändern.\n\nUm zwischen den Akzenten und Stilen umzuschalten, halten Sie länger auf der Kachel gedrückt und tippen Sie diese erneut an, um von den dargebotenen Optionen auszuwählen.</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
     <string name="quick_settings_location_secondary_battery_saving">Energiesparmodus</string>
@@ -145,25 +145,35 @@
     <string name="preview">Vorschau</string>
     <string name="keycode">Keycode</string>
     <string name="no_home_title">Kein Home-Taste gefunden</string>
-    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
-    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
+    <string name="no_home_message">Um dieses Gerät bedienen zu können, braucht man einen Home-Button. Bitte fügen Sie vor dem Speichern einen Home-Button hinzu.</string>
+    <string name="clipboard_description">Elemente können direkt in die Zwischenablage gezogen werden. Ebenso können Sie direkt aus der Zwischenablage gezogen werden, sofern diese geöffnet ist.</string>
     <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
-    <string name="space">Spacer</string>
-    <string name="menu_ime">Menu / Keyboard Switcher</string>
-    <string name="select_button">Select button to add</string>
-    <string name="add_button">Add button</string>
+    <string name="start">Anfang</string>
+    <string name="center">Mitte</string>
+    <string name="end">Ende</string>
+    <string name="space">Abstandshalter</string>
+    <string name="menu_ime">Menü-/Tastaturwechsler</string>
+    <string name="select_button">Schaltfläche zum Hinzufügen auswählen</string>
+    <string name="add_button">Schaltfläche hinzufügen</string>
     <string name="save">Speichern</string>
     <string name="reset">Zurücksetzen</string>
-    <string name="select_keycode">Select Keyboard Button</string>
+    <string name="select_keycode">Tastaturtaste auswählen</string>
     <string name="left">Links</string>
     <string name="right">Rechts</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Navigationsleiste konfigurieren</string>
     <string name="menu_ime_always_show">Menü</string>
     <string name="search">Suche</string>
-    <string name="screenshot_abort_title">Es wurde kein Screenshot erstellt</string>
+    <string name="screenshot_abort_title">Es wurde kein Screenshot aufgenommen</string>
     <string name="screenshot_abort_text">Vorgang abgebrochen.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always On Display</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient Display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display aus.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display an.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display wurde ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display wurde eingeschaltet.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Layout umkehren</string>
 </resources>

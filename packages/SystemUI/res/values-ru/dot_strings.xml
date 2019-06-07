@@ -166,4 +166,14 @@
     <string name="search">Поиск</string>
     <string name="screenshot_abort_title">Снимок экрана не был создан</string>
     <string name="screenshot_abort_text">Операция прервана.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always on display</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display выключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display включен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display отключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Обратный порядок кнопок</string>
 </resources>

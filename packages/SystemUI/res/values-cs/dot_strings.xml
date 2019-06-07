@@ -166,4 +166,14 @@
     <string name="search">Hledat</string>
     <string name="screenshot_abort_title">Nebyl pořízen žádný snímek obrazovky</string>
     <string name="screenshot_abort_text">Operace přerušena.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">\"Always on\" displej</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambientní displej</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambientní displej vyp.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambientní displej zap.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní displej je vypnutý.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Obrátit rozložení</string>
 </resources>

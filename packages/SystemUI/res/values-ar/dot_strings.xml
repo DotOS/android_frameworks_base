@@ -27,14 +27,14 @@
     <string name="global_action_restart_recovery">الإسترداد</string>
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
     <string name="global_action_restart_ui">واجهة النظام</string>
-    <string name="global_action_restart_hot">اعادة تشغيل سريع</string>
+    <string name="global_action_restart_hot">إعادة تشغيل سريع</string>
     <string name="global_action_screenshot">لقطة الشاشة</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">الصوت</string>
     <string name="quick_settings_sound_ring">رنين</string>
     <string name="quick_settings_sound_vibrate">إهتزاز</string>
     <string name="quick_settings_sound_dnd">عدم الإزعاج</string>
-    <string name="statusbar_items_title">ايقونة شريط الحالة</string>
+    <string name="statusbar_items_title">أيقونة شريط الحالة</string>
     <!-- Lockscreen icons -->
     <string name="lockscreen_tuner_title">إختصارات شاشة القفل</string>
     <string name="lockscreen_default">الإفتراضي</string>
@@ -45,10 +45,10 @@
     <string name="systemui_theme_style_title">نمط الواجهة</string>
     <string name="systemui_theme_style_auto">تلقائي</string>
     <string name="systemui_theme_style_light">واجهة بيضاء</string>
-    <string name="systemui_theme_style_dark">واجهة مظلمة</string>
+    <string name="systemui_theme_style_dark">واجهة مُظلمة</string>
     <string name="systemui_theme_style_black">واجهة سوداء</string>
     <string name="systemui_theme_style_neo">واجهة سوداء Neo</string>
-    <string name="quick_settings_theme_tile_title">اللكنة</string>
+    <string name="quick_settings_theme_tile_title">اللون الثانوي</string>
     <string name="quick_settings_theme_tile_accent_detail_title">اختيار اللون</string>
     <string name="quick_settings_theme_tile_style_detail_title">اختيار النمط</string>
     <string name="quick_settings_theme_tile_color_default">الإفتراضي</string>
@@ -90,12 +90,12 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف الإشعارات العلوية.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الاشعارات العلوية.</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">‏تقييد USB متوقف</string>
-    <string name="accessibility_quick_settings_usb_tether_on">‏تقييد USB يعمل</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">تم إيقاف تقييد USB</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">تم تشغيل تقييد USB</string>
-    <string name="quick_settings_usb_tether_label">‏تقييد USB</string>
-    <string name="status_bar_data_saver">موفر البيانات</string>
+    <string name="accessibility_quick_settings_usb_tether_off">‏الإنترنت عبر USB متوقف</string>
+    <string name="accessibility_quick_settings_usb_tether_on">‏الإنترنت عبر USB يعمل</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">تم إيقاف الإنترنت عبر USB</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">تم تشغيل الإنترنت عبر USB</string>
+    <string name="quick_settings_usb_tether_label">‏الأنترنت عبر USB</string>
+    <string name="status_bar_data_saver">موفِّر البيانات</string>
     <string name="status_bar_vpn">الشبكة الظاهرية VPN</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">أزرار الجهاز مفعلة</string>
@@ -126,7 +126,7 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s بـ %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">الشحن السريع (<xliff:g id="charging_time_left" example="4 ساعة و 2 دقيقة">%s</xliff:g> حتى الإمتلاء)</string>
+    <string name="keyguard_indication_dash_charging_time">الشحن السريع (<xliff:g id="charging_time_left" example="4 ساعة و 2 دقيقة">%s</xliff:g> حتى يكتمل)</string>
     <string name="keyguard_plugged_in_dash_charging">الشحن السريع</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">متصل بشاحن سريع (<xliff:g id="charging_time_left">%s</xliff:g> حتى يكتمل)</string>
@@ -135,12 +135,12 @@
     <string name="theme_info_message">مربع السمات هي ميزة فريدة من نوعها ولكنها سهلة الإستخدام تسمح للمستخدم بتغيير نمط او لكنة النظام.\n\nللتغيير بين اللكنات والأنماط، قم ببساطة بالضغط لفترة طويلة على المربع ثم اضغط مرة أخرى للتحديد من الخيارات المتاحة.</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">توفير البطارية</string>
-    <string name="accessibility_quick_settings_location_battery_saving">تحديد الموقع: وضع توفير البطارية.</string>
+    <string name="quick_settings_location_secondary_battery_saving">توفير الطاقة</string>
+    <string name="accessibility_quick_settings_location_battery_saving">تحديد المواقع: وضع توفير الطاقة.</string>
     <string name="quick_settings_location_secondary_gps_only">وضع الجهاز فقط</string>
     <string name="accessibility_quick_settings_location_gps_only">تحديد الموقع: وضع المستشعرات فقط.</string>
     <string name="quick_settings_location_secondary_high_accuracy">دقة عالية</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">تحديد الموقع: وضع الدقة العالية.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">تحديد المواقع: وضع الدقة العالية.</string>
     <!-- Navbar Tuner -->
     <string name="preview">معاينة</string>
     <string name="keycode">رمز المفتاح</string>
@@ -166,4 +166,14 @@
     <string name="search">البحث</string>
     <string name="screenshot_abort_title">لم يتم اخذ لقطة للشاشة</string>
     <string name="screenshot_abort_text">تم إحباط العملية.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">ميزة دائماً على الشاشة</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Invert layout</string>
 </resources>

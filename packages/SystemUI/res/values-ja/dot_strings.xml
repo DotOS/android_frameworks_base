@@ -33,7 +33,7 @@
     <string name="quick_settings_sound_label">音声</string>
     <string name="quick_settings_sound_ring">鳴動</string>
     <string name="quick_settings_sound_vibrate">振動</string>
-    <string name="quick_settings_sound_dnd">マナーモード</string>
+    <string name="quick_settings_sound_dnd">サイレント</string>
     <string name="statusbar_items_title">ステータスバーアイコン</string>
     <!-- Lockscreen icons -->
     <string name="lockscreen_tuner_title">ロック画面のショートカット</string>
@@ -113,7 +113,7 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">初期化</string>
+    <string name="qs_menu_item_reset">リセット</string>
     <string name="qs_menu_item_titles">ラベルを表示</string>
     <string name="qs_menu_item_rows">行数</string>
     <string name="qs_menu_item_rows_landscape">行数 (横向き)</string>
@@ -126,10 +126,10 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s - %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">急速充電中 (充電完了まで <xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
+    <string name="keyguard_indication_dash_charging_time">急速充電中 (充電完了まで<xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">急速充電中</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">急速充電中 (充電完了まで <xliff:g id="charging_time_left">%s</xliff:g>)</string>
+    <string name="keyguard_indication_turbo_power_time">急速充電中 (充電完了まで<xliff:g id="charging_time_left">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">急速充電中</string>
     <string name="theme_info_title">これは何ですか?</string>
     <string name="theme_info_message">テーマタイルはシステムアクセントやスタイルをユーザーが簡単に変更できるようにします。\n\nアクセントとスタイルを切り替えるには、タイルを長押しした後表示されたオプションからタップして選択するだけです。</string>
@@ -145,7 +145,7 @@
     <string name="preview">プレビュー</string>
     <string name="keycode">キーコード</string>
     <string name="no_home_title">ホームボタンが見つかりません</string>
-    <string name="no_home_message">この端末を操作できるようにするにはホームボタンが必要です。保存する前にホームボタンを追加してください。</string>
+    <string name="no_home_message">この端末を操作できるようにするにはホームボタンが必要です。保存する前にホームボタンを追加して下さい。</string>
     <string name="clipboard_description">クリップボード機能ではクリップボードにアイテムを直接ドラッグできます。クリップボードにアイテムがある場合、直接そのアイテムをドラッグして取り出すこともできます。</string>
     <string name="keycode_description">キーコードボタンを利用すると、ナビゲーションバーにキーボードのキー機能を追加できるようになります。ボタンを押すと選択済みのキーボードのキーがエミュレートされます。まずボタン用にキーを選択し、次にボタン上の画像を選択する必要があります。</string>
     <string name="start">開始</string>
@@ -156,7 +156,7 @@
     <string name="select_button">追加するボタンの選択</string>
     <string name="add_button">ボタンを追加</string>
     <string name="save">保存</string>
-    <string name="reset">初期化</string>
+    <string name="reset">リセット</string>
     <string name="select_keycode">キーボードのボタンの選択</string>
     <string name="left">左</string>
     <string name="right">右</string>
@@ -166,4 +166,14 @@
     <string name="search">検索</string>
     <string name="screenshot_abort_title">スクリーンショットは撮影されていません</string>
     <string name="screenshot_abort_text">操作を中止しました</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always On Display</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示 OFF</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示 ON</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示を OFF にしました</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">レイアウトを反転</string>
 </resources>

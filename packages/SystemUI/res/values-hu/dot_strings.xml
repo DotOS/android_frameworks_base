@@ -166,4 +166,14 @@
     <string name="search">Keresés</string>
     <string name="screenshot_abort_title">Nem készült képernyőmentés</string>
     <string name="screenshot_abort_text">A művelet megszakítva</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Mindig látható (AOD)</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Kikapcsolt Környezeti kijelző.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bekapcsolt Környezeti kijelző.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Fordított elrendezés</string>
 </resources>

@@ -23,16 +23,16 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Reiniciar</string>
-    <string name="global_action_restart_advanced">Reinicialização avançada</string>
+    <string name="global_action_restart_advanced">Reinicio avançado</string>
     <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">Interface do sistema</string>
-    <string name="global_action_restart_hot">Hot</string>
-    <string name="global_action_screenshot">Captura de Tela</string>
+    <string name="global_action_restart_ui">Interface de usuário</string>
+    <string name="global_action_restart_hot">Em alta</string>
+    <string name="global_action_screenshot">Captura de tela</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Som</string>
     <string name="quick_settings_sound_ring">Toque</string>
-    <string name="quick_settings_sound_vibrate">Vibração</string>
+    <string name="quick_settings_sound_vibrate">Vibrar</string>
     <string name="quick_settings_sound_dnd">Não perturbe</string>
     <string name="statusbar_items_title">Ícones da barra de status</string>
     <!-- Lockscreen icons -->
@@ -42,70 +42,70 @@
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Deslize a partir do ícone para iniciar</string>
     <!-- Theme tile -->
-    <string name="systemui_theme_style_title">Estilo da interface</string>
+    <string name="systemui_theme_style_title">Estilo de interface do usuário</string>
     <string name="systemui_theme_style_auto">Automático</string>
-    <string name="systemui_theme_style_light">Interface clara</string>
-    <string name="systemui_theme_style_dark">Interface escura</string>
-    <string name="systemui_theme_style_black">Interface preta</string>
+    <string name="systemui_theme_style_light">Interface do usuário clara</string>
+    <string name="systemui_theme_style_dark">Interface do usuário escura</string>
+    <string name="systemui_theme_style_black">Interface do usuário preta</string>
     <string name="systemui_theme_style_neo">Neo Black UI</string>
-    <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
-    <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
-    <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
-    <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
-    <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_light_green">Light green</string>
-    <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-    <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
-    <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-    <string name="quick_settings_theme_tile_color_black">Black</string>
-    <string name="quick_settings_theme_tile_color_white">White</string>
+    <string name="quick_settings_theme_tile_title">Destaque</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Selecionar cor</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Selecionar estilo</string>
+    <string name="quick_settings_theme_tile_color_default">Padrão</string>
+    <string name="quick_settings_theme_tile_color_red">Vermelho</string>
+    <string name="quick_settings_theme_tile_color_pink">Rosa</string>
+    <string name="quick_settings_theme_tile_color_purple">Roxo</string>
+    <string name="quick_settings_theme_tile_color_deep_purple">Roxo escuro</string>
+    <string name="quick_settings_theme_tile_color_indigo">Índigo</string>
+    <string name="quick_settings_theme_tile_color_blue">Azul</string>
+    <string name="quick_settings_theme_tile_color_light_blue">Azul claro</string>
+    <string name="quick_settings_theme_tile_color_cyan">Ciano</string>
+    <string name="quick_settings_theme_tile_color_teal">Turquesa</string>
+    <string name="quick_settings_theme_tile_color_green">Verde</string>
+    <string name="quick_settings_theme_tile_color_light_green">Verde claro</string>
+    <string name="quick_settings_theme_tile_color_lime">Verde limão</string>
+    <string name="quick_settings_theme_tile_color_yellow">Amarelo</string>
+    <string name="quick_settings_theme_tile_color_amber">Âmbar</string>
+    <string name="quick_settings_theme_tile_color_orange">Laranja</string>
+    <string name="quick_settings_theme_tile_color_deep_orange">Laranja escuro</string>
+    <string name="quick_settings_theme_tile_color_brown">Marrom</string>
+    <string name="quick_settings_theme_tile_color_grey">Cinza</string>
+    <string name="quick_settings_theme_tile_color_blue_grey">Azul acinzentado</string>
+    <string name="quick_settings_theme_tile_color_black">Preto</string>
+    <string name="quick_settings_theme_tile_color_white">Branco</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desativada</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína ativada</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">Reboot</string>
-    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recuperação</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+    <string name="quick_settings_screenshot_label">Captura de tela</string>
+    <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
     <!-- Heads Up QS Tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">Notificação flutuante</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificação flutuante desativada.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificação flutuante ativada.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificações flutuantes foram desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificações flutuantes foram ativadas.</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-    <string name="quick_settings_usb_tether_label">USB tethering</string>
-    <string name="status_bar_data_saver">Data saver</string>
+    <string name="accessibility_quick_settings_usb_tether_off">Compartilhamento USB desativado</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Compartilhamento USB ativado</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">O compartilhamento USB foi desativado</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">O compartilhamento USB foi ativado</string>
+    <string name="quick_settings_usb_tether_label">Compartilhamento por USB</string>
+    <string name="status_bar_data_saver">Economia de dados</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-    <string name="quick_settings_hwkeys_label">HW keys</string>
+    <string name="accessibility_quick_settings_hwkeys_on">Botões físicos ativados</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Botões físicos desativados</string>
+    <string name="quick_settings_hwkeys_label">Botões físicos</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Screenshot deleted</string>
+    <string name="delete_screenshot_toast">Captura de tela excluída</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Colunas</string>
+    <string name="qs_menu_item_columns_landscape">Colunas em paisagem</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -113,57 +113,67 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">Reset</string>
-    <string name="qs_menu_item_titles">Show labels</string>
-    <string name="qs_menu_item_rows">Rows</string>
-    <string name="qs_menu_item_rows_landscape">Rows landscape</string>
+    <string name="qs_menu_item_reset">Redefinir</string>
+    <string name="qs_menu_item_titles">Mostrar rótulos</string>
+    <string name="qs_menu_item_rows">Linhas</string>
+    <string name="qs_menu_item_rows_landscape">Linhas em modo paisagem</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
-    <string name="qs_menu_item_qs_columns">Quickbar columns</string>
-    <string name="qs_menu_item_columns_auto">Automatic</string>
+    <string name="qs_menu_item_qs_columns">Colunas da barra de acesso rápido</string>
+    <string name="qs_menu_item_columns_auto">Automático</string>
     <!-- Ambient Display Pixel-Like string -->
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo">%s por %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+    <string name="keyguard_indication_dash_charging_time">Carregamento rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_dash_charging">Carregamento rápido</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-    <string name="theme_info_title">What is this?</string>
-    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
+    <string name="keyguard_indication_turbo_power_time">TurboPower conectado (<xliff:g id="charging_time_left">%s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower conectado</string>
+    <string name="theme_info_title">O que é isso?</string>
+    <string name="theme_info_message">O atalho \"Temas\" é um atalho único, mas fácil de usar, que permite ao usuário alterar o detalhe e estilo do sistema.\n\nPara trocar entre diferentes detalhes e estilos, toque e segure no atalho e então toque novamente para selecionar uma das opções oferecidas.</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Relatório de localização: modo de economia de bateria.</string>
+    <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
+    <string name="accessibility_quick_settings_location_gps_only">Relatório de localização: modo somente sensores.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Relatório de localização: modo de alta precisão.</string>
     <!-- Navbar Tuner -->
-    <string name="preview">Preview</string>
-    <string name="keycode">Keycode</string>
-    <string name="no_home_title">No home button found</string>
-    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
-    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
-    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
-    <string name="space">Spacer</string>
-    <string name="menu_ime">Menu / Keyboard Switcher</string>
-    <string name="select_button">Select button to add</string>
-    <string name="add_button">Add button</string>
-    <string name="save">Save</string>
-    <string name="reset">Reset</string>
-    <string name="select_keycode">Select Keyboard Button</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
+    <string name="preview">Visualizar</string>
+    <string name="keycode">Código chave</string>
+    <string name="no_home_title">Nenhum botão de início encontrado</string>
+    <string name="no_home_message">É necessário um botão de início para navegar neste dispositivo. Adicione um botão de início antes de salvar.</string>
+    <string name="clipboard_description">A área de transferência permite que ítens sejam arrastados diretamente para a área de transferência. Os ítens também podem ser arrastados diretamente para fora da área de transferência quando estiverem presentes.</string>
+    <string name="keycode_description">O código chave permite que os botões do teclado sejam adicionadas à barra de navegação.</string>
+    <string name="start">Iniciar</string>
+    <string name="center">Centro</string>
+    <string name="end">Fim</string>
+    <string name="space">Espaçador</string>
+    <string name="menu_ime">Menu/Alternador de teclado</string>
+    <string name="select_button">Selecione o botão para adicionar</string>
+    <string name="add_button">Adicionar botão</string>
+    <string name="save">Salvar</string>
+    <string name="reset">Redefinir</string>
+    <string name="select_keycode">Selecionar botão do teclado</string>
+    <string name="left">Esquerda</string>
+    <string name="right">Direita</string>
     <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configure navigaton bar</string>
+    <string name="navbar_editor_summary">Configurar barra de navegação</string>
     <string name="menu_ime_always_show">Menu</string>
-    <string name="search">Search</string>
-    <string name="screenshot_abort_title">No screenshot taken</string>
-    <string name="screenshot_abort_text">Operation aborted.</string>
+    <string name="search">Pesquisar</string>
+    <string name="screenshot_abort_title">Nenhuma captura de tela feita</string>
+    <string name="screenshot_abort_text">Operação cancelada.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Tela sempre ativada</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Tela ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desativada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ativada.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Inverter botões</string>
 </resources>
