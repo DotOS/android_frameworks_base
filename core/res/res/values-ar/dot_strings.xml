@@ -20,8 +20,8 @@
     <string name="reboot_title">إعادة التشغيل</string>
     <string name="reboot_message">إعادة تشغيل النظام</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">سيستيمي إعادة تشغيل المطلوبة</string>
-    <string name="systemui_restart_message">كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل سيستيمي. قم بإعادة تشغيل سيستيموي الآن؟</string>
+    <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
+    <string name="systemui_restart_message">لتكون كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل واجهة النظام. هل تريد إعادة تشغيل واجهة النظام الآن؟</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">تزييف التوقيع الرقمي للحزمة</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

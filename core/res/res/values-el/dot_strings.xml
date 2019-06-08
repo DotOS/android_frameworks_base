@@ -17,17 +17,17 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting system</string>
+    <string name="reboot_title">Επανεκκίνηση</string>
+    <string name="reboot_message">Επανεκκίνηση συστήματος</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του συστήματος</string>
+    <string name="systemui_restart_message">Για να τεθούν σε ισχύ οι αλλαγές, απαιτείται επανεκκίνηση του συστήματος. Επανεκκίνηση του συστήματος τώρα;</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Μίμηση υπογραφής πακέτου</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Επιτρέπει στην εφαρμογή να προσποιείται ότι είναι μια διαφορετική εφαρμογή. Οι κακόβουλες εφαρμογές ενδέχεται να είναι σε θέση να χρησιμοποιήσουν αυτήν την λειτουργία για να έχουν πρόσβαση στα προσωπικά σας δεδομένα. Εκχωρήστε αυτήν την άδεια με ιδιαίτερη προσοχή!</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+    <string name="permlab_toggleNavigationEditor">έλεγχος και επεξεργασία της γραμμής πλοήγησης</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+    <string name="permdesc_toggleNavigationEditor">Επιτρέπει σε μια εφαρμογή να ελέγχει την επεξεργασία της γραμμής πλοήγησης.</string>
 </resources>

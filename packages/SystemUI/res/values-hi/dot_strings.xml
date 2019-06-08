@@ -27,7 +27,7 @@
     <string name="global_action_restart_recovery">रिकवरी</string>
     <string name="global_action_restart_bootloader">बूटलोडेर</string>
     <string name="global_action_restart_ui">सिस्टम यूआई</string>
-    <string name="global_action_restart_hot">Hot</string>
+    <string name="global_action_restart_hot">गरम</string>
     <string name="global_action_screenshot">स्क्रीनशॉट</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">आवाज़</string>
@@ -60,7 +60,7 @@
     <string name="quick_settings_theme_tile_color_blue">नीला</string>
     <string name="quick_settings_theme_tile_color_light_blue">हल्का नीला</string>
     <string name="quick_settings_theme_tile_color_cyan">सियान</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
+    <string name="quick_settings_theme_tile_color_teal">गहरा हरिताभ नीला</string>
     <string name="quick_settings_theme_tile_color_green">हरा</string>
     <string name="quick_settings_theme_tile_color_light_green">हल्का हरा</string>
     <string name="quick_settings_theme_tile_color_lime">लाइम</string>
@@ -78,39 +78,39 @@
     <string name="accessibility_quick_settings_caffeine_off">कैफीन बंद</string>
     <string name="accessibility_quick_settings_caffeine_on">कैफीन चालू</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">Reboot</string>
-    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_label">वापिस चालू करें</string>
+    <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+    <string name="quick_settings_screenshot_label">स्क्रीनशॉट</string>
+    <string name="quick_settings_region_screenshot_label">आंशिक स्क्रीनशॉट</string>
     <!-- Heads Up QS Tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="quick_settings_heads_up_label">संकेत</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-    <string name="quick_settings_usb_tether_label">USB tethering</string>
-    <string name="status_bar_data_saver">Data saver</string>
-    <string name="status_bar_vpn">VPN</string>
+    <string name="accessibility_quick_settings_usb_tether_off">यूएसबी टेथरिंग बंद</string>
+    <string name="accessibility_quick_settings_usb_tether_on">यूएसबी टेथरिंग चालू</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">यूएसबी टेथरिंग बंद कर दिया</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">यूएसबी टेथरिंग चालू कर दिया</string>
+    <string name="quick_settings_usb_tether_label">यूएसबी टेथरिंग</string>
+    <string name="status_bar_data_saver">डेटा सेवर</string>
+    <string name="status_bar_vpn">वीपीएन</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-    <string name="quick_settings_hwkeys_label">HW keys</string>
+    <string name="accessibility_quick_settings_hwkeys_on">हार्डवेयर बटन्स चालू</string>
+    <string name="accessibility_quick_settings_hwkeys_off">हार्डवेयर बटन्स बंद</string>
+    <string name="quick_settings_hwkeys_label">हार्डवेयर बटन्स</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Screenshot deleted</string>
+    <string name="delete_screenshot_toast">स्क्रीनशॉट हटा दिया गया</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
-    <string name="qs_menu_item_columns_three">3</string>
-    <string name="qs_menu_item_columns_four">4</string>
-    <string name="qs_menu_item_columns_five">5</string>
-    <string name="qs_menu_item_columns_six">6</string>
-    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns">स्तंभ</string>
+    <string name="qs_menu_item_columns_landscape">कॉलम लैंडस्केप</string>
+    <string name="qs_menu_item_columns_three">३</string>
+    <string name="qs_menu_item_columns_four">४</string>
+    <string name="qs_menu_item_columns_five">५</string>
+    <string name="qs_menu_item_columns_six">६</string>
+    <string name="qs_menu_item_columns_seven">७</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
     <string name="qs_menu_item_reset">Reset</string>
@@ -166,4 +166,14 @@
     <string name="search">Search</string>
     <string name="screenshot_abort_title">No screenshot taken</string>
     <string name="screenshot_abort_text">Operation aborted.</string>
+    <!-- Always on Display Tile -->
+    <string name="quick_settings_always_on_display_label">Always on display</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Invert layout</string>
 </resources>
