@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
@@ -52,14 +51,12 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     private final Path scaledPlus = new Path();
     private final Path unifiedPath = new Path();
     private final Path textPath = new Path();
-    private final RectF iconRect = new RectF();
 
     private final Paint dualToneBackgroundFill;
     private final Paint fillColorStrokePaint;
     private final Paint fillColorStrokeProtection;
     private final Paint fillPaint;
     private final Paint textPaint;
-    private final Paint errorPaint;
 
     private final float mWidthDp = 12f;
     private final float mHeightDp = 20f;
@@ -67,6 +64,26 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     private int mMeterStyle;
     private int level;
     private boolean showPercent;
+
+    private final Paint getDualToneBackgroundFill() {
+        return this.dualToneBackgroundFill;
+    }
+
+    private final Paint getFillColorStrokePaint() {
+        return this.fillColorStrokePaint;
+    }
+
+    private final Paint getFillColorStrokeProtection() {
+        return this.fillColorStrokeProtection;
+    }
+
+    private final Paint getFillPaint() {
+        return this.fillPaint;
+    }
+
+    private final Paint getTextPaint() {
+        return this.textPaint;
+    }
 
     public int getOpacity() {
         return -1;
@@ -117,7 +134,6 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         fillColorStrokePaint.setStyle(Style.STROKE);
         fillColorStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
         fillColorStrokePaint.setStrokeMiter(5f);
-        fillColorStrokePaint.setStrokeJoin(Join.ROUND);
 
         fillColorStrokeProtection = new Paint(Paint.ANTI_ALIAS_FLAG);
         fillColorStrokeProtection.setDither(true);
@@ -125,7 +141,6 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         fillColorStrokeProtection.setStyle(Style.STROKE);
         fillColorStrokeProtection.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         fillColorStrokeProtection.setStrokeMiter(5f);
-        fillColorStrokeProtection.setStrokeJoin(Join.ROUND);
 
         fillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         fillPaint.setColor(frameColor);
@@ -138,15 +153,6 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         Typeface font = Typeface.create("sans-serif-condensed", Typeface.BOLD);
         textPaint.setTypeface(font);
         textPaint.setTextAlign(Paint.Align.CENTER);
-
-        errorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        errorPaint.setColor(Utils.getDefaultColor(mContext, R.color.batterymeter_plus_color));
-        errorPaint.setAlpha(255);
-        errorPaint.setAlpha(255);
-        errorPaint.setDither(true);
-        errorPaint.setStrokeWidth(0f);
-        errorPaint.setStyle(Style.FILL_AND_STROKE);
-        errorPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
 
         loadPaths();
     }
@@ -179,22 +185,20 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     }
 
     public void draw(Canvas canvas) {
-        if (useSuper()) {
+        if (getMeterStyle() != BATTERY_STYLE_Q) {
             super.draw(canvas);
             return;
         }
         
-        boolean opaqueBolt = this.level <= 30;
         boolean drawText;
         float pctX = 0, pctY = 0, textHeight;
         String pctText = null;
-        boolean pctOpaque = false;
         if (!this.charging && !this.powerSaveEnabled && this.showPercent) {
-            float baseHeight = (this.dualTone ? this.iconRect : this.fillRect).height();
             this.textPaint.setColor(getColorForLevel(level));
             final float full = 0.38f;
             final float nofull = 0.5f;
-            this.textPaint.setTextSize(baseHeight * (this.level == 100 ? full : nofull));
+            final float single = 0.75f;
+            this.textPaint.setTextSize(this.fillRect.height() * (this.level == 100 ? full : nofull));
             textHeight = -mTextPaint.getFontMetrics().ascent;
             pctText = String.valueOf(level);
             pctX = this.fillRect.width() * 0.5f + this.fillRect.left;
@@ -217,61 +221,63 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
             RectF rectF = this.fillRect;
             levelTop = (rectF.height() * (((float) 1) - level)) + rectF.top;
         }
-        pctOpaque = this.dualTone && levelTop > pctY;
-        this.levelRect.top = (float) Math.floor(this.dualTone ? this.fillRect.top : levelTop);
+        this.levelRect.top = (float) Math.floor((double) levelTop);
         this.levelPath.addRect(this.levelRect, Direction.CCW);
         this.unifiedPath.addPath(this.scaledPerimeter);
-        this.unifiedPath.op(this.levelPath, Op.UNION);
-        if (drawText && !pctOpaque) {
-            this.unifiedPath.op(this.textPath, Op.DIFFERENCE);
-        }
-        this.fillPaint.setColor(this.levelColor);
-        if (this.charging) {
-            if (!this.dualTone || !opaqueBolt) {
-                this.unifiedPath.op(this.scaledBolt, Op.DIFFERENCE);
+        if (!this.dualTone) {
+            this.unifiedPath.op(this.levelPath, Op.UNION);
+            if (drawText) {
+                this.unifiedPath.op(this.textPath, Op.DIFFERENCE);
             }
-            if (!this.dualTone && !this.invertFillIcon) {
-                canvas.drawPath(this.scaledBolt, this.fillPaint);
+        }
+        getFillPaint().setColor(this.levelColor);
+        if (this.charging) {
+            this.unifiedPath.op(this.scaledBolt, Op.DIFFERENCE);
+            if (!this.invertFillIcon) {
+                canvas.drawPath(this.scaledBolt, getFillPaint());
+            }
+        } else if (this.powerSaveEnabled) {
+            this.unifiedPath.op(this.scaledPlus, Op.DIFFERENCE);
+            if (!this.invertFillIcon) {
+                canvas.drawPath(this.scaledPlus, getFillPaint());
             }
         }
         if (this.dualTone) {
-            canvas.drawPath(this.unifiedPath, this.dualToneBackgroundFill);
+            canvas.drawPath(this.unifiedPath, getDualToneBackgroundFill());
             canvas.save();
             float clipTop = getBounds().bottom - getBounds().height() * level;
             canvas.clipRect(0f, clipTop, (float) getBounds().right, (float) getBounds().bottom);
-            canvas.drawPath(this.unifiedPath, fillPaint);
+            canvas.drawPath(this.unifiedPath, getFillPaint());
             canvas.restore();
-            if (this.charging && opaqueBolt) {
-                canvas.drawPath(this.scaledBolt, fillPaint);
-            }
-            if (drawText && pctOpaque) {
-                canvas.drawPath(this.textPath, fillPaint);
-            }
         } else {
-            this.fillPaint.setColor(this.fillColor);
-            canvas.drawPath(this.unifiedPath, this.fillPaint);
-            this.fillPaint.setColor(this.levelColor);
+            getFillPaint().setColor(this.fillColor);
+            canvas.drawPath(this.unifiedPath, getFillPaint());
+            getFillPaint().setColor(this.levelColor);
             if (this.level <= 15 && !this.charging) {
                 canvas.save();
                 canvas.clipPath(this.scaledFill);
-                canvas.drawPath(this.levelPath, this.fillPaint);
+                canvas.drawPath(this.levelPath, getFillPaint());
                 canvas.restore();
             }
             if (drawText) {
                 this.textPath.op(this.levelPath, Op.DIFFERENCE);
-                canvas.drawPath(this.textPath, this.fillPaint);
+                canvas.drawPath(this.textPath, getFillPaint());
             }
         }
-        if (!this.dualTone && this.charging) {
+        if (this.charging) {
             canvas.clipOutPath(this.scaledBolt);
             if (this.invertFillIcon) {
-                canvas.drawPath(this.scaledBolt, this.fillColorStrokePaint);
+                canvas.drawPath(this.scaledBolt, getFillColorStrokePaint());
             } else {
-                canvas.drawPath(this.scaledBolt, this.fillColorStrokeProtection);
+                canvas.drawPath(this.scaledBolt, getFillColorStrokeProtection());
             }
         } else if (this.powerSaveEnabled) {
-            canvas.drawPath(this.scaledPerimeter, this.errorPaint);
-            canvas.drawPath(this.scaledPlus, this.errorPaint);
+            canvas.clipOutPath(this.scaledPlus);
+            if (this.invertFillIcon) {
+                canvas.drawPath(this.scaledPlus, getFillColorStrokePaint());
+            } else {
+                canvas.drawPath(this.scaledPlus, getFillColorStrokeProtection());
+            }
         }
     }
 
@@ -304,13 +310,13 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     }
 
     public void setColorFilter(ColorFilter colorFilter) {
-        this.fillPaint.setColorFilter(colorFilter);
-        this.fillColorStrokePaint.setColorFilter(colorFilter);
-        this.dualToneBackgroundFill.setColorFilter(colorFilter);
+        getFillPaint().setColorFilter(colorFilter);
+        getFillColorStrokePaint().setColorFilter(colorFilter);
+        getDualToneBackgroundFill().setColorFilter(colorFilter);
     }
 
     public int getIntrinsicHeight() {
-        if (!useSuper()) {
+        if (getMeterStyle() == BATTERY_STYLE_Q) {
             return this.intrinsicHeight;
         } else {
             return super.getIntrinsicHeight();
@@ -318,7 +324,7 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     }
 
     public int getIntrinsicWidth() {
-        if (!useSuper()) {
+        if (getMeterStyle() == BATTERY_STYLE_Q) {
             return this.intrinsicWidth;
         } else {
             return super.getIntrinsicWidth();
@@ -338,32 +344,28 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     }
 
     public void setColors(int fillColor, int backgroundColor, int singleToneColor) {
-        this.dualTone = getMeterStyle() == BATTERY_STYLE_PORTRAIT;
         this.fillColor = this.dualTone ? fillColor : singleToneColor;
-        this.fillPaint.setColor(this.fillColor);
-        this.fillColorStrokePaint.setColor(this.fillColor);
+        getFillPaint().setColor(this.fillColor);
+        getFillColorStrokePaint().setColor(this.fillColor);
         this.backgroundColor = backgroundColor;
-        this.dualToneBackgroundFill.setColor(backgroundColor);
+        getDualToneBackgroundFill().setColor(backgroundColor);
         this.levelColor = batteryColorForLevel(this.level);
         super.setColors(fillColor, backgroundColor);
     }
 
     private final void updateSize() {
         Rect bounds = getBounds();
+        String str = "b";
         if (bounds.isEmpty()) {
             this.scaleMatrix.setScale(1.0f, 1.0f);
         } else {
-            this.scaleMatrix.setScale(bounds.right / mWidthDp, bounds.bottom / mHeightDp);
+            this.scaleMatrix.setScale(((float) bounds.right) / mWidthDp, ((float) bounds.bottom) / mHeightDp);
         }
         this.perimeterPath.transform(this.scaleMatrix, this.scaledPerimeter);
         this.fillMask.transform(this.scaleMatrix, this.scaledFill);
         this.scaledFill.computeBounds(this.fillRect, true);
         this.boltPath.transform(this.scaleMatrix, this.scaledBolt);
         this.plusPath.transform(this.scaleMatrix, this.scaledPlus);
-        float max = Math.max(bounds.right / mWidthDp * 3f, 6f);
-        this.fillColorStrokePaint.setStrokeWidth(max);
-        this.fillColorStrokeProtection.setStrokeWidth(max);
-        this.iconRect.set(bounds);
     }
 
     private final void loadPaths() {
@@ -375,10 +377,5 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         this.boltPath.set(PathParser.createPathFromPathData(res.getString(R.string.config_batterymeterBoltPath)));
         this.plusPath.set(PathParser.createPathFromPathData(res.getString(R.string.config_batterymeterPowersavePath)));
         this.dualTone = false;
-    }
-
-    private boolean useSuper() {
-        int style = getMeterStyle();
-        return style != BATTERY_STYLE_PORTRAIT && style != BATTERY_STYLE_Q;
     }
 }

@@ -174,11 +174,7 @@ public class BatteryMeterView extends LinearLayout implements
      *                                    components
      */
     public void useWallpaperTextColor(boolean shouldUseWallpaperTextColor) {
-        useWallpaperTextColor(shouldUseWallpaperTextColor, false);
-    }
-
-    public void useWallpaperTextColor(boolean shouldUseWallpaperTextColor, boolean force) {
-        if (!force && shouldUseWallpaperTextColor == mUseWallpaperTextColors) {
+        if (shouldUseWallpaperTextColor == mUseWallpaperTextColors) {
             return;
         }
 
@@ -413,7 +409,6 @@ public class BatteryMeterView extends LinearLayout implements
         final int style = styleStr == null ?
                 BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(styleStr);
         mStyle = style;
-        useWallpaperTextColor(mUseWallpaperTextColors, true);
 
         switch (style) {
             case BatteryMeterDrawableBase.BATTERY_STYLE_TEXT:
