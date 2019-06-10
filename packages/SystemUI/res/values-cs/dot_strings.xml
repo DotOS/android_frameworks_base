@@ -126,7 +126,7 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s od %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower je připojen (zbývá <xliff:g id="charging_time_left">%s</xliff:g> do plného nabití)</string>
@@ -166,14 +166,60 @@
     <string name="search">Hledat</string>
     <string name="screenshot_abort_title">Nebyl pořízen žádný snímek obrazovky</string>
     <string name="screenshot_abort_text">Operace přerušena.</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">\"Always on\" displej</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Obrátit rozložení</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambientní displej</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambientní displej vyp.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambientní displej zap.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní displej je vypnutý.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý.</string>
-    <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse">Obrátit rozložení</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Spouštění\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas vyp.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas zap.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas je vypnutý.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas je zapnutý.</string>
+    <string name="quick_settings_compass_N">S</string>
+    <string name="quick_settings_compass_NE">SV</string>
+    <string name="quick_settings_compass_E">V</string>
+    <string name="quick_settings_compass_SE">JV</string>
+    <string name="quick_settings_compass_S">J</string>
+    <string name="quick_settings_compass_SW">JZ</string>
+    <string name="quick_settings_compass_W">Z</string>
+    <string name="quick_settings_compass_NW">SZ</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Rozšířená plocha</string>
+    <string name="quick_settings_expanded_desktop">Rozšířená</string>
+    <string name="quick_settings_expanded_desktop_off">Normální</string>
+    <string name="quick_settings_expanded_navigation_off">Skrýt navigační panel</string>
+    <string name="quick_settings_expanded_statusbar_off">Skrýt stavovou lištu</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Obrazovka je zaznamenávána</string>
+    <string name="screenrecord_notif_final_ticker">Obrazovka byla úspěšně zaznamenána</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Zaznamenávání obrazovky</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Zastavit</string>
+    <string name="screenrecord_notif_completed">Obrazovka byla úspěšně zaznamenána</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Zobrazit ukazatel</string>
+    <string name="screenrecord_notif_pointer_off">Skrýt ukazatel</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Záznam obrazovky není možný</string>
+    <string name="notification_channel_screenrecord">Záznamy obrazovky</string>
+    <string name="screenrecord_hide_hint">Skrýt nápovědu</string>
+    <string name="screenrecord_show_hint">Zobrazit nápovědu</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Záznam obrazovky</string>
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">Vysoká</string>
+    <string name="high_noon_second_row">Poledne</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
 </resources>

@@ -126,11 +126,11 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">由 %s的%s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Dash 闪充 (还需 <xliff:g id="charging_time_left" example="4小时2分钟">%s</xliff:g> 充满)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash 闪充</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • 正在快速充电 (还需 <xliff:g id="charging_time_left">%s</xliff:g>充满)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash 闪充中</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">TurboPower 已连接 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
-    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已连接</string>
+    <string name="keyguard_indication_turbo_power_time">正在快速充电 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">正在快速充电</string>
     <string name="theme_info_title">这是什么?</string>
     <string name="theme_info_message">主题瓷贴虽然独特但却易于使用，它允许用户更改系统强调色或样式。\n\n想要更改强调色和样式，只需简单地长按瓷贴，然后再次按下即可从所提供的选项中进行选择。</string>
     <!-- Advance location quick setting tile -->
@@ -148,7 +148,7 @@
     <string name="no_home_message">要在此设备上导航，您必须使用主屏幕按钮。请先添加主屏幕按钮，然后再保存。</string>
     <string name="clipboard_description">您可以利用“剪贴板”按钮将相应内容直接拖动到剪贴板中。剪贴板中有内容时，您也可以将剪贴板中的内容直接拖出来。</string>
     <string name="keycode_description">您可以利用“键值”按钮将键盘按键添加到导航栏中。只要按下这些按钮，按钮即可模仿所选键盘按键执行相应的操作。要使用这项功能，您必须先为按钮选择相应的按键，然后再选择要在按钮上显示的图片。</string>
-    <string name="start">执行时间</string>
+    <string name="start">开始</string>
     <string name="center">居中</string>
     <string name="end">结束</string>
     <string name="space">空格键</string>
@@ -166,14 +166,60 @@
     <string name="search">搜索</string>
     <string name="screenshot_abort_title">无屏幕截图</string>
     <string name="screenshot_abort_text">操作中止。</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">始终显示</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">反转布局</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">息屏显示</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">息屏显示</string>
     <string name="accessibility_quick_settings_ambient_display_off">关闭息屏显示</string>
     <string name="accessibility_quick_settings_ambient_display_on">开启息屏显示</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">息屏显示已关闭</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">息屏显示已启用</string>
-    <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse">反转布局</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">指南针</string>
+    <string name="quick_settings_compass_value"><xliff:g id="角度">%1$.0f</xliff:g> - <xliff:g id="方向">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">正在初始化...\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">关闭指南针</string>
+    <string name="accessibility_quick_settings_compass_on">开启指南针</string>
+    <string name="accessibility_quick_settings_compass_changed_off">指南针已关闭。</string>
+    <string name="accessibility_quick_settings_compass_changed_on">指南针已开启</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">扩展桌面</string>
+    <string name="quick_settings_expanded_desktop">已展开</string>
+    <string name="quick_settings_expanded_desktop_off">标准</string>
+    <string name="quick_settings_expanded_navigation_off">隐藏导航栏</string>
+    <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">正在录制屏幕</string>
+    <string name="screenrecord_notif_final_ticker">屏幕录制成功</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">正在录制屏幕</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">停止</string>
+    <string name="screenrecord_notif_completed">屏幕录制成功</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">显示触摸操作</string>
+    <string name="screenrecord_notif_pointer_off">隐藏触摸操作</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">无法开始录制！</string>
+    <string name="notification_channel_screenrecord">屏幕录制</string>
+    <string name="screenrecord_hide_hint">隐藏提示</string>
+    <string name="screenrecord_show_hint">显示提示</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">屏幕录制</string>
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">高</string>
+    <string name="high_noon_second_row">中午</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">智能像素</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
 </resources>

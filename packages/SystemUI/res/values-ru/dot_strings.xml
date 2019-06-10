@@ -126,7 +126,7 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s от %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Зарядка Dash (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Быстрая зарядка подключена (<xliff:g id="charging_time_left">%s</xliff:g> до полной зарядки)</string>
@@ -166,14 +166,60 @@
     <string name="search">Поиск</string>
     <string name="screenshot_abort_title">Снимок экрана не был создан</string>
     <string name="screenshot_abort_text">Операция прервана.</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Обратный порядок кнопок</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient display выключен.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient Display включен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display отключен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен.</string>
-    <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse">Обратный порядок кнопок</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Компас</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Инициализация\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Компас выкл.</string>
+    <string name="accessibility_quick_settings_compass_on">Компас вкл.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Компас отключён.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Компас включен.</string>
+    <string name="quick_settings_compass_N">С</string>
+    <string name="quick_settings_compass_NE">СВ</string>
+    <string name="quick_settings_compass_E">В</string>
+    <string name="quick_settings_compass_SE">ЮВ</string>
+    <string name="quick_settings_compass_S">Ю</string>
+    <string name="quick_settings_compass_SW">ЮЗ</string>
+    <string name="quick_settings_compass_W">З</string>
+    <string name="quick_settings_compass_NW">СЗ</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Расширенный рабочий стол</string>
+    <string name="quick_settings_expanded_desktop">Расширенный</string>
+    <string name="quick_settings_expanded_desktop_off">Обычный</string>
+    <string name="quick_settings_expanded_navigation_off">Скрыть панель навигации</string>
+    <string name="quick_settings_expanded_statusbar_off">Скрыть строку состояния</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Идёт запись экрана</string>
+    <string name="screenrecord_notif_final_ticker">Запись с экрана завершена</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Запись экрана</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Остановить</string>
+    <string name="screenrecord_notif_completed">Запись с экрана завершена успешно</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Показать указатель</string>
+    <string name="screenrecord_notif_pointer_off">Скрыть указатель</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Запись экрана невозможна</string>
+    <string name="notification_channel_screenrecord">Записи экрана</string>
+    <string name="screenrecord_hide_hint">Скрыть подсказку</string>
+    <string name="screenrecord_show_hint">Показать подсказку</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Запись экрана</string>
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">Ночь</string>
+    <string name="high_noon_second_row">Полдень</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Умные пиксели</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Авто-включение умных пикселей</string>
 </resources>
