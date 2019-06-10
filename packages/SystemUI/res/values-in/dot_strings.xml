@@ -24,7 +24,7 @@
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Mulai ulang</string>
     <string name="global_action_restart_advanced">Mulai ulang lanjutan</string>
-    <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="global_action_restart_recovery">Mode pemulihan</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
     <string name="global_action_restart_hot">Hot</string>
@@ -36,7 +36,7 @@
     <string name="quick_settings_sound_dnd">Jangan ganggu</string>
     <string name="statusbar_items_title">Ikon bilah status</string>
     <!-- Lockscreen icons -->
-    <string name="lockscreen_tuner_title">Pintasan kunci layar</string>
+    <string name="lockscreen_tuner_title">Pintasan layar kunci</string>
     <string name="lockscreen_default">Bawaan</string>
     <string name="lockscreen_hidden">Tidak Ada</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
@@ -121,12 +121,12 @@
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
-    <string name="qs_menu_item_qs_columns">Quickbar columns</string>
+    <string name="qs_menu_item_qs_columns">Kolom bilah cepat</string>
     <string name="qs_menu_item_columns_auto">Otomatis</string>
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s oleh %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Pengisian cepat (<xliff:g id="charging_time_left" example="4 jam dan 2 menit">%s</xliff:g> sampai penuh)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> Sampai Penuh)</string>
     <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower terhubung (<xliff:g id="charging_time_left">%s</xliff:g> sampai penuh)</string>
@@ -135,29 +135,29 @@
     <string name="theme_info_message">Tile tema ini sangat unik tetapi mudah untuk digunakan tile yang memungkinkan pengguna untuk mengubah aksen atau gaya sistem.\n\nUntuk mengubah antara aksen dan gaya, cukup tekan lama pada tile lalu tekan lagi untuk memilih dari opsi yang ditawarkan.</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">Hemat Baterai</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Pelaporan lokasi: mode hemat baterai.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sensor Saja</string>
-    <string name="accessibility_quick_settings_location_gps_only">Pelaporan lokasi: mode sensor saja.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Penghemat Baterai</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Laporan lokasi: mode hemat baterai.</string>
+    <string name="quick_settings_location_secondary_gps_only">Hanya Sensor</string>
+    <string name="accessibility_quick_settings_location_gps_only">Laporan lokasi: hanya sensor.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Akurasi Tinggi</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Pelaporan lokasi: mode akurasi tinggi.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Laporan lokasi: mode akurasi tinggi.</string>
     <!-- Navbar Tuner -->
     <string name="preview">Pratinjau</string>
     <string name="keycode">Keycode</string>
-    <string name="no_home_title">Tidak di temukan tombol home</string>
-    <string name="no_home_message">Tombol home diperlukan untuk dapat menavigasi perangkat ini. Harap tambahkan tombol home sebelum menyimpan.</string>
-    <string name="clipboard_description">Clipboard memungkinkan item untuk diseret langsung ke clipboard. Item juga bisa diseret keluar dari clipboard ketika ada.</string>
+    <string name="no_home_title">Tombol beranda tidak ditemukan</string>
+    <string name="no_home_message">Tombol beranda dibutuhkan untuk navigasi perangkat ini. Harap tambahkan tombol beranda sebelum menyimpan.</string>
+    <string name="clipboard_description">Papan Klip memungkinkan item untuk diseret langsung ke papan Klip. Item juga dapat diseret langsung dari papan klip ketika tersedia.</string>
     <string name="keycode_description">Tombol keycode memungkinan tombol keyboard untuk ditambahkan di Panel Navigasi. Ketika ditekan akan meniru tombol keyboard yang dipilih. Pertama pilih tombol, lalu diikuti oleh gambar untuk ditampilkan pada tombol.</string>
     <string name="start">Mulai</string>
     <string name="center">Tengah</string>
     <string name="end">Selesai</string>
     <string name="space">Jarak</string>
-    <string name="menu_ime">Menu / Pengalih Keyboard</string>
+    <string name="menu_ime">Menu / Pengalih Papan ketik</string>
     <string name="select_button">Pilih tombol untuk menambahkan</string>
-    <string name="add_button">Tambah tombol</string>
+    <string name="add_button">Tambahkan tombol</string>
     <string name="save">Simpan</string>
     <string name="reset">Setel Ulang</string>
-    <string name="select_keycode">Pilih Tombol Keyboard</string>
+    <string name="select_keycode">Pilih Tombol Papan ketik</string>
     <string name="left">Kiri</string>
     <string name="right">Kanan</string>
     <string name="navbar_editor_title">Penyunting</string>
@@ -166,14 +166,60 @@
     <string name="search">Cari</string>
     <string name="screenshot_abort_title">Tidak ada tangkapan layar yang diambil</string>
     <string name="screenshot_abort_text">Proses dibatalkan.</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
     <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse">Invert layout</string>
+    <string name="nav_bar_layout_inverse">Tukar tata letak</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Layar kedip</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Layar kedip mati.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Layar kedip hidup.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Layar kedip dimatikan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Layar kedip dihidupkan.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="derajat">%1$.0f</xliff:g>\u00b0 <xliff:g id="arah">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Memulai\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas nonaktif.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas hidup.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas dinonaktifkan.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas diaktifkan.</string>
+    <string name="quick_settings_compass_N">U</string>
+    <string name="quick_settings_compass_NE">TL</string>
+    <string name="quick_settings_compass_E">T</string>
+    <string name="quick_settings_compass_SE">TG</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">BD</string>
+    <string name="quick_settings_compass_W">B</string>
+    <string name="quick_settings_compass_NW">BL</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Dekstop diperluas</string>
+    <string name="quick_settings_expanded_desktop">Diperluas</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
+    <string name="quick_settings_expanded_navigation_off">Sembunyikan bar navigasi</string>
+    <string name="quick_settings_expanded_statusbar_off">Sembunyikan statusbar</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Layar sedang di rekam</string>
+    <string name="screenrecord_notif_final_ticker">Berhasil merekam layar</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Merekam layar</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Berhenti</string>
+    <string name="screenrecord_notif_completed">Layar berhasil direkam</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Tampilkan penunjuk</string>
+    <string name="screenrecord_notif_pointer_off">Sembunyikan penunjuk</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Tidak dapat merekam layar</string>
+    <string name="notification_channel_screenrecord">Perekam layar</string>
+    <string name="screenrecord_hide_hint">Sembunyikan petunjuk</string>
+    <string name="screenrecord_show_hint">Tampilkan petunjuk</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Rekam layar</string>
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">Tinggi</string>
+    <string name="high_noon_second_row">Siang hari</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Piksel cerdas</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Otomatis hidupkan piksel cerdas</string>
 </resources>

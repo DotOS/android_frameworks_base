@@ -22,61 +22,61 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced powermenu -->
-    <string name="global_action_restart_system">Reboot</string>
-    <string name="global_action_restart_advanced">Advanced reboot</string>
+    <string name="global_action_restart_system">Reštartovať</string>
+    <string name="global_action_restart_advanced">Rozšírený reštart</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
-    <string name="global_action_restart_hot">Hot</string>
-    <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_restart_hot">Horúci reštart</string>
+    <string name="global_action_screenshot">Snímka obrazovky</string>
     <!-- Sound QS Tile -->
-    <string name="quick_settings_sound_label">Sound</string>
-    <string name="quick_settings_sound_ring">Ring</string>
-    <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
-    <string name="statusbar_items_title">Statusbar icon</string>
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Zvonenie</string>
+    <string name="quick_settings_sound_vibrate">Vibrácie</string>
+    <string name="quick_settings_sound_dnd">Nerušiť</string>
+    <string name="statusbar_items_title">Ikony v stavovom riadku</string>
     <!-- Lockscreen icons -->
-    <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
-    <string name="lockscreen_default">Default</string>
-    <string name="lockscreen_hidden">None</string>
+    <string name="lockscreen_tuner_title">Skratky na obrazovke uzamknutia</string>
+    <string name="lockscreen_default">Predvolené</string>
+    <string name="lockscreen_hidden">Žiadny</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Swipe from icon to launch</string>
+    <string name="custom_hint">Spustiť potiahnutím prsta od ikony</string>
     <!-- Theme tile -->
-    <string name="systemui_theme_style_title">UI style</string>
-    <string name="systemui_theme_style_auto">Automatic</string>
-    <string name="systemui_theme_style_light">Light UI</string>
-    <string name="systemui_theme_style_dark">Dark UI</string>
-    <string name="systemui_theme_style_black">Black UI</string>
+    <string name="systemui_theme_style_title">Štýl UI</string>
+    <string name="systemui_theme_style_auto">Automatický</string>
+    <string name="systemui_theme_style_light">Svetlé rozhranie</string>
+    <string name="systemui_theme_style_dark">Tmavé rozhranie</string>
+    <string name="systemui_theme_style_black">Čierne rozhranie</string>
     <string name="systemui_theme_style_neo">Neo Black UI</string>
     <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
-    <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
-    <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Vybrať farbu</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Vybrať štýl</string>
+    <string name="quick_settings_theme_tile_color_default">Predvolený</string>
+    <string name="quick_settings_theme_tile_color_red">Červený</string>
+    <string name="quick_settings_theme_tile_color_pink">Ružová</string>
+    <string name="quick_settings_theme_tile_color_purple">Fialová</string>
+    <string name="quick_settings_theme_tile_color_deep_purple">Tmavofialová</string>
     <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
-    <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_light_green">Light green</string>
-    <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-    <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
-    <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-    <string name="quick_settings_theme_tile_color_black">Black</string>
-    <string name="quick_settings_theme_tile_color_white">White</string>
+    <string name="quick_settings_theme_tile_color_blue">Modrá</string>
+    <string name="quick_settings_theme_tile_color_light_blue">Svetlomodrá</string>
+    <string name="quick_settings_theme_tile_color_cyan">Azúrová</string>
+    <string name="quick_settings_theme_tile_color_teal">Zelenomodrá</string>
+    <string name="quick_settings_theme_tile_color_green">Zelená</string>
+    <string name="quick_settings_theme_tile_color_light_green">Svetlo zelená</string>
+    <string name="quick_settings_theme_tile_color_lime">Limetková</string>
+    <string name="quick_settings_theme_tile_color_yellow">Žltá</string>
+    <string name="quick_settings_theme_tile_color_amber">Jantárová</string>
+    <string name="quick_settings_theme_tile_color_orange">Oranžová</string>
+    <string name="quick_settings_theme_tile_color_deep_orange">Tmavooranžová</string>
+    <string name="quick_settings_theme_tile_color_brown">Hnedá</string>
+    <string name="quick_settings_theme_tile_color_grey">Sivá</string>
+    <string name="quick_settings_theme_tile_color_blue_grey">Modrosivá</string>
+    <string name="quick_settings_theme_tile_color_black">Čierna</string>
+    <string name="quick_settings_theme_tile_color_white">Biela</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">Kofeín</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeín vyp.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeín zap.</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
@@ -126,7 +126,7 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s by %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
@@ -137,43 +137,89 @@
     <string name="quick_settings_secondary_location_off"></string>
     <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
     <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+    <string name="quick_settings_location_secondary_gps_only">Iba GPS</string>
+    <string name="accessibility_quick_settings_location_gps_only">Hlásenie polohy: režim iba so snímačmi.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Vysoká presnosť</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Hlásenie polohy: režim vysokej presnosti.</string>
     <!-- Navbar Tuner -->
-    <string name="preview">Preview</string>
-    <string name="keycode">Keycode</string>
-    <string name="no_home_title">No home button found</string>
-    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
-    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
-    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
-    <string name="space">Spacer</string>
-    <string name="menu_ime">Menu / Keyboard Switcher</string>
-    <string name="select_button">Select button to add</string>
-    <string name="add_button">Add button</string>
-    <string name="save">Save</string>
-    <string name="reset">Reset</string>
-    <string name="select_keycode">Select Keyboard Button</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
+    <string name="preview">Náhľad</string>
+    <string name="keycode">Heslo</string>
+    <string name="no_home_title">Nenájdene tlačidlo domov</string>
+    <string name="no_home_message">Na to, aby ste mohli toto zariadenie navigovať, je potrebné tlačidlo Domov. Pred uložením pridajte domovské tlačidlo.</string>
+    <string name="clipboard_description">Schránka umožňuje presúvať položky priamo do schránky. Položky je možné presunúť aj priamo zo schránky, ak sú prítomné.</string>
+    <string name="keycode_description">Klávesové skratky umožňujú pridanie klávesov klávesnice do navigačného panela. Po stlačení emulujú vybraný kláves na klávesnici. Najprv musí byť pre tlačidlo zvolené tlačidlo, po ktorom nasleduje obrázok, ktorý sa zobrazí na tlačidle.</string>
+    <string name="start">Štart</string>
+    <string name="center">V strede</string>
+    <string name="end">Koniec</string>
+    <string name="space">Oddeľovač</string>
+    <string name="menu_ime">Prepínač klávesnice</string>
+    <string name="select_button">Vybrať tlačidlo</string>
+    <string name="add_button">Pridať tlačidlo</string>
+    <string name="save">Uložiť</string>
+    <string name="reset">Resetovať</string>
+    <string name="select_keycode">Vybrať tlačidlo klávesnice</string>
+    <string name="left">Vľavo</string>
+    <string name="right">Vpravo</string>
     <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configure navigaton bar</string>
-    <string name="menu_ime_always_show">Menu</string>
-    <string name="search">Search</string>
-    <string name="screenshot_abort_title">No screenshot taken</string>
-    <string name="screenshot_abort_text">Operation aborted.</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Always on display</string>
-    <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+    <string name="navbar_editor_summary">Konfigurovať nastavenia navigačného panela</string>
+    <string name="menu_ime_always_show">Ponuka</string>
+    <string name="search">Hľadať</string>
+    <string name="screenshot_abort_title">Žiadna snímka obrazovky</string>
+    <string name="screenshot_abort_text">Operácia bola prerušená.</string>
     <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse">Invert layout</string>
+    <string name="nav_bar_layout_inverse">Invertovať rozloženie</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambientne zobrazenie</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Amb. zobr. vyp.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Amb. zobr. zap.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientne zobrazenie je vypnuté.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientne zobrazenie je zapnuté.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Prebieha inicializácia\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas vyp.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas zap.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas je vypnutý.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas je zapnutý.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Rozšírená plocha</string>
+    <string name="quick_settings_expanded_desktop">Rozšírený</string>
+    <string name="quick_settings_expanded_desktop_off">Normálny</string>
+    <string name="quick_settings_expanded_navigation_off">Skryť navigačný panel</string>
+    <string name="quick_settings_expanded_statusbar_off">Skryť stavový riadok</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Obrazovka sa nahráva</string>
+    <string name="screenrecord_notif_final_ticker">Obrazovka bola úspešne nahraná</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Nahrávanie obrazovky</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Zastaviť</string>
+    <string name="screenrecord_notif_completed">Obrazovka bola úspešne nahraná</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Zobraziť ukazovateľ</string>
+    <string name="screenrecord_notif_pointer_off">Skryť ukazovateľ</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Nepodarilo sa nahrať obrazovku</string>
+    <string name="notification_channel_screenrecord">Záznamy obrazovky</string>
+    <string name="screenrecord_hide_hint">Skryť nápovedu</string>
+    <string name="screenrecord_show_hint">Zobraziť nápovedu</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Nahrávanie obrazovky</string>
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">Vysoká</string>
+    <string name="high_noon_second_row">Poludnie</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Zapnúť Smart Pixels automaticky</string>
 </resources>

@@ -126,7 +126,7 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s / %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Dash töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes feltöltésig)</string>
     <string name="keyguard_plugged_in_dash_charging">Dash töltés</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower csatlakoztatva (<xliff:g id="charging_time_left">%s</xliff:g> a teljes töltöttségig)</string>
@@ -166,14 +166,60 @@
     <string name="search">Keresés</string>
     <string name="screenshot_abort_title">Nem készült képernyőmentés</string>
     <string name="screenshot_abort_text">A művelet megszakítva</string>
-    <!-- Always on Display Tile -->
-    <string name="quick_settings_always_on_display_label">Mindig látható (AOD)</string>
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Fordított elrendezés</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Állandó kijelzés (AOD)</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
     <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Kikapcsolt Környezeti kijelző.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Bekapcsolt Környezeti kijelző.</string>
-    <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse">Fordított elrendezés</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Iránytű</string>
+    <string name="quick_settings_compass_value"><xliff:g id="fok">%1$.0f</xliff:g>\u00b0 <xliff:g id="irány">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Előkészítés\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Iránytű ki.</string>
+    <string name="accessibility_quick_settings_compass_on">Iránytű be.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Az Iránytű kikapcsolva.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Az Iránytű bekapcsolva.</string>
+    <string name="quick_settings_compass_N">É</string>
+    <string name="quick_settings_compass_NE">ÉK</string>
+    <string name="quick_settings_compass_E">K</string>
+    <string name="quick_settings_compass_SE">DK</string>
+    <string name="quick_settings_compass_S">D</string>
+    <string name="quick_settings_compass_SW">DNy</string>
+    <string name="quick_settings_compass_W">Ny</string>
+    <string name="quick_settings_compass_NW">ÉNy</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Kiterjesztett asztal</string>
+    <string name="quick_settings_expanded_desktop">Kiterjesztett</string>
+    <string name="quick_settings_expanded_desktop_off">Szokásos</string>
+    <string name="quick_settings_expanded_navigation_off">A navigációs sáv elrejtése</string>
+    <string name="quick_settings_expanded_statusbar_off">Az állapotsor elrejtése</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">A képernyő minden mozzanata felvételre kerül</string>
+    <string name="screenrecord_notif_final_ticker">Képernyővideó-felvétel elkészült</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Képernyőfelvétel elindítva</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Megállítás</string>
+    <string name="screenrecord_notif_completed">Képernyővideó-felvétel elkészült</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">A Mutató megjelenítése</string>
+    <string name="screenrecord_notif_pointer_off">A Mutató elrejtése</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">A képernyőfelvétel nem lehetséges</string>
+    <string name="notification_channel_screenrecord">Képernyőfelvételek</string>
+    <string name="screenrecord_hide_hint">A tanács elrejtése</string>
+    <string name="screenrecord_show_hint">A tanács megjelenítése</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Képernyőfelvétel</string>
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">Fényes</string>
+    <string name="high_noon_second_row">Nappal</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Az Intelligens pixelek automatikus engedélyezése</string>
 </resources>
