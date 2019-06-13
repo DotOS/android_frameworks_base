@@ -507,8 +507,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                         int[] loc = new int[2];
                         v.getLocationInWindow(loc);
                         int x = loc[0] + v.getWidth() / 2;
-                        // we subtract getTop, because Pie clipper starts after black area
-                        int y = loc[1] + v.getHeight() / 2 - getTop();
+                        int y = loc[1] + v.getHeight() / 2;
                         mCustomizePanel.show(x, y);
                     }
                 }
@@ -553,7 +552,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         }
         r.tile.setDetailListening(show);
         int x = r.tileView.getLeft() + r.tileView.getWidth() / 2;
-        int y = r.tileView.getDetailY() + mTileLayout.getOffsetTop(r);
+        int y = r.tileView.getDetailY() + mTileLayout.getOffsetTop(r) + getTop();
         handleShowDetailImpl(r, show, x, y);
     }
 

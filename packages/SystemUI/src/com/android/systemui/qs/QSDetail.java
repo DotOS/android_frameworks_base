@@ -61,7 +61,6 @@ public class QSDetail extends LinearLayout {
     protected TextView mQsDetailHeaderTitle;
     protected Switch mQsDetailHeaderSwitch;
     protected ImageView mQsDetailHeaderProgress;
-    protected View mQsDetailTopSpace;
 
     protected QSTileHost mHost;
 
@@ -89,12 +88,6 @@ public class QSDetail extends LinearLayout {
         for (int i = 0; i < mDetailViews.size(); i++) {
             mDetailViews.valueAt(i).dispatchConfigurationChanged(newConfig);
         }
-
-        // Update top space height in orientation change
-        mQsDetailTopSpace.getLayoutParams().height =
-                mContext.getResources().getDimensionPixelSize(
-                        com.android.internal.R.dimen.quick_qs_offset_height);
-        mQsDetailTopSpace.setLayoutParams(mQsDetailTopSpace.getLayoutParams());
     }
 
     @Override
@@ -108,7 +101,6 @@ public class QSDetail extends LinearLayout {
         mQsDetailHeaderTitle = (TextView) mQsDetailHeader.findViewById(android.R.id.title);
         mQsDetailHeaderSwitch = (Switch) mQsDetailHeader.findViewById(android.R.id.toggle);
         mQsDetailHeaderProgress = findViewById(R.id.qs_detail_header_progress);
-        mQsDetailTopSpace = findViewById(R.id.qs_detail_top_space);
 
         updateDetailText();
 
