@@ -30,6 +30,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.FrameLayout;
@@ -53,8 +54,8 @@ public class QSDetail extends LinearLayout {
     private final SparseArray<View> mDetailViews = new SparseArray<>();
 
     private ViewGroup mDetailContent;
-    protected TextView mDetailSettingsButton;
-    protected TextView mDetailDoneButton;
+    protected Button mDetailSettingsButton;
+    protected Button mDetailDoneButton;
     private QSDetailClipper mClipper;
     private DetailAdapter mDetailAdapter;
     private QSPanel mQsPanel;
@@ -84,8 +85,6 @@ public class QSDetail extends LinearLayout {
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        FontSizeUtils.updateFontSize(mDetailDoneButton, R.dimen.qs_detail_button_text_size);
-        FontSizeUtils.updateFontSize(mDetailSettingsButton, R.dimen.qs_detail_button_text_size);
         /*Resources resources = getContext().getResources();
         int relativeHeight = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?
         resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height)*2 :
@@ -102,8 +101,8 @@ public class QSDetail extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         mDetailContent = findViewById(android.R.id.content);
-        mDetailSettingsButton = findViewById(android.R.id.button2);
-        mDetailDoneButton = findViewById(android.R.id.button1);
+        mDetailSettingsButton = findViewById(R.id.detailsettings);
+        mDetailDoneButton = findViewById(R.id.detaildone);
 
         mQsDetailHeader = findViewById(R.id.qs_detail_header);
         mQsDetailHeaderTitle = (TextView) mQsDetailHeader.findViewById(android.R.id.title);

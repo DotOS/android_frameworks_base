@@ -24,6 +24,8 @@
     android:elevation="4dp"
     android:background="@android:color/transparent"
     android:baselineAligned="false"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
     android:clickable="false"
     android:clipChildren="false"
     android:clipToPadding="false">
@@ -137,8 +139,7 @@
         android:id="@+id/qs_drag_handle_view"
         android:layout_width="24dp"
         android:layout_height="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="center"
         android:background="@drawable/qs_footer_drag_handle" />
 
 </com.android.systemui.qs.QSFooterImpl>

@@ -46,10 +46,9 @@ public class QSContainerImpl extends FrameLayout {
     private View mQSFooter;
 
     private View mBackground;
-    private View mBackgroundGradient;
-    private View mStatusBarBackground;
 
     private int mSideMargins;
+    private int mNotchMargin;
     private boolean mQsDisabled;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
@@ -65,9 +64,8 @@ public class QSContainerImpl extends FrameLayout {
         mQSCustomizer = findViewById(R.id.qs_customize);
         mQSFooter = findViewById(R.id.qs_footer);
         mBackground = findViewById(R.id.quick_settings_background);
-        mStatusBarBackground = findViewById(R.id.quick_settings_status_bar_background);
-        mBackgroundGradient = findViewById(R.id.quick_settings_gradient_view);
         mSideMargins = getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);
+        mNotchMargin = getResources().getDimensionPixelSize(R.dimen.notch_top_margin);
 
         setClickable(true);
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
@@ -77,15 +75,6 @@ public class QSContainerImpl extends FrameLayout {
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-
-        // Hide the backgrounds when in landscape mode.
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mBackgroundGradient.setVisibility(View.GONE);
-            mStatusBarBackground.setVisibility(View.INVISIBLE);
-        } else {
-            mBackgroundGradient.setVisibility(View.VISIBLE);
-            mStatusBarBackground.setVisibility(View.VISIBLE);
-        }
 
         LayoutParams layoutParams = (LayoutParams) mQSPanel.getLayoutParams();
         layoutParams.topMargin = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ?       mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height) * 2 : mContext.getResources().getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height);
@@ -131,8 +120,6 @@ public class QSContainerImpl extends FrameLayout {
         final boolean disabled = (state2 & DISABLE2_QUICK_SETTINGS) != 0;
         if (disabled == mQsDisabled) return;
         mQsDisabled = disabled;
-        mBackgroundGradient.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
-        mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
     }
 
     /**
@@ -151,11 +138,10 @@ public class QSContainerImpl extends FrameLayout {
         setBottom(getTop() + height);
         // Pin QS Footer to the bottom of the panel.
         mQSFooter.setTranslationY(height - mQSFooter.getHeight());
-        mBackground.setTop(mQSPanel.getTop());
+        mBackground.setTop(mNotchMargin);
         mBackground.setBottom(height);
-        mQSDetail.setTop(mQSPanel.getTop());
+        mQSDetail.setTop(mNotchMargin);
         mQSDetail.setBottom(mQSPanel.getBottom());
-        mQSDetail.setHeight(mQSPanel.getBottom());
     }
 
     protected int calculateContainerHeight() {

@@ -18,8 +18,7 @@
     android:id="@+id/header_text_container"
     android:layout_width="match_parent"
     android:layout_height="@dimen/qs_header_tooltip_height"
-    android:layout_below="@id/quick_status_bar_system_icons"
-    android:layout_marginTop="12dp">
+    android:layout_marginTop="24dp">
 
     <TextView
         android:id="@+id/long_press_tooltip"
