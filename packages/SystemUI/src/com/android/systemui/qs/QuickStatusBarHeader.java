@@ -150,7 +150,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         super.onFinishInflate();
 
         mHeaderQsPanel = findViewById(R.id.quick_qs_panel);
-        mSystemIconsView = findViewById(R.id.quick_status_bar_system_icons);
         mQuickQsStatusIcons = findViewById(R.id.quick_qs_status_icons);
         StatusIconContainer iconContainer = findViewById(R.id.statusIcons);
         iconContainer.setShouldRestrictIcons(false);
@@ -168,13 +167,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         updateResources();
 
-        Rect tintArea = new Rect(0, 0, 0, 0);
         int colorForeground = Utils.getColorAttr(getContext(), android.R.attr.colorForeground);
         float intensity = getColorIntensity(colorForeground);
         int fillColor = fillColorForIntensity(intensity, getContext());
-
-        // Set light text on the header icons because they will always be on a black background
-        applyDarkness(R.id.clock, tintArea, 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
 
         // Set the correct tint for the status icons so they contrast
         mIconManager.setTint(fillColor);
@@ -183,8 +178,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryMeterView.setForceShowPercent(true);
         mBatteryMeterView.setOnClickListener(this);
         mClockView = findViewById(R.id.clock);
+        mClockView.setTextColor(Utils.getColorAttr(getContext(), android.R.attr.textColorSecondary));
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
+        mDateView.setTextColor(Utils.getColorAttr(getContext(), android.R.attr.textColorSecondary));
     }
 
     private void updateStatusText() {
@@ -265,9 +262,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_total_height) + resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_offset_height) :
         resources.getDimensionPixelSize(com.android.internal.R.dimen.quick_qs_total_height);
         
-        mSystemIconsView.getLayoutParams().height = relativeHeight;
-        mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
-        
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
         if (mQsDisabled) {
             lp.height = relativeHeight;
@@ -276,12 +270,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
 
         setLayoutParams(lp);
-        // Update color schemes in landscape to use wallpaperTextColor
-        boolean shouldUseWallpaperTextColor =
-                newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
-        mBatteryMeterView.useWallpaperTextColor(shouldUseWallpaperTextColor);
-        mClockView.useWallpaperTextColor(shouldUseWallpaperTextColor);
-        
+
+        mBatteryMeterView.useWallpaperTextColor(false);
+        mClockView.useWallpaperTextColor(false);
+
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mHeaderTextContainerView.getLayoutParams();
         int topMg = resources.getDimensionPixelSize(R.dimen.qs_header_info_marginTop);
         int topMgLand = resources.getDimensionPixelSize(R.dimen.qs_header_info_marginTopLandscape);
@@ -305,7 +297,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         int qqsHeight = mContext.getResources().getDimensionPixelSize(
                 R.dimen.qs_quick_header_panel_height);
 
-       setMinimumHeight(sbHeight + qqsHeight + 64 /* Fit bigger qs tiles */);
+       setMinimumHeight(sbHeight + qqsHeight);
     }
 
     private void updateResources() {
@@ -316,7 +308,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerView.getLayoutParams().height =
                 resources.getDimensionPixelSize(R.dimen.qs_header_tooltip_height);
         mHeaderTextContainerView.setLayoutParams(mHeaderTextContainerView.getLayoutParams());
-
+        
         updateStatusIconAlphaAnimator();
         updateHeaderTextContainerAlphaAnimator();
     }
@@ -405,14 +397,14 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public WindowInsets onApplyWindowInsets(WindowInsets insets) {
         Pair<Integer, Integer> padding = PhoneStatusBarView.cornerCutoutMargins(
                 insets.getDisplayCutout(), getDisplay());
-        if (padding == null) {
+        /*if (padding == null) {
             mSystemIconsView.setPaddingRelative(
                     getResources().getDimensionPixelSize(R.dimen.status_bar_padding_start), 0,
                     getResources().getDimensionPixelSize(R.dimen.status_bar_padding_end), 0);
         } else {
             mSystemIconsView.setPadding(padding.first, 0, padding.second, 0);
 
-        }
+        }*/
         return super.onApplyWindowInsets(insets);
     }
 
@@ -604,9 +596,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderQsPanel.setQSPanel(mQsPanel);
         mHeaderQsPanel.setHost(host, null /* No customization in header */);
 
-        // Use SystemUI context to get battery meter colors, and let it use the default tint (white)
+        // Use SystemUI context to get battery meter colors, and let it use the inverted default tint (dark)
         mBatteryMeterView.setColorsFromContext(mHost.getContext());
-        mBatteryMeterView.onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
+        int colorForeground = Utils.getColorAttr(getContext(), android.R.attr.colorForeground);
+        mBatteryMeterView.onDarkChanged(new Rect(), getColorIntensity(colorForeground), DarkIconDispatcher.INVERTED_DEFAULT_ICON_TINT);
+        mClockView.onDarkChanged(new Rect(), getColorIntensity(colorForeground), Utils.getColorAttr(getContext(), android.R.attr.textColorSecondary));
     }
 
     public void setCallback(Callback qsPanelCallback) {
@@ -631,7 +625,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void setMargins(int sideMargins) {
         for (int i = 0; i < getChildCount(); i++) {
             View v = getChildAt(i);
-            if (v == mSystemIconsView || v == mQuickQsStatusIcons || v == mHeaderQsPanel) {
+            if (v == mQuickQsStatusIcons || v == mHeaderQsPanel) {
                 continue;
             }
             RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) v.getLayoutParams();

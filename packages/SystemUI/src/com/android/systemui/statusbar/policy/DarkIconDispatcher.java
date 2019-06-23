@@ -38,6 +38,7 @@ public interface DarkIconDispatcher {
     void applyDark(DarkReceiver object);
 
     int DEFAULT_ICON_TINT = Color.WHITE;
+    int INVERTED_DEFAULT_ICON_TINT = Color.DKGRAY;
     Rect sTmpRect = new Rect();
     int[] sTmpInt2 = new int[2];
 

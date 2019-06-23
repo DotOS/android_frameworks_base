@@ -17,23 +17,29 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
        xmlns:app="http://schemas.android.com/apk/res-auto">->
-    
-    <LinearLayout
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
+        android:id="@+id/customize_container"
         android:layout_width="match_parent"
-        android:layout_height="@*android:dimen/quick_qs_offset_height"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/notification_side_paddings"
+        android:layout_marginEnd="@dimen/notification_side_paddings"
+        android:layout_marginTop="@dimen/notification_side_paddings"
+        android:orientation="vertical"
+        android:background="@drawable/qs_customizer_background">
         
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/qs_customizer_heads_bg">
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/qs_detail_toolbar">
 
             <ImageButton
                 android:id="@+id/qs_cust_back"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:layout_marginStart="12dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignTop="@id/qs_cust_title"
                 android:layout_alignBottom="@id/qs_cust_title"
                 android:background="@android:color/transparent"
@@ -45,7 +51,8 @@
                 android:id="@+id/qs_cust_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/qs_cust_back"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/qs_cust_back"
                 android:paddingStart="14dp"
                 android:paddingTop="3dp"
                 android:paddingEnd="14dp"
@@ -62,25 +69,15 @@
                 android:layout_height="22dp"
                 android:layout_alignTop="@id/qs_cust_title"
                 android:layout_alignBottom="@id/qs_cust_title"
-                android:layout_marginEnd="4dp"
-                android:layout_toEndOf="@id/qs_cust_title"
+                android:layout_marginEnd="12dp"
+                android:layout_alignParentEnd="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
                 android:tint="?android:attr/colorAccent"
                 android:src="@drawable/ic_settings" />
+                
         </RelativeLayout>
-
-    </LinearLayout>
-
-    <com.android.keyguard.AlphaOptimizedLinearLayout
-        android:id="@+id/customize_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="@dimen/notification_side_paddings"
-        android:layout_marginRight="@dimen/notification_side_paddings"
-        android:orientation="vertical"
-        android:background="@drawable/qs_customizer_background">
+        
         <Toolbar
             android:id="@*android:id/action_bar"
             android:layout_width="match_parent"
