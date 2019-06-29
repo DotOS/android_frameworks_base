@@ -83,4 +83,8 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Gaming mode is disabled in settings</string>
+    <string name="quick_settings_gaming_mode_label">Gaming mode</string>
 </resources>
