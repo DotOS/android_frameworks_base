@@ -667,6 +667,10 @@
     <!-- Added in R -->
     <protected-broadcast android:name="android.app.action.RESET_PROTECTION_POLICY_CHANGED" />
 
+    <!-- Gaming mode -->
+    <protected-broadcast android:name="android.intent.action.GAMING_MODE_TURN_OFF" />
+    <protected-broadcast android:name="android.intent.action.GAMING_MODE_TURN_ON" />
+
     <!-- For tether entitlement recheck-->
     <protected-broadcast
         android:name="com.android.server.connectivity.tethering.PROVISIONING_RECHECK_ALARM" />
