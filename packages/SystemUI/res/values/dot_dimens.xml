@@ -33,8 +33,8 @@
     <dimen name="qs_customizer_paddingBottom">28dp</dimen>
     <dimen name="qs_customizer_paddingTopLandscape">33dp</dimen> <!-- 21dp + qs_below_brightness_gap -->
     
-    <dimen name="qs_header_info_marginTop">12dp</dimen>
-    <dimen name="qs_header_info_marginTopLandscape">2dp</dimen>
+    <dimen name="qs_header_info_marginTop">24dp</dimen>
+    <dimen name="qs_header_info_marginTopLandscape">12dp</dimen>
 
    <!-- OPA -->
     <dimen name="halo_diameter">18.0dip</dimen>

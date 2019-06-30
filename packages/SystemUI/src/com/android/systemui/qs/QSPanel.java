@@ -101,7 +101,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mBrightnessView = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_dialog, this, false);
-        addSpace();
         mTileLayout = (QSTileLayout) LayoutInflater.from(mContext).inflate(
                 R.layout.qs_paged_tile_layout, this, false);
         mTileLayout.setListening(mListening);
@@ -296,7 +295,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     public void updateResources() {
         final Resources res = mContext.getResources();
-        setPadding(0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_top), 0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_bottom));
+        setPadding(0, 0, 0, res.getDimensionPixelSize(R.dimen.qs_panel_padding_bottom));
 
         updatePageIndicator();
 
