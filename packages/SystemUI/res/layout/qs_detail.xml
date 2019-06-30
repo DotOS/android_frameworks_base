@@ -29,7 +29,8 @@
         android:id="@+id/qs_detail_base_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="8dp"
+        android:clickable="true"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         android:background="@drawable/qs_detail_background">
     
