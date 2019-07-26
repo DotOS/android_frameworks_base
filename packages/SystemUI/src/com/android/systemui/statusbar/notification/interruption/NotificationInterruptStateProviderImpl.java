@@ -284,7 +284,8 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         boolean isImportantHeadsUp = false;
         String notificationPackageName = sbn.getPackageName();
         isImportantHeadsUp = notificationPackageName.equals(getDefaultDialerPackage(mTm))
-                || notificationPackageName.equals(getDefaultSmsPackage(mContext));
+                || notificationPackageName.equals(getDefaultSmsPackage(mContext))
+                || notificationPackageName.contains("clock");
         return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isImportantHeadsUp;
     }
 
