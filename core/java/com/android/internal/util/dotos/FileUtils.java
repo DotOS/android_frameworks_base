@@ -22,9 +22,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.NullPointerException;
+import java.lang.SecurityException;
 
 public final class FileUtils {
     private static final String TAG = "FileUtils";
@@ -63,6 +66,29 @@ public final class FileUtils {
         return line;
     }
 
+    public static String readLine(String filename) {
+        if (filename == null) {
+            return null;
+        }
+        BufferedReader br = null;
+        String line = null;
+        try {
+            br = new BufferedReader(new FileReader(filename), 1024);
+            line = br.readLine();
+        } catch (IOException e) {
+            return null;
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    // ignore
+                }
+            }
+        }
+        return line;
+    }
+
     /**
      * Writes the given value into the given file
      *
@@ -94,6 +120,27 @@ public final class FileUtils {
     }
 
     /**
+     * Write a string value to the specified file.
+     * @param filename      The filename
+     * @param value         The value
+     */
+    public static void writeValue(String filename, String value) {
+        if (filename == null) {
+            return;
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(new File(filename));
+            fos.write(value.getBytes());
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Checks whether the given file exists
      *
      * @return true if exists, false if not
@@ -108,7 +155,7 @@ public final class FileUtils {
      *
      * @return true if readable, false if not
      */
-    public static boolean isFileReadable(String fileName) {
+    public static boolean fileReadable(String fileName) {
         final File file = new File(fileName);
         return file.exists() && file.canRead();
     }
@@ -118,8 +165,59 @@ public final class FileUtils {
      *
      * @return true if writable, false if not
      */
-    public static boolean isFileWritable(String fileName) {
+    public static boolean fileWritable(String fileName) {
         final File file = new File(fileName);
         return file.exists() && file.canWrite();
+    }
+
+    /**
+     * Deletes an existing file
+     *
+     * @return true if the delete was successful, false if not
+     */
+    public static boolean delete(String fileName) {
+        final File file = new File(fileName);
+        boolean ok = false;
+        try {
+            ok = file.delete();
+        } catch (SecurityException e) {
+            Log.w(TAG, "SecurityException trying to delete " + fileName, e);
+        }
+        return ok;
+    }
+
+    /**
+     * Renames an existing file
+     *
+     * @return true if the rename was successful, false if not
+     */
+    public static boolean rename(String srcPath, String dstPath) {
+        final File srcFile = new File(srcPath);
+        final File dstFile = new File(dstPath);
+        boolean ok = false;
+        try {
+            ok = srcFile.renameTo(dstFile);
+        } catch (SecurityException e) {
+            Log.w(TAG, "SecurityException trying to rename " + srcPath + " to " + dstPath, e);
+        } catch (NullPointerException e) {
+            Log.e(TAG, "NullPointerException trying to rename " + srcPath + " to " + dstPath, e);
+        }
+        return ok;
+    }
+
+    public static boolean getFileValueAsBoolean(String filename, boolean defValue) {
+        String fileValue = readLine(filename);
+        if(fileValue!=null){
+            return (fileValue.equals("0")?false:true);
+        }
+        return defValue;
+    }
+
+    public static String getFileValue(String filename, String defValue) {
+        String fileValue = readLine(filename);
+        if(fileValue!=null){
+            return fileValue;
+        }
+        return defValue;
     }
 }
