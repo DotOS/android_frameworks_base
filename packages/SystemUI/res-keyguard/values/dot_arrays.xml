@@ -33,25 +33,25 @@
     </string-array>
     <string-array name="type_clock_minutes">
         <item>Saat</item>
-        <item>O’One</item>
-        <item>O’Two</item>
-        <item>O’Three</item>
-        <item>O’Four</item>
-        <item>O’Five</item>
-        <item>O’Six</item>
-        <item>O’Seven</item>
-        <item>O’Eight</item>
-        <item>O’Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
-        <item>Twelve</item>
-        <item>Thirteen</item>
-        <item>Fourteen</item>
-        <item>Fifteen</item>
-        <item>Sixteen</item>
-        <item>Seventeen</item>
-        <item>Eighteen</item>
-        <item>Nineteen</item>
+        <item>Saat Bir</item>
+        <item>Saat İki</item>
+        <item>Saat Üç</item>
+        <item>Saat Dört</item>
+        <item>Saat Beş</item>
+        <item>Saat Altı</item>
+        <item>Saat Yedi</item>
+        <item>Saat Sekiz</item>
+        <item>Saat Dokuz</item>
+        <item>On</item>
+        <item>On Bir</item>
+        <item>On İki</item>
+        <item>On Üç</item>
+        <item>On Dört</item>
+        <item>On Beş</item>
+        <item>On Altı</item>
+        <item>On Yedi</item>
+        <item>On Sekiz</item>
+        <item>On Dokuz</item>
         <item>Yirmi</item>
         <item>"Yirmi 
 Bir"</item>
@@ -109,24 +109,24 @@ Yedi"</item>
 Sekiz"</item>
         <item>"Kırk 
 Dokuz"</item>
-        <item>Fifty</item>
-        <item>"Fifty
-One"</item>
-        <item>"Fifty
-Two"</item>
-        <item>"Fifty
-Three"</item>
-        <item>"Fifty
-Four"</item>
-        <item>"Fifty
-Five"</item>
-        <item>"Fifty
-Six"</item>
-        <item>"Fifty
-Seven"</item>
-        <item>"Fifty
-Eight"</item>
-        <item>"Fifty
-Nine"</item>
+        <item>Elli</item>
+        <item>"Elli 
+Bir"</item>
+        <item>"Elli 
+İki"</item>
+        <item>"Elli 
+Üç"</item>
+        <item>"Elli 
+Dört"</item>
+        <item>"Elli 
+Beş"</item>
+        <item>"Elli 
+Altı"</item>
+        <item>"Elli 
+Yedi"</item>
+        <item>"Elli 
+Sekiz"</item>
+        <item>"Elli 
+Dokuz"</item>
     </string-array>
 </resources>
