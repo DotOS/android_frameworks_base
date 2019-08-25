@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.internal.util.cosmic;
+package com.android.internal.util.dotos;
 
 import android.content.Context;
 import android.graphics.Bitmap;

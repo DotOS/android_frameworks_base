@@ -147,6 +147,7 @@ import com.android.internal.statusbar.NotificationVisibility;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.utils.ActionConstants;
 import com.android.internal.utils.ActionUtils;
+import com.android.internal.util.dotos.ImageHelper;
 import com.android.internal.utils.SmartPackageMonitor;
 import com.android.internal.utils.SmartPackageMonitor.PackageChangedListener;
 import com.android.internal.utils.SmartPackageMonitor.PackageState;
@@ -1804,10 +1805,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                         artworkDrawable = new BitmapDrawable(ImageHelper.getColoredBitmap(aw, mContext.getResources().getColor(R.color.sammy_minutes_accent)));
                         break;
                     case 3:
-                        artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getBlurredImage(mContext, artworkBitmap, 7.0f));
+                        artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getBlurredImage(mContext, artworkBitmap, 25.0f));
                         break;
                     case 4:
-                        artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getGrayscaleBlurredImage(mContext, artworkBitmap, 7.0f));
+                        artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getGrayscaleBlurredImage(mContext, artworkBitmap, 25.0f));
                         break;
                     case 0:
                     default:
