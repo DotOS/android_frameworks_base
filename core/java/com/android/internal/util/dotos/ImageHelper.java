@@ -182,6 +182,18 @@ public class ImageHelper {
         return bitmap;
    }
 
+    public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image) {
+        return getGrayscaleBlurredImage(context, image, 3.5f);
+    }
+
+    public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image, float radius) {
+        Bitmap finalImage = Bitmap.createBitmap(
+                image.getWidth(), image.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        finalImage = toGrayscale(getBlurredImage(context, image, radius));
+        return finalImage;
+    }
+
     private static Bitmap RGB565toARGB888(Bitmap img) throws Exception {
         int numPixels = img.getWidth() * img.getHeight();
         int[] pixels = new int[numPixels];
