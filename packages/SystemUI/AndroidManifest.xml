@@ -229,6 +229,9 @@
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
 
+    <!-- QS Tiles -->
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
     <!-- Reboot -->
     <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER" />
