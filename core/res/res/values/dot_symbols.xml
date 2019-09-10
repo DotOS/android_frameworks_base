@@ -104,4 +104,8 @@
 
    <!-- Camera key type -->
    <java-symbol type="bool" name="config_singleStageCameraKey" />
-</resources>
+
+  <!-- Post reset runnable for all clients -->
+  <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
+
+</resources> 
