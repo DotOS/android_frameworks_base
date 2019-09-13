@@ -193,9 +193,6 @@
     <!-- The padding at start and end of indication text shown on AOD -->
     <dimen name="keyguard_indication_text_padding">16dp</dimen>
 
-    <!-- Shadows under the clock, date and other keyguard text fields -->
-    <dimen name="keyguard_shadow_radius">5</dimen>
-
     <!-- Minimum layouted height of a notification in the statusbar-->
     <dimen name="min_notification_layout_height">48dp</dimen>
 

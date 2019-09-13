@@ -59,9 +59,6 @@
 
     <color name="keyguard_affordance">#ffffffff</color>
 
-    <!-- Shadows under the clock, date and other keyguard text fields -->
-    <color name="keyguard_shadow_color">#B2000000</color>
-
     <!-- Color for rounded background for activated user in keyguard user switcher -->
     <color name="kg_user_switcher_activated_background_color">#26000000</color>
     <!-- Icon color for user avatars in keyguard user switcher -->
