@@ -27,6 +27,8 @@ import com.android.systemui.dagger.SystemUIDefaultModule;
 import com.android.systemui.dagger.SystemUIModule;
 import com.android.systemui.dagger.SystemUIRootComponent;
 
+import com.google.android.systemui.SystemUIGoogleModule;
+
 import javax.inject.Singleton;
 
 import dagger.BindsInstance;
@@ -44,6 +46,7 @@ import dagger.Component;
         SystemUIBinder.class,
         SystemUIModule.class,
         SystemUIDefaultModule.class,
+        SystemUIGoogleModule.class,
         TvSystemUIBinder.class})
 public interface TvSystemUIRootComponent extends SystemUIRootComponent {
     /**
