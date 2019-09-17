@@ -251,4 +251,11 @@
 
     <!-- Whether doze feature is enabled by default in settings -->
     <bool name="config_dozeDefaultEnabled">true</bool>
+
+    <!-- Smart charging -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
+    <string name="config_SmartChargingSuspendValue" translatable="false">0</string>
+    <string name="config_SmartChargingResumeValue" translatable="false">1</string>
+
 </resources>
