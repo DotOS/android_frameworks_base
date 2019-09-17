@@ -4941,6 +4941,13 @@ public final class Settings {
          */
         public static final String BATTERY_LIGHT_REALLYFULL_COLOR = "battery_light_reallyfull_color";
 
+        /**
+         * Dot Overlay Settings
+         * Holds custom overlay package names
+         * @hide
+         */
+        public static final String DOT_BUCKET_OVERLAY = "dot_bucket_overlay";
+
         /*
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
@@ -5084,6 +5091,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(FP_UNLOCK_KEYSTORE);
+            PRIVATE_SETTINGS.add(DOT_BUCKET_OVERLAY);
         }
 
         /**
