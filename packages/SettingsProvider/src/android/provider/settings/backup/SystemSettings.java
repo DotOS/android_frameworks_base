@@ -86,5 +86,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.VOLUME_PANEL_ON_LEFT,
         Settings.System.FULLSCREEN_GESTURES,
+        Settings.System.NAVIGATION_BAR_INVERSE,
     };
 }
