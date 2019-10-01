@@ -52,4 +52,7 @@
     <!-- statusbar icons -->
     <string name="statusbar_items_title">Statusbar icons</string>
 
+    <!-- Name of the volte status bar icon. -->
+    <string name="status_bar_volte">VoLTE</string>
+
 </resources>
