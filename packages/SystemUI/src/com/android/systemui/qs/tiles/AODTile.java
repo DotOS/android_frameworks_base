@@ -19,6 +19,8 @@ package com.android.systemui.qs.tiles;
 import android.annotation.Nullable;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
@@ -37,12 +39,17 @@ import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.R;
+import com.android.systemui.util.settings.SecureSettings;
 
 import javax.inject.Inject;
 
 public class AODTile extends QSTileImpl<BooleanState> {
     private boolean mAodDisabled;
+    private boolean mListening;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
+    private final SecureSettings mSecureSettings;
+
+    private final ContentObserver mObserver;
 
     @Inject
     public AODTile(
@@ -53,18 +60,22 @@ public class AODTile extends QSTileImpl<BooleanState> {
         MetricsLogger metricsLogger,
         StatusBarStateController statusBarStateController,
         ActivityStarter activityStarter,
-        QSLogger qsLogger
+        QSLogger qsLogger,
+        SecureSettings secureSettings
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
-        mAodDisabled = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON, 1) == 0;
+        mSecureSettings = secureSettings;
+        mObserver = new ContentObserver(mainHandler) {
+            @Override
+            public void onChange(boolean selfChange, Uri uri) {
+                refreshState();
+            }
+        };
     }
 
     @Override
     public boolean isAvailable() {
-        //final boolean deviceKeys = mContext.getResources().getBoolean(
-        //        com.android.internal.R.bool.config_showNavigationBar);
         return true;
     }
 
@@ -76,9 +87,8 @@ public class AODTile extends QSTileImpl<BooleanState> {
     @Override
     public void handleClick(@Nullable View view) {
         mAodDisabled = !mAodDisabled;
-        Settings.Secure.putInt(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON,
-                mAodDisabled ? 0 : 1);
+        mSecureSettings.putInt(Settings.Secure.DOZE_ALWAYS_ON,
+                mAodDisabled ? 0 : 1, UserHandle.USER_CURRENT);
         refreshState();
     }
 
@@ -97,6 +107,7 @@ public class AODTile extends QSTileImpl<BooleanState> {
         if (state.slash == null) {
             state.slash = new SlashState();
         }
+        mAodDisabled = mSecureSettings.getInt(Settings.Secure.DOZE_ALWAYS_ON, 1) == 0;
         state.icon = mIcon;
         state.value = mAodDisabled;
         state.slash.isSlashed = state.value;
@@ -115,6 +126,13 @@ public class AODTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleSetListening(boolean listening) {
-        // Do nothing
+        if (mListening != listening) {
+            mListening = listening;
+            if (listening) {
+                mSecureSettings.registerContentObserver(Settings.Secure.DOZE_ALWAYS_ON, mObserver);
+            } else {
+                mSecureSettings.unregisterContentObserver(mObserver);
+            }
+        }
     }
 }

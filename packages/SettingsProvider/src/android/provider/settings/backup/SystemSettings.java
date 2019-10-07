@@ -92,5 +92,6 @@ public class SystemSettings {
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.QS_SHOW_BATTERY_ESTIMATE,
         Settings.System.ENABLE_RIPPLE_EFFECT,
+        Settings.System.DOZE_ON_CHARGE,
     };
 }
