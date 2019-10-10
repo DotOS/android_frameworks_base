@@ -101,5 +101,8 @@ public class SystemSettings {
         Settings.System.ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
         Settings.System.ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
         Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA,
+        Settings.System.PULSE_AMBIENT_LIGHT,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT,
     };
 }

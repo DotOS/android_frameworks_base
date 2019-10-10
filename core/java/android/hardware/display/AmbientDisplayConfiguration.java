@@ -212,7 +212,7 @@ public class AmbientDisplayConfiguration {
      */
     @TestApi
     public boolean alwaysOnEnabled(int user) {
-        return alwaysOnEnabledSetting(user) || alwaysOnChargingEnabled(user);
+        return alwaysOnEnabledSetting(user) || alwaysOnChargingEnabled(user) || alwaysOnAmbientLightEnabled(user);
     }
 
     public boolean alwaysOnEnabledSetting(int user) {
@@ -230,6 +230,15 @@ public class AmbientDisplayConfiguration {
             if (intent != null) {
                 return intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0) != 0;
             }
+        }
+        return false;
+    }
+
+    public boolean alwaysOnAmbientLightEnabled(int user) {
+        final boolean ambientLightsEnabled = boolSettingSystem(Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED, user, 0);
+        if (ambientLightsEnabled) {
+            boolean ambientLightsActivated = boolSettingSystem(Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, user, 0);
+            return ambientLightsActivated && !accessibilityInversionEnabled(user) && alwaysOnAvailable();
         }
         return false;
     }
@@ -293,5 +302,9 @@ public class AmbientDisplayConfiguration {
 
     private boolean boolSetting(String name, int user, int def) {
         return Settings.Secure.getIntForUser(mContext.getContentResolver(), name, def, user) != 0;
+    }
+
+    private boolean boolSettingSystem(String name, int user, int def) {
+        return Settings.System.getIntForUser(mContext.getContentResolver(), name, def, user) != 0;
     }
 }

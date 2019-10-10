@@ -137,4 +137,7 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <bool name="config_allowMediaUidForCameraServiceProxy">false</bool>
+
+    <!-- Default value for Ambient Pulse light color -->
+    <integer name="config_AmbientPulseLightColor">0x3980FF</integer>
 </resources>
