@@ -5606,6 +5606,12 @@ public final class Settings {
         public static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
 
         /**
+         * Use doubletap as doze pulse triggers
+         * @hide
+         */
+        public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
