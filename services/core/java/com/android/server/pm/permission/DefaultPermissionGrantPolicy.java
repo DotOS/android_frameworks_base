@@ -900,6 +900,9 @@ final class DefaultPermissionGrantPolicy {
                 ALWAYS_LOCATION_PERMISSIONS, NEARBY_DEVICES_PERMISSIONS, PHONE_PERMISSIONS, SMS_PERMISSIONS,
                 STORAGE_PERMISSIONS);
 
+        // Customizations
+        grantSystemFixedPermissionsToSystemPackage(pm, "com.dot.customizations", userId, STORAGE_PERMISSIONS);
+
         // Google Connectivity Services
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.apps.gcs", userId, ALWAYS_LOCATION_PERMISSIONS);
 
