@@ -18,4 +18,7 @@
     <!-- Shows the required view for in-display fingerprint --> 
     <bool name="config_supportsInDisplayFingerprint">false</bool>
 
+    <!-- Defines the sysfs attribute path used by pocket bridge
+    to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
 </resources>
