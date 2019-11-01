@@ -410,7 +410,7 @@ easier.
         <item name="fontFamily">@string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.DeviceDefault.ListItem" parent="TextAppearance.DeviceDefault.Subhead">
-        <item name="fontFamily">@string/config_headlineFontFamily</item>
+        <item name="fontFamily">@string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.DeviceDefault.ListItemSecondary" parent="TextAppearance.DeviceDefault.Body1"/>
 
