@@ -8499,7 +8499,7 @@ public class PackageManagerService extends IPackageManager.Stub
         // identify cached items. In particular, changing the value of certain
         // feature flags should cause us to invalidate any caches.
         final String cacheName = FORCE_PACKAGE_PARSED_CACHE_ENABLED ? "debug"
-                : SystemProperties.digestOf("ro.build.fingerprint");
+                : SystemProperties.digestOf("ro.build.date");
 
         // Reconcile cache directories, keeping only what we'd actually use.
         for (File cacheDir : FileUtils.listFilesOrEmpty(cacheBaseDir)) {
