@@ -78,7 +78,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
 
-    private int mDreamingOffsetX;
     private int mDreamingOffsetY;
 
     private int mColor;
@@ -507,7 +506,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         mPressedParams.y = mParams.y = y;
 
         if (mIsDreaming) {
-            mParams.x += mDreamingOffsetX;
             mParams.y += mDreamingOffsetY;
             mFODAnimation.updateParams(mParams.y);
         }
@@ -572,18 +570,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         public void run() {
             long now = System.currentTimeMillis() / 1000 / 60;
 
-            mDreamingOffsetX = (int) (now % (mDreamingMaxOffset * 4));
-            if (mDreamingOffsetX > mDreamingMaxOffset * 2) {
-                mDreamingOffsetX = mDreamingMaxOffset * 4 - mDreamingOffsetX;
-            }
-
             // Let y to be not synchronized with x, so that we get maximum movement
             mDreamingOffsetY = (int) ((now + mDreamingMaxOffset / 3) % (mDreamingMaxOffset * 2));
-            if (mDreamingOffsetY > mDreamingMaxOffset * 2) {
-                mDreamingOffsetY = mDreamingMaxOffset * 4 - mDreamingOffsetY;
-            }
-
-            mDreamingOffsetX -= mDreamingMaxOffset;
             mDreamingOffsetY -= mDreamingMaxOffset;
 
             mHandler.post(() -> updatePosition());
