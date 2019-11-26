@@ -138,4 +138,11 @@
     <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
     <string name="quick_settings_aod_off_label">AOD off</string>
     <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
+
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Switch data card</string>
+    <string name="qs_data_switch_toast_0">Currently no SIM card is inserted</string>
+    <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
+    <string name="qs_data_switch_changed_1">Switch data card to SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Switch data card to SIM 2.</string>
 </resources>
