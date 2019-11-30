@@ -46,4 +46,7 @@
     <dimen name="status_bar_mobile_type_height">8dp</dimen>
     <dimen name="status_bar_mobile_type_padding">2dp</dimen>
     <dimen name="status_bar_mobile_type_padding_limit">10dp</dimen>
+
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
 </resources>
