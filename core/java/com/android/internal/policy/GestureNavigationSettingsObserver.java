@@ -71,6 +71,9 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
                 DeviceConfig.NAMESPACE_SYSTEMUI,
                 runnable -> mMainHandler.post(runnable),
                 mOnPropertiesChangedListener);
+        r.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.EDGE_GESTURE_Y_DEAD_ZONE),
+                false, this, UserHandle.USER_ALL);
     }
 
     public void unregister() {
@@ -113,5 +116,27 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
         final float scale = Settings.Secure.getFloatForUser(
                 mContext.getContentResolver(), side, 1.0f, UserHandle.USER_CURRENT);
         return (int) (inset * scale);
+    }
+
+    public int getDeadZoneMode() {
+        int mode = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.EDGE_GESTURE_Y_DEAD_ZONE, 0,
+            UserHandle.USER_CURRENT);
+        int divider = 0;
+        switch (mode) {
+            default:
+                divider = 0; // mode set to 0, back gesture working on the whole edge
+                break;
+            case 1: // mode set to 1
+                divider = 4;
+                break;
+            case 2: // mode set to 2
+                divider = 3;
+                break;
+            case 3: // mode set to 3, back gesture working only in the half bottom edge
+                divider = 2;
+                break;
+        }
+        return divider;
     }
 }
