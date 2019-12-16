@@ -93,5 +93,6 @@ public class SystemSettings {
         Settings.System.QS_SHOW_BATTERY_ESTIMATE,
         Settings.System.ENABLE_RIPPLE_EFFECT,
         Settings.System.DOZE_ON_CHARGE,
+        Settings.System.FLASHLIGHT_ON_CALL,
     };
 }
