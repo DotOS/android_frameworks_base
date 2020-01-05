@@ -88,4 +88,8 @@
 
     <!-- Whether device supports an alt. ambient display -->
     <java-symbol type="bool" name="config_alt_ambient_display"/>
+
+    <!-- Light / Regular style fonts -->
+    <java-symbol type="string" name="config_lightFontFamily" />
+    <java-symbol type="string" name="config_regularFontFamily" />
 </resources>
