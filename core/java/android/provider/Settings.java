@@ -5099,12 +5099,6 @@ public final class Settings {
          */
         public static final String POCKET_JUDGE = "pocket_judge";
 
-        /**
-         * FOD recognizing animation
-         * @hide
-         */
-        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
-
 	/**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
@@ -5128,6 +5122,12 @@ public final class Settings {
          * @hide
          */
         public static final String FOD_ICON_ANIMATION = "fod_icon_animation";
+
+        /**
+         * FOD recognizing animation
+         * @hide
+         */
+        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
 
         /**
          * How many rows to show in the qs panel when in portrait
