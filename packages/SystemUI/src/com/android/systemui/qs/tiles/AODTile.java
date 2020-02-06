@@ -33,21 +33,22 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
-import com.android.systemui.plugins.qs.QSTile.BooleanState;
+import com.android.systemui.plugins.qs.QSTile.State;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.R;
 import com.android.systemui.util.settings.SecureSettings;
+import com.android.systemui.util.settings.SystemSettings;
 
 import javax.inject.Inject;
 
-public class AODTile extends QSTileImpl<BooleanState> {
-    private boolean mAodDisabled;
+public class AODTile extends QSTileImpl<State> {
     private boolean mListening;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
     private final SecureSettings mSecureSettings;
+    private final SystemSettings mSystemSettings;
 
     private final ContentObserver mObserver;
 
@@ -61,17 +62,27 @@ public class AODTile extends QSTileImpl<BooleanState> {
         StatusBarStateController statusBarStateController,
         ActivityStarter activityStarter,
         QSLogger qsLogger,
-        SecureSettings secureSettings
+        SecureSettings secureSettings,
+        SystemSettings systemSettings
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
         mSecureSettings = secureSettings;
+        mSystemSettings = systemSettings;
         mObserver = new ContentObserver(mainHandler) {
             @Override
             public void onChange(boolean selfChange, Uri uri) {
                 refreshState();
             }
         };
+    }
+
+    private int getAodState() {
+        int aodState = mSecureSettings.getInt(Settings.Secure.DOZE_ALWAYS_ON, 0);
+        if (aodState == 0) {
+            aodState = mSystemSettings.getInt(Settings.System.DOZE_ON_CHARGE, 0) == 1 ? 2 : 0;
+        }
+        return aodState;
     }
 
     @Override
@@ -81,15 +92,20 @@ public class AODTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    public BooleanState newTileState() {
-        return new BooleanState();
+    public State newTileState() {
+        return new State();
     }
 
     @Override
     public void handleClick(@Nullable View view) {
-        mAodDisabled = !mAodDisabled;
-        mSecureSettings.putInt(Settings.Secure.DOZE_ALWAYS_ON,
-                mAodDisabled ? 0 : 1, UserHandle.USER_CURRENT);
+        int aodState = getAodState();
+        if (aodState < 2) {
+            aodState++;
+        } else {
+            aodState = 0;
+        }
+        mSecureSettings.putInt(Settings.Secure.DOZE_ALWAYS_ON, aodState == 2 ? 0 : aodState);
+        mSystemSettings.putInt(Settings.System.DOZE_ON_CHARGE, aodState == 2 ? 1 : 0);
         refreshState();
     }
 
@@ -100,24 +116,21 @@ public class AODTile extends QSTileImpl<BooleanState> {
 
     @Override
     public CharSequence getTileLabel() {
-        return mContext.getString(R.string.quick_settings_aod_label);
+        switch (getAodState()) {
+            case 1:
+                return mContext.getString(R.string.quick_settings_aod_label);
+            case 2:
+                return mContext.getString(R.string.quick_settings_aod_on_charge_label);
+            default:
+                return mContext.getString(R.string.quick_settings_aod_off_label);
+        }
     }
 
     @Override
-    protected void handleUpdateState(BooleanState state, Object arg) {
-        if (state.slash == null) {
-            state.slash = new SlashState();
-        }
-        mAodDisabled = mSecureSettings.getInt(Settings.Secure.DOZE_ALWAYS_ON, 1) == 0;
+    protected void handleUpdateState(State state, Object arg) {
         state.icon = mIcon;
-        state.value = mAodDisabled;
-        state.slash.isSlashed = state.value;
-        state.label = mContext.getString(R.string.quick_settings_aod_label);
-        if (mAodDisabled) {
-            state.state = Tile.STATE_INACTIVE;
-        } else {
-            state.state = Tile.STATE_ACTIVE;
-        }
+        state.label = getTileLabel();
+        state.state = getAodState() == 0 ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE;
     }
 
     @Override
