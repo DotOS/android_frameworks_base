@@ -9,11 +9,14 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.android.systemui.Dependency;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.StatusIconDisplayable;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, StatusIconDisplayable {
 
@@ -21,6 +24,9 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
     private int mVisibleState = -1;
     private boolean mTrafficVisible = false;
     private boolean mSystemIconVisible = true;
+
+    private final KeyguardMonitor mKeyguard;
+    private final KeyguardCallback mKeyguardCallback = new KeyguardCallback();
 
     /*
      *  @hide
@@ -41,17 +47,20 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
      */
     public NetworkTrafficSB(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        mKeyguard = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        mKeyguard.addCallback(mKeyguardCallback);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        mKeyguard.removeCallback(mKeyguardCallback);
         Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(this);
     }
 
@@ -122,7 +131,7 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
 
     @Override
     protected void makeVisible() {
-        setVisibility(mSystemIconVisible ? View.VISIBLE : View.GONE);
+        setVisibility(mSystemIconVisible && !mKeyguard.isShowing() ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -135,4 +144,11 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
     @Override
     public void setDecorColor(int color) {
     }
+
+    private final class KeyguardCallback implements KeyguardMonitor.Callback {
+        @Override
+        public void onKeyguardShowingChanged() {
+            update();
+        }
+    };
 }
