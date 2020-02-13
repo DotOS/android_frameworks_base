@@ -6195,13 +6195,21 @@ public final class Settings {
          * Whether to use accent color for pulse
          * @hide
          */
+        @Readable
         public static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
 
         /**
          * Pulse Ambient lights color
          * @hide
          */
+        @Readable
         public static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
 
         /**
          * Whether Ambient Edge lights are activated
