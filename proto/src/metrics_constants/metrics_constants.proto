@@ -7440,6 +7440,9 @@ message MetricsEvent {
     CUSTOM_TILE = 9998;
     CUSTOM = 9999;
 
+    // Panel for Mobile Data
+    PANEL_MOBILE_DATA = 2002;
+
   }
 }
 
