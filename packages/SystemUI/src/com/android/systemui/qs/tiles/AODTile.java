@@ -39,12 +39,14 @@ import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.R;
+import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.util.settings.SecureSettings;
 import com.android.systemui.util.settings.SystemSettings;
 
 import javax.inject.Inject;
 
-public class AODTile extends QSTileImpl<State> {
+public class AODTile extends QSTileImpl<State> implements
+        BatteryController.BatteryStateChangeCallback {
     private boolean mListening;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
     private final SecureSettings mSecureSettings;
@@ -52,9 +54,10 @@ public class AODTile extends QSTileImpl<State> {
 
     private final ContentObserver mObserver;
 
+    private final BatteryController mBatteryController;
+
     private static final ComponentName LS_DISPLAY_SETTINGS_COMPONENT = new ComponentName(
             "com.android.settings", "com.android.settings.Settings$LockscreenDashboardActivity");
-
     private static final Intent LS_DISPLAY_SETTINGS =
             new Intent().setComponent(LS_DISPLAY_SETTINGS_COMPONENT);
 
@@ -69,7 +72,8 @@ public class AODTile extends QSTileImpl<State> {
         ActivityStarter activityStarter,
         QSLogger qsLogger,
         SecureSettings secureSettings,
-        SystemSettings systemSettings
+        SystemSettings systemSettings,
+        BatteryController batteryController
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
@@ -81,6 +85,13 @@ public class AODTile extends QSTileImpl<State> {
                 refreshState();
             }
         };
+        mBatteryController = batteryController;
+        batteryController.observe(getLifecycle(), this);
+    }
+
+    @Override
+    public void onPowerSaveChanged(boolean isPowerSave) {
+        refreshState();
     }
 
     private int getAodState() {
@@ -122,6 +133,9 @@ public class AODTile extends QSTileImpl<State> {
 
     @Override
     public CharSequence getTileLabel() {
+        if (mBatteryController.isAodPowerSave()) {
+            return mContext.getString(R.string.quick_settings_aod_off_powersave_label);
+        }
         switch (getAodState()) {
             case 1:
                 return mContext.getString(R.string.quick_settings_aod_label);
@@ -136,7 +150,11 @@ public class AODTile extends QSTileImpl<State> {
     protected void handleUpdateState(State state, Object arg) {
         state.icon = mIcon;
         state.label = getTileLabel();
-        state.state = getAodState() == 0 ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE;
+        if (mBatteryController.isAodPowerSave()) {
+            state.state = Tile.STATE_UNAVAILABLE;
+        } else {
+            state.state = getAodState() == 0 ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE;
+        }
     }
 
     @Override
