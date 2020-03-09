@@ -37,7 +37,7 @@ public class FODAnimation extends ImageView {
     private boolean mShowing = false;
     private Context mContext;
     private int mAnimationSize;
-    private int mAnimationPositionY;
+    private int mAnimationOffset;
     private AnimationDrawable recognizingAnim;
     private WindowManager mWindowManager;
     private boolean mIsKeyguard;
@@ -83,6 +83,7 @@ public class FODAnimation extends ImageView {
         mWindowManager = mContext.getSystemService(WindowManager.class);
         mFodAnimationPackage = mContext.getResources().getString(com.android.internal.R.string.config_fodAnimationPackage);
         mAnimationSize = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size);
+        mAnimationOffset = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_offset);
         mAnimParams.height = mAnimationSize;
         mAnimParams.width = mAnimationSize;
 
@@ -91,7 +92,7 @@ public class FODAnimation extends ImageView {
         mAnimParams.flags =  WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
         mAnimParams.gravity = Gravity.TOP | Gravity.CENTER;
-        mAnimParams.y = mPositionY - (mAnimationSize / 2);
+        mAnimParams.y = mPositionY - (mAnimationSize / 2) + mAnimationOffset;
 
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
@@ -130,7 +131,7 @@ public class FODAnimation extends ImageView {
     }
 
     public void updateParams(int mDreamingOffsetY) {
-        mAnimParams.y = mDreamingOffsetY - (mAnimationSize / 2);
+        mAnimParams.y = mDreamingOffsetY - (mAnimationSize / 2) + mAnimationOffset;
     }
 
     public void setAnimationKeyguard(boolean state) {
