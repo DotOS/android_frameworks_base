@@ -33,6 +33,8 @@ import com.android.internal.R;
 @TestApi
 public class AmbientDisplayConfiguration {
 
+    public static final String DOZE_NO_PROXIMITY_CHECK = "NoProximityCheck";
+
     private final Context mContext;
     private final boolean mAlwaysOnByDefault;
 

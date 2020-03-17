@@ -16,6 +16,8 @@
 
 package com.android.systemui.doze;
 
+import static android.hardware.display.AmbientDisplayConfiguration.DOZE_NO_PROXIMITY_CHECK;
+
 import android.annotation.Nullable;
 import android.app.AlarmManager;
 import android.app.UiModeManager;
@@ -530,8 +532,8 @@ public class DozeTriggers implements DozeMachine.Part {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (PULSE_ACTION.equals(intent.getAction())) {
-                if (DozeMachine.DEBUG) Log.d(TAG, "Received pulse intent");
-                requestPulse(DozeLog.PULSE_REASON_INTENT, false, /* performedProxCheck */
+                final int noProxCheck = intent.getIntExtra(DOZE_NO_PROXIMITY_CHECK, 0);
+                requestPulse(DozeLog.PULSE_REASON_INTENT, noProxCheck == 1, /* performedProxCheck */
                         null /* onPulseSupressedListener */);
             }
             if (UiModeManager.ACTION_ENTER_CAR_MODE.equals(intent.getAction())) {
