@@ -108,4 +108,6 @@
   <!-- Post reset runnable for all clients -->
   <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
 
-</resources> 
+  <!-- Enable face auth only when swiping security view -->
+  <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
+</resources>
