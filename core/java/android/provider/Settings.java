@@ -9748,6 +9748,13 @@ public final class Settings {
          */
         public static final String WINDOW_MAGNIFICATION = "window_magnification";
 
+
+        /**
+         * Whether face unlock is allowed only on security view.
+         * @hide
+         */
+        public static final String FACE_UNLOCK_ALWAYS_REQUIRE_SWIPE = "face_unlock_always_require_swipe";
+
         /**
          * Controls magnification mode when magnification is enabled via a system-wide
          * triple tap gesture or the accessibility shortcut.
