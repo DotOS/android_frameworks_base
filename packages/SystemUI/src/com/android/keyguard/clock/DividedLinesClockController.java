@@ -86,6 +86,11 @@ public class DividedLinesClockController implements ClockPlugin {
     private View mBottomLine;
 
     /**
+     * Helper to extract colors from wallpaper palette for clock face.
+     */
+    private final ClockPalette mPalette = new ClockPalette();
+
+    /**
      * Create a DefaultClockController instance.
      *
      * @param res Resources contains title and thumbnail.
@@ -174,11 +179,19 @@ public class DividedLinesClockController implements ClockPlugin {
 
     @Override
     public void setTextColor(int color) {
-        mClock.setTextColor(color);
+        updateColor();
     }
 
     @Override
-    public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {}
+    public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {
+        mPalette.setColorPalette(supportsDarkText, colorPalette);
+        updateColor();
+    }
+
+    private void updateColor() {
+        final int primary = mPalette.getPrimaryColor();
+        final int secondary = mPalette.getSecondaryColor();
+    }
 
     @Override
     public void onTimeTick() {
