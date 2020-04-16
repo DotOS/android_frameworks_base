@@ -73,6 +73,11 @@ public class SfunyClockController implements ClockPlugin {
     private TextClock mMinuteClock;
 
     /**
+     * Controller for transition into dark state.
+     */
+    private CrossFadeDarkController mDarkController;
+
+    /**
      * Create a DefaultClockController instance.
      *
      * @param res Resources contains title and thumbnail.
@@ -171,6 +176,9 @@ public class SfunyClockController implements ClockPlugin {
     @Override
     public void setDarkAmount(float darkAmount) {
         mView.setDarkAmount(darkAmount);
+        if (mDarkController != null) {
+            mView.setDarkAmount(darkAmount);
+        }
     }
 
     @Override
