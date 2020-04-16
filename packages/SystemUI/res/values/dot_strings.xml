@@ -53,6 +53,9 @@
     <!-- statusbar icons -->
     <string name="statusbar_items_title">Statusbar icons</string>
 
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
+    <string name="status_bar_location">Location</string>
+
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
 
