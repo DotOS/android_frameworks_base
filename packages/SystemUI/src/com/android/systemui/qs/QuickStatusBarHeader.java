@@ -18,6 +18,7 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_CIRCLE;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE;
+import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_FULL_CIRCLE;
 
 import android.content.Context;
 import android.content.Intent;
@@ -334,8 +335,9 @@ public class QuickStatusBarHeader extends FrameLayout implements
             if (mTintedIconManager != null) {
                 mTintedIconManager.setTint(textColor);
             }
-            if ((mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_CIRCLE)
-                    || (mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_DOTTED_CIRCLE)) {
+            if (mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_CIRCLE
+                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_DOTTED_CIRCLE
+                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_FULL_CIRCLE) {
                 textColorSecondary = Utils.getColorAttrDefaultColor(mContext,
                         android.R.attr.textColorHint);
             }

@@ -55,7 +55,9 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_CIRCLE = 1;
-    private static final int BATTERY_STYLE_TEXT = 2;
+    private static final int BATTERY_STYLE_DOTTED_CIRCLE = 2;
+    private static final int BATTERY_STYLE_FULL_CIRCLE = 3;
+    private static final int BATTERY_STYLE_TEXT = 4;
 
     private int mBatteryStyle = BATTERY_STYLE_PORTRAIT;
     private boolean mBatteryHidden;
