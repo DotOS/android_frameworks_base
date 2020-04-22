@@ -378,6 +378,10 @@ public class DozeTriggers implements DozeMachine.Part {
 
     @Override
     public void transitionTo(DozeMachine.State oldState, DozeMachine.State newState) {
+
+        boolean screenOffFod = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_GESTURE, 0) != 0;
+
         switch (newState) {
             case INITIALIZED:
                 mBroadcastReceiver.register(mBroadcastDispatcher);
@@ -393,6 +397,10 @@ public class DozeTriggers implements DozeMachine.Part {
                 mWantTouchScreenSensors = true;
                 if (newState == DozeMachine.State.DOZE_AOD && !sWakeDisplaySensorState) {
                     onWakeScreen(false, newState);
+                }
+                if (screenOffFod) {
+                    mDozeSensors.setProxListening(false);
+                    mDozeSensors.setListening(false);
                 }
                 break;
             case DOZE_AOD_PAUSED:
