@@ -6,12 +6,12 @@ import static com.android.systemui.statusbar.StatusBarIconView.STATE_ICON;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.text.style.RelativeSizeSpan;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.android.systemui.Dependency;
+import com.android.systemui.R;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.StatusIconDisplayable;
@@ -22,7 +22,6 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
     private int mVisibleState = -1;
     private boolean mTrafficVisible = false;
     private boolean mSystemIconVisible = true;
-    private boolean mStatusbarExpanded;
     private boolean mKeyguardShowing;
 
     /*
@@ -59,30 +58,8 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
     }
 
     @Override
-    protected void setMode() {
-        super.setMode();
-        mIsEnabled = mIsEnabled && !Utils.hasNotch(mContext);
-    }
-
-    @Override
-    protected void setSpacingAndFonts() {
-        setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-        setLineSpacing(0.75f, 0.75f);
-    }
-
-    @Override
-    protected RelativeSizeSpan getSpeedRelativeSizeSpan() {
-        return new RelativeSizeSpan(0.75f);
-    }
-
-    @Override
-    protected RelativeSizeSpan getUnitRelativeSizeSpan() {
-        return new RelativeSizeSpan(0.7f);
-    }
-
-    @Override
     public void onDarkChanged(Rect area, float darkIntensity, int tint) {
-        if (!mIsEnabled) return;
+        if (!mIsEnabled || mLocation == 1) return;
         mTintColor = DarkIconDispatcher.getTint(area, this, tint);
         setTextColor(mTintColor);
         updateTrafficDrawable();
@@ -95,7 +72,7 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
 
     @Override
     public boolean isIconVisible() {
-        return mIsEnabled;
+        return mIsEnabled && mLocation == 0;
     }
 
     @Override
@@ -125,7 +102,7 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
 
     @Override
     protected void makeVisible() {
-        boolean show = !mStatusbarExpanded && mSystemIconVisible && !mKeyguardShowing;
+        boolean show = mSystemIconVisible && !mKeyguardShowing && mLocation == 0;
         setVisibility(show ? View.VISIBLE
                 : View.GONE);
         mVisible = show;
@@ -142,34 +119,30 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
     public void setDecorColor(int color) {
     }
 
-    public void onPanelExpanded(boolean isExpanded) {
-        mStatusbarExpanded = isExpanded;
-        if (isExpanded) {
-          setVisibility(View.GONE);
-          mVisible = false;
-        } else {
-            maybeRestoreVisibility();
-        }
+    @Override
+    protected void updateTrafficDrawable() {
+        Drawable d = getContext().getDrawable(R.drawable.stat_sys_network_traffic_spacer);
+        setCompoundDrawablesWithIntrinsicBounds(null, null, d, null);
+        setTextColor(mTintColor);
     }
 
     public void setKeyguardShowing(boolean showing) {
         mKeyguardShowing = showing;
         if (showing) {
-          setVisibility(View.GONE);
-          mVisible = false;
+            setVisibility(View.GONE);
+            mVisible = false;
         } else {
             maybeRestoreVisibility();
         }
     }
 
     private void maybeRestoreVisibility() {
-        if (!mVisible && mIsEnabled && !mStatusbarExpanded && !mKeyguardShowing && mSystemIconVisible
-           && restoreViewQuickly()) {
-          setVisibility(View.VISIBLE);
-          mVisible = true;
-          // then let the traffic handler do its checks
-          update();
+        if (!mVisible && mIsEnabled && mLocation == 0 && !mKeyguardShowing &&
+                mSystemIconVisible && restoreViewQuickly()) {
+            setVisibility(View.VISIBLE);
+            mVisible = true;
+            // then let the traffic handler do its checks
+            update();
         }
-  
     }
 }
