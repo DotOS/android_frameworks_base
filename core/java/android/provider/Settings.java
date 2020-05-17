@@ -6265,6 +6265,12 @@ public final class Settings {
         public static final String AMBIENT_LIGHT_LAYOUT = "ambient_light_layout";
 
         /**
+         * Width of Ambient edge light in px
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_WIDTH = "pulse_ambient_light_width";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
