@@ -273,7 +273,7 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                     }
                     if (estimate != null) {
                         if (mBatteryPercentView != null) {
-                            mBatteryPercentView.setText(estimate);
+                            batteryPercentViewSetText(estimate);
                         }
                         setContentDescription(getContext().getString(
                                 R.string.accessibility_battery_level_with_estimate,
@@ -299,7 +299,7 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         // only use it when there is no batt icon showing
         String indication = mCharging && (mBatteryStyle == BATTERY_STYLE_TEXT)
                 ? "\u26A1\uFE0E " : "";
-        mBatteryPercentView.setText(indication +
+        batteryPercentViewSetText(indication +
                 NumberFormat.getPercentInstance().format(mLevel / 100f));
         setContentDescription(
                 getContext().getString(mCharging ? R.string.accessibility_battery_level_charging
@@ -349,6 +349,13 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                 removeView(mBatteryPercentView);
                 mBatteryPercentView = null;
             }
+        }
+    }
+
+    private void batteryPercentViewSetText(CharSequence text) {
+        CharSequence currentText = mBatteryPercentView.getText();
+        if (!currentText.toString().equals(text.toString())) {
+            mBatteryPercentView.setText(text);
         }
     }
 
