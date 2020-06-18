@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="@dimen/status_bar_wifi_signal_size"
+    android:width="@dimen/status_bar_wifi_signal_size"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#000000"
+        android:pathData="M5,19.0577L2.5,21.8861L0,19.0577L5,19.0577ZM2.5,13.8861L5,16.7146L0,16.7146L2.5,13.8861Z"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:fillType="evenOdd"/>
+</vector>
