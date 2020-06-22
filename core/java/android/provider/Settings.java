@@ -5600,6 +5600,12 @@ public final class Settings {
         public static final String SHOW_VOLTE_ICON = "show_volte_icon";
 
         /**
+         * Whether to show VoWiFi icon or not
+         * @hide
+         */
+        public static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
