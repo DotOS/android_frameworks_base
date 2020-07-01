@@ -125,7 +125,6 @@ public class MediaActionSound {
                 .setMaxStreams(NUM_MEDIA_SOUND_STREAMS)
                 .setAudioAttributes(new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                    .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build())
                 .build();
