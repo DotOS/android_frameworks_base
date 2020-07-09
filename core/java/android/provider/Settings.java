@@ -5130,6 +5130,12 @@ public final class Settings {
         public static final String FOD_ANIM = "fod_anim";
 
         /**
+         * Screen off fod
+         * @hide
+         */
+        public static final String FOD_GESTURE = "fod_gesture";
+
+        /**
          * FOD recognizing animation
          * @hide
          */
