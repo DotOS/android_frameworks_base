@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.clock.ClockLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|top">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:gravity="center">
+
+        <TextClock
+            android:id="@+id/clockampm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:layout_marginBottom="-10dp"
+            android:padding="0dp"
+            android:format12Hour="a"
+            android:format24Hour="a"
+            android:textColor="?attr/wallpaperTextColor"
+            android:textSize="16sp" />
+
+        <TextClock
+            android:id="@+id/clockHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
+            android:gravity="right"
+            android:textColor="#ffffff"
+            android:format12Hour="hh"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:layout_marginBottom="-10dp"
+            android:lineSpacingExtra="-8dp"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:format24Hour="kk"
+            android:textSize="62sp" />
+
+        <TextClock
+            android:id="@+id/clockMinute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:format12Hour="mm"
+            android:padding="0dp"
+            android:lineSpacingExtra="-8dp"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
+            android:layout_marginTop="-5dp"
+            android:maxLines="1"
+            android:format24Hour="mm"
+            android:textColor="?attr/wallpaperTextColor"
+            android:textSize="56sp" />
+
+    </LinearLayout>
+</com.android.keyguard.clock.ClockLayout>

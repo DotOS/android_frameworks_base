@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/date"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextClock
+            android:id="@+id/clockampm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
+            android:format12Hour="a"
+            android:format24Hour="a"
+            style="@style/widget_big"
+            android:textColor="?attr/wallpaperTextColor"
+            android:textSize="38sp"
+            />
+
+        <TextClock
+            android:id="@+id/clockHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/clockampm"
+            android:textStyle="bold"
+            android:gravity="right"
+            android:textColor="#ffffff"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
+            android:format12Hour="hh"
+            android:format24Hour="kk"
+            style="@style/widget_big"
+            android:textSize="62sp" />
+
+        <TextClock
+            android:id="@+id/clockMinute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
+            android:paddingLeft="4dp"
+            android:format12Hour="mm"
+            android:format24Hour="mm"
+            android:layout_below="@id/clockHour"
+            style="@style/widget_big"
+            android:textColor="?attr/wallpaperTextColor"
+            android:textSize="56sp" />
+
+    </RelativeLayout>
+
+    <TextClock
+        android:id="@+id/date"
+        style="@stype/widget_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@*android:string/config_bodyFontFamily"
+        android:letterSpacing="0.03"
+        android:gravity="center_horizontal"
+        android:format12Hour="EEE, MMM d"
+        android:format24Hour="EEE, MMM d" />
+</RelativeLayout>
