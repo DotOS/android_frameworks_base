@@ -52,4 +52,7 @@
 
     <!-- Whether device supports gaming mode profiles -->
     <java-symbol type="bool" name="config_gamingmode_performance" />
+
+    <!-- Cycle through ringer modes -->
+    <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
 </resources>
