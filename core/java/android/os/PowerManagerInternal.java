@@ -17,6 +17,7 @@
 package android.os;
 
 import android.view.Display;
+import android.view.KeyEvent;
 
 import java.util.function.Consumer;
 
@@ -325,4 +326,6 @@ public abstract class PowerManagerInternal {
     public abstract void setFeature(int featureId, int data);
 
     public abstract int getFeature(int featureId);
+    /** Allows power button to intercept a power key button press. */
+    public abstract boolean interceptPowerKeyDown(KeyEvent event);
 }
