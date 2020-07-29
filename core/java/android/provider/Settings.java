@@ -5066,6 +5066,12 @@ public final class Settings {
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
 
         /**
+         * Anti flicker
+         * 0 = 0ff, 1 = on
+         */
+        public static final String DISPLAY_ANTI_FLICKER = "display_anti_flicker";
+
+        /**
          * Whether allowing pocket service to register sensors and dispatch informations.
          *   0 = disabled
          *   1 = enabled
@@ -5562,6 +5568,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_NIGHT);
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_AUTO_OUTDOOR_MODE);
+            PRIVATE_SETTINGS.add(DISPLAY_ANTI_FLICKER);
             PRIVATE_SETTINGS.add(DISPLAY_READING_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_CABC);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ENHANCE);
