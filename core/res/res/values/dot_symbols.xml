@@ -48,4 +48,6 @@
   <java-symbol type="integer" name="config_fod_pressed_color" />
   <!-- Default value for FOD animation package resources -->
   <java-symbol type="string" name="config_fodAnimationPackage" />
+  <!-- NightLight FOD -->
+  <java-symbol type="bool" name="disable_fod_night_light"/>
 </resources>
