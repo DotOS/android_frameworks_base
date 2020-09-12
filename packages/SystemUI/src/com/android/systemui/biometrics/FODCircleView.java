@@ -36,6 +36,8 @@ import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.pocket.IPocketCallback;
+import android.pocket.PocketManager;
 import android.provider.Settings;
 import android.view.Display;
 import android.view.Gravity;
@@ -158,6 +160,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             if (mFODAnimation != null) {
                 mFODAnimation.setAnimationKeyguard(mIsKeyguard);
             }
+            handlePocketManagerCallback(showing);
         }
 
         @Override
@@ -200,6 +203,37 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             }
             mScreenTurnedOn = true;
         }
+    };
+
+    private void handlePocketManagerCallback(boolean keyguardShowing){
+        if (!keyguardShowing){
+            if (mPocketCallbackAdded){
+                mPocketCallbackAdded = false;
+                mPocketManager.removeCallback(mPocketCallback);
+            }
+        } else {
+            if (!mPocketCallbackAdded){
+                mPocketCallbackAdded = true;
+                mPocketManager.addCallback(mPocketCallback);
+            }
+        }
+    }
+
+    private PocketManager mPocketManager;
+    private boolean mIsDeviceInPocket;
+    private boolean mPocketCallbackAdded = false;
+    private final IPocketCallback mPocketCallback = new IPocketCallback.Stub() {
+
+        @Override
+        public void onStateChanged(boolean isDeviceInPocket, int reason) {
+            boolean wasDeviceInPocket = mIsDeviceInPocket;
+            if (reason == PocketManager.REASON_SENSOR) {
+                mIsDeviceInPocket = isDeviceInPocket;
+            } else {
+                mIsDeviceInPocket = false;
+            }
+        }
+
     };
 
     public FODCircleView(Context context) {
@@ -286,6 +320,9 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         mFODAnimation = new FODAnimation(context, mPositionX, mPositionY);
 
         Dependency.get(TunerService.class).addTunable(this, Settings.Secure.DOZE_ENABLED);
+
+        // Pocket
+        mPocketManager = (PocketManager) context.getSystemService(Context.POCKET_SERVICE);
     }
 
     @Override
@@ -411,6 +448,10 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     }
 
     public void showCircle() {
+        if (mIsKeyguard && mIsDeviceInPocket){
+            return;
+        }
+
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
