@@ -11,6 +11,7 @@ import android.app.ActivityThread;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/** @hide */
 public final class AccentUtils {
     private AccentUtils() {}
 
