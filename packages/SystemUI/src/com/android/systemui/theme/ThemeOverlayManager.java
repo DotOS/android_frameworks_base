@@ -67,9 +67,6 @@ class ThemeOverlayManager {
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_ICON_THEME_PICKER =
             "android.theme.customization.icon_pack.themepicker";
-    @VisibleForTesting
-    static final String OVERLAY_CATEGORY_DOT_BUCKET =
-            "android.theme.customization.dot_bucket";
 
     /*
      * All theme customization categories used by the system, in order that they should be applied,
@@ -83,8 +80,7 @@ class ThemeOverlayManager {
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
             OVERLAY_CATEGORY_ICON_SETTINGS,
-            OVERLAY_CATEGORY_ICON_THEME_PICKER,
-            OVERLAY_CATEGORY_DOT_BUCKET);
+            OVERLAY_CATEGORY_ICON_THEME_PICKER);
 
     /* Categories that need to applied to the current user as well as the system user. */
     @VisibleForTesting
@@ -112,12 +108,11 @@ class ThemeOverlayManager {
         mThemePickerPackage = themePickerPackage;
         mTargetPackageToCategories.put(ANDROID_PACKAGE, Sets.newHashSet(
                 OVERLAY_CATEGORY_COLOR, OVERLAY_CATEGORY_FONT,
-                OVERLAY_CATEGORY_SHAPE, OVERLAY_CATEGORY_ICON_ANDROID,
-                OVERLAY_CATEGORY_DOT_BUCKET));
+                OVERLAY_CATEGORY_SHAPE, OVERLAY_CATEGORY_ICON_ANDROID));
         mTargetPackageToCategories.put(SYSUI_PACKAGE,
-                Sets.newHashSet(OVERLAY_CATEGORY_ICON_SYSUI, OVERLAY_CATEGORY_DOT_BUCKET));
+                Sets.newHashSet(OVERLAY_CATEGORY_ICON_SYSUI));
         mTargetPackageToCategories.put(SETTINGS_PACKAGE,
-                Sets.newHashSet(OVERLAY_CATEGORY_ICON_SETTINGS, OVERLAY_CATEGORY_DOT_BUCKET));
+                Sets.newHashSet(OVERLAY_CATEGORY_ICON_SETTINGS));
         mTargetPackageToCategories.put(mLauncherPackage,
                 Sets.newHashSet(OVERLAY_CATEGORY_ICON_LAUNCHER));
         mTargetPackageToCategories.put(mThemePickerPackage,
@@ -126,11 +121,8 @@ class ThemeOverlayManager {
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_FONT, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_SHAPE, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_ANDROID, ANDROID_PACKAGE);
-        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_DOT_BUCKET, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SYSUI, SYSUI_PACKAGE);
-        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_DOT_BUCKET, SYSUI_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SETTINGS, SETTINGS_PACKAGE);
-        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_DOT_BUCKET, SETTINGS_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_LAUNCHER, mLauncherPackage);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_THEME_PICKER, mThemePickerPackage);
     }
