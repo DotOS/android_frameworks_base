@@ -100,4 +100,7 @@ interface IPowerManager
 
     // Forces the system to suspend even if there are held wakelocks.
     boolean forceSuspend();
+
+    // Custom API
+    void setKeyboardVisibility(boolean visible);
 }
