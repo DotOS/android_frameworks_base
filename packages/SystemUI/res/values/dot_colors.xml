@@ -25,4 +25,9 @@
 
     <color name="default_volume_transparency">#CCFFFFFF</color>
     <color name="accent_volume_transparency">#66FFFFFF</color>
+
+    <!-- Clear all notifications button -->
+    <color name="dismiss_all_background_color">@android:color/white</color>
+    <color name="dismiss_all_background_color_ripple">#a8a8a8</color>
+    <color name="dismiss_all_icon_color">#8a000000</color>
 </resources>

@@ -386,6 +386,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     private boolean mAnimateNextBackgroundBottom;
     private boolean mAnimateNextSectionBoundsChange;
     private int mBgColor;
+    private int mIconColor;
     private float mDimAmount;
     private ValueAnimator mDimAnimator;
     private ArrayList<ExpandableView> mTmpSortedChildren = new ArrayList<>();
@@ -744,7 +745,9 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         inflateFooterView();
         inflateEmptyShadeView();
         updateFooter();
+        mIconColor = mContext.getColor(R.color.dismiss_all_icon_color);
         mSectionsManager.reinflateViews(LayoutInflater.from(mContext));
+        mStatusBar.updateDismissAllButton(mIconColor);
     }
 
     @Override
@@ -771,6 +774,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
             return;
         }
         boolean showDismissView = mClearAllEnabled && hasActiveClearableNotifications(ROWS_ALL);
+        mStatusBar.setHasClearableNotifs(hasActiveClearableNotifications(ROWS_ALL));
         boolean showFooterView = (showDismissView || hasActiveNotifications())
                 && mStatusBarState != StatusBarState.KEYGUARD
                 && !mRemoteInputManager.getController().isRemoteInputActive();
@@ -869,8 +873,10 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
     public void onUiModeChanged() {
         mBgColor = mContext.getColor(R.color.notification_shade_background_color);
+        mIconColor = mContext.getColor(R.color.dismiss_all_icon_color);
         updateBackgroundDimming();
         mShelf.onUiModeChanged();
+        mStatusBar.updateDismissAllButton(mIconColor);
     }
 
     @ShadeViewRefactor(RefactorComponent.DECORATOR)
@@ -5812,6 +5818,14 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         footerView.setManageButtonClickListener(v -> {
             mNotificationActivityStarter.startHistoryIntent(mFooterView.isHistoryShown());
         });
+        if (mStatusBar != null) {
+            if (mStatusBar.getDismissAllButton() != null) {
+                mStatusBar.getDismissAllButton().setOnClickListener(v -> {
+                    mMetricsLogger.action(MetricsEvent.ACTION_DISMISS_ALL_NOTES);
+                    clearNotifications(ROWS_ALL, true /* closeShade */);
+                });
+            }
+        }
         setFooterView(footerView);
     }
 
