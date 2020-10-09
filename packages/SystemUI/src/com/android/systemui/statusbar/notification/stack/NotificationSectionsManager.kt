@@ -72,6 +72,7 @@ class NotificationSectionsManager @Inject internal constructor(
 
     private lateinit var parent: NotificationStackScrollLayout
     private var initialized = false
+    private var mShowHeaders = true
 
     @VisibleForTesting
     val silentHeaderView: SectionHeaderView?
@@ -94,9 +95,10 @@ class NotificationSectionsManager @Inject internal constructor(
         private set
 
     /** Must be called before use.  */
-    fun initialize(parent: NotificationStackScrollLayout, layoutInflater: LayoutInflater) {
+    fun initialize(parent: NotificationStackScrollLayout, layoutInflater: LayoutInflater, showHeaders: Boolean) {
         check(!initialized) { "NotificationSectionsManager already initialized" }
         initialized = true
+        mShowHeaders = showHeaders
         this.parent = parent
         reinflateViews(layoutInflater)
         configurationController.addCallback(configurationListener)
@@ -131,10 +133,12 @@ class NotificationSectionsManager @Inject internal constructor(
      * Reinflates the entire notification header, including all decoration views.
      */
     fun reinflateViews(layoutInflater: LayoutInflater) {
-        silentHeaderController.reinflateView(parent)
-        alertingHeaderController.reinflateView(parent)
-        peopleHeaderController.reinflateView(parent)
-        incomingHeaderController.reinflateView(parent)
+        if (mShowHeaders) {
+            silentHeaderController.reinflateView(parent)
+            alertingHeaderController.reinflateView(parent)
+            peopleHeaderController.reinflateView(parent)
+            incomingHeaderController.reinflateView(parent)
+        }
         mediaControlsView =
                 reinflateView(mediaControlsView, layoutInflater, R.layout.keyguard_media_header)
         keyguardMediaController.attachSinglePaneContainer(mediaControlsView)
