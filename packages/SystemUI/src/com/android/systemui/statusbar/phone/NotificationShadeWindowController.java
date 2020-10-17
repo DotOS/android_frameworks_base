@@ -166,9 +166,7 @@ public class NotificationShadeWindowController implements Callback, Dumpable,
     }
 
     private boolean shouldEnableKeyguardScreenRotation() {
-        Resources res = mContext.getResources();
-        return SystemProperties.getBoolean("lockscreen.rot_override", false)
-                || res.getBoolean(R.bool.config_enableLockScreenRotation);
+        return false;
     }
 
     /**
