@@ -222,7 +222,7 @@ public class AmbientDisplayConfiguration {
         return alwaysOnEnabled && alwaysOnAvailable() && !accessibilityInversionEnabled(user);
     }
 
-    private boolean alwaysOnChargingEnabled(int user) {
+    public boolean alwaysOnChargingEnabled(int user) {
         final boolean dozeOnChargeEnabled = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.DOZE_ON_CHARGE, 0, user) == 1;
         if (dozeOnChargeEnabled) {
