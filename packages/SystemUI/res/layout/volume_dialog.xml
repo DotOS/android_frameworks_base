@@ -49,7 +49,7 @@
             <com.android.keyguard.AlphaOptimizedImageButton
                 android:id="@+id/ringer_icon"
                 style="@style/VolumeButtons"
-                android:background="@drawable/rounded_ripple"
+                android:background="@drawable/rounded_ripple_vol"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
