@@ -582,7 +582,7 @@
     <integer name="controls_max_columns">2</integer>
 
     <!-- Max number of columns for power menu -->
-    <integer name="power_menu_max_columns">3</integer>
+    <integer name="power_menu_max_columns">4</integer>
 
     <!-- If the dp width of the available space is <= this value, potentially adjust the number
          of columns-->
