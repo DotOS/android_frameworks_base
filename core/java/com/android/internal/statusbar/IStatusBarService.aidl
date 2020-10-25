@@ -174,6 +174,7 @@ interface IStatusBarService
     void preloadRecentApps();
     void cancelPreloadRecentApps();
     void killForegroundApp();
+    void screenPinningStateChanged(boolean enabled);
 
     /**
      * Used to block or unblock usage of gestural navigation
