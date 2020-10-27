@@ -251,5 +251,6 @@ public class SecureSettingsValidators {
         VALIDATORS.put(
                 Secure.ACCESSIBILITY_BUTTON_TARGETS,
                 ACCESSIBILITY_SHORTCUT_TARGET_LIST_VALIDATOR);
+        VALIDATORS.put(Secure.TORCH_POWER_BUTTON_GESTURE, NON_NEGATIVE_INTEGER_VALIDATOR);
     }
 }

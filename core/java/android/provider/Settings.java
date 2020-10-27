@@ -8308,6 +8308,17 @@ public final class Settings {
         public static final int CAMERA_LIFT_TRIGGER_ENABLED_DEFAULT = 1;
 
         /**
+         * Whether the torch launch gesture to long press the power button when the
+         * screen is off should be enabled.
+         *
+         * 0: disabled
+         * 1: long tap power for torch
+         * @hide
+         */
+        public static final String TORCH_POWER_BUTTON_GESTURE =
+                "torch_power_button_gesture";
+
+        /**
          * Whether or not the flashlight (camera torch mode) is available required to turn
          * on flashlight.
          *
