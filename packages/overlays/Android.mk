@@ -40,11 +40,26 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackFilledSettingsOverlay \
 	IconPackFilledSystemUIOverlay \
 	IconPackFilledThemePickerOverlay \
+	IconPackKaiAndroidOverlay \
+	IconPackKaiPixelLauncherOverlay \
+	IconPackKaiPixelThemePickerOverlay \
+	IconPackKaiSettingsOverlay \
+	IconPackKaiSystemUIOverlay \
 	IconPackRoundedAndroidOverlay \
 	IconPackRoundedLauncherOverlay \
 	IconPackRoundedSettingsOverlay \
 	IconPackRoundedSystemUIOverlay \
 	IconPackRoundedThemePickerOverlay \
+	IconPackSamAndroidOverlay \
+	IconPackSamPixelLauncherOverlay \
+	IconPackSamPixelThemePickerOverlay \
+	IconPackSamSettingsOverlay \
+	IconPackSamSystemUIOverlay \
+	IconPackVictorAndroidOverlay \
+	IconPackVictorPixelLauncherOverlay \
+	IconPackVictorPixelThemePickerOverlay \
+	IconPackVictorSettingsOverlay \
+	IconPackVictorSystemUIOverlay \
 	IconShapePebbleOverlay \
 	IconShapeRoundedRectOverlay \
 	IconShapeSquircleOverlay \
