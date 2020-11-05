@@ -802,8 +802,27 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         return false;
     }
 
-  @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
-  public RemoteInputController.Delegate createDelegate() {
+    /** @hide */
+    public ExpandableNotificationRow getFirstActiveClearableNotification(@SelectedRows int selection) {
+        if (mDynamicPrivacyController.isInLockedDownShade()) {
+            return null;
+        }
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View child = getChildAt(i);
+            if (!(child instanceof ExpandableNotificationRow)) {
+                continue;
+            }
+            final ExpandableNotificationRow row = (ExpandableNotificationRow) child;
+            if (row.getEntry().getSbn().isClearable() && matchesSelection(row, selection)) {
+                return row;
+            }
+        }
+        return null;
+    }
+
+    @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
+    public RemoteInputController.Delegate createDelegate() {
         return new RemoteInputController.Delegate() {
             public void setRemoteInputActive(NotificationEntry entry,
                     boolean remoteInputActive) {
@@ -3324,6 +3343,9 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     public void onViewAdded(View child) {
         super.onViewAdded(child);
         onViewAddedInternal((ExpandableView) child);
+        if (child instanceof ExpandableNotificationRow) {
+            mNotificationPanelController.updateAmbientPulse();
+        }
     }
 
     @ShadeViewRefactor(RefactorComponent.STATE_RESOLVER)

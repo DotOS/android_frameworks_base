@@ -83,6 +83,8 @@ public class SystemSettings {
         Settings.System.HAPTIC_FEEDBACK_INTENSITY,
         Settings.System.DISPLAY_COLOR_MODE,
         Settings.System.ALARM_ALERT,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
         Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN,

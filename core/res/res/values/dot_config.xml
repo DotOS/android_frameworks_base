@@ -47,4 +47,8 @@
     <string-array translatable="false" name="config_customPermissionsList">
         <item>com.android.wallpaper.livepicker</item>
     </string-array>
+
+    <!-- Default value for Horizon light color (Blue) -->
+    <integer name="config_AmbientPulseLightColor">0x3980FF</integer>
+
 </resources>
