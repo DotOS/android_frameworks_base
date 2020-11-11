@@ -89,10 +89,6 @@ public final class ColorUtils {
      * <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">here</a>.
      */
     public static double calculateContrast(@ColorInt int foreground, @ColorInt int background) {
-        if (Color.alpha(background) != 255) {
-            throw new IllegalArgumentException("background can not be translucent: #"
-                    + Integer.toHexString(background));
-        }
         if (Color.alpha(foreground) < 255) {
             // If the foreground is translucent, composite the foreground over the background
             foreground = compositeColors(foreground, background);
@@ -142,11 +138,6 @@ public final class ColorUtils {
      */
     public static int calculateMinimumAlpha(@ColorInt int foreground, @ColorInt int background,
             float minContrastRatio) {
-        if (Color.alpha(background) != 255) {
-            throw new IllegalArgumentException("background can not be translucent: #"
-                    + Integer.toHexString(background));
-        }
-
         ContrastCalculator contrastCalculator = (fg, bg, alpha) -> {
             int testForeground = setAlphaComponent(fg, alpha);
             return calculateContrast(testForeground, bg);

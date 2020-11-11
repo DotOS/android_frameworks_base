@@ -19,49 +19,95 @@
     xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:id="@+id/quick_status_bar_system_icons"
     android:layout_width="match_parent"
-    android:layout_height="@*android:dimen/quick_qs_offset_height"
+    android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:gravity="center"
-    android:orientation="horizontal"
-    android:clickable="true"
-    android:paddingTop="@dimen/status_bar_padding_top" >
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center_vertical|start" >
-
-    <com.android.systemui.statusbar.policy.Clock
-        android:id="@+id/clock"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:minWidth="48dp"
-        android:gravity="center_vertical|start"
-        android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
-        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
-        android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
-        systemui:showDark="false" />
-    </LinearLayout>
+    android:orientation="vertical"
+    android:clickable="true">
 
     <android.widget.Space
         android:id="@+id/space"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:visibility="gone" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="@*android:dimen/quick_qs_offset_height"
         android:orientation="horizontal"
-        android:gravity="center_vertical|end" >
+        android:clickable="true"
+        android:paddingTop="@dimen/status_bar_padding_top"
+        android:layout_marginStart="-16dp"
+        android:layout_marginEnd="-16dp">
 
-    <include layout="@layout/ongoing_privacy_chip" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
+            android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.android.systemui.statusbar.policy.Clock
+                android:id="@+id/clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+                systemui:showDark="false" />
+
+            <com.android.systemui.statusbar.policy.DateView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="14sp"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.QS.Status"
+                systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm"
+                systemui:showDark="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quick_qs_status_icons_header"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_gravity="center_vertical|end"
+            android:background="@drawable/qs_icons_header_background"
+            android:clickable="false"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:focusable="true"
+            android:gravity="center_vertical|end"
+            android:minHeight="20dp"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp">
+
+            <com.android.systemui.statusbar.phone.StatusIconContainer
+                android:id="@+id/statusIcons"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingEnd="@dimen/signal_cluster_battery_padding" />
+
+            <com.android.systemui.BatteryMeterView
+                android:id="@+id/batteryRemainingIcon"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                systemui:textAppearance="@style/TextAppearance.QS.Status"
+                android:paddingEnd="2dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

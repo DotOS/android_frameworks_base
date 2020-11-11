@@ -698,10 +698,6 @@ public class ContrastColorUtil {
          * <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">here</a>.
          */
         public static double calculateContrast(@ColorInt int foreground, @ColorInt int background) {
-            if (Color.alpha(background) != 255) {
-                Log.wtf(TAG, "background can not be translucent: #"
-                        + Integer.toHexString(background));
-            }
             if (Color.alpha(foreground) < 255) {
                 // If the foreground is translucent, composite the foreground over the background
                 foreground = compositeColors(foreground, background);

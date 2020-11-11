@@ -90,11 +90,6 @@ public class QuickQSPanel extends QSPanel {
     }
 
     @Override
-    protected void addViewsAboveTiles() {
-        // Nothing to add above the tiles
-    }
-
-    @Override
     protected TileLayout createRegularTileLayout() {
         return new QuickQSPanel.HeaderTileLayout(mContext, mUiEventLogger);
     }
@@ -137,6 +132,12 @@ public class QuickQSPanel extends QSPanel {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         Dependency.get(TunerService.class).removeTunable(mNumTiles);
+    }
+
+    @Override
+    public void setListening(boolean listening) {
+        super.setListening(listening);
+        setBrightnessListening(listening);
     }
 
     @Override

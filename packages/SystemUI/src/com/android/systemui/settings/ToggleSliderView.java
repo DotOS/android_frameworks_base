@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -66,7 +67,13 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
 
         mSlider = findViewById(R.id.slider);
         mSlider.setOnSeekBarChangeListener(mSeekListener);
-
+        // Expose BrightnessSlider's progressDrawable
+        if (a.getDrawable(R.styleable.ToggleSliderView_progressDrawable)!=null) {
+            mSlider.setProgressDrawable(a.getDrawable(R.styleable.ToggleSliderView_progressDrawable));
+            mSlider.setThumb(null);
+            int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, context.getResources().getDisplayMetrics());
+            mSlider.setPadding(padding, 0, padding, 0);
+        }
         mLabel = findViewById(R.id.label);
         mLabel.setText(a.getString(R.styleable.ToggleSliderView_text));
 
@@ -122,6 +129,11 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
         if (mMirror != null) {
             mMirror.setMax(max);
         }
+    }
+
+    @Override
+    public int getMax() {
+        return mSlider.getMax();
     }
 
     @Override

@@ -156,6 +156,8 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
     private OnDimmedListener mOnDimmedListener;
     private AccessibilityManager mAccessibilityManager;
 
+    private boolean mRequireTranspaerncy = true;
+
     public ActivatableNotificationView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mSlowOutFastInInterpolator = new PathInterpolator(0.8f, 0.0f, 0.6f, 1.0f);
@@ -200,6 +202,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         mFakeShadow = findViewById(R.id.fake_shadow);
         mShadowHidden = mFakeShadow.getVisibility() != VISIBLE;
         mBackgroundDimmed = findViewById(R.id.backgroundDimmed);
+        mRequireTranspaerncy = mContext.getResources().getBoolean(R.bool.notification_outline_require_transparency);
         initBackground();
         updateBackground();
         updateBackgroundTint();
@@ -375,7 +378,11 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
 
     private void updateOutlineAlpha() {
         float alpha = NotificationStackScrollLayout.BACKGROUND_ALPHA_DIMMED;
-        alpha = (alpha + (1.0f - alpha) * mNormalBackgroundVisibilityAmount);
+        if (mRequireTranspaerncy) {
+            alpha = 0f;
+        } else {
+            alpha = (alpha + (1.0f - alpha) * mNormalBackgroundVisibilityAmount);
+        }
         setOutlineAlpha(alpha);
     }
 
@@ -464,11 +471,11 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         int newColor = calculateBgColor();
         setBackgroundTintColor(newColor);
         if (!isDimmable() && mNeedsDimming) {
-           mBackgroundNormal.setDrawableAlpha((int) NotificationUtils.interpolate(255,
+           mBackgroundNormal.setDrawableAlpha((int) NotificationUtils.interpolate(190,
                    mDimmedAlpha,
                    overrideAmount));
         } else {
-            mBackgroundNormal.setDrawableAlpha(255);
+            mBackgroundNormal.setDrawableAlpha(190);
         }
     }
 

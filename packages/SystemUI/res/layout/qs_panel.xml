@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:elevation="4dp"
-        android:background="@drawable/qs_background_primary" />
+        android:background="@drawable/qs_background_inset" />
 
     <com.android.systemui.qs.NonInterceptingScrollView
         android:id="@+id/expanded_qs_scroll_view"
@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:layout_marginBottom="10dp"
             android:focusable="true"
             android:accessibilityTraversalBefore="@android:id/edit">
             <include layout="@layout/qs_footer_impl" />
@@ -60,9 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:elevation="4dp"
-        android:paddingBottom="5dp">
+        android:paddingTop="5dp">
         <View
-            android:layout_width="46dp"
+            android:layout_width="56dp"
             android:layout_height="3dp"
             android:background="@drawable/qs_footer_drag_handle" />
     </FrameLayout>

@@ -24,6 +24,7 @@ import android.animation.ValueAnimator;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
+import android.graphics.drawable.Drawable;
 import android.hardware.display.DisplayManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -40,6 +41,7 @@ import android.service.vr.IVrManager;
 import android.service.vr.IVrStateCallbacks;
 import android.util.Log;
 import android.util.MathUtils;
+import android.widget.TextView;
 
 import com.android.internal.BrightnessSynchronizer;
 import com.android.internal.logging.MetricsLogger;
@@ -96,6 +98,8 @@ public class BrightnessController implements ToggleSlider.Listener {
     private boolean mControlValueInitialized;
 
     private ValueAnimator mSliderAnimator;
+
+    private TextView mTextProgress;
 
     public interface BrightnessStateChangeCallback {
         public void onBrightnessLevelChanged();
@@ -292,11 +296,12 @@ public class BrightnessController implements ToggleSlider.Listener {
         }
     };
 
-    public BrightnessController(Context context, ToggleSlider control,
+    public BrightnessController(Context context, ToggleSlider control, TextView textProgress,
             BroadcastDispatcher broadcastDispatcher) {
         mContext = context;
         mControl = control;
         mControl.setMax(GAMMA_SPACE_MAX);
+        mTextProgress = textProgress;
         mBackgroundHandler = new Handler((Looper) Dependency.get(Dependency.BG_LOOPER));
         mUserTracker = new CurrentUserTracker(broadcastDispatcher) {
             @Override
@@ -321,6 +326,8 @@ public class BrightnessController implements ToggleSlider.Listener {
         mDefaultBacklightForVr = pm.getBrightnessConstraint(
                 PowerManager.BRIGHTNESS_CONSTRAINT_TYPE_DEFAULT_VR);
 
+        int percentage = (int) (convertGammaToLinearFloat(mControl.getValue(), mMinimumBacklight, mMaximumBacklight)/1.0f*100);
+        //mTextProgress.setText(percentage + "%");
 
         mAutomaticAvailable = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_automatic_brightness_available);
@@ -401,6 +408,8 @@ public class BrightnessController implements ToggleSlider.Listener {
         for (BrightnessStateChangeCallback cb : mChangeCallbacks) {
             cb.onBrightnessLevelChanged();
         }
+        int percentage = (int) ((valFloat/1.0f)*100);
+        //mTextProgress.setText(percentage + "%");
     }
 
     public void checkRestrictionAndSetEnabled() {
@@ -451,6 +460,8 @@ public class BrightnessController implements ToggleSlider.Listener {
         }
         // Returns GAMMA_SPACE_MIN - GAMMA_SPACE_MAX
         final int sliderVal = convertLinearToGammaFloat(brightnessValue, min, max);
+        int percentage = (int) (sliderVal/1.0f*100);
+       //mTextProgress.setText(percentage + "%");
         animateSliderTo(sliderVal);
     }
 

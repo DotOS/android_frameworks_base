@@ -35,7 +35,7 @@
     <color name="status_bar_clock_color">#FFFFFFFF</color>
     <color name="qs_user_detail_icon_muted">#FFFFFFFF</color> <!-- not so muted after all -->
     <color name="qs_tile_disabled_color">#9E9E9E</color> <!-- 38% black -->
-    <color name="qs_customize_background">@color/GM2_grey_50</color>
+    <color name="qs_customize_background">@color/qs_background_dark</color>
     <color name="qs_customize_decoration">@color/GM2_grey_100</color>
 
     <!-- The color of the background in the separated list of the Global Actions menu -->
@@ -73,31 +73,31 @@
     <color name="qs_user_switcher_avatar_background">#DADCE0</color>
 
     <!-- The color of the legacy notification background -->
-    <color name="notification_legacy_background_color">#ff1a1a1a</color>
+    <color name="notification_legacy_background_color">@color/dot_notification_bg</color>
 
     <!-- The color of the material notification background -->
-    <color name="notification_material_background_color">@*android:color/notification_material_background_color</color>
+    <color name="notification_material_background_color">@color/dot_notification_bg</color>
 
     <!-- The color of the material notification background when dimmed -->
-    <color name="notification_material_background_dimmed_color">#ccffffff</color>
+    <color name="notification_material_background_dimmed_color">#00ffffff</color>
 
     <!-- The color of the material notification background when dark -->
-    <color name="notification_material_background_dark_color">#ff333333</color>
+    <color name="notification_material_background_dark_color">@color/dot_notification_bg</color>
 
     <!-- The color of the dividing line between grouped notifications. -->
-    <color name="notification_divider_color">#FF616161</color>
+    <color name="notification_divider_color">@*android:color/notification_material_background_color</color>
 
     <!-- The background color of the notification shade -->
-    <color name="notification_shade_background_color">@color/GM2_grey_200</color>
+    <color name="notification_shade_background_color">@color/dot_notification_dim</color>
 
     <!-- The color of the ripples on the untinted notifications -->
-    <color name="notification_ripple_untinted_color">#28000000</color>
+    <color name="notification_ripple_untinted_color">#00000000</color>
 
     <!-- The color of the ripples on the tinted notifications -->
-    <color name="notification_ripple_tinted_color">#30ffffff</color>
+    <color name="notification_ripple_tinted_color">#00ffffff</color>
 
     <!-- The color of the gear shown behind a notification -->
-    <color name="notification_gear_color">@color/GM2_grey_700</color>
+    <color name="notification_gear_color">@color/GM2_grey_800</color>
 
     <!-- The color of the text inside a notification -->
     <color name="notification_primary_text_color">@*android:color/notification_primary_text_color_light</color>

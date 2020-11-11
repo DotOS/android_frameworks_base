@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2018 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,88 +13,127 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:id="@+id/header_text_container"
     android:layout_width="match_parent"
     android:layout_height="@dimen/qs_header_tooltip_height"
     android:layout_below="@id/quick_status_bar_system_icons"
-    android:visibility="invisible"
+    android:forceHasOverlappingRendering="false"
+    android:gravity="center_vertical"
     android:theme="@style/QSHeaderTheme"
-    android:forceHasOverlappingRendering="false">
+    android:visibility="invisible">
 
-        <com.android.systemui.qs.QSHeaderInfoLayout
-            android:id="@+id/status_container"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/status_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center">
 
-            <LinearLayout
-                android:id = "@+id/alarm_container"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:focusable="true"
-                android:clickable="true">
-
-                <ImageView
-                    android:id="@+id/next_alarm_icon"
-                    android:layout_width="@dimen/qs_header_alarm_icon_size"
-                    android:layout_height="@dimen/qs_header_alarm_icon_size"
-                    android:src="@drawable/ic_alarm"
-                    android:contentDescription="@string/accessibility_quick_settings_alarm_set"
-                    android:visibility="gone"/>
-
-                <com.android.systemui.util.AutoMarqueeTextView
-                    android:id="@+id/next_alarm_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
-                    android:textAppearance="@style/TextAppearance.QS.Status"
-                    android:visibility="gone"/>
-            </LinearLayout>
-
-            <View
-                android:id="@+id/status_separator"
-                android:layout_width="@dimen/qs_header_separator_width"
-                android:layout_height="match_parent"
-                android:visibility="gone"/>
+        <!-- We are in scroll view now, QSHeaderInfoLayout is not anymore needed-->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
             <LinearLayout
-                android:id = "@+id/ringer_container"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:focusable="true"
-                android:clickable="true">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/ringer_mode_icon"
-                    android:layout_width="@dimen/qs_header_alarm_icon_size"
-                    android:layout_height="@dimen/qs_header_alarm_icon_size"
-                    android:visibility="gone"/>
-
-                <com.android.systemui.util.AutoMarqueeTextView
-                    android:id="@+id/ringer_mode_text"
+                <LinearLayout
+                    android:id="@+id/alarm_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
-                    android:textAppearance="@style/TextAppearance.QS.Status"
-                    android:visibility="gone"/>
+                    android:background="@drawable/qs_info_outline_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="6dp">
+
+                    <ImageView
+                        android:id="@+id/next_alarm_icon"
+                        android:layout_width="@dimen/qs_header_alarm_icon_size"
+                        android:layout_height="@dimen/qs_header_alarm_icon_size"
+                        android:contentDescription="@string/accessibility_quick_settings_alarm_set"
+                        android:src="@drawable/ic_alarm"
+                        android:visibility="gone" />
+
+                    <com.android.systemui.util.AutoMarqueeTextView
+                        android:id="@+id/next_alarm_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.QS.Status"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/status_separator"
+                    android:layout_width="@dimen/qs_header_separator_width"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/ringer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/qs_info_outline_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="8dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ringer_mode_icon"
+                        android:layout_width="@dimen/qs_header_alarm_icon_size"
+                        android:layout_height="@dimen/qs_header_alarm_icon_size"
+                        android:visibility="gone" />
+
+                    <com.android.systemui.util.AutoMarqueeTextView
+                        android:id="@+id/ringer_mode_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/qs_header_alarm_text_margin_start"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.QS.Status"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
             </LinearLayout>
-        </com.android.systemui.qs.QSHeaderInfoLayout>
 
-        <include layout="@layout/qs_carrier_group"
-                 android:id="@+id/carrier_group"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:layout_marginStart="@dimen/qs_status_separator"
-                 android:layout_gravity="end|center_vertical"
-                 android:focusable="false"/>
+        </HorizontalScrollView>
 
-</LinearLayout>
+    </FrameLayout>
+
+    <include
+        android:id="@+id/carrier_group"
+        layout="@layout/qs_carrier_group"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginStart="@dimen/qs_status_separator"
+        android:focusable="false"
+        android:visibility="gone" />
+
+</FrameLayout>

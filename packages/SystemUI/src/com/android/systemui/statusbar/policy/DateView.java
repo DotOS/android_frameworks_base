@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
+import android.graphics.Rect;
 import android.icu.text.DateFormat;
 import android.icu.text.DisplayContext;
 import android.os.Handler;
@@ -28,14 +29,17 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
+import com.android.systemui.plugins.DarkIconDispatcher;
+import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 
 import java.util.Date;
 import java.util.Locale;
 
-public class DateView extends TextView {
+public class DateView extends TextView implements DarkReceiver {
     private static final String TAG = "DateView";
 
     private final Date mCurrentTime = new Date();
@@ -43,6 +47,20 @@ public class DateView extends TextView {
     private DateFormat mDateFormat;
     private String mLastText;
     private String mDatePattern;
+
+    private final boolean mShowDark;
+
+    /**
+     * Whether we should use colors that adapt based on wallpaper/the scrim behind quick settings
+     * for text.
+     */
+    private boolean mUseWallpaperTextColor;
+
+    /**
+     * Color to be set on this {@link TextView}, when wallpaperTextColor is <b>not</b> utilized.
+     */
+    private int mNonAdaptedColor;
+
     private final BroadcastDispatcher mBroadcastDispatcher;
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
@@ -78,6 +96,8 @@ public class DateView extends TextView {
 
         try {
             mDatePattern = a.getString(R.styleable.DateView_datePattern);
+            mShowDark = a.getBoolean(R.styleable.DateView_showDark, true);
+            mNonAdaptedColor = getCurrentTextColor();
         } finally {
             a.recycle();
         }
@@ -98,7 +118,9 @@ public class DateView extends TextView {
         filter.addAction(Intent.ACTION_LOCALE_CHANGED);
         mBroadcastDispatcher.registerReceiverWithHandler(mIntentReceiver, filter,
                 Dependency.get(Dependency.TIME_TICK_HANDLER));
-
+        if (mShowDark) {
+            Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
+        }
         updateClock();
     }
 
@@ -107,7 +129,37 @@ public class DateView extends TextView {
         super.onDetachedFromWindow();
 
         mDateFormat = null; // reload the locale next time
+        if (mShowDark) {
+            Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(this);
+        }
         mBroadcastDispatcher.unregisterReceiver(mIntentReceiver);
+    }
+
+    @Override
+    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+        mNonAdaptedColor = DarkIconDispatcher.getTint(area, this, tint);
+        if (!mUseWallpaperTextColor) {
+            setTextColor(mNonAdaptedColor);
+        }
+    }
+
+    /**
+     * Sets whether the clock uses the wallpaperTextColor. If we're not using it, we'll revert back
+     * to dark-mode-based/tinted colors.
+     *
+     * @param shouldUseWallpaperTextColor whether we should use wallpaperTextColor for text color
+     */
+    public void useWallpaperTextColor(boolean shouldUseWallpaperTextColor) {
+        if (shouldUseWallpaperTextColor == mUseWallpaperTextColor) {
+            return;
+        }
+        mUseWallpaperTextColor = shouldUseWallpaperTextColor;
+
+        if (mUseWallpaperTextColor) {
+            setTextColor(Utils.getColorAttr(mContext, R.attr.wallpaperTextColor));
+        } else {
+            setTextColor(mNonAdaptedColor);
+        }
     }
 
     protected void updateClock() {

@@ -248,8 +248,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mRingerModeTextView = findViewById(R.id.ringer_mode_text);
         mRingerContainer = findViewById(R.id.ringer_container);
         mRingerContainer.setOnClickListener(this::onClick);
-        mPrivacyChip = findViewById(R.id.privacy_chip);
-        mPrivacyChip.setOnClickListener(this::onClick);
+        //mPrivacyChip = findViewById(R.id.privacy_chip);
+        //mPrivacyChip.setOnClickListener(this::onClick);
         mCarrierGroup = findViewById(R.id.carrier_group);
 
 
@@ -273,6 +273,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
         mSpace = findViewById(R.id.space);
+        // Always force wallpaperTextColor
+        mDateView.useWallpaperTextColor(true);
 
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
@@ -318,7 +320,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     private void setChipVisibility(boolean chipVisible) {
-        if (chipVisible && getChipEnabled()) {
+        /*if (chipVisible && getChipEnabled()) {
             mPrivacyChip.setVisibility(View.VISIBLE);
             // Makes sure that the chip is logged as viewed at most once each time QS is opened
             // mListening makes sure that the callback didn't return after the user closed QS
@@ -328,7 +330,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             }
         } else {
             mPrivacyChip.setVisibility(View.GONE);
-        }
+        }*/
     }
 
     private boolean updateRingerStatus() {
@@ -454,9 +456,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     private void updatePrivacyChipAlphaAnimator() {
-        mPrivacyChipAlphaAnimator = new TouchAnimator.Builder()
-                .addFloat(mPrivacyChip, "alpha", 1, 0, 1)
-                .build();
+        //mPrivacyChipAlphaAnimator = new TouchAnimator.Builder()
+        //        .addFloat(mPrivacyChip, "alpha", 1, 0, 1)
+        //        .build();
     }
 
     private int getBatteryPercentMode() {
@@ -509,10 +511,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 mHeaderTextContainerView.setVisibility(INVISIBLE);
             }
         }
-        if (mPrivacyChipAlphaAnimator != null) {
-            mPrivacyChip.setExpanded(expansionFraction > 0.5);
-            mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
-        }
+        //if (mPrivacyChipAlphaAnimator != null) {
+        //    mPrivacyChip.setExpanded(expansionFraction > 0.5);
+        //    mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
+        //}
         if (expansionFraction < 1 && expansionFraction > 0.99) {
             if (mHeaderQsPanel.switchTileLayout()) {
                 updateResources();
@@ -566,16 +568,16 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             Rect topCutout = cutout.getBoundingRectTop();
             if (topCutout.isEmpty() || cornerCutout) {
                 mHasTopCutout = false;
-                lp.width = 0;
+                lp.height = 0;
                 mSpace.setVisibility(View.GONE);
             } else {
                 mHasTopCutout = true;
-                lp.width = topCutout.width();
+                lp.height = topCutout.height();
                 mSpace.setVisibility(View.VISIBLE);
             }
         }
         mSpace.setLayoutParams(lp);
-        setChipVisibility(mPrivacyChip.getVisibility() == View.VISIBLE);
+        //setChipVisibility(mPrivacyChip.getVisibility() == View.VISIBLE);
         mCutOutPaddingLeft = padding.first;
         mCutOutPaddingRight = padding.second;
         mWaterfallTopInset = cutout == null ? 0 : cutout.getWaterfallInsets().top;
@@ -663,7 +665,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
                         AlarmClock.ACTION_SHOW_ALARMS), 0);
             }
-        } else if (v == mPrivacyChip) {
+        } /*else if (v == mPrivacyChip) {
             // Makes sure that the builder is grabbed as soon as the chip is pressed
             PrivacyChipBuilder builder = mPrivacyChip.getBuilder();
             if (builder.getAppsAndTypes().size() == 0) return;
@@ -674,7 +676,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                         new Intent(Intent.ACTION_REVIEW_ONGOING_PERMISSION_USAGE), 0);
                 mHost.collapsePanels();
             });
-        } else if (v == mRingerContainer && mRingerContainer.isVisibleToUser()) {
+        }*/ else if (v == mRingerContainer && mRingerContainer.isVisibleToUser()) {
             mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
                     Settings.ACTION_SOUND_SETTINGS), 0);
         }

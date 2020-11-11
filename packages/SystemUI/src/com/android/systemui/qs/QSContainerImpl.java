@@ -257,7 +257,7 @@ public class QSContainerImpl extends FrameLayout {
 
     public void setExpansion(float expansion) {
         mQsExpansion = expansion;
-        mDragHandle.setAlpha(1.0f - expansion);
+        //mDragHandle.setAlpha(1.0f - expansion);
         updateExpansion();
     }
 

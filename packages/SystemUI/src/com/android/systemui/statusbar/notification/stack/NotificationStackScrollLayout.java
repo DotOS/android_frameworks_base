@@ -1020,6 +1020,10 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     }
 
     private void drawHeadsUpBackground(Canvas canvas) {
+        Paint headsUpPaint = new Paint();
+        int headsUpColor = mContext.getResources().getColor(R.color.dot_notification_bg_opaque);
+        headsUpPaint.setColor(headsUpColor);
+
         int left = mSidePaddings;
         int right = getWidth() - mSidePaddings;
 
@@ -1042,7 +1046,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         if (top < bottom) {
             canvas.drawRoundRect(
                     left, top, right, bottom,
-                    mCornerRadius, mCornerRadius, mBackgroundPaint);
+                    mCornerRadius, mCornerRadius, headsUpPaint);
         }
     }
 

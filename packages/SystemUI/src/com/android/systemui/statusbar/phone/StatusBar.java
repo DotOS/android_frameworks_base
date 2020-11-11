@@ -1236,6 +1236,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mQSBarHeader = ((QSFragment) qs).getHeader();
                     mQSPanel = ((QSFragment) qs).getQsPanel();
                     mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
+                    ((QuickStatusBarHeader)qs.getHeader()).getHeaderQsPanel().setBrightnessMirror(mBrightnessMirrorController);
                 }
             });
         }

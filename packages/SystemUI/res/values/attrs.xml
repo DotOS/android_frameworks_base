@@ -24,6 +24,7 @@
     </declare-styleable>
     <declare-styleable name="ToggleSliderView">
         <attr name="text" format="string" />
+        <attr name="progressDrawable" format="reference"/>
     </declare-styleable>
     <declare-styleable name="NotificationLinearLayout">
         <attr name="insetLeft" format="dimension" />
@@ -68,6 +69,7 @@
     </declare-styleable>
     <declare-styleable name="DateView">
         <attr name="datePattern" format="string" />
+        <attr name="showDark" format="boolean" />
     </declare-styleable>
     <declare-styleable name="PseudoGridView">
         <attr name="numColumns" format="integer" />

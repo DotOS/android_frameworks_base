@@ -305,7 +305,7 @@ public class PhoneStatusBarView extends PanelBar {
         float scrimFraction = mPanelFraction;
         if (mMinFraction < 1.0f) {
             scrimFraction = Math.max((mPanelFraction - mMinFraction) / (1.0f - mMinFraction),
-                    0);
+                    0)/2;
         }
         mScrimController.setPanelExpansion(scrimFraction);
     }
