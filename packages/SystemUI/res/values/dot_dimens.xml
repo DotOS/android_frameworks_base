@@ -76,4 +76,7 @@
     <dimen name="kg_security_container_min_bottom_margin">0dp</dimen>
 
     <dimen name="volume_row_app_icon_padding">12dp</dimen>
+
+    <!-- Screen recorder stop dot -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
 </resources>
