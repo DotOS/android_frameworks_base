@@ -597,7 +597,9 @@ public final class OverlayManagerService extends SystemService {
             try {
                 traceBegin(TRACE_TAG_RRO, "OMS#setEnabled " + packageName + " " + enable);
                 final int realUserId = handleIncomingUser(userIdArg, "setEnabled");
-                enforceActor(packageName, "setEnabled", realUserId);
+                // Disable UUID Check for setEnabled
+                // Dot Customizations needs this
+                //enforceActor(packageName, "setEnabled", realUserId);
 
                 final long ident = Binder.clearCallingIdentity();
                 try {
@@ -649,7 +651,9 @@ public final class OverlayManagerService extends SystemService {
                 traceBegin(TRACE_TAG_RRO, "OMS#setEnabledExclusiveInCategory " + packageName);
                 final int realUserId = handleIncomingUser(userIdArg,
                         "setEnabledExclusiveInCategory");
-                enforceActor(packageName, "setEnabledExclusiveInCategory", realUserId);
+                // Disable UUID Check for setEnabledExclusiveInCategory
+                // Dot Customizations needs this
+                //enforceActor(packageName, "setEnabledExclusiveInCategory", realUserId);
 
                 final long ident = Binder.clearCallingIdentity();
                 try {
