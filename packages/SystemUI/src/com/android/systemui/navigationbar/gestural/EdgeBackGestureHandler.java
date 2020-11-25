@@ -240,7 +240,6 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
     private boolean mIsExtendedSwipe;
     private int mLeftVerticalSwipeAction;
     private int mRightVerticalSwipeAction;
-    private boolean mBlockNextEvent;
     private Handler mHandler;
     private boolean mImeVisible;
 
@@ -869,7 +868,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                     mIsBackGestureAllowed,
                     QuickStepContract.isBackGestureDisabled(mSysUiFlags), mDisplaySize,
                     mEdgeWidthLeft, mLeftInset, mEdgeWidthRight, mRightInset, mExcludeRegion));
-        } else if ((mAllowGesture || mLogGesture) && !mBlockNextEvent) {
+        } else if (mAllowGesture || mLogGesture) {
             if (!mThresholdCrossed) {
                 // mThresholdCrossed is true only after the first move event
                 // then other events will go straight to "forward touch" line
@@ -958,9 +957,6 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                 // forward touch
                 mEdgeBackPlugin.onMotionEvent(ev);
             }
-        } else if (mBlockNextEvent) {
-            mBlockNextEvent = false;
-            cancelGesture(ev);
         }
 
         mProtoTracer.scheduleFrameUpdate();
@@ -981,8 +977,11 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
     }
 
     private void prepareForAction() {
-        mBlockNextEvent = true;
-        mEdgeBackPlugin.resetOnDown();
+        // cancel touch event then trigger the action
+        final long now = SystemClock.uptimeMillis();
+        final MotionEvent ev = MotionEvent.obtain(now, now,
+                MotionEvent.ACTION_CANCEL, 0.0f, 0.0f, 0);
+        cancelGesture(ev);
     }
 
     private void triggerAction(boolean isVertical) {
