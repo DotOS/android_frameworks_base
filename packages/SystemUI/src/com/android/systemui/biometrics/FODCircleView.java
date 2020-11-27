@@ -407,12 +407,16 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FOD_ANIM),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_ICON),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.FOD_ANIM))) {
+                    Settings.System.FOD_ANIM)) || uri.equals(Settings.System.getUriFor(
+                Settings.System.FOD_ICON))) {
                 updateStyle();
             }
         }
@@ -618,9 +622,16 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                 Settings.System.FOD_RECOGNIZING_ANIMATION, 0) != 0;
         mFodGestureEnable = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_GESTURE, 0) != 0;
+        mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_ICON, 0);
         if (mIsFodAnimationAvailable && mFODAnimation != null) {
             mFODAnimation.update(mIsRecognizingAnimEnabled);
         }
+        updateFODIconStyle();
+    }
+
+    private void updateFODIconStyle() {
+        mFODIcon.setIcon(mSelectedIcon);
     }
 
     private void updatePosition() {
