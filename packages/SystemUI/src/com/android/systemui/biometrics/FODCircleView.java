@@ -79,7 +79,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private final int mNavigationBarSize;
     private final boolean mShouldBoostBrightness;
     private final Paint mPaintFingerprintBackground = new Paint();
-    private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager.LayoutParams mPressedParams = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
@@ -116,6 +115,15 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private FODAnimation mFODAnimation;
     private boolean mIsRecognizingAnimEnabled;
     private boolean mIsFodAnimationAvailable = false;
+
+    private int mDefaultPressedColor;
+    private int mPressedColor;
+    private final int[] PRESSED_COLOR = {
+        R.drawable.fod_icon_pressed,
+        R.drawable.fod_icon_pressed_cyan,
+        R.drawable.fod_icon_pressed_green,
+        R.drawable.fod_icon_pressed_yellow
+    };
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -317,11 +325,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         Resources res = context.getResources();
 
-        mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
-        mPaintFingerprint.setAntiAlias(true);
-
         mPaintFingerprintBackground.setColor(res.getColor(R.color.config_fodColorBackground));
         mPaintFingerprintBackground.setAntiAlias(true);
+
+        mDefaultPressedColor = res.getInteger(com.android.internal.R.
+             integer.config_fod_pressed_color);
 
         mPowerManager = context.getSystemService(PowerManager.class);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
@@ -358,12 +366,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             @Override
             protected void onDraw(Canvas canvas) {
                 if (mIsCircleShowing) {
-                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                    mPressedView.setImageResource(PRESSED_COLOR[mPressedColor]);
                 }
                 super.onDraw(canvas);
             }
         };
-        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
 
         mWindowManager.addView(this, mParams);
 
@@ -410,13 +417,16 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FOD_ICON),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_COLOR),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.FOD_ANIM)) || uri.equals(Settings.System.getUriFor(
-                Settings.System.FOD_ICON))) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.FOD_ANIM)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.FOD_ICON)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.FOD_COLOR))) {
                 updateStyle();
             }
         }
@@ -624,6 +634,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                 Settings.System.FOD_GESTURE, 0) != 0;
         mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_ICON, 0);
+        mPressedColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_COLOR, mDefaultPressedColor);
         if (mIsFodAnimationAvailable && mFODAnimation != null) {
             mFODAnimation.update(mIsRecognizingAnimEnabled);
         }
