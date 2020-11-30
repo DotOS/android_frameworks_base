@@ -4816,6 +4816,12 @@ public final class Settings {
          */
         public static final String FOD_ICON = "fod_icon";
 
+        /**
+         * FOD pressed color
+         * @hide
+         */
+        public static final String FOD_COLOR = "fod_color";
+
         /*
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
