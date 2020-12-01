@@ -143,4 +143,7 @@
 
    <!-- In-display Fingerprint -->
    <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
+
+   <!-- Default value for FOD animation package resources -->
+   <java-symbol type="string" name="config_fodAnimationPackage" />
 </resources>

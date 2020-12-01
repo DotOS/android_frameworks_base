@@ -233,4 +233,7 @@
     <!-- Shows the required view for in-display fingerprint --> 
     <bool name="config_supportsInDisplayFingerprint">false</bool>
 
+    <!-- Default value for FOD animation package resources -->
+    <string name="config_fodAnimationPackage" translatable="false">com.dot.fod.animations</string>
+
 </resources>
