@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.android.theme.font.kai" android:versionCode="1" android:versionName="1.0">
+    <overlay android:category="android.theme.customization.font" android:priority="1" android:targetPackage="android"/>
+    <application android:extractNativeLibs="false" android:hasCode="false" android:label="@string/font_overlay">
+        <meta-data android:name="android.theme.customization.REQUIRED_SYSTEM_FONTS" android:value="fraunces,fraunces-semi-bold,karla,karla-bold"/>
+    </application>
+</manifest>

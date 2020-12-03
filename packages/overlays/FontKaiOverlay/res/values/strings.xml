@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_bodyFontFamily">source-sans-pro</string>
+    <string name="config_bodyFontFamilyMedium">source-sans-pro-semi-bold</string>
+    <string name="config_headlineFontFamily">@string/config_headlineFontFamilyMedium</string>
+    <string name="config_headlineFontFamilyMedium">lustria</string>
+    <string name="font_overlay">Lustria</string>
+</resources>
