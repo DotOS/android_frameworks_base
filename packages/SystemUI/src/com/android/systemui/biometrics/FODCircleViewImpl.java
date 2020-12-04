@@ -28,7 +28,7 @@ import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import com.android.internal.util.custom.FodUtils;
+import com.android.internal.util.custom.Utils;
 
 @Singleton
 public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callbacks {
@@ -47,7 +47,7 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
     public void start() {
         PackageManager packageManager = mContext.getPackageManager();
         if (!packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) ||
-                !FodUtils.hasFodSupport(mContext)) {
+                !Utils.hasFodSupport(mContext)) {
             return;
         }
         mCommandQueue.addCallback(this);

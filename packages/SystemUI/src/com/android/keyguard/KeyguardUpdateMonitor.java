@@ -88,7 +88,7 @@ import android.util.SparseBooleanArray;
 import androidx.lifecycle.Observer;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.internal.util.evolution.fod.FodUtils;
+import com.android.internal.util.custom.Utils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settingslib.WirelessUtils;
 import com.android.settingslib.fuelgauge.BatteryStatus;
@@ -1849,7 +1849,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 }
             }
         }
-        mHasFod = FodUtils.hasFodSupport(mContext);
+        mHasFod = Utils.hasFodSupport(mContext);
     }
 
     private final UserSwitchObserver mUserSwitchObserver = new UserSwitchObserver() {

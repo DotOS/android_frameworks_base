@@ -79,7 +79,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
 
-    private int mColorBackground;
     private int mDreamingOffsetY;
 
     private int mColor;

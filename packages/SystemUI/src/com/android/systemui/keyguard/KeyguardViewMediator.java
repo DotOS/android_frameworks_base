@@ -100,7 +100,7 @@ import com.android.systemui.statusbar.phone.NotificationPanelViewController;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.util.DeviceConfigProxy;
 import com.android.systemui.util.InjectionInflationController;
-import com.android.internal.util.custom.FodUtils;
+import com.android.internal.util.custom.Utils;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -753,7 +753,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
                     mInGestureNavigationMode = QuickStepContract.isGesturalMode(mode);
                 }));
         PackageManager packageManager = context.getPackageManager();
-        mHasFod = FodUtils.hasFodSupport(mContext);
+        mHasFod = Utils.hasFodSupport(mContext);
     }
 
     public void userActivity() {
