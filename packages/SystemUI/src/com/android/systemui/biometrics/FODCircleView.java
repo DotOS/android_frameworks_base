@@ -412,6 +412,9 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_RECOGNIZING_ANIMATION),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FOD_ANIM),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -424,9 +427,10 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.System.getUriFor(Settings.System.FOD_ANIM)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.FOD_ICON)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.FOD_COLOR))) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.FOD_RECOGNIZING_ANIMATION)) ||
+                uri.equals(Settings.System.getUriFor(Settings.System.FOD_ANIM)) ||
+                uri.equals(Settings.System.getUriFor(Settings.System.FOD_ICON)) ||
+                uri.equals(Settings.System.getUriFor(Settings.System.FOD_COLOR))) {
                 updateStyle();
             }
         }
