@@ -747,7 +747,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
                 continue;
             }
             final ExpandableNotificationRow row = (ExpandableNotificationRow) child;
-            if (row.canViewBeDismissed() && matchesSelection(row, selection)) {
+            if (row.getEntry().isClearable() && matchesSelection(row, selection)) {
                 return row;
             }
         }
