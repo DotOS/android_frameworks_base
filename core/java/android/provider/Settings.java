@@ -5256,6 +5256,11 @@ public final class Settings {
         public static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
 
         /**
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
