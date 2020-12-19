@@ -22,4 +22,7 @@
     <color name="dot_notification_dim">#99FFFFFF</color>
     <color name="dot_notification_bg">#99FFFFFF</color>
     <color name="dot_notification_bg_opaque">@*android:color/notification_material_background_color</color>
+
+    <color name="default_volume_transparency">#CCFFFFFF</color>
+    <color name="accent_volume_transparency">#66FFFFFF</color>
 </resources>

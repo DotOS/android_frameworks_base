@@ -13,59 +13,108 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:tag="row"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_width="@dimen/volume_dialog_panel_width"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:tag="row"
     android:theme="@style/qs_theme">
 
     <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_gravity="center"
-        android:orientation="vertical" >
-        <TextView
-            android:id="@+id/volume_row_header"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLength="10"
-            android:maxLines="1"
-            android:visibility="gone"
-            android:textColor="?android:attr/colorControlNormal"
-            android:textAppearance="@style/TextAppearance.Volume.Header" />
-        <FrameLayout
-            android:id="@+id/volume_row_slider_frame"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/volume_dialog_slider_margin_top"
-            android:layout_marginBottom="@dimen/volume_dialog_slider_margin_bottom"
-            android:layoutDirection="rtl"
-            android:layout_height="@dimen/volume_dialog_slider_height">
-            <SeekBar
-                android:id="@+id/volume_row_slider"
-                android:clickable="true"
-                android:layout_width="@dimen/volume_dialog_slider_height"
-                android:layout_height="match_parent"
-                android:layoutDirection="rtl"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="?android:attr/dialogCornerRadius">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:rotation="90" />
-        </FrameLayout>
+                android:background="@drawable/vol_dot_background"
+                android:clipChildren="true"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <com.android.keyguard.AlphaOptimizedImageButton
-            android:id="@+id/volume_row_icon"
-            style="@style/VolumeButtons"
-            android:layout_width="@dimen/volume_dialog_tap_target_size"
-            android:layout_height="@dimen/volume_dialog_tap_target_size"
-            android:background="@drawable/ripple_drawable_20dp"
-            android:layout_marginBottom="@dimen/volume_dialog_row_margin_bottom"
-            android:tint="@color/accent_tint_color_selector"
-            android:soundEffectsEnabled="false" />
+                <RelativeLayout
+                    android:layout_width="@dimen/volume_dialog_panel_width"
+                    android:layout_height="@dimen/volume_dialog_slider_height">
+
+                    <FrameLayout
+                        android:id="@+id/volume_row_slider_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layoutDirection="rtl">
+
+                        <com.android.systemui.dot.VerticalSeekBarWrapper
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.android.systemui.dot.VerticalSeekBar
+                                android:id="@+id/volume_row_slider"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@android:color/transparent"
+                                android:clickable="true"
+                                android:layoutDirection="rtl"
+                                android:paddingStart="0dp"
+                                android:paddingEnd="0dp"
+                                android:progressDrawable="@drawable/vol_dot_slider_background"
+                                android:splitTrack="false"
+                                android:thumb="@null" />
+
+                        </com.android.systemui.dot.VerticalSeekBarWrapper>
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="12dp"
+                        android:background="@android:color/transparent"
+                        android:orientation="vertical">
+
+                        <com.android.keyguard.AlphaOptimizedImageButton
+                            android:id="@+id/volume_row_icon"
+                            style="@style/VolumeButtons"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@android:color/transparent"
+                            android:soundEffectsEnabled="false"
+                            android:tint="@color/accent_tint_color_selector" />
+
+                        <TextView
+                            android:id="@+id/volume_row_percentage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textAlignment="center"
+                            android:textColor="@color/accent_tint_color_selector"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <include layout="@layout/volume_dnd_icon" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="@dimen/volume_dialog_spacer"
+            android:layout_height="0dp" />
+
     </LinearLayout>
-
-    <include layout="@layout/volume_dnd_icon"/>
 
 </FrameLayout>

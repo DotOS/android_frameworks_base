@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape
+            android:thickness="@dimen/volume_dialog_panel_width"
+            android:tint="@color/qs_background_dark">
+            <solid android:color="@color/default_volume_transparency" />
+            <size android:height="@dimen/volume_dialog_panel_width" />
+            <corners android:radius="?android:attr/dialogCornerRadius" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <scale android:scaleWidth="100%">
+            <shape
+                android:tint="?android:attr/colorAccent"
+                android:thickness="@dimen/volume_dialog_panel_width">
+                <solid android:color="@color/accent_volume_transparency" />
+                <size android:height="@dimen/volume_dialog_panel_width" />
+                <corners android:radius="?android:attr/dialogCornerRadius" />
+            </shape>
+        </scale>
+    </item>
+
+</layer-list>
