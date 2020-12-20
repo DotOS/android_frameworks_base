@@ -67,7 +67,6 @@ import java.util.TimerTask;
 
 public class FODCircleView extends ImageView implements TunerService.Tunable {
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
-    private static final int FADE_ANIM_DURATION = 250;
 
     private final int mPositionX;
     private final int mPositionY;
@@ -87,7 +86,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private int mColor;
     private int mColorBackground;
 
-    private boolean mFading;
     private boolean mIsBouncer;
     private boolean mIsBiometricRunning;
     private boolean mIsCircleShowing;
@@ -512,7 +510,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     }
 
     public void dispatchPress() {
-        if (mFading) return;
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
         try {
             daemon.onPress();
@@ -549,7 +546,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     }
 
     public void showCircle() {
-        if ((mIsKeyguard && mIsDeviceInPocket) || mFading){
+        if (mIsKeyguard && mIsDeviceInPocket){
             return;
         }
 
@@ -606,24 +603,12 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         updatePosition();
 
-        setVisibility(View.VISIBLE);
-        animate().withStartAction(() -> mFading = true)
-                .alpha(mIsDreaming ? 0.5f : 1.0f)
-                .setDuration(FADE_ANIM_DURATION)
-                .withEndAction(() -> mFading = false)
-                .start();
         dispatchShow();
+        setVisibility(View.VISIBLE);
     }
 
     public void hide() {
-        animate().withStartAction(() -> mFading = true)
-                .alpha(0)
-                .setDuration(FADE_ANIM_DURATION)
-                .withEndAction(() -> {
-                    setVisibility(View.GONE);
-                    mFading = false;
-                })
-                .start();
+        setVisibility(View.GONE);
         hideCircle();
         dispatchHide();
     }

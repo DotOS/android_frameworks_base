@@ -42,4 +42,9 @@
      <!-- Do the battery/notification LEDs support pulsing?
          Used to decide if we show pulse settings -->
     <bool name="config_ledCanPulse">false</bool>
+  
+    <!-- Permissions -->  
+    <string-array translatable="false" name="config_customPermissionsList">
+        <item>com.android.wallpaper.livepicker</item>
+    </string-array>
 </resources>
