@@ -41,9 +41,10 @@ public class PixelPropsUtils {
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
         propsToChange.put("MANUFACTURER", "Google");
-        propsToChange.put("DEVICE", "crosshatch");
-        propsToChange.put("PRODUCT", "crosshatch");
-        propsToChange.put("MODEL", "Pixel 3 XL");
+        propsToChange.put("DEVICE", "redfin");
+        propsToChange.put("PRODUCT", "redfin");
+        propsToChange.put("MODEL", "Pixel 5");
+        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ1A.210105.003/7005429:user/release-keys");
     }
 
     public static void setProps(String packageName) {
