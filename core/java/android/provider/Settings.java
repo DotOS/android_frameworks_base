@@ -4957,7 +4957,16 @@ public final class Settings {
         /**
          * @hide
          */
-        public static final String AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC = "ambient_notification_light_automatic";
+        public static final String AMBIENT_NOTIFICATION_LIGHT_COLOR = "ambient_notification_light_color";
+
+        /**
+         * 0 - Default Color
+         * 1 - Accent Color
+         * 2 - Custom Color (defined by AMBIENT_NOTIFICATION_LIGHT_COLOR)
+         * 3 - Notification Color
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_MODE = "ambient_notification_light_mode";
 
         /**
          * helper setting to contain the current pulse reason so we can check
@@ -5111,7 +5120,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FP_UNLOCK_KEYSTORE);
             PRIVATE_SETTINGS.add(DOT_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
-            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
+            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_MODE);
+            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_COLOR);
         }
 
         /**

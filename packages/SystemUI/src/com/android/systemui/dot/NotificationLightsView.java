@@ -81,10 +81,14 @@ public class NotificationLightsView extends RelativeLayout {
 
     public int getNotificationLightsColor() {
         int color = getDefaultNotificationLightsColor();
-        boolean useAccent = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, 1, UserHandle.USER_CURRENT) == 0;
-        if (useAccent) {
-            color = Utils.getColorAccentDefaultColor(getContext());
+        int colorMode = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.AMBIENT_NOTIFICATION_LIGHT_MODE, 0, UserHandle.USER_CURRENT);
+        int customColor = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.AMBIENT_NOTIFICATION_LIGHT_COLOR, color, UserHandle.USER_CURRENT);
+        switch (colorMode) {
+            case 0: color = getDefaultNotificationLightsColor();
+            case 1: color = Utils.getColorAccentDefaultColor(getContext());
+            case 2: color = customColor;
         }
         return color;
     }

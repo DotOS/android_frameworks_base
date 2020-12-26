@@ -2938,7 +2938,7 @@ public class NotificationPanelViewController extends PanelViewController {
                 Settings.System.PULSE_TRIGGER_REASON, DozeLog.PULSE_REASON_NONE, UserHandle.USER_CURRENT);
         boolean pulseReasonNotification = pulseReason == DozeLog.PULSE_REASON_NOTIFICATION;
         boolean pulseColorAutomatic = Settings.System.getIntForUser(resolver,
-                Settings.System.AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, 1, UserHandle.USER_CURRENT) != 0;
+                Settings.System.AMBIENT_NOTIFICATION_LIGHT_MODE, 1, UserHandle.USER_CURRENT) == 3;
         if (animatePulse) {
             mAnimateNextPositionUpdate = true;
         }
@@ -3709,8 +3709,8 @@ public class NotificationPanelViewController extends PanelViewController {
                 boolean pulseLights = Settings.System.getIntForUser(resolver,
                         Settings.System.AMBIENT_NOTIFICATION_LIGHT, 1, UserHandle.USER_CURRENT) != 0;
                 boolean pulseColorAutomatic = Settings.System.getIntForUser(resolver,
-                        Settings.System.AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, 1, UserHandle.USER_CURRENT) != 0;
-                if (pulseLights && pulseColorAutomatic) {
+                        Settings.System.AMBIENT_NOTIFICATION_LIGHT_MODE, 1, UserHandle.USER_CURRENT) == 3;
+                if (pulseLights) {
                     int pulseColor = mPulseLightsView.getNotificationLightsColor();
                     if (pulseColorAutomatic) {
                         ExpandableNotificationRow row = mNotificationStackScroller.getFirstActiveClearableNotification(ROWS_HIGH_PRIORITY);
