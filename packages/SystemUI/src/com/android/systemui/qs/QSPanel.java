@@ -245,6 +245,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 mBroadcastDispatcher);
     }
 
+    public int getBrightnessContainerHeight() {
+        return mBrightnessContainer.getHeight();
+    }
+
     protected QSTileLayout createRegularTileLayout() {
         if (mRegularTileLayout == null) {
             mRegularTileLayout = (QSTileLayout) LayoutInflater.from(mContext).inflate(
@@ -973,7 +977,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     void setGridContentVisibility(boolean visible) {
         int newVis = visible ? VISIBLE : INVISIBLE;
-        setVisibility(newVis);
+        for (int i = 0; i < getChildCount(); i++) {
+            if (getChildAt(i) == mBrightnessContainer) {}
+            else if (getChildAt(i) == mSecurityFooter.getView()) {}
+            else getChildAt(i).setVisibility(newVis);
+                
+        }
         if (mGridContentVisible != visible) {
             mMetricsLogger.visibility(MetricsEvent.QS_PANEL, newVis);
         }

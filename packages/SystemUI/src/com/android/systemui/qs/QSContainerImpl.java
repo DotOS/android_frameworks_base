@@ -156,6 +156,7 @@ public class QSContainerImpl extends FrameLayout {
         int width = mQSPanelContainer.getMeasuredWidth() + padding;
         int height = layoutParams.topMargin + layoutParams.bottomMargin
                 + mQSPanelContainer.getMeasuredHeight() + getPaddingBottom();
+        mQSDetail.getLayoutParams().height = mQSPanel.getHeight() - mQSPanel.getBrightnessContainerHeight();
         super.onMeasure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
                 MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
         // QSCustomizer will always be the height of the screen, but do this after
@@ -227,7 +228,7 @@ public class QSContainerImpl extends FrameLayout {
     public void updateExpansion(boolean animate) {
         int height = calculateContainerHeight();
         setBottom(getTop() + height);
-        mQSDetail.setBottom(getTop() + height);
+        mQSDetail.setBottom(getTop() + height - mQSPanel.getBrightnessContainerHeight());
         // Pin the drag handle to the bottom of the panel.
         mDragHandle.setTranslationY(height - mDragHandle.getHeight());
         mBackground.setTop(mQSPanelContainer.getTop());

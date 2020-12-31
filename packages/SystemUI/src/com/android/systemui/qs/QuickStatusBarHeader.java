@@ -443,6 +443,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updatePrivacyChipAlphaAnimator();
     }
 
+    public void setAlarmHeaderVisibility(boolean visible) {
+        mHeaderTextContainerView.setVisibility(visible ? VISIBLE : GONE);
+    }
+
     private void updateStatusIconAlphaAnimator() {
         mStatusIconsAlphaAnimator = new TouchAnimator.Builder()
                 .addFloat(mQuickQsStatusIcons, "alpha", 1, 0, 0)

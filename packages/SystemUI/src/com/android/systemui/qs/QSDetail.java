@@ -64,7 +64,6 @@ public class QSDetail extends LinearLayout {
     private ViewStub mQsDetailHeaderSwitchStub;
     private Switch mQsDetailHeaderSwitch;
     protected ImageView mQsDetailHeaderProgress;
-    protected View mQsDetailTopSpace;
 
     protected QSTileHost mHost;
 
@@ -92,12 +91,6 @@ public class QSDetail extends LinearLayout {
         for (int i = 0; i < mDetailViews.size(); i++) {
             mDetailViews.valueAt(i).dispatchConfigurationChanged(newConfig);
         }
-
-        // Update top space height in orientation change
-        mQsDetailTopSpace.getLayoutParams().height =
-                mContext.getResources().getDimensionPixelSize(
-                        com.android.internal.R.dimen.quick_qs_offset_height);
-        mQsDetailTopSpace.setLayoutParams(mQsDetailTopSpace.getLayoutParams());
     }
 
     @Override
@@ -111,7 +104,6 @@ public class QSDetail extends LinearLayout {
         mQsDetailHeaderTitle = (TextView) mQsDetailHeader.findViewById(android.R.id.title);
         mQsDetailHeaderSwitchStub = mQsDetailHeader.findViewById(R.id.toggle_stub);
         mQsDetailHeaderProgress = findViewById(R.id.qs_detail_header_progress);
-        mQsDetailTopSpace = findViewById(R.id.qs_detail_top_space);
 
         updateDetailText();
 
@@ -218,6 +210,7 @@ public class QSDetail extends LinearLayout {
             mDetailAdapter = adapter;
             listener = mHideGridContentWhenDone;
             setVisibility(View.VISIBLE);
+            mHeader.setAlarmHeaderVisibility(false);
         } else {
             if (mDetailAdapter != null) {
                 Dependency.get(MetricsLogger.class).hidden(mDetailAdapter.getMetricsCategory());
@@ -227,6 +220,7 @@ public class QSDetail extends LinearLayout {
             mDetailAdapter = null;
             listener = mTeardownDetailWhenDone;
             mHeader.setVisibility(View.VISIBLE);
+            mHeader.setAlarmHeaderVisibility(true);
             mFooter.setVisibility(View.VISIBLE);
             mQsPanel.setGridContentVisibility(true);
             mQsPanelCallback.onScanStateChanged(false);
@@ -370,6 +364,7 @@ public class QSDetail extends LinearLayout {
             // Only hide content if still in detail state.
             if (mDetailAdapter != null) {
                 mQsPanel.setGridContentVisibility(false);
+                mHeader.setAlarmHeaderVisibility(false);
                 mFooter.setVisibility(View.INVISIBLE);
             }
             mAnimatingOpen = false;
