@@ -33,11 +33,8 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.systemui.R;
 
 public class NumPadKey extends ViewGroup {
-    // list of "ABC", etc per digit, starting with '0'
-    static String sKlondike[];
 
     private final TextView mDigitText;
-    private final TextView mKlondikeText;
     private final LockPatternUtils mLockPatternUtils;
     private final PowerManager mPM;
 
@@ -101,7 +98,6 @@ public class NumPadKey extends ViewGroup {
 
         mDigitText = (TextView) findViewById(R.id.digit_text);
         mDigitText.setText(Integer.toString(mDigit));
-        mKlondikeText = (TextView) findViewById(R.id.klondike_text);
 
         updateText();
         a = context.obtainStyledAttributes(attrs, android.R.styleable.View);
@@ -122,18 +118,6 @@ public class NumPadKey extends ViewGroup {
                 Settings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0) == 1);
         if (mDigit >= 0) {
             mDigitText.setText(Integer.toString(mDigit));
-            if (sKlondike == null) {
-                sKlondike = getResources().getStringArray(R.array.lockscreen_num_pad_klondike);
-            }
-            if (sKlondike != null && sKlondike.length > mDigit) {
-                String klondike = sKlondike[mDigit];
-                final int len = klondike.length();
-                if (len > 0 || scramblePin) {
-                    mKlondikeText.setText(klondike);
-                } else {
-                    mKlondikeText.setVisibility(View.INVISIBLE);
-                }
-            }
         }
     }
 
@@ -154,18 +138,11 @@ public class NumPadKey extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int digitHeight = mDigitText.getMeasuredHeight();
-        int klondikeHeight = mKlondikeText.getMeasuredHeight();
-        int totalHeight = digitHeight + klondikeHeight;
-        int top = getHeight() / 2 - totalHeight / 2;
+        int top = getHeight() / 2 - digitHeight / 2;
         int centerX = getWidth() / 2;
         int left = centerX - mDigitText.getMeasuredWidth() / 2;
         int bottom = top + digitHeight;
         mDigitText.layout(left, top, left + mDigitText.getMeasuredWidth(), bottom);
-        top = (int) (bottom - klondikeHeight * 0.35f);
-        bottom = top + klondikeHeight;
-
-        left = centerX - mKlondikeText.getMeasuredWidth() / 2;
-        mKlondikeText.layout(left, top, left + mKlondikeText.getMeasuredWidth(), bottom);
     }
 
     @Override

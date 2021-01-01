@@ -25,13 +25,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-    <!-- The mnemonics is not shown for car but KeyguardPinView references the resource id in code.
-         Removing it will cause the keyguard to crash. Hide them instead -->
-    <TextView
-        android:id="@+id/klondike_text"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        />
 </merge>
 
