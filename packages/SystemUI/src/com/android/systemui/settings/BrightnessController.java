@@ -471,19 +471,9 @@ public class BrightnessController implements ToggleSlider.Listener {
             mControl.setValue(target);
             mControlValueInitialized = true;
         }
-        if (mSliderAnimator != null && mSliderAnimator.isStarted()) {
-            mSliderAnimator.cancel();
-        }
-        mSliderAnimator = ValueAnimator.ofInt(mControl.getValue(), target);
-        mSliderAnimator.addUpdateListener((ValueAnimator animation) -> {
-            mExternalChange = true;
-            mControl.setValue((int) animation.getAnimatedValue());
-            mExternalChange = false;
-        });
-        final long animationDuration = SLIDER_ANIMATION_DURATION * Math.abs(
-                mControl.getValue() - target) / GAMMA_SPACE_MAX;
-        mSliderAnimator.setDuration(animationDuration);
-        mSliderAnimator.start();
+        mExternalChange = true;
+        mControl.setValue(target);
+        mExternalChange = false;
     }
 
 }
