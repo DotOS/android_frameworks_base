@@ -397,13 +397,7 @@ public class MobileSignalController extends SignalController<
             if (mInflateSignalStrengths) {
                 level++;
             }
-            boolean dataDisabled = mCurrentState.userSetup
-                    && (mCurrentState.iconGroup == TelephonyIcons.DATA_DISABLED
-                    || (mCurrentState.iconGroup == TelephonyIcons.NOT_DEFAULT_DATA
-                            && mCurrentState.defaultDataOff));
-            boolean noInternet = mCurrentState.inetCondition == 0;
-            boolean cutOut = dataDisabled || noInternet;
-            return SignalDrawable.getState(level, getNumLevels(), cutOut);
+            return SignalDrawable.getState(level, getNumLevels(), isRoaming());
         } else if (mCurrentState.enabled) {
             return SignalDrawable.getEmptyState(getNumLevels());
         } else {
