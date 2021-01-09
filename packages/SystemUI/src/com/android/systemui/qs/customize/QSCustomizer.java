@@ -142,6 +142,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mKeyguardStateController = keyguardStateController;
         mScreenLifecycle = screenLifecycle;
         updateNavBackDrop(getResources().getConfiguration());
+        updateResources();
     }
 
     @Override
@@ -172,8 +173,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
 
     private void updateNavBackDrop(Configuration newConfig) {
         View navBackdrop = findViewById(R.id.nav_bar_background);
-        mIsShowingNavBackdrop = newConfig.smallestScreenWidthDp >= 600
-                || newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE;
+        mIsShowingNavBackdrop = false;
         if (navBackdrop != null) {
             navBackdrop.setVisibility(mIsShowingNavBackdrop ? View.VISIBLE : View.GONE);
         }

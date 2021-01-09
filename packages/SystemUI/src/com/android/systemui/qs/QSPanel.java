@@ -979,9 +979,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         int newVis = visible ? VISIBLE : INVISIBLE;
         for (int i = 0; i < getChildCount(); i++) {
             if (getChildAt(i) == mBrightnessContainer) {}
-            else if (getChildAt(i) == mSecurityFooter.getView()) {}
-            else getChildAt(i).setVisibility(newVis);
-                
+            else if (getChildAt(i) == mSecurityFooter.getView() && mSecurityFooter.isVisible()) {
+                getChildAt(i).setVisibility(newVis);
+            }
+            else 
+                getChildAt(i).setVisibility(newVis);
         }
         if (mGridContentVisible != visible) {
             mMetricsLogger.visibility(MetricsEvent.QS_PANEL, newVis);
