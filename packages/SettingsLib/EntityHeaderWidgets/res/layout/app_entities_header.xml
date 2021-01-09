@@ -15,13 +15,11 @@
   limitations under the License.
   -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/app_entities_header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -32,27 +30,34 @@
         android:gravity="center"
         android:textAppearance="@style/AppEntitiesHeader.Text.HeaderTitle"/>
 
-    <LinearLayout
-        android:id="@+id/app_views_container"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:gravity="center">
+        style="@style/AppEntitiesHeaderCard">
 
-        <include
-            android:id="@+id/app1_view"
-            layout="@layout/app_view"/>
+        <LinearLayout
+            android:id="@+id/app_views_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
-        <include
-            android:id="@+id/app2_view"
-            layout="@layout/app_view"/>
+            <include
+                android:id="@+id/app1_view"
+                layout="@layout/app_view" />
 
-        <include
-            android:id="@+id/app3_view"
-            layout="@layout/app_view"/>
+            <include
+                android:id="@+id/app2_view"
+                layout="@layout/app_view" />
 
-    </LinearLayout>
+            <include
+                android:id="@+id/app3_view"
+                layout="@layout/app_view" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <Button
         android:id="@+id/header_details"

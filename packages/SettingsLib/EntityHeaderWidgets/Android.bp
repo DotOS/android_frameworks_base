@@ -6,6 +6,8 @@ android_library {
 
     static_libs: [
           "androidx.annotation_annotation",
+          "com.google.android.material_material",
+          "androidx.cardview_cardview",
           "SettingsLibSettingsTheme"
     ],
 
