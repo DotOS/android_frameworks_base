@@ -32,6 +32,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="@dimen/qs_footer_margin"
+        android:paddingEnd="@dimen/qs_footer_margin"
         android:layout_gravity="center_vertical"
         android:gravity="end" >
 
