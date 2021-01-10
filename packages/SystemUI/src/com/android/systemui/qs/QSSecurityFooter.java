@@ -109,10 +109,6 @@ public class QSSecurityFooter implements OnClickListener, DialogInterface.OnClic
         return mRootView;
     }
 
-    public boolean isVisible() {
-        return mIsVisible;
-    }
-
     public boolean hasFooter() {
         return mRootView.getVisibility() != View.GONE;
     }
