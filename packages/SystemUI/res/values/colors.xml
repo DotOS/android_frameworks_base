@@ -273,5 +273,5 @@
 
     <color name="screenrecord_status_color">#E94235</color>
 
-    <color name="qs_tile_background_color_disabled">#f2f2f2</color>
+    <color name="qs_tile_background_color_disabled">#CCD5D5D5</color>
 </resources>

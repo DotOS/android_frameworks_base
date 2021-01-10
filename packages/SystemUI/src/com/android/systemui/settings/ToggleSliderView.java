@@ -16,9 +16,18 @@
 
 package com.android.systemui.settings;
 
+import android.annotation.ColorInt;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.database.ContentObserver;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -30,6 +39,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import com.android.settingslib.Utils;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
@@ -44,6 +54,31 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
 
     private ToggleSliderView mMirror;
     private BrightnessMirrorController mMirrorController;
+
+    private CustomSettingsObserver mCustomSettingsObserver;
+    private class CustomSettingsObserver extends ContentObserver {
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = getContext().getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_PANEL_BG_USE_NEW_TINT),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_NEW_TINT))) {
+                updateResources();
+            }
+        }
+
+        public void update() {
+            updateResources();
+        }
+    }
 
     public ToggleSliderView(Context context) {
         this(context, null);
@@ -67,9 +102,13 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
 
         mSlider = findViewById(R.id.slider);
         mSlider.setOnSeekBarChangeListener(mSeekListener);
+
+        mCustomSettingsObserver = new CustomSettingsObserver(new Handler(context.getMainLooper()));
         // Expose BrightnessSlider's progressDrawable
         if (a.getDrawable(R.styleable.ToggleSliderView_progressDrawable)!=null) {
             mSlider.setProgressDrawable(a.getDrawable(R.styleable.ToggleSliderView_progressDrawable));
+            mCustomSettingsObserver.observe();
+            mCustomSettingsObserver.update();
             mSlider.setThumb(null);
             int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, context.getResources().getDisplayMetrics());
             mSlider.setPadding(padding, 0, padding, 0);
@@ -80,6 +119,24 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
         mSlider.setAccessibilityLabel(getContentDescription().toString());
 
         a.recycle();
+    }
+
+    private void updateResources() {
+        boolean setQsUseNewTint = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1, UserHandle.USER_CURRENT) == 1;
+        if (setQsUseNewTint)
+            mSlider.setProgressTintList(ColorStateList.valueOf(adjustAlpha(Utils.getColorAccent(getContext()).getColors()[0], 0.4f)));
+        else
+            mSlider.setProgressTintList(Utils.getColorAccent(getContext()));
+    }
+
+    @ColorInt
+    private static int adjustAlpha(@ColorInt int color, float factor) {
+        int alpha = Math.round(Color.alpha(color) * factor);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+        return Color.argb(alpha, red, green, blue);
     }
 
     public void setMirror(ToggleSliderView toggleSlider) {
