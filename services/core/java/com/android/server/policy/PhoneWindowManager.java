@@ -321,6 +321,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     static public final String SYSTEM_DIALOG_REASON_SCREENSHOT = "screenshot";
 
     private static final int POWER_BUTTON_SUPPRESSION_DELAY_DEFAULT_MILLIS = 800;
+    private static final long MOVING_DISPLAY_TO_TOP_DURATION_MILLIS = 10;
+    private static final int MSG_MOVE_DISPLAY_TO_TOP = 28;
+    private volatile long mMovingDisplayToTopKeyTime;
+    private volatile boolean mMovingDisplayToTopKeyTriggered;
     private static final AudioAttributes VIBRATION_ATTRIBUTES = new AudioAttributes.Builder()
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
             .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
@@ -4283,21 +4287,29 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
         }
 
-        if ((result & ACTION_PASS_TO_USER) != 0) {
-            // If the key event is targeted to a specific display, then the user is interacting with
-            // that display. Therefore, give focus to the display that the user is interacting with.
-            if (!mPerDisplayFocusEnabled
-                    && displayId != INVALID_DISPLAY && displayId != mTopFocusedDisplayId) {
-                // An event is targeting a non-focused display. Move the display to top so that
-                // it can become the focused display to interact with the user.
-                // This should be done asynchronously, once the focus logic is fully moved to input
-                // from windowmanager. Currently, we need to ensure the setInputWindows completes,
-                // which would force the focus event to be queued before the current key event.
-                // TODO(b/70668286): post call to 'moveDisplayToTop' to mHandler instead
-                Log.i(TAG, "Moving non-focused display " + displayId + " to top "
-                        + "because a key is targeting it");
-                mWindowManagerFuncs.moveDisplayToTop(displayId);
+
+        if (result == 0 && !mPerDisplayFocusEnabled
+                && displayId != INVALID_DISPLAY && displayId != mTopFocusedDisplayId) {
+            // An event is targeting a non-focused display. Try to move the display to top so that
+            // it can become the focused display to interact with the user.
+            final long eventDownTime = event.getDownTime();
+            if (mMovingDisplayToTopKeyTime < eventDownTime) {
+                // We have not handled this event yet. Move the display to top, and then tell
+                // dispatcher to try again later.
+                mMovingDisplayToTopKeyTime = eventDownTime;
+                mMovingDisplayToTopKeyTriggered = true;
+                mHandler.sendMessage(
+                        mHandler.obtainMessage(MSG_MOVE_DISPLAY_TO_TOP, displayId, 0));
+                return (int) MOVING_DISPLAY_TO_TOP_DURATION_MILLIS;
+            } else if (mMovingDisplayToTopKeyTriggered) {
+                // The message has not been handled yet. Tell dispatcher to try again later.
+                return (int) MOVING_DISPLAY_TO_TOP_DURATION_MILLIS;
             }
+            // The target display is still not the top focused display. Drop the event because the
+            // display may not contain any window which can receive keys.
+            Slog.w(TAG, "Dropping key targeting non-focused display #" + displayId
+                    + " keyCode=" + KeyEvent.keyCodeToString(event.getKeyCode()));
+            return -1;
         }
 
         return result;
