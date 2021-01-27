@@ -5190,6 +5190,12 @@ public final class Settings {
          */
         public static final String QS_SHOW_BATTERY_PERCENT = "qs_header_show_battery_percent";
 
+	/**
+         * Defines the screen-off animation to display
+         * @hide
+         */
+        public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+
         /**
          * Battery style
          * @hide
@@ -5513,6 +5519,7 @@ public final class Settings {
             PUBLIC_SETTINGS.add(HAPTIC_FEEDBACK_ENABLED);
             PUBLIC_SETTINGS.add(SHOW_WEB_SUGGESTIONS);
             PUBLIC_SETTINGS.add(VIBRATE_WHEN_RINGING);
+            PUBLIC_SETTINGS.add(SCREEN_OFF_ANIMATION);
         }
 
         /**
@@ -5574,6 +5581,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_COLOR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
+            PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_SECONDS);
