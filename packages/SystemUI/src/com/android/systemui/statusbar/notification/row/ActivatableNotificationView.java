@@ -156,7 +156,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
     private OnDimmedListener mOnDimmedListener;
     private AccessibilityManager mAccessibilityManager;
 
-    private boolean mRequireTranspaerncy = true;
+    private boolean mRequireTransparency = true;
 
     public ActivatableNotificationView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -202,7 +202,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         mFakeShadow = findViewById(R.id.fake_shadow);
         mShadowHidden = mFakeShadow.getVisibility() != VISIBLE;
         mBackgroundDimmed = findViewById(R.id.backgroundDimmed);
-        mRequireTranspaerncy = mContext.getResources().getBoolean(R.bool.notification_outline_require_transparency);
+        mRequireTransparency = mContext.getResources().getBoolean(R.bool.notification_outline_require_transparency);
         initBackground();
         updateBackground();
         updateBackgroundTint();
@@ -378,7 +378,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
 
     private void updateOutlineAlpha() {
         float alpha = NotificationStackScrollLayout.BACKGROUND_ALPHA_DIMMED;
-        if (mRequireTranspaerncy) {
+        if (mRequireTransparency) {
             alpha = 0f;
         } else {
             alpha = (alpha + (1.0f - alpha) * mNormalBackgroundVisibilityAmount);
@@ -471,11 +471,11 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         int newColor = calculateBgColor();
         setBackgroundTintColor(newColor);
         if (!isDimmable() && mNeedsDimming) {
-           mBackgroundNormal.setDrawableAlpha((int) NotificationUtils.interpolate(190,
+           mBackgroundNormal.setDrawableAlpha((int) NotificationUtils.interpolate(255,
                    mDimmedAlpha,
                    overrideAmount));
         } else {
-            mBackgroundNormal.setDrawableAlpha(190);
+            mBackgroundNormal.setDrawableAlpha(255);
         }
     }
 

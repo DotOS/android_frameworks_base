@@ -19,8 +19,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- QS Custom Colors - 70% Alpha -->
     <color name="default_qs_transparency">#B3FFFFFF</color> 
-    <color name="dot_notification_dim">#99FFFFFF</color>
-    <color name="dot_notification_bg">#99FFFFFF</color>
+    <color name="dot_notification_dim">#CCFFFFFF</color>
+    <color name="dot_notification_bg">#66FFFFFF</color>
     <color name="dot_notification_bg_opaque">@*android:color/notification_material_background_color</color>
 
     <color name="default_volume_transparency">#CCFFFFFF</color>

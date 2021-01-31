@@ -24,6 +24,7 @@
     android:clipChildren="false"
     android:clipToPadding="true"
     android:orientation="vertical"
+    android:background="@color/dot_notification_bg_opaque"
     android:paddingStart="@*android:dimen/notification_content_margin_start">
 
     <!-- Package Info -->
