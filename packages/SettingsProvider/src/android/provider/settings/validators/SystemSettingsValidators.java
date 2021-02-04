@@ -215,5 +215,9 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.FLASHLIGHT_ON_CALL_IGNORE_DND, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.FLASHLIGHT_ON_CALL_RATE, new InclusiveIntegerRangeValidator(1, 5));
         VALIDATORS.put(System.NOTIFICATION_HEADERS, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.ARTWORK_MEDIA_BACKGROUND, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS, new InclusiveFloatRangeValidator(1f, 25f));
+        VALIDATORS.put(System.ARTWORK_MEDIA_BACKGROUND_ALPHA, new InclusiveIntegerRangeValidator(0, 255));
     }
 }

@@ -5,13 +5,24 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.provider.Settings.ACTION_MEDIA_CONTROLS_SETTINGS
+import android.database.ContentObserver
+import android.net.Uri
+import android.os.Handler
+import android.os.UserHandle
+import android.provider.Settings
+import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND
+import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA
+import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS
+import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR
 import android.util.Log
 import android.util.MathUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+
 import androidx.annotation.VisibleForTesting
+
 import com.android.systemui.Dumpable
 import com.android.systemui.R
 import com.android.systemui.classifier.FalsingCollector
@@ -28,16 +39,14 @@ import com.android.systemui.util.Utils
 import com.android.systemui.util.animation.UniqueObjectHostView
 import com.android.systemui.util.animation.requiresRemeasuring
 import com.android.systemui.util.concurrency.DelayableExecutor
+import com.android.systemui.util.settings.SystemSettings
 import com.android.systemui.util.time.SystemClock
+
 import java.io.FileDescriptor
 import java.io.PrintWriter
 import java.util.TreeMap
 import javax.inject.Inject
 import javax.inject.Provider
-
-private const val TAG = "MediaCarouselController"
-private val settingsIntent = Intent().setAction(ACTION_MEDIA_CONTROLS_SETTINGS)
-private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
 
 /**
  * Class that is responsible for keeping the view carousel up to date.
@@ -56,7 +65,9 @@ class MediaCarouselController @Inject constructor(
     configurationController: ConfigurationController,
     falsingCollector: FalsingCollector,
     falsingManager: FalsingManager,
-    dumpManager: DumpManager
+    dumpManager: DumpManager,
+    @Main private val handler: Handler,
+    private val systemSettings: SystemSettings,
 ) : Dumpable {
     /**
      * The current width of the carousel
@@ -170,6 +181,12 @@ class MediaCarouselController @Inject constructor(
      */
     lateinit var updateUserVisibility: () -> Unit
 
+    private val settingsObserver = SettingsObserver()
+    private var backgroundArtwork = false
+    private var backgroundBlur = false
+    private var blurRadius = 1f
+    private var backgroundAlpha = 255
+
     init {
         dumpManager.registerDumpable(TAG, this)
         mediaFrame = inflateMediaCarousel()
@@ -203,6 +220,7 @@ class MediaCarouselController @Inject constructor(
         }
         visualStabilityManager.addReorderingAllowedCallback(visualStabilityCallback,
                 true /* persistent */)
+        settingsObserver.observe()
         mediaManager.addListener(object : MediaDataManager.Listener {
             override fun onMediaDataLoaded(
                 key: String,
@@ -422,12 +440,16 @@ class MediaCarouselController @Inject constructor(
             val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT)
             newPlayer.playerViewHolder?.player?.setLayoutParams(lp)
+            newPlayer.updateBgArtworkParams(backgroundArtwork, backgroundBlur,
+                blurRadius, backgroundAlpha)
             newPlayer.bindPlayer(dataCopy, key)
             newPlayer.setListening(currentlyExpanded)
             MediaPlayerData.addMediaPlayer(key, dataCopy, newPlayer, systemClock)
             updatePlayerToState(newPlayer, noAnimation = true)
             reorderAllPlayers(curVisibleMediaKey)
         } else {
+            existingPlayer.updateBgArtworkParams(backgroundArtwork, backgroundBlur,
+                blurRadius, backgroundAlpha)
             existingPlayer.bindPlayer(dataCopy, key)
             MediaPlayerData.addMediaPlayer(key, dataCopy, existingPlayer, systemClock)
             if (visualStabilityManager.isReorderingAllowed || shouldScrollToActivePlayer) {
@@ -857,6 +879,57 @@ class MediaCarouselController @Inject constructor(
             println("smartspaceMediaData: ${MediaPlayerData.smartspaceMediaData}")
             println("shouldPrioritizeSs: ${MediaPlayerData.shouldPrioritizeSs}")
         }
+    }
+
+    private inner class SettingsObserver: ContentObserver(handler) {
+        fun observe() {
+            backgroundArtwork = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND,
+                0, UserHandle.USER_CURRENT) == 1
+            backgroundBlur = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
+                0, UserHandle.USER_CURRENT) == 1
+            blurRadius = systemSettings.getFloatForUser(ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
+                1f, UserHandle.USER_CURRENT)
+            backgroundAlpha = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ALPHA,
+                255, UserHandle.USER_CURRENT)
+
+            systemSettings.registerContentObserverForUser(
+                ARTWORK_MEDIA_BACKGROUND, this, UserHandle.USER_ALL)
+            systemSettings.registerContentObserverForUser(
+                ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR, this, UserHandle.USER_ALL)
+            systemSettings.registerContentObserverForUser(
+                ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS, this, UserHandle.USER_ALL)
+            systemSettings.registerContentObserverForUser(
+                ARTWORK_MEDIA_BACKGROUND_ALPHA, this, UserHandle.USER_ALL)
+        }
+
+        fun unobserve() {
+            systemSettings.unregisterContentObserver(this);
+        }
+
+        override fun onChange(selfChange: Boolean, uri: Uri) {
+            when (uri.lastPathSegment) {
+                ARTWORK_MEDIA_BACKGROUND ->
+                    backgroundArtwork = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND,
+                        0, UserHandle.USER_CURRENT) == 1
+                ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR ->
+                    backgroundBlur = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
+                        0, UserHandle.USER_CURRENT) == 1
+                ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS ->
+                    blurRadius = systemSettings.getFloatForUser(ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
+                        1f, UserHandle.USER_CURRENT)
+                ARTWORK_MEDIA_BACKGROUND_ALPHA ->
+                    backgroundAlpha = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ALPHA,
+                        255, UserHandle.USER_CURRENT)
+            }
+            recreatePlayers()
+        }
+    }
+
+    companion object {
+        private const val TAG = "MediaCarouselController"
+        private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
+
+        private val settingsIntent = Intent(ACTION_MEDIA_CONTROLS_SETTINGS)
     }
 }
 

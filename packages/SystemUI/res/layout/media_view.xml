@@ -28,6 +28,17 @@
     android:background="@drawable/qs_media_background"
     android:theme="@style/MediaPlayer">
 
+    <!-- BG Album Art -->
+    <ImageView
+        android:id="@+id/bg_album_art"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/center_vertical_guideline"
         android:layout_width="wrap_content"
@@ -131,17 +142,16 @@
         android:gravity="top|end"
         android:paddingTop="@dimen/qs_media_padding"
         android:paddingEnd="@dimen/qs_media_padding"
-        android:background="@drawable/qs_media_light_source"
         android:forceHasOverlappingRendering="false">
         <LinearLayout
             android:id="@+id/media_seamless_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/qs_seamless_height"
-            android:theme="@style/MediaPlayer.SolidButton"
-            android:background="@drawable/qs_media_seamless_background"
+            android:foreground="@drawable/qs_media_seamless_background"
             android:orientation="horizontal"
-            android:contentDescription="@string/quick_settings_media_device_label">
+            android:contentDescription="@string/quick_settings_media_device_label"
+            android:padding="8dp">
             <ImageView
                 android:id="@+id/media_seamless_image"
                 android:layout_width="@dimen/qs_seamless_icon_size"
