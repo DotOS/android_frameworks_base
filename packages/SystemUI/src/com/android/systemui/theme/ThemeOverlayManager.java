@@ -70,6 +70,12 @@ class ThemeOverlayManager {
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_NOTIFICATION_ALPHA =
             "android.theme.customization.notification_alpha";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_STYLES_SETTINGS =
+            "android.theme.customization.styles_settings";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_STYLES_SYSUI =
+            "android.theme.customization.styles_sysui";
 
     /*
      * All theme customization categories used by the system, in order that they should be applied,
@@ -84,7 +90,9 @@ class ThemeOverlayManager {
             OVERLAY_CATEGORY_ICON_SYSUI,
             OVERLAY_CATEGORY_ICON_SETTINGS,
             OVERLAY_CATEGORY_ICON_THEME_PICKER,
-            OVERLAY_CATEGORY_NOTIFICATION_ALPHA);
+            OVERLAY_CATEGORY_NOTIFICATION_ALPHA,
+            OVERLAY_CATEGORY_STYLES_SETTINGS,
+            OVERLAY_CATEGORY_STYLES_SYSUI);
 
     /* Categories that need to applied to the current user as well as the system user. */
     @VisibleForTesting
@@ -94,7 +102,9 @@ class ThemeOverlayManager {
             OVERLAY_CATEGORY_SHAPE,
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
-            OVERLAY_CATEGORY_NOTIFICATION_ALPHA);
+            OVERLAY_CATEGORY_NOTIFICATION_ALPHA,
+            OVERLAY_CATEGORY_STYLES_SETTINGS,
+            OVERLAY_CATEGORY_STYLES_SYSUI);
 
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
@@ -131,6 +141,8 @@ class ThemeOverlayManager {
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_LAUNCHER, mLauncherPackage);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_THEME_PICKER, mThemePickerPackage);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_NOTIFICATION_ALPHA, SYSUI_PACKAGE);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLES_SETTINGS, SETTINGS_PACKAGE);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLES_SYSUI, SYSUI_PACKAGE);
     }
 
     /**
