@@ -238,6 +238,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         mBrightnessContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         mBrightnessContainer.addView(mNullSpacer);
         mBrightnessContainer.addView(mBrightnessView);
+        mBrightnessContainer.addView(LayoutInflater.from(mContext).inflate(
+            R.layout.qs_spacer_small, this, false));
         addView(mBrightnessContainer);
         mBrightnessController = new BrightnessController(getContext(),
                 findViewById(R.id.brightness_slider),
