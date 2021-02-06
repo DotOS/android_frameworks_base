@@ -228,6 +228,7 @@ public class QSContainerImpl extends FrameLayout {
     public void updateExpansion(boolean animate) {
         int height = calculateContainerHeight();
         setBottom(getTop() + height);
+        mQSDetail.setTop(mQSPanelContainer.getTop());
         mQSDetail.setBottom(getTop() + height - mQSPanel.getBrightnessContainerHeight());
         // Pin the drag handle to the bottom of the panel.
         mDragHandle.setTranslationY(height - mDragHandle.getHeight());
