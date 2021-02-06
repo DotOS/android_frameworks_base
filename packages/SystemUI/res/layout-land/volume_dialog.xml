@@ -104,8 +104,8 @@
 
                 <FrameLayout
                     android:id="@+id/media_output_container"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_gravity="center_vertical">
 
                     <com.android.keyguard.AlphaOptimizedImageButton
@@ -118,6 +118,26 @@
                         android:src="@drawable/ic_bluetooth_audio"
                         android:tint="@color/accent_tint_color_selector" />
                 </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/odi_captions"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:clipToPadding="false"
+                    android:translationZ="@dimen/volume_dialog_elevation"
+                    android:background="@drawable/vol_dot_background">
+                    <com.android.systemui.volume.CaptionsToggleImageButton
+                        android:id="@+id/odi_captions_icon"
+                        android:src="@drawable/ic_volume_odi_captions_disabled"
+                        style="@style/VolumeButtons"
+                        android:background="@drawable/rounded_ripple_vol"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tint="@color/caption_tint_color_selector"
+                        android:layout_gravity="center"
+                        android:soundEffectsEnabled="false"
+                        sysui:optedOut="false"/>
+                </FrameLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -127,7 +147,7 @@
             android:layout_width="wrap_content"
             android:minWidth="@dimen/volume_dialog_panel_width"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="60dp"
             android:orientation="vertical"
             android:translationZ="@dimen/volume_dialog_elevation"
             android:clipChildren="false"
@@ -144,29 +164,6 @@
                 <!-- volume rows added and removed here! :-) -->
             </LinearLayout>
         </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/odi_captions"
-            android:layout_width="@dimen/volume_dialog_caption_size"
-            android:layout_height="@dimen/volume_dialog_caption_size"
-            android:layout_marginLeft="68dp"
-            android:layout_marginRight="68dp"
-            android:clipToPadding="false"
-            android:translationZ="@dimen/volume_dialog_elevation"
-            android:background="@drawable/vol_dot_background">
-            <com.android.systemui.volume.CaptionsToggleImageButton
-                android:id="@+id/odi_captions_icon"
-                android:src="@drawable/ic_volume_odi_captions_disabled"
-                style="@style/VolumeButtons"
-                android:background="@drawable/rounded_ripple_vol"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:tint="@color/caption_tint_color_selector"
-                android:layout_gravity="center"
-                android:soundEffectsEnabled="false"
-                sysui:optedOut="false"/>
-        </FrameLayout>
-
 
         <ViewStub
             android:id="@+id/odi_captions_tooltip_stub"
