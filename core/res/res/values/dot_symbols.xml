@@ -21,6 +21,9 @@
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
+    <!-- Screen recorder framerate limit -->
+    <java-symbol type="integer" name="config_screenRecorderMaxFramerate" />
+
     <!-- App error dialog -->
     <java-symbol type="id" name="aerr_copy" />
     <java-symbol type="string" name="url_copy_success" />
