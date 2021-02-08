@@ -11,12 +11,16 @@
   ~ distributed under the License is distributed on an "AS IS" BASIS,
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
-  ~ limitations under the License
+  ~ limitations under the License.
   -->
 
-<resources>
-    <!-- Can't link to other dimensions here, but this should be status_bar_height_landscape -->
-    <dimen name="quick_qs_offset_height">28dp</dimen>
-    <!-- Total height of QQS in landscape; quick_qs_offset_height + 128 -->
-    <dimen name="quick_qs_total_height">156dp</dimen>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Height of area above QQS where battery/time go -->
+    <dimen name="quick_qs_offset_height">76dp</dimen>
+    <!-- Total height of QQS (quick_qs_offset_height + 128) -->
+    <dimen name="quick_qs_total_height">216dp</dimen>
+
 </resources>
+
+

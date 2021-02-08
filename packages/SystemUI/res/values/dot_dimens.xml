@@ -42,4 +42,6 @@
     <dimen name="dismiss_all_button_margin_top">30dp</dimen>
     <dimen name="dismiss_all_button_width">55dp</dimen>
     <dimen name="dismiss_all_fab_src_size">24dp</dimen>
+
+    <dimen name="dot_quick_container_spacing">-16dp</dimen>
 </resources>
