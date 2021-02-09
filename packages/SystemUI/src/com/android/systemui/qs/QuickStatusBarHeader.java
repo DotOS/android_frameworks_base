@@ -271,7 +271,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
-	mClockView.setQsHeader();
+	    mClockView.setQsHeader();
         mDateView = findViewById(R.id.date);
         mSpace = findViewById(R.id.space);
         // Always force wallpaperTextColor
@@ -482,7 +482,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         if (mExpanded == expanded) return;
         mExpanded = expanded;
         mHeaderQsPanel.setExpanded(expanded);
-	mDateView.setVisibility(mClockView.isClockDateEnabled() ? View.INVISIBLE : View.VISIBLE);
+	    mDateView.setVisibility(mClockView.isClockDateEnabled() ? View.GONE : View.VISIBLE);
         updateEverything();
     }
 
@@ -559,13 +559,23 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         Pair<Integer, Integer> padding =
                 StatusBarWindowView.paddingNeededForCutoutAndRoundedCorner(
                         cutout, cornerCutoutPadding, -1);
+        int paddingDefault = getResources().getDimensionPixelSize(R.dimen.dot_quick_container_spacing);
+        int marginLeft = 0, marginRight = 0;
+        int relativeLeft = 0, relativeRight = 0;
         if (padding == null) {
             mSystemIconsView.setPaddingRelative(
                     getResources().getDimensionPixelSize(R.dimen.status_bar_padding_start), 0,
                     getResources().getDimensionPixelSize(R.dimen.status_bar_padding_end), 0);
         } else {
-            mSystemIconsView.setPadding(padding.first, 0, padding.second, 0);
-
+            marginLeft = (padding.first == -1 || padding.first == 0) ? paddingDefault : 0;
+            marginRight = (padding.second == -1 || padding.second == 0) ? paddingDefault : 0;
+            if (marginLeft == 0 && marginRight != 0) {
+                marginRight = (int) getResources().getDimension(R.dimen.dot_quick_container_spacing);
+            } else if (marginLeft != 0 && marginRight == 0) {
+                marginLeft = (int) getResources().getDimension(R.dimen.dot_quick_container_spacing);
+            }
+            relativeLeft = isLayoutRtl() ? marginRight : marginLeft;
+            relativeRight = isLayoutRtl() ? marginLeft : marginRight;
         }
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mSpace.getLayoutParams();
         boolean cornerCutout = cornerCutoutPadding != null
@@ -573,13 +583,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         if (cutout != null) {
             Rect topCutout = cutout.getBoundingRectTop();
             if (topCutout.isEmpty() || cornerCutout) {
+                mSpace.setVisibility(View.GONE);
                 mHasTopCutout = false;
                 lp.height = 0;
-                mSpace.setVisibility(View.GONE);
             } else {
+                mSpace.setVisibility(View.VISIBLE);
                 mHasTopCutout = true;
                 lp.height = topCutout.height();
-                mSpace.setVisibility(View.VISIBLE);
             }
         }
         mSpace.setLayoutParams(lp);
@@ -587,8 +597,38 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mCutOutPaddingLeft = padding.first;
         mCutOutPaddingRight = padding.second;
         mWaterfallTopInset = cutout == null ? 0 : cutout.getWaterfallInsets().top;
-        updateClockPadding();
+        updateClockPadding(relativeLeft, relativeRight);
         return super.onApplyWindowInsets(insets);
+    }
+
+    private void updateClockPadding(int relativeLeft, int relativeRight) {
+        int clockPaddingLeft = 0;
+        int clockPaddingRight = 0;
+
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
+        int leftMargin = lp.leftMargin;
+        int rightMargin = lp.rightMargin;
+
+        // The clock might collide with cutouts, let's shift it out of the way.
+        // We only do that if the inset is bigger than our own padding, since it's nicer to
+        // align with
+        if (mCutOutPaddingLeft > 0) {
+            // if there's a cutout, let's use at least the rounded corner inset
+            int cutoutPadding = Math.max(mCutOutPaddingLeft, mRoundedCornerPadding);
+            int contentMarginLeft = isLayoutRtl() ? mContentMarginEnd : mContentMarginStart;
+            clockPaddingLeft = Math.max(cutoutPadding - contentMarginLeft - leftMargin, 0);
+        }
+        if (mCutOutPaddingRight > 0) {
+            // if there's a cutout, let's use at least the rounded corner inset
+            int cutoutPadding = Math.max(mCutOutPaddingRight, mRoundedCornerPadding);
+            int contentMarginRight = isLayoutRtl() ? mContentMarginStart : mContentMarginEnd;
+            clockPaddingRight = Math.max(cutoutPadding - contentMarginRight - rightMargin, 0);
+        }
+
+        mSystemIconsView.setPadding(clockPaddingLeft + relativeLeft,
+                mWaterfallTopInset + mStatusBarPaddingTop,
+                clockPaddingRight + relativeRight,
+                0);
     }
 
     private void updateClockPadding() {
