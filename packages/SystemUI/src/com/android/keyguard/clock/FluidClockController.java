@@ -193,11 +193,17 @@ public class FluidClockController implements ClockPlugin {
 
     @Override
     public void onTimeTick() {
+     if (mView != null)
         mView.onTimeChanged();
+     if (mTimeClock != null)
         mTimeClock.refreshTime();
+     if (mSecondsClock != null)
         mSecondsClock.refreshTime();
+     if (mDay != null)
         mDay.refreshTime();
+     if (mDate != null)
         mDate.refreshTime();
+     if (mYear != null)
         mYear.refreshTime();
     }
 
