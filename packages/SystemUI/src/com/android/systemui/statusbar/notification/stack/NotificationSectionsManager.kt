@@ -144,6 +144,14 @@ class NotificationSectionsManager @Inject internal constructor(
         keyguardMediaController.attachSinglePaneContainer(mediaControlsView)
     }
 
+    fun setHeadersVisibility(visible: Boolean) {
+        if  (mShowHeaders != visible) {
+            mShowHeaders = visible
+            reinflateViews(LayoutInflater.from(parent.context))
+            if (visible) updateSectionBoundaries("headers toggled on")
+        }
+    }
+
     override fun beginsSection(view: View, previous: View?): Boolean =
             view === silentHeaderView ||
             view === mediaControlsView ||
@@ -257,6 +265,7 @@ class NotificationSectionsManager @Inject internal constructor(
         // target, but won't be once they are moved / removed after the pass has completed.
 
         val showHeaders = statusBarStateController.state != StatusBarState.KEYGUARD
+                && mShowHeaders
         val usingMediaControls = sectionsFeatureManager.isMediaControlsEnabled()
 
         val mediaState = mediaControlsView?.let(::expandableViewHeaderState)
