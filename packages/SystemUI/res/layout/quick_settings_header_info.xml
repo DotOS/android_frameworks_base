@@ -39,11 +39,51 @@
             android:scrollbars="none">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/status_header_container"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/datausage_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/qs_info_outline_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="6dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_qs_data_used"
+                        android:tint="?android:attr/textColorPrimary" />
+
+                    <com.android.systemui.dot.QSDataUsageView
+                        android:id="@+id/qs_data_usage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.QS.Status"
+                        android:layout_marginStart="6dp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/datausage_separator"
+                    android:layout_width="@dimen/qs_header_separator_width"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/alarm_container"

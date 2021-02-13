@@ -5125,6 +5125,12 @@ public final class Settings {
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
         /**
+         * Show current active data sim data usage
+	 * @hide
+         */
+        public static final String QS_SHOW_DATA_USAGE = "qs_show_data_usage";
+
+        /**
          * Whether to enable or disable vibration on succesful fingerprint auth
          * @hide
          */
