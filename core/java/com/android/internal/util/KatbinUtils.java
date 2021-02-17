@@ -28,21 +28,21 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
- * Helper functions for uploading to del.dog
+ * Helper functions for uploading to katb.in
  */
-public final class DogbinUtils {
-    private static final String TAG = "DogbinUtils";
-    private static final String BASE_URL = "https://del.dog";
+public final class KatbinUtils {
+    private static final String TAG = "KatbinUtils";
+    private static final String BASE_URL = "https://katb.in";
     private static final String API_URL = String.format("%s/documents", BASE_URL);
     private static Handler handler;
 
-    private DogbinUtils() {
+    private KatbinUtils() {
     }
 
     /**
-     * Uploads {@code content} to dogbin
-     * 
-     * @param content the content to upload to dogbin
+     * Uploads {@code content} to Katbin
+     *
+     * @param content the content to upload to Katbin
      * @param callback the callback to call on success / failure
      */
     public static void upload(String content, UploadResultCallback callback) {
@@ -76,14 +76,14 @@ public final class DogbinUtils {
                         if (!key.isEmpty()) {
                             callback.onSuccess(getUrl(key));
                         } else {
-                            String msg = "Failed to upload to dogbin: No key retrieved";
-                            callback.onFail(msg, new DogbinException(msg));
+                            String msg = "Failed to upload to Katbin: No key retrieved";
+                            callback.onFail(msg, new KatbinException(msg));
                         }
                     } finally {
                         urlConnection.disconnect();
                     }
                 } catch (Exception e) {
-                    callback.onFail("Failed to upload to dogbin", e);
+                    callback.onFail("Failed to upload to Katbin", e);
                 }
             }
         });
@@ -98,7 +98,7 @@ public final class DogbinUtils {
 
     private static Handler getHandler() {
         if (handler == null) {
-            HandlerThread handlerThread = new HandlerThread("dogbinThread");
+            HandlerThread handlerThread = new HandlerThread("KatbinThread");
             if (!handlerThread.isAlive())
                 handlerThread.start();
             handler = new Handler(handlerThread.getLooper());
