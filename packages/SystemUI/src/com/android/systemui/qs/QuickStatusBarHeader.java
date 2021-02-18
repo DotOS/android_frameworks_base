@@ -580,7 +580,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mSpace.getLayoutParams();
         boolean cornerCutout = cornerCutoutPadding != null
                 && (cornerCutoutPadding.first == 0 || cornerCutoutPadding.second == 0);
-        if (cutout != null) {
+        boolean shouldSpace = getResources().getBoolean(R.bool.qs_enable_cutout_space);
+        if (cutout != null && shouldSpace) {
             Rect topCutout = cutout.getBoundingRectTop();
             if (topCutout.isEmpty() || cornerCutout) {
                 mSpace.setVisibility(View.GONE);
