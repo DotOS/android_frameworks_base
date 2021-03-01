@@ -75,6 +75,7 @@ import com.android.systemui.dump.DumpManager;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
+import com.android.systemui.statusbar.policy.NetworkTraffic;
 import com.android.systemui.privacy.OngoingPrivacyChip;
 import com.android.systemui.privacy.PrivacyChipBuilder;
 import com.android.systemui.privacy.PrivacyChipEvent;
@@ -182,6 +183,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private boolean mPrivacyChipLogged = false;
 
     private View mStatusHeaderContainer;
+
+    // Network Traffic
+    private NetworkTraffic mNetworkTraffic;
+    private NetworkTraffic mNetworkTrafficExpanded;
 
     private PrivacyItemController.Callback mPICCallback = new PrivacyItemController.Callback() {
         @Override
@@ -298,6 +303,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         mRingerModeTextView.setSelected(true);
         mNextAlarmTextView.setSelected(true);
+
+        // Network Traffic
+        mNetworkTraffic = findViewById(R.id.networkTraffic);
+        mNetworkTrafficExpanded = findViewById(R.id.networkTrafficExpanded);
 
         mAllIndicatorsEnabled = mPrivacyItemController.getAllIndicatorsAvailable();
         mMicCameraIndicatorsEnabled = mPrivacyItemController.getMicCameraAvailable();
@@ -773,6 +782,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         float intensity = getColorIntensity(colorForeground);
         int fillColor = mDualToneHandler.getSingleColor(intensity);
         mBatteryRemainingIcon.onDarkChanged(tintArea, intensity, fillColor);
+        mNetworkTraffic.onDarkChanged(tintArea, intensity, fillColor);
+        mNetworkTrafficExpanded.onDarkChanged(tintArea, intensity, fillColor);
     }
 
     public void setCallback(Callback qsPanelCallback) {
