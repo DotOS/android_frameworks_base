@@ -409,6 +409,9 @@ public final class PowerManagerService extends SystemService
     // The current battery level percentage.
     private int mBatteryLevel;
 
+    // The current battery Temperature
+    private int mBatteryTemperature;
+
     // The battery level percentage at the time the dream started.
     // This is used to terminate a dream and go to sleep if the battery is
     // draining faster than it is charging and the user activity timeout has expired.
@@ -677,6 +680,13 @@ public final class PowerManagerService extends SystemService
     private static String mPowerInputSuspendSysfsNode;
     private static String mPowerInputSuspendValue;
     private static String mPowerInputResumeValue;
+
+    // Smart Cutoff
+    private boolean mSmartCutoffEnabled;
+    private int mSmartCutoffResumeTemperature;
+    private int mSmartCutoffTemperature;
+    private int mSmartCutoffTemperatureDefaultConfig;
+    private int mSmartCutoffResumeTemperatureConfig;
 
     /**
      * All times are in milliseconds. These constants are kept synchronized with the system
@@ -1245,6 +1255,16 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.SMART_CHARGING_RESET_STATS),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CUTOFF),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CUTOFF_TEMPERATURE),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CUTOFF_RESUME_TEMPERATURE),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
             try {
@@ -1272,6 +1292,13 @@ public final class PowerManagerService extends SystemService
         filter = new IntentFilter();
         filter.addAction(Intent.ACTION_DOCK_EVENT);
         mContext.registerReceiver(new DockReceiver(), filter, null, mHandler);
+
+        filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_POWER_CONNECTED);
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        filter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        mContext.registerReceiver(new BatteryInfoReceiver(), filter, null, mHandler);
+
     }
 
     @VisibleForTesting
@@ -1341,6 +1368,12 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.string.config_SmartChargingResumeValue);
         mSmartChargingResetStats = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
+
+         // Smart Cutoff
+        mSmartCutoffTemperatureDefaultConfig = resources.getInteger(
+                com.android.internal.R.integer.config_smartCutoffTemperature);
+        mSmartCutoffResumeTemperatureConfig = resources.getInteger(
+                com.android.internal.R.integer.config_smartCutoffResumeTemperature);
     }
 
     private void updateSettingsLocked() {
@@ -1382,6 +1415,14 @@ public final class PowerManagerService extends SystemService
                 mSmartChargingResumeLevelDefaultConfig);
         mSmartChargingResetStats = Settings.System.getInt(resolver,
                 Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
+        mSmartCutoffEnabled = Settings.System.getInt(resolver,
+                Settings.System.SMART_CUTOFF, 0) == 1;
+        mSmartCutoffTemperature = Settings.System.getInt(resolver,
+                Settings.System.SMART_CUTOFF_TEMPERATURE,
+                mSmartCutoffTemperatureDefaultConfig);
+        mSmartCutoffResumeTemperature = Settings.System.getInt(resolver,
+                Settings.System.SMART_CUTOFF_RESUME_TEMPERATURE,
+                mSmartCutoffResumeTemperatureConfig);
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
@@ -1429,6 +1470,7 @@ public final class PowerManagerService extends SystemService
         updateSettingsLocked();
         updatePowerStateLocked();
         updateSmartChargingStatus();
+        updateSmartCutoffStatus();
     }
 
     private void acquireWakeLockInternal(IBinder lock, int flags, String tag, String packageName,
@@ -2205,6 +2247,7 @@ public final class PowerManagerService extends SystemService
 
             mBatterySaverStateMachine.setBatteryStatus(mIsPowered, mBatteryLevel, mBatteryLevelLow);
             updateSmartChargingStatus();
+            updateSmartCutoffStatus();
         }
     }
 
@@ -2230,6 +2273,28 @@ public final class PowerManagerService extends SystemService
                 }
             }
 
+            try {
+                FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
+                mPowerInputSuspended = true;
+            } catch (IOException e) {
+                    Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
+            }
+        }
+    }
+
+    private void updateSmartCutoffStatus() {
+        if (mPowerInputSuspended && (mBatteryTemperature <= mSmartCutoffResumeTemperature) ||
+            (mPowerInputSuspended && !mSmartCutoffEnabled)) {
+            try {
+                FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputResumeValue);
+                mPowerInputSuspended = false;
+            } catch (IOException e) {
+                Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
+            }
+            return;
+        }
+
+        if (mSmartCutoffEnabled && !mPowerInputSuspended && (mBatteryTemperature >= mSmartCutoffTemperature)) {
             try {
                 FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
                 mPowerInputSuspended = true;
@@ -4665,6 +4730,19 @@ public final class PowerManagerService extends SystemService
                     mDockState = dockState;
                     mDirty |= DIRTY_DOCK_STATE;
                     updatePowerStateLocked();
+                }
+            }
+        }
+    }
+
+    private final class BatteryInfoReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            synchronized (mLock) {
+                int temperature = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0);
+                if (temperature > 0) {
+                    float temp = ((float) temperature) / 10f;
+                    mBatteryTemperature=(int) ((temp) + 0.5f);
                 }
             }
         }
