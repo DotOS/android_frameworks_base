@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -59,8 +60,9 @@ public class BrightnessDialog extends Activity {
                 R.layout.quick_settings_brightness_dialog, null);
         setContentView(v);
         final TextView progressText = findViewById(R.id.brightness_text_progress);
+        final ImageView icon = findViewById(R.id.brightness_icon_auto);
         final ToggleSliderView slider = findViewById(R.id.brightness_slider);
-        mBrightnessController = new BrightnessController(this, slider, progressText, mBroadcastDispatcher);
+        mBrightnessController = new BrightnessController(this, slider, icon, progressText, mBroadcastDispatcher);
     }
 
     @Override

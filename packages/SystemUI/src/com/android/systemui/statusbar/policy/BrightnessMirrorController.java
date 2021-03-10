@@ -64,12 +64,18 @@ public class BrightnessMirrorController
         mVisibilityCallback.accept(true);
         mNotificationPanel.setPanelAlpha(0, true /* animate */);
         mDepthController.setBrightnessMirrorVisible(true);
+        hideAuto();
     }
 
     public void hideMirror() {
         mVisibilityCallback.accept(false);
         mNotificationPanel.setPanelAlpha(255, true /* animate */);
         mDepthController.setBrightnessMirrorVisible(false);
+    }
+
+    private void hideAuto() {
+        View iv = mBrightnessMirror.findViewById(R.id.brightnessAuto);
+        iv.setVisibility(View.INVISIBLE);
     }
 
     public void setLocation(View original) {

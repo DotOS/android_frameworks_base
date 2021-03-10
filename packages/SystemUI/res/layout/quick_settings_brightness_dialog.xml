@@ -19,8 +19,6 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:layout_gravity="center_vertical"
-    android:layout_marginStart="-4dp"
-    android:layout_marginEnd="-4dp"
     style="@style/BrightnessDialogContainer">
 
     <RelativeLayout
@@ -33,6 +31,9 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_gravity="center_vertical"
+          android:layout_marginEnd="8dp"
+          android:layout_toStartOf="@id/brightnessAuto"
+          android:background="@null"
           android:contentDescription="@string/accessibility_brightness"
           android:importantForAccessibility="no"
           systemui:text="@string/status_bar_settings_auto_brightness_label"
@@ -40,11 +41,12 @@
 
         <ImageView
             android:id="@+id/brightness_icon_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:background="@drawable/qs_brightness_icon_left" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_dot_brightness_low" />
 
         <TextView
             android:id="@+id/brightness_text_progress"
@@ -58,12 +60,31 @@
 
         <ImageView
             android:id="@+id/brightness_icon_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="28dp"
+            android:layout_toStartOf="@id/brightnessAuto"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_dot_brightness_high" />
+
+        <RelativeLayout
+            android:id="@+id/brightnessAuto"
+            android:layout_width="@dimen/brightness_mirror_height"
+            android:layout_height="@dimen/brightness_mirror_height"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/qs_brightness_icon_left" />
+            android:background="@drawable/qs_dot_brightness_auto_bg" >
+
+            <ImageView
+                android:id="@+id/brightness_icon_auto"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                android:foreground="@drawable/ic_dot_ripple"
+                android:clickable="true" />
+        </RelativeLayout>
     </RelativeLayout>
 
 </LinearLayout>

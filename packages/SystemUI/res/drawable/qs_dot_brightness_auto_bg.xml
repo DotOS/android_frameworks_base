@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:thickness="@dimen/brightness_mirror_height"
+    android:tint="@color/qs_background_dark">
+    <solid android:color="@color/default_qs_transparency" />
+    <size android:height="@dimen/brightness_mirror_height" />
+    <corners android:radius="?android:attr/dialogCornerRadius" />
+</shape>

@@ -110,8 +110,7 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
             mCustomSettingsObserver.observe();
             mCustomSettingsObserver.update();
             mSlider.setThumb(null);
-            int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, context.getResources().getDisplayMetrics());
-            mSlider.setPadding(padding, 0, padding, 0);
+            mSlider.setPadding(0, 0, 0, 0);
         }
         mLabel = findViewById(R.id.label);
         mLabel.setText(a.getString(R.styleable.ToggleSliderView_text));
