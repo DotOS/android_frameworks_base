@@ -9472,6 +9472,8 @@ public final class Settings {
          * 0 = disabled (default)
          * 1 = from sunset to sunrise
          * 2 = custom time
+         * 3 = from sunset till a time
+         * 4 = from a time till sunrise
          * @hide
          */
         @Readable
@@ -9479,7 +9481,7 @@ public final class Settings {
 
         /**
          * The custom time {@link DOZE_ALWAYS_ON} should be on at
-         * Only relevant when {@link DOZE_ALWAYS_ON_AUTO_MODE} is set to 2
+         * Only relevant when {@link DOZE_ALWAYS_ON_AUTO_MODE} is set to 2 and above
          * 0 = Disabled (default)
          * format: HH:mm,HH:mm (since,till)
          * @hide
