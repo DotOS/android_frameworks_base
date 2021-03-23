@@ -55,6 +55,8 @@ import com.android.systemui.util.AlarmTimeout;
 import com.android.systemui.util.wakelock.DelayedWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
 
+import com.android.settingslib.Utils;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
@@ -128,7 +130,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     /**
      * Same as above, but when blur is supported.
      */
-    public static final float BLUR_SCRIM_ALPHA = 0.54f;
+    public static final float BLUR_SCRIM_ALPHA = 0.85f;
 
     static final int TAG_KEY_ANIM = R.id.scrim;
     private static final int TAG_START_ALPHA = R.id.scrim_alpha_start;
@@ -195,12 +197,18 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     private boolean mWakeLockHeld;
     private boolean mKeyguardOccluded;
 
+    private float mQsExpansion;
+
     @Inject
     public ScrimController(LightBarController lightBarController, DozeParameters dozeParameters,
             AlarmManager alarmManager, KeyguardStateController keyguardStateController,
             DelayedWakeLock.Builder delayedWakeLockBuilder, Handler handler,
             KeyguardUpdateMonitor keyguardUpdateMonitor, SysuiColorExtractor sysuiColorExtractor,
             DockManager dockManager, BlurUtils blurUtils) {
+
+        mInFrontAlpha = -1.0f;
+        mBehindAlpha = -1.0f;
+        mBubbleAlpha = -1.0f;
 
         mScrimStateListener = lightBarController::setScrimState;
         mDefaultScrimAlpha = blurUtils.supportsBlursOnWindows()
@@ -228,7 +236,8 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
         mColorExtractor = sysuiColorExtractor;
         mColorExtractor.addOnColorsChangedListener(this);
-        mColors = mColorExtractor.getNeutralColors();
+        mColors = new ColorExtractor.GradientColors();
+        updateThemeColors();
         mNeedsDrawableColorUpdate = true;
     }
 
@@ -448,6 +457,18 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
         }
     }
 
+    public void setQsExpansion(float fraction) {
+        if (!isNaN(fraction) && mQsExpansion != fraction) {
+            mQsExpansion = fraction;
+            Log.d("ScrimController", "set qs fraction" + mQsExpansion);
+            ScrimState scrimState = mState;
+            if ((scrimState == ScrimState.SHADE_LOCKED || scrimState == ScrimState.KEYGUARD || scrimState == ScrimState.PULSING || scrimState == ScrimState.BUBBLE_EXPANDED) && mExpansionAffectsAlpha) {
+                applyAndDispatchExpansion();
+            }
+        }
+    }
+
+
     private void setOrAdaptCurrentAnimation(View scrim) {
         float alpha = getCurrentScrimAlpha(scrim);
         if (isAnimating(scrim)) {
@@ -493,6 +514,12 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
             }
             mBehindTint = ColorUtils.blendARGB(ScrimState.BOUNCER.getBehindTint(),
                     mState.getBehindTint(), interpolatedFract);
+            float f = mQsExpansion;
+            if (f > 0.0f) {
+                mBehindAlpha = MathUtils.lerp(mBehindAlpha, mDefaultScrimAlpha, f);
+                mBehindTint = ColorUtils.blendARGB(mBehindTint, ScrimState.SHADE_LOCKED.getBehindTint(), mQsExpansion);
+            }
+
         }
         if (isNaN(mBehindAlpha) || isNaN(mInFrontAlpha)) {
             throw new IllegalStateException("Scrim opacity is NaN for state: " + mState
@@ -943,10 +970,29 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
     @Override
     public void onColorsChanged(ColorExtractor colorExtractor, int which) {
-        mColors = mColorExtractor.getNeutralColors();
-        mNeedsDrawableColorUpdate = true;
+        //mColors = mColorExtractor.getNeutralColors();
+        updateThemeColors();
         scheduleUpdate();
     }
+
+    private void updateThemeColors() {
+        ScrimView scrimView = mScrimBehind;
+        if (scrimView == null) return;
+        int attrColor = Utils.getColorAttr(scrimView.getContext(), android.R.attr.textColorPrimaryInverse).getDefaultColor();
+        int defaultColor = Color.argb(Math.round(Color.alpha(attrColor) * 0.75f), 
+                           Color.red(attrColor),
+                           Color.green(attrColor),
+                           Color.blue(attrColor));
+        //int attrColor = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
+        //int defaultColor = Color.argb(Math.round(Color.alpha(attrColor) * 0.45f), Color.red(attrColor), Color.green(attrColor), Color.blue(attrColor));
+        int defaultColor2 = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
+        mColors.setMainColor(defaultColor);
+        mColors.setSecondaryColor(defaultColor2);
+        ColorExtractor.GradientColors gradientColors = mColors;
+        gradientColors.setSupportsDarkText(ColorUtils.calculateContrast(gradientColors.getMainColor(), -1) > 4.5d);
+        mNeedsDrawableColorUpdate = true;
+    }
+
 
     @Override
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {

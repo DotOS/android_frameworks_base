@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2014 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#00000000" />
-    <corners android:radius="?android:attr/dialogCornerRadius" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:end="56dp">
+        <shape>
+            <solid android:color="@color/qs_background_dark" />
+            <corners android:radius="300dp" />
+        </shape>
+    </item>
+</layer-list>
+

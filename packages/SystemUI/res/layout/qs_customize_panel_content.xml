@@ -27,8 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginLeft="@dimen/notification_side_paddings"
-        android:layout_marginRight="@dimen/notification_side_paddings"
         android:orientation="vertical"
         android:background="@drawable/qs_customizer_background">
         <Toolbar
@@ -37,6 +35,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/qs_customizer_toolbar"
             android:navigationContentDescription="@*android:string/action_bar_up_description"
+            android:elevation="0dp"
             style="@style/QSCustomizeToolbar"
             />
 
@@ -45,8 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/qs_tile_layout_margin_side"
-            android:paddingRight="@dimen/qs_tile_layout_margin_side"
             android:paddingBottom="28dp"
             android:clipToPadding="false"
             android:scrollIndicators="top"

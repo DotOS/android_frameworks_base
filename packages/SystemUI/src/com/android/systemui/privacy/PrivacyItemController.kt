@@ -80,13 +80,15 @@ class PrivacyItemController @Inject constructor(
         @Synchronized set
 
     fun isAllIndicatorsEnabled(): Boolean {
-        return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-                ALL_INDICATORS, false)
+        //return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+        //        ALL_INDICATORS, false)
+        return true
     }
 
     private fun isMicCameraEnabled(): Boolean {
-        return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-                MIC_CAMERA, false)
+        //return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+        //        MIC_CAMERA, false)
+        return true
     }
 
     private var currentUserIds = emptyList<Int>()

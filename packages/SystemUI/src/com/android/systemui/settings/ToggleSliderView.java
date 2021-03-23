@@ -105,7 +105,7 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
 
         mCustomSettingsObserver = new CustomSettingsObserver(new Handler(context.getMainLooper()));
         // Expose BrightnessSlider's progressDrawable
-        if (a.getDrawable(R.styleable.ToggleSliderView_progressDrawable)!=null) {
+        if (a.getDrawable(R.styleable.ToggleSliderView_progressDrawable) != null) {
             mSlider.setProgressDrawable(a.getDrawable(R.styleable.ToggleSliderView_progressDrawable));
             mCustomSettingsObserver.observe();
             mCustomSettingsObserver.update();

@@ -385,7 +385,7 @@
 
     <!-- The height of the quick settings footer that holds the user switcher, settings icon,
          etc. -->
-    <dimen name="qs_footer_height">48dp</dimen>
+    <dimen name="qs_footer_height">64dp</dimen>
 
     <!-- The size of each of the icon buttons in the QS footer -->
     <dimen name="qs_footer_action_button_size">@dimen/qs_footer_height</dimen>
@@ -494,8 +494,8 @@
     <dimen name="qs_customize_header_min_height">46dp</dimen>
     <dimen name="qs_tile_margin_top">6dp</dimen>
     <dimen name="qs_tile_icon_background_stroke_width">-1dp</dimen>
-    <dimen name="qs_tile_background_size">48dp</dimen>
-    <dimen name="qs_quick_tile_size">52dp</dimen>
+    <dimen name="qs_tile_background_size">52dp</dimen>
+    <dimen name="qs_quick_tile_size">58dp</dimen>
     <dimen name="qs_quick_tile_padding">12dp</dimen>
     <dimen name="qs_header_gear_translation">16dp</dimen>
     <dimen name="qs_header_tile_margin_bottom">18dp</dimen>
@@ -513,7 +513,7 @@
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
     <dimen name="qs_tile_spacing">4dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
-    <dimen name="qs_panel_padding_top">@dimen/qs_header_tooltip_height</dimen>
+    <dimen name="qs_panel_padding_top">6dp</dimen>
     <dimen name="qs_detail_header_height">56dp</dimen>
     <dimen name="qs_detail_header_padding">0dp</dimen>
     <dimen name="qs_detail_image_width">56dp</dimen>
@@ -537,7 +537,7 @@
     <dimen name="qs_detail_item_icon_width">32dp</dimen>
     <dimen name="qs_detail_item_icon_marginStart">0dp</dimen>
     <dimen name="qs_detail_item_icon_marginEnd">20dp</dimen>
-    <dimen name="qs_header_tooltip_height">56dp</dimen>
+    <dimen name="qs_header_tooltip_height">0dp</dimen>
     <dimen name="qs_header_alarm_icon_size">@dimen/status_bar_icon_drawing_size</dimen>
     <dimen name="qs_header_mobile_icon_size">@dimen/status_bar_icon_drawing_size</dimen>
     <dimen name="qs_header_alarm_text_margin_start">6dp</dimen>
@@ -760,7 +760,7 @@
     <!-- The top padding of the clear all button -->
     <dimen name="clear_all_padding_top">12dp</dimen>
 
-    <dimen name="notification_section_header_height">48dp</dimen>
+    <dimen name="notification_section_header_height">52dp</dimen>
     <dimen name="notification_section_header_padding_left">16dp</dimen>
 
     <!-- Largest size an avatar might need to be drawn in the user picker, status bar, or
@@ -1081,8 +1081,8 @@
     <dimen name="edge_margin">8dp</dimen>
 
     <!-- The absolute side margins of quick settings -->
-    <dimen name="quick_settings_bottom_margin_media">16dp</dimen>
-    <dimen name="rounded_corner_content_padding">8dp</dimen>
+    <dimen name="quick_settings_bottom_margin_media">8dp</dimen>
+    <dimen name="rounded_corner_content_padding">12dp</dimen>
     <dimen name="nav_content_padding">0dp</dimen>
     <dimen name="nav_quick_scrub_track_edge_padding">24dp</dimen>
     <dimen name="nav_quick_scrub_track_thickness">10dp</dimen>

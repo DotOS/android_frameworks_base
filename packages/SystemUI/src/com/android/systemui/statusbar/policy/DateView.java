@@ -54,7 +54,7 @@ public class DateView extends TextView implements DarkReceiver {
      * Whether we should use colors that adapt based on wallpaper/the scrim behind quick settings
      * for text.
      */
-    private boolean mUseWallpaperTextColor;
+    private boolean mUseWallpaperTextColor = false;
 
     /**
      * Color to be set on this {@link TextView}, when wallpaperTextColor is <b>not</b> utilized.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight">
+    <item android:id="@android:id/mask">
+        <shape android:tint="?android:attr/colorAccent">
+            <solid android:color="@color/default_qs_transparency"/>
+            <corners android:radius="@dimen/dotNotificationsRadius"/>
+        </shape>
+    </item>
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle" android:tint="?android:attr/textColorSecondary">
+            <solid android:color="#19FFFFFF"/>
+            <corners android:radius="@dimen/dotNotificationsRadius"/>
+        </shape>
+    </item>
+</ripple>

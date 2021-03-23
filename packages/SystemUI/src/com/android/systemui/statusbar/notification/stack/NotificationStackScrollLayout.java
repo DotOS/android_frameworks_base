@@ -541,10 +541,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     private int mWaterfallTopInset;
 
     private SysuiColorExtractor.OnColorsChangedListener mOnColorsChangedListener =
-            (colorExtractor, which) -> {
-                final boolean useDarkText = mColorExtractor.getNeutralColors().supportsDarkText();
-                updateDecorViews(useDarkText);
-            };
+            (colorExtractor, which) -> { updateDecorViews(); };
 
     @Inject
     public NotificationStackScrollLayout(
@@ -718,6 +715,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         if (mAllowLongPress) {
             setLongPressListener(mNotificationGutsManager::openGuts);
         }
+        updateDecorViews();
     }
 
     /**
@@ -759,7 +757,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     @Override
     public void onOverlayChanged() {
         int newRadius = mContext.getResources().getDimensionPixelSize(
-                Utils.getThemeAttr(mContext, android.R.attr.dialogCornerRadius));
+                R.dimen.dotNotificationsRadius);
         if (mCornerRadius != newRadius) {
             mCornerRadius = newRadius;
             invalidate();
@@ -1105,7 +1103,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         mMinInteractionHeight = res.getDimensionPixelSize(
                 R.dimen.notification_min_interaction_height);
         mCornerRadius = res.getDimensionPixelSize(
-                Utils.getThemeAttr(mContext, android.R.attr.dialogCornerRadius));
+                R.dimen.dotNotificationsRadius);
         mHeadsUpInset = mStatusBarHeight + res.getDimensionPixelSize(
                 R.dimen.heads_up_status_bar_padding);
     }
@@ -4913,15 +4911,8 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
      * @param lightTheme True if light theme should be used.
      */
     @ShadeViewRefactor(RefactorComponent.DECORATOR)
-    public void updateDecorViews(boolean lightTheme) {
-        if (lightTheme == mUsingLightTheme) {
-            return;
-        }
-        mUsingLightTheme = lightTheme;
-        Context context = new ContextThemeWrapper(mContext,
-                lightTheme ? R.style.Theme_SystemUI_Light : R.style.Theme_SystemUI);
-        final @ColorInt int textColor =
-                Utils.getColorAttrDefaultColor(context, R.attr.wallpaperTextColor);
+    public void updateDecorViews() {
+        int textColor = Utils.getColorAttr(mContext, android.R.attr.textColorPrimary).getDefaultColor();
         mSectionsManager.setHeaderForegroundColor(textColor);
         mFooterView.setTextColor(textColor);
         mEmptyShadeView.setTextColor(textColor);

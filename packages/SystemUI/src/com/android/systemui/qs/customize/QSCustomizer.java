@@ -125,7 +125,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mTileQueryHelper.setListener(mTileAdapter);
         mRecyclerView.setAdapter(mTileAdapter);
         mTileAdapter.getItemTouchHelper().attachToRecyclerView(mRecyclerView);
-        mGlm = new GridLayoutManager(getContext(), 5) {
+        mGlm = new GridLayoutManager(getContext(), 4) {
             @Override
             public void onInitializeAccessibilityNodeInfoForItem(RecyclerView.Recycler recycler,
                     RecyclerView.State state, View host, AccessibilityNodeInfoCompat info) {

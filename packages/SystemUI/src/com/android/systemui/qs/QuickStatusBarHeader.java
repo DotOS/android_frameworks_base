@@ -189,8 +189,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private PrivacyItemController.Callback mPICCallback = new PrivacyItemController.Callback() {
         @Override
         public void onPrivacyItemsChanged(List<PrivacyItem> privacyItems) {
-            mPrivacyChip.setPrivacyList(privacyItems);
-            setChipVisibility(!privacyItems.isEmpty());
+            //mPrivacyChip.setPrivacyList(privacyItems);
+            //setChipVisibility(!privacyItems.isEmpty());
         }
 
         @Override
@@ -210,9 +210,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
 
         private void update() {
-            StatusIconContainer iconContainer = requireViewById(R.id.statusIcons);
-            iconContainer.setIgnoredSlots(getIgnoredIconSlots());
-            setChipVisibility(!mPrivacyChip.getPrivacyList().isEmpty());
+            //StatusIconContainer iconContainer = requireViewById(R.id.statusIcons);
+            //iconContainer.setIgnoredSlots(getIgnoredIconSlots());
+            //setChipVisibility(!mPrivacyChip.getPrivacyList().isEmpty());
         }
     };
 
@@ -303,7 +303,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         int fillColor = mDualToneHandler.getSingleColor(intensity);
 
         // Set light text on the header icons because they will always be on a black background
-        applyDarkness(R.id.clock, tintArea, 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
+        //applyDarkness(R.id.clock, tintArea, 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
 
         // Set the correct tint for the status icons so they contrast
         mIconManager.setTint(fillColor);
@@ -315,8 +315,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 	    mClockView.setQsHeader();
         mDateView = findViewById(R.id.date);
         mSpace = findViewById(R.id.space);
-        // Always force wallpaperTextColor
-        mDateView.useWallpaperTextColor(true);
+
+        mDateView.useWallpaperTextColor(false);
+        mClockView.useWallpaperTextColor(false);
 
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
@@ -451,11 +452,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateResources();
-
-        // Update color schemes in landscape to use wallpaperTextColor
-        boolean shouldUseWallpaperTextColor =
-                newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
-        mClockView.useWallpaperTextColor(shouldUseWallpaperTextColor);
     }
 
     @Override
@@ -509,7 +505,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     public void setAlarmHeaderVisibility(boolean visible) {
-        mHeaderTextContainerView.setVisibility(visible ? VISIBLE : GONE);
+        //mHeaderTextContainerView.setVisibility(visible ? VISIBLE : GONE);
     }
 
     private void updateStatusIconAlphaAnimator() {

@@ -66,4 +66,8 @@
 
     <!-- App Lock -->
     <dimen name="applock_icon_dimension">54dp</dimen>
+
+    <dimen name="dotroundCorners">300dp</dimen>
+    <dimen name="dotNotificationsRadius">24dp</dimen>
+    <dimen name="qs_media_top_margin">8dp</dimen>
 </resources>

@@ -3,18 +3,17 @@
 
     <item android:id="@android:id/background">
         <shape android:tint="@color/qs_background_dark" android:thickness="@dimen/brightness_mirror_height">
-            <solid android:color="@color/default_qs_transparency"/>
-            <size android:height="@dimen/brightness_mirror_height" />
-            <corners android:radius="?android:attr/dialogCornerRadius" />
+            <solid android:color="@color/default_qs_transparency" />
+            <corners android:radius="@dimen/dotroundCorners" />
         </shape>
     </item>
     <item android:id="@android:id/progress">
-        <scale android:scaleWidth="100%">
-            <shape android:tint="?android:attr/colorAccent" >
+        <clip>
+            <shape android:tint="?android:attr/colorAccent">
+                <corners android:radius="@dimen/dotroundCorners" />
                 <size android:height="@dimen/brightness_mirror_height" />
-                <corners android:radius="?android:attr/dialogCornerRadius" />
             </shape>
-        </scale>
+        </clip>
     </item>
 
 </layer-list>

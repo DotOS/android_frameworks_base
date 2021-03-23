@@ -75,10 +75,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private final ActivityStarter mActivityStarter;
     private final UserInfoController mUserInfoController;
     private final DeviceProvisionedController mDeviceProvisionedController;
-    private SettingsButton mSettingsButton;
     protected View mSettingsContainer;
     private PageIndicator mPageIndicator;
-    private TextView mBuildText;
     private boolean mShouldShowBuildText;
 
     private boolean mQsDisabled;
@@ -95,22 +93,12 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     protected TouchAnimator mFooterAnimator;
     private float mExpansionAmount;
 
-    protected View mEdit;
     protected View mEditContainer;
     private TouchAnimator mSettingsCogAnimator;
 
     private View mActionsContainer;
 
     private OnClickListener mExpandClickListener;
-
-    /*private final ContentObserver mDeveloperSettingsObserver = new ContentObserver(
-            new Handler(mContext.getMainLooper())) {
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            super.onChange(selfChange, uri);
-            setBuildText();
-        }
-    };*/
 
     @Inject
     public QSFooterImpl(@Named(VIEW_CONTEXT) Context context, AttributeSet attrs,
@@ -133,27 +121,19 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mEdit = findViewById(android.R.id.edit);
-        mEdit.setOnClickListener(view ->
-                mActivityStarter.postQSRunnableDismissingKeyguard(() ->
-                        mQsPanel.showEdit(view)));
-
         mPageIndicator = findViewById(R.id.footer_page_indicator);
 
-        mSettingsButton = findViewById(R.id.settings_button);
         mSettingsContainer = findViewById(R.id.settings_button_container);
-        mSettingsButton.setOnClickListener(this);
+        mSettingsContainer.setOnClickListener(this);
 
         mMultiUserSwitch = findViewById(R.id.multi_user_switch);
         mMultiUserAvatar = mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
 
         mActionsContainer = findViewById(R.id.qs_footer_actions_container);
         mEditContainer = findViewById(R.id.qs_footer_actions_edit_container);
-        mBuildText = findViewById(R.id.build);
-
-        // RenderThread is doing more harm than good when touching the header (to expand quick
-        // settings), so disable it for this view
-        ((RippleDrawable) mSettingsButton.getBackground()).setForceSoftware(true);
+        mEditContainer.setOnClickListener(view ->
+                mActivityStarter.postQSRunnableDismissingKeyguard(() ->
+                        mQsPanel.showEdit(view)));
 
         updateResources();
 
@@ -161,24 +141,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 oldBottom) -> updateAnimator(right - left));
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
         updateEverything();
-        //setBuildText();
-    }
-
-    private void setBuildText() {
-        /*TextView v = findViewById(R.id.build);
-        if (v == null) return;
-        if (DevelopmentSettingsEnabler.isDevelopmentSettingsEnabled(mContext)) {
-            mBuildText.setText(mContext.getString(
-                    com.android.internal.R.string.bugreport_status,
-                    Build.VERSION.RELEASE_OR_CODENAME,
-                    Build.ID));
-            // Set as selected for marquee before its made visible, then it won't be announced when
-            // it's made visible.
-            mBuildText.setSelected(true);
-            mShouldShowBuildText = true;
-        } else {
-            v.setVisibility(View.GONE);
-        }*/
     }
 
     private void updateAnimator(int width) {
@@ -188,12 +150,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 - mContext.getResources().getDimensionPixelSize(dimen.qs_quick_tile_padding);
         int remaining = (width - numTiles * size) / (numTiles - 1);
         int defSpace = mContext.getResources().getDimensionPixelOffset(R.dimen.default_gear_space);
-
-        mSettingsCogAnimator = new Builder()
-                .addFloat(mSettingsContainer, "translationX",
-                        isLayoutRtl() ? (remaining - defSpace) : -(remaining - defSpace), 0)
-                .addFloat(mSettingsButton, "rotation", -120, 0)
-                .build();
 
         setExpansion(mExpansionAmount);
     }
@@ -224,6 +180,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 .addFloat(mActionsContainer, "alpha", 0, 1)
                 .addFloat(mEditContainer, "alpha", 0, 1)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
+                .addFloat(mSettingsContainer, "alpha", 0, 1)
                 .setStartDelay(0.9f)
                 .build();
     }
@@ -315,18 +272,17 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private void updateClickabilities() {
         mMultiUserSwitch.setClickable(mMultiUserSwitch.getVisibility() == View.VISIBLE);
-        mEdit.setClickable(mEdit.getVisibility() == View.VISIBLE);
-        mSettingsButton.setClickable(mSettingsButton.getVisibility() == View.VISIBLE);
+        mEditContainer.setClickable(mEditContainer.getVisibility() == View.VISIBLE);
+        mSettingsContainer.setClickable(mSettingsContainer.getVisibility() == View.VISIBLE);
     }
 
     private void updateVisibilities() {
-        mSettingsContainer.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
+        //mSettingsContainer.findViewById(R.id.tuner_icon).setVisibility(
+        //        TunerService.isTunerEnabled(mContext) ? View.VISIBLE : View.INVISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(showUserSwitcher() ? View.VISIBLE : View.INVISIBLE);
         mEditContainer.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
-        mSettingsButton.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
-
-        mBuildText.setVisibility(mExpanded && mShouldShowBuildText ? View.VISIBLE : View.GONE);
+        mSettingsContainer.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
     }
 
     private boolean showUserSwitcher() {
@@ -362,7 +318,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             return;
         }
 
-        if (v == mSettingsButton) {
+        if (v == mSettingsContainer) {
             if (!mDeviceProvisionedController.isCurrentUserSetup()) {
                 // If user isn't setup just unlock the device and dump them back at SUW.
                 mActivityStarter.postQSRunnableDismissingKeyguard(() -> {

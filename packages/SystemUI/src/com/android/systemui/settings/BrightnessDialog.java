@@ -55,10 +55,7 @@ public class BrightnessDialog extends Activity {
         window.setGravity(Gravity.TOP);
         window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         window.requestFeature(Window.FEATURE_NO_TITLE);
-
-        View v = LayoutInflater.from(this).inflate(
-                R.layout.quick_settings_brightness_dialog, null);
-        setContentView(v);
+        setContentView(LayoutInflater.from(this).inflate(R.layout.quick_settings_brightness_dialog, null));
         final TextView progressText = findViewById(R.id.brightness_text_progress);
         final ImageView icon = findViewById(R.id.brightness_icon_auto);
         final ToggleSliderView slider = findViewById(R.id.brightness_slider);

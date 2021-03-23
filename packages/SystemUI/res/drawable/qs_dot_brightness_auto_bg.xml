@@ -4,5 +4,5 @@
     android:tint="@color/qs_background_dark">
     <solid android:color="@color/default_qs_transparency" />
     <size android:height="@dimen/brightness_mirror_height" />
-    <corners android:radius="?android:attr/dialogCornerRadius" />
+    <corners android:radius="@dimen/dotroundCorners" />
 </shape>

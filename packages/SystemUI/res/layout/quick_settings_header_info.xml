@@ -17,7 +17,7 @@
     xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:id="@+id/header_text_container"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/qs_header_tooltip_height"
+    android:layout_height="0dp"
     android:layout_below="@id/quick_status_bar_system_icons"
     android:forceHasOverlappingRendering="false"
     android:gravity="center_vertical"
@@ -26,10 +26,10 @@
 
     <FrameLayout
         android:id="@+id/status_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="18dp"
         android:gravity="center">
 
         <!-- We are in scroll view now, QSHeaderInfoLayout is not anymore needed-->

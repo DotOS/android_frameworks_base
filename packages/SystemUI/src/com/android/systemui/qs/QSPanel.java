@@ -31,11 +31,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.UiEventLogger;
@@ -62,6 +64,7 @@ import com.android.systemui.statusbar.policy.BrightnessMirrorController.Brightne
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 import com.android.systemui.util.animation.DisappearParameters;
+import com.android.systemui.util.NeverExactlyLinearLayout;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -146,7 +149,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private int mFooterMarginStartHorizontal;
     private Consumer<Boolean> mMediaVisibilityChangedListener;
 
-    private View mNullSpacer;
     private LinearLayout mBrightnessContainer;
 
     @Inject
@@ -229,14 +231,13 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     }
 
     protected void addViewsBelowTiles() {
-        mNullSpacer = LayoutInflater.from(mContext).inflate(
-            R.layout.qs_spacer, this, false);
         mBrightnessView = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_dialog, this, false);
         mBrightnessContainer = new LinearLayout(mContext);
         mBrightnessContainer.setOrientation(VERTICAL);
         mBrightnessContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-        mBrightnessContainer.addView(mNullSpacer);
+        mBrightnessContainer.addView(LayoutInflater.from(mContext).inflate(
+            R.layout.qs_spacer_small, this, false));
         mBrightnessContainer.addView(mBrightnessView);
         mBrightnessContainer.addView(LayoutInflater.from(mContext).inflate(
             R.layout.qs_spacer_small, this, false));
@@ -267,7 +268,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     protected void initMediaHostState() {
         mMediaHost.setExpansion(1.0f);
-        mMediaHost.setShowsOnlyActiveMedia(false);
+        mMediaHost.setShowsOnlyActiveMedia(true);
         updateMediaDisappearParameters();
         mMediaHost.init(MediaHierarchyManager.LOCATION_QS);
     }
@@ -588,7 +589,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             updateTileLayoutMargins();
             updateFooterMargin();
             updateMediaDisappearParameters();
-            updateMediaHostContentMargins();
             updateHorizontalLinearLayoutMargins();
             updatePadding();
             return true;
@@ -688,6 +688,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             // Add any bottom margin, such that the total spacing is correct. This is only
             // necessary if the view isn't horizontal, since otherwise the padding is
             // carried in the parent of this view (to ensure correct vertical alignment)
+            layoutParams.topMargin = !horizontal || displayMediaMarginsOnMedia() 
+                    ? mContext.getResources().getDimensionPixelSize(R.dimen.qs_media_top_margin) : 0;
             layoutParams.bottomMargin = !horizontal || displayMediaMarginsOnMedia()
                     ? mMediaTotalBottomMargin - getPaddingBottom() : 0;
         }
@@ -981,13 +983,21 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     void setGridContentVisibility(boolean visible) {
         int newVis = visible ? VISIBLE : INVISIBLE;
         for (int i = 0; i < getChildCount(); i++) {
-            if (getChildAt(i) == mBrightnessContainer) {}
-            else if (getChildAt(i) == mSecurityFooter.getView()) {
-                if (mSecurityFooter.getView().getVisibility() != GONE)
+            if (getChildAt(i) == mBrightnessContainer) {
+                // Don't update visibility
+            } else if (getChildAt(i) instanceof NeverExactlyLinearLayout) {
+                if (mSecurityFooter.getView().getVisibility() != GONE) {
                     getChildAt(i).setVisibility(newVis);
-            }
-            else 
+                    Log.d("SystemUITest", String.valueOf(i) + " view position updated to " + (visible ? "VISIBLE" : "GONE") + " (" + getChildAt(i).getClass().getName() + ")");
+                }
+                    
+            } else if ((mUsingMediaPlayer && mMediaHost.getVisible()) && getChildAt(i) == mMediaHost.getHostView()) {
+                // Don't update visibility
+            } else {
                 getChildAt(i).setVisibility(newVis);
+                Log.d("SystemUITest", String.valueOf(i) + " view position updated to " + (visible ? "VISIBLE" : "GONE") + " (" + getChildAt(i).getClass().getName() + ")");
+            }
+                
         }
         if (mGridContentVisible != visible) {
             mMetricsLogger.visibility(MetricsEvent.QS_PANEL, newVis);
@@ -1063,23 +1073,22 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         mContentMarginEnd = endMargin;
         updateTileLayoutMargins(mContentMarginStart - mVisualTilePadding,
                 mContentMarginEnd - mVisualTilePadding);
-        updateMediaHostContentMargins();
         updateFooterMargin();
     }
 
     private void updateFooterMargin() {
         if (mFooter != null) {
-            int footerMargin = 0;
             int indicatorMargin = 0;
             if (mUsingHorizontalLayout) {
-                footerMargin = mFooterMarginStartHorizontal;
-                indicatorMargin = footerMargin - mVisualMarginEnd;
+                indicatorMargin = mFooterMarginStartHorizontal - mVisualMarginEnd;
             }
-            updateMargins(mFooter, footerMargin, 0);
             // The page indicator isn't centered anymore because of the visual positioning.
             // Let's fix it by adding some margin
             if (mFooterPageIndicator != null) {
-                updateMargins(mFooterPageIndicator, 0, indicatorMargin);
+                //FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFooterPageIndicator.getLayoutParams();
+                //lp.setMarginStart(0);
+                //lp.setMarginEnd(indicatorMargin);
+               // mFooterPageIndicator.setLayoutParams(lp);
             }
         }
     }
@@ -1103,7 +1112,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         if (mUsingHorizontalLayout) {
             marginEnd = 0;
         }
-        updateMargins((View) mTileLayout, mVisualMarginStart, marginEnd);
+        updateMargins((View) mTileLayout, 0, 0);
     }
 
     /**

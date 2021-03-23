@@ -20,6 +20,8 @@
     <color name="dot_notification_dim">#99000000</color>
     <color name="dot_notification_bg">#99000000</color>
 
+    <color name="qs_draghandle_color">#e5e5e5</color>
+
     <!-- Clear all notifications button -->
     <color name="dismiss_all_background_color">#1a1a1a</color>
     <color name="dismiss_all_background_color_ripple">#555555</color>

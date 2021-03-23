@@ -130,7 +130,7 @@ public class Utils {
      */
     public static boolean useQsMediaPlayer(Context context) {
         //Disabled till new QSPanel layout imeplements proper MediaPlayer integration
-        return false;
+        return true;
     }
 
     /**

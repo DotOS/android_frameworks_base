@@ -110,6 +110,16 @@ public enum ScrimState {
         }
     },
 
+    SHADE_LOCKED {
+        @Override
+        public void prepare(ScrimState scrimState) {
+            mBehindAlpha = mDefaultScrimAlpha;
+            mBubbleAlpha = 0.0f;
+            mFrontAlpha = 0.0f;
+        }
+    },
+
+
     /**
      * Changing screen brightness from quick settings.
      */

@@ -24,8 +24,8 @@ Copyright (C) 2014 The Android Open Source Project
     </item>
     <item>
         <inset>
-            <shape>
-                <solid android:color="@android:color/transparent"/>
+            <shape android:tint="@color/qs_background_dark">
+                <solid android:color="@color/default_qs_transparency"/>
                 <corners android:radius="?android:attr/dialogCornerRadius" />
             </shape>
         </inset>

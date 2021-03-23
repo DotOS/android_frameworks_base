@@ -240,7 +240,7 @@ public abstract class ExpandableOutlineView extends ExpandableView {
         mAlwaysRoundBothCorners = res.getBoolean(R.bool.config_clipNotificationsToOutline);
         if (!mAlwaysRoundBothCorners) {
             mOutlineRadius = res.getDimensionPixelSize(
-                    Utils.getThemeAttr(mContext, android.R.attr.dialogCornerRadius));
+                    R.dimen.dotNotificationsRadius);
         }
         setClipToOutline(mAlwaysRoundBothCorners);
     }

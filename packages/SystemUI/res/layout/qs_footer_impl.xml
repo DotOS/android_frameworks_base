@@ -21,8 +21,6 @@
     android:id="@+id/qs_footer"
     android:layout_width="match_parent"
     android:layout_height="@dimen/qs_footer_height"
-    android:layout_marginStart="@dimen/qs_footer_margin"
-    android:layout_marginEnd="@dimen/qs_footer_margin"
     android:background="@android:color/transparent"
     android:baselineAligned="false"
     android:clickable="false"
@@ -32,16 +30,72 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/qs_footer_margin"
-        android:paddingEnd="@dimen/qs_footer_margin"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_gravity="center_vertical"
         android:gravity="end" >
 
         <com.android.keyguard.AlphaOptimizedLinearLayout
             android:id="@+id/qs_footer_actions_edit_container"
-            android:layout_width="@integer/qs_footer_actions_width"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/qs_footer_ripple"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.android.systemui.statusbar.AlphaOptimizedImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:scaleType="centerInside"
+                android:src="@*android:drawable/ic_mode_edit"
+                android:tint="?android:attr/colorForeground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/qs_edit"
+                android:textColor="?android:attr/colorForeground"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+
+        <com.android.keyguard.AlphaOptimizedLinearLayout
+            android:id="@+id/settings_button_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/qs_footer_ripple"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.android.systemui.statusbar.AlphaOptimizedImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_settings"
+                android:tint="?android:attr/colorForeground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/global_action_settings"
+                android:textColor="?android:attr/colorForeground"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+
+        <com.android.keyguard.AlphaOptimizedLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_weight="@integer/qs_footer_actions_weight"
+            android:visibility="gone"
             android:gravity="center_vertical|start" >
             <com.android.systemui.statusbar.AlphaOptimizedImageView
                 android:id="@android:id/edit"
@@ -70,17 +124,11 @@
                 android:visibility="gone"/>
          </com.android.keyguard.AlphaOptimizedLinearLayout>
 
-        <com.android.systemui.qs.PageIndicator
-            android:id="@+id/footer_page_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:visibility="gone" />
-
         <com.android.keyguard.AlphaOptimizedLinearLayout
             android:id="@+id/qs_footer_actions_container"
-            android:layout_width="@integer/qs_footer_actions_width"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
             android:layout_weight="@integer/qs_footer_actions_weight"
             android:gravity="center_vertical|end" >
             <com.android.systemui.statusbar.phone.MultiUserSwitch
@@ -100,7 +148,6 @@
             </com.android.systemui.statusbar.phone.MultiUserSwitch>
 
             <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
-                android:id="@+id/settings_button_container"
                 android:layout_width="@dimen/qs_footer_action_button_size"
                 android:layout_height="@dimen/qs_footer_action_button_size"
                 android:clipChildren="false"
@@ -122,4 +169,13 @@
             </com.android.systemui.statusbar.AlphaOptimizedFrameLayout>
         </com.android.keyguard.AlphaOptimizedLinearLayout>
     </LinearLayout>
+
+    <com.android.systemui.qs.PageIndicator
+        android:id="@+id/footer_page_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="6dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:visibility="gone" />
+
 </com.android.systemui.qs.QSFooterImpl>

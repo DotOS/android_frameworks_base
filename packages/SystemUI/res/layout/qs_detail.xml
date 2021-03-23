@@ -37,7 +37,7 @@
             layout="@layout/qs_detail_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="0dp" />
 
         <com.android.systemui.statusbar.AlphaOptimizedImageView
             android:id="@+id/qs_detail_header_progress"
@@ -52,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/qs_background_primary"
             android:paddingTop="8dp"
             android:paddingBottom="16dp"
             android:fillViewport="true">

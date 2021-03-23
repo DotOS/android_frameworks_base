@@ -349,7 +349,7 @@ public class PhoneStatusBarView extends PanelBar implements Callbacks {
         float scrimFraction = mPanelFraction;
         if (mMinFraction < 1.0f) {
             scrimFraction = Math.max((mPanelFraction - mMinFraction) / (1.0f - mMinFraction),
-                    0)/2;
+                    0);
         }
         mScrimController.setPanelExpansion(scrimFraction);
     }

@@ -23,6 +23,8 @@
     <color name="dot_notification_bg">#66FFFFFF</color>
     <color name="dot_notification_bg_opaque">@*android:color/notification_material_background_color</color>
 
+    <color name="qs_draghandle_color">#757575</color>
+
     <color name="default_volume_transparency">#CCFFFFFF</color>
     <color name="accent_volume_transparency">#66FFFFFF</color>
 

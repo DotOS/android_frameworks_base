@@ -294,7 +294,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
     }
 
     public void showDetail(boolean show) {
-        mHandler.obtainMessage(H.SHOW_DETAIL, show ? 1 : 0, 0).sendToTarget();
+        //mHandler.obtainMessage(H.SHOW_DETAIL, show ? 1 : 0, 0).sendToTarget();
     }
 
     public void refreshState() {
@@ -407,10 +407,10 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
     }
 
     private void handleShowDetail(boolean show) {
-        mShowingDetail = show;
-        for (int i = 0; i < mCallbacks.size(); i++) {
-            mCallbacks.get(i).onShowDetail(show);
-        }
+        //mShowingDetail = show;
+        //for (int i = 0; i < mCallbacks.size(); i++) {
+        //    mCallbacks.get(i).onShowDetail(show);
+        //}
     }
 
     protected boolean isShowingDetail() {

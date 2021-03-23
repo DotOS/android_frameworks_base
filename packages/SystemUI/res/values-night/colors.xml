@@ -105,5 +105,5 @@
     <!-- controls -->
     <color name="control_default_background">#19ffffff</color> <!-- 10% white -->
 
-    <color name="qs_tile_background_color_disabled">#CC2E2E2E</color>
+    <color name="qs_tile_background_color_disabled">#99000000</color>
 </resources>
