@@ -77,6 +77,7 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
     private QSContainerImpl mContainer;
     private int mLayoutDirection;
     private QSFooter mFooter;
+    private View mPill;
     private float mLastQSExpansion = -1;
     private boolean mQsDisabled;
 
@@ -147,7 +148,7 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
         mQSDetail.setQsPanel(mQSPanel, mHeader, (View) mFooter);
         mQSAnimator = new QSAnimator(this, mHeader.findViewById(R.id.quick_qs_panel), mQSPanel);
 
-
+        mPill = view.findViewById(R.id.qs_drag_handle_view);
         mQSCustomizer = view.findViewById(R.id.qs_customize);
         mQSCustomizer.setQs(this);
         if (savedInstanceState != null) {
@@ -548,6 +549,7 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
         mQSPanelScrollView.setVisibility(!mQSCustomizer.isCustomizing() ? View.VISIBLE
                 : View.INVISIBLE);
         mFooter.setVisibility(!mQSCustomizer.isCustomizing() ? View.VISIBLE : View.INVISIBLE);
+        mPill.setVisibility(!mQSCustomizer.isCustomizing() ? View.VISIBLE : View.INVISIBLE);
         // Let the panel know the position changed and it needs to update where notifications
         // and whatnot are.
         mPanelView.onQsHeightChanged();

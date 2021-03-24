@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,8 @@
      limitations under the License.
 -->
 
-<merge xmlns:android="http://schemas.android.com/apk/res/android">->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
     <View
         android:id="@+id/customizer_transparent_view"
         android:layout_width="match_parent"
@@ -26,30 +26,94 @@
         android:id="@+id/customize_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="@dimen/notification_side_paddings"
+        android:layout_marginEnd="@dimen/notification_side_paddings"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@drawable/qs_customizer_background">
-        <Toolbar
-            android:id="@*android:id/action_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/qs_customizer_toolbar"
-            android:navigationContentDescription="@*android:string/action_bar_up_description"
-            android:elevation="0dp"
-            style="@style/QSCustomizeToolbar"
-            />
+        android:background="@drawable/qs_customizer_background"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingBottom="28dp"
             android:clipToPadding="false"
-            android:scrollIndicators="top"
-            android:scrollbars="vertical"
-            android:scrollbarStyle="outsideOverlay"
-            android:importantForAccessibility="auto" />
+            android:importantForAccessibility="auto"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="28dp"
+            android:requiresFadingEdge="vertical"
+            android:fadingEdgeLength="56dp"
+            android:scrollbars="none" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="32dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical">
+
+                <com.android.keyguard.AlphaOptimizedLinearLayout
+                    android:id="@+id/qs_customizer_close"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/qs_footer_ripple"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.android.systemui.statusbar.AlphaOptimizedImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="6dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_close"
+                        android:tint="?android:attr/colorForeground" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accessibility_desc_close"
+                        android:textColor="?android:attr/colorForeground"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </com.android.keyguard.AlphaOptimizedLinearLayout>
+
+                <com.android.keyguard.AlphaOptimizedLinearLayout
+                    android:id="@+id/qs_customizer_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/qs_footer_ripple"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.android.systemui.statusbar.AlphaOptimizedImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="6dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_dot_reset"
+                        android:tint="?android:attr/colorForeground" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reset"
+                        android:textColor="?android:attr/colorForeground"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </com.android.keyguard.AlphaOptimizedLinearLayout>
+            </LinearLayout>
+
+        </FrameLayout>
     </com.android.keyguard.AlphaOptimizedLinearLayout>
 
     <View

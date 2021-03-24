@@ -54,10 +54,12 @@
     <color name="notification_channel_dialog_separator">@color/GM2_grey_700</color>
 
     <!-- The color of the background in the top part of QSCustomizer -->
-    <color name="qs_customize_background">@color/qs_background_dark</color>
+    <color name="qs_customize_background">#00000000</color>
 
     <!-- The color of the background in the bottom part of QSCustomizer -->
-    <color name="qs_customize_decoration">@color/GM2_grey_800</color>
+    <color name="qs_customize_decoration">#4D000000</color>
+
+    <color name="qs_customize_decoration_rounded">#66000000</color>
 
     <!-- The color of the background in the separated list of the Global Actions menu -->
     <color name="global_actions_separated_background">@color/GM2_grey_900</color>

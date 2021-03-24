@@ -64,7 +64,7 @@ import javax.inject.Inject;
  * This adds itself to the status bar window, so it can appear on top of quick settings and
  * *someday* do fancy animations to get into/out of it.
  */
-public class QSCustomizer extends LinearLayout implements OnMenuItemClickListener {
+public class QSCustomizer extends LinearLayout {
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final String EXTRA_QS_CUSTOMIZING = "qs_customizing";
@@ -81,7 +81,6 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private QSTileHost mHost;
     private RecyclerView mRecyclerView;
     private TileAdapter mTileAdapter;
-    private Toolbar mToolbar;
     private boolean mCustomizing;
     private NotificationsQuickSettingsContainer mNotifQsContainer;
     private QS mQs;
@@ -91,6 +90,8 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private boolean mIsShowingNavBackdrop;
     private UiEventLogger mUiEventLogger = new UiEventLoggerImpl();
     private GridLayoutManager mGlm;
+    private View mCustomizerClose;
+    private View mCustomizerReset;
 
     @Inject
     public QSCustomizer(Context context, AttributeSet attrs,
@@ -103,21 +104,23 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
 
         LayoutInflater.from(getContext()).inflate(R.layout.qs_customize_panel_content, this);
         mClipper = new QSDetailClipper(findViewById(R.id.customize_container));
-        mToolbar = findViewById(com.android.internal.R.id.action_bar);
         TypedValue value = new TypedValue();
         mContext.getTheme().resolveAttribute(android.R.attr.homeAsUpIndicator, value, true);
-        mToolbar.setNavigationIcon(
-                getResources().getDrawable(value.resourceId, mContext.getTheme()));
-        mToolbar.setNavigationOnClickListener(new OnClickListener() {
+        mCustomizerClose = findViewById(R.id.qs_customizer_close);
+        mCustomizerReset = findViewById(R.id.qs_customizer_reset);
+        mCustomizerClose.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 hide();
             }
         });
-        mToolbar.setOnMenuItemClickListener(this);
-        mToolbar.getMenu().add(Menu.NONE, MENU_RESET, 0,
-                mContext.getString(com.android.internal.R.string.reset));
-        mToolbar.setTitle(R.string.qs_edit);
+        mCustomizerReset.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUiEventLogger.log(QSEditEvent.QS_EDIT_RESET);
+                reset();
+            }
+        });
         mRecyclerView = findViewById(android.R.id.list);
         mTransparentView = findViewById(R.id.customizer_transparent_view);
         mTileAdapter = new TileAdapter(getContext(), uiEventLogger);
@@ -245,7 +248,6 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         if (isShown) {
             mUiEventLogger.log(QSEditEvent.QS_EDIT_CLOSED);
             isShown = false;
-            mToolbar.dismissPopupMenus();
             mClipper.cancelAnimator();
             // Make sure we're not opening (because we're closing). Nobody can think we are
             // customizing after the next two lines.
@@ -277,17 +279,6 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         return mCustomizing || mOpening;
     }
 
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-            case MENU_RESET:
-                mUiEventLogger.log(QSEditEvent.QS_EDIT_RESET);
-                reset();
-                break;
-        }
-        return false;
-    }
-
     private void reset() {
         mTileAdapter.resetTileSpecs(mHost, QSTileHost.getDefaultSpecs(mContext));
     }
@@ -306,7 +297,6 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             mTileAdapter.saveSpecs(mHost);
         }
     }
-
 
     public void saveInstanceState(Bundle outState) {
         if (isShown) {

@@ -13,5 +13,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<color xmlns:android="http://schemas.android.com/apk/res/android"
-       android:color="@color/qs_customize_decoration"/>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:bottom="12dp">
+        <shape>
+              <solid android:color="@color/qs_customize_decoration_rounded"/>
+              <corners android:radius="@dimen/dotNotificationsRadius"/>
+        </shape>
+    </item>
+</layer-list>
