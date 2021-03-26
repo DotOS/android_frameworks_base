@@ -9649,6 +9649,46 @@ public final class Settings {
         public static final String GESTURE_NAVBAR_LENGTH = "gesture_navbar_length";
 
         /**
+         * Monet base accent.
+         * Do not override.
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT = "monet_base_accent";
+
+        /**
+         * Monet Theme Engine Switch.
+         * 1 - Enabled (Default)
+         * 0 - Disabled 
+         * @hide
+         */
+        public static final String MONET_ENGINE = "monet_engine";
+
+        /**
+         * Monet Theme Engine
+         * Set amount of colors to be generated
+         * from wallpaper.
+         * Default = 16 (best one yet)
+         * Lowering the amount of colors will decrease the accuracy (FASTER);
+         * Increasing the amount of colors will increase the accuracy (SLOWER);
+         * @hide
+         */
+        public static final String MONET_COLOR_GEN = "monet_color_gen";
+
+        /**
+         * Monet Theme Engine
+         * Set palette type
+         * 0 - Vibrant (default)
+         * 1 - Light Vibrant
+         * 2 - Dark Vibrant
+         * 3 - Dominant
+         * 4 - Muted
+         * 5 - Light Muted
+         * 6 - Dark Muted
+         * @hide
+         */
+        public static final String MONET_PALETTE = "monet_palette";
+
+        /**
          * Current provider of proximity-based sharing services.
          * Default value in @string/config_defaultNearbySharingComponent.
          * No VALIDATOR as this setting will not be backed up.

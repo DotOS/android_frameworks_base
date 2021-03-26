@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.content.res.MonetWannabe;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Color;
@@ -297,6 +298,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mDataUsageContainer = findViewById(R.id.datausage_container);
         mDataUsageView = findViewById(R.id.qs_data_usage);
         mStatusHeaderContainer = findViewById(R.id.status_header_container);
+
+        View qsHeaderPill = findViewById(R.id.quick_qs_status_icons_header);
+        if (MonetWannabe.isMonetEnabled(getContext())) {
+            int accentBackground = Utils.getColorAttrDefaultColor(getContext(), android.R.attr.colorAccentBackground);
+            qsHeaderPill.setBackgroundTintList(ColorStateList.valueOf(MonetWannabe.adjustAlpha(accentBackground, 0.6f)));
+        }
 
         updateResources();
 

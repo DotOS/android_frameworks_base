@@ -23,7 +23,9 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.content.res.MonetWannabe;
 import android.content.res.Resources;
 import android.graphics.PointF;
 import android.metrics.LogMaker;
@@ -65,6 +67,8 @@ import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 import com.android.systemui.util.animation.DisappearParameters;
 import com.android.systemui.util.NeverExactlyLinearLayout;
+
+import com.android.settingslib.Utils;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -242,6 +246,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         mBrightnessContainer.addView(LayoutInflater.from(mContext).inflate(
             R.layout.qs_spacer_small, this, false));
         addView(mBrightnessContainer);
+        if (MonetWannabe.isMonetEnabled(mContext)) {
+            findViewById(R.id.brightnessAuto).setBackgroundTintList(ColorStateList.valueOf(MonetWannabe.getInactiveAccent(mContext)));
+        }
         mBrightnessController = new BrightnessController(getContext(),
                 findViewById(R.id.brightness_slider),
                 findViewById(R.id.brightness_icon_auto),

@@ -1108,6 +1108,10 @@
              to framework controls (via colorControlActivated). -->
         <attr name="colorAccent" format="color" />
 
+        <attr name="colorAccentBackground" format="color" />
+
+        <attr name="colorAccentOverlay" format="color" />
+
         <!-- The color applied to framework controls in their normal state. -->
         <attr name="colorControlNormal" format="color" />
 

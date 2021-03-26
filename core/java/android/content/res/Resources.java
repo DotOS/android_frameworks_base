@@ -1061,11 +1061,18 @@ public class Resources {
                     && value.type <= TypedValue.TYPE_LAST_INT) {
                 if (id != 0) {
                     try {
+                        AccentUtils utils = new AccentUtils();
                         String resName = getResourceName(id);
-                        if (AccentUtils.isResourceDarkAccent(resName))
-                            value.data = AccentUtils.getDarkAccentColor(value.data);
-                        else if (AccentUtils.isResourceLightAccent(resName))
-                            value.data = AccentUtils.getLightAccentColor(value.data);
+                        if (utils.isResourceDarkAccent(resName))
+                            value.data = utils.getDarkAccentColor(value.data);
+                        else if (utils.isResourceLightAccent(resName))
+                            value.data = utils.getLightAccentColor(value.data);
+                        else if (utils.isResourceAccentBackground(resName))
+                            value.data = utils.getBackgroundAccentColor(value.data);
+                        else if (utils.isResourceAccentOverlayLight(resName))
+                            value.data = utils.getOverlayLightAccentColor(value.data);
+                        else if (utils.isResourceAccentOverlayDark(resName))
+                            value.data = utils.getOverlayDarkAccentColor(value.data);
                     } catch (NotFoundException ignored) {
                     } catch (Exception ex) {
                         Log.e(TAG, ex.getMessage());

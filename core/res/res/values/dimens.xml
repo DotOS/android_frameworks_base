@@ -40,11 +40,11 @@
          Max((status bar content height + waterfall top size), top cutout size) -->
     <dimen name="status_bar_height_landscape">@dimen/status_bar_height_portrait</dimen>
     <!-- Height of area above QQS where battery/time go -->
-    <dimen name="quick_qs_offset_height">58dp</dimen>
+    <dimen name="quick_qs_offset_height">76dp</dimen>
     <!-- Total height of QQS (quick_qs_offset_height + 134) -->
-    <dimen name="quick_qs_total_height">192dp</dimen>
+    <dimen name="quick_qs_total_height">210dp</dimen>
     <!-- Total height of QQS with two rows to fit media player (quick_qs_offset_height + 176) -->
-    <dimen name="quick_qs_total_height_with_media">242dp</dimen>
+    <dimen name="quick_qs_total_height_with_media">252dp</dimen>
     <!-- Height of the bottom navigation / system bar. -->
     <dimen name="navigation_bar_height">48dp</dimen>
     <!-- Height of the bottom navigation bar in portrait; often the same as @dimen/navigation_bar_height -->

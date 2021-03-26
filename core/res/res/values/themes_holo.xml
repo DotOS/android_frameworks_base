@@ -395,6 +395,8 @@ please see themes_device_defaults.xml.
         <item name="colorPrimaryDark">@color/holo_primary_dark</item>
         <item name="colorPrimary">@color/holo_primary</item>
         <item name="colorAccent">@color/holo_blue_dark</item>
+        <item name="colorAccentBackground">?attr/colorAccent</item>
+        <item name="colorAccentOverlay">?attr/colorAccent</item>
         <item name="colorEdgeEffect">?attr/colorPrimary</item>
 
         <item name="colorControlNormal">@color/holo_control_normal</item>
@@ -754,6 +756,8 @@ please see themes_device_defaults.xml.
         <item name="colorPrimaryDark">@color/holo_light_primary_dark</item>
         <item name="colorPrimary">@color/holo_light_primary</item>
         <item name="colorAccent">@color/holo_blue_light</item>
+        <item name="colorAccentBackground">?attr/colorAccent</item>
+        <item name="colorAccentOverlay">?attr/colorAccent</item>
         <item name="colorEdgeEffect">?attr/colorPrimary</item>
 
         <item name="colorControlNormal">@color/holo_light_control_normal</item>

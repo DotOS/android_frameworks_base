@@ -20,6 +20,7 @@ import android.annotation.ColorInt;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.MonetWannabe;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.database.ContentObserver;
@@ -123,10 +124,16 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
     private void updateResources() {
         boolean setQsUseNewTint = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1, UserHandle.USER_CURRENT) == 1;
-        if (setQsUseNewTint)
-            mSlider.setProgressTintList(ColorStateList.valueOf(adjustAlpha(Utils.getColorAccent(getContext()).getColors()[0], 0.4f)));
-        else
+        if (MonetWannabe.isMonetEnabled(getContext())) {
             mSlider.setProgressTintList(Utils.getColorAccent(getContext()));
+            int accentBackground = Utils.getColorAttrDefaultColor(getContext(), android.R.attr.colorAccentBackground);
+            mSlider.setProgressBackgroundTintList(ColorStateList.valueOf(MonetWannabe.getInactiveAccent(getContext())));
+        } else {
+            if (setQsUseNewTint)
+                mSlider.setProgressTintList(ColorStateList.valueOf(adjustAlpha(Utils.getColorAccent(getContext()).getColors()[0], 0.4f)));
+            else
+                mSlider.setProgressTintList(Utils.getColorAccent(getContext()));
+        }
     }
 
     @ColorInt

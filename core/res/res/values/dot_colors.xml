@@ -16,4 +16,8 @@
     <color name="toast_bg">@color/white</color>
     <color name="toast_text">@color/black</color>
 
+    <!-- Value of these colors are not used. They are replaced later -->
+    <color name="accent_background_device_default">#fefefe</color>
+    <color name="accent_overlay_device_default_light">#fefefe</color>
+    <color name="accent_overlay_device_default_dark">#fefefe</color>
 </resources>

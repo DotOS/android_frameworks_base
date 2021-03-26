@@ -130,7 +130,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     /**
      * Same as above, but when blur is supported.
      */
-    public static final float BLUR_SCRIM_ALPHA = 0.85f;
+    public static final float BLUR_SCRIM_ALPHA = 0.9f;
 
     static final int TAG_KEY_ANIM = R.id.scrim;
     private static final int TAG_START_ALPHA = R.id.scrim_alpha_start;
@@ -978,16 +978,8 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     private void updateThemeColors() {
         ScrimView scrimView = mScrimBehind;
         if (scrimView == null) return;
-        int attrColor = Utils.getColorAttr(scrimView.getContext(), android.R.attr.textColorPrimaryInverse).getDefaultColor();
-        int defaultColor = Color.argb(Math.round(Color.alpha(attrColor) * 0.75f), 
-                           Color.red(attrColor),
-                           Color.green(attrColor),
-                           Color.blue(attrColor));
-        //int attrColor = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
-        //int defaultColor = Color.argb(Math.round(Color.alpha(attrColor) * 0.45f), Color.red(attrColor), Color.green(attrColor), Color.blue(attrColor));
-        int defaultColor2 = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
-        mColors.setMainColor(defaultColor);
-        mColors.setSecondaryColor(defaultColor2);
+        mColors.setMainColor(Utils.getColorAttrDefaultColor(scrimView.getContext(), android.R.attr.colorAccentOverlay));
+        mColors.setSecondaryColor(Utils.getColorAttrDefaultColor(mScrimBehind.getContext(), android.R.attr.colorAccent));
         ColorExtractor.GradientColors gradientColors = mColors;
         gradientColors.setSupportsDarkText(ColorUtils.calculateContrast(gradientColors.getMainColor(), -1) > 4.5d);
         mNeedsDrawableColorUpdate = true;
