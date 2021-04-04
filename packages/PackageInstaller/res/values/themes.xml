@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,17 +16,22 @@
 
 <resources>
 
-    <style name="Theme.AlertDialogActivity.NoAnimation"
-           parent="@style/Theme.AlertDialogActivity.NoActionBar">
+    <style name="Theme.AlertDialogActivity.NoAnimation" parent="@style/Theme.AlertDialogActivity.NoActionBar">
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="Theme.AlertDialogActivity"
-            parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
+    <style name="Theme.AlertDialogActivity" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
 
     <style name="Theme.AlertDialogActivity.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">11sp</item>
+        <!-- 0.8 Spacing, 0.8/11 = 0.072727273 -->
+        <item name="android:letterSpacing">0.072727273</item>
     </style>
 
 </resources>

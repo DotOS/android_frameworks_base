@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.android.packageinstaller">
+    package="com.dot.packageinstaller">
 
-    <original-package android:name="com.android.packageinstaller" />
+    <original-package android:name="com.dot.packageinstaller" />
 
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
@@ -20,37 +20,43 @@
 
     <uses-permission android:name="com.google.android.permission.INSTALL_WEARABLE_PACKAGES" />
 
-    <application android:name=".PackageInstallerApplication"
-            android:label="@string/app_name"
-            android:icon="@drawable/ic_app_icon"
-            android:allowBackup="false"
-            android:theme="@style/Theme.AlertDialogActivity"
-            android:supportsRtl="true"
-            android:defaultToDeviceProtectedStorage="true"
-            android:forceQueryable="true"
-            android:directBootAware="true">
+    <application
+        android:name=".PackageInstallerApplication"
+        android:allowBackup="false"
+        android:defaultToDeviceProtectedStorage="true"
+        android:directBootAware="true"
+        android:forceQueryable="true"
+        android:icon="@drawable/ic_app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AlertDialogActivity">
 
-        <receiver android:name=".TemporaryFileManager"
+        <receiver
+            android:name=".TemporaryFileManager"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".InstallStart"
-                android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                android:exported="true"
-                android:excludeFromRecents="true">
+        <activity
+            android:name=".InstallStart"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="content" />
                 <data android:mimeType="application/vnd.android.package-archive" />
             </intent-filter>
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.INSTALL_PACKAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="package" />
                 <data android:scheme="content" />
             </intent-filter>
@@ -60,86 +66,97 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".InstallStaging"
-                android:exported="false" />
-
-        <activity android:name=".DeleteStagedFileOnResult"
-            android:theme="@style/Theme.AlertDialogActivity.NoActionBar"
+        <activity
+            android:name=".InstallStaging"
             android:exported="false" />
 
-        <activity android:name=".PackageInstallerActivity"
-                android:exported="false" />
+        <activity
+            android:name=".DeleteStagedFileOnResult"
+            android:exported="false"
+            android:theme="@style/Theme.AlertDialogActivity.NoActionBar" />
 
-        <activity android:name=".InstallInstalling"
-                android:theme="@style/Theme.AlertDialogActivity.NoAnimation"
-                android:exported="false" />
+        <activity
+            android:name=".PackageInstallerActivity"
+            android:exported="false" />
 
-        <receiver android:name=".InstallEventReceiver"
-                android:permission="android.permission.INSTALL_PACKAGES"
-                android:exported="true">
+        <activity
+            android:name=".InstallInstalling"
+            android:exported="false"
+            android:theme="@style/Theme.AlertDialogActivity.NoAnimation" />
+
+        <receiver
+            android:name=".InstallEventReceiver"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES">
             <intent-filter android:priority="1">
                 <action android:name="com.android.packageinstaller.ACTION_INSTALL_COMMIT" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".InstallSuccess"
-                android:theme="@style/Theme.AlertDialogActivity.NoAnimation"
-                android:exported="false" />
+        <activity
+            android:name=".InstallSuccess"
+            android:exported="false"
+            android:theme="@style/Theme.AlertDialogActivity.NoAnimation" />
 
-        <activity android:name=".InstallFailed"
-                android:theme="@style/Theme.AlertDialogActivity.NoAnimation"
-                android:exported="false" />
+        <activity
+            android:name=".InstallFailed"
+            android:exported="false"
+            android:theme="@style/Theme.AlertDialogActivity.NoAnimation" />
 
-        <activity android:name=".UninstallerActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:theme="@style/Theme.AlertDialogActivity.NoActionBar"
-                android:excludeFromRecents="true"
-                android:noHistory="true">
+        <activity
+            android:name=".UninstallerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.AlertDialogActivity.NoActionBar">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.DELETE" />
                 <action android:name="android.intent.action.UNINSTALL_PACKAGE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="package" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".UninstallEventReceiver"
-            android:permission="android.permission.INSTALL_PACKAGES"
-            android:exported="true">
+        <receiver
+            android:name=".UninstallEventReceiver"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES">
             <intent-filter android:priority="1">
                 <action android:name="com.android.packageinstaller.ACTION_UNINSTALL_COMMIT" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".PackageInstalledReceiver"
-                android:exported="true">
+        <receiver
+            android:name=".PackageInstalledReceiver"
+            android:exported="true">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".UninstallUninstalling"
-            android:theme="@style/Theme.AlertDialogActivity.NoActionBar"
+        <activity
+            android:name=".UninstallUninstalling"
             android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@style/Theme.AlertDialogActivity.NoActionBar" />
+
+        <receiver
+            android:name=".UninstallFinish"
             android:exported="false" />
 
-        <receiver android:name=".UninstallFinish"
-                android:exported="false" />
-
-        <activity android:name=".television.UninstallAppProgress"
-                android:configChanges="mnc|mnc|touchscreen|navigation|screenLayout|screenSize|smallestScreenSize|orientation|locale|keyboard|keyboardHidden|fontScale|uiMode|layoutDirection|density"
-                android:exported="false" />
-
         <!-- Wearable Components -->
-        <service android:name=".wear.WearPackageInstallerService"
-                 android:permission="com.google.android.permission.INSTALL_WEARABLE_PACKAGES"
-                 android:exported="true"/>
+        <service
+            android:name=".wear.WearPackageInstallerService"
+            android:exported="true"
+            android:permission="com.google.android.permission.INSTALL_WEARABLE_PACKAGES" />
 
-        <provider android:name=".wear.WearPackageIconProvider"
-                  android:authorities="com.google.android.packageinstaller.wear.provider"
-                  android:grantUriPermissions="true"
-                  android:exported="true" />
+        <provider
+            android:name=".wear.WearPackageIconProvider"
+            android:authorities="com.google.android.packageinstaller.wear.provider"
+            android:exported="true"
+            android:grantUriPermissions="true" />
     </application>
 
 </manifest>

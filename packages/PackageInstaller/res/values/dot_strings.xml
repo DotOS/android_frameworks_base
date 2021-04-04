@@ -12,10 +12,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
-    <string name="old_version_number">Installed version: <xliff:g id="old_version">%1$s</xliff:g></string>
-    <!-- Message for updating an existing system app [CHAR LIMIT=NONE] -->
-    <string name="new_version_number">To be installed: <xliff:g id="new_version">%1$s</xliff:g></string>
+    <string name="installed_version">Installed</string>
+    <string name="arrow"><![CDATA[➜]]></string>
+    <string name="to_be_installed">To be installed</string>
 </resources>

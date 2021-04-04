@@ -120,7 +120,7 @@
     <!--  [CHAR LIMIT=none] -->
     <string name="uninstall_update_text_multiuser">Replace this app with the factory version? All data will be removed. This affects all users of this device, including those with work profiles.</string>
     <!-- Label of a checkbox that allows to keep the data (e.g. files, settings) of the app on uninstall [CHAR LIMIT=none] -->
-    <string name="uninstall_keep_data">Keep <xliff:g id="size" example="1.5MB">%1$s</xliff:g> of app data.</string>
+    <string name="uninstall_keep_data">Keep <xliff:g example="1.5MB" id="size">%1$s</xliff:g> of app data.</string>
 
     <!-- Label for the notification channel containing notifications for current uninstall operations [CHAR LIMIT=40] -->
     <string name="uninstalling_notification_channel">Running uninstalls</string>
@@ -184,7 +184,7 @@
 
     <!-- Placeholder for an app name when it is unknown [CHAR LIMIT=50] -->
     <string name="app_name_unknown">Unknown</string>
-
+    
     <!-- Text to show in warning dialog on the tablet when the app source is not trusted [CHAR LIMIT=NONE] -->
     <string name="untrusted_external_source_warning" product="tablet">For your security, your tablet is not allowed to install unknown apps from this source.</string>
 
@@ -236,5 +236,5 @@
 
     <!-- Notification shown in status bar when an application is successfully installed.
          [CHAR LIMIT=50] -->
-    <string name="notification_installation_success_status">Successfully installed \u201c<xliff:g id="appname" example="Package Installer">%1$s</xliff:g>\u201d</string>
+    <string name="notification_installation_success_status">Successfully installed \u201c<xliff:g example="Package Installer" id="appname">%1$s</xliff:g>\u201d</string>
 </resources>

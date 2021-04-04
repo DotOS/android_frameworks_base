@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2018 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,31 +17,30 @@
 <!-- Check box that is displayed in the activity resolver UI for the user
      to make their selection the preferred activity. -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:theme="?android:attr/alertDialogTheme"
+    android:clipToPadding="false"
     android:orientation="vertical"
-    android:paddingTop="8dp"
     android:paddingStart="?android:attr/dialogPreferredPadding"
+    android:paddingTop="8dp"
     android:paddingEnd="?android:attr/dialogPreferredPadding"
-    android:clipToPadding="false">
+    android:theme="?android:attr/alertDialogTheme">
 
     <TextView
         android:id="@+id/message"
+        style="@android:style/TextAppearance.Material.Subhead"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@android:style/TextAppearance.Material.Subhead" />
+        android:layout_height="wrap_content" />
 
     <CheckBox
         android:id="@+id/keepData"
+        style="@android:style/TextAppearance.Material.Subhead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="-8dp"
+        android:layout_marginTop="8dp"
         android:paddingLeft="8sp"
-        android:visibility="gone"
-        style="@android:style/TextAppearance.Material.Subhead" />
+        android:visibility="gone" />
 
 </LinearLayout>
