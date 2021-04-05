@@ -57,4 +57,7 @@
 
     <!-- Whether to disable Night Light on Udfps keyguard -->
     <bool name="config_udfpsDisableNightLight">false</bool>
+
+    <!-- Whether device supports gaming mode profiles -->
+    <bool name="config_gamingmode_performance">false</bool>
 </resources>

@@ -705,6 +705,12 @@
     <protected-broadcast android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
     <protected-broadcast android:name="android.app.action.ACTION_SHOW_NEW_USER_DISCLAIMER" />
 
+    <!-- Evolution X additions -->
+
+    <!-- Gaming Mode -->
+    <protected-broadcast android:name="exthmui.intent.action.GAMING_MODE_ON" />
+    <protected-broadcast android:name="exthmui.intent.action.GAMING_MODE_OFF" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
