@@ -26,7 +26,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.util.Log;
 
 import com.android.systemui.R;
 
@@ -72,14 +71,11 @@ public class FODAnimation extends ImageView {
 
     private final String mFodAnimationPackage;
 
-    private static final boolean DEBUG = true;
-    private static final String LOG_TAG = "FODAnimations";
-
-    public FODAnimation(Context context, int mPositionX, int mPositionY) {
+    public FODAnimation(Context context, WindowManager windowManager, int mPositionX, int mPositionY) {
         super(context);
 
         mContext = context;
-        mWindowManager = mContext.getSystemService(WindowManager.class);
+        mWindowManager = windowManager;
         mFodAnimationPackage = mContext.getResources().getString(com.android.internal.R.string.config_fodAnimationPackage);
         mAnimationSize = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size);
         mAnimParams.height = mAnimationSize;
@@ -97,13 +93,11 @@ public class FODAnimation extends ImageView {
     }
 
     private void updateAnimationStyle(String drawableName) {
-        if (DEBUG) Log.i(LOG_TAG, "Updating animation style to:" + drawableName);
         int resId = 0;
         try {
             PackageManager pm = mContext.getPackageManager();
             Resources mApkResources = pm.getResourcesForApplication(mFodAnimationPackage);
             resId = mApkResources.getIdentifier(drawableName, "drawable", mFodAnimationPackage);
-            if (DEBUG) Log.i(LOG_TAG, "Got resource id: "+ resId +" from package" );
             setBackgroundDrawable(mApkResources.getDrawable(resId));
             recognizingAnim = (AnimationDrawable) getBackground();
         }
@@ -130,9 +124,13 @@ public class FODAnimation extends ImageView {
     public void showFODanimation() {
         if (mAnimParams != null && !mShowing && mIsKeyguard) {
             mShowing = true;
-            mWindowManager.addView(this, mAnimParams);
-            mWindowManager.updateViewLayout(this, mAnimParams);
-            recognizingAnim.start();
+            if (getWindowToken() == null){
+                mWindowManager.addView(this, mAnimParams);
+                mWindowManager.updateViewLayout(this, mAnimParams);
+            }
+            if (recognizingAnim != null) {
+                recognizingAnim.start();
+            }
         }
     }
 
