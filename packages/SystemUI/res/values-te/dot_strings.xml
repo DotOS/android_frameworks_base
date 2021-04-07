@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="global_action_reboot">పునఃప్రారంభించు</string>
+    <string name="global_action_reboot_more">పునఃప్రారంభ రకము</string>
+    <string name="global_action_reboot_sub">వ్యవస్థ</string>
+    <string name="global_action_reboot_recovery">రికవరీ</string>
+    <string name="global_action_reboot_bootloader">బూట్‌లోడర్</string>
+    <string name="global_action_settings">అమరికలు</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">బ్యాటరీ పొదుపు</string>
+    <string name="accessibility_quick_settings_location_battery_saving">స్తననివేదిన: బ్యాటరీ పొదుపు గుణం.</string>
+    <string name="quick_settings_location_secondary_gps_only">సెన్సార్లు మాత్రమే</string>
+    <string name="accessibility_quick_settings_location_gps_only">స్థాన నివేదిక: సెన్సారులు మాత్రమే.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">అధిక నిర్దిష్టత</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">స్థాన నివేదన: అధిక ఖచ్చితత్వ గుణం.</string>
+    <string name="quick_settings_aod_label">స్క్రీన్ ఎల్లప్పుడూ వెలుగుతూ ఉండటం</string>
+    <string name="quick_settings_heads_up_label">నోటిఫికషన్ల హెచ్చరిక</string>
+    <string name="accessibility_quick_settings_heads_up_off">నోటిఫికేషన్లు హెచ్చరించవద్దు.</string>
+    <string name="accessibility_quick_settings_heads_up_on">నోటిఫికేషన్లను హెచ్చరించండి.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">నోటిఫికేషన్ల హెచ్చరికలు నిలిపివేశారు.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">నోటిఫికషన్ల హెచ్చరిక ప్రారంబించారు.</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="global_action_reboot">Riavvia</string>
+    <string name="global_action_reboot_more">Riavvia\u2026</string>
+    <string name="global_action_reboot_sub">Sistema</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_settings">Impostazioni</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">Risparmio energetico</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Modalità geolocalizzazione: basso consumo.</string>
+    <string name="quick_settings_location_secondary_gps_only">Solo Sensori</string>
+    <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo sensori.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta Precisione</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Geolocalizzazione: modalità alta precisione.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_heads_up_label">Notifiche Fluttuanti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifiche fluttuanti non attive.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifiche fluttuanti attive.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche fluttuanti spente.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche fluttuanti attivate.</string>
+</resources>

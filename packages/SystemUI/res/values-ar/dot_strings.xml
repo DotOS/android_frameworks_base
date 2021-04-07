@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">وضع الكافيين</string>
+    <string name="accessibility_quick_settings_caffeine_off">وضع الإستراحة معطل</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين</string>
+    <string name="global_action_reboot">إعادة التشغيل</string>
+    <string name="global_action_reboot_more">إعادة تشغيل\u2026</string>
+    <string name="global_action_reboot_sub">النظام</string>
+    <string name="global_action_reboot_recovery">الإسترداد (ريكفري)</string>
+    <string name="global_action_reboot_bootloader">وضع الـBootloader</string>
+    <string name="global_action_settings">الإعدادات</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">توفير البطارية</string>
+    <string name="accessibility_quick_settings_location_battery_saving">تقرير الموقع: وضع توفير البطارية.</string>
+    <string name="quick_settings_location_secondary_gps_only">المستشعرات فقط</string>
+    <string name="accessibility_quick_settings_location_gps_only">تحديد الموقع: وضع المستشعرات فقط.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">دقة عالية</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">تحديد المواقع: وضع الدقة العالية.</string>
+    <string name="quick_settings_aod_label">الشاشة الدائمةAOD</string>
+    <string name="quick_settings_heads_up_label">الإشعارات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">الإشعارات العلوية معّطلة.</string>
+    <string name="accessibility_quick_settings_heads_up_on">الإشعارات العلوية تعمل.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإشعارات العلوية.</string>
+</resources>

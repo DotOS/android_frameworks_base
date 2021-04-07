@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">حالت کافئین</string>
+    <string name="accessibility_quick_settings_caffeine_off">حالت کافئین خاموش</string>
+    <string name="accessibility_quick_settings_caffeine_on">حالت کافئین روشن</string>
+    <string name="global_action_reboot">راه اندازی مجدد</string>
+    <string name="global_action_reboot_more">راه اندازی مجدد\u2026</string>
+    <string name="global_action_reboot_sub">سیستم</string>
+    <string name="global_action_reboot_recovery">راه اندازی مجدد به ریکاوری</string>
+    <string name="global_action_reboot_bootloader">راه اندازی مجدد به بوتلودر</string>
+    <string name="global_action_settings">تنظیمات</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">صرفه جویی در باتری</string>
+    <string name="accessibility_quick_settings_location_battery_saving">گزارش مکان: حالت صرفه‌جویی در باتری.</string>
+    <string name="quick_settings_location_secondary_gps_only">فقط سنسور ها</string>
+    <string name="accessibility_quick_settings_location_gps_only">گزارش مکان: حالت فقط حسگرها.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">دقت بالا</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">گزارش مکان: حالت دقت بالا.</string>
+    <string name="quick_settings_aod_label">صفحه نمایش همیشه روشن</string>
+    <string name="quick_settings_heads_up_label">اعلان فوری</string>
+    <string name="accessibility_quick_settings_heads_up_off">اعلان فوری خاموش.</string>
+    <string name="accessibility_quick_settings_heads_up_on">اعلان فوری روشن.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">اعلان فوری خاموش شد.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">اعلان فوری روشن شد.</string>
+</resources>

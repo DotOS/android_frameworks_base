@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Cafeïne</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan</string>
+    <string name="global_action_reboot">Herstarten</string>
+    <string name="global_action_reboot_more">Herstart\u2026</string>
+    <string name="global_action_reboot_sub">Systeem</string>
+    <string name="global_action_reboot_recovery">Herstelmodus</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_settings">Instellingen</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">Batterijbesparing</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Locatiebepaling: batterijbesparingsmodus.</string>
+    <string name="quick_settings_location_secondary_gps_only">Alleen sensoren</string>
+    <string name="accessibility_quick_settings_location_gps_only">Locatiebepaling: batterijbesparingsmodus.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Hoge nauwkeurigheid</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Locatiebepaling: hoge nauwkeurigheidsmodus.</string>
+    <string name="quick_settings_aod_label">Altijd Aan Display</string>
+    <string name="quick_settings_heads_up_label">Pop-up meldingen</string>
+    <string name="accessibility_quick_settings_heads_up_off">Pop-up meldingen uit.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Pop-up meldingen aan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Pop-up meldingen uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Pop-up meldingen ingeschakeld.</string>
+</resources>

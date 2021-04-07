@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェイン OFF</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェイン ON</string>
+    <string name="global_action_reboot">再起動</string>
+    <string name="global_action_reboot_more">再起動\u2026</string>
+    <string name="global_action_reboot_sub">システム</string>
+    <string name="global_action_reboot_recovery">リカバリー</string>
+    <string name="global_action_reboot_bootloader">ブートローダー</string>
+    <string name="global_action_settings">設定</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">バッテリー節約</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モード</string>
+    <string name="quick_settings_location_secondary_gps_only">センサーのみ</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: センサーのみモード</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モード</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_heads_up_label">Heads Up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads Up OFF</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads Up ON</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up を OFF にしました</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up を ON にしました</string>
+</resources>

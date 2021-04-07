@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
+    <string name="global_action_reboot">Yeniden başlat</string>
+    <string name="global_action_reboot_more">Yeniden başlatılıyor\u2026</string>
+    <string name="global_action_reboot_sub">Sistem</string>
+    <string name="global_action_reboot_recovery">Kurtarma</string>
+    <string name="global_action_reboot_bootloader">Ön yükleyici</string>
+    <string name="global_action_settings">Ayarlar</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">Pil tasarrufu</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarrufu modu.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sadece sensörler</string>
+    <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Yüksek doğruluk</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek doğruluk modu.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+</resources>

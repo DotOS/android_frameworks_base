@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 dotOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">क्याफिन</string>
+    <string name="accessibility_quick_settings_caffeine_off">डिस्पेले बन्द नहुने: बन्द</string>
+    <string name="accessibility_quick_settings_caffeine_on">डिस्पेले बन्द नहुने: चालु</string>
+    <string name="global_action_reboot">पुनःस्टार्ट गर्नुहोस्</string>
+    <string name="global_action_reboot_more">Restart\u2026</string>
+    <string name="global_action_reboot_sub">प्रणाली</string>
+    <string name="global_action_reboot_recovery">रिकभरी</string>
+    <string name="global_action_reboot_bootloader">बुट लोडर</string>
+    <string name="global_action_settings">सेटिंग</string>
+    <string name="quick_settings_secondary_location_off"/>
+    <string name="quick_settings_location_secondary_battery_saving">ब्याट्री बचत</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
+    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">उच्च शुद्धता</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+    <string name="quick_settings_aod_label">AOD सँधै प्रदर्शन मोडमा</string>
+    <string name="quick_settings_heads_up_label">पप-अप सूचना</string>
+    <string name="accessibility_quick_settings_heads_up_off">पप-अप सूचना: बन्द.</string>
+    <string name="accessibility_quick_settings_heads_up_on">पप-अप सूचना: चालु.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">पप-अप सूचना: बन्द भयो.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">पप-अप सूचना: चालु भयो.</string>
+</resources>
