@@ -65,9 +65,7 @@ public class DotSystemUIUtils {
     }
 
     public static void dismissNotification() {
-        Log.d("Dilemmino", "Ciao " + String.valueOf(mNotificationId));
         if (mNotificationId != null)
-             Log.d("Dilemmino", "Ciao2 " + String.valueOf(mNotificationId));
             mNotificationManager.cancel(mNotificationId);
     }
 
