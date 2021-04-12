@@ -344,15 +344,6 @@ public final class PowerManager {
 
     /**
      * @hide
-     * User activity flag: Certain hardware buttons are not supposed to
-     * activate hardware button illumination.  This flag indicates a
-     * button event from one of those buttons.
-     * @hide
-     */
-    public static final int USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS = 1 << 2;
-
-    /**
-     * @hide
      */
     public static final int GO_TO_SLEEP_REASON_MIN = 0;
 
@@ -465,8 +456,7 @@ public final class PowerManager {
             BRIGHTNESS_CONSTRAINT_TYPE_DOZE,
             BRIGHTNESS_CONSTRAINT_TYPE_MINIMUM_VR,
             BRIGHTNESS_CONSTRAINT_TYPE_MAXIMUM_VR,
-            BRIGHTNESS_CONSTRAINT_TYPE_DEFAULT_VR,
-            BRIGHTNESS_CONSTRAINT_TYPE_DEFAULT_BUTTON
+            BRIGHTNESS_CONSTRAINT_TYPE_DEFAULT_VR
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface BrightnessConstraint{}
@@ -517,12 +507,6 @@ public final class PowerManager {
      * @hide
      */
     public static final int BRIGHTNESS_CONSTRAINT_TYPE_DEFAULT_VR = 7;
-
-    /**
-     * Brightness constraint type: minimum allowed value.
-     * @hide
-     */
-    public static final int BRIGHTNESS_CONSTRAINT_TYPE_DEFAULT_BUTTON = 8;
 
     /**
      * @hide

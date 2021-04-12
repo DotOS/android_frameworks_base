@@ -76,8 +76,4 @@
   <java-symbol type="string" name="config_oemFastChargerStatusPath" />
   <!-- Expected value from fast charging status file -->
   <java-symbol type="string" name="config_oemFastChargerStatusValue" />
-
-  <!-- Button backlight -->
-   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
-   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 </resources>

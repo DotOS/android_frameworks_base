@@ -78,8 +78,4 @@
     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false"></string>
-
-    <!-- Button backlight -->
-    <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
-    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 </resources>
