@@ -32,8 +32,6 @@ import com.android.systemui.pip.phone.dagger.PipModule;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.util.InjectionInflationController;
 
-import com.google.android.systemui.SystemUIGoogleModule;
-
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -52,8 +50,7 @@ import dagger.Component;
         SystemUIFactory.ContextHolder.class,
         SystemUIBinder.class,
         SystemUIModule.class,
-        SystemUIDefaultModule.class,
-        SystemUIGoogleModule.class})
+        SystemUIDefaultModule.class})
 public interface SystemUIRootComponent {
 
     /**
