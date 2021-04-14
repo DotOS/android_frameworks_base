@@ -37,7 +37,7 @@ class QSDataUsageView : TextView {
     fun update() {
         val subInfoList = subscriptionManager.availableSubscriptionInfoList
         val subActive = subscriptionManager.defaultDataSubscriptionInfo
-        if (subInfoList != null) {
+        if (subActive != null && subInfoList != null) {
             usageController.setSubscriptionId(subActive.subscriptionId)
             text = Html.fromHtml(context.getString(R.string.dot_data_used, 
                                 colorToHex(subActive.iconTint), 
