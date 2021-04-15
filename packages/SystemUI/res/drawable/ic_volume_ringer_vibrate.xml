@@ -1,5 +1,5 @@
 <!--
-     Copyright (C) 2017 The Android Open Source Project
+     Copyright (C) 2021 Havoc-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,13 +14,18 @@
      limitations under the License.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="24dp"
-    android:width="24dp"
-    android:viewportHeight="24.0"
-    android:viewportWidth="24.0">
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
 
     <path
         android:fillColor="#FFFFFFFF"
-        android:pathData="M1,9h2v6H1V9zM4,17h2V7H4V17zM21,9v6h2V9H21zM18,17h2V7h-2V17zM17,5.5v13c0,0.83 -0.67,1.5 -1.5,1.5h-7C7.67,20 7,19.33 7,18.5v-13C7,4.67 7.67,4 8.5,4h7C16.33,4 17,4.67 17,5.5zM15,6H9v12h6V6z"/>
-
+        android:pathData="M18.26,12V20a1.88,1.88,0,0,1-1.13,1.82,2.2,2.2,0,0,1-0.92 0.15 H7.71a1.89,1.89,0,0,1-2-2v-16a1.89,1.89,0,0,1,1.93-2h8.6A1.89,1.89,0,0,1,18.07,3a2,2,0,0,1,0.19 0.94 ZM7.74,20h8.51v-16H7.74Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M21.62,12.19,20.19,10.4a3.86,3.86,0,0,1-0.3-0.38 0.93 0.93,0,0,1-0.06-1.08c0.72-1.2,1.47-2.38,2.21-3.58,0,0,0,0,0,0l1.7,1-0.69,1.11c-0.36 0.59 -0.73,1.18-1.1,1.77a0.15 0.15 ,0,0,0,0,0.21l1.67,2.08a1,1,0,0,1,0,1.3c-0.53 0.68 -1.08,1.36-1.62,2a0.16 0.16 ,0,0,0,0,0.24l1.6,2.19 0.07 0.11-1.62,1.18L21.69,18l-1.76-2.4a1,1,0,0,1,0-1.35l1.59-2A0.35 0.35 ,0,0,0,21.62,12.19Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M1.92,18.63 0.21 ,17.57,1,16.37c0.34-0.56 0.69 -1.12,1-1.68 0.06 -0.1,0-0.15,0-0.22-0.54-0.67-1.08-1.35-1.63-2a1,1,0,0,1,0-1.37L2,9,0.25,6.54,1.88,5.36l0.65 0.89 ,1.54,2.1A1,1,0,0,1,4,9.67L2.36,11.75l0.71 0.88 ,1,1.22a1,1,0,0,1,0.07,1.25L2,18.47Z" />
 </vector>
