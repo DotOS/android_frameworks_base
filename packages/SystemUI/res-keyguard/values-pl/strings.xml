@@ -161,18 +161,18 @@
       <item quantity="one">"<annotation name="color">"Jest"</annotation>\n"^1\n^2</item>
     </plurals>
   <string-array name="type_clock_hours">
-    <item msgid="3543074812389379830">"Dwanaście"</item>
-    <item msgid="7389464214252023751">"Jeden"</item>
-    <item msgid="8803180377002008046">"Dwa"</item>
-    <item msgid="8614897059944644719">"Trzy"</item>
-    <item msgid="2293058674782619556">"Cztery"</item>
-    <item msgid="4815402358455041664">"Pięć"</item>
-    <item msgid="3325754778509665687">"Sześć"</item>
-    <item msgid="5805551341866280575">"Siedem"</item>
-    <item msgid="203334816668238610">"Osiem"</item>
-    <item msgid="4828052671464488923">"Dziewięć"</item>
-    <item msgid="2233497913571137419">"Dziesięć"</item>
-    <item msgid="5621554266768657830">"Jedenaście"</item>
+    <item msgid="3543074812389379830">"Dwunasta"</item>
+    <item msgid="7389464214252023751">"Pierwsza"</item>
+    <item msgid="8803180377002008046">"Druga"</item>
+    <item msgid="8614897059944644719">"Trzecia"</item>
+    <item msgid="2293058674782619556">"Czwarta"</item>
+    <item msgid="4815402358455041664">"Piąta"</item>
+    <item msgid="3325754778509665687">"Szósta"</item>
+    <item msgid="5805551341866280575">"Siódma"</item>
+    <item msgid="203334816668238610">"Ósma"</item>
+    <item msgid="4828052671464488923">"Dziewiąta"</item>
+    <item msgid="2233497913571137419">"Dziesiąta"</item>
+    <item msgid="5621554266768657830">"Jedenasta"</item>
   </string-array>
   <string-array name="type_clock_minutes">
     <item msgid="8322049385467207985">"Zero zero"</item>
