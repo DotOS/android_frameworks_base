@@ -64,7 +64,7 @@ import static com.dot.packageinstaller.PackageUtil.getMaxTargetSdkVersionForUid;
 /*
  * This activity presents UI to uninstall an application. Usually launched with intent
  * Intent.ACTION_UNINSTALL_PKG_COMMAND and attribute
- * com.android.packageinstaller.PackageName set to the application package name
+ * com.dot.packageinstaller.PackageName set to the application package name
  */
 public class UninstallerActivity extends Activity {
     private static final String TAG = "UninstallerActivity";

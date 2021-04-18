@@ -40,7 +40,7 @@ import java.io.File;
  * used in the package installer application.
  */
 public class PackageUtil {
-    public static final String PREFIX = "com.android.packageinstaller.";
+    public static final String PREFIX = "com.dot.packageinstaller.";
     public static final String INTENT_ATTR_INSTALL_STATUS = PREFIX + "installStatus";
     public static final String INTENT_ATTR_APPLICATION_INFO = PREFIX + "applicationInfo";
     public static final String INTENT_ATTR_PERMISSIONS_LIST = PREFIX + "PermissionsList";

@@ -64,22 +64,22 @@ import java.util.Set;
  * Debugging information:
  * <p>
  * Install Action example:
- * adb shell am startservice -a com.android.packageinstaller.wear.INSTALL_PACKAGE \
+ * adb shell am startservice -a com.dot.packageinstaller.wear.INSTALL_PACKAGE \
  * -d package://com.google.android.gms \
  * --eu com.google.android.clockwork.EXTRA_ASSET_URI content://com.google.android.clockwork.home.provider/host/com.google.android.wearable.app/wearable/com.google.android.gms/apk \
  * --es android.intent.extra.INSTALLER_PACKAGE_NAME com.google.android.gms \
  * --ez com.google.android.clockwork.EXTRA_CHECK_PERMS false \
  * --eu com.google.android.clockwork.EXTRA_PERM_URI content://com.google.android.clockwork.home.provider/host/com.google.android.wearable.app/permissions \
- * com.android.packageinstaller/com.android.packageinstaller.wear.WearPackageInstallerService
+ * com.dot.packageinstaller/com.dot.packageinstaller.wear.WearPackageInstallerService
  * <p>
  * Uninstall Action example:
- * adb shell am startservice -a com.android.packageinstaller.wear.UNINSTALL_PACKAGE \
+ * adb shell am startservice -a com.dot.packageinstaller.wear.UNINSTALL_PACKAGE \
  * -d package://com.google.android.gms \
- * com.android.packageinstaller/com.android.packageinstaller.wear.WearPackageInstallerService
+ * com.dot.packageinstaller/com.dot.packageinstaller.wear.WearPackageInstallerService
  * <p>
  * Retry GMS:
- * adb shell am startservice -a com.android.packageinstaller.wear.RETRY_GMS \
- * com.android.packageinstaller/com.android.packageinstaller.wear.WearPackageInstallerService
+ * adb shell am startservice -a com.dot.packageinstaller.wear.RETRY_GMS \
+ * com.dot.packageinstaller/com.dot.packageinstaller.wear.WearPackageInstallerService
  */
 public class WearPackageInstallerService extends Service {
     private static final String TAG = "WearPkgInstallerService";

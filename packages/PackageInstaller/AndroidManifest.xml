@@ -89,7 +89,7 @@
             android:exported="true"
             android:permission="android.permission.INSTALL_PACKAGES">
             <intent-filter android:priority="1">
-                <action android:name="com.android.packageinstaller.ACTION_INSTALL_COMMIT" />
+                <action android:name="com.dot.packageinstaller.ACTION_INSTALL_COMMIT" />
             </intent-filter>
         </receiver>
 
@@ -123,7 +123,7 @@
             android:exported="true"
             android:permission="android.permission.INSTALL_PACKAGES">
             <intent-filter android:priority="1">
-                <action android:name="com.android.packageinstaller.ACTION_UNINSTALL_COMMIT" />
+                <action android:name="com.dot.packageinstaller.ACTION_UNINSTALL_COMMIT" />
             </intent-filter>
         </receiver>
 

@@ -52,7 +52,7 @@ import java.util.HashSet;
  * the policies in one place.
  *
  * This is the twin of
- * {@link com.android.packageinstaller.permission.utils.SoftRestrictedPermissionPolicy}
+ * {@link com.dot.packageinstaller.permission.utils.SoftRestrictedPermissionPolicy}
  */
 public abstract class SoftRestrictedPermissionPolicy {
     private static final int FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT =

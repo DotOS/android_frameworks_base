@@ -93,7 +93,7 @@ their grant state are listed. If an install time permission is not listed here, 
 
 ```
 Packages:
-  Package [com.android.packageinstaller] (2eb7062):
+  Package [com.dot.packageinstaller] (2eb7062):
     userId=10071
     [...]
     requested permissions:

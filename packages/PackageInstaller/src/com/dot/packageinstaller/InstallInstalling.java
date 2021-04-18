@@ -59,11 +59,11 @@ import static android.content.pm.PackageInstaller.SessionParams.UID_UNKNOWN;
 public class InstallInstalling extends BottomAlertActivity {
     private static final String LOG_TAG = InstallInstalling.class.getSimpleName();
 
-    private static final String SESSION_ID = "com.android.packageinstaller.SESSION_ID";
-    private static final String INSTALL_ID = "com.android.packageinstaller.INSTALL_ID";
+    private static final String SESSION_ID = "com.dot.packageinstaller.SESSION_ID";
+    private static final String INSTALL_ID = "com.dot.packageinstaller.INSTALL_ID";
 
     private static final String BROADCAST_ACTION =
-            "com.android.packageinstaller.ACTION_INSTALL_COMMIT";
+            "com.dot.packageinstaller.ACTION_INSTALL_COMMIT";
 
     /**
      * Listens to changed to the session and updates progress bar

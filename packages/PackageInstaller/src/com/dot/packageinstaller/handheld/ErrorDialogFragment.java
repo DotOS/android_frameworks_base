@@ -26,8 +26,8 @@ import com.dot.packageinstaller.BottomDialogFragment;
 import com.dot.packageinstaller.UninstallerActivity;
 
 public class ErrorDialogFragment extends BottomDialogFragment {
-    public static final String TITLE = "com.android.packageinstaller.arg.title";
-    public static final String TEXT = "com.android.packageinstaller.arg.text";
+    public static final String TITLE = "com.dot.packageinstaller.arg.title";
+    public static final String TEXT = "com.dot.packageinstaller.arg.text";
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

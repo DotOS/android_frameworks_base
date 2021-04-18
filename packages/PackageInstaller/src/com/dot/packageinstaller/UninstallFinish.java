@@ -45,8 +45,8 @@ import java.util.List;
  * Finish an uninstallation and show Toast on success or failure notification.
  */
 public class UninstallFinish extends BroadcastReceiver {
-    static final String EXTRA_UNINSTALL_ID = "com.android.packageinstaller.extra.UNINSTALL_ID";
-    static final String EXTRA_APP_LABEL = "com.android.packageinstaller.extra.APP_LABEL";
+    static final String EXTRA_UNINSTALL_ID = "com.dot.packageinstaller.extra.UNINSTALL_ID";
+    static final String EXTRA_APP_LABEL = "com.dot.packageinstaller.extra.APP_LABEL";
     private static final String LOG_TAG = UninstallFinish.class.getSimpleName();
     private static final String UNINSTALL_FAILURE_CHANNEL = "uninstall failure";
 

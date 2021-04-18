@@ -42,9 +42,9 @@ class PackageInstalledNotificationUtils {
 
     private static final String NEW_APP_INSTALLED_CHANNEL_ID_PREFIX = "INSTALLER:";
     private static final String META_DATA_INSTALLER_NOTIFICATION_SMALL_ICON_KEY =
-            "com.android.packageinstaller.notification.smallIcon";
+            "com.dot.packageinstaller.notification.smallIcon";
     private static final String META_DATA_INSTALLER_NOTIFICATION_COLOR_KEY =
-            "com.android.packageinstaller.notification.color";
+            "com.dot.packageinstaller.notification.color";
 
     private static final float DEFAULT_MAX_LABEL_SIZE_PX = 500f;
 
