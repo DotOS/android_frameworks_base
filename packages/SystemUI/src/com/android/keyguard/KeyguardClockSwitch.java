@@ -265,6 +265,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
         mClockPlugin.setStyle(getPaint().getStyle());
         mClockPlugin.setTextColor(getCurrentTextColor());
         mClockPlugin.setDarkAmount(mDarkAmount);
+        mClockPlugin.setHasVisibleNotifications(mHasVisibleNotifications);
         if (mColorPalette != null) {
             mClockPlugin.setColorPalette(mSupportsDarkText, mColorPalette);
         }
@@ -346,6 +347,9 @@ public class KeyguardClockSwitch extends RelativeLayout {
             return;
         }
         mHasVisibleNotifications = hasVisibleNotifications;
+        if (mClockPlugin != null) {
+            mClockPlugin.setHasVisibleNotifications(mHasVisibleNotifications);
+        }
         if (mDarkAmount == 0f && mBigClockContainer != null) {
             // Starting a fade transition since the visibility of the big clock will change.
             TransitionManager.beginDelayedTransition(mBigClockContainer,
