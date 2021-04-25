@@ -30,7 +30,7 @@ public class MonetWannabe {
     private int accentColorOverlayDark;
 
     public static final int DEFAULT_COLOR_GEN = 16;
-    public static final float DEFAULT_LIGHT_ALTERATION = 0.8f;
+    public static final float DEFAULT_LIGHT_ALTERATION = 0.5f;
     public static final float DEFAULT_DARK_ALTERATION = 0.8f;
 
     /**
