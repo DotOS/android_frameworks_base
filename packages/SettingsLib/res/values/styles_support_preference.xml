@@ -18,7 +18,7 @@
 <!-- Common style for support lib preference to look like Settings app UI -->
 <resources>
 
-    <dimen name="preference_no_icon_padding_start">72dp</dimen>
+    <dimen name="preference_no_icon_padding_start">32dp</dimen>
 
     <!-- Footer Preferences -->
     <style name="Preference.FooterPreference.SettingsBase" parent="@style/Preference.Material">
