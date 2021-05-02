@@ -710,9 +710,12 @@ public class Toast {
                     try {
                         icon = pm.getApplicationIcon(packageName);
                     } catch (PackageManager.NameNotFoundException e) {
-                        // nothing to do
+                        appIcon.setVisibility(View.GONE);
                     }
-                    appIcon.setImageDrawable(icon);
+                    if (icon == null)
+                        appIcon.setVisibility(View.GONE);
+                    else
+                        appIcon.setImageDrawable(icon);
                 }
             }
         }
