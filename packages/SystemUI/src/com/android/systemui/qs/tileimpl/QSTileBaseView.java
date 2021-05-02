@@ -325,7 +325,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
             case Tile.STATE_ACTIVE:
                 return mColorActive;
             case Tile.STATE_INACTIVE:
-                return mColorInactive;
+                if (MonetWannabe.isMonetEnabled(getContext())) return mColorInactive;
             case Tile.STATE_UNAVAILABLE:
                 return mColorDisabled;
             default:

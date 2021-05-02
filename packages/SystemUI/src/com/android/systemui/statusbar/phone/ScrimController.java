@@ -23,6 +23,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.IntDef;
 import android.app.AlarmManager;
+import android.content.res.MonetWannabe;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -978,8 +979,17 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     private void updateThemeColors() {
         ScrimView scrimView = mScrimBehind;
         if (scrimView == null) return;
-        mColors.setMainColor(Utils.getColorAttrDefaultColor(scrimView.getContext(), android.R.attr.colorAccentOverlay));
-        mColors.setSecondaryColor(Utils.getColorAttrDefaultColor(mScrimBehind.getContext(), android.R.attr.colorAccent));
+        int mainColor;
+        int secondaryColor;
+        if (MonetWannabe.isMonetEnabled(mScrimBehind.getContext())) {
+            mainColor = Utils.getColorAttrDefaultColor(scrimView.getContext(), android.R.attr.colorAccentOverlay);
+            secondaryColor = Utils.getColorAttrDefaultColor(mScrimBehind.getContext(), android.R.attr.colorAccent);
+        } else {
+            mainColor = Utils.getColorAttr(scrimView.getContext(), android.R.attr.textColorPrimaryInverse).getDefaultColor();
+            secondaryColor = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
+        }
+        mColors.setMainColor(mainColor);
+        mColors.setSecondaryColor(secondaryColor);
         ColorExtractor.GradientColors gradientColors = mColors;
         gradientColors.setSupportsDarkText(ColorUtils.calculateContrast(gradientColors.getMainColor(), -1) > 4.5d);
         mNeedsDrawableColorUpdate = true;
