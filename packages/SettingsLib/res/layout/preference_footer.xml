@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2016 The Android Open Source Project
+  Copyright (C) 2021 The DotOS Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,42 +13,52 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
-
+-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:background="?android:attr/selectableItemBackground"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/icon_frame"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="56dp"
-        android:gravity="start|top"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="?android:attr/listPreferredItemPaddingStart"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="?android:attr/listPreferredItemPaddingStart"
+        android:gravity="center_vertical"
+        android:background="@drawable/dot_footer_bg"
+        android:minHeight="?android:attr/listPreferredItemHeight"
         android:orientation="horizontal"
-        android:paddingEnd="12dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="4dp">
-        <ImageView
-            android:id="@android:id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:padding="?android:attr/listPreferredItemPaddingStart">
 
-    <com.android.settingslib.widget.LinkTextView
-        android:id="@android:id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:maxLines="10"
-        android:textColor="?android:attr/textColorSecondary"
-        android:ellipsize="marquee" />
+        <LinearLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="12dp">
+
+            <ImageView
+                android:id="@android:id/icon"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:tint="?android:attr/colorAccent" />
+        </LinearLayout>
+
+        <com.android.settingslib.widget.LinkTextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:maxLines="10"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary" />
+
+    </LinearLayout>
 
 </LinearLayout>

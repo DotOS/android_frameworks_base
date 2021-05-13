@@ -23,7 +23,6 @@
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
-    android:background="?android:attr/selectableItemBackground"
     android:clipToPadding="false">
 
     <LinearLayout
@@ -36,26 +35,26 @@
         android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
 
         <LinearLayout
-            android:id="@+id/icon_frame"
+            android:id="@android:id/icon_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start|center_vertical"
-            android:minWidth="56dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:clipToPadding="false"
             android:paddingTop="4dp"
             android:paddingBottom="4dp">
             <androidx.preference.internal.PreferenceImageView
                 android:id="@android:id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                settings:maxWidth="48dp"
-                settings:maxHeight="48dp" />
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:adjustViewBounds="true"
+                android:padding="6dp"
+                android:scaleType="fitCenter" />
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
@@ -64,9 +63,10 @@
                 android:id="@android:id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="marquee"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceListItem"
-                android:ellipsize="marquee" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@android:id/summary"
@@ -74,9 +74,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@android:id/title"
                 android:layout_alignStart="@android:id/title"
+                android:maxLines="10"
                 android:textAppearance="?android:attr/textAppearanceListItemSecondary"
                 android:textColor="?android:attr/textColorSecondary"
-                android:maxLines="10" />
+                android:layout_marginTop="2dp" />
 
         </RelativeLayout>
 

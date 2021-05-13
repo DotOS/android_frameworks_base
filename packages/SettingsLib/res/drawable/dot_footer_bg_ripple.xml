@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2017 The Android Open Source Project
+  Copyright (C) 2021 The DotOS Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,19 +13,8 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/two_target_divider"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:gravity="start|center_vertical"
-    android:orientation="horizontal"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp">
-    <View
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:background="?android:attr/listDivider" />
-</LinearLayout>
+-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorAccent">
+    <item android:drawable="@drawable/dot_footer_bg" />
+</ripple>
