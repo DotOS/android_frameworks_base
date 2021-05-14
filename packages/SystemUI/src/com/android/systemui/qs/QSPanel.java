@@ -995,16 +995,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             } else if (getChildAt(i) instanceof NeverExactlyLinearLayout) {
                 if (mSecurityFooter.getView().getVisibility() != GONE) {
                     getChildAt(i).setVisibility(newVis);
-                    Log.d("SystemUITest", String.valueOf(i) + " view position updated to " + (visible ? "VISIBLE" : "GONE") + " (" + getChildAt(i).getClass().getName() + ")");
                 }
-                    
             } else if ((mUsingMediaPlayer && mMediaHost.getVisible()) && getChildAt(i) == mMediaHost.getHostView()) {
                 // Don't update visibility
             } else {
                 getChildAt(i).setVisibility(newVis);
-                Log.d("SystemUITest", String.valueOf(i) + " view position updated to " + (visible ? "VISIBLE" : "GONE") + " (" + getChildAt(i).getClass().getName() + ")");
             }
-                
         }
         if (mGridContentVisible != visible) {
             mMetricsLogger.visibility(MetricsEvent.QS_PANEL, newVis);
