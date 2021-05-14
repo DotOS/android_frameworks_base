@@ -38,9 +38,9 @@ class OngoingPrivacyChip @JvmOverloads constructor(
             context.resources.getDimensionPixelSize(R.dimen.ongoing_appops_chip_icon_size)
     private val iconColor = context.resources.getColor(
             R.color.status_bar_clock_color, context.theme)
-    private val sidePadding =
-            context.resources.getDimensionPixelSize(R.dimen.ongoing_appops_chip_side_padding)
-    private val backgroundDrawable = context.getDrawable(R.drawable.privacy_chip_bg)
+    //private val sidePadding =
+    //        context.resources.getDimensionPixelSize(R.dimen.ongoing_appops_chip_side_padding)
+    //private val backgroundDrawable = context.getDrawable(R.drawable.privacy_chip_bg)
     private lateinit var iconsContainer: LinearLayout
     private lateinit var back: FrameLayout
     var expanded = false
@@ -68,9 +68,9 @@ class OngoingPrivacyChip @JvmOverloads constructor(
 
     // Should only be called if the builder icons or app changed
     private fun updateView() {
-        back.background = if (expanded) backgroundDrawable else null
-        val padding = if (expanded) sidePadding else 0
-        back.setPaddingRelative(padding, 0, padding, 0)
+        //back.background = if (expanded) backgroundDrawable else null
+        //val padding = if (expanded) sidePadding else 0
+        //back.setPaddingRelative(padding, 0, padding, 0)
         fun setIcons(chipBuilder: PrivacyChipBuilder, iconsContainer: ViewGroup) {
             iconsContainer.removeAllViews()
             chipBuilder.generateIcons().forEachIndexed { i, it ->

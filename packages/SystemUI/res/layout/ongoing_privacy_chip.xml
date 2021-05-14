@@ -21,20 +21,30 @@
     android:id="@+id/privacy_chip"
     android:layout_height="match_parent"
     android:layout_width="wrap_content"
-    android:layout_gravity="center_vertical|end"
+    android:layout_gravity="center"
+    android:background="@drawable/qs_footer_ripple"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingTop="6dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="6dp"
     android:focusable="true" >
 
-        <FrameLayout
-            android:id="@+id/background"
-            android:layout_height="@dimen/ongoing_appops_chip_height"
+    <FrameLayout
+        android:id="@+id/background"
+        android:layout_height="@dimen/ongoing_appops_chip_height"
+        android:layout_width="wrap_content"
+        android:minWidth="15dp"
+        android:layout_gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/icons_container"
+            android:layout_height="15dp"
             android:layout_width="wrap_content"
-            android:minWidth="48dp"
-            android:layout_gravity="center_vertical">
-                <LinearLayout
-                    android:id="@+id/icons_container"
-                    android:layout_height="match_parent"
-                    android:layout_width="wrap_content"
-                    android:gravity="center_vertical"
-                    />
-          </FrameLayout>
+            android:gravity="center_vertical"/>
+
+    </FrameLayout>
+
 </com.android.systemui.privacy.OngoingPrivacyChip>
