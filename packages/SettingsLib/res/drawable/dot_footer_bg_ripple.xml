@@ -16,5 +16,10 @@
 -->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="?android:attr/colorAccent">
-    <item android:drawable="@drawable/dot_footer_bg" />
+    <item>
+      <shape android:shape="rectangle" android:tint="?android:attr/colorForeground">
+        <solid android:color="#1AFFFFFF" /> <!-- 10% -->
+        <corners android:radius="24dp"/>
+      </shape>
+    </item>
 </ripple>
