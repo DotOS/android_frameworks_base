@@ -19,22 +19,16 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@null">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    style="@style/DotPreferenceWifiCard">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <include
+        layout="@layout/preference_access_point"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        style="@style/DotPreferenceWifiCard">
+        android:layout_height="wrap_content" />
 
-        <include
-            layout="@layout/preference_access_point"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </FrameLayout>
 </FrameLayout>
