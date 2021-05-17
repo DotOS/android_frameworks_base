@@ -108,6 +108,7 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
         // Expose BrightnessSlider's progressDrawable
         if (a.getDrawable(R.styleable.ToggleSliderView_progressDrawable) != null) {
             mSlider.setProgressDrawable(a.getDrawable(R.styleable.ToggleSliderView_progressDrawable));
+            mSlider.setBackground(null);
             mCustomSettingsObserver.observe();
             mCustomSettingsObserver.update();
             mSlider.setThumb(null);
@@ -126,7 +127,6 @@ public class ToggleSliderView extends RelativeLayout implements ToggleSlider {
                 Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1, UserHandle.USER_CURRENT) == 1;
         if (MonetWannabe.isMonetEnabled(getContext())) {
             mSlider.setProgressTintList(Utils.getColorAccent(getContext()));
-            int accentBackground = Utils.getColorAttrDefaultColor(getContext(), android.R.attr.colorAccentBackground);
             mSlider.setProgressBackgroundTintList(ColorStateList.valueOf(MonetWannabe.getInactiveAccent(getContext())));
         } else {
             if (setQsUseNewTint)
