@@ -31,14 +31,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/status_bar_padding_top"
+        android:layout_marginTop="8dp"
         android:layout_alignParentEnd="true"
-        android:gravity="center_vertical|end"
-        android:paddingEnd="@dimen/system_icons_keyguard_padding_end" >
+        android:gravity="center_vertical|end" >
         <FrameLayout android:id="@+id/system_icons_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginStart="@dimen/system_icons_super_container_margin_start"
+            android:layout_marginStart="@dimen/multi_user_switch_keyguard_margin"
             android:gravity="center_vertical|end" >
             <include layout="@layout/system_icons" />
         </FrameLayout>
@@ -68,7 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/status_bar_padding_top"
-        android:layout_marginStart="@dimen/keyguard_carrier_text_margin"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/multi_user_switch_keyguard_margin"
         android:layout_toStartOf="@id/system_icons_container"
         android:gravity="center_vertical"
         android:ellipsize="marquee"
