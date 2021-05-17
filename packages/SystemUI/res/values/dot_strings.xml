@@ -44,7 +44,6 @@
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
 
     <!-- QS Data Usage -->
-    <string name="dot_data_used"><![CDATA[<font size="12" color="%1$s">●&#32;</font>]]>‎‎ ‎%2$s used</string>
     <string name="dot_data_unknown">Unknown</string>
 
     <!-- statusbar icons -->

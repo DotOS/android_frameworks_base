@@ -36,8 +36,7 @@
         android:layout_height="@*android:dimen/quick_qs_offset_height"
         android:clickable="true"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingBottom="8dp">
+        android:gravity="center_vertical">
 
         <LinearLayout
             android:layout_width="0dp"

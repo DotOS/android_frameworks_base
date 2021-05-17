@@ -21,6 +21,7 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
 
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
@@ -34,6 +35,7 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -55,6 +57,7 @@ import com.android.settingslib.drawable.UserIconDrawable;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.R.dimen;
+import com.android.systemui.dot.QSDataUsageView;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.qs.TouchAnimator.Builder;
 import com.android.systemui.statusbar.phone.MultiUserSwitch;
@@ -100,6 +103,31 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private OnClickListener mExpandClickListener;
 
+    protected View mDataUsageContainer;
+    private QSDataUsageView mDataUsageView;
+    private boolean mDataUsageVisible;
+
+    private FooterSettingsObserver mFooterSettingsObserver;
+    private class FooterSettingsObserver extends ContentObserver {
+        FooterSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = getContext().getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_SHOW_DATA_USAGE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.QS_SHOW_DATA_USAGE))) {
+                updateDataUsageVisibility();
+            }
+        }
+    }
+
     @Inject
     public QSFooterImpl(@Named(VIEW_CONTEXT) Context context, AttributeSet attrs,
             ActivityStarter activityStarter, UserInfoController userInfoController,
@@ -123,6 +151,9 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         super.onFinishInflate();
         mPageIndicator = findViewById(R.id.footer_page_indicator);
 
+        mDataUsageContainer = findViewById(R.id.qs_footer_actions_data_container);
+        mDataUsageView = findViewById(R.id.qs_data_usage);
+
         mSettingsContainer = findViewById(R.id.settings_button_container);
         mSettingsContainer.setOnClickListener(this);
 
@@ -130,6 +161,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mMultiUserAvatar = mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
 
         mActionsContainer = findViewById(R.id.qs_footer_actions_container);
+
         mEditContainer = findViewById(R.id.qs_footer_actions_edit_container);
         mEditContainer.setOnClickListener(view ->
                 mActivityStarter.postQSRunnableDismissingKeyguard(() ->
@@ -137,10 +169,21 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
         updateResources();
 
+        mFooterSettingsObserver = new FooterSettingsObserver(new Handler(getContext().getMainLooper()));
+        mFooterSettingsObserver.observe();
+
         addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight,
                 oldBottom) -> updateAnimator(right - left));
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
         updateEverything();
+    }
+
+    private void updateDataUsageVisibility() {
+        TelephonyManager telMgr = (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
+        boolean canBeVisible = telMgr.getSimState() != TelephonyManager.SIM_STATE_ABSENT;
+        boolean showDataUsage = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_SHOW_DATA_USAGE, 0, UserHandle.USER_CURRENT) == 1;
+        mDataUsageVisible = canBeVisible && showDataUsage;
     }
 
     private void updateAnimator(int width) {
@@ -179,6 +222,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         return new TouchAnimator.Builder()
                 .addFloat(mActionsContainer, "alpha", 0, 1)
                 .addFloat(mEditContainer, "alpha", 0, 1)
+                .addFloat(mDataUsageContainer, "alpha", 0, 1)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .addFloat(mSettingsContainer, "alpha", 0, 1)
                 .setStartDelay(0.9f)
@@ -266,6 +310,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         post(() -> {
             updateVisibilities();
             updateClickabilities();
+            updateDataUsageVisibility();
+            if (mDataUsageVisible) mDataUsageView.update();
             setClickable(false);
         });
     }
@@ -282,6 +328,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(showUserSwitcher() ? View.VISIBLE : View.INVISIBLE);
         mEditContainer.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
+        mDataUsageContainer.setVisibility(mDataUsageVisible ? View.VISIBLE : View.GONE);
         mSettingsContainer.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
     }
 

@@ -40,9 +40,7 @@ class QSDataUsageView : TextView {
         val unknown = context.getString(R.string.dot_data_unknown)
         if (subActive != null && subInfoList != null) {
             usageController.setSubscriptionId(subActive.subscriptionId)
-            val updatedStatus = Html.fromHtml(context.getString(R.string.dot_data_used, 
-                                        colorToHex(subActive.iconTint), 
-                                        formatSize(usageController.dataUsageInfo.usageLevel)))
+            val updatedStatus = formatSize(usageController.dataUsageInfo.usageLevel)
             if (text != updatedStatus) text = updatedStatus
         } else {
             if (text != unknown) text = unknown

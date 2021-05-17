@@ -23,18 +23,13 @@ import javax.inject.Inject;
 
 public class QuickStatusBarHeaderController {
     private final QuickStatusBarHeader mView;
-    private final QSCarrierGroupController mQSCarrierGroupController;
 
     private QuickStatusBarHeaderController(QuickStatusBarHeader view,
             QSCarrierGroupController.Builder qsCarrierGroupControllerBuilder) {
         mView = view;
-        mQSCarrierGroupController = qsCarrierGroupControllerBuilder
-                .setQSCarrierGroup(mView.findViewById(R.id.carrier_group))
-                .build();
     }
 
     public void setListening(boolean listening) {
-        mQSCarrierGroupController.setListening(listening);
         // TODO: move mView.setListening logic into here.
         mView.setListening(listening);
     }
