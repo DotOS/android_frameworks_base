@@ -488,24 +488,26 @@ public class PhoneStatusBarPolicy
 
     private int getBtLevelIconRes(int batteryLevel) {
         if (batteryLevel == 100) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_9;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_10;
         } else if (batteryLevel >= 90) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_8;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_9;
         } else if (batteryLevel >= 80) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_7;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_8;
         } else if (batteryLevel >= 70) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_6;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_7;
         } else if (batteryLevel >= 60) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_5;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_6;
         } else if (batteryLevel >= 50) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_4;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_5;
         } else if (batteryLevel >= 40) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_3;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_4;
         } else if (batteryLevel >= 30) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_2;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_3;
         } else if (batteryLevel >= 20) {
-            return R.drawable.stat_sys_data_bluetooth_connected_battery_1;
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_2;
         } else if (batteryLevel >= 10) {
+            return R.drawable.stat_sys_data_bluetooth_connected_battery_1;
+        } else if (batteryLevel >= 0) {
             return R.drawable.stat_sys_data_bluetooth_connected_battery_0;
         } else {
             return R.drawable.stat_sys_data_bluetooth_connected;
