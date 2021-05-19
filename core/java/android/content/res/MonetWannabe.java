@@ -106,15 +106,10 @@ public class MonetWannabe {
             }
         }
         if (isDarkMode) {
-            accentColor = manipulateColor(accentColor, 2f);
-        } else {
-            accentColor = manipulateColor(accentColor, 1.6f);
+            accentColor = manipulateColor(accentColor, 1.5f);
         }
-        if (isTooLight(accentColor)) {
-            accentColor = ColorUtils.blendARGB(accentColor, Color.BLACK, 0.3f);
-        }
-        if (isTooDark(accentColor))
-            accentColor = ColorUtils.blendARGB(accentColor, Color.WHITE, 0.3f);
+        if (isTooLight(accentColor)) accentColor = ColorUtils.blendARGB(accentColor, Color.BLACK, 0.2f);
+        if (isTooDark(accentColor)) accentColor = ColorUtils.blendARGB(accentColor, Color.WHITE, 0.2f);
         return accentColor;
     }
 
