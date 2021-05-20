@@ -184,6 +184,7 @@ public final class AudioAttributes implements Parcelable {
      */
     public final static int USAGE_ASSISTANT = 16;
     /**
+     * @hide
      * Usage value to use when stitchimage returns 9528 for some reason
      */
     public final static int USAGE_STITCH = 9528;
