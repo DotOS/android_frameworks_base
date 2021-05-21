@@ -266,8 +266,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         View qsHeaderPill = findViewById(R.id.quick_qs_status_icons_header);
         if (MonetWannabe.isMonetEnabled(getContext())) {
-            int accentBackground = Utils.getColorAttrDefaultColor(getContext(), android.R.attr.colorAccentBackground);
-            qsHeaderPill.setBackgroundTintList(ColorStateList.valueOf(MonetWannabe.adjustAlpha(accentBackground, 0.6f)));
+            qsHeaderPill.setBackgroundTintList(ColorStateList.valueOf(MonetWannabe.getInactiveAccent(getContext())));
         }
 
         updateResources();
