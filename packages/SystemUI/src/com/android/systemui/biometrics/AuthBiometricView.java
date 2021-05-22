@@ -657,13 +657,15 @@ public abstract class AuthBiometricView extends LinearLayout {
             Utils.notifyAccessibilityContentChanged(mAccessibilityManager, this);
         });
 
-        mUseFaceButton.setOnClickListener((view) -> {
-            mCallback.onAction(Callback.ACTION_USE_FACE);
-        });
-
         if (this instanceof AuthBiometricFingerprintView) {
-            if (!Utils.canAuthenticateWithFace(mContext, mUserId))
-                mUseFaceButton.setVisibility(View.GONE);
+            if (mUseFaceButton != null) {
+                mUseFaceButton.setOnClickListener((view) -> {
+                    mCallback.onAction(Callback.ACTION_USE_FACE);
+                });
+                if (!Utils.canAuthenticateWithFace(mContext, mUserId)) {
+                    mUseFaceButton.setVisibility(View.GONE);
+                }
+            }
             if (mHasFod) {
                 final int navbarHeight = getResources().getDimensionPixelSize(
                         com.android.internal.R.dimen.navigation_bar_height);
