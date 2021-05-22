@@ -4967,6 +4967,7 @@ public final class Settings {
         /**
          * Whether the HighTouchSensitivity is activated or not.
          * 0 = off, 1 = on
+         * @hide
          */
         public static final String HIGH_TOUCH_SENSITIVITY_ENABLE =
                 "high_touch_sensitivity_enable";
@@ -4974,73 +4975,86 @@ public final class Settings {
         /**
          * Whether to wake the screen with the volume key, the value is boolean.
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
 
         /**
          * Whether or not volume button music controls should be enabled to seek media tracks
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String VOLBTN_MUSIC_CONTROLS = "volbtn_music_controls";
 
         /**
          * Whether to answer the call with the volume keys, the value is boolean.
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String VOLUME_ANSWER_CALL = "volume_answer_call";
 
         /**
          * Color temperature of the display during the day
+         * @hide
          */
         public static final String DISPLAY_TEMPERATURE_DAY = "display_temperature_day";
 
         /**
          * Color temperature of the display at night
+         * @hide
          */
         public static final String DISPLAY_TEMPERATURE_NIGHT = "display_temperature_night";
 
         /**
          * Display color temperature adjustment mode, one of DAY (default), NIGHT, or AUTO.
+         * @hide
          */
         public static final String DISPLAY_TEMPERATURE_MODE = "display_temperature_mode";
 
         /**
          * Automatic outdoor mode
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String DISPLAY_AUTO_OUTDOOR_MODE = "display_auto_outdoor_mode";
 
         /**
          * Reader mode
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String DISPLAY_READING_MODE = "display_reading_mode";
 
         /**
          * Use display power saving features such as CABC or CABL
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String DISPLAY_CABC = "display_low_power";
 
         /**
          * Use color enhancement feature of display
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String DISPLAY_COLOR_ENHANCE = "display_color_enhance";
 
         /**
          * Use auto contrast optimization feature of display
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String DISPLAY_AUTO_CONTRAST = "display_auto_contrast";
 
         /**
          * Manual display color adjustments (RGB values as floats, separated by spaces)
+         * @hide
          */
         public static final String DISPLAY_COLOR_ADJUSTMENT = "display_color_adjustment";
 
         /**
          * The current custom picture adjustment values as a delimited string
+         * @hide
          */
         public static final String DISPLAY_PICTURE_ADJUSTMENT =
                 "display_picture_adjustment";
@@ -5056,18 +5070,21 @@ public final class Settings {
          * 0 - Disabled
          * 1 - Enabled (screen is rotated by 90 or 180 degrees: phone, hybrid)
          * 2 - Enabled (screen is rotated by 180 or 270 degrees: tablet)
+         * @hide
          */
         public static final String SWAP_VOLUME_KEYS_ON_ROTATION = "swap_volume_keys_on_rotation";
 
         /**
          * boolean value. toggles using arrow key locations on nav bar
          * as left and right dpad keys
+         * @hide
          */
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
 
         /**
          * Anti flicker
          * 0 = 0ff, 1 = on
+         * @hide
          */
         public static final String DISPLAY_ANTI_FLICKER = "display_anti_flicker";
 
