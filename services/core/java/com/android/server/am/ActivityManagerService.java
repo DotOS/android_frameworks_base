@@ -1673,10 +1673,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     private ParcelFileDescriptor[] mLifeMonitorFds;
 
     static final HostingRecord sNullHostingRecord = new HostingRecord(null);
-
-    final SwipeToScreenshotObserver mSwipeToScreenshotObserver;
-    private boolean mIsSwipeToScreenshotEnabled;
-
     /**
      * Used to notify activity lifecycle events.
      */
@@ -2555,7 +2551,6 @@ public class ActivityManagerService extends IActivityManager.Stub
         mUgmInternal = LocalServices.getService(UriGrantsManagerInternal.class);
         mInternal = new LocalService();
         mPendingStartActivityUids = new PendingStartActivityUids(mContext);
-        mSwipeToScreenshotObserver = null;
     }
 
     // Note: This method is invoked on the main thread but may need to attach various
@@ -2714,7 +2709,6 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         mInternal = new LocalService();
         mPendingStartActivityUids = new PendingStartActivityUids(mContext);
-        mSwipeToScreenshotObserver = new SwipeToScreenshotObserver(mHandler, mContext);
     }
 
     public void setSystemServiceManager(SystemServiceManager mgr) {
@@ -9515,7 +9509,6 @@ public class ActivityManagerService extends IActivityManager.Stub
             mWaitForNetworkTimeoutMs = waitForNetworkTimeoutMs;
             mPssDeferralTime = pssDeferralMs;
         }
-        mSwipeToScreenshotObserver.registerObserver();
     }
 
     /**
@@ -20379,39 +20372,6 @@ public class ActivityManagerService extends IActivityManager.Stub
             return mOomAdjuster.mCachedAppOptimizer.enableFreezer(enable);
         } else {
             throw new SecurityException("Caller uid " + callerUid + " cannot set freezer state ");
-        }
-    }
-
-    private class SwipeToScreenshotObserver extends ContentObserver {
-
-        private final Context mContext;
-
-        public SwipeToScreenshotObserver(Handler handler, Context context) {
-            super(handler);
-            mContext = context;
-        }
-
-        public void registerObserver() {
-            mContext.getContentResolver().registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.THREE_FINGER_GESTURE),
-                    false, this, UserHandle.USER_ALL);
-            update();
-        }
-
-        private void update() {
-            mIsSwipeToScreenshotEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.THREE_FINGER_GESTURE, 0, UserHandle.USER_CURRENT) == 1;
-        }
-
-        public void onChange(boolean selfChange) {
-            update();
-        }
-    }
-
-    @Override
-    public boolean isSwipeToScreenshotGestureActive() {
-        synchronized (this) {
-            return mIsSwipeToScreenshotEnabled;
         }
     }
 }
