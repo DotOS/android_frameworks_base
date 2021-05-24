@@ -285,6 +285,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private static final String NAVIGATION_BAR_SHOW =
             "customsystem:" + Settings.System.NAVIGATION_BAR_SHOW;
+    public static final String SCREEN_BRIGHTNESS_MODE =
+            "system:" + Settings.System.SCREEN_BRIGHTNESS_MODE;
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
+            "customsystem:" + Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -927,6 +931,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
         
         mTunerService.addTunable(this, NAVIGATION_BAR_SHOW);
+        mTunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
+        mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+
+        mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDreamManager = IDreamManager.Stub.asInterface(
@@ -4828,6 +4836,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mNavigationBarController.onDisplayRemoved(mDisplayId);
                 }
             }
+        } else if (SCREEN_BRIGHTNESS_MODE.equals(key)) {
+            mAutomaticBrightness = Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC ==
+                    TunerService.parseInteger(newValue,
+                            Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
+            mBrightnessControl = TunerService.parseIntegerSwitch(newValue, false);
         }
     }
     // End Extra BaseStatusBarMethods.
