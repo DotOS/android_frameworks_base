@@ -3041,9 +3041,10 @@
        value above is 0x01010530, so the public-group of attrs below has
        the id value of 0x01010531.
        =============================================================== -->
-
   <public-group type="attr" first-id="0x01010617">
+     <!-- @hide  -->
      <public name="colorAccentBackground" />
+     <!-- @hide -->
      <public name="colorAccentOverlay" />
   </public-group>
 
@@ -3051,7 +3052,9 @@
     <!-- drawable definitions go here -->
   </public-group>
 
+     
   <public-group type="color" first-id="0x0106001d">
+     <!-- @hide -->
     <public name="accent_background_device_default" />
   </public-group>
 
