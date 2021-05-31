@@ -59,7 +59,7 @@ public class MonetWannabe {
     }
 
     private void generateColors() {
-        boolean isDarkMode = context.getResources().getConfiguration().isNightModeActive();
+        boolean isDarkMode = Resources.getSystem().getConfiguration().isNightModeActive();
         accentColor = getAccentSetting() == -1 ? updateMonet(context) : getAccentSetting();
         accentColorBackground = isDarkMode ? manipulateColor(accentColor, 0.6f) : manipulateColor(accentColor, 0.8f);
         accentColorOverlayLight = getLightCousinColor(accentColor);
@@ -85,7 +85,7 @@ public class MonetWannabe {
      */
     public static int updateMonet(@NonNull Context context) {
         int accentColor;
-        boolean isDarkMode = context.getResources().getConfiguration().isNightModeActive();
+        boolean isDarkMode = Resources.getSystem().getConfiguration().isNightModeActive();
         int colorAmount = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.MONET_COLOR_GEN, DEFAULT_COLOR_GEN);
         Palette p = Palette.from(getBitmap(context)).maximumColorCount(colorAmount).generate();
         Palette.Swatch colorPalette = getPalette(context, p);
@@ -130,7 +130,7 @@ public class MonetWannabe {
     }
 
     public static int getInactiveAccent(@NonNull Context context) {
-        boolean isDarkMode = context.getResources().getConfiguration().isNightModeActive();
+        boolean isDarkMode = Resources.getSystem().getConfiguration().isNightModeActive();
         return adjustAlpha(getColorAttrDefaultColor(context, android.R.attr.colorAccentBackground), isDarkMode ? 0.6f : 0.3f);
     }
 
