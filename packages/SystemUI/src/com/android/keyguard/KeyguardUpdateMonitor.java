@@ -2006,12 +2006,18 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
 
         // Only listen if this KeyguardUpdateMonitor belongs to the primary user. There is an
         // instance of KeyguardUpdateMonitor for each user but KeyguardUpdateMonitor is user-aware.
-        final boolean shouldListen = (mKeyguardIsVisible || !mDeviceInteractive ||
+        boolean shouldListen = (mKeyguardIsVisible || !mDeviceInteractive ||
                 (mBouncer && !mKeyguardGoingAway) || mGoingToSleep ||
                 shouldListenForFingerprintAssistant() || (mKeyguardOccluded && mIsDreaming))
                 && !mSwitchingUser && !isFingerprintDisabled(getCurrentUser())
                 && (!mKeyguardGoingAway || !mDeviceInteractive) && mIsPrimaryUser
                 && allowedOnBouncer && (mHasFod || !mIsDeviceInPocket);
+
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                   Settings.System.FP_WAKE_UNLOCK, 1) == 0) {
+            shouldListen = shouldListen && !mGoingToSleep && mDeviceInteractive;
+        }
+
         return shouldListen;
     }
 

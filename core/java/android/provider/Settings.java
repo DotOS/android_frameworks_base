@@ -5371,6 +5371,15 @@ public final class Settings {
          * @hide
          */
         public static final String VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
+        
+        /**
+         * Should we listen for fingerprints when the screen is off?  Devices
+         * with a rear-mounted sensor want this, but certain devices have
+         * the sensor embedded in the power key and listening all the time
+         * causes a poor experience.
+         * @hide
+         */
+        public static final String FP_WAKE_UNLOCK = "fp_wake_unlock";
 
          /**
          * Unlock keystore with fingerprint after reboot
@@ -5573,6 +5582,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
+            PRIVATE_SETTINGS.add(FP_WAKE_UNLOCK);
             PRIVATE_SETTINGS.add(FP_UNLOCK_KEYSTORE);
             PRIVATE_SETTINGS.add(DOT_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
