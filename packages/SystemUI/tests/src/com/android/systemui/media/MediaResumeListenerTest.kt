@@ -104,7 +104,7 @@ class MediaResumeListenerTest : SysuiTestCase() {
         Settings.Global.putInt(context.contentResolver,
             Settings.Global.SHOW_MEDIA_ON_QUICK_SETTINGS, 1)
         Settings.Secure.putInt(context.contentResolver,
-            Settings.Secure.MEDIA_CONTROLS_RESUME, 1)
+            Settings.Secure.MEDIA_CONTROLS_RESUME, 0)
 
         whenever(resumeBrowserFactory.create(capture(callbackCaptor), any()))
                 .thenReturn(resumeBrowser)

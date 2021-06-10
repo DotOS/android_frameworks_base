@@ -139,7 +139,7 @@ public class Utils {
      */
     public static boolean useMediaResumption(Context context) {
         int flag = Settings.Secure.getInt(context.getContentResolver(),
-                Settings.Secure.MEDIA_CONTROLS_RESUME, 1);
+                Settings.Secure.MEDIA_CONTROLS_RESUME, 0);
         return useQsMediaPlayer(context) && flag > 0;
     }
 }
