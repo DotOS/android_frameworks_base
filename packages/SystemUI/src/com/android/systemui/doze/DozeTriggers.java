@@ -400,7 +400,7 @@ public class DozeTriggers implements DozeMachine.Part {
                 }
                 if (screenOffFod) {
                     mDozeSensors.setProxListening(false);
-                    mDozeSensors.setListening(false);
+                    mDozeSensors.setListening(false, mWantTouchScreenSensors);
                 }
                 break;
             case DOZE_AOD_PAUSED:
