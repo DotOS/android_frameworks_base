@@ -20,9 +20,9 @@ import android.annotation.ColorInt;
 import android.annotation.Nullable;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.BlendMode;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
@@ -128,12 +128,7 @@ public class EdgeEffect {
      */
     public EdgeEffect(Context context) {
         mPaint.setAntiAlias(true);
-        final TypedArray a = context.obtainStyledAttributes(
-                com.android.internal.R.styleable.EdgeEffect);
-        final int themeColor = a.getColor(
-                com.android.internal.R.styleable.EdgeEffect_colorEdgeEffect, 0xff666666);
-        a.recycle();
-        mPaint.setColor((themeColor & 0xffffff) | 0x33000000);
+        mPaint.setColor(Color.TRANSPARENT);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setBlendMode(DEFAULT_BLEND_MODE);
         mInterpolator = new DecelerateInterpolator();
