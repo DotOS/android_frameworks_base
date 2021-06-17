@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.phone;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Trace;
 
@@ -92,7 +93,9 @@ public enum ScrimState {
     BOUNCER {
         @Override
         public void prepare(ScrimState previousState) {
-            mBehindAlpha = mScrimBehindAlphaKeyguard;
+            Context context = mScrimBehind.getContext();
+            mBehindTint = context.getResources().getColor(android.R.color.monet_background_device_default, context.getTheme());
+            mBehindAlpha = 1f;
             mFrontAlpha = 0f;
             mBubbleAlpha = 0f;
         }
@@ -104,7 +107,9 @@ public enum ScrimState {
     BOUNCER_SCRIMMED {
         @Override
         public void prepare(ScrimState previousState) {
-            mBehindAlpha = 0;
+            Context context = mScrimBehind.getContext();
+            mFrontTint = context.getResources().getColor(android.R.color.monet_background_device_default, context.getTheme());
+            mBehindAlpha = 0f;
             mBubbleAlpha = 0f;
             mFrontAlpha = mScrimBehindAlphaKeyguard;
         }
@@ -115,7 +120,7 @@ public enum ScrimState {
         public void prepare(ScrimState scrimState) {
             mBehindAlpha = mDefaultScrimAlpha;
             mBubbleAlpha = 0.0f;
-            mFrontAlpha = 0.0f;
+            mFrontAlpha = 1f;
         }
     },
 

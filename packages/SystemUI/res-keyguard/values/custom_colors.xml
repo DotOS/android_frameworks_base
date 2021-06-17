@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2020 ArrowOS
+     Copyright (C) 2021 StatiXOS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,14 +15,6 @@
      limitations under the License.
 -->
 <resources>
-
-    <!-- Padding added to keyguard status area when Type clock is in use -->
-    <dimen name="keyguard_status_area_typeclock_padding">32dp</dimen>
-
-    <dimen name="keyguard_eca_top_margin">18.0dip</dimen>
-    <dimen name="keyguard_password_height">80.0dip</dimen>
-    <dimen name="num_pad_key_margin_end">20.0dip</dimen>
-    <dimen name="num_pad_key_width">84.0dip</dimen>
-    <dimen name="num_pad_row_margin_bottom">16.0dip</dimen>
-
+    <color name="num_pad_key_color">@*android:color/monet_background_secondary_device_default</color>
+    <color name="num_pad_key_color_special">?android:attr/colorAccent</color>
 </resources>

@@ -105,7 +105,7 @@ public class KeyguardMessageArea extends TextView implements SecurityMessageDisp
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         mConfigurationController.addCallback(this);
-        onThemeChanged();
+        onUiModeChanged();
     }
 
     @Override
@@ -120,9 +120,9 @@ public class KeyguardMessageArea extends TextView implements SecurityMessageDisp
     }
 
     @Override
-    public void onThemeChanged() {
+    public void onUiModeChanged() {
         TypedArray array = mContext.obtainStyledAttributes(new int[] {
-                R.attr.wallpaperTextColor
+                android.R.attr.textColorPrimary
         });
         ColorStateList newTextColors = ColorStateList.valueOf(array.getColor(0, Color.RED));
         array.recycle();
