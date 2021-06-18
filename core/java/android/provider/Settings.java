@@ -9888,6 +9888,12 @@ public final class Settings {
                 RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING;
 
         /**
+         * Face Unlock Method
+         * @hide
+         */
+        public static final String FACE_UNLOCK_METHOD = "face_unlock_method";
+
+        /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
          */
