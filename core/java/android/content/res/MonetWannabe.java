@@ -36,7 +36,9 @@ public class MonetWannabe {
     private int accentColor;
     private int accentColorNotification;
     private int accentColorBackgroundApp;
+    private int accentColorBackgroundAppDark;
     private int accentColorForegroundApp;
+    private int accentColorForegroundAppDark;
 
     private int accentColorBackground /* Reserved for QSPanel */;
     private int accentColorOverlayLight /* Reserved for QSPanel */;
@@ -51,7 +53,7 @@ public class MonetWannabe {
     public static final float DEFAULT_DARK_ALTERATION = 0.8f;
 
     public static final float DEFAULT_LIGHT_NOTIFICATION_BLEND = 0.80f;
-    public static final float DEFAULT_DARK_NOTIFICATION_BLEND = 0.80f;
+    public static final float DEFAULT_DARK_NOTIFICATION_BLEND = 0.85f;
 
     public static final float DEFAULT_LIGHT_BACKGROUND_BLEND = 0.75f;
     public static final float DEFAULT_DARK_BACKGROUND_BLEND = 0.75f;
@@ -106,8 +108,10 @@ public class MonetWannabe {
         int backgroundBase = isDarkMode ?
                 blendColor(Utils.lighten(accentColor, 20f), BLACK, DEFAULT_DARK_BACKGROUND_BLEND) :
                 blendColor(accentColor, WHITE, DEFAULT_LIGHT_BACKGROUND_BLEND);
-        accentColorBackgroundApp = isDarkMode ? backgroundBase : Utils.lighten(backgroundBase, 10f);
-        accentColorForegroundApp = isDarkMode ? Utils.lighten(backgroundBase, 10f) : backgroundBase;
+        accentColorBackgroundAppDark = backgroundBase;
+        accentColorBackgroundApp = Utils.lighten(backgroundBase, 10f);
+        accentColorForegroundAppDark = Utils.lighten(backgroundBase, 10f);
+        accentColorForegroundApp = backgroundBase;
     }
 
     public int getAccentColor() {
@@ -131,11 +135,11 @@ public class MonetWannabe {
     }
 
     public int getAccentColorBackgroundApp() {
-        return accentColorBackgroundApp;
+        return isDarkMode ? accentColorBackgroundAppDark : accentColorBackgroundApp;
     }
 
     public int getAccentColorForegroundApp() {
-        return accentColorForegroundApp;
+        return isDarkMode ? accentColorForegroundAppDark : accentColorForegroundApp;
     }
 
     private int getMonetColorSetting(String settingsName) {
