@@ -143,7 +143,7 @@ class MediaHost @Inject constructor(
                 }
             }
 
-        override var showsOnlyActiveMedia: Boolean = false
+        override var showsOnlyActiveMedia: Boolean = true
             set(value) {
                 if (!value.equals(field)) {
                     field = value
