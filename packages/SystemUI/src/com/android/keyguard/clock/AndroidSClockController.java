@@ -90,7 +90,7 @@ import static com.android.systemui.statusbar.phone
 public class AndroidSClockController implements ClockPlugin {
 
     private final float mTextSizeNormal = 38f;
-    private final float mTextSizeBig = 68f;
+    private final float mTextSizeBig = 72f;
     private final float mSliceTextSize = 24f;
     private final float mTitleTextSize = 28f;
     private boolean mHasVisibleNotification = false;
@@ -198,6 +198,9 @@ public class AndroidSClockController implements ClockPlugin {
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
         mTextColor = Utils.getColorAttrDefaultColor(mContext, R.attr.wallpaperTextColor);
+        ColorExtractor.GradientColors colors = mColorExtractor.getColors(
+                WallpaperManager.FLAG_LOCK);
+        mPalette.setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
         mSliceTypeface = mClock.getTypeface();
     }
 
@@ -461,9 +464,9 @@ public class AndroidSClockController implements ClockPlugin {
         for (int i = 0; i < mRow.getChildCount(); i++) {
             KeyguardSliceTextView child = (KeyguardSliceTextView) mRow.getChildAt(i);
             final boolean isDateSlice = child.getTag().toString().equals(KeyguardSliceProvider.KEYGUARD_DATE_URI);
-            child.setTextSize((isDateSlice ? mTitleTextSize : mSliceTextSize) + (8f * darkAmount));
+            child.setTextSize((isDateSlice ? mTitleTextSize : mSliceTextSize) - (2.5f * darkAmount));
         }
-        mTitle.setTextSize(mTitleTextSize + (8f * darkAmount));
+        mTitle.setTextSize(mTitleTextSize - (2.5f * darkAmount));
         mRow.setDarkAmount(darkAmount);
         mTitle.requestLayout();
         mRow.requestLayout();
@@ -480,23 +483,17 @@ public class AndroidSClockController implements ClockPlugin {
     }
 
     private void updateTextColors() {
-        final int blendedColor = getTextColor();
-        mTitle.setTextColor(blendedColor);
-        int childCount = mRow.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View v = mRow.getChildAt(i);
-            if (v instanceof TextView) {
-                ((TextView) v).setTextColor(blendedColor);
-            }
+        int color = getTextColor();
+        mClock.setTextColor(color);
+        mTitle.setTextColor(color);
+        for (int i = 0; i < mRow.getChildCount(); i++) {
+            View child = mRow.getChildAt(i);
+            if (child instanceof KeyguardSliceTextView)
+                ((KeyguardSliceTextView) child).setTextColor(color);
         }
-
-        ColorExtractor.GradientColors colors = mColorExtractor.getColors(
-                WallpaperManager.FLAG_LOCK);
-        mPalette.setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
-        mClock.setTextColor(ColorUtils.blendARGB(mPalette.getPrimaryColor(), Color.WHITE, 0.3f));
     }
 
     int getTextColor() {
-        return ColorUtils.blendARGB(mTextColor, Color.WHITE, mDarkAmount);
+        return ColorUtils.blendARGB(mPalette != null ? mPalette.getPrimaryColor() : mTextColor, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.3f);
     }
 }
