@@ -50,7 +50,7 @@ import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 
-import lineageos.app.LineageContextConstants;
+import com.android.internal.util.custom.fod.FodUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -274,8 +274,7 @@ public abstract class AuthBiometricView extends LinearLayout {
         mAccessibilityManager = context.getSystemService(AccessibilityManager.class);
 
         PackageManager packageManager = context.getPackageManager();
-        mHasFod = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
-                packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
+        mHasFod = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) && FodUtils.hasFodSupport(context);
 
         mResetErrorRunnable = () -> {
             updateState(getStateForAfterError());

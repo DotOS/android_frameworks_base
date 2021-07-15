@@ -80,7 +80,7 @@ import com.android.systemui.shared.system.SysUiStatsLog;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.util.InjectionInflationController;
 
-import lineageos.app.LineageContextConstants;
+import com.android.internal.util.custom.fod.FodUtils;
 
 import java.util.List;
 
@@ -267,8 +267,7 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
                 mUpdateMonitor, mCallback, new Handler(Looper.myLooper()));
 
         PackageManager packageManager = mContext.getPackageManager();
-        mHasFod = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
-                packageManager.hasSystemFeature(LineageContextConstants.Features.FOD);
+        mHasFod = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) && FodUtils.hasFodSupport(mContext);
     }
 
     public void setSecurityCallback(SecurityCallback callback) {

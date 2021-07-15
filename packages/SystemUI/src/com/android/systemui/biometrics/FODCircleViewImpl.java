@@ -26,7 +26,7 @@ import com.android.systemui.biometrics.FODCircleViewImplCallback;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.util.Assert;
 
-import lineageos.app.LineageContextConstants;
+import com.android.internal.util.custom.fod.FodUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
     public void start() {
         PackageManager packageManager = mContext.getPackageManager();
         if (!packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) ||
-                !packageManager.hasSystemFeature(LineageContextConstants.Features.FOD)) {
+                !FodUtils.hasFodSupport(mContext)) {
             return;
         }
         mCommandQueue.addCallback(this);
