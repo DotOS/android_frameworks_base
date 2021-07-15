@@ -5124,6 +5124,12 @@ public final class Settings {
         public static final String FOD_ICON = "fod_icon";
 
         /**
+         * FOD icon animation
+         * @hide
+         */
+        public static final String FOD_ICON_ANIMATION = "fod_icon_animation";
+
+        /**
          * How many rows to show in the qs panel when in portrait
          * @hide
          */

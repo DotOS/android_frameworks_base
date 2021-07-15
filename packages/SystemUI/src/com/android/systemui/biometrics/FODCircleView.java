@@ -83,6 +83,7 @@ public class FODCircleView extends ImageView {
 
     private Handler mHandler;
 
+    private FODIconView mFODIcon;
     private final ImageView mPressedView;
 
     private LockPatternUtils mLockPatternUtils;
@@ -151,6 +152,9 @@ public class FODCircleView extends ImageView {
             } else {
                 updateAlpha();
             }
+            if (mFODIcon != null) {
+                mFODIcon.setIsKeyguard(mIsKeyguard);
+            }
         }
 
         @Override
@@ -216,6 +220,7 @@ public class FODCircleView extends ImageView {
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
+        mFODIcon = new FODIconView(mContext, mSize, mPositionX, mPositionY);
         mNavigationBarSize = res.getDimensionPixelSize(R.dimen.navigation_bar_size);
 
         mDreamingMaxOffset = (int) (mSize * 0.1f);
@@ -371,7 +376,6 @@ public class FODCircleView extends ImageView {
     public void hideCircle() {
         mIsCircleShowing = false;
 
-        setImageResource(R.drawable.fod_icon_default);
         invalidate();
 
         dispatchRelease();
@@ -400,6 +404,7 @@ public class FODCircleView extends ImageView {
             return;
         }
 
+        mFODIcon.show();
         updatePosition();
 
         setVisibility(View.VISIBLE);
@@ -416,6 +421,7 @@ public class FODCircleView extends ImageView {
                 .alpha(0)
                 .setDuration(FADE_ANIM_DURATION)
                 .withEndAction(() -> {
+                    mFODIcon.hide();
                     setVisibility(View.GONE);
                     mFading = false;
                 })
@@ -480,6 +486,7 @@ public class FODCircleView extends ImageView {
         if (mPressedView.getParent() != null) {
             mWindowManager.updateViewLayout(mPressedView, mPressedParams);
         }
+        mFODIcon.updatePosition(mParams.x, mParams.y);
     }
 
     private void setDim(boolean dim) {
