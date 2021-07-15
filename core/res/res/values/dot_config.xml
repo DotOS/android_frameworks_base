@@ -15,9 +15,6 @@
 -->
 <resources>
 
-    <!-- Shows the required view for in-display fingerprint --> 
-    <bool name="config_supportsInDisplayFingerprint">false</bool>
-
     <!-- Defines the sysfs attribute path used by pocket bridge
     to communicate pocket state to the pocket judge kernel driver. -->
     <string name="config_pocketBridgeSysfsInpocket"></string>
@@ -49,10 +46,6 @@
     <bool name="config_pocketUseLightSensor">true</bool>
     <!-- Defines custom OEM sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName"></string>
-    <!-- Default fod pressed color -->
-    <integer name="config_fod_pressed_color">1</integer>
-    <!-- Default value for FOD animation package resources -->
-    <string name="config_fodAnimationPackage" translatable="false">com.dot.fod.animations</string>
     <!-- NightLight FOD -->
     <bool name="disable_fod_night_light">false</bool>
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->

@@ -21,9 +21,6 @@
     <dimen name="horizontal_max_swift">3.0dp</dimen>
     <dimen name="vertical_max_swift">1.0dp</dimen>
 
-    <!-- The minimum bottom margin of the keyguard security container -->
-    <dimen name="kg_security_container_min_bottom_margin">0dp</dimen>
-
     <!-- Recognizing fingerprint animation -->
     <dimen name="fod_animation_size">280dp</dimen>
     <dimen name="fod_animation_offset">0dp</dimen>

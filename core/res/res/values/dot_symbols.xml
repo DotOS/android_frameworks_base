@@ -26,9 +26,6 @@
     <java-symbol type="string" name="url_copy_success" />
     <java-symbol type="string" name="url_copy_failed" />
 
-    <!-- In-display Fingerprint -->
-    <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
-
     <!-- Power Menu -->
     <java-symbol type="string" name="reboot_to_recovery_title" />
     <java-symbol type="string" name="reboot_to_recovery_message" />
@@ -45,10 +42,6 @@
   <java-symbol type="bool" name="config_pocketUseLightSensor" />
   <!-- Pocket Service -->
   <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
-  <!-- Default fod pressed icon -->
-  <java-symbol type="integer" name="config_fod_pressed_color" />
-  <!-- Default value for FOD animation package resources -->
-  <java-symbol type="string" name="config_fodAnimationPackage" />
   <!-- NightLight FOD -->
   <java-symbol type="bool" name="disable_fod_night_light"/>
   <!-- Battery light customization -->

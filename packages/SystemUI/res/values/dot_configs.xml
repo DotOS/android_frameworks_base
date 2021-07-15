@@ -25,9 +25,6 @@
     <bool name="config_statusBarBurnInProtection">false</bool>
     <integer name="config_shift_interval">60</integer>
 
-    <!-- Color of the FOD view -->
-    <color name="config_fodColorBackground">#00000000</color>
-
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">true</bool>
 

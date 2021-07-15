@@ -5118,28 +5118,10 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
 
         /**
-         * FOD recognizing animation picker
-         * @hide
-         */
-        public static final String FOD_ANIM = "fod_anim";
-
-        /**
-         * Screen off fod
-         * @hide
-         */
-        public static final String FOD_GESTURE = "fod_gesture";
-
-        /**
          * FOD icon picker
          * @hide
          */
         public static final String FOD_ICON = "fod_icon";
-
-        /**
-         * FOD pressed color
-         * @hide
-         */
-        public static final String FOD_COLOR = "fod_color";
 
         /**
          * How many rows to show in the qs panel when in portrait
