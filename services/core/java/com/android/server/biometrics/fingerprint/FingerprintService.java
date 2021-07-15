@@ -715,8 +715,16 @@ public class FingerprintService extends BiometricServiceBase {
         public void onAuthenticated(final long deviceId, final int fingerId, final int groupId,
                 ArrayList<Byte> token) {
             mHandler.post(() -> {
+                boolean authenticated = fingerId != 0;
+                final ClientMonitor client = getCurrentClient();
+                if (client instanceof FingerprintAuthClient) {
+                    if (((FingerprintAuthClient) client).isDetectOnly()) {
+                        Slog.w(TAG, "Detect-only. Device is encrypted or locked down");
+                        authenticated = true;
+                    }
+                }
                 Fingerprint fp = new Fingerprint("", groupId, fingerId, deviceId);
-                FingerprintService.super.handleAuthenticated(fp, token);
+                FingerprintService.super.handleAuthenticated(authenticated, fp, token);
                 if (mHasFod && fp.getBiometricId() != 0) {
                     try {
                         mStatusBarService.hideInDisplayFingerprintView();
@@ -883,6 +891,8 @@ public class FingerprintService extends BiometricServiceBase {
         mAlarmManager = context.getSystemService(AlarmManager.class);
         context.registerReceiver(mLockoutReceiver, new IntentFilter(getLockoutResetIntent()),
                 getLockoutBroadcastPermission(), null /* handler */);
+
+        mLockPatternUtils = new LockPatternUtils(context);
 
         mHasFod = FodUtils.hasFodSupport(context);
     }

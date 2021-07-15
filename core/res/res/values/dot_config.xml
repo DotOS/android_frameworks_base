@@ -230,4 +230,7 @@
     <!-- Should we filter any display modes which are unmapped? -->
     <bool name="config_filterDisplayModes">false</bool>
 
+    <!-- Shows the required view for in-display fingerprint --> 
+    <bool name="config_supportsInDisplayFingerprint">false</bool>
+
 </resources>

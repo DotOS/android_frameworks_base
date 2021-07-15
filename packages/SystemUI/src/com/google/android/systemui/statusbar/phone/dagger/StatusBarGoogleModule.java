@@ -283,6 +283,7 @@ public interface StatusBarGoogleModule {
                 dismissCallbackRegistry,
                 notificationShadeDepthController,
                 statusBarTouchableRegionManager,
-                tunerService);
+                tunerService,
+                fodCircleViewImpl);
     }
 }
