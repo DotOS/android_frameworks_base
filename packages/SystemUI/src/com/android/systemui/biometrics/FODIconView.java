@@ -48,7 +48,6 @@ public class FODIconView extends ImageView {
     private final int[] ICON_STYLES = {
         R.drawable.fod_icon_default,
         R.drawable.fod_icon_default_0,
-        R.drawable.fod_icon_default_1,
         R.drawable.fod_icon_default_2,
         R.drawable.fod_icon_default_3,
         R.drawable.fod_icon_default_4,
@@ -57,7 +56,6 @@ public class FODIconView extends ImageView {
         R.drawable.fod_icon_cpt_america_flat,
         R.drawable.fod_icon_cpt_america_flat_gray,
         R.drawable.fod_icon_dragon_black_flat,
-        R.drawable.fod_icon_evo1,
         R.drawable.fod_icon_glow_circle,
         R.drawable.fod_icon_neon_arc,
         R.drawable.fod_icon_neon_arc_gray,

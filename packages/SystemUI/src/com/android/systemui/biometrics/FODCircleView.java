@@ -204,11 +204,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             if (mFODIcon != null) {
                 mFODIcon.setIsKeyguard(mIsKeyguard);
             }
-        }
-
-        @Override
-        public void onKeyguardVisibilityChanged(boolean showing) {
-            mIsKeyguard = showing;
             updateStyle();
             if (mIsFodAnimationAvailable && mFODAnimation != null) {
                 mFODAnimation.setAnimationKeyguard(mIsKeyguard);
@@ -548,9 +543,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         setDim(true);
         dispatchPress();
 
-        if (mIsRecognizingAnimEnabled && mIsFodAnimationAvailable) {
-            mHandler.post(() -> mFODAnimation.showFODanimation());
-        }
+        mHandler.post(() -> mFODAnimation.showFODanimation());
 
         setImageDrawable(null);
         invalidate();
@@ -564,9 +557,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         dispatchRelease();
         setDim(false);
 
-        if (mIsRecognizingAnimEnabled && mIsFodAnimationAvailable) {
-            mHandler.post(() -> mFODAnimation.showFODanimation());
-        }
+        mHandler.post(() -> mFODAnimation.hideFODanimation());
 
         setKeepScreenOn(false);
     }
@@ -591,14 +582,16 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             return;
         }
 
-        mFODIcon.show();
         updatePosition();
 
         setVisibility(View.VISIBLE);
         animate().withStartAction(() -> mFading = true)
                 .alpha(mIsDreaming ? 0.5f : 1.0f)
                 .setDuration(FADE_ANIM_DURATION)
-                .withEndAction(() -> mFading = false)
+                .withEndAction(() -> {
+                    mFODIcon.show();
+                    mFading = false;
+                })
                 .start();
         dispatchShow();
     }
@@ -636,17 +629,13 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                 Settings.System.FOD_RECOGNIZING_ANIMATION, 0) != 0;
         mFodGestureEnable = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_GESTURE, 0) != 0;
-        mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
+        int mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_ICON, 0);
         mPressedColor = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_COLOR, mDefaultPressedColor);
         if (mIsFodAnimationAvailable && mFODAnimation != null) {
-            mFODAnimation.update(mIsRecognizingAnimEnabled);
+            mFODAnimation.update();
         }
-        updateFODIconStyle();
-    }
-
-    private void updateFODIconStyle() {
         mFODIcon.setIcon(mSelectedIcon);
     }
 
