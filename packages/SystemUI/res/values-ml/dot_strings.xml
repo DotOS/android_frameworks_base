@@ -12,26 +12,25 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="quick_settings_caffeine_label">ക്വിക്ക്_സെറ്റിങ്‌സ്_കഫീൻ_ലേബൽ
-കഫീൻ ക്യുഎസ് ടൈൽ</string>
-    <string name="accessibility_quick_settings_caffeine_off">അക്സസ്സിബിലിറ്റി_ക്വിക്ക്_സെറ്റിങ്‌സ്_കഫീൻ_ഓഫ്‌</string>
-    <string name="accessibility_quick_settings_caffeine_on">അക്സസ്സിബിലിറ്റി_ക്വിക്ക്_സെറ്റിങ്‌സ്_കഫീൻ_ഓൺ</string>
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="quick_settings_caffeine_label">കഫീൻ</string>
+    <string name="accessibility_quick_settings_caffeine_off">കഫീൻ ഓഫ്</string>
+    <string name="accessibility_quick_settings_caffeine_on">കഫീൻ ഓൺ</string>
+    <string name="global_action_restart_advanced">വിപുലമായ</string>
+    <string name="global_action_restart_recovery">റിക്കവറി</string>
+    <string name="global_action_restart_bootloader">ബൂട്ട്ലോഡര്‍</string>
+    <string name="global_action_restart_ui">സിസ്റ്റം യൂസർ ഇന്റർഫേസ്</string>
     <string name="quick_settings_secondary_location_off"/>
-    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-    <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
+    <string name="quick_settings_location_secondary_battery_saving">ബാറ്ററി സംരക്ഷണം</string>
+    <string name="accessibility_quick_settings_location_battery_saving">സ്ഥാനം റിപ്പോർട്ടിംഗ്: ബാറ്ററി ലാഭിക്കല്‍ മോഡ്.</string>
+    <string name="quick_settings_location_secondary_gps_only">സെൻസർ മാത്രം</string>
+    <string name="accessibility_quick_settings_location_gps_only">സ്ഥാനം റിപ്പോർട്ടിംഗ്: സെൻസറുകൾ മാത്രമുള്ള മോഡ്.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">ഉയർന്ന കൃത്യത</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">സ്ഥാനം റിപ്പോർട്ടിംഗ്: ഉയർന്ന കൃത്യതാ മോഡ്.</string>
+    <string name="quick_settings_aod_label">എഒഡി</string>
+    <string name="quick_settings_heads_up_label">മുന്നറിയിപ്പ്</string>
+    <string name="accessibility_quick_settings_heads_up_off">മുണറിയിപ് ഓഫ്.</string>
+    <string name="accessibility_quick_settings_heads_up_on">മുണറിയിപ് ഓൺ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ഹെഡ്സ് അപ്പ് ഓഫ് ചെയ്തു.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
     <string name="dot_data_unknown">Unknown</string>
     <string name="statusbar_items_title">Statusbar icons</string>

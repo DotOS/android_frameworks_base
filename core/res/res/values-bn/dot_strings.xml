@@ -15,10 +15,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting System</string>
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+    <string name="aerr_copy">ক্র্যাশ লগ এর ইউআরএল কপি করুন</string>
+    <string name="url_copy_success">ইউআরল কপি হয়েছে</string>
+    <string name="url_copy_failed">লগ ফাইলকে ডগবিনে আপলোড করার সময় ত্রুটি ঘটেছে</string>
+    <string name="reboot_title">পুনরায় চালু</string>
+    <string name="reboot_message">সিস্টেম রিবুট হচ্ছে</string>
+    <string name="pocket_lock_message_long_press">আনলক করতে পাওয়ার বাটন টিপুন এবং ধরে রাখুন</string>
 </resources>
