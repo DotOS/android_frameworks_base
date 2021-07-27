@@ -76,6 +76,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -229,10 +230,21 @@ public class AndroidSClockController implements ClockPlugin {
     @Override
     public Bitmap getPreview(int width, int height) {
 
-        View previewView = mLayoutInflater.inflate(R.layout.android_s_clock, null);
-        TextClock previewClock = mView.findViewById(R.id.clock);
+        View previewView = mLayoutInflater.inflate(R.layout.android_s_clock_preview, null);
+
+        TextClock previewClock = previewView.findViewById(R.id.clock);
+        TextView previewTitle = previewView.findViewById(R.id.title);
         previewClock.setFormat12Hour("hh\nmm");
         previewClock.setFormat24Hour("kk\nmm");
+        previewTitle.setText(new SimpleDateFormat("EEE, MMM d", Locale.getDefault()).format(new Date()));
+
+        ColorExtractor.GradientColors colors = mColorExtractor.getColors(
+                WallpaperManager.FLAG_LOCK);
+        mPalette.setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
+
+        int color = getTextColor();
+        previewClock.setTextColor(color);
+        previewTitle.setTextColor(color);
 
         return mRenderer.createPreview(previewView, width, height);
     }
