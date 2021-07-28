@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:id="@+id/header_text_container"
     android:layout_width="match_parent"
@@ -21,6 +21,7 @@
     android:layout_below="@id/quick_status_bar_system_icons"
     android:forceHasOverlappingRendering="false"
     android:gravity="center_vertical"
+    android:orientation="vertical"
     android:theme="@style/QSHeaderTheme"
     android:visibility="invisible">
 
@@ -146,4 +147,4 @@
 
     </FrameLayout>
 
-</FrameLayout>
+</LinearLayout>
