@@ -22,6 +22,7 @@ import android.app.PendingIntent;
 import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.MonetWannabe;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -506,6 +507,9 @@ public class AndroidSClockController implements ClockPlugin {
     }
 
     int getTextColor() {
-        return ColorUtils.blendARGB(mPalette != null ? mPalette.getPrimaryColor() : mTextColor, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.3f);
+        int accentColor = MonetWannabe.isMonetEnabled(mContext) ? 
+            Utils.getColorAttrDefaultColor(mContext, android.R.attr.colorAccent) : 
+            (mPalette != null ? mPalette.getPrimaryColor() : mTextColor);
+        return ColorUtils.blendARGB(accentColor, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.3f);
     }
 }
