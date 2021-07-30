@@ -419,7 +419,7 @@ number">%d</xliff:g> remaining attempts before SIM becomes permanently unusable.
     </string-array>
 
     <!-- Name of the "Default" clock face, which is the clock face that will be shown by default. [CHAR LIMIT=15]-->
-    <string name="clock_title_default">Default</string>
+    <string name="clock_title_default">Default AOSP</string>
     <!-- Name of the "Bubble" clock face, which is an analog clock with hands shaped like large bubbles [CHAR LIMIT=15]-->
     <string name="clock_title_bubble">Bubble</string>
     <!-- Name of the "Analog" clock face [CHAR LIMIT=15]-->
@@ -427,7 +427,6 @@ number">%d</xliff:g> remaining attempts before SIM becomes permanently unusable.
     <!-- Name of the "Type" clock face [CHAR LIMIT=15]-->
     <string name="clock_title_type">Type</string>
 
-    <string name="clock_title_android_s" translatable="false">Android S</string>
-    <string name="clock_title_android_s_dp3" translatable="false">Android S DP3</string>
+    <string name="clock_title_android_s" translatable="false">Default Dot</string>
 
 </resources>
