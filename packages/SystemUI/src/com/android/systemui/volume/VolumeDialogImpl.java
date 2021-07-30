@@ -600,8 +600,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         row.view = LayoutInflater.from(mContext).inflate(R.layout.volume_dialog_row, null);
         row.view.setId(row.stream);
         row.view.setTag(row);
-        row.header = row.view.findViewById(R.id.volume_row_percentage);
-        row.header.setId(20 * row.stream);
         row.dndIcon = row.view.findViewById(R.id.dnd_icon);
         row.slider = row.view.findViewById(R.id.volume_row_slider);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
@@ -1455,14 +1453,12 @@ public class VolumeDialogImpl implements VolumeDialog,
         boolean useActiveColoring = isActive && row.slider.isEnabled();
         final ColorStateList tint = useActiveColoring
                 ? Utils.getColorAccent(mContext)
-                : Utils.getColorAttr(mContext, android.R.attr.textColorSecondary);
+                : Utils.getColorAttr(mContext, android.R.attr.colorAccentOverlay);
         final int alpha = useActiveColoring
                 ? Color.alpha(tint.getDefaultColor())
                 : getAlphaAttr(android.R.attr.secondaryContentAlpha);
         if (tint == row.cachedTint && mExpanded) return;
         row.slider.setProgressTintList(tint);
-        row.icon.setImageTintList(tint);
-        row.header.setTextColor(tint);
         row.cachedTint = tint;
     }
 
@@ -1516,7 +1512,16 @@ public class VolumeDialogImpl implements VolumeDialog,
                 row.slider.setProgress(newProgress, true);
             }
         }
-        Util.setText(row.header, Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax));
+        int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replace("%", ""));
+        if (percentage >= 20)
+            row.icon.setImageTintList(Utils.getColorAttr(mContext, android.R.attr.colorAccentBackground));
+        else {
+            boolean useActiveColoring = row.stream == mActiveStream && row.slider.isEnabled();
+            final ColorStateList iconTint = useActiveColoring
+                ? Utils.getColorAccent(mContext)
+                : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
+            row.icon.setImageTintList(iconTint);
+        }
     }
 
     private void recheckH(VolumeRow row) {
@@ -1716,16 +1721,38 @@ public class VolumeDialogImpl implements VolumeDialog,
                 final int minProgress = mRow.ss.levelMin * 100;
                 if (progress < minProgress) {
                     seekBar.setProgress(minProgress);
+                    if (minProgress > 25)
+                        mRow.icon.setImageTintList(Utils.getColorAttr(mContext, android.R.attr.colorAccentBackground));
+                    else
+                        mRow.icon.getDrawable().setTintList(null);
                     progress = minProgress;
                 }
             }
             final int userLevel = getImpliedLevel(seekBar, progress);
             if (mRow.ss.level == (mRow.ss.levelMin + 1) && userLevel <= mRow.ss.level) {
+                int percentage = Integer.parseInt(Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax).replace("%", ""));
+                if (percentage >= 20)
+                    mRow.icon.setImageTintList(Utils.getColorAttr(mContext, android.R.attr.colorAccentBackground));
+                else {
+                    boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
+                    final ColorStateList iconTint = useActiveColoring
+                        ? Utils.getColorAccent(mContext)
+                        : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
+                    mRow.icon.setImageTintList(iconTint);
+                }
                 seekBar.setProgress((mRow.ss.levelMin + 1) * 100);
-                Util.setText(mRow.header,Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax));
                 return;
             }
-            Util.setText(mRow.header, Utils.formatPercentage(userLevel, mRow.ss.levelMax));
+            int percentage = Integer.parseInt(Utils.formatPercentage(userLevel, mRow.ss.levelMax).replace("%", ""));
+            if (percentage >= 20)
+                mRow.icon.setImageTintList(Utils.getColorAttr(mContext, android.R.attr.colorAccentBackground));
+            else {
+                boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
+                final ColorStateList iconTint = useActiveColoring
+                    ? Utils.getColorAccent(mContext)
+                    : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
+                mRow.icon.setImageTintList(iconTint);
+            }
             if (mRow.ss.level != userLevel || mRow.ss.muted && userLevel > 0) {
                 mRow.userAttempt = SystemClock.uptimeMillis();
                 if (mRow.requestedLevel != userLevel) {
@@ -1786,7 +1813,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private static class VolumeRow {
         private View view;
-        private TextView header;
         private ImageButton icon;
         private SeekBar slider;
         private int stream;

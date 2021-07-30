@@ -1,5 +1,5 @@
-<!--
-     Copyright (C) 2018 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,17 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/dnd_icon"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="12dp">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"
+          android:color="?android:attr/colorButtonNormal"/>
 
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="right|top"
-        android:src="@*android:drawable/ic_qs_dnd"
-        android:tint="?android:attr/textColorTertiary"/>
-</FrameLayout>
+    <item android:color="?android:attr/colorAccentOverlay"/>
+</selector>

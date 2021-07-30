@@ -3,23 +3,21 @@
 
     <item android:id="@android:id/background">
         <shape
-            android:thickness="@dimen/volume_dialog_panel_width"
-            android:tint="@color/qs_background_dark">
-            <solid android:color="@color/default_volume_transparency" />
+            android:thickness="@dimen/volume_dialog_panel_width">
+            <solid android:color="?android:attr/colorAccentBackground" />
             <size android:height="@dimen/volume_dialog_panel_width" />
-            <corners android:radius="?android:attr/dialogCornerRadius" />
+            <corners android:radius="28dp" />
         </shape>
     </item>
     <item android:id="@android:id/progress">
-        <scale android:scaleWidth="100%">
+        <clip>
             <shape
-                android:tint="?android:attr/colorAccent"
                 android:thickness="@dimen/volume_dialog_panel_width">
-                <solid android:color="@color/accent_volume_transparency" />
+                <solid android:color="?android:attr/colorAccent" />
                 <size android:height="@dimen/volume_dialog_panel_width" />
-                <corners android:radius="?android:attr/dialogCornerRadius" />
+                <corners android:radius="28dp" />
             </shape>
-        </scale>
+        </clip>
     </item>
 
 </layer-list>
