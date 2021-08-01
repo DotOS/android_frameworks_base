@@ -3,7 +3,7 @@
 
     <item android:id="@android:id/background">
         <shape android:thickness="32dp">
-            <solid android:color="?android:attr/colorAccentBackground" />
+            <solid android:color="@*android:color/monet_background_secondary_device_default" />
             <corners android:radius="300dp" />
         </shape>
     </item>

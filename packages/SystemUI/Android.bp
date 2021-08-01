@@ -73,6 +73,7 @@ android_library {
         "jsr330",
         "faceunlock_framework",
         "tensorflowlite_java",
+        "monetcompat",
         "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
@@ -149,6 +150,7 @@ android_library {
         "truth-prebuilt",
         "dagger2-2.19",
         "jsr330",
+        "monetcompat",
         "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
     ],
     libs: [
@@ -191,4 +193,9 @@ android_app {
     dxflags: ["--multi-dex"],
     required: ["privapp_whitelist_com.android.systemui"],
 
+}
+
+android_library_import {
+    name: "monetcompat",
+    aars: ["libs/MonetCompat-dot.aar"],
 }

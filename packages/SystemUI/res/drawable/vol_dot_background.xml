@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="?android:attr/colorAccentBackground" />
+    <solid android:color="@*android:color/monet_background_device_default" />
     <corners android:radius="300dp" />
 </shape>

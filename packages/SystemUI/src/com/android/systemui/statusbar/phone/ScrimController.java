@@ -23,6 +23,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.IntDef;
 import android.app.AlarmManager;
+import android.content.Context;
 import android.content.res.MonetWannabe;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -981,12 +982,13 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
         if (scrimView == null) return;
         int mainColor;
         int secondaryColor;
-        if (MonetWannabe.isMonetEnabled(mScrimBehind.getContext())) {
-            mainColor = Utils.getColorAttrDefaultColor(scrimView.getContext(), android.R.attr.colorAccentOverlay);
-            secondaryColor = Utils.getColorAttrDefaultColor(mScrimBehind.getContext(), android.R.attr.colorAccent);
+        Context context = scrimView.getContext();
+        if (MonetWannabe.isMonetEnabled(context)) {
+            mainColor = context.getResources().getColor(android.R.color.accent_overlay_device_default, context.getTheme());
+            secondaryColor = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
         } else {
-            mainColor = Utils.getColorAttr(scrimView.getContext(), android.R.attr.textColorPrimaryInverse).getDefaultColor();
-            secondaryColor = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
+            mainColor = Utils.getColorAttr(context, android.R.attr.textColorPrimaryInverse).getDefaultColor();
+            secondaryColor = Utils.getColorAccent(context).getDefaultColor();
         }
         mColors.setMainColor(mainColor);
         mColors.setSecondaryColor(secondaryColor);

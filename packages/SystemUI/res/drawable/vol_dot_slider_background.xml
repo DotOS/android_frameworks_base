@@ -4,7 +4,7 @@
     <item android:id="@android:id/background">
         <shape
             android:thickness="@dimen/volume_dialog_panel_width">
-            <solid android:color="?android:attr/colorAccentBackground" />
+            <solid android:color="@*android:color/monet_background_device_default" />
             <size android:height="@dimen/volume_dialog_panel_width" />
             <corners android:radius="28dp" />
         </shape>

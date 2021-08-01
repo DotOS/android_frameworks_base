@@ -29,19 +29,15 @@ public class AccentUtils {
         else if (isResourceLightAccent(resName))
             resource = getLightAccentColor(defaultColor);
         else if (isResourceAccentBackground(resName))
-            resource = getBackgroundAccentColor(defaultColor);
-        else if (isResourceAccentOverlayLight(resName))
-            resource = getOverlayLightAccentColor(defaultColor);
-        else if (isResourceAccentOverlayDark(resName))
-            resource = getOverlayDarkAccentColor(defaultColor);
-        /* Experimental */
+            resource = getQSBackgroundAccentColor(defaultColor);
+        else if (isResourceAccentOverlay(resName))
+            resource = getOverlayAccentColor(defaultColor);
         else if (isResourceNotificationColor(resName))
             resource = getNotificationColor(defaultColor);
-        // Still WIP
         else if (isResourceBackgroundColor(resName))
-            resource = getBackgroundAppColor(defaultColor);
+            resource = getBackgroundColor(defaultColor);
         else if (isResourceForegroundColor(resName))
-           resource = getForegroundAppColor(defaultColor);
+           resource = getBackgroundSecondaryColor(defaultColor);
         return resource;
     }
 
@@ -57,12 +53,8 @@ public class AccentUtils {
         return resName != null && resName.contains("accent_background_device_default");
     }
 
-    public boolean isResourceAccentOverlayLight(@Nullable String resName) {
-        return resName != null && resName.contains("accent_overlay_device_default_light");
-    }
-
-    public boolean isResourceAccentOverlayDark(@Nullable String resName) {
-        return resName != null && resName.contains("accent_overlay_device_default_dark");
+    public boolean isResourceAccentOverlay(@Nullable String resName) {
+        return resName != null && resName.contains("accent_overlay_device_default");
     }
 
     public boolean isResourceNotificationColor(@Nullable String resName) {
@@ -73,12 +65,21 @@ public class AccentUtils {
 
     public boolean isResourceBackgroundColor(@Nullable String resName) {
         if (resName == null) return false;
-        return resName.contains("dialogBackgroundColor");
+        return resName.contains("dialogBackgroundColor") ||
+                resName.contains("monet_background_device_default") ||
+                resName.contains("primary_device_default_settings_light") ||
+                resName.contains("primary_device_default_settings") ||
+                resName.contains("primary_dark_device_default_dark") ||
+                resName.contains("primary_dark_device_default_settings") ||
+                resName.contains("primary_dark_device_default_settings_light") ||
+                resName.contains("primary_dark_device_default_light");
     }
 
     public boolean isResourceForegroundColor(@Nullable String resName) {
         if (resName == null) return false;
-        return resName.contains("dialogSubBackgroundColor");
+        return resName.contains("dialogSubBackgroundColor") ||
+                resName.contains("monet_contextual_color_device_default") ||
+                resName.contains("monet_background_secondary_device_default");
     }
 
     public int getDarkAccentColor(int defaultColor) {
@@ -100,44 +101,11 @@ public class AccentUtils {
             }
             
         } catch (Exception e) {
-            Log.e(TAG, "Setting default for monetwannabe");
             return defaultColor;
         }
     }
 
-    public int getBackgroundAppColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
-        try {
-            if (MonetWannabe.isMonetEnabled(context)) {
-                int colorValue = monet.getAccentColorBackgroundApp();
-                return colorValue == -1 ? defaultColor : colorValue;
-            } else {
-                return defaultColor;
-            }
-            
-        } catch (Exception e) {
-            Log.e(TAG, "Setting default for monetwannabe");
-            return defaultColor;
-        }
-    }
-
-    public int getForegroundAppColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
-        try {
-            if (MonetWannabe.isMonetEnabled(context)) {
-                int colorValue = monet.getAccentColorForegroundApp();
-                return colorValue == -1 ? defaultColor : colorValue;
-            } else {
-                return defaultColor;
-            }
-            
-        } catch (Exception e) {
-            Log.e(TAG, "Setting default for monetwannabe");
-            return defaultColor;
-        }
-    }
-
-    public int getBackgroundAccentColor(int defaultColor) {
+    public int getBackgroundColor(int defaultColor) {
         final Context context = ActivityThread.currentApplication();
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
@@ -148,37 +116,50 @@ public class AccentUtils {
             }
             
         } catch (Exception e) {
-            Log.e(TAG, "Setting default for monetwannabe");
             return defaultColor;
         }
     }
 
-    public int getOverlayLightAccentColor(int defaultColor) {
+    public int getBackgroundSecondaryColor(int defaultColor) {
         final Context context = ActivityThread.currentApplication();
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
-                int colorValue = monet.getAccentColorOverlayLight();
+                int colorValue = monet.getAccentColorBackgroundSecondary();
+                return colorValue == -1 ? defaultColor : colorValue;
+            } else {
+                return defaultColor;
+            }
+            
+        } catch (Exception e) {
+            return defaultColor;
+        }
+    }
+
+    public int getQSBackgroundAccentColor(int defaultColor) {
+        final Context context = ActivityThread.currentApplication();
+        try {
+            if (MonetWannabe.isMonetEnabled(context)) {
+                int colorValue = monet.getAccentColorQSBackground();
+                return colorValue == -1 ? defaultColor : colorValue;
+            } else {
+                return defaultColor;
+            }
+            
+        } catch (Exception e) {
+            return defaultColor;
+        }
+    }
+
+    public int getOverlayAccentColor(int defaultColor) {
+        final Context context = ActivityThread.currentApplication();
+        try {
+            if (MonetWannabe.isMonetEnabled(context)) {
+                int colorValue = monet.getAccentColorQSOverlay();
                 return colorValue == -1 ? defaultColor : colorValue;
             } else {
                 return defaultColor;
             }
         } catch (Exception e) {
-            Log.e(TAG, "Setting default for monetwannabe");
-            return defaultColor;
-        }
-    }
-
-    public int getOverlayDarkAccentColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
-        try {
-            if (MonetWannabe.isMonetEnabled(context)) {
-                int colorValue = monet.getAccentColorOverlayDark();
-                return colorValue == -1 ? defaultColor : colorValue;
-            } else {
-                return defaultColor;
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Setting default for monetwannabe");
             return defaultColor;
         }
     }
@@ -191,8 +172,6 @@ public class AccentUtils {
                 return (colorValue == null || "-1".equals(colorValue)) ?
                     defaultColor : Color.parseColor("#" + colorValue);
             } catch (Exception e) {
-                Log.e(TAG, "Failed to set accent: " + e.getMessage() +
-                        "\nSetting default: " + defaultColor);
                 return defaultColor;
             }
         } else {
@@ -200,8 +179,6 @@ public class AccentUtils {
                 int colorValue = monet.getAccentColor();
                 return colorValue == -1 ? defaultColor : colorValue;
             } catch (Exception e) {
-                Log.e(TAG, "Failed to set monet accent: " + e.getMessage() + 
-                        "\nSetting default: " + defaultColor);
                 return defaultColor;
             }
         }

@@ -22,7 +22,7 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
             <stroke android:width="1dp" android:color="@color/contextual_card_stroke_color"/>
-            <solid android:color="@color/contextual_card_background" />
+            <solid android:color="@*android:color/monet_contextual_color_device_default" />
             <corners
                 android:radius="@*android:dimen/config_dialogCornerRadius" />
         </shape>

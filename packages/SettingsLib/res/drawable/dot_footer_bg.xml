@@ -17,7 +17,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <solid android:color="@color/contextual_card_background" />
+    <solid android:color="@*android:color/monet_contextual_color_device_default" />
     <stroke android:width="1dp" android:color="@color/contextual_card_stroke_color" />
 
     <corners android:radius="24dp"/>

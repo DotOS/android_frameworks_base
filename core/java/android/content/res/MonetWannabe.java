@@ -15,14 +15,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.ParcelFileDescriptor;
 import android.provider.Settings;
-import android.util.TypedValue;
-import android.util.Log;
 
 import com.android.internal.graphics.ColorUtils;
 import com.android.internal.graphics.palette.Palette;
 
 import static android.graphics.Color.BLACK;
 import static android.graphics.Color.WHITE;
+
+import java.util.HashMap;
 
 /** @hide */
 public class MonetWannabe {
@@ -32,22 +32,14 @@ public class MonetWannabe {
     /**
      * Color Shades
      */
-
     private int accentColor;
     private int accentColorNotification;
-    private int accentColorBackgroundApp;
-    private int accentColorBackgroundAppDark;
-    private int accentColorForegroundApp;
-    private int accentColorForegroundAppDark;
+    private int accentColorBackground;
+    private int accentColorBackgroundSecondary;
 
-    private int accentColorBackground /* Reserved for QSPanel */;
-    private int accentColorOverlayLight /* Reserved for QSPanel */;
-    private int accentColorOverlayDark /* Reserved for QSPanel */;
+    private int accentColorQSBackground /* Reserved for QSPanel */;
+    private int accentColorQSOverlay /* Reserved for QSPanel */;
 
-    /**
-     * Generation Params
-     */
-    public static final int DEFAULT_COLOR_GEN = 16;
 
     public static final float DEFAULT_LIGHT_ALTERATION = 0.7f;
     public static final float DEFAULT_DARK_ALTERATION = 0.8f;
@@ -61,30 +53,10 @@ public class MonetWannabe {
     private static final float MIN_LIGHTNESS = 0.35f;
     private static final float MAX_LIGHTNESS = 0.85f;
 
-    /**
-     * Palette generation types
-     */
-    private static final int VIBRANT = 0;
-    private static final int LIGHT_VIBRANT = 1;
-    private static final int DARK_VIBRANT = 2;
-    private static final int DOMINANT = 3;
-    private static final int MUTED = 4;
-    private static final int LIGHT_MUTED = 5;
-    private static final int DARK_MUTED = 6;
-
-    private static final String TAG = "MonetWannabe";
-
     boolean isDarkMode = Resources.getSystem().getConfiguration().isNightModeActive();
 
     /**
-     * MonetWannabe 1.1
-     * [accentColor] - generated from wallpaper
-     * [accentColorBackground] - suitable for button backgrounds or inactive state of views
-     * [accentColorOverlayLight] - fits best on QSPanel scrim background on light theme
-     * [accentColorOverlayDark] - fits best on QSPanel scrim background on dark theme
-     * [accentColorNotification] - notification color
-     * [accentColorBackgroundApp] - background color for apps
-     * [accentColorForegroundApp] - foreground color for apps
+     * MonetWannabe 2.0
      */
     public MonetWannabe(@NonNull Context context) {
         this.context = context;
@@ -92,59 +64,60 @@ public class MonetWannabe {
     }
 
     private void generateColors() {
-        int accentColorSettings = getMonetColorSetting(Settings.Secure.MONET_BASE_ACCENT);
-        accentColor = accentColorSettings == -1 ? updateMonet(context) : accentColorSettings;
-        accentColorBackground = isDarkMode ? manipulateColor(accentColor, 0.6f) : manipulateColor(accentColor, 0.8f);
-        accentColorOverlayLight = getLightCousinColor(accentColor);
-        accentColorOverlayDark = getDarkCousinColor(accentColor);
-
-        /* Notification Color */
-        accentColorNotification = isDarkMode ?
-                blendColor(accentColor, BLACK, DEFAULT_DARK_NOTIFICATION_BLEND) :
-                blendColor(accentColor, WHITE, DEFAULT_LIGHT_NOTIFICATION_BLEND);
+        HashMap<String, Integer> monetColors = updateMonet();
+        accentColor = isDarkMode ? monetColors.get("accentColor") : 
+                                   monetColors.get("accentColorLight");
+        accentColorQSBackground = isDarkMode ? manipulateColor(accentColor, 0.6f) : 
+                                               manipulateColor(accentColor, 0.8f);
+        accentColorQSOverlay = isDarkMode ? getDarkCousinColor(accentColor) :
+                                            getLightCousinColor(accentColor);
 
         /* Background & Foreground App Color */
-        /* Dark mode should have a darker background and lighter foreground */
-        int backgroundBase = isDarkMode ?
-                blendColor(Utils.lighten(accentColor, 20f), BLACK, DEFAULT_DARK_BACKGROUND_BLEND) :
-                blendColor(accentColor, WHITE, DEFAULT_LIGHT_BACKGROUND_BLEND);
-        accentColorBackgroundAppDark = backgroundBase;
-        accentColorBackgroundApp = Utils.lighten(backgroundBase, 10f);
-        accentColorForegroundAppDark = Utils.lighten(backgroundBase, 10f);
-        accentColorForegroundApp = backgroundBase;
+        if (monetColors.get("backgroundSecondaryColor") == null && monetColors.get("backgroundColor") == null) {
+            int backgroundBase = isDarkMode ?
+                    blendColor(Utils.lighten(accentColor, 20f), BLACK, DEFAULT_DARK_BACKGROUND_BLEND) :
+                    blendColor(accentColor, WHITE, DEFAULT_LIGHT_BACKGROUND_BLEND);
+            accentColorBackground = isDarkMode ? backgroundBase : 
+                                                 Utils.lighten(backgroundBase, 10f);
+            accentColorBackgroundSecondary = isDarkMode ? Utils.lighten(backgroundBase, 10f) : 
+                                                          backgroundBase;
+        } else {
+            accentColorBackground = isDarkMode ? monetColors.get("backgroundColor") : 
+                                                 monetColors.get("backgroundColorLight");
+            accentColorBackgroundSecondary = isDarkMode ? monetColors.get("backgroundSecondaryColor") : 
+                                                          monetColors.get("backgroundSecondaryColorLight");
+        }
+
+        if (monetColors.get("backgroundSecondaryColor") == null) {
+            accentColorNotification = isDarkMode ? blendColor(accentColor, BLACK, DEFAULT_DARK_NOTIFICATION_BLEND) : 
+                                                   blendColor(accentColor, WHITE, DEFAULT_LIGHT_NOTIFICATION_BLEND);
+        } else {
+            accentColorNotification = accentColorBackground;
+        }
     }
 
     public int getAccentColor() {
         return accentColor;
     }
 
-    public int getAccentColorBackground() {
-        return accentColorBackground;
+    public int getAccentColorQSBackground() {
+        return accentColorQSBackground;
     }
 
-    public int getAccentColorOverlayLight() {
-        return accentColorOverlayLight;
-    }
-
-    public int getAccentColorOverlayDark() {
-        return accentColorOverlayDark;
+    public int getAccentColorQSOverlay() {
+        return accentColorQSOverlay;
     }
 
     public int getAccentColorNotification() {
         return accentColorNotification;
     }
 
-    public int getAccentColorBackgroundApp() {
-        return isDarkMode ? accentColorBackgroundAppDark : accentColorBackgroundApp;
+    public int getAccentColorBackground() {
+        return accentColorBackground;
     }
 
-    public int getAccentColorForegroundApp() {
-        return isDarkMode ? accentColorForegroundAppDark : accentColorForegroundApp;
-    }
-
-    private int getMonetColorSetting(String settingsName) {
-        String color = Settings.Secure.getString(context.getContentResolver(), settingsName);
-        return color == null || color.equals("-1") ? -1 : Integer.parseInt(color);
+    public int getAccentColorBackgroundSecondary() {
+        return accentColorBackgroundSecondary;
     }
 
     private int blendColor(int blendColor, int blend, float blendvalue) {
@@ -165,20 +138,33 @@ public class MonetWannabe {
         return Color.argb(a, Math.min(r,255), Math.min(g,255), Math.min(b,255));
     }
 
-    /**
-     * Generate a new accent based on wallpaper
-     */
-    public static int updateMonet(@NonNull Context context) {
-        int accentColor;
-        boolean isDarkMode = Resources.getSystem().getConfiguration().isNightModeActive();
-        int colorAmount = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.MONET_COLOR_GEN, DEFAULT_COLOR_GEN);
-        Palette p = Palette.from(getBitmap(context)).maximumColorCount(colorAmount).generate();
-        Palette.Swatch colorPalette = getPalette(context, p);
-        if (colorPalette != null) {
-            accentColor = colorPalette.getRgb();
-        } else {
-            Log.w(TAG, "Swatch not found. Falling back to wallpaper colors.");
+
+    private HashMap<String, Integer> updateMonet() {
+        HashMap<String, Integer> colorHashMap = new HashMap<>();
+
+        colorHashMap.put("accentColor",
+                getMonetColorSetting(context, Settings.Secure.MONET_BASE_ACCENT));
+        colorHashMap.put("accentColorLight",
+                getMonetColorSetting(context, Settings.Secure.MONET_BASE_ACCENT_LIGHT));
+
+        colorHashMap.put("backgroundColor",
+                getMonetColorSetting(context, Settings.Secure.MONET_BACKGROUND));
+        colorHashMap.put("backgroundColorLight",
+                getMonetColorSetting(context, Settings.Secure.MONET_BACKGROUND_LIGHT));
+
+        colorHashMap.put("backgroundSecondaryColor",
+                getMonetColorSetting(context, Settings.Secure.MONET_BACKGROUND_SECONDARY));
+        colorHashMap.put("backgroundSecondaryColorLight",
+                getMonetColorSetting(context, Settings.Secure.MONET_BACKGROUND_SECONDARY_LIGHT));
+
+        /*
+         * We already made sure that we always provide a non-null set of colors inside
+         * MonetWatcher (com.android.systemui.dot.MonetWatcher)
+         * But to be sure, check again before continuing and generating a simple palette
+         */
+        if (colorHashMap.get("accentColor") == -1) {
             WallpaperColors colors = WallpaperColors.fromBitmap(getBitmap(context));
+            int accentColor;
             if (colors.getSecondaryColor() == null)
                 accentColor = colors.getPrimaryColor().toArgb();
             else {
@@ -189,20 +175,20 @@ public class MonetWannabe {
                 else
                     accentColor = secondary;
             }
-        }
-        if (isDarkMode) accentColor = Utils.desaturate(accentColor, 10f);
+            colorHashMap.put("accentColor", accentColor);
+            colorHashMap.put("backgroundColor", null);
+            colorHashMap.put("backgroundSecondaryColor", null);
 
-        if (isTooLight(accentColor)) {
-            accentColor = Utils.lightness(accentColor, MAX_LIGHTNESS);
-            accentColor = Utils.darken(accentColor, 25f);
+            colorHashMap.put("accentColorLight", accentColor);
+            colorHashMap.put("backgroundColorLight", null);
+            colorHashMap.put("backgroundSecondaryColorLight", null);
         }
+        return colorHashMap;
+    }
 
-        if (isTooDark(accentColor)) {
-            accentColor = Utils.lightness(accentColor, MIN_LIGHTNESS);
-            accentColor = Utils.lighten(accentColor, 25f);
-        }
-
-        return accentColor;
+    private static int getMonetColorSetting(Context context, String settingsName) {
+        String color = Settings.Secure.getString(context.getContentResolver(), settingsName);
+        return color == null || color.equals("-1") ? -1 : Integer.parseInt(color);
     }
 
     @ColorInt
@@ -212,7 +198,7 @@ public class MonetWannabe {
 
     public static int getInactiveAccent(@NonNull Context context) {
         boolean isDarkMode = Resources.getSystem().getConfiguration().isNightModeActive();
-        return adjustAlpha(getColorAttrDefaultColor(context, android.R.attr.colorAccentBackground), isDarkMode ? 0.6f : 0.3f);
+        return adjustAlpha(Resources.getSystem().getColor(android.R.color.accent_background_device_default, context.getTheme()), isDarkMode ? 0.6f : 0.3f);
     }
 
     public static boolean isMonetEnabled(@NonNull Context context) {
@@ -222,27 +208,6 @@ public class MonetWannabe {
     public static boolean shouldForceLoad(@NonNull Context context) {
         String accent = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.MONET_BASE_ACCENT);
         return accent == null || accent.equals("-1");
-    }
-
-    private static Palette.Swatch getPalette(@NonNull Context context, @NonNull Palette palette) {
-        int paletteType = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.MONET_PALETTE, VIBRANT);
-        switch (paletteType) {
-            case VIBRANT:
-                return palette.getVibrantSwatch();
-            case LIGHT_VIBRANT:
-                return palette.getLightVibrantSwatch();
-            case DARK_VIBRANT:
-                return palette.getDarkVibrantSwatch();
-            case DOMINANT:
-                return palette.getDominantSwatch();
-            case MUTED:
-                return palette.getMutedSwatch();
-            case LIGHT_MUTED:
-                return palette.getLightMutedSwatch();
-            case DARK_MUTED:
-                return palette.getDarkMutedSwatch();
-        }
-        return null;
     }
 
     private static Bitmap getBitmap(Context context) {
@@ -296,48 +261,13 @@ public class MonetWannabe {
         return hsl[2];
     }
 
-    private static boolean isTooLight(int color) {
-        return getLightness(color) >= MAX_LIGHTNESS;
-    }
-
-    private static boolean isTooDark(int color) {
-        return getLightness(color) <= MIN_LIGHTNESS;
-    }
-
     /** @hide */
     private static class Utils {
-
-        public static @ColorInt int saturate(@ColorInt int color, float value) {
-            float[] hsl = colorToHSL(color);
-            hsl[1] += value / 100;
-            hsl[1] = Math.max(0f, Math.min(hsl[1], 1f));
-            return HSLToColor(hsl);
-        }
-
-        public static @ColorInt int desaturate(@ColorInt int color, float value) {
-            float[] hsl = colorToHSL(color);
-            hsl[1] -= value / 100;
-            hsl[1] = Math.max(0f, Math.min(hsl[1], 1f));
-            return HSLToColor(hsl);
-        }
 
         public static @ColorInt int lighten(@ColorInt int color, float value) {
             float[] hsl = colorToHSL(color);
             hsl[2] += value / 100;
             hsl[2] = Math.max(0f, Math.min(hsl[2], 1f));
-            return HSLToColor(hsl);
-        }
-
-        public static @ColorInt int darken(@ColorInt int color, float value) {
-            float[] hsl = colorToHSL(color);
-            hsl[2] -= value / 100;
-            hsl[2] = Math.max(0f, Math.min(hsl[2], 1f));
-            return HSLToColor(hsl);
-        }
-
-        public static @ColorInt int lightness(@ColorInt int color, float value) {
-            float[] hsl = colorToHSL(color);
-            hsl[2] = value / 100;
             return HSLToColor(hsl);
         }
 

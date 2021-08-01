@@ -532,7 +532,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
             case Tile.STATE_ACTIVE:
                 if (MonetWannabe.isMonetEnabled(context)) {
-                    return MonetWannabe.manipulateColor(Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent), 0.6f);
+                    return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                 } else {
                     if (setQsUseNewTint) {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);

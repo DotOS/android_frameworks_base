@@ -19,4 +19,9 @@
     <color name="toast_bg">@color/material_grey_800</color>
     <color name="toast_text">@color/white</color>
 
+    <color name="accent_overlay_device_default">#212121</color>
+    <color name="monet_background_device_default">#000000</color>
+    <color name="monet_background_secondary_device_default">#212121</color>
+    <color name="monet_contextual_color_device_default">#212121</color>
+
 </resources>

@@ -516,6 +516,7 @@ public class TypedArray {
 
         try {
             int resId = data[index + 3];
+            
             if (resId > 0) {
                 String resName = this.mAssets.getResourceName(resId);
                 int newColor = defValue;

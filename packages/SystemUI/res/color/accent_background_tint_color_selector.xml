@@ -17,5 +17,5 @@
     <item android:state_enabled="false"
           android:color="?android:attr/colorButtonNormal"/>
 
-    <item android:color="?android:attr/colorAccentOverlay"/>
+    <item android:color="@*android:color/accent_overlay_device_default"/>
 </selector>
