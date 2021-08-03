@@ -199,6 +199,8 @@ public class NotificationHistoryDatabase {
                 try {
                     readLocked(
                             file, notifications, new NotificationHistoryFilter.Builder().build());
+                } catch (FileNotFoundException e) {
+                    Slog.e(TAG, "error reading " + file.getBaseFile().getAbsolutePath() + ", " + e);
                 } catch (Exception e) {
                     Slog.e(TAG, "error reading " + file.getBaseFile().getAbsolutePath(), e);
                 }
@@ -225,6 +227,8 @@ public class NotificationHistoryDatabase {
                         // No need to read any more files
                         break;
                     }
+                } catch (FileNotFoundException e) {
+                    Slog.e(TAG, "error reading " + file.getBaseFile().getAbsolutePath() + ", " + e);
                 } catch (Exception e) {
                     Slog.e(TAG, "error reading " + file.getBaseFile().getAbsolutePath(), e);
                 }
@@ -345,7 +349,7 @@ public class NotificationHistoryDatabase {
             in = file.openRead();
             NotificationHistoryProtoHelper.read(in, notificationsOut, filter);
         } catch (FileNotFoundException e) {
-            Slog.e(TAG, "Cannot open " + file.getBaseFile().getAbsolutePath(), e);
+            Slog.e(TAG, "Cannot open " + file.getBaseFile().getAbsolutePath() + ", " + e);
             throw e;
         } finally {
             if (in != null) {
@@ -438,6 +442,9 @@ public class NotificationHistoryDatabase {
                                 new NotificationHistoryFilter.Builder().build());
                         notifications.removeNotificationsFromWrite(mPkg);
                         writeLocked(af, notifications);
+                    } catch (FileNotFoundException e) {
+                        Slog.e(TAG, "Cannot clean up file on pkg removal "
+                                + af.getBaseFile().getAbsolutePath() + ", " + e);
                     } catch (Exception e) {
                         Slog.e(TAG, "Cannot clean up file on pkg removal "
                                 + af.getBaseFile().getAbsolutePath(), e);
@@ -481,6 +488,9 @@ public class NotificationHistoryDatabase {
                         if(notificationHistory.removeNotificationFromWrite(mPkg, mPostedTime)) {
                             writeLocked(af, notificationHistory);
                         }
+                    } catch (FileNotFoundException e) {
+                        Slog.e(TAG, "Cannot clean up file on notification removal "
+                                + af.getBaseFile().getName() + ", " + e);
                     } catch (Exception e) {
                         Slog.e(TAG, "Cannot clean up file on notification removal "
                                 + af.getBaseFile().getName(), e);
@@ -525,6 +535,9 @@ public class NotificationHistoryDatabase {
                                 mPkg, mConversationIds)) {
                             writeLocked(af, notificationHistory);
                         }
+                    } catch (FileNotFoundException e) {
+                        Slog.e(TAG, "Cannot clean up file on conversation removal "
+                                + af.getBaseFile().getName() + ", " + e);
                     } catch (Exception e) {
                         Slog.e(TAG, "Cannot clean up file on conversation removal "
                                 + af.getBaseFile().getName(), e);
