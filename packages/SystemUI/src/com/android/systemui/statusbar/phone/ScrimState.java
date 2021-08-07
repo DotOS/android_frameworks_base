@@ -111,7 +111,7 @@ public enum ScrimState {
             mFrontTint = context.getResources().getColor(android.R.color.monet_background_device_default, context.getTheme());
             mBehindAlpha = 0f;
             mBubbleAlpha = 0f;
-            mFrontAlpha = mScrimBehindAlphaKeyguard;
+            mFrontAlpha = 1f;
         }
     },
 
