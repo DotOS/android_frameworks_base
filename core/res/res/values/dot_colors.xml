@@ -22,6 +22,6 @@
 
     <color name="monet_background_device_default">#fff</color>
     <color name="monet_contextual_color_device_default">#fff</color>
-    <color name="monet_background_secondary_device_default">#fefefe</color>
+    <color name="monet_background_secondary_device_default">#efefef</color>
     <color name="monet_clock_color_device_default">#fff</color>
 </resources>
