@@ -57,10 +57,10 @@
     <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čítania je vypnutý.</string>
     <string name="quick_settings_anti_flicker">Eliminácia blikania</string>
     <string name="qs_data_switch_label">Prepnúť SIM pre dáta</string>
-    <string name="qs_data_switch_changed_1">Používanie SIM 1 pre mobilné dáta</string>
-    <string name="qs_data_switch_changed_2">Používanie SIM 2 pre mobilné dáta</string>
-    <string name="quick_settings_sound_label">Sound</string>
-    <string name="quick_settings_sound_ring">Ring</string>
-    <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="qs_data_switch_changed_1">Mobilné dáta sú používané na SIM 1</string>
+    <string name="qs_data_switch_changed_2">Mobilné dáta sú používané na SIM 2</string>
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Zvonenie</string>
+    <string name="quick_settings_sound_vibrate">Vibrácie</string>
+    <string name="quick_settings_sound_dnd">Nerušiť</string>
 </resources>

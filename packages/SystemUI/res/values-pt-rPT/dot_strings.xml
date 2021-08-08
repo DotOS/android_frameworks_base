@@ -41,7 +41,7 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Isto mantém a aplicação no ecrã até soltar, toque e mantenha premido &amp; no sensor de impressão digital para soltar.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, toque &amp; segure o sensor de impressão digital</string>
     <string name="applock_locked"> está bloqueada</string>
-    <string name="applock_fingerprint_face">, fingerprint or your face to unlock</string>
+    <string name="applock_fingerprint_face">, impressão digital ou a sua face para desbloquear</string>
     <string name="applock_face"> or your face to unlock</string>
     <string name="applock_fingerprint"> or your fingerprint to unlock</string>
     <string name="applock_credential"> to unlock</string>

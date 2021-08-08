@@ -15,10 +15,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copy crash log URL</string>
+    <string name="aerr_copy">คัดลอก URL บันทึกข้อขัดข้อง</string>
     <string name="url_copy_success">คัดลอก URL สำเร็จแล้ว</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting System</string>
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+    <string name="url_copy_failed">เกิดข้อผิดพลาดขณะอัปโหลดบันทึกไปยัง dogbin</string>
+    <string name="reboot_title">รีบูต</string>
+    <string name="reboot_message">กำลังเริ่มต้นระบบ</string>
+    <string name="pocket_lock_message_long_press">กด ปุ่มเปิด/ปิดเครื่อง ค้างไว้เพื่อปลดล็อค</string>
 </resources>
