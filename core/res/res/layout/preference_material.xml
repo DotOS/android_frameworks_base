@@ -61,7 +61,8 @@
             android:ellipsize="marquee"
             android:singleLine="true"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
+
 
         <TextView
             android:id="@+id/summary"
