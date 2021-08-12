@@ -354,7 +354,7 @@
     <dimen name="leanback_alert_dialog_horizontal_margin">54dip</dimen>
 
     <!-- Default height of an action bar. -->
-    <dimen name="action_bar_default_height">48dip</dimen>
+    <dimen name="action_bar_default_height">70dp</dimen>
     <!-- Vertical padding around action bar icons. -->
     <dimen name="action_bar_icon_vertical_padding">8dip</dimen>
     <!-- Text size for action bar titles -->
