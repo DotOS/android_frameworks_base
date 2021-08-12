@@ -1514,7 +1514,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
         int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replace("%", ""));
         if (percentage >= 20)
-            row.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.accent_background_device_default, mContext.getTheme())));
+            row.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
         else {
             boolean useActiveColoring = row.stream == mActiveStream && row.slider.isEnabled();
             final ColorStateList iconTint = useActiveColoring
