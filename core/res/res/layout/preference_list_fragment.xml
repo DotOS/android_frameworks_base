@@ -21,7 +21,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@android:color/transparent"
+    android:background="@android:color/monet_background_device_default"
+    android:backgroundTint="@android:color/monet_background_device_default"
     android:layout_removeBorders="true">
 
     <FrameLayout
