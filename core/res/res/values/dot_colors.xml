@@ -13,15 +13,14 @@
 -->
 <resources>
 
-    <color name="toast_bg">@color/white</color>
-    <color name="toast_text">@color/black</color>
-
     <!-- Value of these colors are used when Monet is disabled -->
     <color name="accent_background_device_default">#fefefe</color>
     <color name="accent_overlay_device_default">#fefefe</color>
 
     <color name="monet_background_device_default">#fff</color>
-    <color name="monet_contextual_color_device_default">#fff</color>
     <color name="monet_background_secondary_device_default">#efefef</color>
     <color name="monet_clock_color_device_default">#fff</color>
+
+    <color name="toast_bg">@color/monet_background_device_default</color>
+    <color name="toast_text">@color/black</color>
 </resources>
