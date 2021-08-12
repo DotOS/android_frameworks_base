@@ -51,10 +51,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_bg_full"
+                    android:backgroundTint="@*android:color/monet_background_secondary_device_default"
                     android:text="@string/screenrecord_description"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingTop="@dimen/screenrecord_dialog_padding"
-                    android:paddingBottom="@dimen/screenrecord_dialog_padding"/>
+                    android:layout_marginTop="@dimen/screenrecord_dialog_padding"
+                    android:layout_marginBottom="@dimen/screenrecord_dialog_padding"
+                    android:padding="@dimen/screenrecord_dialog_padding"/>
 
                 <!-- Options -->
                 <LinearLayout
@@ -65,20 +68,20 @@
                         android:layout_width="@dimen/screenrecord_logo_size"
                         android:layout_height="@dimen/screenrecord_logo_size"
                         android:src="@drawable/ic_mic_26dp"
-                        android:tint="@color/GM2_grey_700"
+                        android:tint="?android:attr/colorAccent"
                         android:layout_gravity="center"
                         android:layout_weight="0"
                         android:layout_marginRight="@dimen/screenrecord_dialog_padding"/>
                     <Spinner
                         android:id="@+id/screen_recording_options"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="56dp"
                         android:layout_weight="1"
                         android:prompt="@string/screenrecord_audio_label"/>
                     <Switch
                         android:layout_width="wrap_content"
                         android:minWidth="48dp"
-                        android:layout_height="48dp"
+                        android:layout_height="56dp"
                         android:layout_weight="0"
                         android:layout_gravity="end"
                         android:contentDescription="@string/screenrecord_audio_label"
@@ -88,17 +91,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screenrecord_dialog_padding"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/screenrecord_logo_size"
                         android:layout_height="@dimen/screenrecord_logo_size"
                         android:src="@drawable/ic_touch"
-                        android:tint="@color/GM2_grey_700"
+                        android:tint="?android:attr/colorAccent"
                         android:layout_gravity="center"
                         android:layout_marginRight="@dimen/screenrecord_dialog_padding"/>
+
                     <Switch
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="56dp"
                         android:id="@+id/screenrecord_taps_switch"
                         android:text="@string/screenrecord_taps_label"
                         android:textColor="?android:attr/textColorPrimary"
@@ -106,12 +112,6 @@
 
                 </LinearLayout>
             </LinearLayout>
-
-            <!-- hr -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/GM2_grey_300"/>
 
             <!-- Buttons -->
             <LinearLayout
@@ -123,10 +123,13 @@
                     android:id="@+id/button_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0"
+                    android:layout_weight="1"
                     android:layout_gravity="start"
-                    android:text="@string/cancel"
-                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"/>
+                    android:text="@android:string/cancel"
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/dot_rounded_button"
+                    android:textColor="?android:attr/colorAccent"/>
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -135,10 +138,13 @@
                     android:id="@+id/button_start"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0"
+                    android:layout_weight="1"
                     android:layout_gravity="end"
                     android:text="@string/screenrecord_start"
-                    style="@android:style/Widget.DeviceDefault.Button.Colored"/>
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/dot_rounded_button"
+                    android:textColor="?android:attr/colorAccent"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
