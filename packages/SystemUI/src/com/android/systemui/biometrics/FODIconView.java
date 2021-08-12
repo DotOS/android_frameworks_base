@@ -151,8 +151,6 @@ public class FODIconView extends ImageView {
         } else if (mIsKeyguard || !mIsFODIconAnimated) {
             setBackgroundTintList(null);
             setColorFilter((ColorFilter) null);
-        } else {
-            setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#807B7E")));
         }
     }
 
