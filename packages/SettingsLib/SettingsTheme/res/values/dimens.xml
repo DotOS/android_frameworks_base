@@ -16,5 +16,5 @@
   -->
 
 <resources>
-    <dimen name="secondary_app_icon_size">32dp</dimen>
+    <dimen name="secondary_app_icon_size">38dp</dimen>
 </resources>

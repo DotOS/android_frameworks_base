@@ -21,12 +21,13 @@
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
+    android:paddingEnd="32dp">
 
     <LinearLayout
         android:id="@android:id/icon_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="4dp"
@@ -55,7 +56,8 @@
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceListItem" />
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@android:id/summary"
@@ -65,7 +67,8 @@
             android:layout_alignStart="@android:id/title"
             android:maxLines="10"
             android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginTop="2dp" />
 
         <TextView
             android:id="@+id/additional_summary"
@@ -85,7 +88,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="end|center_vertical"
-        android:orientation="vertical"
-        android:paddingStart="16dp" />
+        android:orientation="vertical" />
 
 </LinearLayout>
