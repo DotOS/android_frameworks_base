@@ -12,9 +12,11 @@ import android.app.ActivityThread;
 public class AccentUtils {
 
     private MonetWannabe monet;
+    private Context context;
 
     public AccentUtils() {
-        this.monet = new MonetWannabe(ActivityThread.currentApplication());
+        context = ActivityThread.currentApplication();
+        monet = new MonetWannabe(context);
     }
 
     private final String TAG = "AccentUtils";
@@ -32,11 +34,9 @@ public class AccentUtils {
             resource = getQSBackgroundAccentColor(defaultColor);
         else if (isResourceAccentOverlay(resName))
             resource = getOverlayAccentColor(defaultColor);
-        else if (isResourceNotificationColor(resName))
-            resource = getNotificationColor(defaultColor);
         else if (isResourceBackgroundColor(resName))
             resource = getBackgroundColor(defaultColor);
-        else if (isResourceForegroundColor(resName))
+        else if (isResourceBackgroundSecondary(resName))
            resource = getBackgroundSecondaryColor(defaultColor);
         return resource;
     }
@@ -57,29 +57,19 @@ public class AccentUtils {
         return resName != null && resName.contains("accent_overlay_device_default");
     }
 
-    public boolean isResourceNotificationColor(@Nullable String resName) {
-        return resName != null && (resName.contains("dot_notification_bg") || 
-                                   resName.contains("dot_notification_bg_opaque") || 
-                                   resName.contains("notification_material_background_color"));
-    }
-
     public boolean isResourceBackgroundColor(@Nullable String resName) {
-        if (resName == null) return false;
-        return resName.contains("dialogBackgroundColor") ||
-                resName.contains("monet_background_device_default") ||
-                resName.contains("primary_device_default_settings_light") ||
-                resName.contains("primary_device_default_settings") ||
-                resName.contains("primary_dark_device_default_dark") ||
-                resName.contains("primary_dark_device_default_settings") ||
-                resName.contains("primary_dark_device_default_settings_light") ||
-                resName.contains("primary_dark_device_default_light");
+        return resName != null && resName.contains("dialogBackgroundColor") ||
+            resName.contains("dot_notification_bg") || 
+            resName.contains("dot_notification_bg_opaque") || 
+            resName.contains("notification_material_background_color") ||
+            resName.contains("monet_background_device_default");
     }
 
-    public boolean isResourceForegroundColor(@Nullable String resName) {
-        if (resName == null) return false;
-        return resName.contains("dialogSubBackgroundColor") ||
-                resName.contains("monet_contextual_color_device_default") ||
-                resName.contains("monet_background_secondary_device_default");
+    public boolean isResourceBackgroundSecondary(@Nullable String resName) {
+        return resName != null && resName.contains("dialogSubBackgroundColor") ||
+            resName.contains("dot_notification_dim") ||
+            resName.contains("monet_contextual_color_device_default") ||
+            resName.contains("monet_background_secondary_device_default");
     }
 
     public int getDarkAccentColor(int defaultColor) {
@@ -89,24 +79,8 @@ public class AccentUtils {
     public int getLightAccentColor(int defaultColor) {
         return getAccentColor(monet, defaultColor, ACCENT_LIGHT_SETTING);
     }
-    
-    public int getNotificationColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
-        try {
-            if (MonetWannabe.isMonetEnabled(context)) {
-                int colorValue = monet.getAccentColorNotification();
-                return colorValue == -1 ? defaultColor : colorValue;
-            } else {
-                return defaultColor;
-            }
-            
-        } catch (Exception e) {
-            return defaultColor;
-        }
-    }
 
     public int getBackgroundColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
                 int colorValue = monet.getAccentColorBackground();
@@ -121,7 +95,6 @@ public class AccentUtils {
     }
 
     public int getBackgroundSecondaryColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
                 int colorValue = monet.getAccentColorBackgroundSecondary();
@@ -136,7 +109,6 @@ public class AccentUtils {
     }
 
     public int getQSBackgroundAccentColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
                 int colorValue = monet.getAccentColorQSBackground();
@@ -151,7 +123,6 @@ public class AccentUtils {
     }
 
     public int getOverlayAccentColor(int defaultColor) {
-        final Context context = ActivityThread.currentApplication();
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
                 int colorValue = monet.getAccentColorQSOverlay();
@@ -165,7 +136,6 @@ public class AccentUtils {
     }
 
     private int getAccentColor(@NonNull MonetWannabe monet, int defaultColor, String setting) {
-        final Context context = ActivityThread.currentApplication();
         if (!MonetWannabe.isMonetEnabled(context)) {
             try {
                 String colorValue = Settings.Secure.getString(context.getContentResolver(), setting);

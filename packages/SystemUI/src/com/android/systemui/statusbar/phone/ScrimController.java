@@ -127,12 +127,12 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
      * The default scrim under the shade and dialogs.
      * This should not be lower than 0.54, otherwise we won't pass GAR.
      */
-    public static final float BUSY_SCRIM_ALPHA = 1f;
+    public static final float BUSY_SCRIM_ALPHA = 9f;
 
     /**
      * Same as above, but when blur is supported.
      */
-    public static final float BLUR_SCRIM_ALPHA = 0.9f;
+    public static final float BLUR_SCRIM_ALPHA = 0.85f;
 
     static final int TAG_KEY_ANIM = R.id.scrim;
     private static final int TAG_START_ALPHA = R.id.scrim_alpha_start;
@@ -985,11 +985,10 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
         Context context = scrimView.getContext();
         if (MonetWannabe.isMonetEnabled(context)) {
             mainColor = context.getResources().getColor(android.R.color.accent_overlay_device_default, context.getTheme());
-            secondaryColor = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
         } else {
             mainColor = Utils.getColorAttr(context, android.R.attr.textColorPrimaryInverse).getDefaultColor();
-            secondaryColor = Utils.getColorAccent(context).getDefaultColor();
         }
+        secondaryColor = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
         mColors.setMainColor(mainColor);
         mColors.setSecondaryColor(secondaryColor);
         ColorExtractor.GradientColors gradientColors = mColors;

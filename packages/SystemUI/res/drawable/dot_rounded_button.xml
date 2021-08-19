@@ -4,7 +4,7 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
             <corners android:radius="300dp" />
-            <solid android:color="@*android:color/monet_background_secondary_device_default" />
+            <solid android:color="@*android:color/background_floating_device_default_light" />
         </shape>
     </item>
     <item android:id="@android:id/mask">

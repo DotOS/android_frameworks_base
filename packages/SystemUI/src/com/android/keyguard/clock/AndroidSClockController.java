@@ -153,8 +153,6 @@ public class AndroidSClockController implements ClockPlugin {
     private int mRowHeight = 0;
 
     private Typeface mSliceTypeface;
-    private Typeface mRegularTypeface;
-    private Typeface mThinTypeface;
 
     /**
      * Time and calendars to check the date
@@ -175,8 +173,6 @@ public class AndroidSClockController implements ClockPlugin {
         mContext = mLayoutInflater.getContext();
         mColorExtractor = colorExtractor;
         mClickActions = new HashMap<>();
-        mRegularTypeface = res.getFont(R.font.googlesansregular);
-        mThinTypeface = res.getFont(R.font.googlesansthin);
         mRowPadding = mResources.getDimensionPixelSize(R.dimen.subtitle_clock_padding);
         mRowWithHeaderPadding = mResources.getDimensionPixelSize(R.dimen.header_subtitle_padding);
     }
@@ -193,7 +189,7 @@ public class AndroidSClockController implements ClockPlugin {
         mContainerSetBig.clone(mContainerBig);
         mClock.setFormat12Hour("hh:mm");
         mClock.setFormat24Hour("kk:mm");
-        mClock.setTypeface(mRegularTypeface);
+        mClock.setTypeface(getRegularThickness());
 
         mTitle = mView.findViewById(R.id.title);
         mRow = mView.findViewById(R.id.row);
@@ -436,8 +432,7 @@ public class AndroidSClockController implements ClockPlugin {
                                     new Fade().setDuration(550).addTarget(mContainer));
                             mClock.setFormat12Hour("hh\nmm");
                             mClock.setFormat24Hour("kk\nmm");
-                            if (mDarkAmount < 0.7)
-                                mClock.setTypeface(mRegularTypeface);
+                            mClock.setTypeface(updateThickness(mDarkAmount));
                             mContainerSetBig.applyTo(mContainer);
                         })
                         .withEndAction(() -> {
@@ -461,7 +456,7 @@ public class AndroidSClockController implements ClockPlugin {
                                     new Fade().setDuration(550).addTarget(mContainer));
                             mClock.setFormat12Hour("hh:mm");
                             mClock.setFormat24Hour("kk:mm");
-                            mClock.setTypeface(mThinTypeface);
+                            mClock.setTypeface(getThinThickness());
                             mContainerSet.applyTo(mContainer);
                         })
                         .withEndAction(() -> {
@@ -479,6 +474,24 @@ public class AndroidSClockController implements ClockPlugin {
         animate();
     }
 
+    private Typeface updateThickness(float amount) {
+        Typeface.Builder builder = new Typeface.Builder(mContext.getAssets(), "googlesansregular.ttf");
+        builder.setFontVariationSettings("'wght' " + Math.round(400 - (amount * 300)));
+        return builder.build();
+    }
+
+    private Typeface getRegularThickness() {
+        Typeface.Builder builder = new Typeface.Builder(mContext.getAssets(), "googlesansregular.ttf");
+        builder.setFontVariationSettings("'wght' 400");
+        return builder.build();
+    }
+
+    private Typeface getThinThickness() {
+        Typeface.Builder builder = new Typeface.Builder(mContext.getAssets(), "googlesansregular.ttf");
+        builder.setFontVariationSettings("'wght' 100");
+        return builder.build();
+    }
+
     @Override
     public void setDarkAmount(float darkAmount) {
         mView.setDarkAmount(darkAmount);
@@ -489,10 +502,7 @@ public class AndroidSClockController implements ClockPlugin {
         }
         mTitle.setTextSize(mTitleTextSize - (2.5f * darkAmount));
         if (!mHasVisibleNotification) {
-            if (darkAmount >= 0.7)
-                mClock.setTypeface(mThinTypeface);
-            else
-                mClock.setTypeface(mRegularTypeface);
+            mClock.setTypeface(updateThickness(darkAmount));
         }
         mRow.setDarkAmount(darkAmount);
         mTitle.requestLayout();

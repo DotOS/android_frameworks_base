@@ -15,6 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <color name="num_pad_key_color">@*android:color/monet_background_secondary_device_default</color>
+    <color name="num_pad_key_color">@*android:color/background_floating_device_default_light</color>
     <color name="num_pad_key_color_special">?android:attr/colorAccent</color>
 </resources>

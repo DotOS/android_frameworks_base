@@ -166,6 +166,8 @@ easier.
     <style name="Widget.DeviceDefault.Toolbar" parent="Widget.Material.Toolbar">
         <item name="titleTextAppearance">@style/TextAppearance.DeviceDefault.Widget.Toolbar.Title</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.DeviceDefault.Widget.Toolbar.Subtitle</item>
+        <item name="background">@color/monet_background_device_default</item>
+        <item name="backgroundTint">@color/monet_background_device_default</item>
     </style>
     <style name="Widget.DeviceDefault.Light" parent="Widget.Material.Light"/>
     <style name="Widget.DeviceDefault.Light.Button" parent="Widget.Material.Light.Button"/>

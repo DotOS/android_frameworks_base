@@ -40,8 +40,8 @@
 
     <color name="background_device_default_dark">@color/monet_background_device_default</color>
     <color name="background_device_default_light">@color/monet_background_device_default</color>
-    <color name="background_floating_device_default_dark">@color/background_device_default_dark</color>
-    <color name="background_floating_device_default_light">@color/background_device_default_light</color>
+    <color name="background_floating_device_default_dark">@color/monet_background_secondary_device_default</color>
+    <color name="background_floating_device_default_light">@color/monet_background_secondary_device_default</color>
 
     <!-- Error color -->
     <color name="error_color_device_default_dark">#fff28b82</color>
