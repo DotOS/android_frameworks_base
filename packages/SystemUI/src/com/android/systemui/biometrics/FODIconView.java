@@ -146,11 +146,8 @@ public class FODIconView extends ImageView {
 
     public void setIsKeyguard(boolean isKeyguard) {
         mIsKeyguard = isKeyguard;
-        if (isKeyguard && !mIsFODIconAnimated) {
-            setColorFilter(-1);
-        } else if (mIsKeyguard || !mIsFODIconAnimated) {
+        if (mIsKeyguard || !mIsFODIconAnimated) {
             setBackgroundTintList(null);
-            setColorFilter((ColorFilter) null);
         }
     }
 
