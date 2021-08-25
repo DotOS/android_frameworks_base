@@ -640,10 +640,57 @@
         <item name="rotateButtonScaleX">-1</item>
     </style>
 
-    <style name="MediaPlayer.Button" parent="@android:style/Widget.Material.Button.Borderless.Small">
+    <style name="MediaPlayer" parent="@android:style/Theme.DeviceDefault.Light">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:backgroundTint">@*android:color/lockscreen_owner_info</item>
+    </style>
+
+    <style name="MediaPlayer.Action" parent="@android:style/Widget.Material.Button.Borderless.Small">
         <item name="android:background">@drawable/qs_media_light_source</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:scaleType">centerInside</item>
         <item name="android:tint">@android:color/white</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
         <item name="android:stateListAnimator">@anim/media_button_state_list_animator</item>
+    </style>
+
+    <style name="MediaPlayer.Album" parent="@style/MediaPlayer">
+        <item name="android:backgroundTint">@color/media_player_album_bg</item>
+    </style>
+
+    <style name="MediaPlayer.AppIcon" parent="@style/MediaPlayer">
+        <item name="android:background">@drawable/qs_media_icon_background</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:backgroundTint">@color/media_player_solid_button_bg</item>
+    </style>
+
+    <style name="MediaPlayer.OutlineButton" parent="@style/MediaPlayer">
+        <item name="android:textColor">@color/media_primary_text</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/qs_media_button_background</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:backgroundTint">@color/media_player_outline_button_bg</item>
+    </style>
+
+    <style name="MediaPlayer.ProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:clickable">true</item>
+        <item name="android:splitTrack">false</item>
+        <item name="android:progressTint">@color/media_primary_text</item>
+        <item name="android:progressBackgroundTint">@color/media_seekbar_progress</item>
+        <item name="android:thumbTint">@color/media_primary_text</item>
+    </style>
+
+    <style name="MediaPlayer.SolidButton" parent="@style/MediaPlayer">
+        <item name="android:textColor">@color/media_primary_text</item>
+        <item name="android:tint">?android:attr/colorPrimary</item>
+        <item name="android:backgroundTint">@color/media_player_solid_button_bg</item>
+    </style>
+
+    <style name="MediaPlayer.Subtitle" parent="@style/MediaPlayer">
+        <item name="android:textColor">@color/media_secondary_text</item>
     </style>
 
     <!-- Used to style charging animation AVD animation -->

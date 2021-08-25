@@ -121,7 +121,7 @@ public class MediaControlPanel {
         mViewOutlineProvider = new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
-                outline.setRoundRect(0, 0, mAlbumArtSize, mAlbumArtSize, mAlbumArtRadius);
+                outline.setRoundRect(0, 0, mAlbumArtSize, mAlbumArtSize + mAlbumArtRadius, mAlbumArtRadius);
             }
         };
     }
@@ -247,6 +247,8 @@ public class MediaControlPanel {
         }
 
         ImageView albumView = mViewHolder.getAlbumView();
+        albumView.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
+        albumView.setClipToOutline(true);
         boolean hasArtwork = data.getArtwork() != null;
         if (hasArtwork) {
             Drawable artwork = scaleDrawable(data.getArtwork());
@@ -263,14 +265,11 @@ public class MediaControlPanel {
             Drawable iconDrawable = mContext.getDrawable(R.drawable.ic_music_note);
             appIcon.setImageDrawable(iconDrawable);
         }
+        appIcon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
 
         // Song name
         TextView titleText = mViewHolder.getTitleText();
         titleText.setText(safeCharSequence(data.getSong()));
-
-        // App title
-        TextView appName = mViewHolder.getAppName();
-        appName.setText(data.getApp());
 
         // Artist name
         TextView artistText = mViewHolder.getArtistText();
