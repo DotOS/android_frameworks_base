@@ -19,8 +19,16 @@
     <color name="toast_text">@color/white</color>
 
     <color name="accent_overlay_device_default">#212121</color>
+
+    <!-- Monet System Colors-->
     <color name="monet_background_device_default">#000000</color>
     <color name="monet_background_secondary_device_default">#212121</color>
+
+    <!-- Monet Lockscreen Colors-->
+    <color name="monet_lockscreen_background_device_default">#000000</color>
+    <color name="monet_lockscreen_background_secondary_device_default">#212121</color>
+
+    <!-- Monet Extra Colors-->
     <color name="monet_contextual_color_device_default">#212121</color>
 
 </resources>

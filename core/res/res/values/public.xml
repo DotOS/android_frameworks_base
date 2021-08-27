@@ -3056,6 +3056,10 @@
     <!-- @hide -->
     <public name="accent_overlay_device_default" />
     <!-- @hide -->
+    <public name="monet_accent_secondary_device_default" />
+    <!-- @hide -->
+    <public name="monet_accent_teritary_device_default" />
+    <!-- @hide -->
     <public name="monet_background_device_default" />
     <!-- @hide -->
     <public name="monet_contextual_color_device_default" />
@@ -3063,6 +3067,10 @@
     <public name="monet_background_secondary_device_default" />
     <!-- @hide -->
     <public name="monet_clock_color_device_default" />
+    <!-- @hide -->
+    <public name="monet_lockscreen_background_device_default" />
+    <!-- @hide -->
+    <public name="monet_lockscreen_background_secondary_device_default" />
   </public-group>
 
   <public-group type="dimen" first-id="0x01050008">

@@ -9765,6 +9765,15 @@ public final class Settings {
          */
         public static final String GESTURE_NAVBAR_LENGTH = "gesture_navbar_length";
 
+        /** Monet Settings */
+        /**
+         * Monet Theme Engine Switch.
+         * 1 - Enabled (Default)
+         * 0 - Disabled 
+         * @hide
+         */
+        public static final String MONET_ENGINE = "monet_engine";
+
         /**
          * Colourfulness
          * Default : 1.0
@@ -9775,12 +9784,43 @@ public final class Settings {
         /**
          * @hide
          */
+        public static final String MONET_WALLPAPER_COLOR_PICKER = "monet_wallpaper_color_picker";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_WALLPAPER_COLOR_PICKER = "monet_keyguard_wallpaper_color_picker";
+
+        /** Monet System Colors */
+        /**
+         * @hide
+         */
         public static final String MONET_BASE_ACCENT = "monet_base_accent";
 
         /**
          * @hide
          */
         public static final String MONET_BASE_ACCENT_LIGHT = "monet_base_accent_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_SECONDARY = "monet_base_accent_secondary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_SECONDARY_LIGHT = "monet_base_accent_secondary_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_TERTIARY = "monet_base_accent_tertiary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_TERTIARY_LIGHT = "monet_base_accent_tertiary_light";
 
         /**
          * @hide
@@ -9802,38 +9842,36 @@ public final class Settings {
          */
         public static final String MONET_BACKGROUND_SECONDARY_LIGHT = "monet_background_secondary_light";
 
+        /** Monet Keyguard Colors */
         /**
-         * Monet Theme Engine Switch.
-         * 1 - Enabled (Default)
-         * 0 - Disabled 
          * @hide
          */
-        public static final String MONET_ENGINE = "monet_engine";
+        public static final String MONET_BASE_KEYGUARD_ACCENT = "monet_base_keyguard_accent";
 
         /**
-         * Monet Theme Engine
-         * Set amount of colors to be generated
-         * from wallpaper.
-         * Default = 16 (best one yet)
-         * Lowering the amount of colors will decrease the accuracy (FASTER);
-         * Increasing the amount of colors will increase the accuracy (SLOWER);
          * @hide
          */
-        public static final String MONET_COLOR_GEN = "monet_color_gen";
+        public static final String MONET_BASE_KEYGUARD_ACCENT_LIGHT = "monet_base_keyguard_accent_light";
 
         /**
-         * Monet Theme Engine
-         * Set palette type
-         * 0 - Vibrant (default)
-         * 1 - Light Vibrant
-         * 2 - Dark Vibrant
-         * 3 - Dominant
-         * 4 - Muted
-         * 5 - Light Muted
-         * 6 - Dark Muted
          * @hide
          */
-        public static final String MONET_PALETTE = "monet_palette";
+        public static final String MONET_KEYGUARD_BACKGROUND = "monet_keyguard_background";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_BACKGROUND_LIGHT = "monet_keyguard_background_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_BACKGROUND_SECONDARY = "monet_keyguard_background_secondary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_BACKGROUND_SECONDARY_LIGHT = "monet_keyguard_background_secondary_light";
 
         /**
          * Current provider of proximity-based sharing services.
