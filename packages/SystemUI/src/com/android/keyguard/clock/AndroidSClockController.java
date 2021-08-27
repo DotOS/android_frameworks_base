@@ -243,9 +243,8 @@ public class AndroidSClockController implements ClockPlugin {
         ColorExtractor.GradientColors colors = mColorExtractor.getColors(WallpaperManager.FLAG_LOCK);
         mPalette.setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
 
-        int color = getTextColor();
-        previewClock.setTextColor(color);
-        previewTitle.setTextColor(Utils.getColorAttrDefaultColor(previewView.getContext(), R.attr.wallpaperTextColor));
+        previewClock.setTextColor(getTextColor());
+        previewTitle.setTextColor(getNormalTextColor());
 
         return mRenderer.createPreview(previewView, width, height);
     }
@@ -304,7 +303,7 @@ public class AndroidSClockController implements ClockPlugin {
         }
 
         final int subItemsCount = subItems.size();
-        final int blendedColor = mTextColor;
+        final int blendedColor = getNormalTextColor();
         final int startIndex = mHasHeader ? 1 : 0; // First item is header; skip it
         mRow.setVisibility(subItemsCount > 0 ? View.VISIBLE : View.GONE);
 
@@ -523,19 +522,24 @@ public class AndroidSClockController implements ClockPlugin {
 
     private void updateTextColors() {
         int color = getTextColor();
-        mClock.setTextColor(mHasVisibleNotification ? mTextColor : color);
-        mTitle.setTextColor(mTextColor);
+        mClock.setTextColor(color);
+        mTitle.setTextColor(getNormalTextColor());
         for (int i = 0; i < mRow.getChildCount(); i++) {
             View child = mRow.getChildAt(i);
             if (child instanceof KeyguardSliceTextView)
-                ((KeyguardSliceTextView) child).setTextColor(mTextColor);
+                ((KeyguardSliceTextView) child).setTextColor(getNormalTextColor());
         }
     }
 
     int getTextColor() {
         int accentColor = MonetWannabe.isMonetEnabled(mContext) ? 
-            Utils.getColorAttrDefaultColor(mContext, android.R.attr.colorAccent) : 
+            mContext.getColor(android.R.color.monet_clock_color_device_default) : 
             (mPalette != null ? mPalette.getPrimaryColor() : mTextColor);
-        return ColorUtils.blendARGB(accentColor, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.2f);
+        int color = mHasVisibleNotification ? mTextColor : accentColor;
+        return ColorUtils.blendARGB(color, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.2f);
+    }
+
+    int getNormalTextColor() {
+        return ColorUtils.blendARGB(mTextColor, Color.WHITE, mDarkAmount);
     }
 }
