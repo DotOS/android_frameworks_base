@@ -1,14 +1,10 @@
 package com.android.systemui.dot
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
 import android.telephony.SubscriptionManager
-import android.text.Html
 import android.util.AttributeSet
 import android.widget.TextView
-
-import androidx.annotation.ColorInt
 
 import java.text.CharacterIterator
 import java.text.StringCharacterIterator
@@ -19,8 +15,8 @@ import com.android.settingslib.net.DataUsageController
 
 class QSDataUsageView : TextView {
 
-    private var usageController: DataUsageController
-    private var subscriptionManager:SubscriptionManager
+    private var usageController: DataUsageController = DataUsageController(mContext)
+    private var subscriptionManager: SubscriptionManager = context.getSystemService(SubscriptionManager::class.java)
 
     constructor(context: Context) : super(context)
 
@@ -29,26 +25,34 @@ class QSDataUsageView : TextView {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
-        subscriptionManager = context.getSystemService(SubscriptionManager::class.java)
-        usageController = DataUsageController(mContext)
         update()
     }
 
     fun update() {
-        val subInfoList = subscriptionManager.availableSubscriptionInfoList
-        val subActive = subscriptionManager.defaultDataSubscriptionInfo
-        val unknown = context.getString(R.string.dot_data_unknown)
-        if (subActive != null && subInfoList != null) {
-            usageController.setSubscriptionId(subActive.subscriptionId)
-            val updatedStatus = formatSize(usageController.dataUsageInfo.usageLevel)
-            if (text != updatedStatus) text = updatedStatus
-        } else {
-            if (text != unknown) text = unknown
-        }
+        Task().execute()
     }
+    
+    inner class Task: AsyncTask<Void, Void, String>() {
 
-    private fun colorToHex(@ColorInt color: Int): String {
-        return String.format("#%06X", 0xFFFFFF and color)
+        var resultString = context.getString(R.string.dot_data_unknown)
+
+        override fun doInBackground(vararg params: Void?): String {
+            val subInfoList = subscriptionManager.availableSubscriptionInfoList
+            val subActive = subscriptionManager.defaultDataSubscriptionInfo
+            val unknown = context.getString(R.string.dot_data_unknown)
+            if (subActive != null && subInfoList != null) {
+                usageController.setSubscriptionId(subActive.subscriptionId)
+                resultString = formatSize(usageController.dataUsageInfo.usageLevel)
+            }
+            return resultString
+        }
+
+        override fun onPostExecute(result: String) {
+            super.onPostExecute(result)
+            post { 
+                text = resultString
+            }
+        }
     }
 
     private fun formatSize(bytes: Long): String? {
