@@ -65,21 +65,27 @@
         android:id="@+id/camera_button"
         android:layout_height="@dimen/keyguard_affordance_height"
         android:layout_width="@dimen/keyguard_affordance_width"
+        android:background="@drawable/dot_keyguard_button"
         android:layout_gravity="bottom|end"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:src="@drawable/ic_camera_alt_24dp"
         android:scaleType="center"
-        android:contentDescription="@string/accessibility_camera_button"
-        android:tint="?attr/wallpaperTextColor" />
+        android:contentDescription="@string/accessibility_camera_button" />
 
     <com.android.systemui.statusbar.KeyguardAffordanceView
         android:id="@+id/left_button"
         android:layout_height="@dimen/keyguard_affordance_height"
         android:layout_width="@dimen/keyguard_affordance_width"
+        android:background="@drawable/dot_keyguard_button"
         android:layout_gravity="bottom|start"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:src="@*android:drawable/ic_phone"
         android:scaleType="center"
-        android:contentDescription="@string/accessibility_phone_button"
-        android:tint="?attr/wallpaperTextColor" />
+        android:contentDescription="@string/accessibility_phone_button" />
 
     <FrameLayout
         android:id="@+id/overlay_container"

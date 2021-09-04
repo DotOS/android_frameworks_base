@@ -69,7 +69,7 @@
     <integer translatable="false" name="config_search_panel_view_vibration_duration">20</integer>
 
     <!-- Show mic or phone affordance on Keyguard -->
-    <bool name="config_keyguardShowLeftAffordance">true</bool>
+    <bool name="config_keyguardShowLeftAffordance">false</bool>
 
     <!-- Show camera affordance on Keyguard -->
     <bool name="config_keyguardShowCameraAffordance">true</bool>
