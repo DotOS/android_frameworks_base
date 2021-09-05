@@ -21,8 +21,8 @@
     <color name="primary_device_default_light">@color/monet_background_secondary_device_default</color>
     <color name="primary_device_default_settings">@color/monet_background_device_default</color>
     <color name="primary_device_default_settings_light">@color/monet_background_device_default</color>
-    <color name="primary_dark_device_default_dark">#ff242424</color>
-    <color name="primary_dark_device_default_light">@color/primary_dark_material_light</color>
+    <color name="primary_dark_device_default_dark">@color/monet_background_device_default</color>
+    <color name="primary_dark_device_default_light">@color/monet_background_device_default</color>
     <color name="primary_dark_device_default_settings">@color/monet_background_device_default</color>
     <color name="primary_dark_device_default_settings_light">@color/monet_background_device_default</color>
 
