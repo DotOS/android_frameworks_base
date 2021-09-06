@@ -299,6 +299,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             "system:" + Settings.System.GAMING_MODE_ACTIVE;
     private static final String GAMING_MODE_HEADSUP_TOGGLE =
             "system:" + Settings.System.GAMING_MODE_HEADSUP_TOGGLE;
+    private static final String GAMING_QUICK_CONTROL = 
+            "system:" + Settings.System.FLAG_QUICK_CONTROL;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -497,7 +499,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private final DisplayMetrics mDisplayMetrics;
     
-    private boolean mHeadsUpDisabled, mGamingModeActivated;
+    private boolean mHeadsUpDisabled, mGamingModeActivated, mQuickControlActivated;
 
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
@@ -980,6 +982,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
         mTunerService.addTunable(this, GAMING_MODE_ACTIVE);
         mTunerService.addTunable(this, GAMING_MODE_HEADSUP_TOGGLE);
+        mTunerService.addTunable(this, GAMING_QUICK_CONTROL);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
@@ -4906,12 +4909,27 @@ public class StatusBar extends SystemUI implements DemoMode,
             mGamingModeActivated =
             TunerService.parseIntegerSwitch(newValue, false);
                         mNotificationInterruptStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
+            updateQuickControl(mGamingModeActivated && mQuickControlActivated);
         } else if (GAMING_MODE_HEADSUP_TOGGLE.equals(key)) {
             mHeadsUpDisabled =
                     TunerService.parseIntegerSwitch(newValue, true);
                         mNotificationInterruptStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
+        } else if (GAMING_QUICK_CONTROL.equals(key)) {
+            mQuickControlActivated = TunerService.parseIntegerSwitch(newValue, false);
+            updateQuickControl(mGamingModeActivated && mQuickControlActivated);
         }
     }
+
+    private void updateQuickControl(boolean show) {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.android.settings.dotextras", "com.dot.gamedashboard.bubble.QuickControlService"));
+        if (show) {
+            mContext.startService(intent);
+        } else {
+            mContext.stopService(intent);
+        }
+    }
+
     // End Extra BaseStatusBarMethods.
 
     public NotificationGutsManager getGutsManager() {
