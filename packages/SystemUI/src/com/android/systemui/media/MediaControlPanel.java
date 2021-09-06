@@ -266,6 +266,8 @@ public class MediaControlPanel {
             appIcon.setImageDrawable(iconDrawable);
         }
         appIcon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
+        setVisibleAndAlpha(collapsedSet, R.id.icon, hasArtwork);
+        setVisibleAndAlpha(expandedSet, R.id.icon, hasArtwork);
 
         // Song name
         TextView titleText = mViewHolder.getTitleText();

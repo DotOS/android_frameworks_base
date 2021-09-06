@@ -73,13 +73,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/qs_media_info_margin"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="@dimen/qs_media_padding"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/album_art"
-        app:layout_constraintTop_toTopOf="@+id/album_art" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Constraint
         android:id="@+id/header_artist"
