@@ -22,6 +22,7 @@ import static com.android.systemui.util.Utils.useQsMediaPlayer;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -32,6 +33,8 @@ import android.metrics.LogMaker;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -562,6 +565,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private boolean switchTileLayout(boolean force) {
         /** Whether or not the QuickQSPanel currently contains a media player. */
         boolean horizontal = shouldUseHorizontalLayout();
+        final ContentResolver resolver = mContext.getContentResolver();
         if (horizontal != mUsingHorizontalLayout || force) {
             mUsingHorizontalLayout = horizontal;
             View visibleView = horizontal ? mHorizontalLinearLayout : (View) mRegularTileLayout;
@@ -588,11 +592,15 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             mTileLayout = newLayout;
             if (mHost != null) setTiles(mHost.getTiles());
             newLayout.setListening(mListening);
-            /*if (needsDynamicRowsAndColumns()) {
-                newLayout.setMinRows(horizontal ? 2 : 1);
-                // Let's use 3 columns to match the current layout
-                newLayout.setMaxColumns(horizontal ? 3 : TileLayout.NO_MAX_COLUMNS);
-            }*/
+            // Let's use 3 columns to match the current layout
+            if (horizontal) {
+                newLayout.setMaxColumns(3);
+                newLayout.setMinRows(2);
+            } else {
+                newLayout.setMaxColumns(Math.max(1, Settings.System.getIntForUser(resolver,
+                    Settings.System.QS_COLUMNS_PORTRAIT, 4,
+                    UserHandle.USER_CURRENT)));
+            }
             updateTileLayoutMargins();
             updateFooterMargin();
             updateMediaDisappearParameters();
@@ -618,7 +626,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
      *         expanded panel actually scrolls.
      */
     protected boolean displayMediaMarginsOnMedia() {
-        return true;
+        return false;
     }
 
     /*protected boolean needsDynamicRowsAndColumns() {

@@ -92,13 +92,6 @@
             android:paddingEnd="12dp"
             android:paddingBottom="12dp">
 
-            <com.android.systemui.statusbar.phone.StatusIconContainer
-                android:id="@+id/statusIcons"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingEnd="@dimen/signal_cluster_battery_padding" />
-
             <com.android.systemui.statusbar.policy.NetworkTraffic
                 android:id="@+id/networkTraffic"
                 android:layout_width="wrap_content"
@@ -107,6 +100,13 @@
                 android:layout_gravity="end|center_vertical"
                 android:textAppearance="@style/TextAppearance.QS.Status"
                 android:paddingEnd="4dp" />
+
+            <com.android.systemui.statusbar.phone.StatusIconContainer
+                android:id="@+id/statusIcons"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingEnd="@dimen/signal_cluster_battery_padding" />
 
             <com.android.systemui.BatteryMeterView
                 android:id="@+id/batteryRemainingIcon"

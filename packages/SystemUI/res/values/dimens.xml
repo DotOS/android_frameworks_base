@@ -149,7 +149,7 @@
     <dimen name="notification_max_heads_up_height_increased">188dp</dimen>
 
     <!-- Side padding on the lockscreen on the side of notifications -->
-    <dimen name="notification_side_paddings">12dp</dimen>
+    <dimen name="notification_side_paddings">16dp</dimen>
 
     <!-- padding between the heads up and the statusbar -->
     <dimen name="heads_up_status_bar_padding">8dp</dimen>
@@ -481,12 +481,12 @@
 
     <dimen name="qs_tile_height">108dp</dimen>
     <!--notification_side_paddings + notification_content_margin_start - (qs_quick_tile_size - qs_tile_background_size) / 2 -->
-    <dimen name="qs_tile_layout_margin_side">16dp</dimen>
-    <dimen name="qs_tile_margin_horizontal">16dp</dimen>
+    <dimen name="qs_tile_layout_margin_side">13dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">8dp</dimen>
     <dimen name="qs_tile_margin_horizontal_two_line">2dp</dimen>
     <dimen name="qs_tile_margin_vertical">4dp</dimen>
-    <dimen name="qs_tile_margin_top_bottom">16dp</dimen>
-    <dimen name="qs_tile_margin_top_bottom_negative">-16dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom">8dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom_negative">-8dp</dimen>
     <!-- The height of the qs customize header. Should be
          (qs_panel_padding_top (48dp) +  brightness_mirror_height (48dp) + qs_tile_margin_top (0dp)) -
          (Toolbar_minWidth (56dp) + qs_tile_margin_top_bottom (12dp))
@@ -504,7 +504,7 @@
     <dimen name="qs_tile_icon_size">22dp</dimen>
     <dimen name="qs_tile_text_size">12sp</dimen>
     <dimen name="qs_tile_divider_height">1dp</dimen>
-    <dimen name="qs_panel_padding">16dp</dimen>
+    <dimen name="qs_panel_padding">8dp</dimen>
     <dimen name="qs_dual_tile_height">112dp</dimen>
     <dimen name="qs_dual_tile_padding_vertical">8dp</dimen>
     <dimen name="qs_dual_tile_padding_horizontal">6dp</dimen>
@@ -513,7 +513,7 @@
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
     <dimen name="qs_tile_spacing">4dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
-    <dimen name="qs_panel_padding_top">16dp</dimen>
+    <dimen name="qs_panel_padding_top">4dp</dimen>
     <dimen name="qs_detail_header_height">56dp</dimen>
     <dimen name="qs_detail_header_padding">0dp</dimen>
     <dimen name="qs_detail_image_width">56dp</dimen>
@@ -1081,7 +1081,7 @@
     <dimen name="edge_margin">8dp</dimen>
 
     <!-- The absolute side margins of quick settings -->
-    <dimen name="quick_settings_bottom_margin_media">8dp</dimen>
+    <dimen name="quick_settings_bottom_margin_media">16dp</dimen>
     <dimen name="rounded_corner_content_padding">12dp</dimen>
     <dimen name="nav_content_padding">0dp</dimen>
     <dimen name="nav_quick_scrub_track_edge_padding">24dp</dimen>
