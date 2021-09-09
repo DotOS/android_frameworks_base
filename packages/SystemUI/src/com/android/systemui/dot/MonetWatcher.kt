@@ -12,8 +12,14 @@ import com.kieronquinn.monetcompat.extensions.toArgb
 import com.kieronquinn.monetcompat.interfaces.MonetColorsChangedListener
 import dev.kdrag0n.monet.colors.Srgb
 
-import dev.kdrag0n.monet.theme.DynamicColorScheme
-import dev.kdrag0n.monet.theme.TargetColors
+import dev.kdrag0n.monet.colors.CieLab
+import dev.kdrag0n.monet.colors.Illuminants
+import dev.kdrag0n.monet.colors.Zcam
+import dev.kdrag0n.monet.theme.ZcamDynamicColorScheme
+import dev.kdrag0n.monet.theme.ZcamMaterialYouTargets
+
+import kotlin.math.log10
+import kotlin.math.pow
 
 class MonetWatcher(private val context: Context) {
 
@@ -25,7 +31,7 @@ class MonetWatcher(private val context: Context) {
         monetSystem.addMonetColorsChangedListener(object : MonetColorsChangedListener {
             override fun onMonetColorsChanged(
                 monet: MonetCompat,
-                monetColors: DynamicColorScheme,
+                monetColors: ZcamDynamicColorScheme,
                 isInitialChange: Boolean
             ) {
                 update(monetColors)
@@ -60,7 +66,8 @@ class MonetWatcher(private val context: Context) {
         }
         MonetCompat.setup(context)
         val chroma = Settings.Secure.getFloat(context.contentResolver, Settings.Secure.MONET_CHROMA, 1.0f).toDouble()
-        return MonetCompat.getInstance(chroma)
+        val lightness = Settings.Secure.getFloat(context.contentResolver, Settings.Secure.MONET_LIGHTNESS, 425.0f).toDouble()
+        return MonetCompat.getInstance(chroma, lightness)
     }
 
     private fun update() {
@@ -68,7 +75,7 @@ class MonetWatcher(private val context: Context) {
         update(monetSystem.getMonetColors())
     }
 
-    private fun update(colors: DynamicColorScheme) {
+    private fun update(colors: ZcamDynamicColorScheme) {
         val accent = colors.accent1[100]?.toArgb()
         val accentLight = colors.accent1[500]?.toArgb()
 
@@ -123,9 +130,11 @@ class MonetWatcher(private val context: Context) {
     private fun updateKeyguard() {
         val wallpaperColors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_LOCK)
         val chroma = Settings.Secure.getFloat(context.contentResolver, Settings.Secure.MONET_CHROMA, 1.0f).toDouble()
+        val lightness = Settings.Secure.getInt(context.contentResolver, Settings.Secure.MONET_LIGHTNESS, 425)
+        val cond = createZcamViewingConditions(parseWhiteLuminanceUser(lightness))
         wallpaperColors.let { 
             val primaryColor = it!!.primaryColor.toArgb()
-            val colors = DynamicColorScheme(TargetColors(chroma), Srgb(primaryColor), chroma)
+            val colors = ZcamDynamicColorScheme(ZcamMaterialYouTargets(chroma, true, cond), Srgb(primaryColor), chroma, cond)
             val accent = colors.accent1[100]?.toArgb()
             val accentLight = colors.accent1[500]?.toArgb()
 
@@ -148,5 +157,25 @@ class MonetWatcher(private val context: Context) {
             Settings.Secure.putString(context.contentResolver,
                 Settings.Secure.MONET_KEYGUARD_BACKGROUND_SECONDARY_LIGHT, backgroundSecondaryLight.toString())
         }
+    }
+
+    private fun parseWhiteLuminanceUser(userValue: Int): Double {
+        val userSrc = userValue.toDouble() / WHITE_LUMINANCE_USER_MAX
+        val userInv = 1.0 - userSrc
+        return (10.0).pow(userInv * log10(WHITE_LUMINANCE_MAX))
+            .coerceAtLeast(WHITE_LUMINANCE_MIN)
+    }
+
+    private fun createZcamViewingConditions(whiteLuminance: Double) = Zcam.ViewingConditions(
+        Zcam.ViewingConditions.SURROUND_AVERAGE,
+        0.4 * whiteLuminance,
+        CieLab(50.0, 0.0, 0.0).toCieXyz().y * whiteLuminance,
+        Illuminants.D65 * whiteLuminance, whiteLuminance
+    )
+
+    companion object {
+        private const val WHITE_LUMINANCE_MIN = 1.0
+        private const val WHITE_LUMINANCE_MAX = 10000.0
+        private const val WHITE_LUMINANCE_USER_MAX = 1000
     }
 }

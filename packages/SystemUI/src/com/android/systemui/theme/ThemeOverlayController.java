@@ -129,6 +129,7 @@ public class ThemeOverlayController extends SystemUI {
                         reloadAssets("com.android.systemui");
                     } else if (monetEnabled && 
                             (uri.equals(Settings.Secure.getUriFor(Settings.Secure.MONET_CHROMA)) || 
+                            uri.equals(Settings.Secure.getUriFor(Settings.Secure.MONET_LIGHTNESS)) ||
                             uri.equals(Settings.Secure.getUriFor(Settings.Secure.MONET_WALLPAPER_COLOR_PICKER)))) {
                         mMonetWatcher.forceUpdate();
                         reloadAssets("android");
@@ -155,6 +156,9 @@ public class ThemeOverlayController extends SystemUI {
                 false, observer, UserHandle.USER_ALL);
         mContext.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.MONET_CHROMA),
+                false, observer, UserHandle.USER_ALL);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.MONET_LIGHTNESS),
                 false, observer, UserHandle.USER_ALL);
         mContext.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.MONET_ENGINE),
