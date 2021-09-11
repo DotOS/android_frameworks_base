@@ -38,7 +38,7 @@ public class AccentUtils {
             resource = getBackgroundSecondaryColor(defaultColor);
         /* Keyguard Colors */
         else if (isResourceAccentKeyguard(resName))
-            resource = getKeyguardAccentColor(defaultColor);
+            resource = getKeyguardAccentColor(resName, defaultColor);
         else if (isResourceKeyguardBackgroundColor(resName))
             resource = getKeyguardBackgroundColor(defaultColor);
         else if (isResourceKeyguardBackgroundSecondary(resName))
@@ -118,13 +118,18 @@ public class AccentUtils {
         return getAccentColorTertiary(monet, defaultColor, ACCENT_LIGHT_SETTING);
     }
 
-    public int getKeyguardAccentColor(int defaultColor) {
+    public int getKeyguardAccentColor(@Nullable String resName, int defaultColor) {
         try {
             if (MonetWannabe.isMonetEnabled(context)) {
                 int colorValue = monet.getKeyguardAccentColor();
                 return colorValue == -1 ? defaultColor : colorValue;
             } else {
-                return defaultColor;
+                if (isResourceDarkAccent(resName))
+                    return getDarkAccentColor(defaultColor);
+                else if (isResourceLightAccent(resName))
+                    return getLightAccentColor(defaultColor);
+                else 
+                    return defaultColor;
             }
         } catch (Exception e) {
             return defaultColor;
