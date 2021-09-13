@@ -20,7 +20,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@android:color/monet_background_device_default"
+    android:backgroundTint="@android:color/monet_background_device_default">
 
     <LinearLayout
         android:orientation="horizontal"

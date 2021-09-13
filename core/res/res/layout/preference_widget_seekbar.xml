@@ -24,17 +24,20 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:gravity="center"
-        android:minWidth="@dimen/preference_icon_minWidth"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
         <ImageView
             android:id="@+android:id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:minWidth="48dp"
-            />
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:adjustViewBounds="true"
+            android:padding="6dp"
+            android:scaleType="fitCenter" />
     </LinearLayout>
 
     <RelativeLayout
@@ -46,22 +49,25 @@
         android:layout_marginBottom="6dip"
         android:layout_weight="1">
 
-        <TextView android:id="@+android:id/title"
+        <TextView
+            android:id="@+android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:ellipsize="marquee"
-            android:fadingEdge="horizontal" />
+            android:singleLine="true"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="17sp" />
 
-        <TextView android:id="@+android:id/summary"
+        <TextView
+            android:id="@+android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@android:id/title"
-            android:layout_alignStart="@android:id/title"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="4" />
+            android:layout_below="@+id/title"
+            android:layout_alignStart="@+id/title"
+            android:maxLines="4"
+            android:textAppearance="?attr/textAppearanceListItemSecondary"
+            android:textColor="?attr/textColorSecondary"
+            android:layout_marginTop="2dp" />
 
         <!-- Preference should place its actual preference widget here. -->
         <LinearLayout android:id="@+android:id/widget_frame"

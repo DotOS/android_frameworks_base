@@ -9788,6 +9788,15 @@ public final class Settings {
         public static final String MONET_CHROMA = "monet_chroma";
 
         /**
+         * Lightness
+         * Default : 425.0
+         * Min : 1.0
+         * Max : 1000.0
+         * @hide
+         */
+        public static final String MONET_LIGHTNESS = "monet_lightness";
+
+        /**
          * @hide
          */
         public static final String MONET_WALLPAPER_COLOR_PICKER = "monet_wallpaper_color_picker";

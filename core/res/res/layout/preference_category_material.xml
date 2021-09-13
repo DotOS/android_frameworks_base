@@ -19,9 +19,11 @@
     android:id="@+android:id/title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dip"
-    android:textAppearance="@style/TextAppearance.Material.Body2"
-    android:textColor="?android:attr/colorAccent"
-    android:paddingStart="?attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?attr/listPreferredItemPaddingEnd"
-    android:paddingTop="16dip" />
+    android:paddingStart="32dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="32dp"
+    android:paddingBottom="16dp"
+    android:textAppearance="?android:attr/textAppearanceListItem"
+    android:textColor="?android:attr/textColorPrimary"
+    android:textSize="20sp"
+    android:textStyle="bold" />
