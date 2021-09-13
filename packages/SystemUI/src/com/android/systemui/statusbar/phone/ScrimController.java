@@ -23,6 +23,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.IntDef;
 import android.app.AlarmManager;
+import android.content.Context;
 import android.content.res.MonetWannabe;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -126,12 +127,12 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
      * The default scrim under the shade and dialogs.
      * This should not be lower than 0.54, otherwise we won't pass GAR.
      */
-    public static final float BUSY_SCRIM_ALPHA = 1f;
+    public static final float BUSY_SCRIM_ALPHA = 9f;
 
     /**
      * Same as above, but when blur is supported.
      */
-    public static final float BLUR_SCRIM_ALPHA = 0.9f;
+    public static final float BLUR_SCRIM_ALPHA = 0.85f;
 
     static final int TAG_KEY_ANIM = R.id.scrim;
     private static final int TAG_START_ALPHA = R.id.scrim_alpha_start;
@@ -981,13 +982,13 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
         if (scrimView == null) return;
         int mainColor;
         int secondaryColor;
-        if (MonetWannabe.isMonetEnabled(mScrimBehind.getContext())) {
-            mainColor = Utils.getColorAttrDefaultColor(scrimView.getContext(), android.R.attr.colorAccentOverlay);
-            secondaryColor = Utils.getColorAttrDefaultColor(mScrimBehind.getContext(), android.R.attr.colorAccent);
+        Context context = scrimView.getContext();
+        if (MonetWannabe.isMonetEnabled(context)) {
+            mainColor = context.getResources().getColor(android.R.color.accent_overlay_device_default, context.getTheme());
         } else {
-            mainColor = Utils.getColorAttr(scrimView.getContext(), android.R.attr.textColorPrimaryInverse).getDefaultColor();
-            secondaryColor = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
+            mainColor = Utils.getColorAttr(context, android.R.attr.textColorPrimaryInverse).getDefaultColor();
         }
+        secondaryColor = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
         mColors.setMainColor(mainColor);
         mColors.setSecondaryColor(secondaryColor);
         ColorExtractor.GradientColors gradientColors = mColors;

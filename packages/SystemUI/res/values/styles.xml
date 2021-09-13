@@ -340,6 +340,7 @@
         <item name="android:colorError">@*android:color/error_color_material_dark</item>
         <item name="android:colorControlHighlight">@*android:color/primary_text_material_dark</item>
         <item name="*android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="numPadKeyStyle">@style/NumPadKey</item>
         <item name="passwordStyle">@style/PasswordTheme</item>
         <item name="backgroundProtectedStyle">@style/BackgroundProtectedStyle</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
@@ -374,8 +375,8 @@
     </style>
 
     <style name="LockPatternStyle">
-        <item name="*android:regularColor">?attr/wallpaperTextColor</item>
-        <item name="*android:successColor">?attr/wallpaperTextColor</item>
+        <item name="*android:regularColor">?android:attr/textColorSecondary</item>
+        <item name="*android:successColor">?android:attr/textColorSecondary</item>
         <item name="*android:errorColor">?android:attr/colorError</item>
     </style>
 

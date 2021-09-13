@@ -56,11 +56,16 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.database.ContentObserver;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Region;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.AudioSystem;
+import android.media.AppTrackData;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
@@ -163,6 +168,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ExpandableIndicator mExpandRows;
     private FrameLayout mZenIcon;
     private final List<VolumeRow> mRows = new ArrayList<>();
+    private final List<VolumeRow> mAppRows = new ArrayList<>();
     private ConfigurableTexts mConfigurableTexts;
     private final SparseBooleanArray mDynamic = new SparseBooleanArray();
     private final KeyguardManager mKeyguard;
@@ -170,6 +176,8 @@ public class VolumeDialogImpl implements VolumeDialog,
     private final AccessibilityManagerWrapper mAccessibilityMgr;
     private final Object mSafetyWarningLock = new Object();
     private final Accessibility mAccessibility = new Accessibility();
+
+    private final ColorFilter mAppIconMuteColorFilter;
 
     private boolean mShowing;
     private boolean mShowA11yStream;
@@ -194,6 +202,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     // Volume panel placement left or right
     private boolean mVolumePanelOnLeft;
 
+    private boolean mIsTracking = false;
     private class CustomSettingsObserver extends ContentObserver {
         CustomSettingsObserver(Handler handler) {
             super(handler);
@@ -245,6 +254,9 @@ public class VolumeDialogImpl implements VolumeDialog,
         mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
         mCustomSettingsObserver.observe();
         mCustomSettingsObserver.update();
+        ColorMatrix colorMatrix = new ColorMatrix();
+        colorMatrix.setSaturation(0);
+        mAppIconMuteColorFilter = new ColorMatrixColorFilter(colorMatrix);
     }
 
     @Override
@@ -410,9 +422,9 @@ public class VolumeDialogImpl implements VolumeDialog,
         internalInsetsInfo.setTouchableInsets(InternalInsetsInfo.TOUCHABLE_INSETS_REGION);
         View main = mDialog.findViewById(R.id.main);
         int[] mainLocation = new int[2];
-        main.getLocationOnScreen(mainLocation);
+        main.getLocationInWindow(mainLocation);
         int[] dialogLocation = new int[2];
-        mDialogView.getLocationOnScreen(dialogLocation);
+        mDialogView.getLocationInWindow(dialogLocation);
         internalInsetsInfo.touchableRegion.set(new Region(
                 mainLocation[0],
                 dialogLocation[1],
@@ -483,6 +495,51 @@ public class VolumeDialogImpl implements VolumeDialog,
         mRows.add(row);
     }
 
+    private void addAppRow(AppTrackData data) {
+        VolumeRow row = new VolumeRow();
+        initAppRow(row, data);
+        mDialogRowsView.addView(row.view);
+        mAppRows.add(row);
+    }
+
+    @SuppressLint("InflateParams")
+    private void initAppRow(final VolumeRow row, final AppTrackData data) {
+        row.view = LayoutInflater.from(mContext).inflate(R.layout.volume_dialog_row, null);
+
+        row.packageName = data.getPackageName();
+        row.isAppVolumeRow = true;
+
+        row.view.setTag(row);
+        row.slider = row.view.findViewById(R.id.volume_row_slider);
+        row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
+
+        row.appMuted = data.isMuted();
+        row.slider.setProgress((int) (data.getVolume() * 100));
+
+        row.dndIcon = row.view.findViewById(R.id.dnd_icon);
+        row.dndIcon.setVisibility(View.GONE);
+
+        row.icon = row.view.findViewById(R.id.volume_row_app_icon);
+        row.icon.setVisibility(View.VISIBLE);
+        PackageManager pm = mContext.getPackageManager();
+        try {
+            row.icon.setImageDrawable(pm.getApplicationIcon(row.packageName));
+        } catch (PackageManager.NameNotFoundException e) {
+            row.icon.setImageDrawable(pm.getDefaultActivityIcon());
+            Log.e(TAG, "Failed to get icon of " + row.packageName, e);
+        }
+
+        row.icon.setColorFilter(row.appMuted ? mAppIconMuteColorFilter : null);
+        
+        row.icon.setOnClickListener(v -> {
+                rescheduleTimeoutH();
+                AudioManager audioManager = mController.getAudioManager();
+                row.appMuted = !row.appMuted;
+                audioManager.setAppMute(row.packageName, row.appMuted);
+                row.icon.setColorFilter(row.appMuted ? mAppIconMuteColorFilter : null);
+        });
+    }
+
     private void addExistingRows() {
         int N = mRows.size();
         for (int i = 0; i < N; i++) {
@@ -543,8 +600,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         row.view = LayoutInflater.from(mContext).inflate(R.layout.volume_dialog_row, null);
         row.view.setId(row.stream);
         row.view.setTag(row);
-        row.header = row.view.findViewById(R.id.volume_row_percentage);
-        row.header.setId(20 * row.stream);
         row.dndIcon = row.view.findViewById(R.id.dnd_icon);
         row.slider = row.view.findViewById(R.id.volume_row_slider);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
@@ -553,6 +608,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         row.icon = row.view.findViewById(R.id.volume_row_icon);
         row.icon.setImageResource(iconRes);
+        row.icon.setVisibility(View.VISIBLE);
         if (row.stream != AudioSystem.STREAM_ACCESSIBILITY) {
             row.icon.setOnClickListener(v -> {
                 Events.writeEvent(Events.EVENT_ICON_CLICK, row.stream, row.iconState);
@@ -596,6 +652,21 @@ public class VolumeDialogImpl implements VolumeDialog,
         setVisOrGone(STREAM_ALARM, expand);
         if (!isNotificationVolumeLinked()) {
             setVisOrGone(AudioManager.STREAM_NOTIFICATION, expand);
+        }
+        updateAppRows(expand);
+    }
+
+    private void updateAppRows(boolean expand) {
+        for (int i = mAppRows.size() - 1; i >= 0; i--) {
+            final VolumeRow row = mAppRows.get(i);
+            removeAppRow(row);
+        }
+        if (!expand) return;
+        List<AppTrackData> trackDatas = mController.getAudioManager().listAppTrackDatas();
+        for (AppTrackData data : trackDatas) {
+            if (data.isActive()) {
+                addAppRow(data);
+            }
         }
     }
 
@@ -721,6 +792,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private void initODICaptionsH() {
         if (mODICaptionsIcon != null) {
             mODICaptionsIcon.setOnConfirmedTapListener(() -> {
+                rescheduleTimeoutH();
                 onCaptionIconClicked();
                 Events.writeEvent(Events.EVENT_ODI_CAPTIONS_CLICK);
             }, mHandler);
@@ -963,6 +1035,10 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     protected void dismissH(int reason) {
+        // don't dismiss while still tracking touch
+        if (mIsTracking) {
+            return;
+        }
         if (D.BUG) {
             Log.d(TAG, "mDialog.dismiss() reason: " + Events.DISMISS_REASONS[reason]
                     + " from: " + Debug.getCaller());
@@ -1002,6 +1078,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                     mAllyStream = -1;
                     mMusicHidden = false;
                     tryToRemoveCaptionsTooltip();
+                    mDialog.getViewTreeObserver().removeOnComputeInternalInsetsListener(
+                            mInsetsListener);
                     mController.notifyVisible(false);
                 }, 50));
         if (!isLandscape() || !mShowActiveStreamOnly) animator.translationX(getAnimatorX());
@@ -1184,6 +1262,11 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private void removeRow(VolumeRow volumeRow) {
         mRows.remove(volumeRow);
+        mDialogRowsView.removeView(volumeRow.view);
+    }
+
+    private void removeAppRow(VolumeRow volumeRow) {
+        mAppRows.remove(volumeRow);
         mDialogRowsView.removeView(volumeRow.view);
     }
 
@@ -1370,14 +1453,12 @@ public class VolumeDialogImpl implements VolumeDialog,
         boolean useActiveColoring = isActive && row.slider.isEnabled();
         final ColorStateList tint = useActiveColoring
                 ? Utils.getColorAccent(mContext)
-                : Utils.getColorAttr(mContext, android.R.attr.textColorSecondary);
+                : ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.accent_overlay_device_default, mContext.getTheme()));
         final int alpha = useActiveColoring
                 ? Color.alpha(tint.getDefaultColor())
                 : getAlphaAttr(android.R.attr.secondaryContentAlpha);
         if (tint == row.cachedTint && mExpanded) return;
         row.slider.setProgressTintList(tint);
-        row.icon.setImageTintList(tint);
-        row.header.setTextColor(tint);
         row.cachedTint = tint;
     }
 
@@ -1431,7 +1512,16 @@ public class VolumeDialogImpl implements VolumeDialog,
                 row.slider.setProgress(newProgress, true);
             }
         }
-        Util.setText(row.header, Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax));
+        int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replace("%", ""));
+        if (percentage >= 20)
+            row.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
+        else {
+            boolean useActiveColoring = row.stream == mActiveStream && row.slider.isEnabled();
+            final ColorStateList iconTint = useActiveColoring
+                ? Utils.getColorAccent(mContext)
+                : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
+            row.icon.setImageTintList(iconTint);
+        }
     }
 
     private void recheckH(VolumeRow row) {
@@ -1619,24 +1709,50 @@ public class VolumeDialogImpl implements VolumeDialog,
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             rescheduleTimeoutH();
-            if (mRow.ss == null) return;
             if (D.BUG) Log.d(TAG, AudioSystem.streamToString(mRow.stream)
                     + " onProgressChanged " + progress + " fromUser=" + fromUser);
             if (!fromUser) return;
+            if (mRow.isAppVolumeRow) {
+                mController.getAudioManager().setAppVolume(mRow.packageName, progress * 0.01f);
+                return;
+            }
+            if (mRow.ss == null) return;
             if (mRow.ss.levelMin > 0) {
                 final int minProgress = mRow.ss.levelMin * 100;
                 if (progress < minProgress) {
                     seekBar.setProgress(minProgress);
+                    if (minProgress > 25)
+                        mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
+                    else
+                        mRow.icon.getDrawable().setTintList(null);
                     progress = minProgress;
                 }
             }
             final int userLevel = getImpliedLevel(seekBar, progress);
             if (mRow.ss.level == (mRow.ss.levelMin + 1) && userLevel <= mRow.ss.level) {
+                int percentage = Integer.parseInt(Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax).replace("%", ""));
+                if (percentage >= 20)
+                    mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
+                else {
+                    boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
+                    final ColorStateList iconTint = useActiveColoring
+                        ? Utils.getColorAccent(mContext)
+                        : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
+                    mRow.icon.setImageTintList(iconTint);
+                }
                 seekBar.setProgress((mRow.ss.levelMin + 1) * 100);
-                Util.setText(mRow.header,Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax));
                 return;
             }
-            Util.setText(mRow.header, Utils.formatPercentage(userLevel, mRow.ss.levelMax));
+            int percentage = Integer.parseInt(Utils.formatPercentage(userLevel, mRow.ss.levelMax).replace("%", ""));
+            if (percentage >= 20)
+                mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
+            else {
+                boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
+                final ColorStateList iconTint = useActiveColoring
+                    ? Utils.getColorAccent(mContext)
+                    : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
+                mRow.icon.setImageTintList(iconTint);
+            }
             if (mRow.ss.level != userLevel || mRow.ss.muted && userLevel > 0) {
                 mRow.userAttempt = SystemClock.uptimeMillis();
                 if (mRow.requestedLevel != userLevel) {
@@ -1651,15 +1767,20 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
+            mRow.tracking = true;
+            if (mRow.isAppVolumeRow) return;
             if (D.BUG) Log.d(TAG, "onStartTrackingTouch"+ " " + mRow.stream);
             mController.setActiveStream(mRow.stream);
-            mRow.tracking = true;
+            mIsTracking = true;
         }
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
             if (D.BUG) Log.d(TAG, "onStopTrackingTouch"+ " " + mRow.stream);
+            mIsTracking = false;
+            rescheduleTimeoutH();
             mRow.tracking = false;
+            if (mRow.isAppVolumeRow) return;
             mRow.userAttempt = SystemClock.uptimeMillis();
             final int userLevel = getImpliedLevel(seekBar, seekBar.getProgress());
             Events.writeEvent(Events.EVENT_TOUCH_LEVEL_DONE, mRow.stream, userLevel);
@@ -1692,7 +1813,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private static class VolumeRow {
         private View view;
-        private TextView header;
         private ImageButton icon;
         private SeekBar slider;
         private int stream;
@@ -1710,5 +1830,9 @@ public class VolumeDialogImpl implements VolumeDialog,
         private int animTargetProgress;
         private int lastAudibleLevel = 2;
         private FrameLayout dndIcon;
+        /* for change app's volume */
+        private String packageName;
+        private boolean isAppVolumeRow = false;
+        private boolean appMuted;
     }
 }

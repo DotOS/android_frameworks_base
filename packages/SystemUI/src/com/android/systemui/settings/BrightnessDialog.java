@@ -55,6 +55,7 @@ public class BrightnessDialog extends Activity {
         window.setGravity(Gravity.TOP);
         window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         window.requestFeature(Window.FEATURE_NO_TITLE);
+        window.setBackgroundDrawableResource(android.R.color.transparent);
         setContentView(LayoutInflater.from(this).inflate(R.layout.quick_settings_brightness_dialog, null));
         final TextView progressText = findViewById(R.id.brightness_text_progress);
         final ImageView icon = findViewById(R.id.brightness_icon_auto);

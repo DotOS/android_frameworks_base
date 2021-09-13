@@ -101,6 +101,7 @@
             android:gravity="center"
             android:singleLine="true"
             android:ellipsize="marquee"
+            android:textColor="?android:attr/textColorPrimary"
             android:focusable="true" />
     </LinearLayout>
 </com.android.systemui.statusbar.phone.NotificationShadeWindowView>

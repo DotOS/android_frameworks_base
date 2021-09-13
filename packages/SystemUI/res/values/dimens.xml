@@ -427,7 +427,7 @@
     <!-- The width of the panel that holds the quick settings. -->
     <dimen name="qs_panel_width">@dimen/notification_panel_width</dimen>
 
-    <dimen name="volume_dialog_panel_transparent_padding_horizontal">4dp</dimen>
+    <dimen name="volume_dialog_panel_transparent_padding_horizontal">8dp</dimen>
 
     <dimen name="volume_dialog_panel_transparent_padding">20dp</dimen>
 
@@ -445,7 +445,7 @@
 
     <dimen name="volume_dialog_tap_target_size">48dp</dimen>
 
-    <dimen name="volume_dialog_spacer">4dp</dimen>
+    <dimen name="volume_dialog_spacer">8dp</dimen>
 
     <dimen name="volume_dialog_slider_margin_top">14dp</dimen>
 
@@ -481,22 +481,22 @@
 
     <dimen name="qs_tile_height">108dp</dimen>
     <!--notification_side_paddings + notification_content_margin_start - (qs_quick_tile_size - qs_tile_background_size) / 2 -->
-    <dimen name="qs_tile_layout_margin_side">18dp</dimen>
-    <dimen name="qs_tile_margin_horizontal">18dp</dimen>
+    <dimen name="qs_tile_layout_margin_side">16dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">16dp</dimen>
     <dimen name="qs_tile_margin_horizontal_two_line">2dp</dimen>
-    <dimen name="qs_tile_margin_vertical">2dp</dimen>
-    <dimen name="qs_tile_margin_top_bottom">12dp</dimen>
-    <dimen name="qs_tile_margin_top_bottom_negative">-12dp</dimen>
+    <dimen name="qs_tile_margin_vertical">4dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom">16dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom_negative">-16dp</dimen>
     <!-- The height of the qs customize header. Should be
          (qs_panel_padding_top (48dp) +  brightness_mirror_height (48dp) + qs_tile_margin_top (0dp)) -
          (Toolbar_minWidth (56dp) + qs_tile_margin_top_bottom (12dp))
     -->
     <dimen name="qs_customize_header_min_height">46dp</dimen>
-    <dimen name="qs_tile_margin_top">6dp</dimen>
+    <dimen name="qs_tile_margin_top">8dp</dimen>
     <dimen name="qs_tile_icon_background_stroke_width">-1dp</dimen>
     <dimen name="qs_tile_background_size">52dp</dimen>
     <dimen name="qs_quick_tile_size">58dp</dimen>
-    <dimen name="qs_quick_tile_padding">12dp</dimen>
+    <dimen name="qs_quick_tile_padding">16dp</dimen>
     <dimen name="qs_header_gear_translation">16dp</dimen>
     <dimen name="qs_header_tile_margin_bottom">18dp</dimen>
     <dimen name="qs_page_indicator_width">16dp</dimen>
@@ -508,12 +508,12 @@
     <dimen name="qs_dual_tile_height">112dp</dimen>
     <dimen name="qs_dual_tile_padding_vertical">8dp</dimen>
     <dimen name="qs_dual_tile_padding_horizontal">6dp</dimen>
-    <dimen name="qs_tile_padding_top">14dp</dimen>
+    <dimen name="qs_tile_padding_top">16dp</dimen>
     <dimen name="qs_tile_padding_top_large_text">4dp</dimen>
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
     <dimen name="qs_tile_spacing">4dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
-    <dimen name="qs_panel_padding_top">6dp</dimen>
+    <dimen name="qs_panel_padding_top">16dp</dimen>
     <dimen name="qs_detail_header_height">56dp</dimen>
     <dimen name="qs_detail_header_padding">0dp</dimen>
     <dimen name="qs_detail_image_width">56dp</dimen>
@@ -1386,9 +1386,9 @@
 
     <!-- Screen Record -->
     <dimen name="screenrecord_dialog_padding">18dp</dimen>
-    <dimen name="screenrecord_logo_size">24dp</dimen>
-    <dimen name="screenrecord_status_text_size">14sp</dimen>
-    <dimen name="screenrecord_status_icon_radius">7dp</dimen>
+    <dimen name="screenrecord_logo_size">32dp</dimen>
+    <dimen name="screenrecord_status_text_size">16sp</dimen>
+    <dimen name="screenrecord_status_icon_radius">12dp</dimen>
     <dimen name="screenrecord_status_icon_width">21dp</dimen>
     <dimen name="screenrecord_status_icon_height">17.5dp</dimen>
     <dimen name="screenrecord_status_icon_bg_radius">8dp</dimen>

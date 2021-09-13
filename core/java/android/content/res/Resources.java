@@ -1063,16 +1063,7 @@ public class Resources {
                     try {
                         AccentUtils utils = new AccentUtils();
                         String resName = getResourceName(id);
-                        if (utils.isResourceDarkAccent(resName))
-                            value.data = utils.getDarkAccentColor(value.data);
-                        else if (utils.isResourceLightAccent(resName))
-                            value.data = utils.getLightAccentColor(value.data);
-                        else if (utils.isResourceAccentBackground(resName))
-                            value.data = utils.getBackgroundAccentColor(value.data);
-                        else if (utils.isResourceAccentOverlayLight(resName))
-                            value.data = utils.getOverlayLightAccentColor(value.data);
-                        else if (utils.isResourceAccentOverlayDark(resName))
-                            value.data = utils.getOverlayDarkAccentColor(value.data);
+                        value.data = utils.applyOverride(resName, value.data);
                     } catch (NotFoundException ignored) {
                     } catch (Exception ex) {
                         Log.e(TAG, ex.getMessage());

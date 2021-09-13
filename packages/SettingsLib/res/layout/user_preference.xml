@@ -42,6 +42,8 @@
             android:fadingEdge="horizontal"
             android:paddingStart="@dimen/user_spinner_padding"
             android:paddingEnd="@dimen/user_spinner_padding"
-            style="?android:attr/textAppearanceMedium" />
+            style="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:textSize="17sp" />
 
 </LinearLayout>

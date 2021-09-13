@@ -32,20 +32,24 @@
         android:gravity="center_vertical"
         android:background="@drawable/dot_footer_bg"
         android:minHeight="?android:attr/listPreferredItemHeight"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="?android:attr/listPreferredItemPaddingStart">
 
         <LinearLayout
             android:id="@+id/icon_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="-6dp"
             android:orientation="horizontal"
-            android:paddingEnd="12dp">
+            android:paddingBottom="8dp">
 
             <ImageView
                 android:id="@android:id/icon"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:padding="6dp"
                 android:tint="?android:attr/colorAccent" />
         </LinearLayout>
 
@@ -56,8 +60,8 @@
             android:ellipsize="marquee"
             android:maxLines="10"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:textSize="14sp"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:textSize="15sp"
+            android:textColor="?android:attr/colorAccent" />
 
     </LinearLayout>
 

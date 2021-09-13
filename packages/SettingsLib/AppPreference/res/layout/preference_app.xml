@@ -28,22 +28,25 @@
         android:id="@+id/icon_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start|center_vertical"
-        android:minWidth="56dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingEnd="8dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp">
         <ImageView
             android:id="@android:id/icon"
             android:layout_width="@dimen/secondary_app_icon_size"
-            android:layout_height="@dimen/secondary_app_icon_size"/>
+            android:layout_height="@dimen/secondary_app_icon_size"
+            android:adjustViewBounds="true"
+            android:padding="6dp"
+            android:scaleType="fitCenter" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginStart="16dp"
         android:orientation="vertical"
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
@@ -55,15 +58,17 @@
             android:ellipsize="marquee"
             android:fadingEdge="horizontal"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceListItem"/>
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@android:id/summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textDirection="locale"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"/>
+            android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginTop="2dp" />
 
         <TextView
             android:id="@+id/appendix"

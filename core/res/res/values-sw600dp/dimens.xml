@@ -23,7 +23,7 @@
     <!-- The height that is used when creating thumbnails of applications. -->
     <dimen name="thumbnail_height">360dp</dimen>
     <!-- Default height of an action bar. -->
-    <dimen name="action_bar_default_height">56dip</dimen>
+    <dimen name="action_bar_default_height">70dip</dimen>
     <!-- Vertical padding around action bar icons. -->
     <dimen name="action_bar_icon_vertical_padding">4dip</dimen>
     <!-- Text size for action bar titles -->

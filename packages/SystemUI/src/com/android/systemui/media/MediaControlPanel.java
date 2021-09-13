@@ -218,7 +218,7 @@ public class MediaControlPanel {
         mKey = key;
         MediaSession.Token token = data.getToken();
         if (MonetWannabe.isMonetEnabled(mContext))
-            mBackgroundColor = Utils.getColorAttrDefaultColor(mContext, android.R.attr.colorAccentBackground);
+            mBackgroundColor = mContext.getResources().getColor(android.R.color.accent_background_device_default, mContext.getTheme());
         else
             mBackgroundColor = data.getBackgroundColor();
         if (mToken == null || !mToken.equals(token)) {

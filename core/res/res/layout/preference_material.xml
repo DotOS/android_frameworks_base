@@ -32,6 +32,7 @@
         android:id="@id/icon_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="4dp"
@@ -61,7 +62,7 @@
             android:ellipsize="marquee"
             android:singleLine="true"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/summary"
@@ -81,6 +82,7 @@
         android:id="@+id/widget_frame"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:minWidth="64dp"
         android:orientation="vertical" />

@@ -20,7 +20,7 @@
     <!-- Use the default subtitle sizes on tablets. -->
     <dimen name="text_size_subtitle_material_toolbar">16dp</dimen>
     <!-- Default height of an action bar. -->
-    <dimen name="action_bar_default_height_material">64dp</dimen>
+    <dimen name="action_bar_default_height_material">80dp</dimen>
     <!-- Default content inset of an action bar. -->
     <dimen name="action_bar_content_inset_material">24dp</dimen>
     <!-- Default content inset of an action bar with navigation present. -->

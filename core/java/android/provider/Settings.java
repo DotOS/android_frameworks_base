@@ -9691,11 +9691,41 @@ public final class Settings {
         public static final String GESTURE_NAVBAR_LENGTH = "gesture_navbar_length";
 
         /**
-         * Monet base accent.
-         * Do not override.
+         * Colourfulness
+         * Default : 1.0
+         * @hide
+         */
+        public static final String MONET_CHROMA = "monet_chroma";
+
+        /**
          * @hide
          */
         public static final String MONET_BASE_ACCENT = "monet_base_accent";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_LIGHT = "monet_base_accent_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BACKGROUND = "monet_background";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BACKGROUND_LIGHT = "monet_background_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BACKGROUND_SECONDARY = "monet_background_secondary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BACKGROUND_SECONDARY_LIGHT = "monet_background_secondary_light";
 
         /**
          * Monet Theme Engine Switch.

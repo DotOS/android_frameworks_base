@@ -40,7 +40,7 @@
             android:clipToPadding="false"
             android:importantForAccessibility="auto"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="32dp"
             android:requiresFadingEdge="vertical"
             android:fadingEdgeLength="56dp"
             android:scrollbars="none" />
@@ -48,7 +48,6 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:layout_marginTop="12dp"
             android:layout_marginBottom="32dp">
 
             <LinearLayout

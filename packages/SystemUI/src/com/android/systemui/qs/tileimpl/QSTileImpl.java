@@ -14,6 +14,8 @@
 
 package com.android.systemui.qs.tileimpl;
 
+import static androidx.lifecycle.Lifecycle.State.CREATED;
+import static androidx.lifecycle.Lifecycle.State.DESTROYED;
 import static androidx.lifecycle.Lifecycle.State.RESUMED;
 import static androidx.lifecycle.Lifecycle.State.STARTED;
 
@@ -161,6 +163,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         mTmpState = newTileState();
         mQSLogger = host.getQSLogger();
         mUiEventLogger = host.getUiEventLogger();
+        mUiHandler.post(() -> mLifecycle.setCurrentState(CREATED));
     }
 
     protected final void resetStates() {
@@ -440,15 +443,24 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         if (listening) {
             if (mListeners.add(listener) && mListeners.size() == 1) {
                 if (DEBUG) Log.d(TAG, "handleSetListening true");
-                mLifecycle.setCurrentState(RESUMED);
                 handleSetListening(listening);
-                refreshState(); // Ensure we get at least one refresh after listening.
+                mUiHandler.post(() -> {
+                    // This tile has been destroyed, the state should not change anymore and we
+                    // should not refresh it anymore.
+                    if (mLifecycle.getCurrentState().equals(DESTROYED)) return;
+                    mLifecycle.setCurrentState(RESUMED);
+                    refreshState(); // Ensure we get at least one refresh after listening.
+                });
             }
         } else {
             if (mListeners.remove(listener) && mListeners.size() == 0) {
                 if (DEBUG) Log.d(TAG, "handleSetListening false");
-                mLifecycle.setCurrentState(STARTED);
                 handleSetListening(listening);
+                mUiHandler.post(() -> {
+                    // This tile has been destroyed, the state should not change anymore.
+                    if (mLifecycle.getCurrentState().equals(DESTROYED)) return;
+                    mLifecycle.setCurrentState(STARTED);
+                });
             }
         }
         updateIsFullQs();
@@ -475,9 +487,14 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         mQSLogger.logTileDestroyed(mTileSpec, "Handle destroy");
         if (mListeners.size() != 0) {
             handleSetListening(false);
+            mListeners.clear();
         }
         mCallbacks.clear();
         mHandler.removeCallbacksAndMessages(null);
+        // This will force it to be removed from all controllers that may have it registered.
+        mUiHandler.post(() -> {
+            mLifecycle.setCurrentState(DESTROYED);
+        });
     }
 
     protected void checkIfRestrictionEnforcedByAdminOnly(State state, String userRestriction) {
@@ -515,7 +532,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
             case Tile.STATE_ACTIVE:
                 if (MonetWannabe.isMonetEnabled(context)) {
-                    return MonetWannabe.manipulateColor(Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent), 0.6f);
+                    return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                 } else {
                     if (setQsUseNewTint) {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);

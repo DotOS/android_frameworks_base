@@ -16,6 +16,7 @@
 
 package com.android.internal.util.custom;
 
+import android.app.IUiModeManager;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -25,6 +26,7 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.PowerManager;
+import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 
@@ -108,4 +110,17 @@ public class Utils {
     public static boolean hasFodSupport(Context context) {
         return context.getResources().getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint);
     }
+
+    // Check if system is in dark mode
+    public static boolean isDarkMode() {
+        IUiModeManager uiModeManager = IUiModeManager.Stub.asInterface(
+                    ServiceManager.getService(Context.UI_MODE_SERVICE));
+        try {
+            return uiModeManager.getNightMode() == 2;
+        } catch (android.os.RemoteException e) {
+            // assume light mode
+            return false;
+        }
+    }
+
 }

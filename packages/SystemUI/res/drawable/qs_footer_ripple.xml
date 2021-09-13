@@ -8,8 +8,8 @@
         </shape>
     </item>
     <item android:id="@android:id/background">
-        <shape android:shape="rectangle" android:tint="?android:attr/textColorSecondary">
-            <solid android:color="#19FFFFFF"/>
+        <shape android:shape="rectangle" android:tint="@*android:color/accent_background_device_default">
+            <solid android:color="#40FFFFFF"/>
             <corners android:radius="@dimen/dotNotificationsRadius"/>
         </shape>
     </item>

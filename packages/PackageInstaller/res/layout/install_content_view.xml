@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="18dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
             android:singleLine="true"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="26sp"
@@ -71,6 +72,8 @@
                     android:layout_height="wrap_content"
                     android:indeterminate="true"
                     android:indeterminateDrawable="@drawable/progressdrw"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:paddingTop="8dp" />
 
                 <TextView
@@ -97,6 +100,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:progressDrawable="@drawable/progressdrw" />
 
                 <TextView
