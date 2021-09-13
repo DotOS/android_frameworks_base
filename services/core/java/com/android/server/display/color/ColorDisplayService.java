@@ -47,6 +47,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManagerInternal;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.graphics.ColorSpace;
 import android.hardware.display.ColorDisplayManager;
 import android.hardware.display.ColorDisplayManager.AutoMode;
 import android.hardware.display.ColorDisplayManager.ColorMode;
@@ -109,7 +110,7 @@ public final class ColorDisplayService extends SystemService {
     /**
      * The transition time, in milliseconds, for Night Display to turn on/off.
      */
-    private static final long TRANSITION_DURATION = 3000L;
+    private static final long TRANSITION_DURATION = 10000L;
 
     private static final int MSG_USER_CHANGED = 0;
     private static final int MSG_SET_UP = 1;
@@ -117,6 +118,7 @@ public final class ColorDisplayService extends SystemService {
     private static final int MSG_APPLY_NIGHT_DISPLAY_ANIMATED = 3;
     private static final int MSG_APPLY_GLOBAL_SATURATION = 4;
     private static final int MSG_APPLY_DISPLAY_WHITE_BALANCE = 5;
+    private static final int MSG_APPLY_DISPLAY_COLOR_BALANCE = 6;
 
     /**
      * Return value if a setting has not been set.
@@ -130,6 +132,9 @@ public final class ColorDisplayService extends SystemService {
 
     private final NightDisplayTintController mNightDisplayTintController =
             new NightDisplayTintController();
+
+    private final ColorBalanceTintController mColorBalanceTintController =
+            new ColorBalanceTintController();
 
     @VisibleForTesting
     final DisplayWhiteBalanceTintController mDisplayWhiteBalanceTintController =
@@ -355,6 +360,11 @@ public final class ColorDisplayService extends SystemService {
                             case Secure.ACCESSIBILITY_DISPLAY_DALTONIZER:
                                 onAccessibilityDaltonizerChanged();
                                 break;
+                            case Secure.DISPLAY_COLOR_BALANCE_RED:
+                            case Secure.DISPLAY_COLOR_BALANCE_BLUE:
+                            case Secure.DISPLAY_COLOR_BALANCE_GREEN:
+                                mHandler.sendEmptyMessage(MSG_APPLY_DISPLAY_COLOR_BALANCE);
+                                break;
                             case Secure.DISPLAY_WHITE_BALANCE_ENABLED:
                                 updateDisplayWhiteBalanceStatus();
                                 break;
@@ -384,6 +394,12 @@ public final class ColorDisplayService extends SystemService {
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
         cr.registerContentObserver(
                 Secure.getUriFor(Secure.ACCESSIBILITY_DISPLAY_DALTONIZER),
+                false /* notifyForDescendants */, mContentObserver, mCurrentUser);
+        cr.registerContentObserver(Secure.getUriFor(Secure.DISPLAY_COLOR_BALANCE_RED),
+                false /* notifyForDescendants */, mContentObserver, mCurrentUser);
+        cr.registerContentObserver(Secure.getUriFor(Secure.DISPLAY_COLOR_BALANCE_GREEN),
+                false /* notifyForDescendants */, mContentObserver, mCurrentUser);
+        cr.registerContentObserver(Secure.getUriFor(Secure.DISPLAY_COLOR_BALANCE_BLUE),
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
         cr.registerContentObserver(Secure.getUriFor(Secure.DISPLAY_WHITE_BALANCE_ENABLED),
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
@@ -423,6 +439,10 @@ public final class ColorDisplayService extends SystemService {
             mDisplayWhiteBalanceTintController.setUp(getContext(), true /* needsLinear */);
 
             updateDisplayWhiteBalanceStatus();
+        }
+
+        if (mColorBalanceTintController.isAvailable(getContext())) {
+            mHandler.sendEmptyMessage(MSG_APPLY_DISPLAY_COLOR_BALANCE);
         }
     }
 
@@ -518,6 +538,11 @@ public final class ColorDisplayService extends SystemService {
 
         if (mDisplayWhiteBalanceTintController.isAvailable(getContext())) {
             updateDisplayWhiteBalanceStatus();
+        }
+
+        if (mColorBalanceTintController.isAvailable(getContext())) {
+            mColorBalanceTintController.setUp(getContext(),
+                    DisplayTransformManager.needsLinearColorMatrix(mode));
         }
     }
 
@@ -907,6 +932,25 @@ public final class ColorDisplayService extends SystemService {
         return false;
     }
 
+    private boolean setColorBalanceChannelInternal(int channel, int value) {
+        if (mCurrentUser == UserHandle.USER_NULL) {
+            return false;
+        }
+
+        boolean putSuccess = Secure.putIntForUser(getContext().getContentResolver(),
+                ColorBalanceTintController.channelToKey(channel), value, mCurrentUser);
+        if (putSuccess) {
+            mHandler.sendEmptyMessage(MSG_APPLY_DISPLAY_COLOR_BALANCE);
+        }
+
+        return putSuccess;
+    }
+
+    private int getColorBalanceChannelInternal(int channel) {
+        return Secure.getIntForUser(getContext().getContentResolver(),
+                ColorBalanceTintController.channelToKey(channel), 255, mCurrentUser);
+    }
+
     private void dumpInternal(PrintWriter pw) {
         pw.println("COLOR DISPLAY MANAGER dumpsys (color_display)");
 
@@ -1183,46 +1227,54 @@ public final class ColorDisplayService extends SystemService {
         }
     }
 
-    private final class NightDisplayTintController extends TintController {
+    private final class NightDisplayTintController extends ChromaticAdaptationTintController {
 
-        private final float[] mMatrix = new float[16];
-        private final float[] mColorTempCoefficients = new float[9];
+        private final float[] mNativeTempCoefficients = new float[9];
 
         private Boolean mIsAvailable;
         private Integer mColorTemp;
+        private boolean mNeedsLinear;
 
         /**
          * Set coefficients based on whether the color matrix is linear or not.
          */
         @Override
-        public void setUp(Context context, boolean needsLinear) {
-            final String[] coefficients = context.getResources().getStringArray(needsLinear
-                    ? R.array.config_nightDisplayColorTemperatureCoefficients
-                    : R.array.config_nightDisplayColorTemperatureCoefficientsNative);
-            for (int i = 0; i < 9 && i < coefficients.length; i++) {
-                mColorTempCoefficients[i] = Float.parseFloat(coefficients[i]);
+        protected void setUpLocked(Context context, boolean needsLinear) {
+            mNeedsLinear = needsLinear;
+            if (needsLinear) {
+                final String[] coefficients = context.getResources().getStringArray(
+                        R.array.config_nightDisplayColorTemperatureCoefficientsNative);
+                for (int i = 0; i < 9 && i < coefficients.length; i++) {
+                    mNativeTempCoefficients[i] = Float.parseFloat(coefficients[i]);
+                }
             }
         }
 
         @Override
         public void setMatrix(int cct) {
-            if (mMatrix.length != 16) {
-                Slog.d(TAG, "The display transformation matrix must be 4x4");
-                return;
+            Slog.d(ColorDisplayService.TAG, "setNightDisplayTemperatureMatrix: cct = " + cct);
+
+            if (mNeedsLinear) {
+                // Use full-fledged chromatic adaptation if possible
+                synchronized (mLock) {
+                    setMatrixLocked(ColorSpace.cctToXyz(cct));
+                }
+            } else {
+                // Chromatic adaptation path can't handle non-linear (native) color spaces, so
+                // fall back to the legacy CCT-based tint path
+                Matrix.setIdentityM(mMatrix, 0);
+
+                final float squareTemperature = cct * cct;
+                final float red = squareTemperature * mNativeTempCoefficients[0]
+                        + cct * mNativeTempCoefficients[1] + mNativeTempCoefficients[2];
+                final float green = squareTemperature * mNativeTempCoefficients[3]
+                        + cct * mNativeTempCoefficients[4] + mNativeTempCoefficients[5];
+                final float blue = squareTemperature * mNativeTempCoefficients[6]
+                        + cct * mNativeTempCoefficients[7] + mNativeTempCoefficients[8];
+                mMatrix[0] = red;
+                mMatrix[5] = green;
+                mMatrix[10] = blue;
             }
-
-            Matrix.setIdentityM(mMatrix, 0);
-
-            final float squareTemperature = cct * cct;
-            final float red = squareTemperature * mColorTempCoefficients[0]
-                    + cct * mColorTempCoefficients[1] + mColorTempCoefficients[2];
-            final float green = squareTemperature * mColorTempCoefficients[3]
-                    + cct * mColorTempCoefficients[4] + mColorTempCoefficients[5];
-            final float blue = squareTemperature * mColorTempCoefficients[6]
-                    + cct * mColorTempCoefficients[7] + mColorTempCoefficients[8];
-            mMatrix[0] = red;
-            mMatrix[5] = green;
-            mMatrix[10] = blue;
         }
 
         @Override
@@ -1444,6 +1496,10 @@ public final class ColorDisplayService extends SystemService {
                     break;
                 case MSG_APPLY_DISPLAY_WHITE_BALANCE:
                     applyTint(mDisplayWhiteBalanceTintController, false);
+                    break;
+                case MSG_APPLY_DISPLAY_COLOR_BALANCE:
+                    mColorBalanceTintController.updateBalance(getContext(), mCurrentUser);
+                    applyTint(mColorBalanceTintController, true);
                     break;
             }
         }
@@ -1683,6 +1739,26 @@ public final class ColorDisplayService extends SystemService {
             final long token = Binder.clearCallingIdentity();
             try {
                 return getNightDisplayCustomEndTimeInternal();
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
+
+        @Override
+        public boolean setColorBalanceChannel(int channel, int value) {
+            final long token = Binder.clearCallingIdentity();
+            try {
+                return setColorBalanceChannelInternal(channel, value);
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
+        }
+
+        @Override
+        public int getColorBalanceChannel(int channel) {
+            final long token = Binder.clearCallingIdentity();
+            try {
+                return getColorBalanceChannelInternal(channel);
             } finally {
                 Binder.restoreCallingIdentity(token);
             }

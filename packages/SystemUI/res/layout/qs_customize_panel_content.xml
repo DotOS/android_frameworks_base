@@ -40,7 +40,7 @@
             android:clipToPadding="false"
             android:importantForAccessibility="auto"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="16dp"
             android:requiresFadingEdge="vertical"
             android:fadingEdgeLength="56dp"
             android:scrollbars="none" />

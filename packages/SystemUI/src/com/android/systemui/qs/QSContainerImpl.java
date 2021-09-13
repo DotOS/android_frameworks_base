@@ -45,7 +45,6 @@ public class QSContainerImpl extends FrameLayout {
     private QuickStatusBarHeader mHeader;
     private float mQsExpansion;
     private QSCustomizer mQSCustomizer;
-    private View mDragHandle;
     private View mQSPanelContainer;
 
     private int mSideMargins;
@@ -66,7 +65,6 @@ public class QSContainerImpl extends FrameLayout {
         mQSDetail = findViewById(R.id.qs_detail);
         mHeader = findViewById(R.id.header);
         mQSCustomizer = findViewById(R.id.qs_customize);
-        mDragHandle = findViewById(R.id.qs_drag_handle_view);
         updateResources();
         mHeader.getHeaderQsPanel().setMediaVisibilityChangedListener((visible) -> {
             if (mHeader.getHeaderQsPanel().isShown()) {
@@ -196,8 +194,6 @@ public class QSContainerImpl extends FrameLayout {
         setBottom(getTop() + height);
         mQSDetail.setTop(mQSPanelContainer.getTop());
         mQSDetail.setBottom(getTop() + height - mQSPanel.getBrightnessContainerHeight() - (mQSPanel.getMediaHost().getVisible() ? mQSPanel.getMediaHost().getHostView().getHeight() : 0));
-        // Pin the drag handle to the bottom of the panel.
-        mDragHandle.setTranslationY(height - mDragHandle.getHeight());
     }
 
     protected int calculateContainerHeight() {
@@ -209,7 +205,6 @@ public class QSContainerImpl extends FrameLayout {
 
     public void setExpansion(float expansion) {
         mQsExpansion = expansion;
-        //mDragHandle.setAlpha(1.0f - expansion);
         updateExpansion();
     }
 

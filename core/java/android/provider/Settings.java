@@ -5486,6 +5486,69 @@ public final class Settings {
         public static final String EDGE_GESTURE_Y_DEAD_ZONE = "edge_gesture_y_dead_zone";
 
         /**
+         * Gaming mode master switch
+         * @hide
+         */
+        public static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
+
+        /**
+         * Gaming mode active state - to disable via notification / tile
+         * @hide
+         */
+        public static final String GAMING_MODE_ACTIVE = "gaming_mode_active";
+
+
+        /**
+         * Package name of apps for enabling Gaming mode
+         * @hide
+         */
+        public static final String GAMING_MODE_VALUES = "gaming_mode_values";
+        public static final String GAMING_MODE_DUMMY = "gaming_mode_dummy";
+
+        /**
+         * Whether to disable hardware keys in gaming mode
+         * @hide
+         */
+        public static final String GAMING_MODE_HW_KEYS_TOGGLE = "gaming_mode_hw_keys_toggle";
+
+        /**
+         * Whether to disable heads up gaming mode
+         * @hide
+         */
+        public static final String GAMING_MODE_HEADSUP_TOGGLE = "gaming_mode_headsup_toggle";
+
+        /**
+         * Ringer in gaming mode (0:OFF, 1:Vibrate, 2:DND, 3:Silent)
+         * @hide
+         */
+        public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
+
+        /**
+         * Whether to show notifications/toasts (0:OFF, 1:notifications, 2:toasts, 3: all)
+         * @hide
+         */
+        public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
+
+        /**
+         * Whether to lock brightness in gaming mode
+         * @hide
+         */
+        public static final String GAMING_MODE_MANUAL_BRIGHTNESS_TOGGLE = "gaming_mode_manual_brightness_toggle";
+
+        /**
+         * Whether to automatically enable the gaming mode
+         * if the launched app is a game
+         * @hide
+         */
+        public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
+
+        /**
+         * Gaming Dashboard: Quick Control
+         * @hide
+         */
+        public static final String FLAG_QUICK_CONTROL = "flag_quick_control";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -9284,6 +9347,24 @@ public final class Settings {
                 "night_display_last_activated_time";
 
         /**
+         * Display color balance for the red channel, from 0 to 255.
+         * @hide
+         */
+        public static final String DISPLAY_COLOR_BALANCE_RED = "display_color_balance_red";
+
+        /**
+         * Display color balance for the green channel, from 0 to 255.
+         * @hide
+         */
+        public static final String DISPLAY_COLOR_BALANCE_GREEN = "display_color_balance_green";
+
+        /**
+         * Display color balance for the blue channel, from 0 to 255.
+         * @hide
+         */
+        public static final String DISPLAY_COLOR_BALANCE_BLUE = "display_color_balance_blue";
+
+        /**
          * Control whether display white balance is currently enabled.
          * @hide
          */
@@ -9690,6 +9771,15 @@ public final class Settings {
          */
         public static final String GESTURE_NAVBAR_LENGTH = "gesture_navbar_length";
 
+        /** Monet Settings */
+        /**
+         * Monet Theme Engine Switch.
+         * 1 - Enabled (Default)
+         * 0 - Disabled 
+         * @hide
+         */
+        public static final String MONET_ENGINE = "monet_engine";
+
         /**
          * Colourfulness
          * Default : 1.0
@@ -9700,12 +9790,43 @@ public final class Settings {
         /**
          * @hide
          */
+        public static final String MONET_WALLPAPER_COLOR_PICKER = "monet_wallpaper_color_picker";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_WALLPAPER_COLOR_PICKER = "monet_keyguard_wallpaper_color_picker";
+
+        /** Monet System Colors */
+        /**
+         * @hide
+         */
         public static final String MONET_BASE_ACCENT = "monet_base_accent";
 
         /**
          * @hide
          */
         public static final String MONET_BASE_ACCENT_LIGHT = "monet_base_accent_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_SECONDARY = "monet_base_accent_secondary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_SECONDARY_LIGHT = "monet_base_accent_secondary_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_TERTIARY = "monet_base_accent_tertiary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_BASE_ACCENT_TERTIARY_LIGHT = "monet_base_accent_tertiary_light";
 
         /**
          * @hide
@@ -9727,38 +9848,36 @@ public final class Settings {
          */
         public static final String MONET_BACKGROUND_SECONDARY_LIGHT = "monet_background_secondary_light";
 
+        /** Monet Keyguard Colors */
         /**
-         * Monet Theme Engine Switch.
-         * 1 - Enabled (Default)
-         * 0 - Disabled 
          * @hide
          */
-        public static final String MONET_ENGINE = "monet_engine";
+        public static final String MONET_BASE_KEYGUARD_ACCENT = "monet_base_keyguard_accent";
 
         /**
-         * Monet Theme Engine
-         * Set amount of colors to be generated
-         * from wallpaper.
-         * Default = 16 (best one yet)
-         * Lowering the amount of colors will decrease the accuracy (FASTER);
-         * Increasing the amount of colors will increase the accuracy (SLOWER);
          * @hide
          */
-        public static final String MONET_COLOR_GEN = "monet_color_gen";
+        public static final String MONET_BASE_KEYGUARD_ACCENT_LIGHT = "monet_base_keyguard_accent_light";
 
         /**
-         * Monet Theme Engine
-         * Set palette type
-         * 0 - Vibrant (default)
-         * 1 - Light Vibrant
-         * 2 - Dark Vibrant
-         * 3 - Dominant
-         * 4 - Muted
-         * 5 - Light Muted
-         * 6 - Dark Muted
          * @hide
          */
-        public static final String MONET_PALETTE = "monet_palette";
+        public static final String MONET_KEYGUARD_BACKGROUND = "monet_keyguard_background";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_BACKGROUND_LIGHT = "monet_keyguard_background_light";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_BACKGROUND_SECONDARY = "monet_keyguard_background_secondary";
+
+        /**
+         * @hide
+         */
+        public static final String MONET_KEYGUARD_BACKGROUND_SECONDARY_LIGHT = "monet_keyguard_background_secondary_light";
 
         /**
          * Current provider of proximity-based sharing services.

@@ -149,7 +149,7 @@
     <dimen name="notification_max_heads_up_height_increased">188dp</dimen>
 
     <!-- Side padding on the lockscreen on the side of notifications -->
-    <dimen name="notification_side_paddings">12dp</dimen>
+    <dimen name="notification_side_paddings">16dp</dimen>
 
     <!-- padding between the heads up and the statusbar -->
     <dimen name="heads_up_status_bar_padding">8dp</dimen>
@@ -481,12 +481,12 @@
 
     <dimen name="qs_tile_height">108dp</dimen>
     <!--notification_side_paddings + notification_content_margin_start - (qs_quick_tile_size - qs_tile_background_size) / 2 -->
-    <dimen name="qs_tile_layout_margin_side">16dp</dimen>
-    <dimen name="qs_tile_margin_horizontal">16dp</dimen>
+    <dimen name="qs_tile_layout_margin_side">13dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">8dp</dimen>
     <dimen name="qs_tile_margin_horizontal_two_line">2dp</dimen>
     <dimen name="qs_tile_margin_vertical">4dp</dimen>
-    <dimen name="qs_tile_margin_top_bottom">16dp</dimen>
-    <dimen name="qs_tile_margin_top_bottom_negative">-16dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom">8dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom_negative">-8dp</dimen>
     <!-- The height of the qs customize header. Should be
          (qs_panel_padding_top (48dp) +  brightness_mirror_height (48dp) + qs_tile_margin_top (0dp)) -
          (Toolbar_minWidth (56dp) + qs_tile_margin_top_bottom (12dp))
@@ -504,7 +504,7 @@
     <dimen name="qs_tile_icon_size">22dp</dimen>
     <dimen name="qs_tile_text_size">12sp</dimen>
     <dimen name="qs_tile_divider_height">1dp</dimen>
-    <dimen name="qs_panel_padding">16dp</dimen>
+    <dimen name="qs_panel_padding">8dp</dimen>
     <dimen name="qs_dual_tile_height">112dp</dimen>
     <dimen name="qs_dual_tile_padding_vertical">8dp</dimen>
     <dimen name="qs_dual_tile_padding_horizontal">6dp</dimen>
@@ -513,7 +513,7 @@
     <dimen name="qs_tile_padding_bottom">16dp</dimen>
     <dimen name="qs_tile_spacing">4dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
-    <dimen name="qs_panel_padding_top">16dp</dimen>
+    <dimen name="qs_panel_padding_top">4dp</dimen>
     <dimen name="qs_detail_header_height">56dp</dimen>
     <dimen name="qs_detail_header_padding">0dp</dimen>
     <dimen name="qs_detail_image_width">56dp</dimen>
@@ -808,8 +808,8 @@
     <dimen name="assist_orb_navbar_scrim_height">56dp</dimen>
 
     <!-- The width/height of the phone/camera icon view on keyguard. -->
-    <dimen name="keyguard_affordance_height">56dp</dimen>
-    <dimen name="keyguard_affordance_width">56dp</dimen>
+    <dimen name="keyguard_affordance_height">42dp</dimen>
+    <dimen name="keyguard_affordance_width">42dp</dimen>
 
     <!-- The width/height of the unlock icon view on keyguard. -->
     <dimen name="keyguard_lock_height">42dp</dimen>
@@ -1081,7 +1081,7 @@
     <dimen name="edge_margin">8dp</dimen>
 
     <!-- The absolute side margins of quick settings -->
-    <dimen name="quick_settings_bottom_margin_media">8dp</dimen>
+    <dimen name="quick_settings_bottom_margin_media">16dp</dimen>
     <dimen name="rounded_corner_content_padding">12dp</dimen>
     <dimen name="nav_content_padding">0dp</dimen>
     <dimen name="nav_quick_scrub_track_edge_padding">24dp</dimen>
@@ -1283,21 +1283,28 @@
     <dimen name="new_qs_vertical_margin">8dp</dimen>
 
     <!-- Size of media cards in the QSPanel carousel -->
-    <dimen name="qs_media_width">350dp</dimen>
-    <dimen name="qs_media_padding">16dp</dimen>
-    <dimen name="qs_media_panel_outer_padding">16dp</dimen>
-    <dimen name="qs_media_album_size">52dp</dimen>
-    <dimen name="qs_media_icon_size">16dp</dimen>
-    <dimen name="qs_center_guideline_padding">10dp</dimen>
-    <dimen name="qs_seamless_icon_size">@dimen/qs_media_icon_size</dimen>
-    <dimen name="qs_seamless_fallback_icon_size">@dimen/qs_seamless_icon_size</dimen>
-    <dimen name="qs_seamless_fallback_end_margin">16dp</dimen>
-    <dimen name="qqs_media_spacing">16dp</dimen>
-    <dimen name="qs_footer_horizontal_margin">22dp</dimen>
+    <dimen name="qs_media_action_margin">12dp</dimen>
+    <dimen name="qs_media_action_spacing">4dp</dimen>
+    <dimen name="qs_media_album_device_padding">26dp</dimen>
+    <dimen name="qs_media_album_radius">14dp</dimen>
+    <dimen name="qs_media_album_size">92dp</dimen>
+    <dimen name="qs_media_album_size_small">72dp</dimen>
     <dimen name="qs_media_disabled_seekbar_height">1dp</dimen>
-    <dimen name="qs_media_enabled_seekbar_height">3dp</dimen>
-    <dimen name="qs_media_enabled_seekbar_vertical_padding">15dp</dimen>
-    <dimen name="qs_media_disabled_seekbar_vertical_padding">16dp</dimen>
+    <dimen name="qs_media_disabled_seekbar_vertical_padding">32dp</dimen>
+    <dimen name="qs_media_enabled_seekbar_height">2dp</dimen>
+    <dimen name="qs_media_enabled_seekbar_vertical_padding">31dp</dimen>
+    <dimen name="qs_media_icon_offset">4dp</dimen>
+    <dimen name="qs_media_icon_size">20dp</dimen>
+    <dimen name="qs_media_info_margin">12dp</dimen>
+    <dimen name="qs_media_info_spacing">8dp</dimen>
+    <dimen name="qs_media_padding">16dp</dimen>
+    <dimen name="qqs_media_spacing">16dp</dimen>
+    <dimen name="qs_seamless_fallback_icon_size">@dimen/qs_seamless_icon_size</dimen>
+    <dimen name="qs_seamless_fallback_margin">20dp</dimen>
+    <dimen name="qs_seamless_height">24dp</dimen>
+    <dimen name="qs_seamless_icon_size">12dp</dimen>
+    <dimen name="qs_center_guideline_padding">10dp</dimen>
+    <dimen name="qs_footer_horizontal_margin">22dp</dimen>
 
     <dimen name="magnification_border_size">5dp</dimen>
     <dimen name="magnification_frame_move_short">5dp</dimen>

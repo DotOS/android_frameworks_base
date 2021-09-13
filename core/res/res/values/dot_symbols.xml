@@ -34,6 +34,14 @@
     <java-symbol type="string" name="reboot_title" />
     <java-symbol type="string" name="reboot_message" />
 
+    <!-- Gaming mode -->
+    <java-symbol type="drawable" name="ic_gaming_notif" />
+    <java-symbol type="string" name="notification_channel_gaming" />
+    <java-symbol type="string" name="gaming_mode_notification_title" />
+    <java-symbol type="string" name="gaming_mode_notification_content" />
+    <java-symbol type="string" name="gaming_mode_enabled_toast" />
+    <java-symbol type="string" name="gaming_mode_disabled_toast" />
+
     <java-symbol type="array" name="custom_config_globalActionsList" />
 
   <!-- Pocket bridge -->

@@ -94,7 +94,7 @@ public enum ScrimState {
         @Override
         public void prepare(ScrimState previousState) {
             Context context = mScrimBehind.getContext();
-            mBehindTint = context.getResources().getColor(android.R.color.monet_background_device_default, context.getTheme());
+            mBehindTint = context.getResources().getColor(android.R.color.monet_lockscreen_background_device_default, context.getTheme());
             mBehindAlpha = 1f;
             mFrontAlpha = 0f;
             mBubbleAlpha = 0f;
@@ -108,7 +108,7 @@ public enum ScrimState {
         @Override
         public void prepare(ScrimState previousState) {
             Context context = mScrimBehind.getContext();
-            mFrontTint = context.getResources().getColor(android.R.color.monet_background_device_default, context.getTheme());
+            mFrontTint = context.getResources().getColor(android.R.color.monet_lockscreen_background_device_default, context.getTheme());
             mBehindAlpha = 0f;
             mBubbleAlpha = 0f;
             mFrontAlpha = 1f;
