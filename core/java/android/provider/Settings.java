@@ -5503,6 +5503,10 @@ public final class Settings {
          * @hide
          */
         public static final String GAMING_MODE_VALUES = "gaming_mode_values";
+        /**
+         * Package name of apps for enabling Gaming mode
+         * @hide
+         */
         public static final String GAMING_MODE_DUMMY = "gaming_mode_dummy";
 
         /**
