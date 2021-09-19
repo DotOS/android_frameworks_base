@@ -1512,7 +1512,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 row.slider.setProgress(newProgress, true);
             }
         }
-        int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replace("%", ""));
+        int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replace("%", "").replace(" ", ""));
         if (percentage >= 20)
             row.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
         else {
