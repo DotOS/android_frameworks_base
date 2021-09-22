@@ -51,6 +51,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangePixelXL;
     private static final String[] packagesToChangePixelXL = {
             "com.google.android.apps.photos",
+            "com.samsung.accessory",
             "com.samsung.accessory.fridaymgr",
             "com.samsung.accessory.berrymgr",
             "com.samsung.accessory.neobeanmgr",
