@@ -24,55 +24,54 @@
         android:id="@+id/clock_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true">
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="start|top"
-            android:theme="@style/TextAppearance.Keyguard"
-            android:letterSpacing="0.02"
-            android:fontFamily="@*android:string/config_headlineFontFamilyMedium"
-            android:textColor="?attr/wallpaperTextColor"
-            android:textSize="18sp"
-            android:singleLine="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="24dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/row"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-        />
-        <view class="com.android.keyguard.KeyguardSliceView$Row"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal">
+
+        <view
             android:id="@+id/row"
-            android:layout_width="0dp"
+            class="com.android.keyguard.KeyguardSliceView$Row"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
+            android:layout_marginStart="24dp"
             android:gravity="start"
             android:orientation="vertical"
-            android:layout_marginStart="24dp"
-            app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" 
-        />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@*android:string/config_headlineFontFamilyMedium"
+            android:gravity="start"
+            android:letterSpacing="0.02"
+            android:singleLine="true"
+            android:textColor="?attr/wallpaperTextColor"
+            android:textSize="18sp"
+            android:theme="@style/TextAppearance.Keyguard"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/row" />
+
         <TextClock
             android:id="@+id/clock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end|top"
-            android:theme="@style/TextAppearance.Keyguard"
+            android:layout_margin="16dp"
             android:fontFamily="@*android:string/config_headlineFontFamily"
+            android:gravity="center_horizontal"
             android:lineSpacingMultiplier="0.8"
             android:textAlignment="center"
             android:textColor="?attr/wallpaperTextColor"
             android:textSize="72dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:theme="@style/TextAppearance.Keyguard"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-        />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/row" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.android.keyguard.clock.ClockLayout>

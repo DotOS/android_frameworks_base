@@ -92,8 +92,8 @@ public class AndroidSClockController implements ClockPlugin {
 
     private final float mTextSizeNormal = 48f;
     private final float mTextSizeBig = 72f;
-    private final float mSliceTextSize = 18f;
-    private final float mTitleTextSize = 20f;
+    private final float mSliceTextSize = 16f;
+    private final float mTitleTextSize = 16f;
     private boolean mHasVisibleNotification = false;
     private boolean mClockState = false;
     private float clockDividY = 6f;
@@ -189,7 +189,10 @@ public class AndroidSClockController implements ClockPlugin {
         mContainerSetBig.clone(mContainerBig);
         mClock.setFormat12Hour("hh:mm");
         mClock.setFormat24Hour("kk:mm");
-        mClock.setTypeface(getRegularThickness());
+        mClock.setTypeface(updateThickness(mDarkAmount));
+        if (mHasVisibleNotification) {
+            mClock.setTextSize((float) Converter.dpToPx(mContext, (int) (mTextSizeBig - mTextSizeNormal)));
+        }
 
         mTitle = mView.findViewById(R.id.title);
         mRow = mView.findViewById(R.id.row);
@@ -245,6 +248,7 @@ public class AndroidSClockController implements ClockPlugin {
 
         previewClock.setTextColor(getTextColor());
         previewTitle.setTextColor(getNormalTextColor());
+        previewClock.setTypeface(updateThickness(0f));
 
         return mRenderer.createPreview(previewView, width, height);
     }
@@ -317,7 +321,6 @@ public class AndroidSClockController implements ClockPlugin {
             CharSequence title = mainTitle != null ? mainTitle.getText() : null;
             mTitle.setText(title);
             mTitle.setTextSize(mTitleTextSize);
-            if (mSliceTypeface != null) mTitle.setTypeface(mSliceTypeface);
             if (header.getPrimaryAction() != null
                     && header.getPrimaryAction().getAction() != null) {
                 mClickActions.put(mTitle, header.getPrimaryAction().getAction());
@@ -343,9 +346,6 @@ public class AndroidSClockController implements ClockPlugin {
                 button.setTextSize(isDateSlice ? mTitleTextSize : mSliceTextSize);
                 button.setGravity(Gravity.START);
             }
-
-            if (mSliceTypeface != null) button.setTypeface(mSliceTypeface);
-            // button.setVisibility(isDateSlice ? View.GONE : View.VISIBLE);
 
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
             layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
@@ -391,14 +391,6 @@ public class AndroidSClockController implements ClockPlugin {
 
         mTitle.requestLayout();
         mRow.requestLayout();
-
-        if (mClock != null) {
-            mRowHeight = mRow.getHeight() + (mHasHeader ? mTitle.getHeight() : 0);
-            if (mRow.getChildCount() != 0) {
-                mContainerSetBig.setMargin(mClock.getId(), ConstraintSet.TOP, mRowHeight);
-                mClock.requestLayout();
-            }
-        }
     };
 
     /**
@@ -455,7 +447,7 @@ public class AndroidSClockController implements ClockPlugin {
                                     new Fade().setDuration(550).addTarget(mContainer));
                             mClock.setFormat12Hour("hh:mm");
                             mClock.setFormat24Hour("kk:mm");
-                            mClock.setTypeface(getThinThickness());
+                            mClock.setTypeface(updateThickness(mDarkAmount));
                             mContainerSet.applyTo(mContainer);
                         })
                         .withEndAction(() -> {
@@ -465,7 +457,6 @@ public class AndroidSClockController implements ClockPlugin {
                         .start();
             }
         }
-        updateTextColors();
     }
 
     @Override
@@ -477,36 +468,26 @@ public class AndroidSClockController implements ClockPlugin {
 
     private Typeface updateThickness(float amount) {
         Typeface.Builder builder = new Typeface.Builder(mContext.getAssets(), "googlesansregular.ttf");
-        builder.setFontVariationSettings("'wght' " + Math.round(400 - (amount * 300)));
-        return builder.build();
-    }
-
-    private Typeface getRegularThickness() {
-        Typeface.Builder builder = new Typeface.Builder(mContext.getAssets(), "googlesansregular.ttf");
-        builder.setFontVariationSettings("'wght' 400");
-        return builder.build();
-    }
-
-    private Typeface getThinThickness() {
-        Typeface.Builder builder = new Typeface.Builder(mContext.getAssets(), "googlesansregular.ttf");
-        builder.setFontVariationSettings("'wght' 100");
+        builder.setFontVariationSettings("'wght' " + Math.round(300 - (amount * 200)));
         return builder.build();
     }
 
     @Override
     public void setDarkAmount(float darkAmount) {
         mView.setDarkAmount(darkAmount);
+        final float differenceSize = mTextSizeBig - mTextSizeNormal;
         for (int i = 0; i < mRow.getChildCount(); i++) {
             KeyguardSliceTextView child = (KeyguardSliceTextView) mRow.getChildAt(i);
             final boolean isDateSlice = child.getTag().toString().equals(KeyguardSliceProvider.KEYGUARD_DATE_URI);
             child.setTextSize((isDateSlice ? mTitleTextSize : mSliceTextSize) - (2.5f * darkAmount));
         }
         mTitle.setTextSize(mTitleTextSize - (2.5f * darkAmount));
-        if (!mHasVisibleNotification) {
-            mClock.setTypeface(updateThickness(darkAmount));
+        mClock.setTypeface(updateThickness(darkAmount));
+        if (mClock != null && !mHasVisibleNotification) {
+            mClock.setTextSize((float) Converter.dpToPx(mContext, (int) (mTextSizeNormal + differenceSize - 2.5f * darkAmount)));
+            mClock.requestLayout();
         }
         mRow.setDarkAmount(darkAmount);
-        mTitle.requestLayout();
         mRow.requestLayout();
         mDarkAmount = darkAmount;
         updateTextColors();
@@ -521,8 +502,7 @@ public class AndroidSClockController implements ClockPlugin {
     }
 
     private void updateTextColors() {
-        int color = getTextColor();
-        mClock.setTextColor(color);
+        mClock.setTextColor(getTextColor());
         mTitle.setTextColor(getNormalTextColor());
         for (int i = 0; i < mRow.getChildCount(); i++) {
             View child = mRow.getChildAt(i);
@@ -535,8 +515,7 @@ public class AndroidSClockController implements ClockPlugin {
         int accentColor = MonetWannabe.isMonetEnabled(mContext) ? 
             mContext.getColor(android.R.color.monet_clock_color_device_default) : 
             (mPalette != null ? mPalette.getPrimaryColor() : mTextColor);
-        int color = mHasVisibleNotification ? mTextColor : accentColor;
-        return ColorUtils.blendARGB(color, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.2f);
+        return ColorUtils.blendARGB(accentColor, Color.WHITE, mDarkAmount > 0.9f ? mDarkAmount : 0.2f);
     }
 
     int getNormalTextColor() {
