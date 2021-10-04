@@ -1081,7 +1081,7 @@
     <dimen name="edge_margin">8dp</dimen>
 
     <!-- The absolute side margins of quick settings -->
-    <dimen name="quick_settings_bottom_margin_media">16dp</dimen>
+    <dimen name="quick_settings_bottom_margin_media">0dp</dimen>
     <dimen name="rounded_corner_content_padding">12dp</dimen>
     <dimen name="nav_content_padding">0dp</dimen>
     <dimen name="nav_quick_scrub_track_edge_padding">24dp</dimen>
