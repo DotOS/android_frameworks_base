@@ -135,19 +135,34 @@ public class NotificationLightsView extends RelativeLayout {
         int width = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_WIDTH, 125,
                 UserHandle.USER_CURRENT);
+        int layoutStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_LIGHT_LAYOUT_STYLE, 0,
+                UserHandle.USER_CURRENT);
 
         ImageView leftViewFaded = (ImageView) findViewById(R.id.notification_animation_left_faded);
+        ImageView topViewFaded = (ImageView) findViewById(R.id.notification_animation_top_faded);
         ImageView rightViewFaded = (ImageView) findViewById(R.id.notification_animation_right_faded);
+        ImageView bottomViewFaded = (ImageView) findViewById(R.id.notification_animation_bottom_faded);
         ImageView leftViewSolid = (ImageView) findViewById(R.id.notification_animation_left_solid);
+        ImageView topViewSolid = (ImageView) findViewById(R.id.notification_animation_top_solid);
         ImageView rightViewSolid = (ImageView) findViewById(R.id.notification_animation_right_solid);
+        ImageView bottomViewSolid = (ImageView) findViewById(R.id.notification_animation_bottom_solid);
         leftViewFaded.setColorFilter(color);
+        topViewFaded.setColorFilter(color);
         rightViewFaded.setColorFilter(color);
-        leftViewFaded.setVisibility(style == 0 ? View.VISIBLE : View.GONE);
-        rightViewFaded.setVisibility(style == 0 ? View.VISIBLE : View.GONE);
+        bottomViewFaded.setColorFilter(color);
+        leftViewFaded.setVisibility(style == 0 && layoutStyle != 1 ? View.VISIBLE : View.GONE);
+        topViewFaded.setVisibility(style == 0 && layoutStyle != 2 ? View.VISIBLE : View.GONE);
+        rightViewFaded.setVisibility(style == 0 && layoutStyle != 1 ? View.VISIBLE : View.GONE);
+        bottomViewFaded.setVisibility(style == 0 && layoutStyle != 2 ? View.VISIBLE : View.GONE);
         leftViewSolid.setColorFilter(color);
+        topViewSolid.setColorFilter(color);
         rightViewSolid.setColorFilter(color);
-        leftViewSolid.setVisibility(style == 1 ? View.VISIBLE : View.GONE);
-        rightViewSolid.setVisibility(style == 1 ? View.VISIBLE : View.GONE);
+        bottomViewSolid.setColorFilter(color);
+        leftViewSolid.setVisibility(style == 1 && layoutStyle != 1 ? View.VISIBLE : View.GONE);
+        topViewSolid.setVisibility(style == 1 && layoutStyle != 2 ? View.VISIBLE : View.GONE);
+        rightViewSolid.setVisibility(style == 1 && layoutStyle != 1 ? View.VISIBLE : View.GONE);
+        bottomViewSolid.setVisibility(style == 1 && layoutStyle != 2 ? View.VISIBLE : View.GONE);
         if (leftViewSolid != null && rightViewSolid != null) {
             leftViewSolid.getLayoutParams().width = width;
             rightViewSolid.getLayoutParams().width = width;
@@ -155,6 +170,14 @@ public class NotificationLightsView extends RelativeLayout {
         if (leftViewFaded != null && rightViewFaded != null) {
             leftViewFaded.getLayoutParams().width = width;
             rightViewFaded.getLayoutParams().width = width;
+        }
+        if (topViewSolid != null && bottomViewSolid != null) {
+            topViewSolid.getLayoutParams().height = width;
+            bottomViewSolid.getLayoutParams().height = width;
+        }
+        if (topViewFaded != null && bottomViewFaded != null) {
+            topViewFaded.getLayoutParams().height = width;
+            bottomViewFaded.getLayoutParams().height = width;
         }
         mLightAnimator = ValueAnimator.ofFloat(new float[]{0.0f, 2.0f});
         mLightAnimator.setDuration(duration);
@@ -185,9 +208,13 @@ public class NotificationLightsView extends RelativeLayout {
                 if (DEBUG) Log.d(TAG, "onAnimationUpdate");
                 float progress = ((Float) animation.getAnimatedValue()).floatValue();
                 leftViewFaded.setScaleY(progress);
+                topViewFaded.setScaleX(progress);
                 rightViewFaded.setScaleY(progress);
+                bottomViewFaded.setScaleX(progress);
                 leftViewSolid.setScaleY(progress);
+                topViewSolid.setScaleX(progress);
                 rightViewSolid.setScaleY(progress);
+                bottomViewSolid.setScaleX(progress);
                 float alpha = 1.0f;
                 if (progress <= 0.3f) {
                     alpha = progress / 0.3f;
@@ -195,9 +222,13 @@ public class NotificationLightsView extends RelativeLayout {
                     alpha = 2.0f - progress;
                 }
                 leftViewFaded.setAlpha(alpha);
+                topViewFaded.setAlpha(alpha);
                 rightViewFaded.setAlpha(alpha);
+                bottomViewFaded.setAlpha(alpha);
                 leftViewSolid.setAlpha(alpha);
+                topViewSolid.setAlpha(alpha);
                 rightViewSolid.setAlpha(alpha);
+                bottomViewSolid.setAlpha(alpha);
             }
         });
         if (DEBUG) Log.d(TAG, "start");
