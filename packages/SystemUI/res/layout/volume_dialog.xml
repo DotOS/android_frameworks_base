@@ -100,7 +100,6 @@
             android:background="@drawable/vol_dot_background"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:minHeight="@dimen/volume_dialog_panel_width"
             android:orientation="vertical"
             android:translationZ="@dimen/volume_dialog_elevation">
 

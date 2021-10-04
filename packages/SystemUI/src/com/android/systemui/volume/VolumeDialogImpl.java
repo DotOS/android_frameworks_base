@@ -1513,14 +1513,11 @@ public class VolumeDialogImpl implements VolumeDialog,
             }
         }
         int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replaceAll("[^a-zA-Z0-9]", ""));
-        if (percentage >= 20)
+        boolean useActiveColoring = row.stream == mActiveStream && row.slider.isEnabled();
+        if (percentage >= 20 && useActiveColoring)
             row.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
         else {
-            boolean useActiveColoring = row.stream == mActiveStream && row.slider.isEnabled();
-            final ColorStateList iconTint = useActiveColoring
-                ? Utils.getColorAccent(mContext)
-                : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
-            row.icon.setImageTintList(iconTint);
+            row.icon.setImageTintList(Utils.getColorAccent(mContext));
         }
     }
 
@@ -1717,41 +1714,34 @@ public class VolumeDialogImpl implements VolumeDialog,
                 return;
             }
             if (mRow.ss == null) return;
+            boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
             if (mRow.ss.levelMin > 0) {
                 final int minProgress = mRow.ss.levelMin * 100;
                 if (progress < minProgress) {
                     seekBar.setProgress(minProgress);
-                    if (minProgress > 25)
+                    if (minProgress >= 20 && useActiveColoring)
                         mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
                     else
-                        mRow.icon.getDrawable().setTintList(null);
+                        mRow.icon.setImageTintList(Utils.getColorAccent(mContext));
                     progress = minProgress;
                 }
             }
             final int userLevel = getImpliedLevel(seekBar, progress);
             if (mRow.ss.level == (mRow.ss.levelMin + 1) && userLevel <= mRow.ss.level) {
                 int percentage = Integer.parseInt(Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax).replaceAll("[^a-zA-Z0-9]", ""));
-                if (percentage >= 20)
+                if (percentage >= 20 && useActiveColoring)
                     mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
                 else {
-                    boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
-                    final ColorStateList iconTint = useActiveColoring
-                        ? Utils.getColorAccent(mContext)
-                        : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
-                    mRow.icon.setImageTintList(iconTint);
+                    mRow.icon.setImageTintList(Utils.getColorAccent(mContext));
                 }
                 seekBar.setProgress((mRow.ss.levelMin + 1) * 100);
                 return;
             }
             int percentage = Integer.parseInt(Utils.formatPercentage(userLevel, mRow.ss.levelMax).replaceAll("[^a-zA-Z0-9]", ""));
-            if (percentage >= 20)
+            if (percentage >= 20 && useActiveColoring)
                 mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
             else {
-                boolean useActiveColoring = mRow.stream == mActiveStream && mRow.slider.isEnabled();
-                final ColorStateList iconTint = useActiveColoring
-                    ? Utils.getColorAccent(mContext)
-                    : Utils.getColorAttr(mContext, android.R.attr.colorAccent);
-                mRow.icon.setImageTintList(iconTint);
+                mRow.icon.setImageTintList(Utils.getColorAccent(mContext));
             }
             if (mRow.ss.level != userLevel || mRow.ss.muted && userLevel > 0) {
                 mRow.userAttempt = SystemClock.uptimeMillis();
