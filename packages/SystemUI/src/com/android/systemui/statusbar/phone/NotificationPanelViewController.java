@@ -3727,8 +3727,8 @@ public class NotificationPanelViewController extends PanelViewController {
                         Settings.System.AMBIENT_NOTIFICATION_LIGHT_MODE, 1, UserHandle.USER_CURRENT) == 3;
                 if (pulseLights) {
                     int pulseColor = mPulseLightsView.getNotificationLightsColor();
-                    if (pulseColorAutomatic) {
-                        ExpandableNotificationRow row = mNotificationStackScroller.getFirstActiveClearableNotification(ROWS_HIGH_PRIORITY);
+                    ExpandableNotificationRow row = mNotificationStackScroller.getFirstActiveClearableNotification(ROWS_HIGH_PRIORITY);
+                    if (pulseColorAutomatic && row != null && row.getEntry() != null) {
                         int notificationColor = row.getEntry().getSbn().getNotification().color;
                         if (notificationColor != Notification.COLOR_DEFAULT ) {
                             pulseColor = notificationColor;
