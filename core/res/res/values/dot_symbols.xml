@@ -172,6 +172,7 @@
    <java-symbol type="bool" name="config_dozeDefaultEnabled" />
 
    <!-- Smart charging -->
+   <java-symbol type="bool" name="config_smartChargingVisibility" />
    <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
    <java-symbol type="integer" name="config_smartChargingBatteryResumeLevel" />
    <java-symbol type="string" name="config_SmartChargingSysfsNode" />
