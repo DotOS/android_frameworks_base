@@ -132,7 +132,7 @@ class MonetWatcher(private val context: Context) {
         val chroma = Settings.Secure.getFloat(context.contentResolver, Settings.Secure.MONET_CHROMA, 1.0f).toDouble()
         val lightness = Settings.Secure.getInt(context.contentResolver, Settings.Secure.MONET_LIGHTNESS, 425)
         val cond = createZcamViewingConditions(parseWhiteLuminanceUser(lightness))
-        wallpaperColors.let { 
+        wallpaperColors?.let {
             val primaryColor = it!!.primaryColor.toArgb()
             val colors = ZcamDynamicColorScheme(ZcamMaterialYouTargets(chroma, true, cond), Srgb(primaryColor), chroma, cond)
             val accent = colors.accent1[100]?.toArgb()
