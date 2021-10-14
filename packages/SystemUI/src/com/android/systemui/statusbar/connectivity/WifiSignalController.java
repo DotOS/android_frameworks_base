@@ -161,7 +161,7 @@ public class WifiSignalController extends SignalController<WifiState, IconGroup>
                 mCurrentState.activityIn, mCurrentState.activityOut, dataContentDescription,
                 dataContentDescriptionHtml, description,
                 mCurrentState.subId, /* roaming= */ false, /* showTriangle= */ true,
-                isDefault
+                isDefault, 0
         );
         callback.setMobileDataIndicators(mobileDataIndicators);
     }
