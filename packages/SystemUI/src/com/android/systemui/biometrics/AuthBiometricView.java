@@ -64,7 +64,7 @@ public abstract class AuthBiometricView extends LinearLayout {
 
     private static final String TAG = "BiometricPrompt/AuthBiometricView";
 
-    private static final String FOD = "vendor.aospa.biometrics.fingerprint.inscreen";
+    private static final String FOD = "vendor.lineage.biometrics.fingerprint.inscreen";
 
     /**
      * Authentication hardware idle.
