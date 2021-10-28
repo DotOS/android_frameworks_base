@@ -35,7 +35,7 @@
             android:id="@*android:id/action_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/qs_customizer_toolbar"
+            android:background="@android:color/transparent"
             android:navigationContentDescription="@*android:string/action_bar_up_description"
             style="@style/QSCustomizeToolbar"
             />
