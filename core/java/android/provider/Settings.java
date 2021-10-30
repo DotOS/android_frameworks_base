@@ -11360,6 +11360,48 @@ public final class Settings {
         public static final String SECURE_LOCKSCREEN_QS_DISABLED = "secure_lockscreen_qs_disabled";
 
         /**
+         * Accurate shades (default 1)
+         * @hide
+         */
+        @Readable
+        public static final String MONET_ENGINE_ACCURATE_SHADES = "monet_engine_accurate_shades";
+
+        /**
+         * Color override (default null)
+         * @hide
+         */
+        @Readable
+        public static final String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+
+        /**
+         * Custom Color override (default null)
+         * @hide
+         */
+        @Readable
+        public static final String MONET_ENGINE_CUSTOM_COLOR = "monet_engine_custom_color";
+
+        /**
+         * Colorfulness (default 1.0)
+         * @hide
+         */
+        @Readable
+        public static final String MONET_ENGINE_CHROMA_FACTOR = "monet_engine_chroma_factor";
+
+        /**
+         * Custom lightness scale (default 0)
+         * @hide
+         */
+        @Readable
+        public static final String MONET_ENGINE_LINEAR_LIGHTNESS = "monet_engine_linear_lightness";
+
+        /**
+         * Brightness (default 425, range 0-1000; depends on custom lightness)
+         * @hide
+         */
+        @Readable
+        public static final String MONET_ENGINE_WHITE_LUMINANCE = "monet_engine_white_luminance_user";
+
+        /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
          */
