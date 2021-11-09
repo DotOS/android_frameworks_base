@@ -12,27 +12,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+*/
 
 package com.dot.systemui.dagger;
 
-import com.android.systemui.SystemUI;
-import com.android.systemui.dagger.SystemUIBinder;
-
-import com.dot.systemui.CustomServices;
-
-import dagger.Binds;
 import dagger.Module;
-import dagger.multibindings.ClassKey;
-import dagger.multibindings.IntoMap;
 
-@Module
-public abstract class CustomSystemUIBinder extends SystemUIBinder {
-    /**
-     * Inject into CustomServices.
-     */
-    @Binds
-    @IntoMap
-    @ClassKey(CustomServices.class)
-    public abstract SystemUI bindCustomServices(CustomServices sysui);
+@Module(subcomponents = {SysUIGoogleSysUIComponent.class})
+public abstract class SysUIGoogleSysUIComponentModule {
 }

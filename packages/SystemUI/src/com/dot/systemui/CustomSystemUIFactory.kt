@@ -21,10 +21,12 @@ import android.content.res.AssetManager
 import android.content.res.Resources
 import com.android.systemui.SystemUIFactory
 import com.android.systemui.dagger.GlobalRootComponent
+import com.android.systemui.screenshot.ScreenshotNotificationSmartActionsProvider
 import com.android.systemui.theme.ThemeOverlayController
-import com.dot.systemui.dagger.CustomDaggerGlobalRootComponent
-import com.dot.systemui.dagger.CustomSysUIComponent
+import com.dot.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent
+import com.dot.systemui.dagger.SysUIGoogleSysUIComponent
 import com.dot.systemui.theme.CustomThemeOverlayController
+import com.google.android.systemui.screenshot.ScreenshotNotificationSmartActionsProviderGoogle
 import java.util.concurrent.ExecutionException
 
 class CustomSystemUIFactory : SystemUIFactory() {
@@ -33,8 +35,16 @@ class CustomSystemUIFactory : SystemUIFactory() {
     override fun init(context: Context?, fromTest: Boolean) {
         super.init(context, fromTest)
         if (shouldInitializeComponents()) {
-            (getSysUIComponent() as CustomSysUIComponent).createKeyguardSmartspaceController()
+            (getSysUIComponent() as SysUIGoogleSysUIComponent).createKeyguardSmartspaceController()
         }
+    }
+
+    override fun createScreenshotNotificationSmartActionsProvider(
+        context: Context?,
+        executor: Executor?,
+        handler: Handler?
+    ): ScreenshotNotificationSmartActionsProvider {
+        return ScreenshotNotificationSmartActionsProviderGoogle(context, executor, handler)
     }
 
     // ML back gesture provider
@@ -48,7 +58,7 @@ class CustomSystemUIFactory : SystemUIFactory() {
     }
 
     override fun buildGlobalRootComponent(context: Context?): GlobalRootComponent {
-        return CustomDaggerGlobalRootComponent.builder()
+        return DaggerSysUIGoogleGlobalRootComponent.builder()
             .context(context)
             .build()
     }
