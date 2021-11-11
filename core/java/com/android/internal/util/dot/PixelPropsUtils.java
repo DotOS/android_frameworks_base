@@ -70,6 +70,13 @@ public class PixelPropsUtils {
             "com.breel.wallpapers20"
     };
 
+    private static final String[] streamingPackagesToChange = {
+            "com.amazon.avod.thirdpartyclient",
+            "com.disney.disneyplus",
+            "com.netflix.mediaclient",
+            "in.startv.hotstar"
+    };
+
     private static final Map<String, Object> propsToChangeROG1;
     private static final String[] packagesToChangeROG1 = {
             "com.dts.freefireth",
@@ -178,7 +185,8 @@ public class PixelPropsUtils {
         boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
         if (!isPixelDevice && 
             ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
-                || Arrays.asList(extraPackagesToChange).contains(packageName))) {
+                || Arrays.asList(extraPackagesToChange).contains(packageName)
+                || Arrays.asList(streamingPackagesToChange).contains(packageName))) {
             Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
