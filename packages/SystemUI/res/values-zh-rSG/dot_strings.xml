@@ -13,34 +13,34 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">螢幕常亮</string>
+    <string name="accessibility_quick_settings_caffeine_off">關閉螢幕常亮</string>
+    <string name="accessibility_quick_settings_caffeine_on">開啟螢幕常亮</string>
     <!-- Power Menu -->
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_advanced">進階選項</string>
+    <string name="global_action_restart_recovery">Recovery 模式</string>
+    <string name="global_action_restart_bootloader">Bootloader 模式</string>
+    <string name="global_action_restart_ui">系統界面</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+    <string name="quick_settings_location_secondary_battery_saving">節約耗電量</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置回報：節約耗電量。</string>
+    <string name="quick_settings_location_secondary_gps_only">僅用 GPS</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置回報：僅用 GPS。</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精確度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置回報：高精確度模式。</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">浮動通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">關閉浮動通知。</string>
+    <string name="accessibility_quick_settings_heads_up_on">開啟浮動通知。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟。</string>
     <!-- QS Data Usage -->
-    <string name="dot_data_unknown">Unknown</string>
+    <string name="dot_data_unknown">未知</string>
     <!-- statusbar icons -->
-    <string name="statusbar_items_title">Statusbar icons</string>
+    <string name="statusbar_items_title">狀態列圖示</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Name of the VPN status bar icon. -->
@@ -50,42 +50,37 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+    <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
+    <string name="screen_pinning_toast_no_navbar">如要取消固定這個畫面，請按住「返回」鍵。</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">This keeps it in view until you unpin. Touch &amp; hold fingerprint sensor to unpin.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「指紋感應器」即可取消固定。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">To unpin this screen, touch &amp; hold fingerprint sensor</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定這個畫面，請按住指紋感應器。</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;is locked</string>
-    <string name="applock_fingerprint_face">, fingerprint or your face to unlock</string>
-    <string name="applock_face">&#160;or your face to unlock</string>
-    <string name="applock_fingerprint">&#160;or your fingerprint to unlock</string>
-    <string name="applock_credential">&#160;to unlock</string>
-    <string name="applock_unlock">Unlock</string>
+    <string name="applock_unlock">解鎖應用程式</string>
     <!-- Biometric Dialog - Use Face -->
-    <string name="biometric_dialog_button_use_face">Use Face</string>
+    <string name="biometric_dialog_button_use_face">使用臉部辨識</string>
     <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Scroll</string>
+    <string name="scrollss">滾動截圖</string>
     <!-- Navigation bar dpad -->
-    <string name="accessibility_dpad_left">Cursor left</string>
-    <string name="accessibility_dpad_right">Cursor right</string>
+    <string name="accessibility_dpad_left">游標左移</string>
+    <string name="accessibility_dpad_right">游標右移</string>
     <!-- Reader mode QS tile -->
-    <string name="quick_settings_reading_mode">Reading mode</string>
-    <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>
-    <string name="accessibility_quick_settings_reading_mode_off">Reading mode off.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_on">Reading mode turned on.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_off">Reading mode turned off.</string>
+    <string name="quick_settings_reading_mode">閱讀模式</string>
+    <string name="accessibility_quick_settings_reading_mode_on">開啟閱讀模式</string>
+    <string name="accessibility_quick_settings_reading_mode_off">關閉閱讀模式</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">閱讀模式已開啟</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">閱讀模式已關閉</string>
     <!-- Anti flicker QS tile -->
-    <string name="quick_settings_anti_flicker">Anti flicker</string>
+    <string name="quick_settings_anti_flicker">防閃爍</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Switch data card</string>
-    <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
-    <string name="qs_data_switch_changed_2">Using SIM 2 for Mobile data</string>
+    <string name="qs_data_switch_label">切換網路SIM卡</string>
+    <string name="qs_data_switch_changed_1">使用 SIM 1 的行動網路</string>
+    <string name="qs_data_switch_changed_2">使用 SIM 2 的行動網路</string>
     <!-- Sound QS tile -->
-    <string name="quick_settings_sound_label">Sound</string>
-    <string name="quick_settings_sound_ring">Ring</string>
-    <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="quick_settings_sound_label">聲音</string>
+    <string name="quick_settings_sound_ring">響鈴</string>
+    <string name="quick_settings_sound_vibrate">震動</string>
+    <string name="quick_settings_sound_dnd">勿擾</string>
 </resources>

@@ -15,10 +15,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copiar URL do registo de erro</string>
+    <string name="aerr_copy">Copiar URL do registo de erros</string>
     <string name="url_copy_success">URL copiado com sucesso</string>
     <string name="url_copy_failed">Ocorreu um erro ao enviar o registo para o dogbin</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">A reiniciar o sistema</string>
-    <string name="pocket_lock_message_long_press">Pressione e segure o botão liga/desliga para desbloquear</string>
+    <string name="pocket_lock_message_long_press">Pressione o botão de energia e mantenha-o premido para desbloquear</string>
 </resources>

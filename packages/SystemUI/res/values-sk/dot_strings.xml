@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Na odopnutie tejto obrazovky stlačte &amp; a podržte tlačidlo Späť</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením &amp; a podržaním snímača odtlačkov prstov.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Na odopnutie tejto obrazovky stlačte &amp; a podržte snímač odtlačkov prstov</string>
-    <string name="applock_locked"> je uzamknutá</string>
-    <string name="applock_fingerprint_face">, odomknúť odtlačkom prsta alebo tvárou</string>
-    <string name="applock_face"> alebo odomknite tvárou</string>
-    <string name="applock_fingerprint"> alebo odomknite odtlačkom prsta</string>
-    <string name="applock_credential"> odomknúť</string>
-    <string name="applock_unlock">Odomknúť</string>
+    <string name="applock_unlock">Odomknúť aplikáciu</string>
     <string name="biometric_dialog_button_use_face">Použiť tvár</string>
     <string name="scrollss">Posun</string>
     <string name="accessibility_dpad_left">Kurzor vľavo</string>

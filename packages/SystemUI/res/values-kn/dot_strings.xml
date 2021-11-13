@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">ಈ ಪರದೆಯನ್ನು ತೆಗೆಯಲು ಹಿಂದಿನ ಬಟನ್ ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ &amp; ಒತ್ತಿಹಿಡಿಯಿರಿ</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">ನೀವು ಇದ್ದನ್ನು ತೆಗೆಯುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿಯೇ ಇರುತ್ತದೆ, ತೆಗೆಯಲು ಬೆರಳಚ್ಚು ಸಂವೇದಕವನ್ನು ಸ್ಪರ್ಶಿಸಿ &amp; ಹಿಡಿಯಿರಿ.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">ಪರದೆಯನ್ನು ತೆಗೆಯಲು ಬೆರಳಚ್ಚು ಸಂವೇದಕವನ್ನು ಸ್ಪರ್ಶಿಸಿ &amp; ಒತ್ತಿ ಹಿಡಿಯಿರಿ</string>
-    <string name="applock_locked">  ಲಾಕ್ ಆಗಿದೆ</string>
-    <string name="applock_fingerprint_face">, ತೆರೆಯಲು ನಿಮ್ಮ ಬೆರಳಚ್ಚು ಇರಿಸಿ ಅಥವಾ ಮುಖವನ್ನು ತೊರಿಸಿ</string>
-    <string name="applock_face"> ಅಥವಾ ತೆರೆಯಲು ನಿಮ್ಮ ಮುಖವನ್ನು ತೋರಿಸಿ</string>
-    <string name="applock_fingerprint"> ಅಥವಾ ತೆರೆಯಲು ನಿಮ್ಮ ಬೆರಳಚ್ಚನ್ನು ಇರಿಸಿ</string>
-    <string name="applock_credential"> ತೆರೆಯಲು</string>
-    <string name="applock_unlock">ತೆರೆಯಿರಿ</string>
+    <string name="applock_unlock">Unlock app</string>
     <string name="biometric_dialog_button_use_face">ಮುಖ ಗುರುತನ್ನು ಬಳಸಿ</string>
     <string name="scrollss">ಸ್ಕ್ರಾಲ್</string>
     <string name="accessibility_dpad_left">ಸೂಚಕದ ಎಡ</string>

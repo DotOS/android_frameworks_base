@@ -16,7 +16,7 @@
     <string name="accessibility_quick_settings_caffeine_off">关闭屏幕常亮</string>
     <string name="accessibility_quick_settings_caffeine_on">开启屏幕常亮</string>
     <string name="global_action_restart_advanced">高级选项</string>
-    <string name="global_action_restart_recovery">重启至 Recovery 模式</string>
+    <string name="global_action_restart_recovery">恢复模式</string>
     <string name="global_action_restart_bootloader">引导加载程序</string>
     <string name="global_action_restart_ui">系统界面</string>
     <string name="quick_settings_secondary_location_off"/>
@@ -24,7 +24,7 @@
     <string name="accessibility_quick_settings_location_battery_saving">位置报告：省电模式。</string>
     <string name="quick_settings_location_secondary_gps_only">仅 GPS 模式</string>
     <string name="accessibility_quick_settings_location_gps_only">位置报告：仅 GPS 模式。</string>
-    <string name="quick_settings_location_secondary_high_accuracy">高精确度模式</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精度模式</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精确度模式。</string>
     <string name="quick_settings_aod_label">息屏显示</string>
     <string name="quick_settings_heads_up_label">浮动通知</string>
@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">要取消固定此屏内容，请点触并长按返回键。</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住指纹传感器即可取消固定。</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
-    <string name="applock_locked"> 已锁定</string>
-    <string name="applock_fingerprint_face">，用指纹或你的面部来解锁</string>
-    <string name="applock_face"> 或您的面部来解锁</string>
-    <string name="applock_fingerprint"> 或您的指纹来解锁</string>
-    <string name="applock_credential"> 来解锁</string>
-    <string name="applock_unlock">解锁</string>
+    <string name="applock_unlock">解除应用锁</string>
     <string name="biometric_dialog_button_use_face">使用人脸</string>
     <string name="scrollss">滚动截图</string>
     <string name="accessibility_dpad_left">光标左移</string>
@@ -61,6 +56,6 @@
     <string name="qs_data_switch_changed_2">将 SIM 卡2用于移动数据</string>
     <string name="quick_settings_sound_label">声音</string>
     <string name="quick_settings_sound_ring">响铃</string>
-    <string name="quick_settings_sound_vibrate">振动</string>
+    <string name="quick_settings_sound_vibrate">震动</string>
     <string name="quick_settings_sound_dnd">勿扰</string>
 </resources>

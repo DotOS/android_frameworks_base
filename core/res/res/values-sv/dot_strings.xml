@@ -15,10 +15,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting System</string>
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+    <string name="aerr_copy">Kopiera krasch logg URL</string>
+    <string name="url_copy_success">URL kopierad</string>
+    <string name="url_copy_failed">Ett fel inträffade vid uppladdning av loggen till dogbin</string>
+    <string name="reboot_title">Starta om</string>
+    <string name="reboot_message">Startar om operativsystemet</string>
+    <string name="pocket_lock_message_long_press">Tryck och håll in avstängningsknappen för att låsa upp</string>
 </resources>

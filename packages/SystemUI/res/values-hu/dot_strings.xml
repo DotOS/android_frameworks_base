@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">A Képernyőrögzítés feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Mindaddig megjelenítve marad, amíg Ön fel nem oldja a rögzítést. A feloldáshoz tartsa lenyomva az ujjlenyomat-olvasót.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Képernyő rögzítésének feloldásához tartsa nyomva az ujjlenyomat-olvasót</string>
-    <string name="applock_locked"> lezárásra került</string>
-    <string name="applock_fingerprint_face">, feloldáshoz használja az ujjlenyomat érzékelőt, vagy az arcfelismerést</string>
-    <string name="applock_face"> vagy az arcát a feloldáshoz</string>
-    <string name="applock_fingerprint"> vagy az ujjlenyomatát a feloldáshoz</string>
-    <string name="applock_credential"> a feloldáshoz</string>
-    <string name="applock_unlock">Feloldás</string>
+    <string name="applock_unlock">Alkalmazás-feloldás</string>
     <string name="biometric_dialog_button_use_face">Arcalapú feloldás</string>
     <string name="scrollss">Görgetés</string>
     <string name="accessibility_dpad_left">Kurzor balra</string>

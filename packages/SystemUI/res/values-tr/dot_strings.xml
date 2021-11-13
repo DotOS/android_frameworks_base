@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Bu ekranın sabitlemesini kaldırmak için Geri tuşuna dokunun ve basılı tutun</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Bu işlem, siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için parmak izi sensörüne dokunun ve basılı tutun.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Bu ekran sabitlemesini kaldırmak için parmak izi sensörüne dokunun ve basılı tutun</string>
-    <string name="applock_locked"> kilitli</string>
-    <string name="applock_fingerprint_face">, kilidi açmak için parmak izi yada yüz kilidini kullanın</string>
-    <string name="applock_face">Kilidi açmak için  veya yüz kilidini kullanın</string>
-    <string name="applock_fingerprint">Kilidi açmak için  veya parmak izini kullanın</string>
-    <string name="applock_credential"> kilidini aç</string>
-    <string name="applock_unlock">Kilidi aç</string>
+    <string name="applock_unlock">Uygulama kilidini aç</string>
     <string name="biometric_dialog_button_use_face">Yüzü kullan</string>
     <string name="scrollss">Kaydır</string>
     <string name="accessibility_dpad_left">Sol imleç</string>

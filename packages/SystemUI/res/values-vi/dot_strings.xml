@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Để bỏ ghim màn hình này, chạm &amp; giữ nút Quay lại</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ cảm biến vân tay để bỏ ghim.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Để bỏ ghim màn hình này, hãy chạm và giữ cảm biến vân tay</string>
-    <string name="applock_locked"> đã khóa</string>
-    <string name="applock_fingerprint_face">, vân tay hoặc khuôn mặt để mở khóa</string>
-    <string name="applock_face"> hoặc mặt của bạn để mở khoá</string>
-    <string name="applock_fingerprint"> hoặc vân tay của bạn để mở khoá</string>
-    <string name="applock_credential"> để mở khóa</string>
-    <string name="applock_unlock">Mở khóa</string>
+    <string name="applock_unlock">Mở khóa ứng dụng</string>
     <string name="biometric_dialog_button_use_face">Sử dụng khuôn mặt</string>
     <string name="scrollss">Cuộn</string>
     <string name="accessibility_dpad_left">Trỏ trái</string>

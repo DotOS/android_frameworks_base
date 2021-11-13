@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Um die Fixierung aufzuheben, halten Sie die \"Zurück\" Taste gedrückt</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Dieser Bildschrim ist fixiert. Halten Sie die Zurück-Taste gedrückt, um die Fixierung aufzuheben.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten</string>
-    <string name="applock_locked">  ist gesperrt</string>
-    <string name="applock_fingerprint_face">, Fingerabdruck oder Ihr Gesicht zum Entsperren verwenden</string>
-    <string name="applock_face">  oder Gesichtserkennung zum Entsperren verwenden</string>
-    <string name="applock_fingerprint"> oder Fingerabdruck zum Entsperren</string>
-    <string name="applock_credential">  zum Entsperren verwenden</string>
-    <string name="applock_unlock">Entsperren</string>
+    <string name="applock_unlock">App entsperren</string>
     <string name="biometric_dialog_button_use_face">Gesichtserkennung</string>
     <string name="scrollss">Scrollen</string>
     <string name="accessibility_dpad_left">Pfeiltaste links</string>

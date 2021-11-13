@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">如要取消固定這個畫面，請按住「返回」鍵。</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「指紋感應器」即可取消固定。</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定這個畫面，請按住指紋感應器。</string>
-    <string name="applock_locked"> 已鎖定</string>
-    <string name="applock_fingerprint_face">, 指紋 或 臉部辨識 來解鎖</string>
-    <string name="applock_face"> 或使用您的臉部解鎖</string>
-    <string name="applock_fingerprint"> 或使用您的指紋解鎖</string>
-    <string name="applock_credential"> 來解鎖</string>
-    <string name="applock_unlock">解鎖</string>
+    <string name="applock_unlock">解鎖應用程式</string>
     <string name="biometric_dialog_button_use_face">使用臉部辨識</string>
     <string name="scrollss">滾動截圖</string>
     <string name="accessibility_dpad_left">游標左移</string>

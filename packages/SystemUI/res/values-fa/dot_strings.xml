@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را نگه دارید</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش داده میدهد. برای از سنجاق درآوردن، سنسور اثرانگشت را نگه دارید.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">برای از حالت سنجاق درآوردن این صفحه، سنسور اثر انگشت را لمس کرده و نگه دارید</string>
-    <string name="applock_locked"> قفل شده بر روی</string>
-    <string name="applock_fingerprint_face">، اثر انگشت یا صورتتان برای بازگشایی</string>
-    <string name="applock_face"> یا صورتتان برای بازگشایی</string>
-    <string name="applock_fingerprint">یا اثر انگشت‌تان برای بازگشایی</string>
-    <string name="applock_credential">برای بازگشایی</string>
-    <string name="applock_unlock">باز کردن قفل</string>
+    <string name="applock_unlock">Unlock app</string>
     <string name="biometric_dialog_button_use_face">استفاده از چهره</string>
     <string name="scrollss">اسکرول</string>
     <string name="accessibility_dpad_left">نشانگر چپ</string>

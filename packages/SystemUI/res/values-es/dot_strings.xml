@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Para desanclar esta pantalla, mantén presionado el botón Atrás</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Esto lo mantiene a la vista hasta que lo desancles. Toque y mantenga presionado el sensor de huellas digitales para desanclar.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para desanclar esta pantalla, mantén presionado el sensor de huellas digitales</string>
-    <string name="applock_locked">  está bloqueado</string>
-    <string name="applock_fingerprint_face">, huella dactilar o tu cara para desbloquear</string>
-    <string name="applock_face">  o tu cara para desbloquear</string>
-    <string name="applock_fingerprint">  o tu huella dactilar para desbloquear</string>
-    <string name="applock_credential">  para desbloquear</string>
-    <string name="applock_unlock">Desbloquear</string>
+    <string name="applock_unlock">Desbloquear app</string>
     <string name="biometric_dialog_button_use_face">Usar la cara</string>
     <string name="scrollss">Deslizar</string>
     <string name="accessibility_dpad_left">Cursor a la izquierda</string>

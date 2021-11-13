@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Hal ini membuatnya tetap ditampilkan sampai Anda melepas sematan. Sentuh &amp; tahan pemindai sidik jari untuk melepas sematan.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk melepas sematan pada layar ini, sentuh &amp; tahan pemindai sidik jari</string>
-    <string name="applock_locked"> terkunci</string>
-    <string name="applock_fingerprint_face">, sidik jari atau wajah Anda untuk membuka kunci</string>
-    <string name="applock_face"> atau wajah Anda untuk membuka kunci</string>
-    <string name="applock_fingerprint"> atau sidik jari Anda untuk membuka kunci</string>
-    <string name="applock_credential"> untuk membuka</string>
-    <string name="applock_unlock">Membuka</string>
+    <string name="applock_unlock">Buka kunci aplikasi</string>
     <string name="biometric_dialog_button_use_face">Gunakan Wajah</string>
     <string name="scrollss">Gulir</string>
     <string name="accessibility_dpad_left">Kursor kiri</string>

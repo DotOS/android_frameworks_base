@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți &amp; și țineți apăsat butonul Înapoi</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Ecranul este afișat până anulați fixarea. Atingeți lung senzorul de amprentă pentru a anula fixarea.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat senzorul de amprentă</string>
-    <string name="applock_locked"> este blocat</string>
-    <string name="applock_fingerprint_face">, amprentă sau față pentru deblocare</string>
-    <string name="applock_face"> sau fața pentru deblocare</string>
-    <string name="applock_fingerprint"> sau amprenta pentru deblocare</string>
-    <string name="applock_credential"> pentru deblocare</string>
-    <string name="applock_unlock">Deblochează</string>
+    <string name="applock_unlock">Deblocare aplicaţie</string>
     <string name="biometric_dialog_button_use_face">Utilizare Față</string>
     <string name="scrollss">Scroll</string>
     <string name="accessibility_dpad_left">Cursor stânga</string>

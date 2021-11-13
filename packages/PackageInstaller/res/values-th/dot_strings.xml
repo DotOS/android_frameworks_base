@@ -15,5 +15,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="installed_version">ติดตั้งแล้ว</string>
     <string name="arrow">➜</string>
-    <string name="to_be_installed">To be installed</string>
+    <string name="to_be_installed">ที่กำลังจะติดตั้ง</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">ใช้การเลือกของระบบ (ค่าเริ่มต้น)</string>
+    <string name="bluetooth_a2dp_codec_system">ใช้ทางเลือกของระบบ (ค่าเริ่มต้น)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">โมโน</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">สเตอริโอ</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual">Dual Channel</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">ช่องสัญญาณคู่</string>
 </resources>

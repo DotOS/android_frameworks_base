@@ -30,8 +30,8 @@
     <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificações flutuantes foram desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificações flutuantes foram ativadas.</string>
     <string name="dot_data_unknown">Desconhecido</string>
     <string name="statusbar_items_title">Ícones da barra de status</string>
     <string name="status_bar_volte">VoLTE</string>
@@ -40,12 +40,7 @@
     <string name="screen_pinning_toast_no_navbar">Para desafixar esta tela, toque &amp; segure o botão Voltar</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque &amp; e mantenha o dedo sobre o sensor de impressão digital para liberar.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para desafixar esta tela, toque &amp; segure o sensor de impressão digital</string>
-    <string name="applock_locked"> está bloqueado</string>
-    <string name="applock_fingerprint_face">, impressão digital ou seu rosto para desbloquear</string>
-    <string name="applock_face"> ou seu rosto para desbloquear</string>
-    <string name="applock_fingerprint"> ou sua impressão digital para desbloquear</string>
-    <string name="applock_credential"> para desbloquear</string>
-    <string name="applock_unlock">Desbloquear</string>
+    <string name="applock_unlock">Desbloquear aplicativo</string>
     <string name="biometric_dialog_button_use_face">Usar Rosto</string>
     <string name="scrollss">Rolagem</string>
     <string name="accessibility_dpad_left">Cursor à esquerda</string>

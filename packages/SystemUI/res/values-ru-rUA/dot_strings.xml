@@ -58,12 +58,7 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Чтобы открепить этот экран, нажмите и удерживайте палец на датчике отпечатков</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;заблокировано</string>
-    <string name="applock_fingerprint_face">, используйте отпечаток или лицо для разблокировки</string>
-    <string name="applock_face">&#160;или Ваше лицо для разблокировки</string>
-    <string name="applock_fingerprint">&#160;или отпечаток пальца для разблокировки</string>
-    <string name="applock_credential">&#160;для разблокировки</string>
-    <string name="applock_unlock">Разблокировать</string>
+    <string name="applock_unlock">Unlock app</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Использовать лицо</string>
     <!-- Scrolling Screenshot string -->
