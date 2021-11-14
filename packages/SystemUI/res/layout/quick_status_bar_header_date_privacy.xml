@@ -72,14 +72,6 @@
         android:gravity="center"
     />
 
-    <FrameLayout
-        android:id="@+id/privacy_container"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:minHeight="48dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical|end" >
-
     <com.android.systemui.statusbar.policy.NetworkTraffic
         android:id="@+id/networkTraffic"
         android:layout_width="wrap_content"
@@ -87,6 +79,14 @@
         android:layout_marginStart="6dp"
         android:singleLine="false"
         systemui:showDark="false" />
+
+    <FrameLayout
+        android:id="@+id/privacy_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:minHeight="48dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|end" >
 
         <include layout="@layout/ongoing_privacy_chip" />
 
