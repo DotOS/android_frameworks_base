@@ -215,7 +215,7 @@ public class AmbientDisplayConfiguration {
         return alwaysOnEnabledSetting(user) || alwaysOnChargingEnabled(user);
     }
 
-    private boolean alwaysOnEnabledSetting(int user) {
+    public boolean alwaysOnEnabledSetting(int user) {
         final boolean alwaysOnEnabled = Settings.Secure.getIntForUser(
                 mContext.getContentResolver(), Settings.Secure.DOZE_ALWAYS_ON,
                 mAlwaysOnByDefault ? 1 : 0, user) == 1;
