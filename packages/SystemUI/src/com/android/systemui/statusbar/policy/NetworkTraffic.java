@@ -373,4 +373,9 @@ public class NetworkTraffic extends TextView {
         setSpacingAndFonts();
         update();
     }
+
+    public void setTintColor(int color) {
+        mTintColor = color;
+        updateTrafficDrawable();
+    }
 }

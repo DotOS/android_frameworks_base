@@ -144,4 +144,9 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
             update();
         }
     }
+
+    public void setTintColor(int color) {
+        mTintColor = color;
+        updateTrafficDrawable();
+    }
 }
