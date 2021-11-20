@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">استفاده از تنظیمات سیستم (پیش فرض)</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_mono">تک صدا</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">مونو</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">استریو</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">دو کاناله</string>
+    <string name="status_deep_sleep">خواب عمیق</string>
+    <string name="screen_zoom_summary_smaller">کوچکتر</string>
+    <string name="screen_zoom_summary_smallest">کوچکترین</string>
 </resources>

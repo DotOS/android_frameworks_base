@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">ક્રેશ લૉગ લિંક ને કૉપિ કરો</string>
     <string name="url_copy_success">લિંચ કોપી થઇ ગઇ</string>
-    <string name="url_copy_failed">ડૌગબીન પર લૉગ અપલોડ કરતા વખતે એરર આવ્યો છે</string>
+    <string name="url_copy_failed">An error occured while uploading the log to katbin</string>
     <string name="reboot_title">રિસ્ટારટ કરો</string>
     <string name="reboot_message">ફોન રિસ્ટારટ થઈ રહ્યું છે</string>
     <string name="pocket_lock_message_long_press">પાવર બટન દબાઈ રખો ફોન ખોલવા</string>
+    <string name="notification_channel_gaming">Gaming mode</string>
+    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
+    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
+    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
+    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 </resources>

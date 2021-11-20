@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">ক্র্যাশ লগ এর ইউআরএল কপি করুন</string>
-    <string name="url_copy_success">ইউআরল কপি হয়েছে</string>
+    <string name="aerr_copy">ক্র্যাশ লগ এর URL কপি করুন</string>
+    <string name="url_copy_success">URL কপি হয়েছে</string>
     <string name="url_copy_failed">লগ ফাইলকে ডগবিনে আপলোড করার সময় ত্রুটি ঘটেছে</string>
-    <string name="reboot_title">পুনরায় চালু</string>
+    <string name="reboot_title">রিবুট</string>
     <string name="reboot_message">সিস্টেম রিবুট হচ্ছে</string>
-    <string name="pocket_lock_message_long_press">আনলক করতে পাওয়ার বাটন টিপুন এবং ধরে রাখুন</string>
+    <string name="pocket_lock_message_long_press">আনলক করতে পাওয়ার বাটন টিপে রাখুন</string>
+    <string name="notification_channel_gaming">গেমিং মোড</string>
+    <string name="gaming_mode_notification_title">গেমিং মোড চালু হয়েছে</string>
+    <string name="gaming_mode_notification_content">গেমিং মোডটি বন্ধ করতে এখানে চাপুন</string>
+    <string name="gaming_mode_enabled_toast">গেমিং মোড চালু হয়েছে।</string>
+    <string name="gaming_mode_disabled_toast">গেমিং মোভ বন্ধ হয়েছে।</string>
 </resources>

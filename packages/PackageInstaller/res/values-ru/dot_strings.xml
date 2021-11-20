@@ -15,5 +15,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="installed_version">Установлено</string>
     <string name="arrow">➜</string>
-    <string name="to_be_installed">Будет установлено</string>
+    <string name="to_be_installed">Установлен</string>
 </resources>

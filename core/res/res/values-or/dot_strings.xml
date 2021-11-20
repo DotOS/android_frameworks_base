@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting System</string>
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+    <string name="aerr_copy">କ୍ରାସ୍ ଲଗ୍ URL କପି କରନ୍ତୁ</string>
+    <string name="url_copy_success">URL ସଫଳତାର ସହିତ ନକଲ ହୋଇଛି</string>
+    <string name="url_copy_failed">Katbin ରେ ଲଗ୍ ଅପଲୋଡ୍ କରିବା ସମୟରେ ଏକ ତ୍ରୁଟି ଘଟିଗଲା</string>
+    <string name="reboot_title">ପୁନଃଆରମ୍ଭ</string>
+    <string name="reboot_message">ସିଷ୍ଟମ୍ ପୁନଃଆରମ୍ଭ ହେଉଛି</string>
+    <string name="pocket_lock_message_long_press">ଖୋଲିବା ପାଇଁ Power ବଟନ୍ କୁ ଦବାଇ ରଖନ୍ତୁ</string>
+    <string name="notification_channel_gaming">ଖେଳ ମୋଡ୍</string>
+    <string name="gaming_mode_notification_title">ଖେଳ ମୋଡ୍ ସକ୍ଷମ ହେଲା</string>
+    <string name="gaming_mode_notification_content">ଖେଳ ମୋଡ୍ ବନ୍ଦ କରିବା ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
+    <string name="gaming_mode_enabled_toast">ଖେଳ ମୋଡ୍ ଆରମ୍ଭ ହେଲା</string>
+    <string name="gaming_mode_disabled_toast">ଖେଳ ମୋଡ୍ ବନ୍ଦ ହେଲା</string>
 </resources>

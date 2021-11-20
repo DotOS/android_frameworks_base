@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">kopijuoti klaidos url</string>
-    <string name="url_copy_success">adresas nukopijuotas sėkmingai</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
-    <string name="reboot_title">paleisti iš naujo</string>
-    <string name="reboot_message">paleidžiama iš naujo</string>
+    <string name="aerr_copy">Kopijuoti klaidos URL</string>
+    <string name="url_copy_success">URL nukopijuotas sėkmingai</string>
+    <string name="url_copy_failed">Įvyko klaida ikeliant klaidą į „katbin“</string>
+    <string name="reboot_title">Paleisti iš naujo</string>
+    <string name="reboot_message">Perkraunama sistema</string>
     <string name="pocket_lock_message_long_press">Norėdami atrakinti, paspauskite ir palaikykite įjungimo mygtuką</string>
+    <string name="notification_channel_gaming">Žaidimų rėžimas</string>
+    <string name="gaming_mode_notification_title">Žaidimų rėžimas įjungtas</string>
+    <string name="gaming_mode_notification_content">Paspauskite, kad išjungtumėte Žaidimų rėžimą</string>
+    <string name="gaming_mode_enabled_toast">Žaidimų rėžimas įjungtas</string>
+    <string name="gaming_mode_disabled_toast">Žaidimų rėžimas išjungtas</string>
 </resources>

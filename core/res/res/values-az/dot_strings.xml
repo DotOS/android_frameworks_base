@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Çökmə jurnal URL-sini kopyala</string>
+    <string name="aerr_copy">Çökmə jurnal URL-ni kopyala</string>
     <string name="url_copy_success">URL uğurla kopyalandı</string>
-    <string name="url_copy_failed">Jurnalı dogbin-ə yükləyərkən xəta baş verdi</string>
+    <string name="url_copy_failed">Jurnalı katbin-ə yükləyərkən xəta baş verdi</string>
     <string name="reboot_title">Yenidən başlat</string>
     <string name="reboot_message">Sistem yenidən başladılır</string>
     <string name="pocket_lock_message_long_press">Kilidi açmaq üçün güc düyməsinə basıb saxlayın</string>
+    <string name="notification_channel_gaming">Oyun rejimi</string>
+    <string name="gaming_mode_notification_title">Oyun rejimi aktivdir</string>
+    <string name="gaming_mode_notification_content">Oyun rejimini söndürmək üçün basın</string>
+    <string name="gaming_mode_enabled_toast">Oyun rejimi işə salındı</string>
+    <string name="gaming_mode_disabled_toast">Oyun rejimi söndürüldü</string>
 </resources>

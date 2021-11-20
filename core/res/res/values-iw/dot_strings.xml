@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">העתק את הקישור של דוח הקריסה</string>
     <string name="url_copy_success">כתובת ה־URL הועתקה בהצלחה</string>
-    <string name="url_copy_failed">התרחשה שגיאה בעת העלאת הדוח הנתונים ל־dogbin</string>
+    <string name="url_copy_failed">שגיאה התרחשה במהלך העלאת הדוח</string>
     <string name="reboot_title">הפעלה מחדש</string>
     <string name="reboot_message">המערכת מופעלת מחדש</string>
     <string name="pocket_lock_message_long_press">לחץ והחזק את כפתור ההפעלה לביטול הנעילה</string>
+    <string name="notification_channel_gaming">מצב משחק</string>
+    <string name="gaming_mode_notification_title">מצב משחק פעיל</string>
+    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
+    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
+    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 </resources>

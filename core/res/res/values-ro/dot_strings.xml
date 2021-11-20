@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Copiază URL-ul jurnalului de eroare</string>
     <string name="url_copy_success">Adresă URL copiată cu succes</string>
-    <string name="url_copy_failed">A apărut o eroare la încărcarea registrului în dogbin</string>
+    <string name="url_copy_failed">A aparut o erroare la incarcarea jurnalului pe katbin</string>
     <string name="reboot_title">Repornire</string>
     <string name="reboot_message">Repornire sistem</string>
     <string name="pocket_lock_message_long_press">Apăsați și țineți apăsat butonul de alimentare pentru a debloca</string>
+    <string name="notification_channel_gaming">Mod de joc</string>
+    <string name="gaming_mode_notification_title">Mod de joc activat</string>
+    <string name="gaming_mode_notification_content">Apăsaţi pentru a opri modul de joc</string>
+    <string name="gaming_mode_enabled_toast">Modul de joc a fost pornit</string>
+    <string name="gaming_mode_disabled_toast">Mod pentru jocuri oprit</string>
 </resources>

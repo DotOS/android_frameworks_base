@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Капіяваць спасылку журнала памылкі</string>
     <string name="url_copy_success">Спасылка паспяхова скапіявана</string>
-    <string name="url_copy_failed">Падчас загрузкі журнала на сэрвіс dogbin адбылася памылка</string>
+    <string name="url_copy_failed">An error occured while uploading the log to katbin</string>
     <string name="reboot_title">Перазагрузіць</string>
     <string name="reboot_message">Перазагрузка сістэмы</string>
     <string name="pocket_lock_message_long_press">Націсніце і ўтрымлівайце кнопку сілкавання, каб разблакаваць</string>
+    <string name="notification_channel_gaming">Gaming mode</string>
+    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
+    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
+    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
+    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 </resources>

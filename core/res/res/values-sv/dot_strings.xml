@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Kopiera krasch logg URL</string>
     <string name="url_copy_success">URL kopierad</string>
-    <string name="url_copy_failed">Ett fel inträffade vid uppladdning av loggen till dogbin</string>
+    <string name="url_copy_failed">An error occured while uploading the log to katbin</string>
     <string name="reboot_title">Starta om</string>
     <string name="reboot_message">Startar om operativsystemet</string>
     <string name="pocket_lock_message_long_press">Tryck och håll in avstängningsknappen för att låsa upp</string>
+    <string name="notification_channel_gaming">Gaming mode</string>
+    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
+    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
+    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
+    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 </resources>

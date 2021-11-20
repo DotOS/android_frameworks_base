@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">کپی کردن گزارش خرابی</string>
     <string name="url_copy_success">آدرس با موفقیت کپی شد</string>
-    <string name="url_copy_failed">خطایی در حین آپلود کردن گزارش به dogbin رخ داد</string>
+    <string name="url_copy_failed">مشکلی در حین آپلود کردن گزارش به katbin رخ داده است</string>
     <string name="reboot_title">راه اندازی مجدد</string>
     <string name="reboot_message">درحال راه اندازی مجدد سیستم</string>
     <string name="pocket_lock_message_long_press">کلید پاور را برای بازکردن فشار داده و نگه دارید</string>
+    <string name="notification_channel_gaming">حالت بازی</string>
+    <string name="gaming_mode_notification_title">حالت بازی فعال شد</string>
+    <string name="gaming_mode_notification_content">برای غیرفعال کردن حالت بازی ضربه بزنید</string>
+    <string name="gaming_mode_enabled_toast">حالت بازی روشن شد</string>
+    <string name="gaming_mode_disabled_toast">حالت بازی خاموش شد</string>
 </resources>

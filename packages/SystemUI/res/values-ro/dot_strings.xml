@@ -32,8 +32,29 @@
     <string name="accessibility_quick_settings_heads_up_on">Notificari activate.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notificarile au fost oprite.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notificarile au fost activate.</string>
+    <string name="gaming_mode_not_enabled">Modul de joc este dezactivat în setări</string>
+    <string name="quick_settings_gaming_mode_label">Mod de joc</string>
+    <string name="quick_settings_reboot_label">Repornire</string>
+    <string name="quick_settings_reboot_recovery_label">Mod Recuperare</string>
+    <string name="quick_settings_poweroff_label">Oprire</string>
+    <string name="quick_settings_compass_label">Busolă</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0<xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inițializare\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Busolă oprită.</string>
+    <string name="accessibility_quick_settings_compass_on">Busolă pornită.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
     <string name="dot_data_unknown">Necunoscut</string>
     <string name="statusbar_items_title">Iconițe din bara de stare</string>
+    <string name="status_bar_camera">Cameră foto</string>
+    <string name="status_bar_location">Locație</string>
+    <string name="status_bar_microphone">Microfon</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">Aceasta îl ține la vedere până când anulați fixarea. Atingeți &amp; țineți apăsat Înapoi pentru a anula fixarea.</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Sonerie</string>
     <string name="quick_settings_sound_vibrate">Vibrare</string>
     <string name="quick_settings_sound_dnd">Nu deranjaţi</string>
+    <string name="screenrecord_stopdot_label">Arată punctul de oprire\nApăsați lung pentru a-l muta</string>
+    <string name="screenrecord_lowquality_label">Calitate scăzută pentru dimensiunea mai mică a fișierului</string>
 </resources>

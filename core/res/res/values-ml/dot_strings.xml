@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting System</string>
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+    <string name="aerr_copy">ക്രാഷ് ലോഗ് URL പകർത്തുക</string>
+    <string name="url_copy_success">URL വിജയകരമായി പകർത്തി</string>
+    <string name="url_copy_failed">ലോഗ് കാറ്റബിനിലേക്കു അപ്‌ലോഡു ചെയ്യുനിടെയെല് ഒരു പിശക് സംഭവിച്ചു</string>
+    <string name="reboot_title">റീബൂട്ട്</string>
+    <string name="reboot_message">റീബൂട്ടിങ്ങ് സിസ്റ്റം</string>
+    <string name="pocket_lock_message_long_press">അൺലോക്കുചെയ്യാൻ പവർ ബട്ടൺ അമർത്തിപ്പിടിക്കുക</string>
+    <string name="notification_channel_gaming">ഗെയിമിംഗ് മോഡ്</string>
+    <string name="gaming_mode_notification_title">ഗെയിമിംഗ് മോഡ് പ്രവർത്തനക്ഷമമാക്കി</string>
+    <string name="gaming_mode_notification_content">ഗെയിമിംഗ് മോഡ് ഓഫുചെയ്യാൻ ടാപ്പുചെയ്യുക</string>
+    <string name="gaming_mode_enabled_toast">ഗെയിമിംഗ് മോഡ് ഓണാക്കി</string>
+    <string name="gaming_mode_disabled_toast">ഗെയിമിംഗ് മോഡ് ഓഫാക്കി</string>
 </resources>

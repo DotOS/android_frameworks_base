@@ -32,8 +32,29 @@
     <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang aktif.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dinonaktifkan.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang diaktifkan.</string>
+    <string name="gaming_mode_not_enabled">Mode Permainan dinonaktifkan di setelan</string>
+    <string name="quick_settings_gaming_mode_label">Mode Permainan</string>
+    <string name="quick_settings_reboot_label">Mulai ulang</string>
+    <string name="quick_settings_reboot_recovery_label">Pemulihan</string>
+    <string name="quick_settings_poweroff_label">Matikan daya</string>
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="derajat">%1$.0f</xliff:g>\u00b0 <xliff:g id="arah">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inisialisasi\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas nonaktif.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas aktif.</string>
+    <string name="quick_settings_compass_N">U</string>
+    <string name="quick_settings_compass_NE">TL</string>
+    <string name="quick_settings_compass_E">T</string>
+    <string name="quick_settings_compass_SE">TG</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">BD</string>
+    <string name="quick_settings_compass_W">B</string>
+    <string name="quick_settings_compass_NW">BL</string>
     <string name="dot_data_unknown">Tidak diketahui</string>
     <string name="statusbar_items_title">Ikon Bilah Status</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Lokasi</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Dering</string>
     <string name="quick_settings_sound_vibrate">Getar</string>
     <string name="quick_settings_sound_dnd">Jangan Ganggu</string>
+    <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
+    <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
 </resources>

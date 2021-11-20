@@ -29,11 +29,32 @@
     <string name="quick_settings_aod_label">എഒഡി</string>
     <string name="quick_settings_heads_up_label">മുന്നറിയിപ്പ്</string>
     <string name="accessibility_quick_settings_heads_up_off">മുണറിയിപ് ഓഫ്.</string>
-    <string name="accessibility_quick_settings_heads_up_on">മുണറിയിപ് ഓൺ.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ഹെഡ്സ് അപ്പ് ഓണ്‍.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">ഹെഡ്സ് അപ്പ് ഓഫ് ചെയ്തു.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">ഹെഡ്സ് അപ്പ് ഓണ്‍ ചെയ്തു.</string>
+    <string name="gaming_mode_not_enabled">ക്രമീകരണങ്ങളിൽ ഗെയിമിംഗ് മോഡ് പ്രവർത്തനരഹിതമാണ്</string>
+    <string name="quick_settings_gaming_mode_label">ഗെയിമിംഗ് മോഡ്</string>
+    <string name="quick_settings_reboot_label">റീബൂട്ട്</string>
+    <string name="quick_settings_reboot_recovery_label">റിക്കവറി</string>
+    <string name="quick_settings_poweroff_label">പവർ ഓഫ് ചെയ്യുക</string>
+    <string name="quick_settings_compass_label">കോമ്പസ്</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">സമാരംഭിക്കുന്നു\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">കോമ്പസ് ഓഫ്.</string>
+    <string name="accessibility_quick_settings_compass_on">കോമ്പസ് ഓൺ.</string>
+    <string name="quick_settings_compass_N">വടക്ക്</string>
+    <string name="quick_settings_compass_NE">വ-കി</string>
+    <string name="quick_settings_compass_E">കിഴക്ക്</string>
+    <string name="quick_settings_compass_SE">തെ-കി</string>
+    <string name="quick_settings_compass_S">തെക്ക്</string>
+    <string name="quick_settings_compass_SW">തെ. പ</string>
+    <string name="quick_settings_compass_W">പടിഞ്ഞാറ്</string>
+    <string name="quick_settings_compass_NW">വ-പ</string>
     <string name="dot_data_unknown">ലഭ്യമല്ല</string>
     <string name="statusbar_items_title">സ്റ്റാറ്റസ് ബാർ ഐക്കണുകൾ</string>
+    <string name="status_bar_camera">ക്യാമറ</string>
+    <string name="status_bar_location">സ്ഥല വിവരം</string>
+    <string name="status_bar_microphone">മൈക്രോഫോണ്‍</string>
     <string name="status_bar_volte">വോൾട്ടി</string>
     <string name="status_bar_vpn">വിപിഎൻ</string>
     <string name="screen_pinning_description_no_navbar">നിങ്ങൾ അൺപിൻ ചെയ്യുന്നതുവരെ ഇത് കാണാനാകുന്ന രീതിയിൽ തുടരും. അൺപിൻ ചെയ്യാനായി ഹോം &amp; പവർ ബട്ടണുകൾ ഒരേ സമയം അമർത്തിപ്പിടിക്കുക.</string>
@@ -42,7 +63,7 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">ഈ സ്ക്രീൻ അൺപിൻ ചെയ്യുന്നതിന് &amp; ഫിംഗർപ്രിന്റ് സെൻസർ
 അമർത്തിപിടിക്കുക</string>
     <string name="applock_unlock">അൺലോക്ക് ആപ്</string>
-    <string name="biometric_dialog_button_use_face">Use Face</string>
+    <string name="biometric_dialog_button_use_face">മുഖം വച്ച് അൺലോക്ക് ചെയുക</string>
     <string name="scrollss">സ്ക്രോൾ</string>
     <string name="accessibility_dpad_left">കഴ്സർ ഇടത്</string>
     <string name="accessibility_dpad_right">കർസർ വലത്</string>
@@ -59,4 +80,6 @@
     <string name="quick_settings_sound_ring">റിങ്ങ്</string>
     <string name="quick_settings_sound_vibrate">വൈബ്രേറ്റ്‌</string>
     <string name="quick_settings_sound_dnd">ശല്യപ്പെടുത്തരുത്(Dnd)</string>
+    <string name="screenrecord_stopdot_label">നിർത്തുവാൻ ഉള്ള ഓപ്ഷൻ കാണിക്കുക\nഞെക്കി പിടിച്ചു നീക്കുക</string>
+    <string name="screenrecord_lowquality_label">കുറഞ്ഞ ക്വാളിറ്റി ചെറിയ ഫയലുകൾക്കു</string>
 </resources>

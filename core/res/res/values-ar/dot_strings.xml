@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">نسخ رابط سجل العُطل</string>
+    <string name="aerr_copy">نسخ عنوان URL لسجل التعطل</string>
     <string name="url_copy_success">تم نسخ الرابط بنجاح</string>
-    <string name="url_copy_failed">حدث خطأ أثناء تحميل السجل إلى dogbin</string>
+    <string name="url_copy_failed">حدث خطأ أثناء تحميل السجل إلى katbin</string>
     <string name="reboot_title">إعادة التشغيل</string>
     <string name="reboot_message">جاري إعادة تشغيل النظام</string>
     <string name="pocket_lock_message_long_press">اضغط مع الاستمرار على زر الطاقة ﻹلغاء القفل</string>
+    <string name="notification_channel_gaming">وضع الألعاب</string>
+    <string name="gaming_mode_notification_title">تم تمكين وضع الألعاب</string>
+    <string name="gaming_mode_notification_content">انقر لإيقاف تشغيل وضع الألعاب</string>
+    <string name="gaming_mode_enabled_toast">تم تشغيل وضع الألعاب</string>
+    <string name="gaming_mode_disabled_toast">تم إيقاف وضع الألعاب</string>
 </resources>

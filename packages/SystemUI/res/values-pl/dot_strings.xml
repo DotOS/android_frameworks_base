@@ -18,10 +18,10 @@
     <string name="global_action_restart_advanced">Zaawansowane</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_ui">Interfejs</string>
     <string name="quick_settings_secondary_location_off"/>
-    <string name="quick_settings_location_secondary_battery_saving">Oszczędzanie baterii</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Raportowanie lokalizacji: tryb oszczędzania baterii.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Oszczędzanie energii</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Raportowanie lokalizacji: tryb oszczędzania energii.</string>
     <string name="quick_settings_location_secondary_gps_only">Tylko czujniki</string>
     <string name="accessibility_quick_settings_location_gps_only">Raportowanie lokalizacji: tylko czujniki.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Wysoka dokładność</string>
@@ -32,8 +32,29 @@
     <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia włączone.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia zostały wyłączone.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia zostały włączone.</string>
+    <string name="gaming_mode_not_enabled">Tryb gry jest wyłączony w ustawieniach</string>
+    <string name="quick_settings_gaming_mode_label">Tryb gry</string>
+    <string name="quick_settings_reboot_label">Uruchom ponownie</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_poweroff_label">Wyłącz</string>
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="stopnie">%1$.0f</xliff:g>\u00b0 <xliff:g id="kierunek">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inicjowanie\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas wyłączony.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas włączony.</string>
+    <string name="quick_settings_compass_N">Płn</string>
+    <string name="quick_settings_compass_NE">Płn. wsch</string>
+    <string name="quick_settings_compass_E">Wsch</string>
+    <string name="quick_settings_compass_SE">Płd. wsch</string>
+    <string name="quick_settings_compass_S">Płd</string>
+    <string name="quick_settings_compass_SW">Płd. zach</string>
+    <string name="quick_settings_compass_W">Zach</string>
+    <string name="quick_settings_compass_NW">Płn. Zach</string>
     <string name="dot_data_unknown">Nieznany</string>
     <string name="statusbar_items_title">Ikony paska stanu</string>
+    <string name="status_bar_camera">Aparat</string>
+    <string name="status_bar_location">Lokalizacja</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">Pozostanie to widoczne, dopóki tego nie odepniesz. Przytrzymaj &amp; aby odpiąć.</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Dzwonek</string>
     <string name="quick_settings_sound_vibrate">Wibracje</string>
     <string name="quick_settings_sound_dnd">Nie przeszkadzać</string>
+    <string name="screenrecord_stopdot_label">Pokaż kropkę zatrzymującą nagrywanie\nPrzytrzymaj aby ją przenieść</string>
+    <string name="screenrecord_lowquality_label">Niższa jakość, mniejszy rozmiar pliku</string>
 </resources>

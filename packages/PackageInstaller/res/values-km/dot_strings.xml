@@ -13,7 +13,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="installed_version">ଇନଷ୍ଟଲ ହେଲା</string>
+    <string name="installed_version">Installed</string>
     <string name="arrow">➜</string>
-    <string name="to_be_installed">ଇନଷ୍ଟଲ ହେବାକୁ ଥିବା</string>
+    <string name="to_be_installed">To be installed</string>
 </resources>

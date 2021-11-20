@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">URL des Absturzberichts kopieren</string>
     <string name="url_copy_success">URL erfolgreich kopiert</string>
-    <string name="url_copy_failed">Beim Upload des Protokolls zu dogbin ist ein Fehler aufgetreten</string>
+    <string name="url_copy_failed">An error occured while uploading the log to katbin</string>
     <string name="reboot_title">Neu starten</string>
     <string name="reboot_message">System wird neu gestartet</string>
     <string name="pocket_lock_message_long_press">Zum Entsperren Power-Taste drücken und halten</string>
+    <string name="notification_channel_gaming">Gaming mode</string>
+    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
+    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
+    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
+    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 </resources>

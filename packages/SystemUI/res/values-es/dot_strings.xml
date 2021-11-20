@@ -26,14 +26,35 @@
     <string name="accessibility_quick_settings_location_gps_only">Informe de ubicación: modo de sólo sensores.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Alta precisión</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Informe de ubicación: modo de alta precisión.</string>
-    <string name="quick_settings_aod_label">Siempre encendido</string>
+    <string name="quick_settings_aod_label">Pantalla AOD</string>
     <string name="quick_settings_heads_up_label">Notificaciones flotantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificaciones flotantes desactivadas.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notificaciones flotantes encendidas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones flotantes desactivadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones flotantes activadas.</string>
+    <string name="gaming_mode_not_enabled">El modo juego está deshabilitado en los ajustes</string>
+    <string name="quick_settings_gaming_mode_label">Modo juego</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recuperación</string>
+    <string name="quick_settings_poweroff_label">Apagar</string>
+    <string name="quick_settings_compass_label">Brújula</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Iniciando</string>
+    <string name="accessibility_quick_settings_compass_off">Brújula desactivada.</string>
+    <string name="accessibility_quick_settings_compass_on">Brújula activada.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
     <string name="dot_data_unknown">Desconocido</string>
     <string name="statusbar_items_title">Iconos de la barra de estado</string>
+    <string name="status_bar_camera">Cámara</string>
+    <string name="status_bar_location">Ubicación</string>
+    <string name="status_bar_microphone">Micrófono</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo desancles. Mantén presionado Atrás para desanclar.</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Sonar</string>
     <string name="quick_settings_sound_vibrate">Vibrar</string>
     <string name="quick_settings_sound_dnd">No molestar</string>
+    <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación.\nPulsación larga para moverlo</string>
+    <string name="screenrecord_lowquality_label">Menor calidad para un tamaño de archivo más pequeño</string>
 </resources>

@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">Copia l\'URL del registro degli arresti anomali</string>
+    <string name="aerr_copy">Copia l\'URL del log di un crash</string>
     <string name="url_copy_success">URL copiato con successo</string>
-    <string name="url_copy_failed">Si è verificato un errore durante il caricamento del log su dogbin</string>
-    <string name="reboot_title">Riavvio</string>
-    <string name="reboot_message">Riavvio del Sistema</string>
+    <string name="url_copy_failed">Si è verificato un errore durante il caricamento del log su katbin</string>
+    <string name="reboot_title">Riavvia</string>
+    <string name="reboot_message">Riavviando il sistema</string>
     <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di spegnimento per sbloccare</string>
+    <string name="notification_channel_gaming">Modalità gaming</string>
+    <string name="gaming_mode_notification_title">Modalità gaming attivata</string>
+    <string name="gaming_mode_notification_content">Tocca per disattivare la modalità gaming</string>
+    <string name="gaming_mode_enabled_toast">Modalità gaming attivata</string>
+    <string name="gaming_mode_disabled_toast">Modalità gaming disattivata</string>
 </resources>

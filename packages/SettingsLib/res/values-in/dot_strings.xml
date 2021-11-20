@@ -4,4 +4,7 @@
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">Saluran Ganda</string>
+    <string name="status_deep_sleep">(Tidur nyenyak: %1$d%2$s)</string>
+    <string name="screen_zoom_summary_smaller">Lebih kecil</string>
+    <string name="screen_zoom_summary_smallest">Paling kecil</string>
 </resources>

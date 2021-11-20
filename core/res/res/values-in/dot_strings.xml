@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Salin URL log kerusakan</string>
     <string name="url_copy_success">URL berhasil disalin</string>
-    <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke dogbin</string>
+    <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke katbin</string>
     <string name="reboot_title">Mulai ulang</string>
     <string name="reboot_message">Memulai ulang Sistem</string>
     <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
+    <string name="notification_channel_gaming">Mode Permainan</string>
+    <string name="gaming_mode_notification_title">Mode Permainan diaktifkan</string>
+    <string name="gaming_mode_notification_content">Ketuk untuk mematikan Mode Permainan</string>
+    <string name="gaming_mode_enabled_toast">Mode Permainan diaktifkan</string>
+    <string name="gaming_mode_disabled_toast">Mode Permainan dinonaktifkan</string>
 </resources>

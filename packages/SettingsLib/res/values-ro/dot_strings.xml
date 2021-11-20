@@ -4,4 +4,7 @@
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">Canal Dual</string>
+    <string name="status_deep_sleep">(Somn profund: %1$d%2$s)</string>
+    <string name="screen_zoom_summary_smaller">Mai mic</string>
+    <string name="screen_zoom_summary_smallest">Cel mai mic</string>
 </resources>

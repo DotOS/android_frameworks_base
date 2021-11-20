@@ -21,7 +21,7 @@
     <string name="global_action_restart_ui">SystemUI</string>
     <string name="quick_settings_secondary_location_off"/>
     <string name="quick_settings_location_secondary_battery_saving">Risparmio energetico</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Modalità geolocalizzazione: basso consumo.</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Modalità geolocalizzazione: risparmio batteria.</string>
     <string name="quick_settings_location_secondary_gps_only">Solo Sensori</string>
     <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo sensori.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Alta Precisione</string>
@@ -30,10 +30,31 @@
     <string name="quick_settings_heads_up_label">Notifiche Fluttuanti</string>
     <string name="accessibility_quick_settings_heads_up_off">Notifiche fluttuanti non attive.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notifiche fluttuanti attive.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche fluttuanti spente.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche fluttuanti non attive.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche fluttuanti attivate.</string>
+    <string name="gaming_mode_not_enabled">Modalità di gioco disabilitata nelle impostazioni</string>
+    <string name="quick_settings_gaming_mode_label">Modalità di gioco</string>
+    <string name="quick_settings_reboot_label">Riavvia</string>
+    <string name="quick_settings_reboot_recovery_label">Ripristino</string>
+    <string name="quick_settings_poweroff_label">Spegni</string>
+    <string name="quick_settings_compass_label">Bussola</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inizializzando\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Bussola spenta.</string>
+    <string name="accessibility_quick_settings_compass_on">Bussola attiva.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
     <string name="dot_data_unknown">Sconosciuto</string>
     <string name="statusbar_items_title">Icone barra di stato</string>
+    <string name="status_bar_camera">Fotocamera</string>
+    <string name="status_bar_location">Posizione</string>
+    <string name="status_bar_microphone">Microfono</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">La schermata rimane in primo piano finché non la sblocchi. Tocca e tieni premuto il tasto Indietro per sbloccarla.</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Fai squillare</string>
     <string name="quick_settings_sound_vibrate">Vibrazione</string>
     <string name="quick_settings_sound_dnd">Non disturbare</string>
+    <string name="screenrecord_stopdot_label">Mostra punto finale\nPressione prolungata per spostarlo</string>
+    <string name="screenrecord_lowquality_label">Abbassa la qualità per dimensioni inferiori del file</string>
 </resources>

@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">クラッシュログ URL をコピー</string>
     <string name="url_copy_success">URL がコピーされました</string>
-    <string name="url_copy_failed">dogbin へのログのアップロード中にエラーが発生しました</string>
+    <string name="url_copy_failed">katbin へのログのアップロード中にエラーが発生しました</string>
     <string name="reboot_title">再起動</string>
     <string name="reboot_message">システムを再起動中...</string>
     <string name="pocket_lock_message_long_press">電源ボタンを押し続けてロック解除</string>
+    <string name="notification_channel_gaming">ゲームモード</string>
+    <string name="gaming_mode_notification_title">ゲームモード有効</string>
+    <string name="gaming_mode_notification_content">タップでゲームモードを無効化</string>
+    <string name="gaming_mode_enabled_toast">ゲームモードを有効化しました</string>
+    <string name="gaming_mode_disabled_toast">ゲームモードを無効化しました</string>
 </resources>

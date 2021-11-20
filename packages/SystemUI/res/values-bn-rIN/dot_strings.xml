@@ -17,10 +17,10 @@
     <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ</string>
     <string name="accessibility_quick_settings_caffeine_on">ক্যাফেইন চালু</string>
     <!-- Power Menu -->
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_advanced">উন্নত</string>
+    <string name="global_action_restart_recovery">পুনরুদ্ধার</string>
+    <string name="global_action_restart_bootloader">বুট-লোডার</string>
+    <string name="global_action_restart_ui">সিস্টেম ইউআই</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
     <string name="quick_settings_location_secondary_battery_saving">ব্যাটারি সেভিং</string>
@@ -28,19 +28,44 @@
     <string name="quick_settings_location_secondary_gps_only">কেবল সেন্সর</string>
     <string name="accessibility_quick_settings_location_gps_only">অবস্থান প্রতিবেদন: শুধু সেন্সর মোড।.</string>
     <string name="quick_settings_location_secondary_high_accuracy">উচ্চ সঠিকতা</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">অবস্থান রিপোর্ট: উচ্চ নির্ভুলতা মোড।.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">সবসময় চালু থাকা ডিস্প্লে</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+    <string name="quick_settings_heads_up_label">হেডস আপ</string>
+    <string name="accessibility_quick_settings_heads_up_off">হেডস আপ অফ.</string>
+    <string name="accessibility_quick_settings_heads_up_on">হেডস আপ অন.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">হেডস আপ অফ করা হয়েছে.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">হেডস আপ চালু করা হয়েছে.</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Gaming mode is disabled in settings</string>
+    <string name="quick_settings_gaming_mode_label">Gaming mode</string>
+    <!-- Reboot/Recovery/PowerOff QS tile -->
+    <string name="quick_settings_reboot_label">Reboot</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_poweroff_label">Power off</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Compass</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initializing\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Compass off.</string>
+    <string name="accessibility_quick_settings_compass_on">Compass on.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
     <!-- QS Data Usage -->
     <string name="dot_data_unknown">Unknown</string>
     <!-- statusbar icons -->
     <string name="statusbar_items_title">Statusbar icons</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
+    <string name="status_bar_camera">Camera</string>
+    <string name="status_bar_location">Location</string>
+    <string name="status_bar_microphone">Microphone</string>
     <!-- Name of the volte status bar icon. -->
     <string name="status_bar_volte">VoLTE</string>
     <!-- Name of the VPN status bar icon. -->
@@ -83,4 +108,7 @@
     <string name="quick_settings_sound_ring">Ring</string>
     <string name="quick_settings_sound_vibrate">Vibrate</string>
     <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Show stop dot\nLongpress to move it</string>
+    <string name="screenrecord_lowquality_label">Lower quality for smaller file size</string>
 </resources>

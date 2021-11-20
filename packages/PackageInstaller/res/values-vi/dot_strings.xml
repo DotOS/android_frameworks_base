@@ -13,7 +13,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="installed_version">Đã cài</string>
+    <string name="installed_version">Đã cài đặt</string>
     <string name="arrow">➜</string>
-    <string name="to_be_installed">Để được cài đặt</string>
+    <string name="to_be_installed">Sẽ được cài đặt</string>
 </resources>

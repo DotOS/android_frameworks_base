@@ -15,7 +15,7 @@
     <string name="quick_settings_caffeine_label">Запрет сна</string>
     <string name="accessibility_quick_settings_caffeine_off">Запрет сна отключен</string>
     <string name="accessibility_quick_settings_caffeine_on">Запрет сна включён</string>
-    <string name="global_action_restart_advanced">Расширенное меню перезагрузки</string>
+    <string name="global_action_restart_advanced">Дополнительно</string>
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Системный интерфейс</string>
@@ -26,14 +26,35 @@
     <string name="accessibility_quick_settings_location_gps_only">Определение местоположения: только GPS.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Высокая точность</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Определение местоположения: режим высокой точности.</string>
-    <string name="quick_settings_aod_label">Всегда включенный экран</string>
+    <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
     <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления выключены.</string>
     <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления были выключены.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
+    <string name="gaming_mode_not_enabled">Игровой режим отключен в настройках</string>
+    <string name="quick_settings_gaming_mode_label">Игровой режим</string>
+    <string name="quick_settings_reboot_label">Перезагрузка</string>
+    <string name="quick_settings_reboot_recovery_label">Рекавери</string>
+    <string name="quick_settings_poweroff_label">Выключение</string>
+    <string name="quick_settings_compass_label">Компас</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Инициализация\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Компас выкл.</string>
+    <string name="accessibility_quick_settings_compass_on">Компас вкл.</string>
+    <string name="quick_settings_compass_N">Север</string>
+    <string name="quick_settings_compass_NE">Северо-Восток</string>
+    <string name="quick_settings_compass_E">Восток</string>
+    <string name="quick_settings_compass_SE">ЮВ</string>
+    <string name="quick_settings_compass_S">Ю</string>
+    <string name="quick_settings_compass_SW">ЮЗ</string>
+    <string name="quick_settings_compass_W">З</string>
+    <string name="quick_settings_compass_NW">СЗ</string>
     <string name="dot_data_unknown">Неизвестно</string>
     <string name="statusbar_items_title">Значки в строке состояния</string>
+    <string name="status_bar_camera">Камера</string>
+    <string name="status_bar_location">Местоположение</string>
+    <string name="status_bar_microphone">Микрофон</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку, нажав и удерживая кнопку \"Назад\".</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Звонок</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
     <string name="quick_settings_sound_dnd">Не беспокоить</string>
+    <string name="screenrecord_stopdot_label">Показывать кнопку остановки\nУдерживайте для перемещения</string>
+    <string name="screenrecord_lowquality_label">Более низкое качество для меньшего размера файла</string>
 </resources>

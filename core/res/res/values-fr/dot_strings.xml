@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Copier l\'URL du rapport d\'erreur</string>
     <string name="url_copy_success">Lien copié avec succès</string>
-    <string name="url_copy_failed">Une erreur est survenue pendant l\'envoi du rapport à dogbin</string>
+    <string name="url_copy_failed">Une erreur s\'est produite pendant l\'envoi des logs à katbin</string>
     <string name="reboot_title">Redémarrer</string>
     <string name="reboot_message">Redémarrage du système</string>
     <string name="pocket_lock_message_long_press">Appuyez et maintenez le bouton d\'alimentation pour déverrouiller</string>
+    <string name="notification_channel_gaming">Mode Jeu</string>
+    <string name="gaming_mode_notification_title">Mode Jeu activé</string>
+    <string name="gaming_mode_notification_content">Appuyez pour désactiver le mode Jeu</string>
+    <string name="gaming_mode_enabled_toast">Mode Jeu activé</string>
+    <string name="gaming_mode_disabled_toast">Mode Jeu désactivé</string>
 </resources>

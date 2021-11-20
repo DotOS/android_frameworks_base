@@ -15,10 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="aerr_copy">क्रैश लॉग यूआरएल कॉपी करें</string>
+    <string name="aerr_copy">क्रैश लॉग URL कॉपी करें</string>
     <string name="url_copy_success">यूआरएल सफलतापूर्वक कॉपी किया गया</string>
-    <string name="url_copy_failed">डॉगबिन में लॉग अपलोड करते समय कोई त्रुटि आई है।</string>
-    <string name="reboot_title">वापिस चालू करें</string>
-    <string name="reboot_message">एंड्राइड वापिस चालू हो रहा है</string>
+    <string name="url_copy_failed">डॉगबिन में लॉग अपलोड करते समय कोई गलती हुई</string>
+    <string name="reboot_title">रिबूट</string>
+    <string name="reboot_message">सिस्टेम रिबूट हो रहा है</string>
     <string name="pocket_lock_message_long_press">अनलॉक करने के लिए पावर बटन दबाए रखें</string>
+    <string name="notification_channel_gaming">गेमीगं मोड</string>
+    <string name="gaming_mode_notification_title">गेमिंग मोड शुरू हो गया है</string>
+    <string name="gaming_mode_notification_content">गेमिंग मोड बंद करने के लिए ताॅप करें</string>
+    <string name="gaming_mode_enabled_toast">गेमिंग मोड शूरु हो गया है</string>
+    <string name="gaming_mode_disabled_toast">गेमिंग मोड बंद किया गया</string>
 </resources>

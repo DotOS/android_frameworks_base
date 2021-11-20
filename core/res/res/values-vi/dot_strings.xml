@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Sao chép URL nhật ký sự cố</string>
     <string name="url_copy_success">Đã sao chép URL thành công</string>
-    <string name="url_copy_failed">Đã xảy ra lỗi khi tải log lên dogbin</string>
+    <string name="url_copy_failed">Đã xảy ra lỗi trong khi tải nhật kí sự cố lên katbin</string>
     <string name="reboot_title">Khởi động lại</string>
-    <string name="reboot_message">Khởi động lại hệ thống</string>
+    <string name="reboot_message">Đang khởi động lại vào hệ thống</string>
     <string name="pocket_lock_message_long_press">Nhấn và giữ nút nguồn để mở khoá</string>
+    <string name="notification_channel_gaming">Chế độ trò chơi</string>
+    <string name="gaming_mode_notification_title">Chế độ trò chơi đã bật</string>
+    <string name="gaming_mode_notification_content">Nhấn để tắt chế độ trò chơi</string>
+    <string name="gaming_mode_enabled_toast">Chế độ trò chơi đã bật</string>
+    <string name="gaming_mode_disabled_toast">Chế độ trò chơi đã tắt</string>
 </resources>

@@ -4,4 +4,7 @@
     <string name="bluetooth_a2dp_codec_channel_mode_mono">單聲道</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">立體聲</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">雙聲道</string>
+    <string name="status_deep_sleep">(深度睡眠: %1$d%2$s)</string>
+    <string name="screen_zoom_summary_smaller">較小</string>
+    <string name="screen_zoom_summary_smallest">最小</string>
 </resources>

@@ -4,4 +4,7 @@
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">Dual Channel</string>
+    <string name="status_deep_sleep">(Deep sleep: %1$d%2$s)</string>
+    <string name="screen_zoom_summary_smaller">Rimpicciolisci</string>
+    <string name="screen_zoom_summary_smallest">Piú piccolo</string>
 </resources>

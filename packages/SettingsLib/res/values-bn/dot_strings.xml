@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">সিস্টেম নির্বাচন (ডিফল্ট) ব্যবহার করুন</string>
+    <string name="bluetooth_a2dp_codec_system">সিস্টেম নির্বাচিত (ডিফল্ট)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">মনো</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_stereo">স্টেরিও</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">স্টিরিও</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">দ্বৈত চ্যানেল</string>
+    <string name="status_deep_sleep">ডিপ স্লিপ</string>
+    <string name="screen_zoom_summary_smaller">ক্ষুদ্রতর</string>
+    <string name="screen_zoom_summary_smallest">ক্ষুদ্রতম</string>
 </resources>

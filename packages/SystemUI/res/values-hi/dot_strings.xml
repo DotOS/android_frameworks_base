@@ -32,8 +32,29 @@
     <string name="accessibility_quick_settings_heads_up_on">हेड्स अप ऑन</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">हेड्स अप बंद है</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">हेड्स अप ऑन है</string>
+    <string name="gaming_mode_not_enabled">गेमिंग मोड सेटिंग्स में बंद है</string>
+    <string name="quick_settings_gaming_mode_label">गेमिंग मोड</string>
+    <string name="quick_settings_reboot_label">वापिस चालू करें</string>
+    <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
+    <string name="quick_settings_poweroff_label">पॉवर ऑफ</string>
+    <string name="quick_settings_compass_label">Compass</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initializing\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Compass off.</string>
+    <string name="accessibility_quick_settings_compass_on">Compass on.</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
     <string name="dot_data_unknown">अज्ञात</string>
     <string name="statusbar_items_title">स्टेटसबार आइकन</string>
+    <string name="status_bar_camera">Camera</string>
+    <string name="status_bar_location">Location</string>
+    <string name="status_bar_microphone">Microphone</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">यह इसे तब तक दिखाता रहेगा जब तक आप अनपिन नहीं करते। अनपिन करने के लिए बैक बटन को कुछ देर दबाएँ &amp; रखें।</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Ring</string>
     <string name="quick_settings_sound_vibrate">Vibrate</string>
     <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="screenrecord_stopdot_label">Show stop dot\nLongpress to move it</string>
+    <string name="screenrecord_lowquality_label">Lower quality for smaller file size</string>
 </resources>

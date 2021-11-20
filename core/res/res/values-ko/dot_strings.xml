@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">오류 로그 URL 복사</string>
     <string name="url_copy_success">URL이 복사되었습니다</string>
-    <string name="url_copy_failed">로그를 dogbin으로 업로드하는 중 오류가 발생했습니다</string>
+    <string name="url_copy_failed">An error occured while uploading the log to katbin</string>
     <string name="reboot_title">다시 시작</string>
     <string name="reboot_message">다시 시작 중</string>
     <string name="pocket_lock_message_long_press">전원 버튼을 길게 눌러 잠금해제</string>
+    <string name="notification_channel_gaming">Gaming mode</string>
+    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
+    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
+    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
+    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 </resources>

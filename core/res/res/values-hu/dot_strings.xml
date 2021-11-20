@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Összeomlási napló URL másolása</string>
     <string name="url_copy_success">Az URL sikeresen másolva</string>
-    <string name="url_copy_failed">Hiba történt a napló dogbin-re való feltöltése során</string>
+    <string name="url_copy_failed">Hiba történt a napló catbin-re való feltöltése során</string>
     <string name="reboot_title">Újraindítás</string>
     <string name="reboot_message">A Rendszer újraindítása</string>
     <string name="pocket_lock_message_long_press">Tartsa lenyomva a bekapcsológombot a feloldáshoz</string>
+    <string name="notification_channel_gaming">Játékmód</string>
+    <string name="gaming_mode_notification_title">A Játékmód engedélyezve</string>
+    <string name="gaming_mode_notification_content">Érintse meg a Játékmódból való kilépéshez</string>
+    <string name="gaming_mode_enabled_toast">A Játékmód bekapcsolásra került</string>
+    <string name="gaming_mode_disabled_toast">A Játékmód kikapcsolásra került</string>
 </resources>

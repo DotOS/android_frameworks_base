@@ -32,8 +32,29 @@
     <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítés be.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítés kikapcsolva.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítés bekapcsolva.</string>
+    <string name="gaming_mode_not_enabled">A Játékmód a beállításokban van letiltva</string>
+    <string name="quick_settings_gaming_mode_label">Játékmód</string>
+    <string name="quick_settings_reboot_label">Újraindítás</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_poweroff_label">Kikapcsolás</string>
+    <string name="quick_settings_compass_label">Iránytű</string>
+    <string name="quick_settings_compass_value"><xliff:g id="fok">%1$.0f</xliff:g>\u00b0 <xliff:g id="irány">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Előkészítés\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Iránytű ki.</string>
+    <string name="accessibility_quick_settings_compass_on">Iránytű be.</string>
+    <string name="quick_settings_compass_N">É</string>
+    <string name="quick_settings_compass_NE">ÉK</string>
+    <string name="quick_settings_compass_E">K</string>
+    <string name="quick_settings_compass_SE">DK</string>
+    <string name="quick_settings_compass_S">D</string>
+    <string name="quick_settings_compass_SW">DNy</string>
+    <string name="quick_settings_compass_W">Ny</string>
+    <string name="quick_settings_compass_NW">ÉNy</string>
     <string name="dot_data_unknown">Ismeretlen</string>
     <string name="statusbar_items_title">Állapotsor-ikonok</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Tartózkodási hely</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="screen_pinning_description_no_navbar">Megjelenítve tartja addig, amíg Ön fel nem oldja a rögzítést. A feloldáshoz tartsa nyomva a Vissza gombot.</string>
@@ -58,4 +79,6 @@
     <string name="quick_settings_sound_ring">Csengés</string>
     <string name="quick_settings_sound_vibrate">Rezgés</string>
     <string name="quick_settings_sound_dnd">Ne zavarjanak (DND)</string>
+    <string name="screenrecord_stopdot_label">Látható megállítógomb\nHosszan nyomva áthelyezhető</string>
+    <string name="screenrecord_lowquality_label">Gyengébb minőség, a kisebb fájlokért</string>
 </resources>

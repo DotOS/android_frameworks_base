@@ -17,8 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Kopírovat URL protokolu o selhání</string>
     <string name="url_copy_success">URL úspěšně zkopírována</string>
-    <string name="url_copy_failed">Při nahrávání protokolu o selhání na dogbin došlo k chybě</string>
+    <string name="url_copy_failed">Při nahrávání protokolu o selhání na katbin došlo k chybě</string>
     <string name="reboot_title">Restartovat</string>
     <string name="reboot_message">Restartování systému</string>
     <string name="pocket_lock_message_long_press">Stisknutím a\u00a0podržením tlačítka napájení zapnout obrazovku</string>
+    <string name="notification_channel_gaming">Herní režim</string>
+    <string name="gaming_mode_notification_title">Herní režim povolen</string>
+    <string name="gaming_mode_notification_content">Klepněte sem pro vypnutí Herního režimu</string>
+    <string name="gaming_mode_enabled_toast">Herní režim je zapnutý</string>
+    <string name="gaming_mode_disabled_toast">Herní režim je vypnutý</string>
 </resources>
