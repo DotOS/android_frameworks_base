@@ -73,7 +73,6 @@ public class GamingModeController {
     private boolean mGamingModeActivated;
     private static int mRingerState;
     private static int mZenState;
-    private static int mHwKeysState;
     private static int mAdaptiveBrightness;
 
     public static final String GAMING_MODE_TURN_OFF = "android.intent.action.GAMING_MODE_TURN_OFF";
@@ -250,15 +249,6 @@ public class GamingModeController {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, SCREEN_BRIGHTNESS_MODE_MANUAL);
         }
-        // HW Buttons
-        boolean disableHwKeys = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.GAMING_MODE_HW_KEYS_TOGGLE, 0) == 1;
-        if (disableHwKeys) {
-            mHwKeysState = Settings.System.getInt(mContext.getContentResolver(),
-                              Settings.System.NAVIGATION_BAR_SHOW, 0);
-            Settings.System.putInt(mContext.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW, 1);
-        }
 
         // Ringer mode (0: Off, 1: Vibrate, 2:DND: 3:Silent)
         int ringerMode = Settings.System.getInt(mContext.getContentResolver(),
@@ -295,12 +285,6 @@ public class GamingModeController {
         if (lockBrightness) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, mAdaptiveBrightness);
-        }
-        boolean disableHwKeys = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.GAMING_MODE_HW_KEYS_TOGGLE, 0) == 1;
-        if (disableHwKeys) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_SHOW, mHwKeysState);
         }
         int ringerMode = Settings.System.getInt(mContext.getContentResolver(),
                  Settings.System.GAMING_MODE_RINGER_MODE, 0);
