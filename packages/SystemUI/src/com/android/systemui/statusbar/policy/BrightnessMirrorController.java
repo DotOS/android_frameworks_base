@@ -16,6 +16,8 @@
 
 package com.android.systemui.statusbar.policy;
 
+import static com.android.systemui.qs.QSPanel.QS_SHOW_AUTO_BRIGHTNESS_BUTTON;
+
 import android.annotation.NonNull;
 import android.content.Context;
 import android.content.res.Resources;
@@ -29,12 +31,15 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.settings.brightness.ToggleSlider;
 import com.android.systemui.statusbar.NotificationShadeDepthController;
 import com.android.systemui.statusbar.phone.NotificationPanelViewController;
 import com.android.systemui.statusbar.phone.NotificationShadeWindowView;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerService.Tunable;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -52,12 +57,12 @@ public class BrightnessMirrorController
     private final ArraySet<BrightnessMirrorListener> mBrightnessMirrorListeners = new ArraySet<>();
     private final BrightnessSliderController.Factory mToggleSliderFactory;
     private BrightnessSliderController mToggleSliderController;
+    private final TunerService mTunerService;
     private final int[] mInt2Cache = new int[2];
     private FrameLayout mBrightnessMirror;
     private int mBrightnessMirrorBackgroundPadding;
     private int mLastBrightnessSliderWidth = -1;
 
-    private ImageView mIcon;
     private Context mContext;
 
     public BrightnessMirrorController(Context context, NotificationShadeWindowView statusBarWindow,
@@ -76,8 +81,10 @@ public class BrightnessMirrorController
             mBrightnessMirror.setVisibility(View.INVISIBLE);
         });
         mVisibilityCallback = visibilityCallback;
-        mIcon = (ImageView) mBrightnessMirror.findViewById(R.id.brightness_icon);
-        mIcon.setVisibility(View.VISIBLE);
+        mTunerService = Dependency.get(TunerService.class);
+        boolean show = mTunerService.getValue(QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+        ImageView icon = mBrightnessMirror.findViewById(R.id.brightness_icon);
+        icon.setVisibility(show ? View.VISIBLE : View.GONE);
         updateResources();
     }
 
@@ -121,6 +128,8 @@ public class BrightnessMirrorController
             lp.width = newWidth;
             mBrightnessMirror.setLayoutParams(lp);
         }
+
+        updateIcon();
     }
 
     public ToggleSlider getToggleSlider() {
@@ -171,6 +180,8 @@ public class BrightnessMirrorController
         for (int i = 0; i < mBrightnessMirrorListeners.size(); i++) {
             mBrightnessMirrorListeners.valueAt(i).onBrightnessMirrorReinflated(mBrightnessMirror);
         }
+
+        updateIcon();
     }
 
     @Override
@@ -193,16 +204,21 @@ public class BrightnessMirrorController
     }
 
     private void updateIcon() {
-        if (mIcon == null) {
+        // maybe enable the brightness icon
+        if (mBrightnessMirror == null) return;
+        ImageView icon = mBrightnessMirror.findViewById(R.id.brightness_icon);
+        if (icon == null) return;
+        boolean show = mTunerService.getValue(QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+        if (!show) {
+            icon.setVisibility(View.GONE);
             return;
         }
-        // enable the brightness icon
-        mIcon = (ImageView) mBrightnessMirror.findViewById(R.id.brightness_icon);
+        icon.setVisibility(View.VISIBLE);
         boolean automatic = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL,
                 UserHandle.USER_CURRENT) != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
-        mIcon.setImageResource(automatic ?
+        icon.setImageResource(automatic ?
                 com.android.systemui.R.drawable.ic_qs_brightness_auto_on_new :
                 com.android.systemui.R.drawable.ic_qs_brightness_auto_off_new);
     }
