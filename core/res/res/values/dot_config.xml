@@ -54,4 +54,7 @@
 
     <!-- Switch USB controller on Asus ROG devices-->
     <bool name="config_switchUsbController">false</bool>
+
+    <!-- Whether to disable Night Light on Udfps keyguard -->
+    <bool name="config_udfpsDisableNightLight">false</bool>
 </resources>
