@@ -5136,7 +5136,7 @@ public class NotificationPanelViewController extends PanelViewController {
         Intent intent = new Intent(CANCEL_NOTIFICATION_PULSE_ACTION);
         intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
         PendingIntent sender = PendingIntent.getBroadcast(mView.getContext(),
-                0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                0, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, when, sender);
     }
 
@@ -5147,7 +5147,7 @@ public class NotificationPanelViewController extends PanelViewController {
         AlarmManager alarmManager = (AlarmManager) mView.getContext().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(CANCEL_NOTIFICATION_PULSE_ACTION);
         PendingIntent sender = PendingIntent.getBroadcast(mView.getContext(),
-                0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                0, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(sender);
     }
 }
