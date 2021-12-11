@@ -511,7 +511,9 @@ public class QSPanel extends LinearLayout {
                     Settings.Secure.QS_BRIGHTNESS_POSITION_BOTTOM, 0) == 1;
             if (!mUsingHorizontalLayout) {
                 switchToParent(mBrightnessView, parent, bottom ? index : 0);
-                index++;
+                boolean mediaInQS = Settings.Global.getInt(mContext.getContentResolver(),
+                        Settings.Global.SHOW_MEDIA_ON_QUICK_SETTINGS, 1) == 1;
+                if (mediaInQS) index++;
             } else {
                 setBrightnessPosition(bottom);
             }
