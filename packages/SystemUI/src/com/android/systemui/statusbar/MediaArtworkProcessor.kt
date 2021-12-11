@@ -33,9 +33,9 @@ import com.android.systemui.statusbar.notification.MediaNotificationProcessor
 import javax.inject.Inject
 
 private const val TAG = "MediaArtworkProcessor"
-private const val COLOR_ALPHA = (255 * 0.7f).toInt()
-//private const val BLUR_RADIUS = 25f
-private const val DOWNSAMPLE = 6
+private const val COLOR_ALPHA = (255 * 0.6f).toInt()
+private const val BLUR_RADIUS = 20f
+private const val DOWNSAMPLE = 5
 
 @SysUISingleton
 class MediaArtworkProcessor @Inject constructor() {
