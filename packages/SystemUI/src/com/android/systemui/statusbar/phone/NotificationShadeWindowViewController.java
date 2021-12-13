@@ -17,7 +17,6 @@
 package com.android.systemui.statusbar.phone;
 
 import static android.app.StatusBarManager.WINDOW_STATE_SHOWING;
-import static com.android.systemui.qs.QSPanel.QS_SHOW_AUTO_BRIGHTNESS_BUTTON;
 
 import android.app.StatusBarManager;
 import android.graphics.RectF;
@@ -445,8 +444,9 @@ public class NotificationShadeWindowViewController {
                     mBrightnessMirror = child;
                     ImageView autoBrightnessIcon =
                             child.findViewById(R.id.brightness_icon);
-                    boolean show = mTunerService.getValue(
-                            QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+                    boolean show = Settings.Secure.getInt(
+                            autoBrightnessIcon.getContext().getContentResolver(),
+                            Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
                     autoBrightnessIcon.setVisibility(show ? View.VISIBLE : View.GONE);
                 }
             }

@@ -16,8 +16,6 @@
 
 package com.android.systemui.statusbar.policy;
 
-import static com.android.systemui.qs.QSPanel.QS_SHOW_AUTO_BRIGHTNESS_BUTTON;
-
 import android.annotation.NonNull;
 import android.content.Context;
 import android.content.res.Resources;
@@ -57,8 +55,8 @@ public class BrightnessMirrorController
     private final ArraySet<BrightnessMirrorListener> mBrightnessMirrorListeners = new ArraySet<>();
     private final BrightnessSliderController.Factory mToggleSliderFactory;
     private BrightnessSliderController mToggleSliderController;
-    private final TunerService mTunerService;
     private final int[] mInt2Cache = new int[2];
+
     private FrameLayout mBrightnessMirror;
     private int mBrightnessMirrorBackgroundPadding;
     private int mLastBrightnessSliderWidth = -1;
@@ -81,8 +79,8 @@ public class BrightnessMirrorController
             mBrightnessMirror.setVisibility(View.INVISIBLE);
         });
         mVisibilityCallback = visibilityCallback;
-        mTunerService = Dependency.get(TunerService.class);
-        boolean show = mTunerService.getValue(QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+        boolean show = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
         ImageView icon = mBrightnessMirror.findViewById(R.id.brightness_icon);
         icon.setVisibility(show ? View.VISIBLE : View.GONE);
         updateResources();
@@ -208,7 +206,8 @@ public class BrightnessMirrorController
         if (mBrightnessMirror == null) return;
         ImageView icon = mBrightnessMirror.findViewById(R.id.brightness_icon);
         if (icon == null) return;
-        boolean show = mTunerService.getValue(QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+        boolean show = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
         if (!show) {
             icon.setVisibility(View.GONE);
             return;
