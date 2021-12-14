@@ -315,6 +315,9 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.SHOW_VOWIFI_ICON), false,
                     this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.Secure.getUriFor(Settings.Secure.SHOW_COMBINED_STATUS_BAR_SIGNAL_ICONS), false,
+                    this, UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -322,7 +325,10 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
          *  @hide
          */
         @Override
-        public void onChange(boolean selfChange) {
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.SHOW_COMBINED_STATUS_BAR_SIGNAL_ICONS))) {
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
             updateSettings();
         }
     }
