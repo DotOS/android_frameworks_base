@@ -342,8 +342,8 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
             @Background Handler bgHandler, @Main Executor mainExecutor,
             @Background Executor bgExecutor, ThemeOverlayApplier themeOverlayApplier,
             SecureSettings secureSettings, WallpaperManager wallpaperManager,
-            UserManager userManager, DeviceProvisionedController deviceProvisionedController,
-            UserTracker userTracker, DumpManager dumpManager, FeatureFlags featureFlags,
+            UserManager userManager, DumpManager dumpManager, DeviceProvisionedController deviceProvisionedController,
+            UserTracker userTracker, FeatureFlags featureFlags,
             WakefulnessLifecycle wakefulnessLifecycle) {
         super(context);
 
@@ -446,7 +446,7 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
         });
     }
 
-    private void reevaluateSystemTheme(boolean forceReload) {
+    protected void reevaluateSystemTheme(boolean forceReload) {
         final WallpaperColors currentColors = mCurrentColors.get(mUserTracker.getUserId());
         final int mainColor;
         final int accentCandidate;

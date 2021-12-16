@@ -81,6 +81,7 @@ android_library {
         },
     },
     resource_dirs: [
+        "res-pixel",
         "res",
         "res-ambientmusic",
         "res-hwkeys",
@@ -129,8 +130,12 @@ android_library {
         "faceunlock_framework",
         "ambientmusic-google",
         "smartspace-google",
+        "SystemUIGoogle-lib",
+        "android.frameworks.stats-V1-java",
+        "vendor-pixelatoms-java",
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["SystemUIGoogle-Manifest.xml"],
 
     libs: [
         "ims-common",
@@ -246,6 +251,11 @@ android_app {
     jni_libs: ["libtensorflowlite_jni"],
     use_embedded_native_libs: true,
     resource_dirs: [],
+    asset_dirs: ["assets"],
+    aaptflags: [
+        "-0 .tflite",
+        "-0 .vocab",
+    ],
 
     platform_apis: true,
     system_ext_specific: true,

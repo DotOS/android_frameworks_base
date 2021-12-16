@@ -23,7 +23,11 @@ import android.content.Context
 import android.content.om.FabricatedOverlay
 import android.os.Handler
 import android.os.UserManager
+import android.provider.Settings
+import android.util.Log
 import android.util.TypedValue
+
+import com.android.systemui.Dependency
 import com.android.systemui.broadcast.BroadcastDispatcher
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Background
@@ -35,7 +39,10 @@ import com.android.systemui.settings.UserTracker
 import com.android.systemui.statusbar.policy.DeviceProvisionedController
 import com.android.systemui.theme.ThemeOverlayApplier
 import com.android.systemui.theme.ThemeOverlayController
+import com.android.systemui.tuner.TunerService
+import com.android.systemui.tuner.TunerService.Tunable
 import com.android.systemui.util.settings.SecureSettings
+
 import dev.kdrag0n.colorkt.Color
 import dev.kdrag0n.colorkt.cam.Zcam
 import dev.kdrag0n.colorkt.conversion.ConversionGraph.convert
@@ -45,8 +52,12 @@ import dev.kdrag0n.colorkt.tristimulus.CieXyzAbs.Companion.toAbs
 import dev.kdrag0n.colorkt.ucs.lab.CieLab
 import dev.kdrag0n.monet.theme.DynamicColorScheme
 import dev.kdrag0n.monet.theme.MaterialYouTargets
+
 import java.util.concurrent.Executor
 import javax.inject.Inject
+
+import kotlin.math.log10
+import kotlin.math.pow
 
 @SysUISingleton
 class CustomThemeOverlayController @Inject constructor(
@@ -59,9 +70,9 @@ class CustomThemeOverlayController @Inject constructor(
     secureSettings: SecureSettings,
     wallpaperManager: WallpaperManager,
     userManager: UserManager,
+    dumpManager: DumpManager,
     deviceProvisionedController: DeviceProvisionedController,
     userTracker: UserTracker,
-    dumpManager: DumpManager,
     featureFlags: FeatureFlags,
     wakefulnessLifecycle: WakefulnessLifecycle,
 ) : ThemeOverlayController(
@@ -74,42 +85,79 @@ class CustomThemeOverlayController @Inject constructor(
     secureSettings,
     wallpaperManager,
     userManager,
+    dumpManager,
     deviceProvisionedController,
     userTracker,
-    dumpManager,
     featureFlags,
     wakefulnessLifecycle,
-) {
-    private val cond = Zcam.ViewingConditions(
-        surroundFactor = Zcam.ViewingConditions.SURROUND_AVERAGE,
-        // sRGB
-        adaptingLuminance = 0.4 * SRGB_WHITE_LUMINANCE,
-        // Gray world
-        backgroundLuminance = CieLab(
-            L = 50.0,
-            a = 0.0,
-            b = 0.0,
-        ).toXyz().y * SRGB_WHITE_LUMINANCE,
-        referenceWhite = Illuminants.D65.toAbs(SRGB_WHITE_LUMINANCE),
-    )
-    private val targets = MaterialYouTargets(
-        chromaFactor = 1.0,
-        useLinearLightness = false,
-        cond = cond,
-    )
+), Tunable {
+    private lateinit var cond: Zcam.ViewingConditions
+    private lateinit var targets: MaterialYouTargets
+
+    private var colorOverride: Int = 0
+    private var chromaFactor: Double = Double.MIN_VALUE
+    private var accurateShades: Boolean = true
+    private var whiteLuminance: Double = Double.MIN_VALUE
+    private var linearLightness: Boolean = false
+    private var customColor: Boolean = false
+
+    private val mTunerService: TunerService = Dependency.get(TunerService::class.java)
+    override fun start() {
+        mTunerService.addTunable(this, PREF_COLOR_OVERRIDE, PREF_WHITE_LUMINANCE,
+                PREF_CHROMA_FACTOR, PREF_ACCURATE_SHADES, PREF_LINEAR_LIGHTNESS,
+                PREF_CUSTOM_COLOR, SYSTEM_BLACK_THEME)
+        super.start()
+    }
+
+    override fun onTuningChanged(key: String?, newValue: String?) {
+        key?.let {
+                customColor = Settings.Secure.getInt(mContext.contentResolver, PREF_CUSTOM_COLOR, 0) == 1
+                colorOverride = Settings.Secure.getInt(mContext.contentResolver,
+                        PREF_COLOR_OVERRIDE, -1)
+                chromaFactor = (Settings.Secure.getFloat(mContext.contentResolver,
+                        PREF_CHROMA_FACTOR, 100.0f) / 100f).toDouble()
+                accurateShades = Settings.Secure.getInt(mContext.contentResolver, PREF_ACCURATE_SHADES, 1) != 0
+                whiteLuminance = parseWhiteLuminanceUser(
+                    Settings.Secure.getInt(mContext.contentResolver,
+                            PREF_WHITE_LUMINANCE, WHITE_LUMINANCE_USER_DEFAULT)
+                )
+                linearLightness = Settings.Secure.getInt(mContext.contentResolver,
+                        PREF_LINEAR_LIGHTNESS, 0) != 0
+                reevaluateSystemTheme(true /* forceReload */)
+        }
+    }
 
     // Seed colors
     override fun getNeutralColor(colors: WallpaperColors) = colors.primaryColor.toArgb()
     override fun getAccentColor(colors: WallpaperColors) = getNeutralColor(colors)
 
     override fun getOverlay(primaryColor: Int, type: Int): FabricatedOverlay {
+        cond = Zcam.ViewingConditions(
+            surroundFactor = Zcam.ViewingConditions.SURROUND_AVERAGE,
+            // sRGB
+            adaptingLuminance = 0.4 * whiteLuminance,
+            // Gray world
+            backgroundLuminance = CieLab(
+                L = 50.0,
+                a = 0.0,
+                b = 0.0,
+            ).toXyz().y * whiteLuminance,
+            referenceWhite = Illuminants.D65.toAbs(whiteLuminance),
+        )
+
+        targets = MaterialYouTargets(
+            chromaFactor = chromaFactor,
+            useLinearLightness = linearLightness,
+            cond = cond,
+        )
+
         // Generate color scheme
         val colorScheme = DynamicColorScheme(
             targets = targets,
-            seedColor = Srgb(primaryColor),
-            chromaFactor = 1.0,
+            seedColor = if (customColor) Srgb(colorOverride) else Srgb(primaryColor),
+            chromaFactor = chromaFactor,
             cond = cond,
-            accurateShades = true,
+            accurateShades = accurateShades,
         )
 
         val (groupKey, colorsList) = when (type) {
@@ -124,6 +172,7 @@ class CustomThemeOverlayController @Inject constructor(
 
                 listEntry.value.forEach { (shade, color) ->
                     val colorSrgb = color.convert<Srgb>()
+                    //Log.d(TAG, "Color $group $shade = ${colorSrgb.toHex()}")
                     setColor("system_${group}_$shade", colorSrgb)
                 }
             }

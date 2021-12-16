@@ -186,10 +186,10 @@ public class CustomKeyguardSliceProvider extends KeyguardSliceProvider implement
         private final WeakReference<CustomKeyguardSliceProvider> mProviderReference;
         private final SmartSpaceCard mWeatherCard;
 
-        AddShadowTask(CustomKeyguardSliceProvider evolutionKeyguardSliceProvider, SmartSpaceCard smartSpaceCard) {
-            this.mProviderReference = new WeakReference<>(evolutionKeyguardSliceProvider);
+        AddShadowTask(CustomKeyguardSliceProvider customKeyguardSliceProvider, SmartSpaceCard smartSpaceCard) {
+            this.mProviderReference = new WeakReference<>(customKeyguardSliceProvider);
             this.mWeatherCard = smartSpaceCard;
-            this.mBlurRadius = evolutionKeyguardSliceProvider.getContext().getResources().getDimension(R.dimen.smartspace_icon_shadow);
+            this.mBlurRadius = customKeyguardSliceProvider.getContext().getResources().getDimension(R.dimen.smartspace_icon_shadow);
         }
 
         public Bitmap doInBackground(Bitmap... bitmapArr) {
@@ -197,13 +197,13 @@ public class CustomKeyguardSliceProvider extends KeyguardSliceProvider implement
         }
 
         public void onPostExecute(Bitmap bitmap) {
-            CustomKeyguardSliceProvider evolutionKeyguardSliceProvider;
+            CustomKeyguardSliceProvider customKeyguardSliceProvider;
             synchronized (this) {
                 this.mWeatherCard.setIcon(bitmap);
-                evolutionKeyguardSliceProvider = this.mProviderReference.get();
+                customKeyguardSliceProvider = this.mProviderReference.get();
             }
-            if (evolutionKeyguardSliceProvider != null) {
-                evolutionKeyguardSliceProvider.notifyChange();
+            if (customKeyguardSliceProvider != null) {
+                customKeyguardSliceProvider.notifyChange();
             }
         }
 

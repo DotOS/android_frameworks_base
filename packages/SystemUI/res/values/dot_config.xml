@@ -63,4 +63,7 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- SystemUI Google -->
+    <bool name="flag_smartspace">true</bool>
 </resources>
