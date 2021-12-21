@@ -31,7 +31,7 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public final class HastebinUtils {
     private static final String TAG = "HastebinUtils";
-    private static final String BASE_URL = "https://hastebin.com";
+    private static final String BASE_URL = "https://www.toptal.com/developers/hastebin";
     private static final String API_URL = String.format("%s/documents", BASE_URL);
     private static Handler handler;
 
