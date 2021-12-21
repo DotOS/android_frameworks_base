@@ -238,7 +238,7 @@ public class AmbientDisplayConfiguration {
         final boolean ambientLightsEnabled = boolSettingSystem(Settings.System.AOD_NOTIFICATION_PULSE, user, 0);
         if (ambientLightsEnabled) {
             boolean ambientLightsActivated = boolSettingSystem(Settings.System.AOD_NOTIFICATION_PULSE_ACTIVATED, user, 0);
-            return ambientLightsActivated && !accessibilityInversionEnabled(user) && alwaysOnAvailable() && alwaysOnEnabledSetting(user);
+            return ambientLightsActivated && !accessibilityInversionEnabled(user) && alwaysOnAvailable();
         }
         return false;
     }
