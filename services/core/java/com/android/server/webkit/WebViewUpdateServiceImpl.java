@@ -21,6 +21,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.UserHandle;
 import android.util.Slog;
 import android.webkit.UserPackage;
@@ -64,6 +65,7 @@ import java.util.List;
  */
 class WebViewUpdateServiceImpl {
     private static final String TAG = WebViewUpdateServiceImpl.class.getSimpleName();
+    private static final boolean DEBUG = Build.IS_DEBUGGABLE;
 
     private static class WebViewPackageMissingException extends Exception {
         WebViewPackageMissingException(String message) {
@@ -386,13 +388,17 @@ class WebViewUpdateServiceImpl {
 
     private ProviderAndPackageInfo[] getValidWebViewPackagesAndInfos() {
         WebViewProviderInfo[] allProviders = mSystemInterface.getWebViewPackages();
+        if (DEBUG) Slog.d(TAG, "getValidWebViewPackagesAndInfos: allProviders.length=" + allProviders.length);
         List<ProviderAndPackageInfo> providers = new ArrayList<>();
         for (int n = 0; n < allProviders.length; n++) {
             try {
                 PackageInfo packageInfo =
                         mSystemInterface.getPackageInfoForProvider(allProviders[n]);
-                if (validityResult(allProviders[n], packageInfo) == VALIDITY_OK) {
+                int validity = validityResult(allProviders[n], packageInfo);
+                if (validity == VALIDITY_OK) {
                     providers.add(new ProviderAndPackageInfo(allProviders[n], packageInfo));
+                } else {
+                    Slog.e(TAG, "WebView provider failed validityResult: name=" + packageInfo.packageName + " cause= " + getInvalidityReason(validity));
                 }
             } catch (NameNotFoundException e) {
                 // Don't add non-existent packages
@@ -409,8 +415,10 @@ class WebViewUpdateServiceImpl {
      */
     private PackageInfo findPreferredWebViewPackage() throws WebViewPackageMissingException {
         ProviderAndPackageInfo[] providers = getValidWebViewPackagesAndInfos();
+        if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: providers.length=" + providers.length);
 
         String userChosenProvider = mSystemInterface.getUserChosenWebViewProvider(mContext);
+        if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: userChosenProvider=" + userChosenProvider);
 
         // If the user has chosen provider, use that (if it's installed and enabled for all
         // users).
@@ -426,18 +434,26 @@ class WebViewUpdateServiceImpl {
             }
         }
 
+        if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: userChosenProvider did not pan out");
+
         // User did not choose, or the choice failed; use the most stable provider that is
         // installed and enabled for all users, and available by default (not through
         // user choice).
         for (ProviderAndPackageInfo providerAndPackage : providers) {
+            if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: providerAndPackage.packageInfo.packageName=" + providerAndPackage.packageInfo.packageName);
             if (providerAndPackage.provider.availableByDefault) {
                 // userPackages can contain null objects.
                 List<UserPackage> userPackages =
                         mSystemInterface.getPackageInfoForProviderAllUsers(mContext,
                                 providerAndPackage.provider);
+                if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: userPackages=" + userPackages);
                 if (isInstalledAndEnabledForAllUsers(userPackages)) {
                     return providerAndPackage.packageInfo;
+                } else {
+                    if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: isInstalledAndEnabledForAllUsers=false");
                 }
+            } else {
+                if (DEBUG) Slog.d(TAG, "findPreferredWebViewPackage: not available by default providerAndPackage.packageInfo.packageName=" + providerAndPackage.packageInfo.packageName);
             }
         }
 

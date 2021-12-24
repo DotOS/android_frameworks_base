@@ -49,6 +49,7 @@ import java.util.List;
  * @hide
  */
 public class SystemImpl implements SystemInterface {
+    private static final boolean DEBUG = Build.IS_DEBUGGABLE;
     private static final String TAG = SystemImpl.class.getSimpleName();
     private static final String TAG_START = "webviewproviders";
     private static final String TAG_WEBVIEW_PROVIDER = "webviewprovider";
@@ -78,6 +79,7 @@ public class SystemImpl implements SystemInterface {
         try {
             parser = AppGlobals.getInitialApplication().getResources().getXml(
                     com.android.internal.R.xml.config_webview_packages);
+            if (DEBUG) Log.d(TAG, "Opening webview packages config");
             XmlUtils.beginDocument(parser, TAG_START);
             while(true) {
                 XmlUtils.nextElement(parser);
@@ -86,6 +88,7 @@ public class SystemImpl implements SystemInterface {
                     break;
                 }
                 if (element.equals(TAG_WEBVIEW_PROVIDER)) {
+                    if (DEBUG) Log.d(TAG, "Found webview provider tag");
                     String packageName = parser.getAttributeValue(null, TAG_PACKAGE_NAME);
                     if (packageName == null) {
                         throw new AndroidRuntimeException(
@@ -100,6 +103,7 @@ public class SystemImpl implements SystemInterface {
                             parser.getAttributeValue(null, TAG_AVAILABILITY));
                     boolean isFallback = "true".equals(
                             parser.getAttributeValue(null, TAG_FALLBACK));
+                    if (DEBUG) Log.d(TAG, "webview provider: packageName=" + packageName + " availableByDefault=" + availableByDefault);
                     WebViewProviderInfo currentProvider = new WebViewProviderInfo(
                             packageName, description, availableByDefault, isFallback,
                             readSignatures(parser));
@@ -117,6 +121,7 @@ public class SystemImpl implements SystemInterface {
                     if (currentProvider.availableByDefault) {
                         numAvailableByDefaultPackages++;
                     }
+                    if (DEBUG) Log.d(TAG, "adding webview provider to list: " + packageName);
                     webViewProviders.add(currentProvider);
                 }
                 else {
@@ -134,6 +139,7 @@ public class SystemImpl implements SystemInterface {
         }
         mWebViewProviderPackages =
                 webViewProviders.toArray(new WebViewProviderInfo[webViewProviders.size()]);
+        if (DEBUG) Log.d(TAG, "webview provider iteration finished, found: " + mWebViewProviderPackages);
     }
     /**
      * Returns all packages declared in the framework resources as potential WebView providers.
