@@ -237,7 +237,7 @@ public class QSPanel extends LinearLayout {
         mAutoBrightnessIcon = view.findViewById(R.id.brightness_icon);
         setBrightnessViewMargin(true);
         mMovableContentStartIndex++;
-
+        mCustomSettingsObserver.update();
     }
 
     public void setBrightnessViewMargin(boolean top) {
