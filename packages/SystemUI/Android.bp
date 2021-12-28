@@ -83,6 +83,7 @@ android_library {
     resource_dirs: [
         "res-product",
         "res-keyguard",
+        "res-smartspace",
         "res",
         "res-hwkeys",
     ],
@@ -125,6 +126,7 @@ android_library {
         "themelib",
         "vendor.lineage.powershare-V1.0-java",
         "faceunlock_framework",
+        "smartspace-google",
     ],
     manifest: "AndroidManifest.xml",
 

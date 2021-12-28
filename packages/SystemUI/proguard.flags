@@ -61,3 +61,7 @@
 
 # Custom rules
 -keep class com.dot.** { *; }
+
+# Google rules
+-keep class com.google.** { *; }
+-keep class vendor.** { *; }

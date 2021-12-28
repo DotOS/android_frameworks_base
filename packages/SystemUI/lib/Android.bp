@@ -1,0 +1,5 @@
+java_import {
+    name: "smartspace-google",
+    jars: ["smartspace.jar"],
+    sdk_version: "current",
+}

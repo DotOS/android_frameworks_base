@@ -23,9 +23,20 @@ import com.android.systemui.SystemUIFactory
 import com.android.systemui.dagger.GlobalRootComponent
 import com.android.systemui.theme.ThemeOverlayController
 import com.dot.systemui.dagger.CustomDaggerGlobalRootComponent
+import com.dot.systemui.dagger.CustomSysUIComponent
 import com.dot.systemui.theme.CustomThemeOverlayController
+import java.util.concurrent.ExecutionException
 
 class CustomSystemUIFactory : SystemUIFactory() {
+
+    @Throws(ExecutionException::class, InterruptedException::class)
+    override fun init(context: Context?, fromTest: Boolean) {
+        super.init(context, fromTest)
+        if (shouldInitializeComponents()) {
+            (getSysUIComponent() as CustomSysUIComponent).createKeyguardSmartspaceController()
+        }
+    }
+
     // ML back gesture provider
     override fun createBackGestureTfClassifierProvider(am: AssetManager, modelName: String) =
         CustomBackGestureTfClassifierProvider(am, modelName)
