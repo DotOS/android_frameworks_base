@@ -16,10 +16,13 @@
 
 package com.dot.systemui
 
+import android.content.Context
 import android.content.res.AssetManager
 import android.content.res.Resources
 import com.android.systemui.SystemUIFactory
+import com.android.systemui.dagger.GlobalRootComponent
 import com.android.systemui.theme.ThemeOverlayController
+import com.dot.systemui.dagger.CustomDaggerGlobalRootComponent
 import com.dot.systemui.theme.CustomThemeOverlayController
 
 class CustomSystemUIFactory : SystemUIFactory() {
@@ -31,6 +34,12 @@ class CustomSystemUIFactory : SystemUIFactory() {
     override fun getSystemUIServiceComponents(resources: Resources): Array<String> {
         val services = super.getSystemUIServiceComponents(resources)
         return services.map { CUSTOM_SERVICES[it] ?: it }.toTypedArray()
+    }
+
+    override fun buildGlobalRootComponent(context: Context?): GlobalRootComponent {
+        return CustomDaggerGlobalRootComponent.builder()
+            .context(context)
+            .build()
     }
 
     companion object {
