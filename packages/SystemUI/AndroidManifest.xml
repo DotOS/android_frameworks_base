@@ -286,6 +286,10 @@
     <!-- Permission to make accessibility service access Bubbles -->
     <uses-permission android:name="android.permission.ADD_TRUSTED_DISPLAY" />
 
+    <!-- Permission needed for Arcane Idle Manager -->
+    <!-- Kill processes -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+
     <!-- Permission for Smartspace. -->
     <uses-permission android:name="android.permission.MANAGE_SMARTSPACE" />
 
