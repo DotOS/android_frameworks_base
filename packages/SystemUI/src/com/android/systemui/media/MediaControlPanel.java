@@ -381,14 +381,10 @@ public class MediaControlPanel {
                             backgroundImage.getHeight(), mAlbumArtRadius);
                     }
                 });
-                setVisibleAndAlpha(collapsedSet, R.id.bg_album_art, true);
-                setVisibleAndAlpha(expandedSet, R.id.bg_album_art, true);
             } else {
                 Drawable artwork = scaleDrawable(data.getArtwork());
                 albumView.setPadding(0, 0, 0, 0);
                 albumView.setImageDrawable(artwork);
-                setVisibleAndAlpha(collapsedSet, R.id.album_art, true);
-                setVisibleAndAlpha(expandedSet, R.id.album_art, true);
             }
         } else {
             Drawable deviceIcon;
@@ -400,9 +396,13 @@ public class MediaControlPanel {
             deviceIcon.setTintList(ColorStateList.valueOf(mBackgroundColor));
             albumView.setPadding(mDevicePadding, mDevicePadding, mDevicePadding, mDevicePadding);
             albumView.setImageDrawable(deviceIcon);
-            setVisibleAndAlpha(collapsedSet, R.id.album_art, true);
-            setVisibleAndAlpha(expandedSet, R.id.album_art, true);
         }
+
+        boolean useBgAlbumArt = hasArtwork && mBackgroundArtwork;
+        setVisibleAndAlpha(collapsedSet, R.id.bg_album_art, useBgAlbumArt);
+        setVisibleAndAlpha(expandedSet, R.id.bg_album_art, useBgAlbumArt);
+        setVisibleAndAlpha(collapsedSet, R.id.album_art, !useBgAlbumArt);
+        setVisibleAndAlpha(expandedSet, R.id.album_art, !useBgAlbumArt);
 
         // App icon
         ImageView appIconView = mPlayerViewHolder.getAppIcon();

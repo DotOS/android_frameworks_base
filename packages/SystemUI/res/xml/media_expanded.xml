@@ -77,6 +77,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginStart="@dimen/qs_media_info_margin"
         android:layout_marginEnd="@dimen/qs_media_padding"
+        app:layout_goneMarginTop="42dp"
         app:layout_constrainedWidth="true"
         app:layout_constraintTop_toTopOf="@+id/album_art"
         app:layout_constraintStart_toEndOf="@id/album_art"

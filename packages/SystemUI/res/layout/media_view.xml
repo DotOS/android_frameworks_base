@@ -151,7 +151,7 @@
             android:foreground="@drawable/qs_media_seamless_background"
             android:orientation="horizontal"
             android:contentDescription="@string/quick_settings_media_device_label"
-            android:padding="8dp">
+            android:paddingHorizontal="8dp">
             <ImageView
                 android:id="@+id/media_seamless_image"
                 android:layout_width="@dimen/qs_seamless_icon_size"
@@ -169,7 +169,7 @@
                 android:singleLine="true"
                 android:text="@*android:string/ext_media_seamless_action"
                 android:textDirection="locale"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:lineHeight="16sp" />
         </LinearLayout>
     </LinearLayout>

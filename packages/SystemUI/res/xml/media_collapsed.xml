@@ -77,6 +77,7 @@
         android:layout_marginStart="@dimen/qs_media_info_margin"
         android:layout_marginEnd="@dimen/qs_center_guideline_padding"
         app:layout_constrainedWidth="true"
+        app:layout_goneMarginStart="24dp"
         app:layout_constraintBottom_toTopOf="@id/center_horizontal_guideline"
         app:layout_constraintStart_toEndOf="@id/album_art"
         app:layout_constraintEnd_toStartOf="@id/center_vertical_guideline"
