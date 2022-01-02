@@ -259,7 +259,4 @@
     <!-- Default for Settings.Secure.ONE_HANDED_MODE_ACTIVATED -->
     <bool name="def_one_handed_mode_activated">false</bool>
 
-    <!-- Default for Settings.System.STATUS_BAR_NOTIF_COUNT. -->
-    <integer name="def_notif_count">0</integer>
-
 </resources>

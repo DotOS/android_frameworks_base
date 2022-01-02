@@ -4886,12 +4886,6 @@ public final class Settings {
         public static final String ANIMATOR_DURATION_SCALE = Global.ANIMATOR_DURATION_SCALE;
 
         /**
-         * Show the pending notification counts as overlays on the status bar
-         * @hide
-         */
-        public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
-
-        /**
          * Control whether the accelerometer will be used to change screen
          * orientation.  If 0, it will not be used unless explicitly requested
          * by the application; if 1, it will be used by default unless explicitly
@@ -5517,6 +5511,13 @@ public final class Settings {
          * @hide
          */
         public static final String FULLSCREEN_GESTURES = "fullscreen_gestures";
+
+        /**
+         * Show the pending notification counts as overlays on the status bar
+         * Default 0
+         * @hide
+         */
+        public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
