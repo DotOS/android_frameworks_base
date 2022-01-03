@@ -65,9 +65,7 @@ import com.android.internal.util.dot.DotUtils;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
-import com.android.systemui.Dependency;
 import com.android.systemui.R;
-import com.android.systemui.assist.AssistManager;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.qualifiers.Main;
@@ -233,7 +231,6 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
     private boolean mInRejectedExclusion = false;
     private boolean mIsOnLeftEdge;
 
-    private AssistManager mAssistManager;
     private int mTimeout = 2000; //ms
     private int mLeftLongSwipeAction;
     private int mRightLongSwipeAction;
@@ -367,7 +364,6 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                 mContext.getMainThreadHandler(), mContext, this::onNavigationSettingsChanged);
 
         mHandler = new Handler();
-        mAssistManager = Dependency.get(AssistManager.class);
         updateCurrentUserResources();
     }
 
@@ -996,46 +992,43 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
             case 0: // No action
             default:
                 break;
-            case 1: // Assistant
-                mAssistManager.startAssist(new Bundle() /* args */);
-                break;
-            case 2: // Voice search
+            case 1: // Voice search
                 ActionUtils.launchVoiceSearch(mContext);
                 break;
-            case 3: // Camera
+            case 2: // Camera
                 ActionUtils.launchCamera(mContext);
                 break;
-            case 4: // Flashlight
+            case 3: // Flashlight
                 ActionUtils.toggleCameraFlash();
                 break;
-            case 5: // Application
+            case 4: // Application
                 launchApp(mContext, mIsOnLeftEdge, isVertical);
                 break;
-            case 6: // Volume panel
+            case 5: // Volume panel
                 ActionUtils.toggleVolumePanel(mContext);
                 break;
-            case 7: // Screen off
+            case 6: // Screen off
                 ActionUtils.switchScreenOff(mContext);
                 break;
-            case 8: // Screenshot
+            case 7: // Screenshot
                 ActionUtils.takeScreenshot(true);
                 break;
-            case 9: // Notification panel
+            case 8: // Notification panel
                 ActionUtils.toggleNotifications();
                 break;
-            case 10: // QS panel
+            case 9: // QS panel
                 ActionUtils.toggleQsPanel();
                 break;
-            case 11: // Clear notifications
+            case 10: // Clear notifications
                 ActionUtils.clearAllNotifications();
                 break;
-            case 12: // Ringer modes
+            case 11: // Ringer modes
                 ActionUtils.toggleRingerModes(mContext);
                 break;
-            case 13: // Kill app
+            case 12: // Kill app
                 DotUtils.killForegroundApp();
                 break;
-            case 14: // Switch recent app
+            case 13: // Switch recent app
                 ActionUtils.switchToLastApp(mContext);
                 break;
         }
