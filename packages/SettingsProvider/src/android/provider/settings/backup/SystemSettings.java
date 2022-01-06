@@ -90,5 +90,6 @@ public class SystemSettings {
         Settings.System.SHOW_FOURG_ICON,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
         Settings.System.USE_OLD_MOBILETYPE,
+        Settings.System.QS_SHOW_BATTERY_ESTIMATE,
     };
 }

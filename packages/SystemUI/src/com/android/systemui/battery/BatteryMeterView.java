@@ -16,6 +16,7 @@
 package com.android.systemui.battery;
 
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
+import static android.provider.Settings.System.QS_SHOW_BATTERY_ESTIMATE;
 
 import static com.android.systemui.DejankUtils.whitelistIpcs;
 
@@ -252,8 +253,12 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             return;
         }
 
+        final boolean userShowEstimate = Settings.System.getIntForUser(
+                mContext.getContentResolver(), QS_SHOW_BATTERY_ESTIMATE,
+                1, UserHandle.USER_CURRENT) == 1;
+
         if (mBatteryPercentView != null) {
-            if (mShowPercentMode == MODE_ESTIMATE && !mCharging) {
+            if (mShowPercentMode == MODE_ESTIMATE && !mCharging && userShowEstimate) {
                 mBatteryEstimateFetcher.fetchBatteryTimeRemainingEstimate(
                         (String estimate) -> {
                     if (mBatteryPercentView == null) {
