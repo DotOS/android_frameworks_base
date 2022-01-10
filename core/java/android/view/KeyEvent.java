@@ -1988,6 +1988,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
         switch (keyCode) {
             case KeyEvent.KEYCODE_CAMERA:
             case KeyEvent.KEYCODE_MENU:
+            case KeyEvent.KEYCODE_HOME:
             case KeyEvent.KEYCODE_PAIRING:
             case KeyEvent.KEYCODE_STEM_1:
             case KeyEvent.KEYCODE_STEM_2:
