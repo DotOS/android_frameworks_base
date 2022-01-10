@@ -132,7 +132,9 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         setupLayoutTransition();
 
         mBatteryIconView = new ImageView(context);
-        mBatteryIconView.setImageDrawable(mThemedDrawable);
+        mBatteryStyle = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
+        updateBatteryStyle();
         final MarginLayoutParams mlp = new MarginLayoutParams(
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_width),
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
@@ -375,7 +377,12 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
 
         mBatteryStateUnknown = isUnknown;
 
-        updateBatteryStyle(isUnknown);
+        if (mBatteryStateUnknown) {
+            mBatteryIconView.setImageDrawable(getUnknownStateDrawable());
+        } else {
+            mBatteryIconView.setImageDrawable(mThemedDrawable);
+        }
+
         updateShowPercent();
     }
 
@@ -409,15 +416,15 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mBatteryIconView.setLayoutParams(scaledLayoutParams);
     }
 
-    public void updateBatteryStyle(boolean isUnknown) {
+    public void updateBatteryStyle() {
         switch (mBatteryStyle) {
             case BATTERY_STYLE_PORTRAIT:
-                mBatteryIconView.setImageDrawable(isUnknown ? getUnknownStateDrawable(): mThemedDrawable);
+                mBatteryIconView.setImageDrawable(mThemedDrawable);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 scaleBatteryMeterViews();
                 break;
             case BATTERY_STYLE_CIRCLE:
-                mBatteryIconView.setImageDrawable(isUnknown ? getUnknownStateDrawable(): mCircleDrawable);
+                mBatteryIconView.setImageDrawable(mCircleDrawable);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 scaleBatteryMeterViews();
                 break;
@@ -446,7 +453,7 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
 
         mBatteryStyle = batteryStyle;
 
-        updateBatteryStyle(false);
+        updateBatteryStyle();
         updateShowPercent();
     }
 
