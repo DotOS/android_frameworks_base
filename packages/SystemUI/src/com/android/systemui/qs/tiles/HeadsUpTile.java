@@ -52,6 +52,12 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_heads_up);
 
+    private static final ComponentName HEADS_UP_SETTINGS_COMPONENT = new ComponentName(
+            "com.android.settings", "com.android.settings.Settings$HeadsUpSettingsActivity");
+
+    private static final Intent HEADS_UP_SETTINGS =
+            new Intent().setComponent(HEADS_UP_SETTINGS_COMPONENT);
+
     @Inject
     public HeadsUpTile(
             QSHost host,
@@ -87,8 +93,7 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent().setComponent(new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$HeadsUpSettingsActivity"));
+        return HEADS_UP_SETTINGS;
     }
 
     @Override
