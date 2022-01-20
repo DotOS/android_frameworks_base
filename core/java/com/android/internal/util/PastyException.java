@@ -16,11 +16,11 @@
 
 package com.android.internal.util;
 
-public class HastebinException extends Exception {
+public class PastyException extends Exception {
 
     private static final long serialVersionUID = 666L;
 
-	public HastebinException(String message) {
+	public PastyException(String message) {
         super(message);
     }
 }

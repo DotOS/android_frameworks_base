@@ -17,8 +17,8 @@
 package com.android.server.am;
 
 import static android.app.ActivityTaskManager.INVALID_TASK_ID;
-import com.android.internal.util.HastebinUtils;
-import com.android.internal.util.HastebinUtils.UploadResultCallback;
+import com.android.internal.util.PastyUtils;
+import com.android.internal.util.PastyUtils.UploadResultCallback;
 
 import android.content.ClipboardManager;
 import android.content.ClipData;
@@ -187,7 +187,7 @@ final class AppErrorDialog extends BaseErrorDialog implements View.OnClickListen
                 mHandler.obtainMessage(FORCE_QUIT_AND_REPORT).sendToTarget();
                 break;
             case com.android.internal.R.id.aerr_copy:
-                postToHastebinAndCopyURL();
+                postToPastyAndCopyURL();
                 mHandler.obtainMessage(FORCE_QUIT).sendToTarget();
                 break;
             case com.android.internal.R.id.aerr_close:
@@ -204,9 +204,9 @@ final class AppErrorDialog extends BaseErrorDialog implements View.OnClickListen
         }
     }
 
-    private void postToHastebinAndCopyURL() {
-        // Post to Hastebin
-        HastebinUtils.upload(mPaste, new UploadResultCallback() {
+    private void postToPastyAndCopyURL() {
+        // Post to Pasty
+        PastyUtils.upload(mPaste, new UploadResultCallback() {
             public void onSuccess(String url) {
                 // Copy to clipboard
                 ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);

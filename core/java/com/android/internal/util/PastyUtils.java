@@ -27,21 +27,21 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
- * Helper functions for uploading to Hastebin
+ * Helper functions for uploading to Pasty
  */
-public final class HastebinUtils {
-    private static final String TAG = "HastebinUtils";
-    private static final String BASE_URL = "https://www.toptal.com/developers/hastebin";
+public final class PastyUtils {
+    private static final String TAG = "PastyUtils";
+    private static final String BASE_URL = "https://paste.evolution-x.org";
     private static final String API_URL = String.format("%s/documents", BASE_URL);
     private static Handler handler;
 
-    private HastebinUtils() {
+    private PastyUtils() {
     }
 
     /**
-     * Uploads {@code content} to Hastebin
+     * Uploads {@code content} to Pasty
      *
-     * @param content the content to upload to Hastebin
+     * @param content the content to upload to Pasty
      * @param callback the callback to call on success / failure
      */
     public static void upload(String content, UploadResultCallback callback) {
@@ -51,6 +51,7 @@ public final class HastebinUtils {
                 try {
                     HttpsURLConnection urlConnection = (HttpsURLConnection) new URL(API_URL).openConnection();
                     try {
+                        urlConnection.setRequestProperty("Content-Type", "text/plain");
                         urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
                         urlConnection.setDoOutput(true);
 
@@ -75,14 +76,14 @@ public final class HastebinUtils {
                         if (!key.isEmpty()) {
                             callback.onSuccess(getUrl(key));
                         } else {
-                            String msg = "Failed to upload to Hastebin: No key retrieved";
-                            callback.onFail(msg, new HastebinException(msg));
+                            String msg = "Failed to upload to Pasty: No key retrieved";
+                            callback.onFail(msg, new PastyException(msg));
                         }
                     } finally {
                         urlConnection.disconnect();
                     }
                 } catch (Exception e) {
-                    callback.onFail("Failed to upload to Hastebin", e);
+                    callback.onFail("Failed to upload to Pasty", e);
                 }
             }
         });
@@ -97,7 +98,7 @@ public final class HastebinUtils {
 
     private static Handler getHandler() {
         if (handler == null) {
-            HandlerThread handlerThread = new HandlerThread("HastebinThread");
+            HandlerThread handlerThread = new HandlerThread("PastyThread");
             if (!handlerThread.isAlive())
                 handlerThread.start();
             handler = new Handler(handlerThread.getLooper());
