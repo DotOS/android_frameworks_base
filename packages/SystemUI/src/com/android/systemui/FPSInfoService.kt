@@ -21,6 +21,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.PixelFormat
+import android.os.Binder
 import android.os.Handler
 import android.os.IBinder
 import android.util.Log
@@ -34,13 +35,10 @@ import androidx.core.graphics.ColorUtils
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.keyguard.WakefulnessLifecycle
 
-import java.io.FileNotFoundException
-import java.io.IOException
 import java.io.RandomAccessFile
 
 import javax.inject.Inject
 
-import kotlin.math.roundToInt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.Dispatchers
@@ -51,7 +49,7 @@ import kotlinx.coroutines.launch
 
 class FPSInfoService @Inject constructor(
     private val wakefulnessLifecycle: WakefulnessLifecycle,
-    @Main private val handler: Handler
+    @Main private val handler: Handler,
 ) : Service() {
 
     private lateinit var coroutineScope: CoroutineScope
@@ -76,59 +74,69 @@ class FPSInfoService @Inject constructor(
 
     private var fpsReadJob: Job? = null
 
-    private var observerRegistered = false
     private val wakefulnessObserver = object: WakefulnessLifecycle.Observer {
         override fun onStartedGoingToSleep() {
-            stopReading()
+            logD("onStartedGoingToSleep")
+            stopReadingInternal()
         }
 
-        override fun onStartedWakingUp() {
-            startReading()
+        override fun onFinishedWakingUp() {
+            logD("onFinishedWakingUp")
+            startReadingInternal()
         }
     }
 
     private var fpsReadInterval = FPS_MEASURE_INTERVAL_DEFAULT
 
+    private var binder: IBinder? = null
+
+    var isReading = false
+        private set
+
     override fun onCreate() {
         super.onCreate()
+        logD("onCreate")
+        binder = ServiceBinder()
         coroutineScope = CoroutineScope(Dispatchers.IO)
 
         windowManager = getSystemService(WindowManager::class.java)
         configuration = resources.configuration
         layoutParams.y = getTopInset()
 
-        fpsInfoView = TextView(this).apply {
-            text = getString(R.string.fps_text_placeholder, 0)
-            setBackgroundColor(ColorUtils.setAlphaComponent(Color.BLACK, BACKGROUND_ALPHA))
-            setTextColor(Color.WHITE)
-            val padding = resources.getDimensionPixelSize(R.dimen.fps_info_text_padding)
-            setPadding(padding, padding, padding, padding)
+        handler.post {
+            fpsInfoView = TextView(this).apply {
+                text = getString(R.string.fps_text_placeholder, 0)
+                setBackgroundColor(ColorUtils.setAlphaComponent(Color.BLACK, BACKGROUND_ALPHA))
+                setTextColor(Color.WHITE)
+                val padding = resources.getDimensionPixelSize(R.dimen.fps_info_text_padding)
+                setPadding(padding, padding, padding, padding)
+            }
         }
 
         val nodePath = getString(R.string.config_fpsInfoSysNode)
-        try {
-            fpsInfoNode = RandomAccessFile(nodePath, "r")
-        } catch (e: FileNotFoundException) {
-            Log.e(TAG, "Sysfs node $nodePath does not exist, stopping service")
-            stopSelf()
+        val result = runCatching {
+            RandomAccessFile(nodePath, "r")
         }
-    }
-
-    override fun onStartCommand(intent: Intent?, startId: Int, flags: Int): Int {
-        if (!observerRegistered) {
-            wakefulnessLifecycle.addObserver(wakefulnessObserver)
-            observerRegistered = true
+        if (result.isFailure) {
+            Log.e(TAG, "Unable to open $nodePath, ${result.exceptionOrNull()?.message}")
+            stopSelf()
+            return
+        } else {
+            fpsInfoNode = result.getOrThrow()
         }
         fpsReadInterval = resources.getInteger(R.integer.config_fpsReadInterval).toLong()
-        startReading()
-        return START_STICKY
+        wakefulnessLifecycle.addObserver(wakefulnessObserver)
     }
 
+    override fun onBind(intent: Intent?): IBinder? = binder
+
     override fun onConfigurationChanged(newConfig: Configuration) {
-        if (configuration.orientation != newConfig.orientation) {
-            layoutParams.y = getTopInset()
-            if (fpsInfoView.parent != null)
+        logD("onConfigurationChanged")
+        layoutParams.y = getTopInset()
+        if (fpsInfoView.parent != null) {
+            handler.post {
                 windowManager.updateViewLayout(fpsInfoView, layoutParams)
+            }
         }
         configuration = newConfig
     }
@@ -136,9 +144,20 @@ class FPSInfoService @Inject constructor(
     private fun getTopInset(): Int = windowManager.currentWindowMetrics
         .windowInsets.getInsets(WindowInsets.Type.statusBars()).top
 
-    private fun startReading() {
-        if (fpsReadJob != null) return
-        if (fpsInfoView.parent == null) windowManager.addView(fpsInfoView, layoutParams)
+    fun startReading() {
+        logD("startReading, isReading = $isReading")
+        if (isReading) return
+        isReading = true
+        startReadingInternal()
+    }
+
+    private fun startReadingInternal() {
+        if (!isReading || fpsReadJob != null) return
+        if (fpsInfoView.parent == null) {
+            handler.post {
+                windowManager.addView(fpsInfoView, layoutParams)
+            }
+        }
         fpsReadJob = coroutineScope.launch {
             do {
                 val fps = measureFps()
@@ -150,51 +169,63 @@ class FPSInfoService @Inject constructor(
         }
     }
 
-    private fun stopReading() {
-        if (fpsReadJob == null) return
-        fpsReadJob?.cancel()
-        fpsReadJob = null
-        if (fpsInfoView.parent != null) windowManager.removeViewImmediate(fpsInfoView)
+    fun stopReading() {
+        logD("stopReading, isReading = $isReading")
+        if (!isReading) return
+        isReading = false
+        stopReadingInternal()
+    }
+
+    private fun stopReadingInternal() {
+        if (fpsReadJob != null) {
+            fpsReadJob?.cancel()
+            fpsReadJob = null
+        }
+        if (fpsInfoView.parent != null) {
+            handler.post {
+                windowManager.removeViewImmediate(fpsInfoView)
+            }
+        }
     }
 
     private fun measureFps(): Int {
-        fpsInfoNode.seek(0L)
-        val measuredFps: String
-        try {
-            measuredFps = fpsInfoNode.readLine()
-        } catch (e: IOException) {
-            Log.e(TAG, "IOException while reading from FPS node, ${e.message}")
-            return -1
+        val result = runCatching {
+            fpsInfoNode.seek(0L)
+            fpsRegex.find(fpsInfoNode.readLine())?.value?.toInt() ?: 0
         }
-        try {
-            val fps: Float = measuredFps.trim().let {
-                if (it.contains(": ")) it.split("\\s+".toRegex())[1] else it
-            }.toFloat()
-            return fps.roundToInt()
-        } catch (e: NumberFormatException) {
-            Log.e(TAG, "NumberFormatException occurred while parsing FPS info, ${e.message}")
+        return if (result.isFailure) {
+            Log.e(TAG, "Failed to parse fps, ${result.exceptionOrNull()?.message}")
+            0
+        } else {
+            result.getOrThrow()
         }
-        return -1
     }
 
     override fun onDestroy() {
+        logD("onDestroy")
+        isReading = false
         stopReading()
+        wakefulnessLifecycle.removeObserver(wakefulnessObserver)
         coroutineScope.cancel()
-        if (observerRegistered) {
-            wakefulnessLifecycle.removeObserver(wakefulnessObserver)
-            observerRegistered = false
-        }
-        if (fpsInfoView.parent != null)
-            windowManager.removeViewImmediate(fpsInfoView)
         super.onDestroy()
     }
 
-    override fun onBind(intent: Intent?): IBinder? = null
+    inner class ServiceBinder : Binder() {
+        val service: FPSInfoService
+            get() = this@FPSInfoService
+    }
 
     private companion object {
         private const val TAG = "FPSInfoService"
+        private const val DEBUG = false
         private const val FPS_MEASURE_INTERVAL_DEFAULT = 1000L
 
         private const val BACKGROUND_ALPHA = 120
+
+        private val fpsRegex = Regex("[0-9]+")
+
+        private fun logD(msg: String) {
+            if (DEBUG) Log.d(TAG, msg)
+        }
     }
 }
