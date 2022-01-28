@@ -860,16 +860,6 @@ public final class ActionUtils {
         }
     }
 
-    // Screenshot
-    public static void takeScreenshot(boolean full) {
-        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
-        try {
-            wm.sendCustomAction(new Intent(INTENT_SCREENSHOT));
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
     // Toggle notifications panel
     public static void toggleNotifications() {
         IStatusBarService service = getStatusBarService();
