@@ -103,14 +103,12 @@ class FPSInfoService @Inject constructor(
         configuration = resources.configuration
         layoutParams.y = getTopInset()
 
-        handler.post {
-            fpsInfoView = TextView(this).apply {
-                text = getString(R.string.fps_text_placeholder, 0)
-                setBackgroundColor(ColorUtils.setAlphaComponent(Color.BLACK, BACKGROUND_ALPHA))
-                setTextColor(Color.WHITE)
-                val padding = resources.getDimensionPixelSize(R.dimen.fps_info_text_padding)
-                setPadding(padding, padding, padding, padding)
-            }
+        fpsInfoView = TextView(this).apply {
+            text = getString(R.string.fps_text_placeholder, 0)
+            setBackgroundColor(ColorUtils.setAlphaComponent(Color.BLACK, BACKGROUND_ALPHA))
+            setTextColor(Color.WHITE)
+            val padding = resources.getDimensionPixelSize(R.dimen.fps_info_text_padding)
+            setPadding(padding, padding, padding, padding)
         }
 
         val nodePath = getString(R.string.config_fpsInfoSysNode)
