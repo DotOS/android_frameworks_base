@@ -317,5 +317,6 @@ public class SecureSettingsValidators {
             }
             return true;
         });
+        VALIDATORS.put(Secure.DISABLE_SECURE_TILES_ON_LOCKSCREEN, BOOLEAN_VALIDATOR);
     }
 }
