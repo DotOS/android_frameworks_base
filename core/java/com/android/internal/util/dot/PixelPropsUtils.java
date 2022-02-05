@@ -124,7 +124,8 @@ public class PixelPropsUtils {
             "com.google.android.apps.youtube.music",
             "com.google.android.dialer",
             "com.google.android.youtube",
-            "com.google.ar.core"
+            "com.google.ar.core",
+            "com.google.android.apps.wearables.maestro.companion"
     };
 
     // Codenames for currently supported Pixels by Google
