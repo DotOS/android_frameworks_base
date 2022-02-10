@@ -123,6 +123,7 @@ android_library {
         "colorkt",
         "themelib",
         "vendor.lineage.powershare-V1.0-java",
+        "faceunlock_framework",
     ],
     manifest: "AndroidManifest.xml",
 
