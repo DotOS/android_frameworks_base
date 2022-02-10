@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2018 The LineageOS project
  * Copyright (C) 2019 The PixelExperience project
  *
@@ -31,26 +31,29 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CutoutFullscreenController {
+public class CutoutFullscreenController extends ContentObserver {
     private Set<String> mApps = new HashSet<>();
     private Context mContext;
 
     private final boolean isAvailable;
 
-    public CutoutFullscreenController(Context context) {
+    public CutoutFullscreenController(Handler handler, Context context) {
+        super(handler);
         mContext = context;
-        final Resources resources = mContext.getResources();
 
-	final String displayCutout = resources.getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+	    final String displayCutout =
+            mContext.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
         isAvailable = !TextUtils.isEmpty(displayCutout);
+    }
 
-        if (!isAvailable) {
-            return;
+    public void registerObserver() {
+        if (isAvailable) {
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS), false, this,
+                    UserHandle.USER_ALL);
+
+            update();
         }
-
-        SettingsObserver observer = new SettingsObserver(
-                new Handler(Looper.getMainLooper()));
-        observer.observe();
     }
 
     public boolean isSupported() {
@@ -81,37 +84,21 @@ public class CutoutFullscreenController {
         mApps = apps;
     }
 
-    class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
+    @Override
+    public void onChange(boolean selfChange) {
+        update();
+    }
 
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
+    private void update() {
+        ContentResolver resolver = mContext.getContentResolver();
 
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS), false, this,
-                    UserHandle.USER_ALL);
-
-            update();
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            update();
-        }
-
-        public void update() {
-            ContentResolver resolver = mContext.getContentResolver();
-
-            String apps = Settings.System.getStringForUser(resolver,
-                    Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS,
-                    UserHandle.USER_CURRENT);
-            if (apps != null) {
-                setApps(new HashSet<>(Arrays.asList(apps.split(","))));
-            } else {
-                setApps(new HashSet<>());
-            }
+        String apps = Settings.System.getStringForUser(resolver,
+                Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS,
+                UserHandle.USER_CURRENT);
+        if (apps != null) {
+            setApps(new HashSet<>(Arrays.asList(apps.split(","))));
+        } else {
+            setApps(new HashSet<>());
         }
     }
 }

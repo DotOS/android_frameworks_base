@@ -2251,6 +2251,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         mEnableOffloadQueue = false;
         mFgBroadcastQueue = mBgBroadcastQueue = mOffloadBroadcastQueue = null;
         mSwipeToScreenshotObserver = null;
+        mCutoutFullscreenController = null;
     }
 
     // Note: This method is invoked on the main thread but may need to attach various
@@ -2380,7 +2381,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         mSwipeToScreenshotObserver = new SwipeToScreenshotObserver(mHandler, mContext);
 
         // Force full screen for devices with cutout
-        mCutoutFullscreenController = new CutoutFullscreenController(mContext);
+        mCutoutFullscreenController = new CutoutFullscreenController(mHandler, mContext);
     }
 
     public void setSystemServiceManager(SystemServiceManager mgr) {
@@ -7536,10 +7537,11 @@ public class ActivityManagerService extends IActivityManager.Stub
             mUserController.setInitialConfig(userSwitchUiEnabled, maxRunningUsers,
                     delayUserDataLocking);
             mWaitForNetworkTimeoutMs = waitForNetworkTimeoutMs;
-            mSwipeToScreenshotObserver.registerObserver();
         }
         mAppErrors.loadAppsNotReportingCrashesFromConfig(res.getString(
                 com.android.internal.R.string.config_appsNotReportingCrashes));
+        mSwipeToScreenshotObserver.registerObserver();
+        mCutoutFullscreenController.registerObserver();
     }
 
     /**
