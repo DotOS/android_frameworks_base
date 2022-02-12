@@ -119,4 +119,7 @@
     <string name="accessibility_quick_settings_onthego_on">On-The-Go on</string>
     <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go turned off</string>
     <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go turned on</string>
+
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Recognizing face...</string>
 </resources>
