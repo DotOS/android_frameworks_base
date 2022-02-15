@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2020 The Pixel Experience Project
+ *               2021-2022 crDroid Android Project
+ *               2019-2022 The Evolution X Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +31,7 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     public static final String PACKAGE_GMS = "com.google.android.gms";
-    private static final String DEVICE = "org.pixelexperience.device";
+    private static final String DEVICE = "ro.dot.device";
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = false;
 
@@ -37,12 +39,12 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangePixel5;
     private static final String[] packagesToChangePixel5 = {
-            "com.android.vending",
             "com.google.android.apps.photos",
             "com.google.android.apps.recorder",
+            "com.google.android.apps.translate",
             "com.google.android.apps.turbo",
             "com.google.android.apps.turboadapter",
-            "com.google.android.dialer",
+            "com.google.android.apps.wearables.maestro.companion",
             "com.google.android.googlequicksearchbox",
             "com.google.android.tts",
             "com.google.audio.hearing.visualization.accessibility.scribe"
@@ -50,7 +52,6 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangePixelXL;
     private static final String[] packagesToChangePixelXL = {
-            "com.google.android.apps.photos",
             "com.samsung.accessory",
             "com.samsung.accessory.fridaymgr",
             "com.samsung.accessory.berrymgr",
@@ -109,20 +110,21 @@ public class PixelPropsUtils {
     };
 
     private static final String[] packagesToKeep = {
-        "com.google.android.GoogleCamera",
-        "com.google.android.GoogleCamera.Cameight",
-        "com.google.android.GoogleCamera.Go",
-        "com.google.android.GoogleCamera.Urnyx",
-        "com.google.android.GoogleCameraAsp",
-        "com.google.android.GoogleCameraCVM",
-        "com.google.android.GoogleCameraEng",
-        "com.google.android.GoogleCameraEng2",
-        "com.google.android.GoogleCameraGood",
-        "com.google.android.MTCL83",
-        "com.google.android.UltraCVM",
-        "com.google.android.apps.cameralite"
-        "com.google.android.dialer",
-        "com.google.android.youtube",
+            "com.google.android.GoogleCamera",
+            "com.google.android.GoogleCamera.Cameight",
+            "com.google.android.GoogleCamera.Go",
+            "com.google.android.GoogleCamera.Urnyx",
+            "com.google.android.GoogleCameraAsp",
+            "com.google.android.GoogleCameraCVM",
+            "com.google.android.GoogleCameraEng",
+            "com.google.android.GoogleCameraEng2",
+            "com.google.android.GoogleCameraGood",
+            "com.google.android.MTCL83",
+            "com.google.android.UltraCVM",
+            "com.google.android.apps.cameralite",
+            "com.google.android.dialer",
+            "com.google.android.youtube",
+            "com.google.ar.core"
     };
 
     // Codenames for currently supported Pixels by Google
@@ -152,14 +154,14 @@ public class PixelPropsUtils {
         propsToChangePixel6.put("DEVICE", "raven");
         propsToChangePixel6.put("PRODUCT", "raven");
         propsToChangePixel6.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:12/SQ1D.220205.004/8151327:user/release-keys");
+        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:12/S3B1.220218.004/8242181:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
         propsToChangePixel5.put("DEVICE", "redfin");
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:12/SQ1A.220205.002/8010174:user/release-keys");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:12/SP2A.220305.012/8177914:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -185,18 +187,31 @@ public class PixelPropsUtils {
             sIsGms = true;
         }
         boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
-        if (!isPixelDevice && 
+        if (!isPixelDevice &&
             ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
                 || Arrays.asList(extraPackagesToChange).contains(packageName)
                 || Arrays.asList(streamingPackagesToChange).contains(packageName))) {
-            Map<String, Object> propsToChange = propsToChangePixel6;
 
-            if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
-                propsToChange = propsToChangePixel5;
+            if (Arrays.asList(streamingPackagesToChange).contains(packageName)) {
+                if (!SystemProperties.getBoolean("persist.sys.pixelprops.streaming", true))
+                    return;
             }
 
-            if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
-                propsToChange = propsToChangePixelXL;
+            Map<String, Object> propsToChange = propsToChangePixel6;
+
+            if (packageName.equals("com.google.android.apps.photos")) {
+                if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
+                    propsToChange = propsToChangePixelXL;
+                } else {
+                    propsToChange = propsToChangePixel5;
+                }
+            } else {
+                if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
+                    propsToChange = propsToChangePixel5;
+                }
+                if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
+                    propsToChange = propsToChangePixelXL;
+                }
             }
 
             if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
@@ -209,6 +224,33 @@ public class PixelPropsUtils {
                 }
                 if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
+            }
+        } else {
+
+            if (!SystemProperties.getBoolean("persist.sys.pixelprops.games", false))
+                return;
+
+            if (Arrays.asList(packagesToChangeROG1).contains(packageName)) {
+                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                for (Map.Entry<String, Object> prop : propsToChangeROG1.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
+            } else if (Arrays.asList(packagesToChangeXP5).contains(packageName)) {
+                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                for (Map.Entry<String, Object> prop : propsToChangeXP5.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
+            } else if (Arrays.asList(packagesToChangeOP8P).contains(packageName)) {
+                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                for (Map.Entry<String, Object> prop : propsToChangeOP8P.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
             }
         }
         if (isPixelDevice){
