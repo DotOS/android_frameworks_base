@@ -20,7 +20,6 @@ import android.annotation.Nullable;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.database.ContentObserver;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
@@ -56,10 +55,12 @@ public class AODTile extends QSTileImpl<State> implements
 
     private final BatteryController mBatteryController;
 
-    private static final ComponentName LS_DISPLAY_SETTINGS_COMPONENT = new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$LockscreenDashboardActivity");
-    private static final Intent LS_DISPLAY_SETTINGS =
-            new Intent().setComponent(LS_DISPLAY_SETTINGS_COMPONENT);
+    private static final Intent LS_DISPLAY_SETTINGS = new Intent().setComponent(
+        new ComponentName(
+            "com.android.settings",
+            "com.android.settings.Settings$LockScreenSettingsActivity"
+        )
+    );
 
     @Inject
     public AODTile(
@@ -81,7 +82,7 @@ public class AODTile extends QSTileImpl<State> implements
         mSystemSettings = systemSettings;
         mObserver = new ContentObserver(mainHandler) {
             @Override
-            public void onChange(boolean selfChange, Uri uri) {
+            public void onChange(boolean selfChange) {
                 refreshState();
             }
         };
