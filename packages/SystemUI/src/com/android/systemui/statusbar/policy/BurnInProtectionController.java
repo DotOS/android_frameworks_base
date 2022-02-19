@@ -64,7 +64,8 @@ public class BurnInProtectionController {
         mUiHandler = new Handler(Looper.getMainLooper());
 
         final Resources res = mContext.getResources();
-        mShiftEnabled = res.getBoolean(R.bool.config_statusBarBurnInProtection);
+        mShiftEnabled = res.getBoolean(com.android.internal.R.bool.config_enableBurnInProtection)
+                && !res.getBoolean(R.bool.config_disableStatusBarBurnInProtection);
         mShiftInterval = res.getInteger(R.integer.config_shift_interval) * 1000;
         logD("mShiftEnabled = " + mShiftEnabled + ", mShiftInterval = " + mShiftInterval);
         loadResources(res);
