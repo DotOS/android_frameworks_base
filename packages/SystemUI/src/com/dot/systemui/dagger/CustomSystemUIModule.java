@@ -16,8 +16,11 @@ import com.google.android.systemui.smartspace.KeyguardMediaViewController;
 import com.google.android.systemui.smartspace.KeyguardZenAlarmViewController;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
+import com.dot.systemui.CustomServices;
 import com.dot.systemui.smartspace.KeyguardSmartspaceController;
+import com.dot.systemui.theme.CustomThemeOverlayController;
 
+import com.android.internal.logging.UiEventLogger;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardViewController;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -56,6 +59,7 @@ import com.android.systemui.statusbar.phone.NotificationShadeWindowControllerImp
 import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.phone.ShadeControllerImpl;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
+import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BatteryControllerImpl;
 import com.android.systemui.statusbar.policy.ConfigurationController;
@@ -201,6 +205,15 @@ public abstract class CustomSystemUIModule {
 
     @Binds
     abstract DozeHost provideDozeHost(DozeServiceHost dozeServiceHost);
+
+    @Binds
+    abstract ThemeOverlayController provideThemeOverlayController(CustomThemeOverlayController themeOverlayController);
+
+    @Provides
+    @SysUISingleton
+    static CustomServices provideCustomServices(Context context, UiEventLogger uiEventLogger, AlarmManager am, StatusBar sb) {
+        return new CustomServices(context, uiEventLogger, am, sb);
+    }
 
     // Google
     @Provides

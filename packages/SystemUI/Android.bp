@@ -81,11 +81,12 @@ android_library {
         },
     },
     resource_dirs: [
-        "res-product",
-        "res-keyguard",
-        "res-smartspace",
         "res",
+        "res-ambientmusic",
         "res-hwkeys",
+        "res-keyguard",
+        "res-product",
+        "res-smartspace",
     ],
     static_libs: [
         "WindowManager-Shell",
@@ -126,6 +127,7 @@ android_library {
         "themelib",
         "vendor.lineage.powershare-V1.0-java",
         "faceunlock_framework",
+        "ambientmusic-google",
         "smartspace-google",
     ],
     manifest: "AndroidManifest.xml",

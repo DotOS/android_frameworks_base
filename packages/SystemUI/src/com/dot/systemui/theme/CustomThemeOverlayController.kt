@@ -146,8 +146,27 @@ class CustomThemeOverlayController @Inject constructor(
 
     companion object {
         private const val TAG = "CustomThemeOverlayController"
+        private const val DEBUG = false
 
-        private const val SRGB_WHITE_LUMINANCE = 200.0 // cd/m^2
+        private const val PREF_PREFIX = "monet_engine"
+        private const val PREF_CUSTOM_COLOR = "${PREF_PREFIX}_custom_color"
+        private const val PREF_COLOR_OVERRIDE = "${PREF_PREFIX}_color_override"
+        private const val PREF_CHROMA_FACTOR = "${PREF_PREFIX}_chroma_factor"
+        private const val PREF_ACCURATE_SHADES = "${PREF_PREFIX}_accurate_shades"
+        private const val PREF_LINEAR_LIGHTNESS = "${PREF_PREFIX}_linear_lightness"
+        private const val PREF_WHITE_LUMINANCE = "${PREF_PREFIX}_white_luminance_user"
+
+        private const val WHITE_LUMINANCE_MIN = 1.0
+        private const val WHITE_LUMINANCE_MAX = 10000.0
+        private const val WHITE_LUMINANCE_USER_MAX = 1000
+        private const val WHITE_LUMINANCE_USER_DEFAULT = 425 // ~200.0 divisible by step (decoded = 199.526)
+
+        private fun parseWhiteLuminanceUser(userValue: Int): Double {
+            val userSrc = userValue.toDouble() / WHITE_LUMINANCE_USER_MAX
+            val userInv = 1.0 - userSrc
+            return (10.0).pow(userInv * log10(WHITE_LUMINANCE_MAX))
+                    .coerceAtLeast(WHITE_LUMINANCE_MIN)
+        }
 
         private fun FabricatedOverlay.Builder.setColor(name: String, @ColorInt color: Int) =
             setResourceValue("android:color/$name", TypedValue.TYPE_INT_COLOR_ARGB8, color)

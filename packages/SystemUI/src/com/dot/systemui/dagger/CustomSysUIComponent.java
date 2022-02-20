@@ -16,7 +16,7 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {
         DefaultComponentBinder.class,
         DependencyProvider.class,
-        SystemUIBinder.class,
+        CustomSystemUIBinder.class,
         SystemUIModule.class,
         CustomSystemUIModule.class })
 public interface CustomSysUIComponent extends SysUIComponent {
