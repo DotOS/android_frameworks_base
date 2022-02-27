@@ -123,6 +123,8 @@ public class PixelPropsUtils {
             "com.google.android.MTCL83",
             "com.google.android.UltraCVM",
             "com.google.android.apps.cameralite",
+            "com.google.android.apps.youtube.kids",
+            "com.google.android.apps.youtube.music",
             "com.google.android.dialer",
             "com.google.android.youtube",
             "com.google.ar.core"
