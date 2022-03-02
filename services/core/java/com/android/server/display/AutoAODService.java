@@ -87,6 +87,9 @@ public class AutoAODService extends SystemService {
      * Whether next alarm should enable or disable AOD
      */
     private boolean mIsNextActivate = false;
+    
+    private boolean mTwilightRegistered = false;
+    private boolean mTimeRegistered = false;
 
     private final TwilightListener mTwilightListener = new TwilightListener() {
         @Override
@@ -175,7 +178,7 @@ public class AutoAODService extends SystemService {
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            mHandler.post(() -> initState());
+            initState();
         }
     }
 
@@ -216,6 +219,7 @@ public class AutoAODService extends SystemService {
             final IntentFilter intentFilter = new IntentFilter(Intent.ACTION_TIME_CHANGED);
             intentFilter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
             mContext.registerReceiver(mTimeChangedReceiver, intentFilter);
+            mTimeRegistered = true;
             return;
         }
         try {
@@ -224,6 +228,7 @@ public class AutoAODService extends SystemService {
         } catch (IllegalArgumentException e) {
             // nothing to do. Already unregistered
         }
+        mTimeRegistered = false;
     }
 
     /**
@@ -235,6 +240,7 @@ public class AutoAODService extends SystemService {
             Slog.v(TAG, "Registering mTwilightListener");
             mTwilightManager.registerListener(mTwilightListener, mHandler);
             mTwilightState = mTwilightManager.getLastTwilightState();
+            mTwilightRegistered = true;
             return;
         }
         try {
@@ -243,6 +249,7 @@ public class AutoAODService extends SystemService {
         } catch (IllegalArgumentException e) {
             // nothing to do. Already unregistered
         }
+        mTwilightRegistered = false;
     }
 
     /**
@@ -250,50 +257,30 @@ public class AutoAODService extends SystemService {
      * Registers or unregisters listeners and calls {@link #maybeActivateAOD()}
      */
     private void initState() {
-        int pMode = mMode;
-        mMode = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+        final int mode = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, MODE_DISABLED,
                 UserHandle.USER_CURRENT);
+        if (mode == mMode) return;
+        mMode = mode;
         mAlarm.cancel(); // cancelling set alarm
+        // unregister all registered listeners
+        if (mTimeRegistered) setTimeReciever(false);
+        if (mTwilightRegistered) setTwilightListener(false);
         switch (mMode) {
             default:
             case MODE_DISABLED:
-                // shifting to MODE_DISABLED
-                if (pMode != MODE_DISABLED) setAutoAODActive(false);
+                setAutoAODActive(false);
                 return;
             case MODE_TIME:
-                if (pMode == MODE_TIME) break;
-                // shifting to MODE_TIME
                 setTimeReciever(true);
                 break;
             case MODE_NIGHT:
-                if (pMode == MODE_NIGHT) break;
-                // shifting to MODE_NIGHT
                 setTwilightListener(true);
                 break;
             case MODE_MIXED_SUNSET:
             case MODE_MIXED_SUNRISE:
-                if (pMode >= MODE_MIXED_SUNSET) break;
-                // shifting to MODE_MIXED_SUNSET / MODE_MIXED_SUNRISE
-                if (pMode != MODE_NIGHT) setTwilightListener(true);
-                if (pMode != MODE_TIME) setTimeReciever(true);
-                break;
-        }
-        switch (pMode) {
-            case MODE_TIME:
-                if (mMode == MODE_TIME || mMode >= MODE_MIXED_SUNSET) break;
-                // shifting out of MODE_TIME
-                setTimeReciever(false);
-                break;
-            case MODE_NIGHT:
-            case MODE_MIXED_SUNSET:
-            case MODE_MIXED_SUNRISE:
-                if (mMode == MODE_NIGHT || mMode >= MODE_MIXED_SUNSET) break;
-                // shifting out of MODE_NIGHT
-                setTwilightListener(false);
-                if (pMode < MODE_MIXED_SUNSET) break;
-                // shifting out of MODE_MIXED_SUNSET / MODE_MIXED_SUNRISE
-                setTimeReciever(false);
+                setTwilightListener(true);
+                setTimeReciever(true);
                 break;
         }
         maybeActivateAOD();
