@@ -302,7 +302,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     static final int LONG_PRESS_HOME_ALL_APPS = 1;
     static final int LONG_PRESS_HOME_ASSIST = 2;
     static final int LONG_PRESS_HOME_NOTIFICATION_PANEL = 3;
-    static final int LAST_LONG_PRESS_HOME_BEHAVIOR = LONG_PRESS_HOME_NOTIFICATION_PANEL;
+    static final int LONG_PRESS_HOME_RECENT_SYSTEM_UI = 4;
+    static final int LAST_LONG_PRESS_HOME_BEHAVIOR = LONG_PRESS_HOME_RECENT_SYSTEM_UI;
 
     // must match: config_doubleTapOnHomeBehavior in config.xml
     static final int DOUBLE_TAP_HOME_NOTHING = 0;
@@ -1624,6 +1625,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             } else if ((event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
                 if (!keyguardOn) {
+                    if (mLongPressOnBackBehavior == LONG_PRESS_HOME_RECENT_SYSTEM_UI
+                            && !mRecentsVisible) {
+                        preloadRecentApps();
+                    }
+
                     // Post to main thread to avoid blocking input pipeline.
                     mHandler.post(() -> handleLongPressOnHome(event.getDeviceId(),
                             event.getEventTime()));
@@ -1656,6 +1662,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 case LONG_PRESS_HOME_NOTIFICATION_PANEL:
                     toggleNotificationPanel();
+                    break;
+                case LONG_PRESS_HOME_RECENT_SYSTEM_UI:
+                    toggleRecentApps();
                     break;
                 default:
                     Log.w(TAG, "Undefined long press on home behavior: "
