@@ -321,8 +321,7 @@ public class TelephonyIcons {
             0,
             AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
             0,
-            TelephonyIcons.ICON_VOWIFI,
-            false);
+            TelephonyIcons.ICON_VOWIFI);
 
     public static final MobileIconGroup VOWIFI_CALLING = new MobileIconGroup(
             "VoWIFICall",
@@ -334,9 +333,7 @@ public class TelephonyIcons {
             0,
             AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
             0,
-            TelephonyIcons.ICON_VOWIFI_CALLING,
-            false);
-
+            TelephonyIcons.ICON_VOWIFI_CALLING);
 
     // When adding a new MobileIconGround, check if the dataContentDescription has to be filtered
     // in QSCarrier#hasValidTypeContentDescription
