@@ -2464,7 +2464,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         if (mBouncerFullyShown != fullyShow){
             mBouncerFullyShown = fullyShow;
             if (mFaceUnlockBehavior == FACE_UNLOCK_BEHAVIOR_SWIPE){
-                updateFaceListeningState();
+                updateFaceListeningState(BIOMETRIC_ACTION_UPDATE);
             }
         }
     }
@@ -3003,9 +3003,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
      */
     private void handleKeyguardReset() {
         if (DEBUG) Log.d(TAG, "handleKeyguardReset");
-        updateBiometricListeningState(BIOMETRIC_ACTION_UPDATE);
         mBouncerFullyShown = false;
-        updateBiometricListeningState();
+        updateBiometricListeningState(BIOMETRIC_ACTION_UPDATE);
         mNeedsSlowUnlockTransition = resolveNeedsSlowUnlockTransition();
     }
 
