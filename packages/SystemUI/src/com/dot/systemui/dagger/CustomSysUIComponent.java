@@ -18,7 +18,7 @@ import dagger.Subcomponent;
         DependencyProvider.class,
         SystemUIBinder.class,
         SystemUIModule.class,
-        CustomSystemUIModule.class})
+        CustomSystemUIModule.class })
 public interface CustomSysUIComponent extends SysUIComponent {
     @SysUISingleton
     @Subcomponent.Builder
