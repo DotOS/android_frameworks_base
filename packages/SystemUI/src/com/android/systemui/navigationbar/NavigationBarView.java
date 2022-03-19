@@ -34,7 +34,6 @@ import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.annotation.DrawableRes;
-import android.annotation.Nullable;
 import android.app.StatusBarManager;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -183,14 +182,6 @@ public class NavigationBarView extends FrameLayout implements
      */
     private ScreenPinningNotify mScreenPinningNotify;
     private Rect mSamplingBounds = new Rect();
-    /**
-     * When quickswitching between apps of different orientations, we draw a secondary home handle
-     * in the position of the first app's orientation. This rect represents the region of that
-     * home handle so we can apply the correct light/dark luma on that.
-     * @see {@link NavigationBar#mOrientationHandle}
-     */
-    @Nullable
-    private Rect mOrientedHandleSamplingRegion;
 
     private boolean mBlockedGesturalNavigation;
 
@@ -400,10 +391,6 @@ public class NavigationBarView extends FrameLayout implements
 
                     @Override
                     public Rect getSampledRegion(View sampledView) {
-                        if (mOrientedHandleSamplingRegion != null) {
-                            return mOrientedHandleSamplingRegion;
-                        }
-
                         updateSamplingRect();
                         return mSamplingBounds;
                     }
@@ -1091,11 +1078,6 @@ public class NavigationBarView extends FrameLayout implements
         }
     }
 
-    void setOrientedHandleSamplingRegion(Rect orientedHandleSamplingRegion) {
-        mOrientedHandleSamplingRegion = orientedHandleSamplingRegion;
-        mRegionSamplingHelper.updateSamplingRect();
-    }
-
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
@@ -1450,11 +1432,8 @@ public class NavigationBarView extends FrameLayout implements
                         mIsVertical ? "true" : "false",
                         getLightTransitionsController().getCurrentDarkIntensity()));
 
-        pw.println("      mOrientedHandleSamplingRegion: " + mOrientedHandleSamplingRegion);
         pw.println("    mScreenOn: " + mScreenOn);
 
-
-        dumpButton(pw, "back", getBackButton());
         dumpButton(pw, "home", getHomeButton());
         dumpButton(pw, "handle", getHomeHandle());
         dumpButton(pw, "rcnt", getRecentsButton());
