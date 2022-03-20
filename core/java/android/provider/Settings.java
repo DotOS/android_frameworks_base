@@ -5829,12 +5829,6 @@ public final class Settings {
         public static final String FORCE_SHOW_NAVBAR = "force_show_navbar";
 
         /**
-         * Force full screen for devices with cutout
-         * @hide
-         */
-        public static final String FORCE_FULLSCREEN_CUTOUT_APPS = "force_full_screen_cutout_apps";
-
-        /**
          * Whether to show the clock in the right or left position or show it in the center
          * 0: show the clock in the right position (LTR)
          * 1: show the clock in the center
