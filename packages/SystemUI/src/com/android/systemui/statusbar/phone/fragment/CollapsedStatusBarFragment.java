@@ -72,7 +72,6 @@ import com.android.systemui.tuner.TunerService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -197,8 +196,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
         mDarkIconManager = new DarkIconManager(view.findViewById(R.id.statusIcons), mFeatureFlags);
         mDarkIconManager.setShouldLog(true);
-        mBlockedIcons = Arrays.asList(getResources().getStringArray(
-                R.array.config_collapsed_statusbar_icon_blocklist));
+        mBlockedIcons.add(getString(com.android.internal.R.string.status_bar_call_strength));
         mDarkIconManager.setBlockList(mBlockedIcons);
         mStatusBarIconController.addIconGroup(mDarkIconManager);
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
@@ -519,8 +517,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
      * Hides a view.
      */
     private void animateHide(final View v, boolean animate) {
-        if (v.getVisibility() == View.GONE)
-            return;
         animateHiddenState(v, View.INVISIBLE, animate);
     }
 
@@ -528,8 +524,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
      * Shows a view, and synchronizes the animation with Keyguard exit animations, if applicable.
      */
     private void animateShow(View v, boolean animate) {
-        if (v.getVisibility() == View.GONE)
-            return;
         v.animate().cancel();
         v.setVisibility(View.VISIBLE);
         if (!animate) {
