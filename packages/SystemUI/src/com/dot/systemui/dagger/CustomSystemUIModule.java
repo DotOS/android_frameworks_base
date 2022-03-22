@@ -16,7 +16,7 @@ import com.google.android.systemui.smartspace.KeyguardMediaViewController;
 import com.google.android.systemui.smartspace.KeyguardZenAlarmViewController;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
-import com.evolution.android.systemui.smartspace.KeyguardSmartspaceController;
+import com.dot.systemui.smartspace.KeyguardSmartspaceController;
 
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardViewController;

@@ -54,6 +54,7 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.GET_APP_OPS_STATS" />
     <uses-permission android:name="android.permission.USE_RESERVED_DISK" />
+    <uses-permission android:name="android.permission.VIBRATE_ALWAYS_ON" />
 
     <!-- to invoke ContentSuggestionsService -->
     <uses-permission android:name="android.permission.MANAGE_CONTENT_SUGGESTIONS"/>
@@ -884,10 +885,10 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <provider android:name="com.evolution.android.systemui.keyguard.KeyguardSliceProviderEvolution"
-                  android:authorities="com.android.systemui.keyguard"
-                  android:grantUriPermissions="true"
-                  android:exported="true">
+        <provider android:name="com.dot.systemui.keyguard.CustomKeyguardSliceProvider"
+                  android:enabled="false"
+                  android:exported="true"
+                  android:authorities="com.android.systemui.keyguard">
         </provider>
 
         <!-- Provides list and realistic previews of clock faces for the picker app. -->
