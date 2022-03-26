@@ -61,6 +61,7 @@ public class PixelPropsUtils {
             "com.android.chrome",
             "com.android.vending",
             "com.breel.wallpapers20",
+            "com.nhs.online.nhsonline",
             "com.snapchat.android"
     };
 
