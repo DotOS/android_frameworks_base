@@ -194,6 +194,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
                 .build();
 
         Dependency.get(TunerService.class).addTunable(this,
+                StatusBarIconController.ICON_HIDE_LIST,
                 SHOW_QS_CLOCK,
                 SHOW_QS_DATE);
     }
@@ -670,5 +671,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             default:
                 break;
         }
+        mClockView.setClockVisibleByUser(!StatusBarIconController.getIconHideList(
+                mContext, newValue).contains("clock"));
     }
 }
