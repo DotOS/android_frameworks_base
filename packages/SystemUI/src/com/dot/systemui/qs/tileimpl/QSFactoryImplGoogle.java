@@ -22,32 +22,50 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tileimpl.QSFactoryImpl;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AlarmTile;
+import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
+import com.android.systemui.qs.tiles.CPUInfoTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.CameraToggleTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
+import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
+import com.android.systemui.qs.tiles.EvolverTile;
+import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.GamingModeTile;
+import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MicrophoneToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.OnTheGoTile;
+import com.android.systemui.qs.tiles.PowerShareTile;
 import com.android.systemui.qs.tiles.QuickAccessWalletTile;
+import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.ReduceBrightColorsTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
+import com.android.systemui.qs.tiles.ScreenshotTile;
+import com.android.systemui.qs.tiles.SoundSearchTile;
+import com.android.systemui.qs.tiles.SoundTile;
+import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
+import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
+import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
-import com.android.systemui.qs.tiles.PowerShareTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 
 import com.dot.systemui.qs.tiles.BatterySaverTileGoogle;
@@ -95,7 +113,25 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<AlarmTile> alarmTileProvider,
             Provider<QuickAccessWalletTile> quickAccessWalletTileProvider,
             Provider<ReverseChargingTile> reverseChargingTileProvider,
-            Provider<PowerShareTile> powerShareTileProvider) {
+            Provider<PowerShareTile> powerShareTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider,
+            Provider<AmbientDisplayTile> ambientDisplayTileProvider,
+            Provider<UsbTetherTile> usbTetherTileProvider,
+            Provider<SyncTile> syncTileProvider,
+            Provider<SoundTile> soundTileProvider,
+            Provider<ScreenshotTile> screenshotTileProvider,
+            Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<GamingModeTile> gamingModeTileProvider,
+            Provider<RebootTile> rebootTileProvider,
+            Provider<OnTheGoTile> onTheGoTileProvider,
+            Provider<EvolverTile> evolverTileProvider,
+            Provider<VolumeTile> volumeTileProvider,
+            Provider<AODTile> aodTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider,
+            Provider<FPSInfoTile> fpsInfoTileProvider,
+            Provider<CompassTile> compassTileProvider,
+            Provider<CPUInfoTile> cpuInfoTileProvider,
+            Provider<SoundSearchTile> soundSearchTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -125,7 +161,25 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 deviceControlsTileProvider,
                 alarmTileProvider,
                 quickAccessWalletTileProvider,
-                powerShareTileProvider);
+                powerShareTileProvider,
+                caffeineTileProvider,
+                ambientDisplayTileProvider,
+                usbTetherTileProvider,
+                syncTileProvider,
+                soundTileProvider,
+                screenshotTileProvider,
+                headsUpTileProvider,
+                gamingModeTileProvider,
+                rebootTileProvider,
+                onTheGoTileProvider,
+                evolverTileProvider,
+                volumeTileProvider,
+                aodTileProvider,
+                dataSwitchTileProvider,
+                fpsInfoTileProvider,
+                compassTileProvider,
+                cpuInfoTileProvider,
+                soundSearchTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }

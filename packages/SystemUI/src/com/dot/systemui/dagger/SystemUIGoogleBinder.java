@@ -44,7 +44,7 @@ import com.android.systemui.toast.ToastUI;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.android.systemui.volume.VolumeUI;
 import com.android.systemui.wmshell.WMShell;
-import com.google.android.systemui.theme.ThemeOverlayControllerGoogle;
+import com.dot.systemui.theme.CustomThemeOverlayController;
 
 import com.dot.systemui.GoogleServices;
 import com.dot.systemui.columbus.ColumbusTargetRequestServiceWrapper;
@@ -168,7 +168,7 @@ public abstract class SystemUIGoogleBinder {
     @Binds
     @IntoMap
     @ClassKey(ThemeOverlayController.class)
-    public abstract SystemUI bindThemeOverlayController(ThemeOverlayControllerGoogle sysui);
+    public abstract SystemUI bindThemeOverlayController(CustomThemeOverlayController sysui);
 
     /**
      * Inject into ToastUI.
