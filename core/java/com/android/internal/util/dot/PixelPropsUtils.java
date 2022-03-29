@@ -206,9 +206,11 @@ public class PixelPropsUtils {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
                     propsToChange.putAll(propsToChangePixelXL);
                 } else {
+                    if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
             } else {
+                if (isPixelDevice) return;
                 if ((Arrays.asList(packagesToChangePixel6).contains(packageName))
                         || Arrays.asList(extraPackagesToChange).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixel6);
