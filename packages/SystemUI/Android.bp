@@ -128,8 +128,6 @@ android_library {
         "themelib",
         "vendor.lineage.powershare-V1.0-java",
         "faceunlock_framework",
-        "ambientmusic-google",
-        "smartspace-google",
         "SystemUIGoogle-lib",
         "android.frameworks.stats-V1-java",
         "vendor-pixelatoms-java",
