@@ -74,6 +74,7 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
     private final float mMaximumBacklightForVr;
 
     private final ImageView mIcon;
+    private boolean mAutomaticAvailable;
 
     private final int mDisplayId;
     private final Context mContext;
@@ -315,10 +316,11 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
         mVrManager = IVrManager.Stub.asInterface(ServiceManager.getService(
                 Context.VR_SERVICE));
 
+        mAutomaticAvailable = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available);
+
         if (mIcon != null) {
-            boolean automaticAvailable = context.getResources().getBoolean(
-                    com.android.internal.R.bool.config_automatic_brightness_available);
-            if (automaticAvailable) {
+            if (mAutomaticAvailable) {
                 mIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -348,6 +350,7 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
 
     @Override
     public void onChanged(boolean tracking, int value, boolean stopTracking) {
+        //updateIcon(mAutomatic);
         if (mExternalChange) return;
 
         if (mSliderAnimator != null) {

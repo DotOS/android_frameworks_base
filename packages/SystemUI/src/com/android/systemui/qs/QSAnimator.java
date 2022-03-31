@@ -19,7 +19,6 @@ import static com.android.systemui.qs.dagger.QSFragmentModule.QS_FOOTER;
 
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnAttachStateChangeListener;
@@ -396,6 +395,11 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
         }
 
         if (mAllowFancy) {
+            animateBrightnessSlider(firstPageBuilder);
+
+            mFirstPageAnimator = firstPageBuilder
+                    .setListener(this)
+                    .build();
             // Fade in the tiles/labels as we reach the final position.
             Builder builder = new Builder()
                     .addFloat(tileLayout, "alpha", 0, 1);
@@ -407,6 +411,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                 updateQQSFooterAnimation();
             }
 
+
             // Fade in the security footer and the divider as we reach the final position
             builder = new Builder().setStartDelay(EXPANDED_TILE_DELAY);
             builder.addFloat(mSecurityFooter.getView(), "alpha", 0, 1);
@@ -417,21 +422,6 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                 // In portrait, media view should always be visible
                 mQsPanelController.mMediaHost.hostView.setAlpha(1.0f);
             }
-
-            View qsBrightness = mQsPanelController.getBrightnessView();
-            final boolean bottom = Settings.Secure.getInt(
-                    qsBrightness.getContext().getContentResolver(),
-                    Settings.Secure.QS_BRIGHTNESS_POSITION_BOTTOM, 0) == 1;
-            if (bottom) {
-                // If brightness is showing at the bottom fade in as we reach the final position
-                builder.addFloat(qsBrightness, "alpha", 0, 1);
-                mBrightnessAnimator = null;
-            }
-            animateBrightnessSlider(firstPageBuilder, bottom);
-            mFirstPageAnimator = firstPageBuilder
-                    .setListener(this)
-                    .build();
-
             mAllPagesDelayedAnimator = builder.build();
             mAllViews.add(mSecurityFooter.getView());
             translationYBuilder.setInterpolator(mQSExpansionPathInterpolator.getYInterpolator());
@@ -457,7 +447,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                 .addFloat(tileLayout, "alpha", 0, 1).build();
     }
 
-    private void animateBrightnessSlider(Builder firstPageBuilder, boolean bottom) {
+    private void animateBrightnessSlider(Builder firstPageBuilder) {
         View qsBrightness = mQsPanelController.getBrightnessView();
         View qqsBrightness = mQuickQSPanelController.getBrightnessView();
         if (qqsBrightness != null && qqsBrightness.getVisibility() == View.VISIBLE) {
@@ -473,16 +463,14 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                     .addFloat(qqsBrightness, "translationY", 0, translationY)
                     .build();
         } else if (qsBrightness != null) {
-            if (!bottom) {
-                firstPageBuilder.addFloat(qsBrightness, "translationY",
-                        qsBrightness.getMeasuredHeight() * 0.5f, 0);
-                mBrightnessAnimator = new Builder()
-                        .addFloat(qsBrightness, "alpha", 0, 1)
-                        .addFloat(qsBrightness, "sliderScaleY", 0.3f, 1)
-                        .setInterpolator(Interpolators.ALPHA_IN)
-                        .setStartDelay(0.3f)
-                        .build();
-            }
+            firstPageBuilder.addFloat(qsBrightness, "translationY",
+                    qsBrightness.getMeasuredHeight() * 0.5f, 0);
+            mBrightnessAnimator = new Builder()
+                    .addFloat(qsBrightness, "alpha", 0, 1)
+                    .addFloat(qsBrightness, "sliderScaleY", 0.3f, 1)
+                    .setInterpolator(Interpolators.ALPHA_IN)
+                    .setStartDelay(0.3f)
+                    .build();
             mAllViews.add(qsBrightness);
         } else {
             mBrightnessAnimator = null;
