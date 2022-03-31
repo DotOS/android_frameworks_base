@@ -147,6 +147,7 @@ public class AutoAODService extends SystemService {
          * @param time time as ms since epoch
          */
         public void set(long time) {
+            cancel(); // making sure there is no more than 1
             mAlarmManager.setExact(AlarmManager.RTC_WAKEUP,
                     time, TAG, this, mHandler);
             Slog.v(TAG, "new alarm set to " + time
@@ -368,15 +369,15 @@ public class AutoAODService extends SystemService {
                 since.setTimeInMillis(mTwilightState.sunsetTimeMillis());
             } else { // MODE_MIXED_SUNRISE
                 till.setTimeInMillis(mTwilightState.sunriseTimeMillis());
-                if (!mTwilightState.isNight()) till.roll(Calendar.DATE, true);
+                if (!mTwilightState.isNight()) till.add(Calendar.DATE, 1);
             }
         }
 
         // roll to the next day if needed be
-        if (since.after(till)) till.roll(Calendar.DATE, true);
+        if (since.after(till)) till.add(Calendar.DATE, 1);
         if (currentTime.after(since) && currentTime.compareTo(till) >= 0) {
-            since.roll(Calendar.DATE, true);
-            till.roll(Calendar.DATE, true);
+            since.add(Calendar.DATE, 1);
+            till.add(Calendar.DATE, 1);
         }
         // abort if the user was dumb enough to set the same time
         if (since.compareTo(till) == 0) {
