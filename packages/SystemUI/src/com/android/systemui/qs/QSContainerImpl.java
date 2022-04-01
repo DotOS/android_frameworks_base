@@ -52,7 +52,6 @@ public class QSContainerImpl extends FrameLayout implements Dumpable {
     private float mQsExpansion;
     private QSCustomizer mQSCustomizer;
     private NonInterceptingScrollView mQSPanelContainer;
-
     private int mSideMargins;
     private boolean mQsDisabled;
     private int mContentPadding = -1;
@@ -94,11 +93,19 @@ public class QSContainerImpl extends FrameLayout implements Dumpable {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // QSPanel will show as many rows as it can (up to TileLayout.MAX_ROWS) such that the
         // bottom and footer are inside the screen.
+        Configuration config = getResources().getConfiguration();
+        boolean navBelow = config.smallestScreenWidthDp >= 600
+                || config.orientation != Configuration.ORIENTATION_LANDSCAPE;
         MarginLayoutParams layoutParams = (MarginLayoutParams) mQSPanelContainer.getLayoutParams();
 
+        // The footer is pinned to the bottom of QSPanel (same bottoms), therefore we don't need to
+        // subtract its height. We do not care if the collapsed notifications fit in the screen.
         int availableHeight = View.MeasureSpec.getSize(heightMeasureSpec);
         int maxQs = availableHeight - layoutParams.topMargin - layoutParams.bottomMargin
                 - getPaddingBottom();
+        if (navBelow) {
+            maxQs -= getResources().getDimensionPixelSize(R.dimen.navigation_bar_height);
+        }
         int padding = mPaddingLeft + mPaddingRight + layoutParams.leftMargin
                 + layoutParams.rightMargin;
         final int qsPanelWidthSpec = getChildMeasureSpec(widthMeasureSpec, padding,
@@ -106,6 +113,8 @@ public class QSContainerImpl extends FrameLayout implements Dumpable {
         mQSPanelContainer.measure(qsPanelWidthSpec,
                 MeasureSpec.makeMeasureSpec(maxQs, MeasureSpec.AT_MOST));
         int width = mQSPanelContainer.getMeasuredWidth() + padding;
+        int height = layoutParams.topMargin + layoutParams.bottomMargin
+                + mQSPanelContainer.getMeasuredHeight() + getPaddingBottom();
         super.onMeasure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
                 MeasureSpec.makeMeasureSpec(availableHeight, MeasureSpec.EXACTLY));
         // QSCustomizer will always be the height of the screen, but do this after

@@ -38,6 +38,7 @@
             android:background="@android:color/transparent"
             android:focusable="true"
             android:accessibilityTraversalBefore="@android:id/edit"
+            android:paddingTop="8dp"
             android:clipToPadding="false"
             android:clipChildren="false">
 

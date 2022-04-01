@@ -16,21 +16,20 @@
 -->
 <com.android.systemui.qs.tileimpl.IgnorableChildLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="0dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_weight="1"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:orientation="vertical"
-    android:layout_marginStart="@dimen/qs_label_container_margin"
-    android:layout_marginEnd="0dp"
-    android:layout_gravity="center_vertical | start">
+    android:gravity="center_horizontal"
+    android:layout_gravity="center">
 
     <TextView
         android:id="@+id/tile_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:textDirection="locale"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="1"
@@ -41,12 +40,13 @@
         android:id="@+id/app_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:textDirection="locale"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="1"
         android:singleLine="true"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:textAppearance="@style/TextAppearance.QS.TileLabel.Secondary"
         android:textColor="?android:attr/textColorSecondary"/>
 

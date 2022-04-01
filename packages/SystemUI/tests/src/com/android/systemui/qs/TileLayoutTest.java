@@ -149,7 +149,7 @@ public class TileLayoutTest extends SysuiTestCase {
                 .layout(left2.capture(), top2.capture(), right2.capture(), bottom2.capture());
 
         // We assume two tiles will always fit side-by-side.
-        assertTrue(mContext.getResources().getInteger(R.integer.quick_settings_num_columns) > 1);
+        assertTrue(mContext.getResources().getInteger(R.integer.quick_qs_panel_max_tiles) > 1);
 
         // left <= right, top <= bottom
         assertTrue(left1.getValue() <= right1.getValue());

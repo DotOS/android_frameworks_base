@@ -28,8 +28,9 @@
 
     <LinearLayout
         android:id="@+id/clock_container"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_gravity="center_vertical|start"
         android:gravity="center_vertical|start"
@@ -59,17 +60,6 @@
             systemui:shortDatePattern="@string/abbrev_month_day_no_year"
         />
     </LinearLayout>
-
-    <include layout="@layout/qs_carrier_group"
-        android:id="@+id/carrier_group"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:minHeight="@dimen/qs_header_row_min_height"
-        android:minWidth="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_gravity="end|center_vertical"
-        android:focusable="false"/>
 
     <View
         android:id="@+id/separator"

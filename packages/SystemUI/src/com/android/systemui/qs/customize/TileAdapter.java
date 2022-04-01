@@ -79,7 +79,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
     private static final int ACTION_ADD = 1;
     private static final int ACTION_MOVE = 2;
 
-    private static final int NUM_COLUMNS_ID = R.integer.quick_settings_num_columns;
+    private static final int NUM_COLUMNS_ID = R.integer.qs_panel_num_columns;
 
     private final Context mContext;
 

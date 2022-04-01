@@ -49,6 +49,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
                 if (newMaxTiles != mView.getNumQuickTiles()) {
                     setMaxTiles(newMaxTiles);
                 }
+                mView.updateColumns();
             };
 
     // brightness is visible only in split shade
@@ -88,6 +89,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
     protected void onViewAttached() {
         super.onViewAttached();
         mView.addOnConfigurationChangedListener(mOnConfigurationChangedListener);
+        mView.updateColumns();
         mBrightnessMirrorHandler.onQsPanelAttached();
     }
 
@@ -111,6 +113,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
 
     private void setMaxTiles(int parseNumTiles) {
         mView.setMaxTiles(parseNumTiles);
+        mView.updateColumns();
         setTiles();
     }
 

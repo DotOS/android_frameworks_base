@@ -16,8 +16,6 @@
   -->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="?android:attr/colorControlHighlight">
-    <item android:id="@android:id/mask"
-        android:drawable="@drawable/qs_tile_background_shape" />
     <item android:id="@id/background"
         android:drawable="@drawable/qs_tile_background_shape"/>
 </ripple>

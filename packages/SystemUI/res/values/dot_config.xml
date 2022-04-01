@@ -29,6 +29,18 @@
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
+    <!-- The maximum number of tiles in a row -->
+    <integer name="quick_qs_panel_max_tiles">5</integer>
+
+    <!-- The number of columns in the QuickQSPanel -->
+    <integer name="quick_qs_panel_num_columns">5</integer>
+    <integer name="quick_qs_panel_num_columns_landscape">6</integer>
+    <integer name="quick_qs_panel_num_columns_media">4</integer>
+
+    <!--The number of columns in the QSPanel -->
+    <integer name="qs_panel_num_columns">4</integer>
+    <integer name="qs_panel_num_columns_landscape">6</integer>
+
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">true</bool>
 

@@ -45,7 +45,6 @@ import javax.inject.Inject;
 class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader> implements
         ChipVisibilityListener {
 
-    private final QSCarrierGroupController mQSCarrierGroupController;
     private final QuickQSPanelController mQuickQSPanelController;
     private final Clock mClockView;
     private final StatusBarIconController mStatusBarIconController;
@@ -90,9 +89,6 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
         mFeatureFlags = featureFlags;
         mInsetsProvider = statusBarContentInsetsProvider;
 
-        mQSCarrierGroupController = qsCarrierGroupControllerBuilder
-                .setQSCarrierGroup(mView.findViewById(R.id.carrier_group))
-                .build();
         mClockView = mView.findViewById(R.id.clock);
         mIconContainer = mView.findViewById(R.id.statusIcons);
         mVariableDateViewControllerDateView = variableDateViewControllerFactory.create(
@@ -126,10 +122,6 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
         mIconContainer.setShouldRestrictIcons(false);
         mStatusBarIconController.addIconGroup(mIconManager);
 
-        mView.setIsSingleCarrier(mQSCarrierGroupController.isSingleCarrier());
-        mQSCarrierGroupController
-                .setOnSingleCarrierChangedListener(mView::setIsSingleCarrier);
-
         List<String> rssiIgnoredSlots;
 
         if (mFeatureFlags.isCombinedStatusBarSignalIconsEnabled()) {
@@ -157,13 +149,11 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
         mColorExtractor.removeOnColorsChangedListener(mOnColorsChangedListener);
         mPrivacyIconsController.onParentInvisible();
         mStatusBarIconController.removeIconGroup(mIconManager);
-        mQSCarrierGroupController.setOnSingleCarrierChangedListener(null);
         mDemoModeController.removeCallback(mDemoModeReceiver);
         setListening(false);
     }
 
     public void setListening(boolean listening) {
-        mQSCarrierGroupController.setListening(listening);
 
         if (listening == mListening) {
             return;

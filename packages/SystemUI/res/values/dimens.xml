@@ -326,7 +326,7 @@
 
     <!-- The height of the quick settings footer that holds the user switcher, settings icon,
          etc. -->
-    <dimen name="qs_footer_height">96dp</dimen>
+    <dimen name="qs_footer_height">72dp</dimen>
 
     <!-- The size of each of the icon buttons in the QS footer -->
     <dimen name="qs_footer_action_button_size">48dp</dimen>
@@ -445,8 +445,8 @@
     <dimen name="pull_span_min">25dp</dimen>
 
     <dimen name="qs_corner_radius">28dp</dimen>
-    <dimen name="qs_tile_height">84dp</dimen>
-    <dimen name="qs_tile_margin_horizontal">8dp</dimen>
+    <dimen name="qs_tile_height">100dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">22dp</dimen>
     <dimen name="qs_tile_margin_vertical">@dimen/qs_tile_margin_horizontal</dimen>
     <dimen name="qs_tile_margin_top_bottom">4dp</dimen>
     <dimen name="qs_brightness_margin_top">8dp</dimen>
@@ -457,12 +457,12 @@
          (Toolbar_minWidth (56dp) + qs_tile_margin_top_bottom (4dp))
     -->
     <dimen name="qs_customize_header_min_height">68dp</dimen>
-    <dimen name="qs_customize_internal_side_paddings">8dp</dimen>
+    <dimen name="qs_customize_internal_side_paddings">6dp</dimen>
     <dimen name="qs_icon_size">20dp</dimen>
     <dimen name="qs_side_view_size">28dp</dimen>
-    <dimen name="qs_label_container_margin">10dp</dimen>
-    <dimen name="qs_quick_tile_size">60dp</dimen>
-    <dimen name="qs_tile_padding">12dp</dimen>
+    <dimen name="qs_label_container_margin">6dp</dimen>
+    <dimen name="qs_quick_tile_size">55dp</dimen>
+    <dimen name="qs_tile_padding">18dp</dimen>
     <dimen name="qs_tile_start_padding">16dp</dimen>
     <dimen name="qs_drawable_end_margin">4dp</dimen>
     <dimen name="qs_page_indicator_width">16dp</dimen>
@@ -471,7 +471,7 @@
          Scaled @dimen/qs_page_indicator-width by .4f.
     -->
     <dimen name="qs_page_indicator_dot_width">6.4dp</dimen>
-    <dimen name="qs_tile_text_size">14sp</dimen>
+    <dimen name="qs_tile_text_size">12sp</dimen>
     <dimen name="qs_panel_padding">16dp</dimen>
     <dimen name="qs_dual_tile_padding_horizontal">6dp</dimen>
     <dimen name="qs_panel_padding_bottom">0dp</dimen>
