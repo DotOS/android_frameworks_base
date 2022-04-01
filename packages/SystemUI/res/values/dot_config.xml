@@ -66,5 +66,5 @@
 
     <!-- SystemUI Google -->
     <bool name="flag_smartspace">true</bool>
-    <string name="config_systemUIVendorServiceComponent">com.dot.systemui.GoogleServices</string>
+    <string name="config_systemUIVendorServiceComponent">org.pixelexperience.systemui.GoogleServices</string>
 </resources>

@@ -2698,7 +2698,7 @@ public final class PowerManagerService extends SystemService
                         if (mButtonTimeoutEnabled && (userActivityValue || settingsValue)){
                             final boolean buttonPressed = mEvent
                                     == PowerManager.USER_ACTIVITY_EVENT_BUTTON;
-                            if (mButtonBacklightOnTouchOnly (mEvent & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS) == 0)) {
+                            if (mButtonBacklightOnTouchOnly && (mEvent & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS) == 0) {
                                 if (buttonPressed) {
                                     triggerButtonTimeoutEvent(now);
                                 }

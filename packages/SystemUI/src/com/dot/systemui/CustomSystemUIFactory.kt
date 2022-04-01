@@ -19,15 +19,15 @@ package com.dot.systemui
 import android.content.Context
 import android.content.res.AssetManager
 import android.content.res.Resources
+import android.os.Handler
 import com.android.systemui.SystemUIFactory
 import com.android.systemui.dagger.GlobalRootComponent
 import com.android.systemui.screenshot.ScreenshotNotificationSmartActionsProvider
-import com.android.systemui.theme.ThemeOverlayController
-import com.dot.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent
-import com.dot.systemui.dagger.SysUIGoogleSysUIComponent
-import com.dot.systemui.theme.CustomThemeOverlayController
 import com.google.android.systemui.screenshot.ScreenshotNotificationSmartActionsProviderGoogle
+import org.pixelexperience.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent
+import org.pixelexperience.systemui.dagger.SysUIGoogleSysUIComponent
 import java.util.concurrent.ExecutionException
+import java.util.concurrent.Executor
 
 class CustomSystemUIFactory : SystemUIFactory() {
 
@@ -51,21 +51,9 @@ class CustomSystemUIFactory : SystemUIFactory() {
     override fun createBackGestureTfClassifierProvider(am: AssetManager, modelName: String) =
         CustomBackGestureTfClassifierProvider(am, modelName)
 
-    // Override services without having to copy the entire array
-    override fun getSystemUIServiceComponents(resources: Resources): Array<String> {
-        val services = super.getSystemUIServiceComponents(resources)
-        return services.map { CUSTOM_SERVICES[it] ?: it }.toTypedArray()
-    }
-
     override fun buildGlobalRootComponent(context: Context?): GlobalRootComponent {
         return DaggerSysUIGoogleGlobalRootComponent.builder()
             .context(context)
             .build()
-    }
-
-    companion object {
-        private val CUSTOM_SERVICES = mapOf(
-            ThemeOverlayController::class to CustomThemeOverlayController::class,
-        ).map { it.key.java.name to it.value.java.name }.toMap()
     }
 }
