@@ -742,6 +742,7 @@ final class DefaultPermissionGrantPolicy {
             }
         }
 
+        if (ActivityManager.isLowRamDeviceStatic()) {
             // Allow voice search on low-ram devices
             grantPermissionsToSystemPackage(pm,
                     getDefaultSystemHandlerActivityPackage(pm,
