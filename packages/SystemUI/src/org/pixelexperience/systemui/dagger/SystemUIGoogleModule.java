@@ -219,6 +219,7 @@ public abstract class SystemUIGoogleModule {
     @Binds
     abstract DozeHost provideDozeHost(DozeServiceHost dozeServiceHost);
 
+    @Binds
     @SysUISingleton
     abstract AssistManager bindAssistManagerGoogle(AssistManagerGoogle assistManager);
 
