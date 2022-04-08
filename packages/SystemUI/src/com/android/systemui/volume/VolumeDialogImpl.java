@@ -67,7 +67,6 @@ import android.graphics.drawable.RotateDrawable;
 import android.media.AppVolume;
 import android.media.AudioManager;
 import android.media.AudioSystem;
-import android.os.Build;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
@@ -89,7 +88,6 @@ import android.view.View.AccessibilityDelegate;
 import android.view.View.OnAttachStateChangeListener;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
-import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
 import android.view.ViewTreeObserver;
@@ -228,7 +226,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private float mRingerDrawerClosedAmount = 1f;
 
     private ImageButton mRingerIcon;
-    private FrameLayout mODICaptionsView;
+    private ViewGroup mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
     private View mSettingsView;
     private ImageButton mSettingsIcon;
@@ -264,7 +262,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private boolean mHasSeenODICaptionsTooltip;
     private ViewStub mODICaptionsTooltipViewStub;
     private View mODICaptionsTooltipView = null;
-    private boolean mLeftVolumeRocker = false;
 
     // Volume panel placement left or right
     private boolean mVolumePanelOnLeft;
@@ -272,38 +269,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private final boolean mUseBackgroundBlur;
     private Consumer<Boolean> mCrossWindowBlurEnabledListener;
     private BackgroundBlurDrawable mDialogRowsViewBackground;
-
-    private final SettingsObserver mSettingsObserver = new SettingsObserver();
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver() {
-            super(mHandler);
-        }
-
-        void observe() {
-            mContext.getContentResolver().registerContentObserver(
-                    Settings.System.getUriFor(VOLUME_PANEL_ON_LEFT),
-                    false, this, UserHandle.USER_ALL);
-        }
-
-        void stop() {
-            mContext.getContentResolver().unregisterContentObserver(this);
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            update();
-        }
-
-        void update() {
-            final boolean def = mContext.getResources().getBoolean(
-                    R.bool.config_audioPanelOnLeftSide);
-            mVolumePanelOnLeft = Settings.System.getInt(mContext.getContentResolver(),
-                    VOLUME_PANEL_ON_LEFT, def ? 1 : 0) == 1;
-            mHandler.post(() -> {
-                mControllerCallbackH.onConfigurationChanged();
-            });
-        }
-    }
 
     public VolumeDialogImpl(
             Context context,
@@ -355,8 +320,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
 
         initDimens();
-        mLeftVolumeRocker = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide)
-                || Build.MANUFACTURER.contains("OnePlus");
     }
 
     @Override
@@ -468,10 +431,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.setTitle(VolumeDialogImpl.class.getSimpleName());
         lp.windowAnimations = -1;
         lp.gravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
-        if (!mShowActiveStreamOnly) {
-            lp.gravity &= ~(Gravity.LEFT | Gravity.RIGHT);
-            lp.gravity |= mVolumePanelOnLeft ? Gravity.LEFT : Gravity.RIGHT;
-        }
         mWindow.setAttributes(lp);
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
@@ -482,8 +441,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialog.setOnShowListener(dialog -> {
             mDialogView.getViewTreeObserver().addOnComputeInternalInsetsListener(this);
             if (!shouldSlideInVolumeTray()) {
-                mDialogView.setTranslationX(
-                        getTranslationForPanelLocation() * mDialogView.getWidth() / 2.0f);
+                mDialogView.setTranslationX(mDialogView.getWidth() / 2.0f);
             }
             mDialogView.setAlpha(0);
             mDialogView.animate()
@@ -605,13 +563,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
-            if (!mShowActiveStreamOnly && !isLandscape()){
-                setLayoutGravity(mODICaptionsView.getLayoutParams(), mLeftVolumeRocker ? Gravity.LEFT : Gravity.RIGHT);
-            }
         }
-        mODICaptionsTooltipViewStub = mDialog.findViewById(mLeftVolumeRocker ?
-                R.id.odi_captions_tooltip_stub_left :
-                R.id.odi_captions_tooltip_stub);
+        mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
@@ -687,14 +640,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         initSettingsH();
         initAppVolumeH();
         initODICaptionsH();
-    }
-
-    private void setLayoutGravity(Object obj, int gravity) {
-        if (obj instanceof FrameLayout.LayoutParams) {
-            ((FrameLayout.LayoutParams) obj).gravity = gravity;
-        } else if (obj instanceof LinearLayout.LayoutParams) {
-            ((LinearLayout.LayoutParams) obj).gravity = gravity;
-        }
     }
 
     private void initDimens() {
@@ -1527,9 +1472,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                     hideRingerDrawer();
                     mController.notifyVisible(false);
                 }, 50));
-        if (!shouldSlideInVolumeTray()) {
-            animator.translationX(getTranslationForPanelLocation() * mDialogView.getWidth() / 2.0f);
-        }
+        if (!shouldSlideInVolumeTray()) animator.translationX(mDialogView.getWidth() / 2.0f);
         animator.start();
         checkODICaptionsTooltip(true);
         synchronized (mSafetyWarningLock) {
