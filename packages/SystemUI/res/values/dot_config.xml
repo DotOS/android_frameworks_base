@@ -26,9 +26,6 @@
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">0</integer>
 
-    <!-- Allow devices override audio panel location to the left side -->
-    <bool name="config_audioPanelOnLeftSide">false</bool>
-
     <!-- The maximum number of tiles in a row -->
     <integer name="quick_qs_panel_max_tiles">5</integer>
 

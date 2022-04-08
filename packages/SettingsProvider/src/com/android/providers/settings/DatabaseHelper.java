@@ -2386,6 +2386,9 @@ class DatabaseHelper extends SQLiteOpenHelper {
             loadBooleanSetting(stmt, Settings.Secure.WAKE_GESTURE_ENABLED,
                     R.bool.def_wake_gesture_enabled);
 
+            loadIntegerSetting(stmt, Settings.Secure.VOLUME_PANEL_ON_LEFT,
+                    R.bool.def_volume_panel_on_left);
+
             loadIntegerSetting(stmt, Secure.LOCK_SCREEN_SHOW_NOTIFICATIONS,
                     R.integer.def_lock_screen_show_notifications);
 

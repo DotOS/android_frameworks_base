@@ -64,7 +64,6 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
     private boolean mListening;
 
     private SysuiColorExtractor mColorExtractor;
-    private ColorExtractor.OnColorsChangedListener mOnColorsChangedListener;
 
     @Inject
     QuickStatusBarHeaderController(QuickStatusBarHeader view,
@@ -101,11 +100,6 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
         mIconManager = new StatusBarIconController.TintedIconManager(mIconContainer, featureFlags);
         mDemoModeReceiver = new ClockDemoModeReceiver(mClockView);
         mColorExtractor = colorExtractor;
-        mOnColorsChangedListener = (extractor, which) -> {
-            final boolean lightTheme = mColorExtractor.getNeutralColors().supportsDarkText();
-            mClockView.onColorsChanged(lightTheme);
-        };
-        mColorExtractor.addOnColorsChangedListener(mOnColorsChangedListener);
     }
 
     @Override
@@ -146,7 +140,6 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
 
     @Override
     protected void onViewDetached() {
-        mColorExtractor.removeOnColorsChangedListener(mOnColorsChangedListener);
         mPrivacyIconsController.onParentInvisible();
         mStatusBarIconController.removeIconGroup(mIconManager);
         mDemoModeController.removeCallback(mDemoModeReceiver);

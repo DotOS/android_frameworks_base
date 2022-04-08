@@ -97,7 +97,7 @@ public class SystemNotificationChannels {
         final NotificationChannel developer = new NotificationChannel(
                 DEVELOPER,
                 context.getString(R.string.notification_channel_developer),
-                NotificationManager.IMPORTANCE_LOW);
+                NotificationManager.IMPORTANCE_MIN);
         developer.setBlockable(true);
         channelsList.add(developer);
 
@@ -139,6 +139,7 @@ public class SystemNotificationChannels {
                 VPN,
                 context.getString(R.string.notification_channel_vpn),
                 NotificationManager.IMPORTANCE_LOW);
+        vpn.setBlockable(true);
         channelsList.add(vpn);
 
         final NotificationChannel deviceAdmin = new NotificationChannel(
