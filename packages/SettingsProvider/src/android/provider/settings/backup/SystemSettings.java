@@ -84,7 +84,6 @@ public class SystemSettings {
         Settings.System.DISPLAY_COLOR_MODE,
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
-        Settings.System.VOLUME_PANEL_ON_LEFT,
         Settings.System.FULLSCREEN_GESTURES,
         Settings.System.NAVIGATION_BAR_INVERSE,
         Settings.System.SHOW_FOURG_ICON,

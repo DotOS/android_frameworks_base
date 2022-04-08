@@ -5242,14 +5242,6 @@ public final class Settings {
         public static final String MULTI_AUDIO_FOCUS_ENABLED = "multi_audio_focus_enabled";
 
         /**
-         * Whether to show volume panel on the left side
-         * Defaults to com.android.systemui.R.bool.config_audioPanelOnLeftSide
-         * @hide
-         */
-        @Readable
-        public static final String VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
-
-        /**
          * @hide
          */
         public static final String SCREENSHOT_SHUTTER_SOUND = "screenshot_shutter_sound";
