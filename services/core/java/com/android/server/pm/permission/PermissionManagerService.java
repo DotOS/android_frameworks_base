@@ -1502,7 +1502,6 @@ public class PermissionManagerService extends IPermissionManager.Stub {
 
             isRuntimePermission = bp.isRuntime();
             permissionHasGids = bp.hasGids();
-            if (pkg.getPackageName() != "com.google.android.apps.wellbeing") {
             if (isRuntimePermission || bp.isDevelopment()) {
                 // Good.
             } else if (bp.isRole()) {
@@ -1513,7 +1512,6 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                 throw new SecurityException("Permission " + permName + " requested by "
                         + pkg.getPackageName() + " is not a changeable permission type");
             }
-        }
 
             final UidPermissionState uidState = getUidStateLocked(pkg, userId);
             if (uidState == null) {
