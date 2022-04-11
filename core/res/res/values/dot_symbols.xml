@@ -111,4 +111,8 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
+
+    <!-- Hide IME space -->
+    <java-symbol type="dimen" name="navigation_bar_frame_height_hide_ime" />
+    <java-symbol type="dimen" name="navigation_bar_frame_height_landscape_hide_ime" />
 </resources>
