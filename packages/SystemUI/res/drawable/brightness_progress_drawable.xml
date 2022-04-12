@@ -16,18 +16,21 @@
   -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
             android:paddingMode="stack" >
-    <item android:id="@android:id/background"
-        android:gravity="center_vertical|fill_horizontal">
+    <item android:id="@android:id/background" 
+          android:gravity="center_vertical|fill_horizontal">
         <shape>
+            <solid android:color="?attr/offStateColor" />
             <size android:height="@dimen/rounded_slider_height" />
             <corners android:radius="@dimen/rounded_slider_corner_radius" />
-            <solid android:color="?attr/offStateColor" />
         </shape>
     </item>
-    <item android:id="@android:id/progress"
+    <item android:id="@android:id/progress" 
           android:gravity="center_vertical|fill_horizontal">
-            <com.android.systemui.util.RoundedCornerProgressDrawable
-                android:drawable="@drawable/brightness_progress_full_drawable"
-            />
+        <clip>
+            <shape android:tint="?android:attr/colorAccent">
+                <size android:height="@dimen/rounded_slider_height" />
+                <corners android:radius="@dimen/rounded_slider_corner_radius" />
+            </shape>
+        </clip>
     </item>
 </layer-list>

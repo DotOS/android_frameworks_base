@@ -202,8 +202,8 @@ public class BrightnessSliderController extends ViewController<BrightnessSliderV
         return mView.isVisibleToUser();
     }
 
-    private final SeekBar.OnSeekBarChangeListener mSeekListener =
-            new SeekBar.OnSeekBarChangeListener() {
+    private final BrightnessSliderView.OnBrightnessSliderChangedListener mSeekListener =
+            new BrightnessSliderView.OnBrightnessSliderChangedListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if (mListener != null) {

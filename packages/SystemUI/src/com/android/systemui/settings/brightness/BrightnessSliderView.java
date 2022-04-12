@@ -22,16 +22,18 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableWrapper;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.FrameLayout;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.SeekBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.settingslib.RestrictedLockUtils;
+import com.android.settingslib.Utils;
 import com.android.systemui.Gefingerpoken;
 import com.android.systemui.R;
 
@@ -43,6 +45,8 @@ public class BrightnessSliderView extends LinearLayout {
 
     @NonNull
     private ToggleSeekBar mSlider;
+    private ImageView mLeftIcon;
+    private ImageView mRightIcon;
     private DispatchTouchEventListener mListener;
     private Gefingerpoken mOnInterceptListener;
     @Nullable
@@ -65,6 +69,8 @@ public class BrightnessSliderView extends LinearLayout {
 
         mSlider = requireViewById(R.id.slider);
         mSlider.setAccessibilityLabel(getContentDescription().toString());
+        mLeftIcon = requireViewById(R.id.brightness_icon_left);
+        mRightIcon = requireViewById(R.id.brightness_icon_right);
 
         // Finds the progress drawable. Assumes brightness_progress_drawable.xml
         try {
@@ -73,6 +79,7 @@ public class BrightnessSliderView extends LinearLayout {
                     .findDrawableByLayerId(android.R.id.progress);
             LayerDrawable actualProgressSlider = (LayerDrawable) progressSlider.getDrawable();
             mProgressDrawable = actualProgressSlider.findDrawableByLayerId(R.id.slider_foreground);
+            updateStartEndIconTint();
         } catch (Exception e) {
             // Nothing to do, mProgressDrawable will be null.
         }
@@ -108,8 +115,43 @@ public class BrightnessSliderView extends LinearLayout {
      * Attaches a listener to the {@link ToggleSeekBar} in the view so changes can be observed
      * @param seekListener use {@code null} to remove listener
      */
-    public void setOnSeekBarChangeListener(OnSeekBarChangeListener seekListener) {
-        mSlider.setOnSeekBarChangeListener(seekListener);
+    public void setOnSeekBarChangeListener(OnBrightnessSliderChangedListener seekListener) {
+        mSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (seekListener != null)
+                    seekListener.onProgressChanged(seekBar, progress, fromUser);
+                updateStartEndIconTint();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                if (seekListener != null)
+                    seekListener.onStartTrackingTouch(seekBar);
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if (seekListener != null)
+                    seekListener.onStopTrackingTouch(seekBar);
+            }
+        });
+    }
+
+    private void updateStartEndIconTint() {
+        // Not the best conversion, but at least it works
+        // TODO: Make it more efficient
+        int percentage = (int) ((Float.parseFloat(String.valueOf(getValue())) / Float.parseFloat(String.valueOf(getMax()))) * 100f);
+        mLeftIcon.setImageTintList(
+                Utils.getColorAttr(mLeftIcon.getContext(), percentage <= 10 ?
+                        android.R.attr.textColorPrimary :
+                        android.R.attr.textColorPrimaryInverse)
+        );
+        mRightIcon.setImageTintList(
+                Utils.getColorAttr(mLeftIcon.getContext(), percentage <= 90 ?
+                        android.R.attr.textColorPrimary :
+                        android.R.attr.textColorPrimaryInverse)
+        );
     }
 
     /**
@@ -211,6 +253,16 @@ public class BrightnessSliderView extends LinearLayout {
     @FunctionalInterface
     interface DispatchTouchEventListener {
         boolean onDispatchTouchEvent(MotionEvent ev);
+    }
+
+    /**
+     * Copy of the {@link SeekBar.OnSeekBarChangeListener}
+     * Refactored to add custom methods in one place instead of copying them everywhere
+     */
+    interface OnBrightnessSliderChangedListener {
+        void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser);
+        void onStartTrackingTouch(SeekBar seekBar);
+        void onStopTrackingTouch(SeekBar seekBar);
     }
 }
 
