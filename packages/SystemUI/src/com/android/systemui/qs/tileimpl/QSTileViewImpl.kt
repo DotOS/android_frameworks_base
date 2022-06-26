@@ -29,6 +29,7 @@ import android.graphics.drawable.RippleDrawable
 import android.graphics.drawable.GradientDrawable
 import android.service.quicksettings.Tile
 import android.text.TextUtils
+import android.provider.Settings
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -274,6 +275,8 @@ open class QSTileViewImpl @JvmOverloads constructor(
         bottom = top + (actualHeight * constrainedSquishiness).toInt()
         scrollY = (actualHeight - height) / 2
     }
+
+    private fun isMorphingEnabled(): Boolean = Settings.System.getInt(context.contentResolver, Settings.System.QS_TILE_MORPH, 1) == 1
 
     override fun updateAccessibilityOrder(previousView: View?): View {
         accessibilityTraversalAfter = previousView?.id ?: ID_NULL
@@ -598,12 +601,14 @@ open class QSTileViewImpl @JvmOverloads constructor(
     }
 
     private fun getCornerRadiusForState(state: Int): Float {
-        return when (state) {
-            Tile.STATE_ACTIVE -> radiusActive
-            Tile.STATE_INACTIVE -> radiusInactive
-            Tile.STATE_UNAVAILABLE -> radiusInactive
-            else -> radiusInactive
-        }
+        return if (isMorphingEnabled()) {
+            when (state) {
+                Tile.STATE_ACTIVE -> radiusActive
+                Tile.STATE_INACTIVE -> radiusInactive
+                Tile.STATE_UNAVAILABLE -> radiusInactive
+                else -> radiusInactive
+            }
+        } else radiusActive
     }
 
     /*
