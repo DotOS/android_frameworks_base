@@ -55,12 +55,11 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
                 mView.updateColumns();
             };
 
-    // brightness is visible only in split shade
     private final BrightnessController mBrightnessController;
-    private final BrightnessMirrorHandler mBrightnessMirrorHandler;
     private final FooterActionsController mFooterActionsController;
     private final TunerService mTunerService;
     private final BrightnessSliderController mBrightnessSliderController;
+    private final BrightnessMirrorHandler mBrightnessMirrorHandler;
     private BrightnessMirrorController mBrightnessMirrorController;
 
     @Inject
@@ -83,8 +82,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         mBrightnessSliderController = brightnessSliderFactory.create(getContext(), mView);
         mView.setBrightnessView(mBrightnessSliderController.getRootView());
 
-        mBrightnessController = brightnessControllerFactory.create(
-                mBrightnessSliderController.getIconView(), mBrightnessSliderController);
+        mBrightnessController = brightnessControllerFactory.create(mBrightnessSliderController);
         mBrightnessMirrorHandler = new BrightnessMirrorHandler(mBrightnessController);
     }
 
@@ -113,7 +111,6 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         });
 
         mView.addOnConfigurationChangedListener(mOnConfigurationChangedListener);
-        mView.updateColumns();
         mBrightnessMirrorHandler.onQsPanelAttached();
     }
 
@@ -123,6 +120,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         mTunerService.removeTunable(mView);
         mView.setBrightnessRunnable(null);
         mView.removeOnConfigurationChangedListener(mOnConfigurationChangedListener);
+        mView.updateColumns();
         mBrightnessMirrorHandler.onQsPanelDettached();
     }
 
