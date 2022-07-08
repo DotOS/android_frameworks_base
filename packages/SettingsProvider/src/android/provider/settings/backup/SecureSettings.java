@@ -205,5 +205,6 @@ public class SecureSettings {
         Settings.Secure.MONET_ENGINE_LINEAR_LIGHTNESS,
         Settings.Secure.MONET_ENGINE_WHITE_LUMINANCE,
         Settings.Secure.STATUS_BAR_SHOW_VIBRATE_ICON,
+        Settings.Secure.SHOW_WIFI_STANDARD_ICON,
     };
 }
