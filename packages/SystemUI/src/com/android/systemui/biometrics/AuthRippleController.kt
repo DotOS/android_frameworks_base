@@ -133,9 +133,6 @@ class AuthRippleController @Inject constructor(
             showUnlockedRipple()
         } else if (biometricSourceType == BiometricSourceType.FACE &&
             faceSensorLocation != null) {
-            if (!bypassController.canBypass()) {
-                return
-            }
             mView.setSensorLocation(faceSensorLocation!!)
             showUnlockedRipple()
         }
